@@ -1,0 +1,95 @@
+{
+  "survey_info": {
+    "title": "科研人员社交网络调查",
+    "date": "2024-01",
+    "respondents": 50,
+    "response_rate": 0.75
+  },
+  "respondents": [
+    {
+      "id": "R001",
+      "name": "张教授",
+      "department": "计算机科学",
+      "position": "教授",
+      "age": 45,
+      "gender": "男",
+      "collaborators": [
+        {"name": "李教授", "frequency": "每周", "type": "研究合作"},
+        {"name": "王副教授", "frequency": "每月", "type": "项目指导"},
+        {"name": "陈研究员", "frequency": "每季度", "type": "学术交流"}
+      ],
+      "publications": 45,
+      "h_index": 22,
+      "research_areas": ["人工智能", "机器学习", "数据挖掘"],
+      "grant_amount": 1200000
+    },
+    {
+      "id": "R002",
+      "name": "李教授",
+      "department": "计算机科学",
+      "position": "教授",
+      "age": 48,
+      "gender": "男",
+      "collaborators": [
+        {"name": "张教授", "frequency": "每周", "type": "研究合作"},
+        {"name": "赵副教授", "frequency": "每月", "type": "论文合著"},
+        {"name": "孙讲师", "frequency": "每季度", "type": "学术评审"}
+      ],
+      "publications": 38,
+      "h_index": 18,
+      "research_areas": ["计算机网络", "分布式系统", "云计算"],
+      "grant_amount": 800000
+    },
+    {
+      "id": "R003",
+      "name": "王副教授",
+      "department": "软件工程",
+      "position": "副教授",
+      "age": 38,
+      "gender": "女",
+      "collaborators": [
+        {"name": "张教授", "frequency": "每月", "type": "项目指导"},
+        {"name": "周博士", "frequency": "每周", "type": "师生指导"},
+        {"name": "吴硕士", "frequency": "每周", "type": "研究协助"}
+      ],
+      "publications": 25,
+      "h_index": 12,
+      "research_areas": ["软件工程", "形式化方法", "程序验证"],
+      "grant_amount": 400000
+    },
+    {
+      "id": "R004",
+      "name": "陈研究员",
+      "department": "人工智能",
+      "position": "研究员",
+      "age": 35,
+      "gender": "男",
+      "collaborators": [
+        {"name": "张教授", "frequency": "每季度", "type": "学术交流"},
+        {"name": "郑副教授", "frequency": "每月", "type": "实验合作"},
+        {"name": "钱讲师", "frequency": "每季度", "type": "项目咨询"}
+      ],
+      "publications": 32,
+      "h_index": 15,
+      "research_areas": ["深度学习", "计算机视觉", "自然语言处理"],
+      "grant_amount": 600000
+    },
+    {
+      "id": "R005",
+      "name": "赵副教授",
+      "department": "数据科学",
+      "position": "副教授",
+      "age": 42,
+      "gender": "女",
+      "collaborators": [
+        {"name": "李教授", "frequency": "每月", "type": "论文合著"},
+        {"name": "郑副教授", "frequency": "每周", "type": "数据共享"},
+        {"name": "孙讲师", "frequency": "每季度", "type": "课程合作"}
+      ],
+      "publications": 28,
+      "h_index": 13,
+      "research_areas": ["数据挖掘", "大数据", "统计分析"],
+      "grant_amount": 500000
+    }
+  ]
+}

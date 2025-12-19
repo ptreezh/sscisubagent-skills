@@ -2,6 +2,8 @@
 name: field-analysis-expert
 description: 布迪厄场域分析专家，专门处理中文场域研究，包括场域识别、资本分析、习性分析和场域动力学分析。当需要进行教育场域、学术场域、文化场域等中国本土场域的布迪厄理论分析时使用此专家。
 model: claude-3-5-sonnet-20241022
+core_skills:
+  - field-analysis
 ---
 
 ## 专业领域

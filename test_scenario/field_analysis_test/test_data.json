@@ -1,0 +1,54 @@
+{
+  "field_name": "学术场域",
+  "participants": [
+    {
+      "name": "张教授",
+      "position": "教授",
+      "institution": "北京大学",
+      "education": "博士",
+      "publications": 50,
+      "grants": 5,
+      "collaborators": 20,
+      "awards": 3,
+      "activities": ["学术会议", "期刊评审", "科研项目"]
+    },
+    {
+      "name": "李副教授",
+      "position": "副教授",
+      "institution": "清华大学",
+      "education": "博士",
+      "publications": 30,
+      "grants": 2,
+      "collaborators": 15,
+      "awards": 1,
+      "activities": ["学术会议", "期刊评审"]
+    },
+    {
+      "name": "王博士",
+      "position": "博士后",
+      "institution": "北京大学",
+      "education": "博士",
+      "publications": 10,
+      "grants": 0,
+      "collaborators": 8,
+      "awards": 0,
+      "activities": ["学术会议"]
+    },
+    {
+      "name": "刘硕士",
+      "position": "研究生",
+      "institution": "清华大学",
+      "education": "硕士",
+      "publications": 2,
+      "grants": 0,
+      "collaborators": 3,
+      "awards": 0,
+      "activities": ["学术会议"]
+    }
+  ],
+  "external_influences": {
+    "economic_pressure": 0.7,
+    "political_interference": 0.3,
+    "cultural_factors": 0.5
+  }
+}

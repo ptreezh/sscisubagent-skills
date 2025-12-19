@@ -1,0 +1,99 @@
+{
+  "summary": {
+    "n_participants": 4,
+    "capital_types": [
+      "cultural",
+      "social",
+      "symbolic",
+      "economic",
+      "conversion"
+    ],
+    "processing_time": 0.02
+  },
+  "details": {
+    "capital_distribution": {
+      "cultural": {
+        "type": "cultural",
+        "scores": [
+          0.5,
+          0.5,
+          0.5,
+          0.4
+        ],
+        "mean": 0.475,
+        "std": 0.0433,
+        "distribution": {
+          "高": 0,
+          "中": 3,
+          "低": 1
+        },
+        "inequality_gini": 0.0395
+      },
+      "social": {
+        "type": "social",
+        "scores": [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "mean": 0.2,
+        "std": 0.0,
+        "network_stats": {
+          "avg_size": 0.0,
+          "avg_tie_strength": 0.0
+        },
+        "inequality_gini": 0.0
+      },
+      "symbolic": {
+        "type": "symbolic",
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "std": 0.0,
+        "top_10_percent": 0.0,
+        "inequality_gini": 0.0
+      },
+      "economic": {
+        "type": "economic",
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "std": 0.0,
+        "wealth_stats": {
+          "avg_income": 0.0,
+          "avg_assets": 0.0
+        },
+        "inequality_gini": 0.0
+      },
+      "conversion": {
+        "correlations": {
+          "cultural-social": NaN,
+          "cultural-symbolic": NaN,
+          "cultural-economic": NaN
+        },
+        "conversions": {
+          "cultural_to_symbolic": {
+            "correlation": NaN,
+            "efficiency": "low"
+          }
+        }
+      }
+    }
+  },
+  "metadata": {
+    "input_file": "test_data_fixed.json",
+    "analysis_type": "all",
+    "timestamp": "2025-12-19T15:37:23.507758",
+    "version": "1.0.0",
+    "skill": "field-analysis"
+  }
+}

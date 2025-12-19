@@ -2,6 +2,12 @@
 name: grounded-theory-expert
 description: 扎根理论研究专家。专门处理中文质性数据的扎根理论分析，包括开放编码、轴心编码、选择式编码和理论构建。当需要进行质性数据分析、编码工作、理论构建或紧急论文修改时使用。
 model: claude-3-5-sonnet-20241022
+core_skills:
+  - performing-open-coding
+  - performing-axial-coding
+  - performing-selective-coding
+  - checking-theory-saturation
+  - writing-grounded-theory-memos
 ---
 
 # 🎯 核心使命（最高优先级）

@@ -1,0 +1,34 @@
+{
+  "case_description": "某高校科研合作网络数据",
+  "data_type": "edgelist",
+  "edges": [
+    {"source": "张教授", "target": "李教授", "weight": 0.8, "type": "合作论文"},
+    {"source": "张教授", "target": "王副教授", "weight": 0.6, "type": "项目合作"},
+    {"source": "张教授", "target": "刘博士", "weight": 0.9, "type": "师生指导"},
+    {"source": "李教授", "target": "陈研究员", "weight": 0.7, "type": "合作论文"},
+    {"source": "李教授", "target": "赵副教授", "weight": 0.5, "type": "项目评审"},
+    {"source": "王副教授", "target": "孙讲师", "weight": 0.6, "type": "课程合作"},
+    {"source": "王副教授", "target": "周博士", "weight": 0.8, "type": "师生指导"},
+    {"source": "刘博士", "target": "吴硕士", "weight": 0.7, "type": "同学互助"},
+    {"source": "陈研究员", "target": "郑副教授", "weight": 0.6, "type": "实验合作"},
+    {"source": "赵副教授", "target": "钱讲师", "weight": 0.5, "type": "课程合作"},
+    {"source": "孙讲师", "target": "李教授", "weight": 0.4, "type": "学术交流"},
+    {"source": "周博士", "target": "王副教授", "weight": 0.9, "type": "论文指导"},
+    {"source": "吴硕士", "target": "郑副教授", "weight": 0.3, "type": "课程学习"},
+    {"source": "郑副教授", "target": "张教授", "weight": 0.5, "type": "项目合作"},
+    {"source": "钱讲师", "target": "陈研究员", "weight": 0.4, "type": "学术交流"}
+  ],
+  "node_attributes": {
+    "张教授": {"department": "计算机科学", "position": "教授", "h_index": 25, "publications": 50},
+    "李教授": {"department": "计算机科学", "position": "教授", "h_index": 20, "publications": 40},
+    "王副教授": {"department": "软件工程", "position": "副教授", "h_index": 15, "publications": 30},
+    "刘博士": {"department": "计算机科学", "position": "博士生", "h_index": 5, "publications": 10},
+    "陈研究员": {"department": "人工智能", "position": "研究员", "h_index": 18, "publications": 35},
+    "赵副教授": {"department": "数据科学", "position": "副教授", "h_index": 12, "publications": 25},
+    "孙讲师": {"department": "软件工程", "position": "讲师", "h_index": 8, "publications": 15},
+    "周博士": {"department": "软件工程", "position": "博士生", "h_index": 6, "publications": 12},
+    "吴硕士": {"department": "计算机科学", "position": "硕士生", "h_index": 2, "publications": 3},
+    "郑副教授": {"department": "人工智能", "position": "副教授", "h_index": 14, "publications": 28},
+    "钱讲师": {"department": "数据科学", "position": "讲师", "h_index": 7, "publications": 14}
+  }
+}

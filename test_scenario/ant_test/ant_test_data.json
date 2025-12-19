@@ -1,0 +1,84 @@
+{
+  "case_study": "新能源汽车推广项目",
+  "description": "分析某城市新能源汽车推广项目中各行动者的互动和网络构建过程",
+  "actors": [
+    {
+      "name": "市政府",
+      "type": "机构",
+      "role": "政策制定者",
+      "interests": ["环保目标", "城市形象", "经济发展"],
+      "resources": ["政策支持", "财政补贴", "公共资源"],
+      "actions": ["出台补贴政策", "建设充电桩", "采购新能源公交车"]
+    },
+    {
+      "name": "汽车制造商",
+      "type": "企业",
+      "role": "技术提供者",
+      "interests": ["市场份额", "利润增长", "技术创新"],
+      "resources": ["技术专利", "生产能力", "销售网络"],
+      "actions": ["研发新能源汽车", "降低成本", "市场营销"]
+    },
+    {
+      "name": "环保组织",
+      "type": "NGO",
+      "role": "监督倡导者",
+      "interests": ["环境保护", "可持续发展", "公众健康"],
+      "resources": ["专业知识", "公众影响力", "媒体资源"],
+      "actions": ["宣传环保理念", "监督政策执行", "组织公众活动"]
+    },
+    {
+      "name": "消费者",
+      "type": "公众",
+      "role": "使用者",
+      "interests": ["经济实惠", "使用便利", "环保贡献"],
+      "resources": ["购买力", "使用反馈", "社会影响力"],
+      "actions": ["购买决策", "使用体验分享", "口碑传播"]
+    },
+    {
+      "name": "电力公司",
+      "type": "企业",
+      "role": "基础设施提供者",
+      "interests": ["业务增长", "电网稳定", "技术升级"],
+      "resources": ["电网设施", "技术专长", "服务网络"],
+      "actions": ["建设充电网络", "优化供电服务", "开发智能充电"]
+    }
+  ],
+  "translation_moments": [
+    {
+      "phase": "问题化",
+      "description": "市政府将空气污染定义为亟待解决的公共问题",
+      "primary_actor": "市政府",
+      "enrolled_actors": ["环保组织", "媒体"],
+      "controversies": ["污染责任认定", "解决方案选择"]
+    },
+    {
+      "phase": "利益介入",
+      "description": "通过补贴政策吸引汽车制造商和消费者参与",
+      "primary_actor": "市政府",
+      "enrolled_actors": ["汽车制造商", "消费者"],
+      "controversies": ["补贴标准", "技术路线"]
+    },
+    {
+      "phase": "动员",
+      "description": "构建包括充电设施、售后服务在内的完整网络",
+      "primary_actor": "汽车制造商",
+      "enrolled_actors": ["电力公司", "服务商"],
+      "controversies": ["设施布局", "标准统一"]
+    },
+    {
+      "phase": "巩固",
+      "description": "形成稳定的新能源汽车使用生态系统",
+      "primary_actor": "多方联盟",
+      "enrolled_actors": ["所有行动者"],
+      "controversies": ["利益分配", "长期维护"]
+    }
+  ],
+  "network_relations": [
+    {"from": "市政府", "to": "汽车制造商", "type": "政策支持", "strength": 0.8},
+    {"from": "市政府", "to": "消费者", "type": "补贴激励", "strength": 0.7},
+    {"from": "汽车制造商", "to": "消费者", "type": "产品供应", "strength": 0.9},
+    {"from": "电力公司", "to": "消费者", "type": "充电服务", "strength": 0.6},
+    {"from": "环保组织", "to": "市政府", "type": "政策建议", "strength": 0.5},
+    {"from": "环保组织", "to": "消费者", "type": "环保教育", "strength": 0.4}
+  ]
+}

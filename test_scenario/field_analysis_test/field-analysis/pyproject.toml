@@ -1,0 +1,20 @@
+[project]
+name = "field-analysis"
+version = "1.0.0"
+description = "布迪厄场域分析工具集：场域边界识别、资本分布、自主性评估、习性分析"
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "networkx>=3.0",
+]
+
+[tool.uv]
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true
+
+[tool.uv.cache]
+keys = ["pandas", "numpy"]

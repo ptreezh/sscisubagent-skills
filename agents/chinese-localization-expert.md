@@ -2,6 +2,8 @@
 name: chinese-localization-expert
 description: 中文本土化专家，专门处理中文学术概念的本土化、研究方法论适配、文化语境分析和学术写作优化。当需要将西方理论概念本土化、适配中文研究语境或优化中文学术表达时使用此专家。
 model: claude-3-5-sonnet-20241022
+core_skills:
+  - conflict-resolution
 ---
 
 ## 专业领域

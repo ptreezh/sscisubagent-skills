@@ -1,0 +1,249 @@
+{
+  "summary": {
+    "n_strategies": 3,
+    "strategy_types": [
+      "contribution_matrix",
+      "empirical_approach",
+      "optimization"
+    ],
+    "avg_success_rate": 0.75,
+    "processing_time": 0.0
+  },
+  "details": {
+    "resolution_strategies": [
+      {
+        "conflict_id": "C001",
+        "conflict_type": "理论分歧",
+        "recommended_strategy": {
+          "strategy_name": "empirical_approach",
+          "strategy": {
+            "name": "实证验证",
+            "description": "通过小规模实验验证不同方法",
+            "steps": [
+              "设计对比实验",
+              "收集初步数据",
+              "分析效果差异",
+              "基于数据决策"
+            ],
+            "success_rate": 0.85,
+            "time_required": "6-8周",
+            "resources": [
+              "实验设备",
+              "数据分析工具",
+              "研究助理"
+            ]
+          },
+          "selection_score": 0.95,
+          "selection_reason": "基于数据决策，客观公正"
+        },
+        "implementation_plan": {
+          "steps": [
+            {
+              "step_number": 1,
+              "action": "设计对比实验",
+              "responsible": "待指定",
+              "deadline": "第1周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 2,
+              "action": "收集初步数据",
+              "responsible": "待指定",
+              "deadline": "第2周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 3,
+              "action": "分析效果差异",
+              "responsible": "待指定",
+              "deadline": "第3周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 4,
+              "action": "基于数据决策",
+              "responsible": "待指定",
+              "deadline": "第4周",
+              "status": "待开始"
+            }
+          ],
+          "timeline": "6-8周",
+          "required_resources": [
+            "实验设备",
+            "数据分析工具",
+            "研究助理"
+          ],
+          "success_indicators": [
+            "各方对方法论达成共识",
+            "研究方案获得批准",
+            "团队氛围改善"
+          ],
+          "risk_factors": [
+            "冲突可能升级"
+          ],
+          "monitoring_points": [
+            "第1周：初步进展检查",
+            "中期：方案调整评估",
+            "结束：效果评估"
+          ]
+        }
+      },
+      {
+        "conflict_id": "C002",
+        "conflict_type": "资源分配",
+        "recommended_strategy": {
+          "strategy_name": "optimization",
+          "strategy": {
+            "name": "资源优化配置",
+            "description": "通过优化算法实现资源最优分配",
+            "steps": [
+              "评估资源需求优先级",
+              "建立量化评估体系",
+              "应用优化模型",
+              "动态调整机制"
+            ],
+            "success_rate": 0.8,
+            "time_required": "3-4周",
+            "resources": [
+              "分析工具",
+              "决策支持系统"
+            ]
+          },
+          "selection_score": 0.8,
+          "selection_reason": "科学配置，效率最大化"
+        },
+        "implementation_plan": {
+          "steps": [
+            {
+              "step_number": 1,
+              "action": "评估资源需求优先级",
+              "responsible": "待指定",
+              "deadline": "第1周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 2,
+              "action": "建立量化评估体系",
+              "responsible": "待指定",
+              "deadline": "第2周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 3,
+              "action": "应用优化模型",
+              "responsible": "待指定",
+              "deadline": "第3周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 4,
+              "action": "动态调整机制",
+              "responsible": "待指定",
+              "deadline": "第4周",
+              "status": "待开始"
+            }
+          ],
+          "timeline": "3-4周",
+          "required_resources": [
+            "分析工具",
+            "决策支持系统"
+          ],
+          "success_indicators": [
+            "资源分配方案确定",
+            "各方获得必要资源",
+            "项目进度正常"
+          ],
+          "risk_factors": [
+            "冲突可能升级"
+          ],
+          "monitoring_points": [
+            "第1周：初步进展检查",
+            "中期：方案调整评估",
+            "结束：效果评估"
+          ]
+        }
+      },
+      {
+        "conflict_id": "C003",
+        "conflict_type": "作者署名",
+        "recommended_strategy": {
+          "strategy_name": "contribution_matrix",
+          "strategy": {
+            "name": "贡献度矩阵",
+            "description": "建立客观的贡献评估体系",
+            "steps": [
+              "制定贡献评估标准",
+              "各方自评与互评",
+              "第三方评估",
+              "基于矩阵确定署名"
+            ],
+            "success_rate": 0.85,
+            "time_required": "2-3周",
+            "resources": [
+              "评估工具",
+              "公正专家"
+            ]
+          },
+          "selection_score": 0.95,
+          "selection_reason": "客观评估，公平透明"
+        },
+        "implementation_plan": {
+          "steps": [
+            {
+              "step_number": 1,
+              "action": "制定贡献评估标准",
+              "responsible": "待指定",
+              "deadline": "第1周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 2,
+              "action": "各方自评与互评",
+              "responsible": "待指定",
+              "deadline": "第2周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 3,
+              "action": "第三方评估",
+              "responsible": "待指定",
+              "deadline": "第3周",
+              "status": "待开始"
+            },
+            {
+              "step_number": 4,
+              "action": "基于矩阵确定署名",
+              "responsible": "待指定",
+              "deadline": "第4周",
+              "status": "待开始"
+            }
+          ],
+          "timeline": "2-3周",
+          "required_resources": [
+            "评估工具",
+            "公正专家"
+          ],
+          "success_indicators": [
+            "署名方案确定",
+            "各方接受安排",
+            "论文按时提交"
+          ],
+          "risk_factors": [
+            "冲突可能升级"
+          ],
+          "monitoring_points": [
+            "第1周：初步进展检查",
+            "中期：方案调整评估",
+            "结束：效果评估"
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "input_file": "conflict_dynamics.json",
+    "timestamp": "2025-12-19T17:20:33.130686",
+    "version": "1.0.0",
+    "skill": "conflict-resolution"
+  }
+}

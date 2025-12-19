@@ -1,0 +1,90 @@
+=== Claude Skills 验证报告 ===
+
+总技能数: 16
+有效技能: 16
+无效技能: 0
+有警告的技能: 16
+
+=== 有效技能 ===
+✓ conflict-resolution - skills\conflict-resolution\SKILL.md
+✓ mathematical-statistics - skills\mathematical-statistics\SKILL.md
+✓ network-computation - skills\network-computation\SKILL.md
+✓ validity-reliability - skills\validity-reliability\SKILL.md
+✓ centrality-analysis - skills\analysis\centrality-analysis\SKILL.md
+✓ performing-centrality-analysis - skills\analysis\performing-centrality-analysis\SKILL.md
+✓ performing-network-computation - skills\analysis\performing-network-computation\SKILL.md
+✓ processing-network-data - skills\analysis\processing-network-data\SKILL.md
+✓ checking-theory-saturation - skills\coding\checking-theory-saturation\SKILL.md
+✓ open-coding - skills\coding\open-coding\SKILL.md
+✓ performing-axial-coding - skills\coding\performing-axial-coding\SKILL.md
+✓ performing-open-coding - skills\coding\performing-open-coding\SKILL.md
+✓ performing-selective-coding - skills\coding\performing-selective-coding\SKILL.md
+✓ theory-saturation - skills\coding\theory-saturation\SKILL.md
+✓ writing-grounded-theory-memos - skills\coding\writing-grounded-theory-memos\SKILL.md
+✓ resolving-research-conflicts - skills\methodology\resolving-research-conflicts\SKILL.md
+
+=== 技能警告 ===
+⚠ conflict-resolution - skills\conflict-resolution\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ mathematical-statistics - skills\mathematical-statistics\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ network-computation - skills\network-computation\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ validity-reliability - skills\validity-reliability\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ centrality-analysis - skills\analysis\centrality-analysis\SKILL.md
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ performing-centrality-analysis - skills\analysis\performing-centrality-analysis\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ performing-network-computation - skills\analysis\performing-network-computation\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ processing-network-data - skills\analysis\processing-network-data\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ checking-theory-saturation - skills\coding\checking-theory-saturation\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ open-coding - skills\coding\open-coding\SKILL.md
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ performing-axial-coding - skills\coding\performing-axial-coding\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ performing-open-coding - skills\coding\performing-open-coding\SKILL.md
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ performing-selective-coding - skills\coding\performing-selective-coding\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ theory-saturation - skills\coding\theory-saturation\SKILL.md
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ writing-grounded-theory-memos - skills\coding\writing-grounded-theory-memos\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷
+⚠ resolving-research-conflicts - skills\methodology\resolving-research-conflicts\SKILL.md
+  - 建议使用'当用户需要...'的触发描述格式
+  - 内容可能过长，建议精简以符合渐进式披露原则
+  - 建议增加工具化支持和简化内容结构
+  - 技能结构过于复杂，建议简化以减少认知负荷

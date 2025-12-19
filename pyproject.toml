@@ -1,0 +1,115 @@
+[project]
+name = "ssci-subagent-skills"
+version = "1.2.9"
+description = "SSCI中文社会科学研究技能包 - Claude Skills专用"
+authors = [{name = "SSCI SubAgent Skills", email = "skills@ssci.ai"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+keywords = ["social-science", "chinese", "claude-skills", "qualitative-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+dependencies = [
+    # 核心数据处理
+    "numpy>=1.20.0,<2.0.0",
+
+    # 中文文本处理
+    "jieba>=0.42.0",
+
+    # 网络分析
+    "networkx>=3.0.0",
+
+    # 数据处理和分析
+    "pandas>=1.5.0,<3.0.0",
+
+    # 可视化（可选）
+    "matplotlib>=3.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "ruff>=0.0.290",
+]
+
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+]
+
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+]
+
+all = [
+    "ssci-subagent-skills[dev,test,docs]",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.urls]
+Homepage = "https://github.com/ssci/subagent-skills"
+Documentation = "https://ssci-subagent-skills.readthedocs.io"
+Repository = "https://github.com/ssci/subagent-skills.git"
+Issues = "https://github.com/ssci/subagent-skills/issues"
+
+[project.scripts]
+# 可执行脚本命令
+ssci-centrality = "skills.analysis.centrality-analysis.scripts.centrality:main"
+ssci-saturation = "skills.coding.theory-saturation.scripts.assess_saturation:main"
+ssci-preprocess = "skills.coding.open-coding.scripts.preprocess:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["skills"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+select = ["E", "F", "W", "I", "N", "B", "A", "C4", "ISC", "Q"]
+ignore = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["skills"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]

@@ -1,0 +1,31 @@
+{
+  "test_time": "2025-12-19T17:02:50.784456",
+  "test_results": [
+    {
+      "test": "网络构建",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "指标计算",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "社区检测",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "网络可视化",
+      "status": "PASSED",
+      "error": null
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "pass_rate": "100.0%"
+  }
+}

@@ -1,14 +1,11 @@
 #!/usr/bin/env node
 /**
- * iFlow CLI适配器 - 将Claude Code格式的Subagent转换为iFlow CLI兼容格式
+ * iFlow CLI适配�?- 将Claude Code格式的Subagent转换为iFlow CLI兼容格式
  * 
- * 功能说明：
- * 1. 读取Claude Code标准的subagent配置文件
- * 2. 转换为iFlow CLI兼容的格式
- * 3. 处理工具权限映射
+ * 功能说明�? * 1. 读取Claude Code标准的subagent配置文件
+ * 2. 转换为iFlow CLI兼容的格�? * 3. 处理工具权限映射
  * 4. 生成适配后的配置文件
- * 5. 支持iFlow CLI的市场集成
- */
+ * 5. 支持iFlow CLI的市场集�? */
 
 import fs from 'fs/promises';
 import path from 'path';
@@ -62,7 +59,7 @@ class iFlowCLIAdapter {
             model: this.selectOptimalModel(claudeConfig.model || 'claude-3-5-sonnet-20241022'),
             category: this.determineCategory(claudeConfig.description),
             version: '1.0.0',
-            author: '中文社科研究Subagent项目组',
+            author: '中文社科研究Subagent项目�?,
             tags: this.generateTags(claudeConfig.description),
             // iFlow CLI特有字段
             marketReady: true,
@@ -87,7 +84,7 @@ class iFlowCLIAdapter {
      * 提取显示名称
      */
     extractDisplayName(description) {
-        const match = description.match(/^(.+?)，/);
+        const match = description.match(/^(.+?)�?);
         return match ? match[1] : '中文社科研究专家';
     }
 
@@ -96,8 +93,8 @@ class iFlowCLIAdapter {
      */
     cleanDescription(description) {
         return description
-            .replace(/，当需要.*时使用此专家。$/, '')
-            .replace(/，包括.*$/g, '')
+            .replace(/，当需�?*时使用此专家�?/, '')
+            .replace(/，包�?*$/g, '')
             .trim();
     }
 
@@ -108,7 +105,7 @@ class iFlowCLIAdapter {
         let systemPrompt = '';
 
         // 添加基础信息
-        systemPrompt += `你是${claudeConfig.name}，${this.extractDisplayName(claudeConfig.description)}。\n\n`;
+        systemPrompt += `你是${claudeConfig.name}�?{this.extractDisplayName(claudeConfig.description)}。\n\n`;
 
         // 添加专业领域
         if (claudeConfig['专业领域']) {
@@ -120,9 +117,8 @@ class iFlowCLIAdapter {
             systemPrompt += `## 工作方法\n${claudeConfig['工作方法']}\n\n`;
         }
 
-        // 添加质量检查清单
-        if (claudeConfig['质量检查清单']) {
-            systemPrompt += `## 质量标准\n${claudeConfig['质量检查清单']}\n\n`;
+        // 添加质量检查清�?        if (claudeConfig['质量检查清�?]) {
+            systemPrompt += `## 质量标准\n${claudeConfig['质量检查清�?]}\n\n`;
         }
 
         // 添加输出标准
@@ -159,15 +155,15 @@ class iFlowCLIAdapter {
         // 从描述中提取能力
         const description = claudeConfig.description;
         
-        if (description.includes('文献检索')) capabilities.push('文献检索');
-        if (description.includes('引用格式')) capabilities.push('引用格式化');
+        if (description.includes('文献检�?)) capabilities.push('文献检�?);
+        if (description.includes('引用格式')) capabilities.push('引用格式�?);
         if (description.includes('质量评估')) capabilities.push('文献质量评估');
         if (description.includes('趋势分析')) capabilities.push('研究趋势分析');
-        if (description.includes('编码')) capabilities.push('质性编码');
+        if (description.includes('编码')) capabilities.push('质性编�?);
         if (description.includes('网络分析')) capabilities.push('社会网络分析');
         if (description.includes('场域')) capabilities.push('场域分析');
-        if (description.includes('本土化')) capabilities.push('中文本土化');
-        if (description.includes('行动者')) capabilities.push('行动者网络分析');
+        if (description.includes('本土�?)) capabilities.push('中文本土�?);
+        if (description.includes('行动�?)) capabilities.push('行动者网络分�?);
         if (description.includes('转译')) capabilities.push('转译过程分析');
 
         return capabilities.length > 0 ? capabilities : ['中文社会科学研究支持'];
@@ -181,11 +177,9 @@ class iFlowCLIAdapter {
     }
 
     /**
-     * 选择最优模型
-     */
+     * 选择最优模�?     */
     selectOptimalModel(claudeModel) {
-        // 根据任务复杂度选择iFlow CLI支持的模型
-        const modelMapping = {
+        // 根据任务复杂度选择iFlow CLI支持的模�?        const modelMapping = {
             'claude-3-5-sonnet-20241022': 'qwen-max',
             'claude-3-opus-20240229': 'qwen-max',
             'claude-3-sonnet-20240229': 'qwen-plus',
@@ -204,7 +198,7 @@ class iFlowCLIAdapter {
         if (description.includes('写作')) return '学术写作';
         if (description.includes('方法')) return '研究方法';
         if (description.includes('场域')) return '场域理论';
-        if (description.includes('行动者') || description.includes('网络')) return '网络分析';
+        if (description.includes('行动�?) || description.includes('网络')) return '网络分析';
         return '综合研究';
     }
 
@@ -222,8 +216,8 @@ class iFlowCLIAdapter {
         if (description.includes('研究')) tags.push('研究方法');
         if (description.includes('扎根理论')) tags.push('扎根理论');
         if (description.includes('社会网络')) tags.push('社会网络分析');
-        if (description.includes('布迪厄')) tags.push('布迪厄理论');
-        if (description.includes('ANT')) tags.push('行动者网络理论');
+        if (description.includes('布迪�?)) tags.push('布迪厄理�?);
+        if (description.includes('ANT')) tags.push('行动者网络理�?);
 
         return tags.length > 0 ? tags : ['中文社科研究'];
     }
@@ -266,9 +260,9 @@ class iFlowCLIAdapter {
                         outputPath
                     });
                     
-                    console.log(`✓ 转换成功: ${agentName}`);
+                    console.log(`�?转换成功: ${agentName}`);
                 } catch (error) {
-                    console.error(`✗ 转换失败: ${file}`, error.message);
+                    console.error(`�?转换失败: ${file}`, error.message);
                     results.push({
                         agent: file.replace('.md', ''),
                         status: 'failed',
@@ -277,8 +271,7 @@ class iFlowCLIAdapter {
                 }
             }
 
-            // 生成汇总报告
-            await this.generateConversionReport(results);
+            // 生成汇总报�?            await this.generateConversionReport(results);
             
             return results;
         } catch (error) {
@@ -315,7 +308,7 @@ class iFlowCLIAdapter {
         const sections = {
             '专业领域': /## 专业领域\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
             '工作方法': /## 工作方法\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
-            '质量检查清单': /## 质量检查清单\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
+            '质量检查清�?: /## 质量检查清单\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
             '输出标准': /## 输出标准\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
             '使用场景示例': /## 使用场景示例\s*\n([\s\S]*?)(?=\n##|\n#|$)/
         };
@@ -355,15 +348,13 @@ class iFlowCLIAdapter {
     }
 
     /**
-     * 生成市场发布包
-     */
+     * 生成市场发布�?     */
     async generateMarketPackage() {
         try {
             const marketDir = path.join(this.outputDir, 'market-package');
             await fs.mkdir(marketDir, { recursive: true });
 
-            // 读取所有转换后的配置
-            const configFiles = await fs.readdir(this.outputDir);
+            // 读取所有转换后的配�?            const configFiles = await fs.readdir(this.outputDir);
             const jsonFiles = configFiles.filter(file => 
                 file.endsWith('.json') && file !== 'iflow-conversion-report.json'
             );
@@ -373,15 +364,14 @@ class iFlowCLIAdapter {
                 name: '中文社会科学研究Subagent集合',
                 version: '1.0.0',
                 description: '专为中文社会科学研究者设计的专业AI Subagent集合',
-                author: '中文社科研究Subagent项目组',
+                author: '中文社科研究Subagent项目�?,
                 homepage: 'https://github.com/your-repo/chinese-social-sciences-subagents',
                 license: 'MIT',
                 keywords: ['中文', '社会科学', '研究', 'AI', 'Subagent'],
                 agents: []
             };
 
-            // 复制agent文件并更新清单
-            for (const file of jsonFiles) {
+            // 复制agent文件并更新清�?            for (const file of jsonFiles) {
                 const srcPath = path.join(this.outputDir, file);
                 const destPath = path.join(marketDir, file);
                 
@@ -412,7 +402,7 @@ class iFlowCLIAdapter {
             console.log(`包含 ${manifest.agents.length} 个agents`);
             
         } catch (error) {
-            console.error('生成市场发布包失败:', error);
+            console.error('生成市场发布包失�?', error);
             throw error;
         }
     }
@@ -425,8 +415,8 @@ class iFlowCLIAdapter {
         readme += `${manifest.description}\n\n`;
         readme += `## 版本信息\n`;
         readme += `- 版本: ${manifest.version}\n`;
-        readme += `- 作者: ${manifest.author}\n`;
-        readme += `- 许可证: ${manifest.license}\n\n`;
+        readme += `- 作�? ${manifest.author}\n`;
+        readme += `- 许可�? ${manifest.license}\n\n`;
         
         readme += `## 包含的Agents\n\n`;
         for (const agent of manifest.agents) {
@@ -477,11 +467,11 @@ class iFlowCLIAdapter {
                 const destPath = path.join(iflowConfigDir, file);
                 
                 await fs.copyFile(srcPath, destPath);
-                console.log(`✓ 安装: ${file}`);
+                console.log(`�?安装: ${file}`);
             }
 
             console.log(`\n所有subagents已安装到iFlow CLI: ${iflowConfigDir}`);
-            console.log('重启iFlow CLI即可使用。');
+            console.log('重启iFlow CLI即可使用�?);
         } catch (error) {
             console.error('安装失败:', error);
             throw error;
@@ -503,20 +493,20 @@ async function main() {
             console.log('开始转换subagents...');
             await adapter.convertAllSubagents();
         } else if (args.includes('--market')) {
-            console.log('开始转换并生成市场发布包...');
+            console.log('开始转换并生成市场发布�?..');
             await adapter.convertAllSubagents();
             await adapter.generateMarketPackage();
         } else {
-            console.log('iFlow CLI适配器');
+            console.log('iFlow CLI适配�?);
             console.log('');
             console.log('使用方法:');
-            console.log('  node iflow-cli-adapter.js --convert   # 仅转换格式');
+            console.log('  node iflow-cli-adapter.js --convert   # 仅转换格�?);
             console.log('  node iflow-cli-adapter.js --install   # 转换并安装到iFlow CLI');
             console.log('  node iflow-cli-adapter.js --market    # 转换并生成市场发布包');
             console.log('');
             console.log('说明:');
-            console.log('  - 转换结果保存在 ./iflow-compatible/ 目录');
-            console.log('  - 安装会将配置复制到 ~/.iflow/agents/ 目录');
+            console.log('  - 转换结果保存�?./iflow-compatible/ 目录');
+            console.log('  - 安装会将配置复制�?~/.iflow/agents/ 目录');
             console.log('  - 市场发布包保存在 ./iflow-compatible/market-package/ 目录');
         }
     } catch (error) {
@@ -525,8 +515,7 @@ async function main() {
     }
 }
 
-// 如果直接运行此脚本
-if (import.meta.url === `file://${process.argv[1]}`) {
+// 如果直接运行此脚�?if (import.meta.url === `file://${process.argv[1]}`) {
     main();
 }
 

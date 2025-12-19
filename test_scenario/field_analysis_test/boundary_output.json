@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "field_name": "学术场域",
+    "n_participants": 4,
+    "n_core": 4,
+    "autonomy_level": "高度自主",
+    "autonomy_score": 1.0,
+    "processing_time": 0.0
+  },
+  "details": {
+    "core_participants": [
+      {
+        "name": "",
+        "influence": 0.0,
+        "education": "",
+        "position": ""
+      },
+      {
+        "name": "",
+        "influence": 0.0,
+        "education": "",
+        "position": ""
+      },
+      {
+        "name": "",
+        "influence": 0.0,
+        "education": "",
+        "position": ""
+      },
+      {
+        "name": "",
+        "influence": 0.0,
+        "education": "",
+        "position": ""
+      }
+    ],
+    "peripheral_participants": [],
+    "field_rules": {
+      "educational_requirements": [],
+      "professional_standards": [],
+      "social_conventions": [],
+      "evaluation_criteria": []
+    },
+    "rule_analysis": {},
+    "autonomy_analysis": {
+      "autonomy_score": 1.0,
+      "autonomy_level": "高度自主",
+      "external_influences": {
+        "政府政策": 0.0,
+        "市场力量": 0.0,
+        "媒体影响": 0.0,
+        "公众舆论": 0.0,
+        "国际标准": 0.0
+      },
+      "n_external_factors": 5,
+      "affected_participants": 0
+    }
+  },
+  "metadata": {
+    "input_file": "test_data_fixed.json",
+    "threshold": 0.5,
+    "timestamp": "2025-12-19T15:37:19.577467",
+    "version": "1.0.0",
+    "skill": "field-analysis"
+  }
+}

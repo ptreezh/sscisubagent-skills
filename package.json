@@ -1,0 +1,126 @@
+{
+  "name": "ssci-subagent-skills",
+  "version": "1.2.9",
+  "description": "中文社会科学研究AI Subagent技能包 - 兼容Claude Code、Qwen CLI、iFlow CLI",
+  "main": "index.js",
+  "bin": {
+    "ssci": "./bin/ssci-cli.js"
+  },
+"scripts": {
+    "install": "node scripts/install.js",
+    "postinstall": "node scripts/postinstall.js",
+    "deploy": "node scripts/deploy.js",
+    "deploy:claude": "node scripts/deploy-claude.js",
+    "deploy:gemini": "node scripts/deploy-gemini.js",
+    "deploy:iflow": "node scripts/deploy-iflow.js",
+    "deploy:codebuddy": "node scripts/deploy-codebuddy.js",
+    "deploy:codex": "node scripts/deploy-codex.js",
+    "deploy:qodercli": "node scripts/deploy-qodercli.js",
+    "deploy:all": "node scripts/deploy-all.js",
+    "deploy:multi": "node scripts/multi-cli-auto-deploy.js",
+    "deploy:stigmergy": "node scripts/deploy-stigmergy.js",
+    "undeploy": "node scripts/undeploy.js",
+    "validate": "node scripts/validate.js",
+    "test": "node scripts/test.js",
+    "test:all-clis": "node scripts/test-all-clis.js",
+    "test:stigmergy": "node scripts/test-stigmergy.js",
+    "clean": "node scripts/clean.js",
+    "status": "node scripts/status.js",
+    "health-check": "node scripts/health-check.js",
+    "monitor": "node scripts/monitor.js"
+  },
+  "keywords": [
+    "social-sciences",
+    "qualitative-research",
+    "grounded-theory",
+    "claude-code",
+    "qwen-cli",
+    "iflow-cli",
+    "ai-subagents",
+    "chinese-research",
+    "academic-research",
+    "coding-analysis",
+    "sna",
+    "质性研究"
+  ],
+  "author": "SSCI Subagent Skills Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssci-subagent-skills/ssci-subagent-skills.git"
+  },
+  "homepage": "https://github.com/ssci-subagent-skills/ssci-subagent-skills#readme",
+  "bugs": {
+    "url": "https://github.com/ssci-subagent-skills/ssci-subagent-skills/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "path": "^0.12.7",
+    "inquirer": "^9.2.8",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "commander": "^11.0.0",
+    "yaml": "^2.3.2",
+    "glob": "^10.3.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "files": [
+    "agents/",
+    "skills/",
+    "adapters/",
+    "scripts/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "ssci": {
+    "agents": {
+      "literature-expert": "agents/literature-expert.md",
+      "grounded-theory-expert": "agents/grounded-theory-expert.md",
+      "sna-expert": "agents/sna-expert.md",
+      "field-analysis-expert": "agents/field-analysis-expert.md",
+      "ant-expert": "agents/ant-expert.md",
+      "chinese-localization-expert": "agents/chinese-localization-expert.md"
+    },
+    "skills": {
+      "coding": [
+        "skills/coding/open-coding-skill.md",
+        "skills/coding/axial-coding-skill.md",
+        "skills/coding/selective-coding-skill.md",
+        "skills/coding/memo-writing-skill.md"
+      ],
+      "analysis": [
+        "skills/analysis/centrality-analysis-skill.md",
+        "skills/analysis/network-data-skill.md",
+        "skills/analysis/qualitative-analysis-skill.md"
+      ],
+      "writing": [
+        "skills/writing/paper-structure-skill.md",
+        "skills/writing/academic-expression-skill.md"
+      ],
+      "methodology": [
+        "skills/methodology/research-design-skill.md",
+        "skills/methodology/validity-assessment-skill.md"
+      ]
+    },
+    "cli_targets": {
+      "claude": {
+        "config_dir": ".claude/skills",
+        "agent_dir": ".claude/agents"
+      },
+      "qwen": {
+        "config_dir": ".qwen/skills",
+        "agent_dir": ".qwen/agents"
+      },
+      "iflow": {
+        "config_dir": ".iflow/skills",
+        "agent_dir": ".iflow/agents"
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "summary": {
+    "network_type": "edgelist",
+    "n_nodes": 11,
+    "n_edges": 14,
+    "density": 0.2545,
+    "is_valid": true,
+    "processing_time": 0.01
+  },
+  "details": {
+    "network_summary": {
+      "n_nodes": 11,
+      "n_edges": 14,
+      "density": 0.2545454545454545,
+      "is_directed": false,
+      "is_multigraph": false,
+      "is_connected": true,
+      "diameter": 5,
+      "average_shortest_path_length": 2.327272727272727,
+      "radius": 3
+    },
+    "validation": {
+      "is_valid": true,
+      "warnings": [],
+      "errors": []
+    },
+    "nodes": [
+      "张教授",
+      "李教授",
+      "王副教授",
+      "刘博士",
+      "陈研究员",
+      "赵副教授",
+      "孙讲师",
+      "周博士",
+      "吴硕士",
+      "郑副教授",
+      "钱讲师"
+    ],
+    "edges": [
+      [
+        "张教授",
+        "李教授",
+        {
+          "weight": 0.8
+        }
+      ],
+      [
+        "张教授",
+        "王副教授",
+        {
+          "weight": 0.6
+        }
+      ],
+      [
+        "张教授",
+        "刘博士",
+        {
+          "weight": 0.9
+        }
+      ],
+      [
+        "张教授",
+        "郑副教授",
+        {
+          "weight": 0.5
+        }
+      ],
+      [
+        "李教授",
+        "陈研究员",
+        {
+          "weight": 0.7
+        }
+      ],
+      [
+        "李教授",
+        "赵副教授",
+        {
+          "weight": 0.5
+        }
+      ],
+      [
+        "李教授",
+        "孙讲师",
+        {
+          "weight": 0.4
+        }
+      ],
+      [
+        "王副教授",
+        "孙讲师",
+        {
+          "weight": 0.6
+        }
+      ],
+      [
+        "王副教授",
+        "周博士",
+        {
+          "weight": 0.9
+        }
+      ],
+      [
+        "刘博士",
+        "吴硕士",
+        {
+          "weight": 0.7
+        }
+      ],
+      [
+        "陈研究员",
+        "郑副教授",
+        {
+          "weight": 0.6
+        }
+      ],
+      [
+        "陈研究员",
+        "钱讲师",
+        {
+          "weight": 0.4
+        }
+      ],
+      [
+        "赵副教授",
+        "钱讲师",
+        {
+          "weight": 0.5
+        }
+      ],
+      [
+        "吴硕士",
+        "郑副教授",
+        {
+          "weight": 0.3
+        }
+      ]
+    ]
+  },
+  "metadata": {
+    "input_file": "social_network_data.json",
+    "timestamp": "2025-12-19T17:02:51.852699",
+    "version": "1.0.0",
+    "skill": "performing-network-computation"
+  }
+}

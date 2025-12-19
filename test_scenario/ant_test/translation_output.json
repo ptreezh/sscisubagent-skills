@@ -1,0 +1,258 @@
+{
+  "summary": {
+    "case_study": "新能源汽车推广项目",
+    "n_phases": 4,
+    "n_mechanisms": 2,
+    "overall_stability": 0.522,
+    "processing_time": 0.0
+  },
+  "details": {
+    "translation_phases": {
+      "问题化": {
+        "description": "将问题定义并确立主导地位",
+        "key_characteristics": [
+          "市政府将空气污染定义为亟待解决的公共问题"
+        ],
+        "primary_actors": [
+          "市政府"
+        ],
+        "enrollment_strategies": [
+          "环保组织",
+          "媒体"
+        ],
+        "controversies": [
+          "污染责任认定",
+          "解决方案选择"
+        ]
+      },
+      "利益介入": {
+        "description": "通过利益机制吸引其他行动者",
+        "key_characteristics": [
+          "通过补贴政策吸引汽车制造商和消费者参与"
+        ],
+        "primary_actors": [
+          "市政府"
+        ],
+        "enrollment_strategies": [
+          "汽车制造商",
+          "消费者"
+        ],
+        "controversies": [
+          "补贴标准",
+          "技术路线"
+        ]
+      },
+      "动员": {
+        "description": "确保各方履行承诺和角色",
+        "key_characteristics": [
+          "构建包括充电设施、售后服务在内的完整网络"
+        ],
+        "primary_actors": [
+          "汽车制造商"
+        ],
+        "enrollment_strategies": [
+          "电力公司",
+          "服务商"
+        ],
+        "controversies": [
+          "设施布局",
+          "标准统一"
+        ]
+      },
+      "巩固": {
+        "description": "稳定网络并维持联盟",
+        "key_characteristics": [
+          "形成稳定的新能源汽车使用生态系统"
+        ],
+        "primary_actors": [
+          "多方联盟"
+        ],
+        "enrollment_strategies": [
+          "所有行动者"
+        ],
+        "controversies": [
+          "利益分配",
+          "长期维护"
+        ]
+      }
+    },
+    "enrollment_mechanisms": {
+      "政策激励": {
+        "description": "通过政策工具吸引行动者",
+        "examples": [
+          "市政府: 出台补贴政策"
+        ],
+        "effectiveness": 0.2
+      },
+      "利益交换": {
+        "description": "通过利益共享建立联盟",
+        "examples": [
+          "汽车制造商 → 消费者: 产品供应"
+        ],
+        "effectiveness": 0.2
+      },
+      "技术标准化": {
+        "description": "通过技术标准统一行动",
+        "examples": [],
+        "effectiveness": 0.0
+      },
+      "话语构建": {
+        "description": "通过共同话语凝聚共识",
+        "examples": [],
+        "effectiveness": 0.0
+      },
+      "基础设施": {
+        "description": "通过物质设施支撑网络",
+        "examples": [],
+        "effectiveness": 0.0
+      }
+    },
+    "controversy_resolution": {
+      "identified_controversies": [
+        {
+          "controversy": "污染责任认定",
+          "phase": "问题化",
+          "primary_actor": "市政府"
+        },
+        {
+          "controversy": "解决方案选择",
+          "phase": "问题化",
+          "primary_actor": "市政府"
+        },
+        {
+          "controversy": "补贴标准",
+          "phase": "利益介入",
+          "primary_actor": "市政府"
+        },
+        {
+          "controversy": "技术路线",
+          "phase": "利益介入",
+          "primary_actor": "市政府"
+        },
+        {
+          "controversy": "设施布局",
+          "phase": "动员",
+          "primary_actor": "汽车制造商"
+        },
+        {
+          "controversy": "标准统一",
+          "phase": "动员",
+          "primary_actor": "汽车制造商"
+        },
+        {
+          "controversy": "利益分配",
+          "phase": "巩固",
+          "primary_actor": "多方联盟"
+        },
+        {
+          "controversy": "长期维护",
+          "phase": "巩固",
+          "primary_actor": "多方联盟"
+        }
+      ],
+      "resolution_strategies": {
+        "政策调整": [
+          {
+            "controversy": "补贴标准",
+            "phase": "利益介入",
+            "primary_actor": "市政府"
+          }
+        ],
+        "技术协商": [
+          {
+            "controversy": "技术路线",
+            "phase": "利益介入",
+            "primary_actor": "市政府"
+          },
+          {
+            "controversy": "标准统一",
+            "phase": "动员",
+            "primary_actor": "汽车制造商"
+          }
+        ],
+        "利益协调": [
+          {
+            "controversy": "利益分配",
+            "phase": "巩固",
+            "primary_actor": "多方联盟"
+          }
+        ],
+        "制度创新": []
+      },
+      "resolution_outcomes": {
+        "政策调整": {
+          "addressed_count": 1,
+          "resolution_rate": 0.125
+        },
+        "技术协商": {
+          "addressed_count": 2,
+          "resolution_rate": 0.25
+        },
+        "利益协调": {
+          "addressed_count": 1,
+          "resolution_rate": 0.125
+        },
+        "制度创新": {
+          "addressed_count": 0,
+          "resolution_rate": 0.0
+        }
+      },
+      "persistent_issues": []
+    },
+    "stability_analysis": {
+      "actor_stability": 0.875,
+      "relation_stability": 0.65,
+      "goal_alignment": 0.0,
+      "overall_stability": 0.5225
+    },
+    "key_moments": {
+      "turning_points": [],
+      "critical_decisions": [
+        {
+          "phase": "问题化",
+          "controversies_count": 2,
+          "controversies": [
+            "污染责任认定",
+            "解决方案选择"
+          ],
+          "moment_index": 0
+        },
+        {
+          "phase": "利益介入",
+          "controversies_count": 2,
+          "controversies": [
+            "补贴标准",
+            "技术路线"
+          ],
+          "moment_index": 1
+        },
+        {
+          "phase": "动员",
+          "controversies_count": 2,
+          "controversies": [
+            "设施布局",
+            "标准统一"
+          ],
+          "moment_index": 2
+        },
+        {
+          "phase": "巩固",
+          "controversies_count": 2,
+          "controversies": [
+            "利益分配",
+            "长期维护"
+          ],
+          "moment_index": 3
+        }
+      ],
+      "enrollment_peaks": [],
+      "crisis_points": []
+    }
+  },
+  "metadata": {
+    "input_file": "ant_test_data.json",
+    "timestamp": "2025-12-19T15:45:12.816702",
+    "version": "1.0.0",
+    "skill": "ant"
+  }
+}

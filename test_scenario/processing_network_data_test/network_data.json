@@ -1,0 +1,269 @@
+{
+  "summary": {
+    "n_nodes": 10,
+    "n_edges": 11,
+    "density": 0.2444,
+    "format": "edgelist",
+    "processing_time": 0.0
+  },
+  "details": {
+    "edges": [
+      {
+        "source": "张教授",
+        "target": "李教授",
+        "weight": 0.8,
+        "type": "研究合作",
+        "frequency": "每周",
+        "source_id": "R001"
+      },
+      {
+        "source": "张教授",
+        "target": "王副教授",
+        "weight": 0.6,
+        "type": "项目指导",
+        "frequency": "每月",
+        "source_id": "R001"
+      },
+      {
+        "source": "张教授",
+        "target": "陈研究员",
+        "weight": 0.4,
+        "type": "学术交流",
+        "frequency": "每季度",
+        "source_id": "R001"
+      },
+      {
+        "source": "李教授",
+        "target": "赵副教授",
+        "weight": 0.6,
+        "type": "论文合著",
+        "frequency": "每月",
+        "source_id": "R002"
+      },
+      {
+        "source": "李教授",
+        "target": "孙讲师",
+        "weight": 0.4,
+        "type": "学术评审",
+        "frequency": "每季度",
+        "source_id": "R002"
+      },
+      {
+        "source": "王副教授",
+        "target": "周博士",
+        "weight": 0.8,
+        "type": "师生指导",
+        "frequency": "每周",
+        "source_id": "R003"
+      },
+      {
+        "source": "王副教授",
+        "target": "吴硕士",
+        "weight": 0.8,
+        "type": "研究协助",
+        "frequency": "每周",
+        "source_id": "R003"
+      },
+      {
+        "source": "陈研究员",
+        "target": "郑副教授",
+        "weight": 0.6,
+        "type": "实验合作",
+        "frequency": "每月",
+        "source_id": "R004"
+      },
+      {
+        "source": "陈研究员",
+        "target": "钱讲师",
+        "weight": 0.4,
+        "type": "项目咨询",
+        "frequency": "每季度",
+        "source_id": "R004"
+      },
+      {
+        "source": "赵副教授",
+        "target": "郑副教授",
+        "weight": 0.8,
+        "type": "数据共享",
+        "frequency": "每周",
+        "source_id": "R005"
+      },
+      {
+        "source": "赵副教授",
+        "target": "孙讲师",
+        "weight": 0.4,
+        "type": "课程合作",
+        "frequency": "每季度",
+        "source_id": "R005"
+      }
+    ],
+    "node_attributes": {
+      "张教授": {
+        "id": "R001",
+        "department": "计算机科学",
+        "position": "教授",
+        "age": 45.0,
+        "gender": "男",
+        "publications": 45.0,
+        "h_index": 22.0,
+        "research_areas": [
+          "人工智能",
+          "机器学习",
+          "数据挖掘"
+        ],
+        "grant_amount": 1200000.0,
+        "is_respondent": true
+      },
+      "李教授": {
+        "id": "R002",
+        "department": "计算机科学",
+        "position": "教授",
+        "age": 48.0,
+        "gender": "男",
+        "publications": 38.0,
+        "h_index": 18.0,
+        "research_areas": [
+          "计算机网络",
+          "分布式系统",
+          "云计算"
+        ],
+        "grant_amount": 800000.0,
+        "is_respondent": true
+      },
+      "王副教授": {
+        "id": "R003",
+        "department": "软件工程",
+        "position": "副教授",
+        "age": 38.0,
+        "gender": "女",
+        "publications": 25.0,
+        "h_index": 12.0,
+        "research_areas": [
+          "软件工程",
+          "形式化方法",
+          "程序验证"
+        ],
+        "grant_amount": 400000.0,
+        "is_respondent": true
+      },
+      "陈研究员": {
+        "id": "R004",
+        "department": "人工智能",
+        "position": "研究员",
+        "age": 35.0,
+        "gender": "男",
+        "publications": 32.0,
+        "h_index": 15.0,
+        "research_areas": [
+          "深度学习",
+          "计算机视觉",
+          "自然语言处理"
+        ],
+        "grant_amount": 600000.0,
+        "is_respondent": true
+      },
+      "赵副教授": {
+        "id": "R005",
+        "department": "数据科学",
+        "position": "副教授",
+        "age": 42.0,
+        "gender": "女",
+        "publications": 28.0,
+        "h_index": 13.0,
+        "research_areas": [
+          "数据挖掘",
+          "大数据",
+          "统计分析"
+        ],
+        "grant_amount": 500000.0,
+        "is_respondent": true
+      },
+      "孙讲师": {
+        "id": "",
+        "department": "",
+        "position": "",
+        "age": null,
+        "gender": "",
+        "publications": null,
+        "h_index": null,
+        "research_areas": [],
+        "grant_amount": null,
+        "is_respondent": false
+      },
+      "周博士": {
+        "id": "",
+        "department": "",
+        "position": "",
+        "age": null,
+        "gender": "",
+        "publications": null,
+        "h_index": null,
+        "research_areas": [],
+        "grant_amount": null,
+        "is_respondent": false
+      },
+      "吴硕士": {
+        "id": "",
+        "department": "",
+        "position": "",
+        "age": null,
+        "gender": "",
+        "publications": null,
+        "h_index": null,
+        "research_areas": [],
+        "grant_amount": null,
+        "is_respondent": false
+      },
+      "郑副教授": {
+        "id": "",
+        "department": "",
+        "position": "",
+        "age": null,
+        "gender": "",
+        "publications": null,
+        "h_index": null,
+        "research_areas": [],
+        "grant_amount": null,
+        "is_respondent": false
+      },
+      "钱讲师": {
+        "id": "",
+        "department": "",
+        "position": "",
+        "age": null,
+        "gender": "",
+        "publications": null,
+        "h_index": null,
+        "research_areas": [],
+        "grant_amount": null,
+        "is_respondent": false
+      }
+    },
+    "statistics": {
+      "n_nodes": 10,
+      "n_edges": 11,
+      "density": 0.2444,
+      "avg_weight": 0.6,
+      "edge_types": {
+        "研究合作": 1,
+        "项目指导": 1,
+        "学术交流": 1,
+        "论文合著": 1,
+        "学术评审": 1,
+        "师生指导": 1,
+        "研究协助": 1,
+        "实验合作": 1,
+        "项目咨询": 1,
+        "数据共享": 1,
+        "课程合作": 1
+      },
+      "total_weight": 6.6
+    }
+  },
+  "metadata": {
+    "input_file": "cleaned_data.json",
+    "timestamp": "2025-12-19T17:10:15.428134",
+    "version": "1.0.0",
+    "skill": "processing-network-data"
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "summary": {
+    "n_analyzed": 3,
+    "avg_intensity": 0.897,
+    "avg_difficulty": 0.836,
+    "avg_urgency": 0.902,
+    "processing_time": 0.0
+  },
+  "details": {
+    "analyzed_conflicts": [
+      {
+        "id": "C001",
+        "type": "理论分歧",
+        "description": "关于研究方法论的争论",
+        "parties": [
+          {
+            "name": "张教授",
+            "position": "定量研究支持者",
+            "argument": "应该采用大规模问卷调查和统计分析",
+            "evidence": [
+              "已有成功案例",
+              "数据可靠性高",
+              "可推广性强"
+            ],
+            "priority": 0.8
+          },
+          {
+            "name": "李教授",
+            "position": "定性研究支持者",
+            "argument": "应该采用深度访谈和案例研究",
+            "evidence": [
+              "深入理解现象",
+              "发现新理论",
+              "适合探索性研究"
+            ],
+            "priority": 0.8
+          }
+        ],
+        "context": {
+          "phase": "研究设计阶段",
+          "impact": "高",
+          "timeline": "需要尽快解决",
+          "stakeholders": [
+            "全体研究团队",
+            "资助机构"
+          ]
+        },
+        "attempts": [
+          {
+            "method": "团队讨论",
+            "date": "2024-01-15",
+            "outcome": "未达成共识",
+            "reason": "双方立场坚定"
+          }
+        ],
+        "classified_type": "理论分歧",
+        "intensity": 1.0,
+        "n_parties": 2,
+        "n_attempts": 1,
+        "resolution_difficulty": 0.8999999999999999,
+        "escalation_history": {
+          "escalation_level": "高度升级",
+          "trend": "恶化",
+          "n_attempts": 1,
+          "success_rate": 0.0
+        },
+        "timeline_prediction": {
+          "optimistic": 12,
+          "realistic": 18,
+          "pessimistic": 27
+        },
+        "resolution_blockers": [
+          "理论框架差异",
+          "方法论争议",
+          "时间压力过大"
+        ],
+        "intervention_urgency": {
+          "score": 1.0,
+          "level": "紧急",
+          "recommendation": "需要立即干预，建议召开紧急会议"
+        }
+      },
+      {
+        "id": "C002",
+        "type": "资源分配",
+        "description": "关于实验设备和资金分配的争议",
+        "parties": [
+          {
+            "name": "王副教授",
+            "position": "实验组负责人",
+            "argument": "需要更多实验设备和场地",
+            "evidence": [
+              "实验要求高精度设备",
+              "需要专用实验室",
+              "已有项目承诺"
+            ],
+            "priority": 0.7
+          },
+          {
+            "name": "陈研究员",
+            "position": "数据分析组负责人",
+            "argument": "需要更多计算资源和高性能服务器",
+            "evidence": [
+              "数据量巨大",
+              "需要云计算资源",
+              "已有合作需求"
+            ],
+            "priority": 0.7
+          }
+        ],
+        "context": {
+          "phase": "资源规划阶段",
+          "impact": "中",
+          "timeline": "2周内解决",
+          "stakeholders": [
+            "项目负责人",
+            "设备管理部门"
+          ]
+        },
+        "attempts": [],
+        "classified_type": "资源分配",
+        "intensity": 0.74,
+        "n_parties": 2,
+        "n_attempts": 0,
+        "resolution_difficulty": 0.672,
+        "escalation_history": {
+          "escalation_level": "稳定",
+          "trend": "无",
+          "n_attempts": 0
+        },
+        "timeline_prediction": {
+          "optimistic": 5,
+          "realistic": 8,
+          "pessimistic": 12
+        },
+        "resolution_blockers": [
+          "资源限制",
+          "优先级冲突"
+        ],
+        "intervention_urgency": {
+          "score": 0.722,
+          "level": "高",
+          "recommendation": "本周内必须处理，建议指定协调人"
+        }
+      },
+      {
+        "id": "C003",
+        "type": "作者署名",
+        "description": "关于论文作者顺序和贡献认定的分歧",
+        "parties": [
+          {
+            "name": "赵博士",
+            "position": "第一作者候选人",
+            "argument": "承担了主要研究工作和数据分析",
+            "evidence": [
+              "工作时长最长",
+              "核心算法实现",
+              "初稿撰写"
+            ],
+            "priority": 0.9
+          },
+          {
+            "name": "孙硕士",
+            "position": "共同第一作者要求者",
+            "argument": "在关键实验中做出重要贡献",
+            "evidence": [
+              "关键实验设计",
+              "数据收集",
+              "结果验证"
+            ],
+            "priority": 0.6
+          }
+        ],
+        "context": {
+          "phase": "论文撰写阶段",
+          "impact": "高",
+          "timeline": "论文提交前解决",
+          "stakeholders": [
+            "所有作者",
+            "期刊编辑"
+          ]
+        },
+        "attempts": [
+          {
+            "method": "导师调解",
+            "date": "2024-03-10",
+            "outcome": "部分解决",
+            "reason": "同意共同第一作者，但顺序待定"
+          }
+        ],
+        "classified_type": "作者署名",
+        "intensity": 0.9500000000000001,
+        "n_parties": 2,
+        "n_attempts": 1,
+        "resolution_difficulty": 0.9349999999999999,
+        "escalation_history": {
+          "escalation_level": "稳定",
+          "trend": "改善",
+          "n_attempts": 1,
+          "success_rate": 1.0
+        },
+        "timeline_prediction": {
+          "optimistic": 12,
+          "realistic": 18,
+          "pessimistic": 27
+        },
+        "resolution_blockers": [
+          "贡献认定困难",
+          "公平性争议"
+        ],
+        "intervention_urgency": {
+          "score": 0.985,
+          "level": "紧急",
+          "recommendation": "需要立即干预，建议召开紧急会议"
+        }
+      }
+    ],
+    "overall_metrics": {
+      "avg_difficulty": 0.836,
+      "avg_urgency": 0.902,
+      "high_urgency_count": 3,
+      "complex_conflicts": 2
+    }
+  },
+  "metadata": {
+    "input_file": "identified_conflicts.json",
+    "timestamp": "2025-12-19T17:20:32.925995",
+    "version": "1.0.0",
+    "skill": "conflict-resolution"
+  }
+}

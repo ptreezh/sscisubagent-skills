@@ -1,0 +1,19 @@
+[project]
+name = "mathematical-statistics"
+version = "1.0.0"
+description = "数理统计工具集：描述性统计、推断性统计、方差分析、相关分析"
+requires-python = ">=3.8"
+dependencies = [
+    "scipy>=1.10.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+]
+
+[tool.uv]
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true
+
+[tool.uv.cache]
+keys = ["scipy", "numpy"]

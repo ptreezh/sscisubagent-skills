@@ -1,0 +1,31 @@
+{
+  "test_time": "2025-12-19T17:10:15.052207",
+  "test_results": [
+    {
+      "test": "数据清洗",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "网络数据提取",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "网络数据验证",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "数据格式转换",
+      "status": "PASSED",
+      "error": null
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "pass_rate": "100.0%"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "summary": {
+    "case_study": "新能源汽车推广项目",
+    "n_human_actors": 5,
+    "n_nonhuman_actors": 3,
+    "n_total_actors": 8,
+    "network_density": 0.0,
+    "processing_time": 0.0
+  },
+  "details": {
+    "human_actors": [
+      {
+        "name": "市政府",
+        "type": "机构",
+        "role": "政策制定者",
+        "agency": 1.0,
+        "interests": [
+          "环保目标",
+          "城市形象",
+          "经济发展"
+        ],
+        "resources": [
+          "政策支持",
+          "财政补贴",
+          "公共资源"
+        ],
+        "actions": [
+          "出台补贴政策",
+          "建设充电桩",
+          "采购新能源公交车"
+        ]
+      },
+      {
+        "name": "汽车制造商",
+        "type": "企业",
+        "role": "技术提供者",
+        "agency": 1.0,
+        "interests": [
+          "市场份额",
+          "利润增长",
+          "技术创新"
+        ],
+        "resources": [
+          "技术专利",
+          "生产能力",
+          "销售网络"
+        ],
+        "actions": [
+          "研发新能源汽车",
+          "降低成本",
+          "市场营销"
+        ]
+      },
+      {
+        "name": "环保组织",
+        "type": "NGO",
+        "role": "监督倡导者",
+        "agency": 0.9500000000000002,
+        "interests": [
+          "环境保护",
+          "可持续发展",
+          "公众健康"
+        ],
+        "resources": [
+          "专业知识",
+          "公众影响力",
+          "媒体资源"
+        ],
+        "actions": [
+          "宣传环保理念",
+          "监督政策执行",
+          "组织公众活动"
+        ]
+      },
+      {
+        "name": "消费者",
+        "type": "公众",
+        "role": "使用者",
+        "agency": 0.9500000000000002,
+        "interests": [
+          "经济实惠",
+          "使用便利",
+          "环保贡献"
+        ],
+        "resources": [
+          "购买力",
+          "使用反馈",
+          "社会影响力"
+        ],
+        "actions": [
+          "购买决策",
+          "使用体验分享",
+          "口碑传播"
+        ]
+      },
+      {
+        "name": "电力公司",
+        "type": "企业",
+        "role": "基础设施提供者",
+        "agency": 1.0,
+        "interests": [
+          "业务增长",
+          "电网稳定",
+          "技术升级"
+        ],
+        "resources": [
+          "电网设施",
+          "技术专长",
+          "服务网络"
+        ],
+        "actions": [
+          "建设充电网络",
+          "优化供电服务",
+          "开发智能充电"
+        ]
+      }
+    ],
+    "nonhuman_actors": [
+      {
+        "name": "电池技术",
+        "type": "非人类行动者",
+        "role": "技术",
+        "agency": 0.7,
+        "influence": 0.8
+      },
+      {
+        "name": "充电标准",
+        "type": "非人类行动者",
+        "role": "标准",
+        "agency": 0.6,
+        "influence": 0.7
+      },
+      {
+        "name": "补贴政策",
+        "type": "非人类行动者",
+        "role": "制度",
+        "agency": 0.8,
+        "influence": 0.9
+      }
+    ],
+    "network_analysis": {
+      "total_actors": 8,
+      "average_agency": 0.875,
+      "key_actors_count": 6,
+      "key_actors": [
+        "市政府",
+        "汽车制造商",
+        "环保组织",
+        "消费者",
+        "电力公司",
+        "补贴政策"
+      ],
+      "type_distribution": {
+        "机构": 1,
+        "企业": 2,
+        "NGO": 1,
+        "公众": 1,
+        "非人类行动者": 3
+      },
+      "network_density": 0.0
+    }
+  },
+  "metadata": {
+    "input_file": "ant_test_data.json",
+    "timestamp": "2025-12-19T15:45:12.406340",
+    "version": "1.0.0",
+    "skill": "ant"
+  }
+}

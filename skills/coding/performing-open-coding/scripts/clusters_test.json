@@ -1,0 +1,169 @@
+{
+  "summary": {
+    "total_clusters": 3,
+    "total_concepts": 20,
+    "average_cluster_size": 6.67,
+    "max_cluster_size": 18,
+    "min_cluster_size": 1,
+    "type_distribution": {
+      "一般概念": 19,
+      "行动概念": 1
+    },
+    "top_clusters": [
+      {
+        "name": "学习",
+        "size": 18,
+        "frequency": 39
+      },
+      {
+        "name": "过程",
+        "size": 1,
+        "frequency": 2
+      },
+      {
+        "name": "寻求",
+        "size": 1,
+        "frequency": 1
+      }
+    ],
+    "method": "kmeans",
+    "processing_time": 5.01
+  },
+  "details": {
+    "kmeans": {
+      "method": "kmeans",
+      "n_clusters": 3,
+      "clusters": [
+        {
+          "cluster_id": 0,
+          "cluster_name": "学习",
+          "size": 18,
+          "concepts": [
+            {
+              "concept": "学习",
+              "frequency": 7,
+              "type": "一般概念"
+            },
+            {
+              "concept": "大学",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "遇到",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "很多",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "困难",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "我会",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "老师",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "帮助",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "通过",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "能够",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "更好",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "生活",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "学会",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "如何",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "自己",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "努力",
+              "frequency": 2,
+              "type": "一般概念"
+            },
+            {
+              "concept": "问题",
+              "frequency": 1,
+              "type": "一般概念"
+            },
+            {
+              "concept": "主动",
+              "frequency": 1,
+              "type": "一般概念"
+            }
+          ],
+          "total_frequency": 39
+        },
+        {
+          "cluster_id": 2,
+          "cluster_name": "过程",
+          "size": 1,
+          "concepts": [
+            {
+              "concept": "过程",
+              "frequency": 2,
+              "type": "一般概念"
+            }
+          ],
+          "total_frequency": 2
+        },
+        {
+          "cluster_id": 1,
+          "cluster_name": "寻求",
+          "size": 1,
+          "concepts": [
+            {
+              "concept": "寻求",
+              "frequency": 1,
+              "type": "行动概念"
+            }
+          ],
+          "total_frequency": 1
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "input_file": "D:\\stigmergy-CLI-Multi-Agents\\sscisubagent-skills\\skills\\coding\\performing-open-coding\\scripts\\concepts_test.json",
+    "timestamp": "2025-12-19T10:19:39.888591",
+    "version": "1.0.0"
+  }
+}

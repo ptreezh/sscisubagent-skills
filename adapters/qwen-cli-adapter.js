@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 /**
- * Qwen CLI适配器 - 将Claude Code格式的Subagent转换为Qwen CLI兼容格式
+ * Qwen CLI适配�?- 将Claude Code格式的Subagent转换为Qwen CLI兼容格式
  * 
- * 功能说明：
- * 1. 读取Claude Code标准的subagent配置文件
- * 2. 转换为Qwen CLI兼容的格式
- * 3. 处理工具权限映射
+ * 功能说明�? * 1. 读取Claude Code标准的subagent配置文件
+ * 2. 转换为Qwen CLI兼容的格�? * 3. 处理工具权限映射
  * 4. 生成适配后的配置文件
  */
 
@@ -48,7 +46,7 @@ class QwenCLIAdapter {
             model: this.selectOptimalModel(claudeConfig.model || 'claude-3-5-sonnet-20241022'),
             category: this.determineCategory(claudeConfig.description),
             version: '1.0.0',
-            author: '中文社科研究Subagent项目组',
+            author: '中文社科研究Subagent项目�?,
             tags: this.generateTags(claudeConfig.description)
         };
 
@@ -59,7 +57,7 @@ class QwenCLIAdapter {
      * 提取显示名称
      */
     extractDisplayName(description) {
-        const match = description.match(/^(.+?)，/);
+        const match = description.match(/^(.+?)�?);
         return match ? match[1] : '中文社科研究专家';
     }
 
@@ -68,8 +66,8 @@ class QwenCLIAdapter {
      */
     cleanDescription(description) {
         return description
-            .replace(/，当需要.*时使用此专家。$/, '')
-            .replace(/，包括.*$/g, '')
+            .replace(/，当需�?*时使用此专家�?/, '')
+            .replace(/，包�?*$/g, '')
             .trim();
     }
 
@@ -80,7 +78,7 @@ class QwenCLIAdapter {
         let systemPrompt = '';
 
         // 添加基础信息
-        systemPrompt += `你是${claudeConfig.name}，${this.extractDisplayName(claudeConfig.description)}。\n\n`;
+        systemPrompt += `你是${claudeConfig.name}�?{this.extractDisplayName(claudeConfig.description)}。\n\n`;
 
         // 添加专业领域
         if (claudeConfig['专业领域']) {
@@ -92,9 +90,8 @@ class QwenCLIAdapter {
             systemPrompt += `## 工作方法\n${claudeConfig['工作方法']}\n\n`;
         }
 
-        // 添加质量检查清单
-        if (claudeConfig['质量检查清单']) {
-            systemPrompt += `## 质量标准\n${claudeConfig['质量检查清单']}\n\n`;
+        // 添加质量检查清�?        if (claudeConfig['质量检查清�?]) {
+            systemPrompt += `## 质量标准\n${claudeConfig['质量检查清�?]}\n\n`;
         }
 
         // 添加输出标准
@@ -123,14 +120,14 @@ class QwenCLIAdapter {
         // 从描述中提取能力
         const description = claudeConfig.description;
         
-        if (description.includes('文献检索')) capabilities.push('文献检索');
-        if (description.includes('引用格式')) capabilities.push('引用格式化');
+        if (description.includes('文献检�?)) capabilities.push('文献检�?);
+        if (description.includes('引用格式')) capabilities.push('引用格式�?);
         if (description.includes('质量评估')) capabilities.push('文献质量评估');
         if (description.includes('趋势分析')) capabilities.push('研究趋势分析');
-        if (description.includes('编码')) capabilities.push('质性编码');
+        if (description.includes('编码')) capabilities.push('质性编�?);
         if (description.includes('网络分析')) capabilities.push('社会网络分析');
         if (description.includes('场域')) capabilities.push('场域分析');
-        if (description.includes('本土化')) capabilities.push('中文本土化');
+        if (description.includes('本土�?)) capabilities.push('中文本土�?);
 
         return capabilities.length > 0 ? capabilities : ['中文社会科学研究支持'];
     }
@@ -143,8 +140,7 @@ class QwenCLIAdapter {
     }
 
     /**
-     * 选择最优模型
-     */
+     * 选择最优模�?     */
     selectOptimalModel(claudeModel) {
         // 根据任务复杂度选择Qwen模型
         const modelMapping = {
@@ -222,9 +218,9 @@ class QwenCLIAdapter {
                         outputPath
                     });
                     
-                    console.log(`✓ 转换成功: ${agentName}`);
+                    console.log(`�?转换成功: ${agentName}`);
                 } catch (error) {
-                    console.error(`✗ 转换失败: ${file}`, error.message);
+                    console.error(`�?转换失败: ${file}`, error.message);
                     results.push({
                         agent: file.replace('.md', ''),
                         status: 'failed',
@@ -233,8 +229,7 @@ class QwenCLIAdapter {
                 }
             }
 
-            // 生成汇总报告
-            await this.generateConversionReport(results);
+            // 生成汇总报�?            await this.generateConversionReport(results);
             
             return results;
         } catch (error) {
@@ -271,7 +266,7 @@ class QwenCLIAdapter {
         const sections = {
             '专业领域': /## 专业领域\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
             '工作方法': /## 工作方法\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
-            '质量检查清单': /## 质量检查清单\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
+            '质量检查清�?: /## 质量检查清单\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
             '输出标准': /## 输出标准\s*\n([\s\S]*?)(?=\n##|\n#|$)/,
             '使用场景示例': /## 使用场景示例\s*\n([\s\S]*?)(?=\n##|\n#|$)/
         };
@@ -324,11 +319,11 @@ class QwenCLIAdapter {
                 const destPath = path.join(qwenConfigDir, file);
                 
                 await fs.copyFile(srcPath, destPath);
-                console.log(`✓ 安装: ${file}`);
+                console.log(`�?安装: ${file}`);
             }
 
             console.log(`\n所有subagents已安装到Qwen CLI: ${qwenConfigDir}`);
-            console.log('重启Qwen CLI即可使用。');
+            console.log('重启Qwen CLI即可使用�?);
         } catch (error) {
             console.error('安装失败:', error);
             throw error;
@@ -350,15 +345,15 @@ async function main() {
             console.log('开始转换subagents...');
             await adapter.convertAllSubagents();
         } else {
-            console.log('Qwen CLI适配器');
+            console.log('Qwen CLI适配�?);
             console.log('');
             console.log('使用方法:');
-            console.log('  node qwen-cli-adapter.js --convert   # 仅转换格式');
+            console.log('  node qwen-cli-adapter.js --convert   # 仅转换格�?);
             console.log('  node qwen-cli-adapter.js --install   # 转换并安装到Qwen CLI');
             console.log('');
             console.log('说明:');
-            console.log('  - 转换结果保存在 ./qwen-compatible/ 目录');
-            console.log('  - 安装会将配置复制到 ~/.qwen/agents/ 目录');
+            console.log('  - 转换结果保存�?./qwen-compatible/ 目录');
+            console.log('  - 安装会将配置复制�?~/.qwen/agents/ 目录');
         }
     } catch (error) {
         console.error('执行失败:', error);
@@ -366,8 +361,7 @@ async function main() {
     }
 }
 
-// 如果直接运行此脚本
-if (import.meta.url === `file://${process.argv[1]}`) {
+// 如果直接运行此脚�?if (import.meta.url === `file://${process.argv[1]}`) {
     main();
 }
 

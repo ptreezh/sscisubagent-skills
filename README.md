@@ -1,294 +1,300 @@
-# 中文社会科学研究Subagent集合
+# SSCI中文社会科学研究AI Subagent技能包
 
-专为中文社会科学研究者设计的专业AI Subagent和Skills包，兼容Claude Code、Qwen CLI和iFlow CLI等多个国产CLI工具。
+[![npm version](https://badge.fury.io/js/ssci-subagent-skills.svg)](https://badge.fury.io/js/ssci-subagent-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Stigmergy Compatible](https://img.shields.io/badge/Stigmergy-Compatible-brightgreen.svg)](https://github.com/ptreezh/stigmergy-CLI-Multi-Agents)
 
-## 🎯 项目概述
+专为中文社会科学研究者设计的专业AI Subagent技能包，兼容7个主流AI CLI工具，支持Stigmergy统一管理。
 
-本项目提供了一套完整的中文社会科学研究AI辅助工具，包括：
+## 🚀 使用示例
 
-- **专业Subagents**：文献管理、扎根理论、质性分析、社会网络分析等
-- **技能包(Skills)**：编码技能、分析技能、写作技能、方法论技能
-- **多CLI兼容**：支持Claude Code、Qwen CLI、iFlow CLI
-- **中文本土化**：深度适配中文社会科学研究需求
+### 基础使用（各CLI通用）
+```bash
+# Claude Code
+claude "请帮我进行开放编码分析，分析这段访谈文本"
 
-## 📦 产品结构
+# Qwen CLI  
+qwen "请计算这个网络的中心性指标"
 
-```
-chinese-social-sciences-subagents/
-├── agents/                    # 核心Subagents
-│   ├── literature-expert.md   # 文献管理专家
-│   ├── grounded-theory-expert.md # 扎根理论专家
-│   ├── sna-expert.md          # 社会网络分析专家
-│   ├── field-analysis-expert.md # 场域分析专家
-│   ├── ant-expert.md          # ANT专家
-│   └── chinese-localization-expert.md # 中文本土化专家
-├── skills/                    # 技能包
-│   ├── processing-citations.md # 引用处理技能
-│   ├── coding/                # 编码技能系列
-│   ├── analysis/              # 分析技能系列
-│   ├── writing/               # 写作技能系列
-│   └── methodology/           # 方法论技能系列
-├── adapters/                  # CLI适配器
-│   ├── qwen-cli-adapter.js    # Qwen CLI适配器
-│   ├── iflow-cli-adapter.js   # iFlow CLI适配器
-│   └── installation-scripts/  # 安装脚本
-├── docs/                      # 文档
-│   ├── installation-guide.md  # 安装指南
-│   ├── user-manual.md         # 使用手册
-│   └── api-reference.md       # API参考
-├── examples/                  # 示例
-│   ├── grounded-theory-example/ # 扎根理论示例
-│   ├── sna-analysis-example/  # SNA分析示例
-│   └── field-study-example/   # 场域研究示例
-└── web-platform/             # Web展示平台
-    ├── frontend/              # 前端展示
-    ├── backend/               # 后端API
-    └── deployment/            # 部署配置
+# iFlow CLI
+iflow "请帮我解决研究中的方法论冲突"
+
+# Gemini CLI
+gemini "请帮我进行文献检索和分析"
+
+# CodeBuddy CLI
+codebuddy "请帮我进行数据统计分析"
+
+# Codex CLI
+codex "请帮我进行代码审查"
+
+# QoderCLI
+qodercli "请帮我进行项目文档编写"
 ```
 
-## 🚀 快速开始
+### Stigmergy跨CLI调用
+```bash
+# 指定CLI执行任务
+stigmergy use claude "进行开放编码分析"
+stigmergy use qwen "计算网络中心性"
+stigmergy use gemini "文献检索分析"
 
-### Claude Code用户
+# 智能路由（自动选择最佳CLI）
+stigmergy call "进行复杂的社会网络分析"
+stigmergy call "处理跨学科的文献综述"
+
+# 跨CLI协作
+stigmergy use claude to "编码分析数据" | stigmergy use qwen to "统计验证结果"
+```
+
+### 智能体调用示例
+```bash
+# 直接调用智能体
+claude "请使用文献管理专家帮我查找最新的社会网络研究论文"
+qwen "请使用扎根理论专家分析这段访谈数据"
+iflow "请使用场域分析专家研究中国教育场域"
+
+# 通过Stigmergy跨CLI调用
+stigmergy use claude "使用sna-expert分析这个网络数据"
+stigmergy use qwen "使用grounded-theory-expert进行编码"
+```
+
+## 🎯 支持的AI CLI工具
+
+| 工具 | 版本 | 状态 | 技能识别 | 部署命令 |
+|------|------|------|----------|----------|
+| **Claude Code** | 2.0.73 | ✅ 完全支持 | ✅ 13/13 | `ssci deploy claude` |
+| **Qwen CLI** | 0.5.0 | ✅ 完全支持 | ✅ 13/13 | `ssci deploy qwen` |
+| **iFlow CLI** | 0.4.7 | ✅ 完全支持 | ✅ 13/13 | `ssci deploy iflow` |
+| **Gemini CLI** | 0.21.0 | ✅ 完全支持 | ✅ 13/13 | `ssci deploy gemini` |
+| **CodeBuddy CLI** | 2.20.1 | ✅ 完全支持 | ⚠️ 需适配 | `ssci deploy codebuddy` |
+| **Codex CLI** | 0.73.0 | ✅ 完全支持 | ⚠️ 需适配 | `ssci deploy codex` |
+| **QoderCLI** | 0.1.15 | ✅ 完全支持 | ❌ 需登录 | `ssci deploy qodercli` |
+
+## 📦 包含内容
+
+### 🧠 专业智能体 (6个)
+
+| 智能体 | 核心技能 | 专业领域 |
+|--------|----------|----------|
+| **literature-expert** | 文献管理、引用处理、学术写作 | 中文社会科学文献研究 |
+| **grounded-theory-expert** | 扎根理论编码、理论构建 | 质性研究方法论 |
+| **sna-expert** | 社会网络分析、中心性计算 | 网络科学研究 |
+| **field-analysis-expert** | 布迪厄场域分析、资本分析 | 社会学理论研究 |
+| **ant-expert** | 行动者网络理论、转译分析 | 科技社会学研究 |
+| **chinese-localization-expert** | 中文本土化、学术表达优化 | 跨文化研究 |
+
+### 🛠️ 专业技能包 (13个)
+
+#### 📝 编码技能 (5个)
+- `performing-open-coding` - 开放编码：中文质性数据概念识别、初始编码、持续比较
+- `performing-axial-coding` - 轴心编码：范畴识别、属性维度分析、关系建立
+- `performing-selective-coding` - 选择式编码：核心范畴识别、故事线构建、理论框架整合
+- `checking-theory-saturation` - 理论饱和度检验：新概念识别、范畴完善度评估
+- `writing-grounded-theory-memos` - 扎根理论备忘录：过程记录、反思分析、理论备忘录
+
+#### 📊 分析技能 (3个)
+- `performing-centrality-analysis` - 中心性分析：度中心性、接近中心性、介数中心性、特征向量中心性
+- `performing-network-computation` - 网络计算分析：网络构建、基础指标计算、社区检测、网络可视化
+- `processing-network-data` - 网络数据处理：关系数据收集、矩阵构建、数据清洗验证
+
+#### 🎓 方法论技能 (1个)
+- `resolving-research-conflicts` - 研究冲突解决：理论分歧、方法论争议、解释冲突、价值观分歧
+
+#### 📁 特殊目录技能 (4个)
+- `conflict-resolution` - 冲突解决工具
+- `mathematical-statistics` - 数理统计分析
+- `network-computation` - 网络计算
+- `validity-reliability` - 信效度分析
+
+## 🔧 部署方案对比
+
+### 方案1：原生部署（简单直接）
+```bash
+npm install -g ssci-subagent-skills
+ssci deploy --all
+```
+**优势**：无需额外依赖，直接部署到各CLI
+**适用**：个人使用，简单场景
+
+### 方案2：Stigmergy统一管理（推荐）
+```bash
+npm install -g stigmergy
+cp -r skills/* ~/.stigmergy/skills/
+stigmergy skill sync
+```
+**优势**：统一管理、跨CLI路由、技能市场
+**适用**：团队协作，复杂场景
+
+### 方案3：OpenSkills适配器
+```bash
+node adapters/openskills-universal-adapter.js --cli qwen
+```
+**优势**：深度适配、格式转换、触发优化
+**适用**：特殊需求，定制化场景
+- `qualitative-analysis-skill` - 质性分析：模式识别、主题提取、解释构建
+
+#### ✍️ 写作技能
+- `paper-structure-skill` - 论文结构：IMRAD结构、逻辑框架、章节组织
+- `academic-expression-skill` - 学术表达：术语使用、语言规范、文体风格
+
+#### 🔬 方法论技能
+- `research-design-skill` - 研究设计：问题构建、假设发展、方法论选择
+- `validity-assessment-skill` - 效度评估：内容效度、构念效度、外部效度
+
+## 🔧 使用方法
+
+### 快速开始
+
+1. **安装并部署**
+   ```bash
+   npm install -g ssci-subagent-skills
+   ssci deploy --all
+   ```
+
+2. **在AI CLI中使用**
+   ```bash
+   # Claude Code
+   claude
+   > 请用扎根理论专家帮我分析这段访谈文本
+
+   # Qwen CLI
+   qwen
+   > 使用社会网络分析专家分析这个关系数据
+
+   # iFlow CLI
+   iflow
+   > 请文献管理专家帮我搜索关于数字鸿沟的中文文献
+   ```
+
+### 高级用法
 
 ```bash
-# 克隆仓库
-git clone https://github.com/your-repo/chinese-social-sciences-subagents.git
+# 检测已安装的AI CLI工具
+ssci detect
 
-# 安装到Claude Code
-cp -r agents/* ~/.claude/agents/
-cp -r skills/* ~/.claude/skills/
+# 交互式设置和部署
+ssci setup
 
-# 重启Claude Code即可使用
+# 部署到特定CLI工具
+ssci deploy claude
+ssci deploy qwen
+ssci deploy iflow
+
+# 验证部署状态
+ssci validate
+ssci validate --verbose
+
+# 卸载技能包
+ssci uninstall --all
+
+# 更新到最新版本
+ssci update
+
+# 显示包信息
+ssci info
 ```
 
-### Qwen CLI用户
+### 在研究中的应用
+
+#### 扎根理论研究示例
+```bash
+# 启动Claude Code
+claude
+
+# 对话示例
+用户: 我正在进行大学生在线学习体验的扎根理论研究，请使用扎根理论专家帮我进行开放编码
+
+Claude: [自动加载扎根理论专家]
+我将帮助您进行扎根理论的开放编码分析。请提供您的访谈文本，我会：
+
+1. **文本预处理**: 清理和分段您的质性数据
+2. **概念识别**: 识别有意义的理论概念
+3. **初始编码**: 生成行动导向的编码
+4. **持续比较**: 在不同数据片段间进行比较
+5. **备忘录撰写**: 记录分析过程中的思考和发现
+
+请上传您的访谈文本文件或直接粘贴文本内容...
+```
+
+#### 社会网络分析示例
+```bash
+# 启动Qwen CLI
+qwen
+
+# 对话示例
+用户: 请使用社会网络分析专家帮我分析企业创新网络数据
+
+Qwen: [自动加载社会网络分析专家]
+我将协助您进行社会网络分析。根据您的需求，我可以：
+
+1. **网络数据处理**: 清洗和预处理您的网络数据
+2. **中心性分析**: 计算度中心性、介数中心性、特征向量中心性
+3. **结构洞分析**: 识别网络中的关键位置和桥梁节点
+4. **凝聚子群识别**: 发现有紧密联系的网络群体
+5. **网络可视化**: 生成直观的网络关系图
+
+请提供您的网络数据（边列表或邻接矩阵格式），我将开始分析...
+```
+
+## 🏗️ 系统架构
+
+```
+npm包(ssci-subagent-skills)
+    ↓ 一键部署
+AI CLI工具 (Claude/Qwen/iFlow)
+    ↓ 加载Subagent
+专业智能体 (扎根理论专家等)
+    ↓ 调用技能工具
+专业技能包 (编码/分析/写作技能)
+    ↓ 执行分析任务
+专业化研究结果
+```
+
+## 📋 系统要求
+
+- **Node.js**: 14.0.0 或更高版本
+- **AI CLI工具**: Claude Code / Qwen CLI / iFlow CLI (至少一个)
+- **操作系统**: Windows 10+, macOS 10.15+, Ubuntu 18.04+
+
+## 🔍 部署验证
+
+安装完成后，验证部署是否成功：
 
 ```bash
-# 克隆仓库
-git clone https://github.com/your-repo/chinese-social-sciences-subagents.git
-
-# 使用适配器转换并安装
-cd chinese-social-sciences-subagents
-node adapters/qwen-cli-adapter.js --install
-
-# 重启Qwen CLI即可使用
+ssci validate --verbose
 ```
 
-### iFlow CLI用户
+预期输出：
+```
+🔍 验证部署状态...
 
-```bash
-# 克隆仓库
-git clone https://github.com/your-repo/chinese-social-sciences-subagents.git
-
-# 使用适配器转换并安装
-cd chinese-social-sciences-subagents
-node adapters/iflow-cli-adapter.js --install
-
-# 重启iFlow CLI即可使用
+📊 验证结果:
+  ✓ claude: 完整部署 (6个智能体, 12个技能)
+    ✓ 智能体: literature-expert
+    ✓ 智能体: grounded-theory-expert
+    ✓ 技能: coding/open-coding-skill
+    ✓ 技能: analysis/centrality-analysis-skill
+    ...
 ```
 
-## 📚 核心功能
+## 🤝 贡献
 
-### 📖 文献管理专家 (literature-expert)
-
-**专业能力**：
-- 中文文献检索（知网、万方、维普）
-- 文献质量评估
-- GB/T 7714标准引用格式化
-- 研究趋势分析
-- 个性化文献推荐
-
-**使用示例**：
-```
-"用文献专家帮我搜索关于'数字鸿沟'的中文社会学文献"
-"检查我的论文引用格式是否符合GB/T 7714标准"
-"分析'人工智能在教育中的应用'这个领域的研究趋势"
-```
-
-### 🌱 扎根理论专家 (grounded-theory-expert)
-
-**专业能力**：
-- 开放编码：概念识别、初始编码
-- 轴心编码：范畴建立、关系分析
-- 选择式编码：核心范畴、理论构建
-- 理论饱和度检验
-- 中文语境适配
-
-**技能包**：
-- `open-coding-skill.md` - 开放编码技能
-- `axial-coding-skill.md` - 轴心编码技能
-- `selective-coding-skill.md` - 选择式编码技能
-
-### 🕸️ 社会网络分析专家 (sna-expert)
-
-**专业能力**：
-- 网络数据收集与处理
-- 中心性分析、结构洞分析
-- 凝聚子群识别
-- 网络可视化
-- 中文网络关系解释
-
-**技能包**：
-- `network-data-skill.md` - 网络数据处理
-- `centrality-analysis-skill.md` - 中心性分析
-- `network-viz-skill.md` - 网络可视化
-
-### 🏛️ 场域分析专家 (field-analysis-expert)
-
-**专业能力**：
-- 场域识别与边界确定
-- 资本类型分析（经济、社会、文化）
-- 习性模式识别
-- 场域动力学分析
-- 中国本土场域案例
-
-### 🔗 ANT专家 (ant-expert)
-
-**专业能力**：
-- 行动者识别（人类与非人类）
-- 转译过程分析
-- 网络构建与追踪
-- 权力关系分析
-- 中文案例应用
-
-### 🇨🇳 中文本土化专家 (chinese-localization-expert)
-
-**专业能力**：
-- 中文学术概念本土化
-- 研究方法论适配
-- 文化语境分析
-- 学术写作优化
-- 术语标准化
-
-## 🛠️ 技能包体系
-
-### 编码技能系列
-- `open-coding-skill.md` - 开放编码技能
-- `axial-coding-skill.md` - 轴心编码技能
-- `selective-coding-skill.md` - 选择式编码技能
-- `memo-writing-skill.md` - 备忘录写作技能
-- `code-validation-skill.md` - 编码验证技能
-
-### 分析技能系列
-- `qualitative-analysis-skill.md` - 质性分析技能
-- `quantitative-analysis-skill.md` - 定量分析技能
-- `mixed-methods-skill.md` - 混合方法技能
-- `data-viz-skill.md` - 数据可视化技能
-- `statistical-interpretation-skill.md` - 统计解释技能
-
-### 写作技能系列
-- `paper-structure-skill.md` - 论文结构技能
-- `academic-expression-skill.md` - 学术表达技能
-- `logic-coherence-skill.md` - 逻辑连贯性技能
-- `citation-formatting-skill.md` - 引用格式化技能
-- `writing-template-skill.md` - 写作模板技能
-
-### 方法论技能系列
-- `research-design-skill.md` - 研究设计技能
-- `sampling-strategy-skill.md` - 抽样策略技能
-- `data-collection-skill.md` - 数据收集技能
-- `validity-assessment-skill.md` - 效度评估技能
-- `ethical-review-skill.md` - 伦理审查技能
-
-## 🔧 CLI工具适配
-
-### Claude Code适配
-- 标准Subagent格式支持
-- 技能包完整兼容
-- 工具权限自动映射
-
-### Qwen CLI适配
-- JSON配置格式转换
-- 模型选择优化
-- 工具权限映射
-
-### iFlow CLI适配
-- 配置格式转换
-- 市场集成准备
-- 工作流支持
-
-## 📖 使用指南
-
-### 基础使用
-
-1. **选择合适的Subagent**：根据研究需求选择对应专家
-2. **明确任务描述**：清晰描述需要完成的任务
-3. **提供必要材料**：上传相关文档和数据
-4. **跟进结果反馈**：根据输出结果进行调整
-
-### 高级技巧
-
-1. **组合使用**：多个Subagent协作完成复杂任务
-2. **技能调用**：在Subagent中调用特定技能
-3. **自定义配置**：根据个人需求调整配置
-4. **批量处理**：使用脚本批量处理多个任务
-
-### 最佳实践
-
-1. **任务分解**：将复杂任务分解为多个子任务
-2. **上下文保持**：保持对话上下文的连贯性
-3. **结果验证**：对AI生成结果进行人工验证
-4. **持续学习**：根据使用反馈不断优化
-
-## 🌐 Web平台
-
-本项目提供Web展示平台，功能包括：
-
-- **产品展示**：详细介绍所有Subagents和Skills
-- **智能客服**：基于AI的使用问题解答
-- **下载管理**：版本选择和自动更新
-- **用户社区**：经验交流和案例分享
-- **在线文档**：完整的使用文档和API参考
-
-访问地址：https://chinese-social-sciences-subagents.example.com
-
-## 🤝 贡献指南
-
-我们欢迎社区贡献！请参考以下方式：
-
-### 贡献类型
-
-1. **新增Subagents**：开发新的专业领域Subagent
-2. **技能包扩展**：添加新的技能包
-3. **适配器改进**：优化CLI工具适配
-4. **文档完善**：改进使用文档和示例
-5. **Bug修复**：报告和修复问题
-
-### 提交流程
-
-1. Fork项目仓库
-2. 创建功能分支
-3. 提交代码更改
-4. 创建Pull Request
-5. 等待审核和合并
-
-### 开发规范
-
-1. **代码风格**：遵循项目代码规范
-2. **文档标准**：提供完整的文档说明
-3. **测试要求**：确保功能正常工作
-4. **兼容性**：保证多CLI工具兼容
+欢迎社区贡献！请访问 [GitHub仓库](https://github.com/ssci-subagent-skills/ssci-subagent-skills) 提交Issue和Pull Request。
 
 ## 📄 许可证
 
-本项目采用MIT许可证，详见[LICENSE](LICENSE)文件。
+MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ## 🙏 致谢
 
-感谢以下开源项目和社区的支持：
-
-- [Claude Code](https://claude.com/code) - Subagent架构灵感
-- [Qwen CLI](https://github.com/QwenLM/qwen-code) - 国产CLI工具支持
-- [iFlow CLI](https://github.com/iflow-ai/iflow-cli) - 国产CLI工具支持
+- [Claude Code](https://claude.com/code) - Subagent架构支持
+- [Qwen CLI](https://github.com/QwenLM/qwen-code) - 国产CLI工具
+- [iFlow CLI](https://github.com/iflow-ai/iflow-cli) - 国产CLI工具
 - 中文社会科学研究社区 - 需求反馈和测试
-
-## 📞 联系我们
-
-- **项目主页**：https://github.com/your-repo/chinese-social-sciences-subagents
-- **问题反馈**：https://github.com/your-repo/chinese-social-sciences-subagents/issues
-- **邮箱联系**：contact@chinese-social-sciences-subagents.example.com
-- **微信群**：扫码加入用户交流群
 
 ---
 
 **让AI成为中文社会科学研究的得力助手！** 🚀
+
+更多信息请访问: https://github.com/ssci-subagent-skills/ssci-subagent-skills

@@ -1,0 +1,79 @@
+{
+  "name": "ant-skills",
+  "version": "2.0.0",
+  "description": "ANT理论参与者识别和网络分析技能包 - 基于SOLID原则和TDD方法实现",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "demo": "node examples/demo.js",
+    "validate": "npm run lint && npm test"
+  },
+  "keywords": [
+    "actor-network-theory",
+    "social-network-analysis",
+    "participant-identification",
+    "network-analysis",
+    "chinese-text",
+    "solprinciples",
+    "tdd"
+  ],
+  "author": "ANT Skills Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "jieba": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "@jest/globals": "^29.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "participant-skill/src/**/*.js",
+      "network-skill/src/**/*.js",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es2021": true,
+      "jest": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "warn",
+      "prefer-const": "error",
+      "no-var": "error"
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-skills/ant-skills-package"
+  },
+  "bugs": {
+    "url": "https://github.com/ant-skills/ant-skills-package/issues"
+  },
+  "homepage": "https://github.com/ant-skills/ant-skills-package#readme"
+}

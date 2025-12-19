@@ -16,22 +16,22 @@
 
 ### 1. 文献管理专家 (literature-expert)
 **核心技能**：
-- ✅ processing-citations.md (引用处理)
-- ✅ literature-search.md (文献检索)
-- ✅ quality-assessment.md (质量评估)
+- ✅ processing-citations (引用处理)
+- ✅ writing (学术写作)
+- ✅ validity-reliability (信效度分析)
 
 **通用技能**：
-- ✅ paper-structure-skill.md (论文结构)
-- ✅ academic-writing-skill.md (学术写作)
-- ✅ research-design-skill.md (研究设计)
+- ✅ performing-centrality-analysis (中心性分析)
+- ✅ mathematical-statistics (数理统计)
+- ✅ research-design (研究设计)
 
 ### 2. 扎根理论专家 (grounded-theory-expert)
 **核心技能**：
-- ✅ open-coding-skill.md (开放编码)
-- ✅ axial-coding-skill.md (轴心编码)
-- ✅ selective-coding-skill.md (选择式编码)
-- ✅ memo-writing-skill.md (备忘录写作)
-- ✅ theory-saturation-skill.md (理论饱和度检验)
+- ✅ performing-open-coding (开放编码)
+- ✅ performing-axial-coding (轴心编码)
+- ✅ performing-selective-coding (选择式编码)
+- ✅ checking-theory-saturation (理论饱和度检验)
+- ✅ writing-grounded-theory-memos (备忘录写作)
 
 **通用技能**：
 - ✅ qualitative-analysis-skill.md (质性分析)
@@ -40,11 +40,11 @@
 
 ### 3. 社会网络分析专家 (sna-expert)
 **核心技能**：
-- ✅ network-data-skill.md (网络数据处理)
-- ✅ centrality-analysis-skill.md (中心性分析)
-- ✅ network-viz-skill.md (网络可视化)
-- ✅ structural-holes-skill.md (结构洞分析)
-- ✅ community-detection-skill.md (社区发现)
+- ✅ processing-network-data (网络数据处理)
+- ✅ performing-centrality-analysis (中心性分析)
+- ✅ performing-network-computation (网络计算分析)
+- ✅ validity-reliability (信效度分析)
+- ✅ mathematical-statistics (数理统计)
 
 **通用技能**：
 - ✅ statistical-analysis-skill.md (统计分析)
@@ -53,42 +53,32 @@
 
 ### 4. 场域分析专家 (field-analysis-expert)
 **核心技能**：
-- ✅ field-mapping-skill.md (场域映射)
-- ✅ capital-analysis-skill.md (资本分析)
-- ✅ habitus-analysis-skill.md (习性分析)
-- ✅ field-dynamics-skill.md (场域动力学)
-- ✅ chinese-field-cases-skill.md (中文场域案例)
+- ✅ field-analysis (场域分析)
 
 **通用技能**：
-- ✅ qualitative-analysis-skill.md (质性分析)
-- ✅ case-study-skill.md (案例研究)
-- ✅ cultural-analysis-skill.md (文化分析)
+- ✅ performing-centrality-analysis (中心性分析)
+- ✅ mathematical-statistics (数理统计)
+- ✅ validity-reliability (信效度分析)
+- ✅ conflict-resolution (冲突解决)
 
 ### 5. ANT专家 (ant-expert)
 **核心技能**：
-- ✅ actor-identification-skill.md (行动者识别)
-- ✅ translation-analysis-skill.md (转译过程分析)
-- ✅ network-tracing-skill.md (网络追踪)
-- ✅ power-relations-skill.md (权力关系分析)
-- ✅ ant-case-studies-skill.md (ANT案例研究)
+- ✅ ant (行动者网络理论)
 
 **通用技能**：
-- ✅ qualitative-analysis-skill.md (质性分析)
-- ✅ process-tracing-skill.md (过程追踪)
-- ✅ case-study-skill.md (案例研究)
+- ✅ field-analysis (场域分析)
+- ✅ conflict-resolution (冲突解决)
+- ✅ validity-reliability (信效度分析)
 
 ### 6. 中文本土化专家 (chinese-localization-expert)
 **核心技能**：
-- ✅ concept-localization-skill.md (概念本土化)
-- ✅ methodology-adaptation-skill.md (方法论适配)
-- ✅ cultural-context-skill.md (文化语境分析)
-- ✅ academic-chinese-skill.md (中文学术写作)
-- ✅ terminology-standardization-skill.md (术语标准化)
+- ✅ conflict-resolution (冲突解决)
 
 **通用技能**：
-- ✅ cross-cultural-analysis-skill.md (跨文化分析)
-- ✅ translation-theory-skill.md (翻译理论)
-- ✅ comparative-study-skill.md (比较研究)
+- ✅ field-analysis (场域分析)
+- ✅ ant (行动者网络理论)
+- ✅ validity-reliability (信效度分析)
+- ✅ mathematical-statistics (数理统计)
 
 ## 🛠️ 技能开发优先级
 

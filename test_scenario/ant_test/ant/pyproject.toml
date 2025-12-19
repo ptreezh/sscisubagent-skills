@@ -1,0 +1,16 @@
+[project]
+name = "ant"
+version = "1.0.0"
+description = "行动者网络理论分析工具集：参与者识别、关系网络、转译追踪"
+requires-python = ">=3.8"
+dependencies = [
+    "networkx>=3.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+]
+
+[tool.uv]
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

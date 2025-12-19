@@ -1,0 +1,236 @@
+{
+  "summary": {
+    "n_respondents": 5,
+    "n_valid_respondents": 5,
+    "n_rules_applied": 1,
+    "data_quality_score": 100.0,
+    "processing_time": 0.0
+  },
+  "details": {
+    "cleaned_data": [
+      {
+        "id": "R001",
+        "name": "张教授",
+        "department": "计算机科学",
+        "position": "教授",
+        "age": 45.0,
+        "gender": "男",
+        "collaborators": [
+          {
+            "name": "李教授",
+            "frequency": "每周",
+            "type": "研究合作"
+          },
+          {
+            "name": "王副教授",
+            "frequency": "每月",
+            "type": "项目指导"
+          },
+          {
+            "name": "陈研究员",
+            "frequency": "每季度",
+            "type": "学术交流"
+          }
+        ],
+        "publications": 45.0,
+        "h_index": 22.0,
+        "research_areas": [
+          "人工智能",
+          "机器学习",
+          "数据挖掘"
+        ],
+        "grant_amount": 1200000.0
+      },
+      {
+        "id": "R002",
+        "name": "李教授",
+        "department": "计算机科学",
+        "position": "教授",
+        "age": 48.0,
+        "gender": "男",
+        "collaborators": [
+          {
+            "name": "张教授",
+            "frequency": "每周",
+            "type": "研究合作"
+          },
+          {
+            "name": "赵副教授",
+            "frequency": "每月",
+            "type": "论文合著"
+          },
+          {
+            "name": "孙讲师",
+            "frequency": "每季度",
+            "type": "学术评审"
+          }
+        ],
+        "publications": 38.0,
+        "h_index": 18.0,
+        "research_areas": [
+          "计算机网络",
+          "分布式系统",
+          "云计算"
+        ],
+        "grant_amount": 800000.0
+      },
+      {
+        "id": "R003",
+        "name": "王副教授",
+        "department": "软件工程",
+        "position": "副教授",
+        "age": 38.0,
+        "gender": "女",
+        "collaborators": [
+          {
+            "name": "张教授",
+            "frequency": "每月",
+            "type": "项目指导"
+          },
+          {
+            "name": "周博士",
+            "frequency": "每周",
+            "type": "师生指导"
+          },
+          {
+            "name": "吴硕士",
+            "frequency": "每周",
+            "type": "研究协助"
+          }
+        ],
+        "publications": 25.0,
+        "h_index": 12.0,
+        "research_areas": [
+          "软件工程",
+          "形式化方法",
+          "程序验证"
+        ],
+        "grant_amount": 400000.0
+      },
+      {
+        "id": "R004",
+        "name": "陈研究员",
+        "department": "人工智能",
+        "position": "研究员",
+        "age": 35.0,
+        "gender": "男",
+        "collaborators": [
+          {
+            "name": "张教授",
+            "frequency": "每季度",
+            "type": "学术交流"
+          },
+          {
+            "name": "郑副教授",
+            "frequency": "每月",
+            "type": "实验合作"
+          },
+          {
+            "name": "钱讲师",
+            "frequency": "每季度",
+            "type": "项目咨询"
+          }
+        ],
+        "publications": 32.0,
+        "h_index": 15.0,
+        "research_areas": [
+          "深度学习",
+          "计算机视觉",
+          "自然语言处理"
+        ],
+        "grant_amount": 600000.0
+      },
+      {
+        "id": "R005",
+        "name": "赵副教授",
+        "department": "数据科学",
+        "position": "副教授",
+        "age": 42.0,
+        "gender": "女",
+        "collaborators": [
+          {
+            "name": "李教授",
+            "frequency": "每月",
+            "type": "论文合著"
+          },
+          {
+            "name": "郑副教授",
+            "frequency": "每周",
+            "type": "数据共享"
+          },
+          {
+            "name": "孙讲师",
+            "frequency": "每季度",
+            "type": "课程合作"
+          }
+        ],
+        "publications": 28.0,
+        "h_index": 13.0,
+        "research_areas": [
+          "数据挖掘",
+          "大数据",
+          "统计分析"
+        ],
+        "grant_amount": 500000.0
+      }
+    ],
+    "rules_applied": [
+      "清洗受访者数据格式"
+    ],
+    "cleaning_stats": {
+      "original_count": 5,
+      "invalid_removed": 0,
+      "no_collaborator_removed": 0,
+      "final_count": 5
+    },
+    "outliers": {},
+    "cleaning_report": {
+      "data_quality_score": 100.0,
+      "completeness": {
+        "id": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        },
+        "name": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        },
+        "department": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        },
+        "position": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        },
+        "age_numeric": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        },
+        "publications_numeric": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        },
+        "h_index_numeric": {
+          "complete": 5,
+          "total": 5,
+          "rate": 100.0
+        }
+      },
+      "consistency": {},
+      "issues_detected": []
+    }
+  },
+  "metadata": {
+    "input_file": "survey_data.json",
+    "timestamp": "2025-12-19T17:10:15.214497",
+    "version": "1.0.0",
+    "skill": "processing-network-data"
+  }
+}

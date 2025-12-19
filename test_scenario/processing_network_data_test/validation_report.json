@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "is_valid": true,
+    "validation_score": 100,
+    "n_checks": 3,
+    "n_issues": 0,
+    "n_warnings": 0,
+    "processing_time": 0.0
+  },
+  "details": {
+    "validation_results": {
+      "edgelist": {
+        "issues": [],
+        "warnings": [],
+        "n_edges": 11,
+        "n_self_loops": 0,
+        "n_duplicates": 0
+      },
+      "node_attributes": {
+        "issues": [],
+        "warnings": [],
+        "n_nodes": 10,
+        "n_empty_nodes": 0
+      },
+      "network_consistency": {
+        "issues": [],
+        "warnings": [],
+        "n_edge_nodes": 10,
+        "n_attr_nodes": 10,
+        "n_missing_attrs": 0,
+        "n_isolated": 0
+      }
+    },
+    "recommendations": [
+      "数据质量良好，无明显问题"
+    ]
+  },
+  "metadata": {
+    "input_file": "network_data.json",
+    "timestamp": "2025-12-19T17:10:15.625189",
+    "version": "1.0.0",
+    "skill": "processing-network-data"
+  }
+}

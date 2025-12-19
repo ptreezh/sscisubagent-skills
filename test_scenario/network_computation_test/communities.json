@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "n_nodes": 11,
+    "n_edges": 14,
+    "n_communities": 3,
+    "modularity": 0.21506519274376418,
+    "method": "louvain",
+    "processing_time": 0.01
+  },
+  "details": {
+    "community_detection": {
+      "communities": [
+        [
+          "孙讲师",
+          "王副教授",
+          "李教授",
+          "张教授",
+          "周博士"
+        ],
+        [
+          "郑副教授",
+          "吴硕士",
+          "陈研究员",
+          "刘博士"
+        ],
+        [
+          "钱讲师",
+          "赵副教授"
+        ]
+      ],
+      "node_to_community": {
+        "孙讲师": 0,
+        "王副教授": 0,
+        "李教授": 0,
+        "张教授": 0,
+        "周博士": 0,
+        "郑副教授": 1,
+        "吴硕士": 1,
+        "陈研究员": 1,
+        "刘博士": 1,
+        "钱讲师": 2,
+        "赵副教授": 2
+      },
+      "n_communities": 3,
+      "modularity": 0.21506519274376418,
+      "method": "louvain"
+    },
+    "community_analysis": {
+      "community_sizes": [
+        5,
+        4,
+        2
+      ],
+      "largest_community_size": 5,
+      "smallest_community_size": 2,
+      "avg_community_size": 3.6666666666666665,
+      "size_std": 1.247219128924647,
+      "internal_edge_ratio": 0.6428571428571429,
+      "external_edge_ratio": 0.35714285714285715,
+      "bridge_nodes": [
+        {
+          "node": "李教授",
+          "community": 0,
+          "connected_communities": 3,
+          "neighbors": [
+            "张教授",
+            "陈研究员",
+            "赵副教授",
+            "孙讲师"
+          ]
+        },
+        {
+          "node": "陈研究员",
+          "community": 1,
+          "connected_communities": 3,
+          "neighbors": [
+            "李教授",
+            "郑副教授",
+            "钱讲师"
+          ]
+        },
+        {
+          "node": "张教授",
+          "community": 0,
+          "connected_communities": 2,
+          "neighbors": [
+            "李教授",
+            "王副教授",
+            "刘博士",
+            "郑副教授"
+          ]
+        },
+        {
+          "node": "刘博士",
+          "community": 1,
+          "connected_communities": 2,
+          "neighbors": [
+            "张教授",
+            "吴硕士"
+          ]
+        },
+        {
+          "node": "郑副教授",
+          "community": 1,
+          "connected_communities": 2,
+          "neighbors": [
+            "张教授",
+            "陈研究员",
+            "吴硕士"
+          ]
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "input_file": "network_edgelist.json",
+    "timestamp": "2025-12-19T17:02:56.139084",
+    "version": "1.0.0",
+    "skill": "performing-network-computation"
+  }
+}

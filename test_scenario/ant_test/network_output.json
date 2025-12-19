@@ -1,0 +1,171 @@
+{
+  "summary": {
+    "case_study": "新能源汽车推广项目",
+    "n_actors": 5,
+    "n_relations": 6,
+    "n_phases": 4,
+    "cohesion_score": 0.1,
+    "processing_time": 0.0
+  },
+  "details": {
+    "network_structure": {
+      "matrix": [
+        [
+          0.0,
+          0.8,
+          0.0,
+          0.7,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0,
+          0.4,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.6,
+          0.0
+        ]
+      ],
+      "actors": [
+        "市政府",
+        "汽车制造商",
+        "环保组织",
+        "消费者",
+        "电力公司"
+      ]
+    },
+    "centrality_measures": {
+      "degree": {
+        "市政府": 0.25,
+        "汽车制造商": 0.21250000000000002,
+        "环保组织": 0.1125,
+        "消费者": 0.325,
+        "电力公司": 0.075
+      },
+      "closeness": {
+        "市政府": 1.4933333333333332,
+        "汽车制造商": 3.5999999999999996,
+        "环保组织": 0.8888888888888888,
+        "消费者": 0,
+        "电力公司": 2.4
+      },
+      "betweenness": {
+        "市政府": 0.0,
+        "汽车制造商": 0.0,
+        "环保组织": 0.0,
+        "消费者": 0.0,
+        "电力公司": 0.0
+      },
+      "eigenvector": {
+        "市政府": 0.0,
+        "汽车制造商": 0.0,
+        "环保组织": 0.0,
+        "消费者": 0.0,
+        "电力公司": 0.0
+      }
+    },
+    "network_roles": {
+      "核心行动者": [
+        "消费者"
+      ],
+      "桥梁行动者": [],
+      "边缘行动者": [
+        "电力公司"
+      ],
+      "影响者": []
+    },
+    "network_dynamics": {
+      "phases": [
+        {
+          "phase": "问题化",
+          "primary_actor": "市政府",
+          "enrolled_count": 2,
+          "enrolled_actors": [
+            "环保组织",
+            "媒体"
+          ],
+          "controversies": [
+            "污染责任认定",
+            "解决方案选择"
+          ]
+        },
+        {
+          "phase": "利益介入",
+          "primary_actor": "市政府",
+          "enrolled_count": 2,
+          "enrolled_actors": [
+            "汽车制造商",
+            "消费者"
+          ],
+          "controversies": [
+            "补贴标准",
+            "技术路线"
+          ]
+        },
+        {
+          "phase": "动员",
+          "primary_actor": "汽车制造商",
+          "enrolled_count": 2,
+          "enrolled_actors": [
+            "电力公司",
+            "服务商"
+          ],
+          "controversies": [
+            "设施布局",
+            "标准统一"
+          ]
+        },
+        {
+          "phase": "巩固",
+          "primary_actor": "多方联盟",
+          "enrolled_count": 1,
+          "enrolled_actors": [
+            "所有行动者"
+          ],
+          "controversies": [
+            "利益分配",
+            "长期维护"
+          ]
+        }
+      ],
+      "evolution_patterns": [],
+      "stability_metrics": {
+        "total_phases": 4,
+        "unique_actors": 7,
+        "average_enrollment": 1.75
+      }
+    },
+    "cohesion_analysis": {
+      "cohesion_score": 0.1,
+      "density": 0.3,
+      "components": 3,
+      "largest_component_size": 3
+    }
+  },
+  "metadata": {
+    "input_file": "ant_test_data.json",
+    "timestamp": "2025-12-19T15:45:12.603018",
+    "version": "1.0.0",
+    "skill": "ant"
+  }
+}

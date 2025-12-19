@@ -1,0 +1,585 @@
+{
+  "summary": {
+    "n_plans": 3,
+    "consensus_likelihood": 0.8,
+    "n_steps": 15,
+    "processing_time": 0.0
+  },
+  "details": {
+    "consensus_plans": [
+      {
+        "conflict_id": "C001",
+        "consensus_likelihood": 0.8,
+        "facilitation_process": {
+          "preparation": {
+            "goal": "会议准备",
+            "activities": [
+              "确定会议议程",
+              "准备背景材料",
+              "选择中立场地",
+              "邀请所有相关方"
+            ],
+            "time_required": "1-2天",
+            "responsible": "项目协调员"
+          },
+          "opening": {
+            "goal": "建立对话基础",
+            "activities": [
+              "欢迎与介绍",
+              "设定会议规则",
+              "明确讨论目标",
+              "建立信任氛围"
+            ],
+            "time_required": "15-30分钟",
+            "responsible": "主持人"
+          },
+          "exploration": {
+            "goal": "深入了解各方观点",
+            "activities": [
+              "各方陈述立场",
+              "倾听与理解",
+              "识别共同利益",
+              "澄清误解"
+            ],
+            "time_required": "60-90分钟",
+            "responsible": "全体参与者"
+          },
+          "negotiation": {
+            "goal": "寻找解决方案",
+            "activities": [
+              "头脑风暴方案",
+              "评估可行性",
+              "寻找折中点",
+              "初步达成一致"
+            ],
+            "time_required": "90-120分钟",
+            "responsible": "全体参与者"
+          },
+          "closure": {
+            "goal": "巩固共识",
+            "activities": [
+              "总结协议要点",
+              "明确下一步行动",
+              "设定跟进机制",
+              "表达感谢"
+            ],
+            "time_required": "30分钟",
+            "responsible": "主持人"
+          }
+        },
+        "facilitation_roles": {
+          "facilitator": {
+            "description": "中立主持人",
+            "required_skills": [
+              "沟通能力",
+              "冲突管理",
+              "中立性"
+            ],
+            "candidates": []
+          },
+          "mediator": {
+            "description": "外部调解员",
+            "required_skills": [
+              "专业知识",
+              "权威性",
+              "公正性"
+            ],
+            "candidates": []
+          },
+          "recorder": {
+            "description": "记录员",
+            "required_skills": [
+              "细致",
+              "客观",
+              "快速记录"
+            ],
+            "candidates": []
+          },
+          "timekeeper": {
+            "description": "时间管理员",
+            "required_skills": [
+              "时间管理",
+              "坚持原则"
+            ],
+            "candidates": []
+          }
+        },
+        "communication_plan": {
+          "before_meeting": {
+            "purpose": "会前沟通",
+            "activities": [
+              "发送会议通知",
+              "分享背景材料",
+              "个别沟通了解立场",
+              "确认参会时间"
+            ],
+            "channels": [
+              "邮件",
+              "电话",
+              "面对面"
+            ],
+            "frequency": "一次性"
+          },
+          "during_meeting": {
+            "purpose": "会议中沟通",
+            "activities": [
+              "结构化发言",
+              "积极倾听",
+              "建设性反馈",
+              "记录要点"
+            ],
+            "channels": [
+              "面对面",
+              "视频会议"
+            ],
+            "frequency": "持续"
+          },
+          "after_meeting": {
+            "purpose": "会后跟进",
+            "activities": [
+              "发送会议纪要",
+              "确认行动项",
+              "定期进度更新",
+              "问题及时沟通"
+            ],
+            "channels": [
+              "邮件",
+              "项目管理工具"
+            ],
+            "frequency": "每周"
+          }
+        },
+        "monitoring_mechanism": {
+          "progress_tracking": {
+            "method": "定期检查",
+            "frequency": "每周",
+            "indicators": [
+              "协议执行情况",
+              "各方满意度",
+              "新问题出现",
+              "整体进展"
+            ],
+            "responsible": "项目协调员"
+          },
+          "feedback_collection": {
+            "method": "匿名反馈",
+            "frequency": "每两周",
+            "channels": [
+              "在线表单",
+              "意见箱"
+            ],
+            "analysis": "月度汇总分析"
+          },
+          "escalation_process": {
+            "trigger_conditions": [
+              "协议无法执行",
+              "新的冲突出现",
+              "满意度低于60%"
+            ],
+            "steps": [
+              "紧急会议",
+              "外部调解",
+              "方案调整"
+            ],
+            "timeline": "48小时内响应"
+          }
+        },
+        "success_analysis": {
+          "probability": 0.8,
+          "confidence": "中",
+          "recommendation": "建议执行，需密切关注",
+          "key_factors": [
+            "process_completeness",
+            "resource_availability",
+            "stakeholder_commitment",
+            "time_adequacy"
+          ]
+        }
+      },
+      {
+        "conflict_id": "C002",
+        "consensus_likelihood": 0.8,
+        "facilitation_process": {
+          "preparation": {
+            "goal": "会议准备",
+            "activities": [
+              "确定会议议程",
+              "准备背景材料",
+              "选择中立场地",
+              "邀请所有相关方"
+            ],
+            "time_required": "1-2天",
+            "responsible": "项目协调员"
+          },
+          "opening": {
+            "goal": "建立对话基础",
+            "activities": [
+              "欢迎与介绍",
+              "设定会议规则",
+              "明确讨论目标",
+              "建立信任氛围"
+            ],
+            "time_required": "15-30分钟",
+            "responsible": "主持人"
+          },
+          "exploration": {
+            "goal": "深入了解各方观点",
+            "activities": [
+              "各方陈述立场",
+              "倾听与理解",
+              "识别共同利益",
+              "澄清误解"
+            ],
+            "time_required": "60-90分钟",
+            "responsible": "全体参与者"
+          },
+          "negotiation": {
+            "goal": "寻找解决方案",
+            "activities": [
+              "头脑风暴方案",
+              "评估可行性",
+              "寻找折中点",
+              "初步达成一致"
+            ],
+            "time_required": "90-120分钟",
+            "responsible": "全体参与者"
+          },
+          "closure": {
+            "goal": "巩固共识",
+            "activities": [
+              "总结协议要点",
+              "明确下一步行动",
+              "设定跟进机制",
+              "表达感谢"
+            ],
+            "time_required": "30分钟",
+            "responsible": "主持人"
+          }
+        },
+        "facilitation_roles": {
+          "facilitator": {
+            "description": "中立主持人",
+            "required_skills": [
+              "沟通能力",
+              "冲突管理",
+              "中立性"
+            ],
+            "candidates": []
+          },
+          "mediator": {
+            "description": "外部调解员",
+            "required_skills": [
+              "专业知识",
+              "权威性",
+              "公正性"
+            ],
+            "candidates": []
+          },
+          "recorder": {
+            "description": "记录员",
+            "required_skills": [
+              "细致",
+              "客观",
+              "快速记录"
+            ],
+            "candidates": []
+          },
+          "timekeeper": {
+            "description": "时间管理员",
+            "required_skills": [
+              "时间管理",
+              "坚持原则"
+            ],
+            "candidates": []
+          }
+        },
+        "communication_plan": {
+          "before_meeting": {
+            "purpose": "会前沟通",
+            "activities": [
+              "发送会议通知",
+              "分享背景材料",
+              "个别沟通了解立场",
+              "确认参会时间"
+            ],
+            "channels": [
+              "邮件",
+              "电话",
+              "面对面"
+            ],
+            "frequency": "一次性"
+          },
+          "during_meeting": {
+            "purpose": "会议中沟通",
+            "activities": [
+              "结构化发言",
+              "积极倾听",
+              "建设性反馈",
+              "记录要点"
+            ],
+            "channels": [
+              "面对面",
+              "视频会议"
+            ],
+            "frequency": "持续"
+          },
+          "after_meeting": {
+            "purpose": "会后跟进",
+            "activities": [
+              "发送会议纪要",
+              "确认行动项",
+              "定期进度更新",
+              "问题及时沟通"
+            ],
+            "channels": [
+              "邮件",
+              "项目管理工具"
+            ],
+            "frequency": "每周"
+          }
+        },
+        "monitoring_mechanism": {
+          "progress_tracking": {
+            "method": "定期检查",
+            "frequency": "每周",
+            "indicators": [
+              "协议执行情况",
+              "各方满意度",
+              "新问题出现",
+              "整体进展"
+            ],
+            "responsible": "项目协调员"
+          },
+          "feedback_collection": {
+            "method": "匿名反馈",
+            "frequency": "每两周",
+            "channels": [
+              "在线表单",
+              "意见箱"
+            ],
+            "analysis": "月度汇总分析"
+          },
+          "escalation_process": {
+            "trigger_conditions": [
+              "协议无法执行",
+              "新的冲突出现",
+              "满意度低于60%"
+            ],
+            "steps": [
+              "紧急会议",
+              "外部调解",
+              "方案调整"
+            ],
+            "timeline": "48小时内响应"
+          }
+        },
+        "success_analysis": {
+          "probability": 0.8,
+          "confidence": "中",
+          "recommendation": "建议执行，需密切关注",
+          "key_factors": [
+            "process_completeness",
+            "resource_availability",
+            "stakeholder_commitment",
+            "time_adequacy"
+          ]
+        }
+      },
+      {
+        "conflict_id": "C003",
+        "consensus_likelihood": 0.8,
+        "facilitation_process": {
+          "preparation": {
+            "goal": "会议准备",
+            "activities": [
+              "确定会议议程",
+              "准备背景材料",
+              "选择中立场地",
+              "邀请所有相关方"
+            ],
+            "time_required": "1-2天",
+            "responsible": "项目协调员"
+          },
+          "opening": {
+            "goal": "建立对话基础",
+            "activities": [
+              "欢迎与介绍",
+              "设定会议规则",
+              "明确讨论目标",
+              "建立信任氛围"
+            ],
+            "time_required": "15-30分钟",
+            "responsible": "主持人"
+          },
+          "exploration": {
+            "goal": "深入了解各方观点",
+            "activities": [
+              "各方陈述立场",
+              "倾听与理解",
+              "识别共同利益",
+              "澄清误解"
+            ],
+            "time_required": "60-90分钟",
+            "responsible": "全体参与者"
+          },
+          "negotiation": {
+            "goal": "寻找解决方案",
+            "activities": [
+              "头脑风暴方案",
+              "评估可行性",
+              "寻找折中点",
+              "初步达成一致"
+            ],
+            "time_required": "90-120分钟",
+            "responsible": "全体参与者"
+          },
+          "closure": {
+            "goal": "巩固共识",
+            "activities": [
+              "总结协议要点",
+              "明确下一步行动",
+              "设定跟进机制",
+              "表达感谢"
+            ],
+            "time_required": "30分钟",
+            "responsible": "主持人"
+          }
+        },
+        "facilitation_roles": {
+          "facilitator": {
+            "description": "中立主持人",
+            "required_skills": [
+              "沟通能力",
+              "冲突管理",
+              "中立性"
+            ],
+            "candidates": []
+          },
+          "mediator": {
+            "description": "外部调解员",
+            "required_skills": [
+              "专业知识",
+              "权威性",
+              "公正性"
+            ],
+            "candidates": []
+          },
+          "recorder": {
+            "description": "记录员",
+            "required_skills": [
+              "细致",
+              "客观",
+              "快速记录"
+            ],
+            "candidates": []
+          },
+          "timekeeper": {
+            "description": "时间管理员",
+            "required_skills": [
+              "时间管理",
+              "坚持原则"
+            ],
+            "candidates": []
+          }
+        },
+        "communication_plan": {
+          "before_meeting": {
+            "purpose": "会前沟通",
+            "activities": [
+              "发送会议通知",
+              "分享背景材料",
+              "个别沟通了解立场",
+              "确认参会时间"
+            ],
+            "channels": [
+              "邮件",
+              "电话",
+              "面对面"
+            ],
+            "frequency": "一次性"
+          },
+          "during_meeting": {
+            "purpose": "会议中沟通",
+            "activities": [
+              "结构化发言",
+              "积极倾听",
+              "建设性反馈",
+              "记录要点"
+            ],
+            "channels": [
+              "面对面",
+              "视频会议"
+            ],
+            "frequency": "持续"
+          },
+          "after_meeting": {
+            "purpose": "会后跟进",
+            "activities": [
+              "发送会议纪要",
+              "确认行动项",
+              "定期进度更新",
+              "问题及时沟通"
+            ],
+            "channels": [
+              "邮件",
+              "项目管理工具"
+            ],
+            "frequency": "每周"
+          }
+        },
+        "monitoring_mechanism": {
+          "progress_tracking": {
+            "method": "定期检查",
+            "frequency": "每周",
+            "indicators": [
+              "协议执行情况",
+              "各方满意度",
+              "新问题出现",
+              "整体进展"
+            ],
+            "responsible": "项目协调员"
+          },
+          "feedback_collection": {
+            "method": "匿名反馈",
+            "frequency": "每两周",
+            "channels": [
+              "在线表单",
+              "意见箱"
+            ],
+            "analysis": "月度汇总分析"
+          },
+          "escalation_process": {
+            "trigger_conditions": [
+              "协议无法执行",
+              "新的冲突出现",
+              "满意度低于60%"
+            ],
+            "steps": [
+              "紧急会议",
+              "外部调解",
+              "方案调整"
+            ],
+            "timeline": "48小时内响应"
+          }
+        },
+        "success_analysis": {
+          "probability": 0.8,
+          "confidence": "中",
+          "recommendation": "建议执行，需密切关注",
+          "key_factors": [
+            "process_completeness",
+            "resource_availability",
+            "stakeholder_commitment",
+            "time_adequacy"
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "input_file": "resolution_strategies.json",
+    "timestamp": "2025-12-19T17:20:33.320011",
+    "version": "1.0.0",
+    "skill": "conflict-resolution"
+  }
+}

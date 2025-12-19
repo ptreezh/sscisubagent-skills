@@ -1,0 +1,85 @@
+{
+  "summary": {
+    "autonomy_index": 0.3,
+    "autonomy_level": false,
+    "stability_index": 0.7,
+    "stability_level": "中等稳定",
+    "n_participants": 4,
+    "n_core_participants": 0,
+    "processing_time": 0.0
+  },
+  "details": {
+    "autonomy_analysis": {
+      "autonomy_index": 0.3,
+      "internal_autonomy": 0.5,
+      "external_dependency": 0.2,
+      "internal_scores": {
+        "internal_decision_making": {
+          "mean": 0.5,
+          "std": 0.0,
+          "weight": 0.3
+        },
+        "self_governance": {
+          "mean": 0.5,
+          "std": 0.0,
+          "weight": 0.3
+        },
+        "resource_control": {
+          "mean": 0.5,
+          "std": 0.0,
+          "weight": 0.2
+        },
+        "norm_autonomy": {
+          "mean": 0.5,
+          "std": 0.0,
+          "weight": 0.2
+        }
+      },
+      "external_factors": {
+        "political_pressure": 0.3,
+        "market_forces": 0.2,
+        "media_influence": 0.2,
+        "international_standards": 0.1
+      }
+    },
+    "power_analysis": {
+      "power_centrality": {
+        "张教授": 0,
+        "李副教授": 0,
+        "王博士": 0,
+        "刘硕士": 0
+      },
+      "power_levels": {
+        "张教授": "equal",
+        "李副教授": "equal",
+        "王博士": "equal",
+        "刘硕士": "equal"
+      },
+      "core_power": {},
+      "power_structure": {
+        "hierarchical": false,
+        "dominant_count": 0,
+        "peripheral_count": 0
+      }
+    },
+    "stability_analysis": {
+      "stability_index": 0.7,
+      "stability_level": "中等稳定",
+      "stability_factors": {
+        "autonomy": 0.3,
+        "power_concentration": 1.0,
+        "rule_consistency": 0.8,
+        "resource_stability": 0.7
+      },
+      "risk_factors": [
+        "autonomy"
+      ]
+    }
+  },
+  "metadata": {
+    "input_file": "test_data_fixed.json",
+    "timestamp": "2025-12-19T15:37:24.129896",
+    "version": "1.0.0",
+    "skill": "field-analysis"
+  }
+}

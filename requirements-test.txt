@@ -1,0 +1,54 @@
+# 测试依赖文件
+# 核心测试框架
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+pytest-asyncio>=0.21.0
+pytest-xdist>=3.0.0
+pytest-benchmark>=4.0.0
+
+# 代码质量
+flake8>=5.0.0
+black>=22.0.0
+isort>=5.10.0
+mypy>=1.0.0
+
+# 性能测试
+psutil>=5.9.0
+memory-profiler>=0.60.0
+py-spy>=0.3.14
+
+# 安全测试
+bandit>=1.7.0
+safety>=2.3.0
+
+# 文档测试
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
+
+# 并发测试
+pytest-parallel>=0.1.0
+
+# 模拟和存根
+responses>=0.22.0
+httpx>=0.24.0
+faker>=18.0.0
+
+# 数据库测试 (如果需要)
+pytest-postgresql>=5.0.0
+
+# Web测试 (如果需要Web界面)
+requests>=2.28.0
+werkzeug>=2.2.0
+
+# 报告生成
+pytest-html>=3.1.0
+pytest-json-report>=1.5.0
+
+# 调试工具
+ipdb>=0.13.0
+pdbpp>=0.10.0
+
+# 类型检查增强
+types-requests
+types-PyYAML

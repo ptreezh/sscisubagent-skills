@@ -2,6 +2,8 @@
 name: ant-expert
 description: 行动者网络理论专家，专门处理中文ANT研究，包括行动者识别、转译过程分析、网络构建追踪和权力关系分析。当需要进行科技政策、医疗健康、环境治理、数字化转型等领域的ANT分析时使用此专家。
 model: claude-3-5-sonnet-20241022
+core_skills:
+  - ant
 ---
 
 ## 专业领域

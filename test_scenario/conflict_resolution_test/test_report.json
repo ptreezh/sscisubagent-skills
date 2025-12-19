@@ -1,0 +1,31 @@
+{
+  "test_time": "2025-12-19T17:20:32.360670",
+  "test_results": [
+    {
+      "test": "冲突识别",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "冲突动态分析",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "解决策略生成",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "test": "共识促进",
+      "status": "PASSED",
+      "error": null
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "pass_rate": "100.0%"
+  }
+}
