@@ -1,115 +1,63 @@
 [project]
 name = "ssci-subagent-skills"
-version = "1.2.9"
-description = "SSCI中文社会科学研究技能包 - Claude Skills专用"
-authors = [{name = "SSCI SubAgent Skills", email = "skills@ssci.ai"}]
-readme = "README.md"
+version = "1.0.0"
+description = "SSCI中文社会科学研究技能包，提供高级依赖包支持和优雅降级机制"
+authors = [{name = "Chinese Social Sciences Subagents", email = "research@chinese-ssci.org"}]
 license = {text = "MIT"}
+readme = "README.md"
 requires-python = ">=3.8"
-keywords = ["social-science", "chinese", "claude-skills", "qualitative-analysis"]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Information Analysis",
-]
 
 dependencies = [
-    # 核心数据处理
-    "numpy>=1.20.0,<2.0.0",
-
-    # 中文文本处理
-    "jieba>=0.42.0",
-
-    # 网络分析
-    "networkx>=3.0.0",
-
-    # 数据处理和分析
-    "pandas>=1.5.0,<3.0.0",
-
-    # 可视化（可选）
-    "matplotlib>=3.5.0",
+    "numpy>=1.21.0",
+    "pandas>=1.3.0",
+    "scipy>=1.7.0",
+    "networkx>=2.6.0",
+    "matplotlib>=3.4.0",
+    "seaborn>=0.11.0",
+    "jieba>=0.42.1",
+    "requests>=2.25.0",
+    "pydantic>=1.8.0",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
-    "black>=22.0.0",
-    "ruff>=0.0.290",
+statistics = [
+    "statsmodels>=0.13.0",
+    "pingouin>=0.5.0",
+    "scikit-learn>=1.0.0",
 ]
-
-test = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
-    "pytest-mock>=3.10.0",
+network-analysis = [
+    "igraph>=0.10.0",
+    "python-louvain>=0.15.0",
+    "community>=1.0.0b1",
 ]
-
-docs = [
-    "mkdocs>=1.5.0",
-    "mkdocs-material>=9.0.0",
+nlp = [
+    "nltk>=3.6",
+    "spacy>=3.4.0",
+    "transformers>=4.20.0",
 ]
-
+psychometrics = [
+    "factor-analyzer>=0.5.0",
+    "pingouin>=0.5.0",
+    "statsmodels>=0.13.0",
+]
 all = [
-    "ssci-subagent-skills[dev,test,docs]",
+    "ssci-subagent-skills[statistics,network-analysis,nlp,psychometrics]",
 ]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
 
 [project.urls]
-Homepage = "https://github.com/ssci/subagent-skills"
-Documentation = "https://ssci-subagent-skills.readthedocs.io"
-Repository = "https://github.com/ssci/subagent-skills.git"
-Issues = "https://github.com/ssci/subagent-skills/issues"
+Homepage = "https://github.com/chinese-ssci-research/ssci-subagent-skills"
+Repository = "https://github.com/chinese-ssci-research/ssci-subagent-skills"
 
-[project.scripts]
-# 可执行脚本命令
-ssci-centrality = "skills.analysis.centrality-analysis.scripts.centrality:main"
-ssci-saturation = "skills.coding.theory-saturation.scripts.assess_saturation:main"
-ssci-preprocess = "skills.coding.open-coding.scripts.preprocess:main"
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["skills*", "agents*", "common*"]
 
-[tool.hatch.build.targets.wheel]
-packages = ["skills"]
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
 
-[tool.black]
-line-length = 88
-target-version = ['py38']
-include = '\.pyi?$'
-
-[tool.ruff]
-line-length = 88
-target-version = "py38"
-select = ["E", "F", "W", "I", "N", "B", "A", "C4", "ISC", "Q"]
-ignore = []
-
-[tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "-ra -q --strict-markers --strict-config"
-testpaths = ["tests"]
-python_files = ["test_*.py", "*_test.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-
-[tool.coverage.run]
-source = ["skills"]
-omit = [
-    "*/tests/*",
-    "*/test_*.py",
-    "*/__pycache__/*",
-]
-
-[tool.coverage.report]
-exclude_lines = [
-    "pragma: no cover",
-    "def __repr__",
-    "raise AssertionError",
-    "raise NotImplementedError",
-]
+# 配置依赖管理器
+[tool.dependency-manager]
+enabled = true
+auto-install = true
+fallback-enabled = true

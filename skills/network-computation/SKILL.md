@@ -6,77 +6,138 @@ author: chinese-social-sciences-subagents
 tags: [network-analysis, social-networks, centrality, community-detection, visualization]
 ---
 
-# Network Computation Skill for Social Sciences
+# Network Computation Analysis Skill
 
-## 技能概述
+## Overview
+社会网络计算分析技能为社会科学研究提供全面的网络分析支持，包括网络构建、中心性测量、社区检测、网络可视化等，帮助研究者深入理解社会关系结构和动态。
 
-社会网络计算分析技能为社会科学研究提供全面的网络分析支持，包括网络构建、中心性测量、社区检测、网络可视化等，帮助研究者理解社会关系结构和网络动态。
+## When to Use This Skill
+Use this skill when the user requests:
+- Social network analysis of relationships
+- Network construction from relational data
+- Centrality analysis (degree, betweenness, closeness, eigenvector)
+- Community detection and clustering
+- Network visualization and mapping
+- Structural hole analysis
+- Brokerage and mediation analysis
+- Network density and cohesion measures
+- Network evolution and change analysis
+- Two-mode network analysis
 
-## 核心功能
+## Quick Start
+When a user requests network analysis:
+1. **Prepare** network data in appropriate format
+2. **Construct** the network from relational data
+3. **Analyze** key properties (centrality, communities, etc.)
+4. **Visualize** the network structure
+5. **Interpret** findings in social context
 
-### 1. 网络构建与基础分析
-- **数据格式支持**: 边列表、邻接矩阵、数据框转换
-- **网络类型**: 有向/无向、加权/无权网络
-- **基础统计**: 节点数、边数、密度、连通性
-- **度分布**: 度统计、度分布分析、度相关性
+## Core Functions (Progressive Disclosure)
 
-### 2. 中心性分析
-- **度中心性**: 节点度数、标准化度中心性
-- **介数中心性**: 最短路径介数、边介数中心性
-- **接近中心性**: 距离中心性、加权接近中心性
-- **特征向量中心性**: PageRank、Katz中心性、权威度
+### Primary Functions
+- **Network Construction**: Create networks from edgelist or matrix data
+- **Centrality Analysis**: Calculate degree, betweenness, and closeness centrality
+- **Basic Visualization**: Generate network diagrams with standard layouts
+- **Network Metrics**: Compute density, clustering coefficient, path length
 
-### 3. 社区检测与分析
-- **社区发现**: Louvain、Girvan-Newman、标签传播
-- **社区质量**: 模块度、社区大小、社区密度
-- **社区结构**: 内部连接、外部连接、桥梁节点
-- **动态社区**: 时间演化社区、社区稳定性
+### Secondary Functions
+- **Community Detection**: Identify clusters using modularity-based methods
+- **Advanced Centrality**: Calculate eigenvector centrality, PageRank
+- **Structural Analysis**: Identify structural holes, components
+- **Interactive Visualization**: Create interactive network diagrams
 
-### 4. 高级网络分析
-- **结构洞**: 约束系数、有效规模、经纪得分
-- **小世界网络**: 聚类系数、平均路径长度、小世界系数
-- **网络韧性**: 节点移除影响、边移除影响、脆弱性分析
-- **网络模体**: 三角模体、网络基元分析
+### Advanced Functions
+- **Multi-layer Networks**: Handle networks with multiple relationship types
+- **Dynamic Networks**: Analyze network evolution over time
+- **Two-mode Networks**: Handle bipartite network structures
+- **Advanced Layouts**: Use specialized layout algorithms for large networks
 
-### 5. 网络可视化
-- **布局算法**: Spring、Circular、Kamada-Kawai布局
-- **网络图表**: 节点大小、颜色编码、边权重可视化
-- **社区可视化**: 社区着色、社区边界、交互式图表
-- **动态可视化**: 网络演化、时序网络、多层网络
+## Detailed Instructions
 
-## 使用方法
+### 1. Network Data Preparation
+   - Validate network data format (edgelist, adjacency matrix, etc.)
+   - Clean and preprocess relational data
+   - Identify and handle missing or anomalous connections
+   - Determine appropriate network type (directed/undirected, weighted/unweighted)
 
-当您需要进行社会网络分析时，我会：
+### 2. Network Construction
+   - Create network object from data
+   - Validate network properties (connectedness, size, etc.)
+   - Compute basic network metrics (nodes, edges, density)
+   - Visualize initial network structure
 
-1. **网络构建**: 从各种数据源构建网络对象
-2. **基础分析**: 计算网络基本统计和特征
-3. **中心性分析**: 识别网络中的关键节点
-4. **社区检测**: 发现和分析网络社区结构
-5. **高级分析**: 进行结构洞、小世界等高级分析
-6. **可视化**: 创建专业的网络可视化图表
+### 3. Centrality Analysis
+   - Calculate multiple centrality measures
+   - Rank nodes by different centrality indicators
+   - Identify key players, bridges, and influencers
+   - Interpret centrality in social context
 
-## 支持的分析方法
+### 4. Community Detection
+   - Apply appropriate clustering algorithms
+   - Validate community structure
+   - Analyze inter-community relationships
+   - Interpret community meaning in social context
 
-- 各种中心性指标计算和比较
-- 多种社区检测算法
-- 网络统计检验和随机网络比较
-- 网络动态模拟和预测
-- 多层网络和时序网络分析
+### 5. Network Visualization
+   - Create clear, informative network diagrams
+   - Use visual attributes to highlight important features
+   - Generate publication-quality figures
+   - Provide interactive visualization when appropriate
 
-## 质量保证
+### 6. Interpretation and Reporting
+   - Explain findings in social science terms
+   - Connect network properties to research questions
+   - Consider Chinese social context (guanxi, mianzi, etc.)
+   - Provide actionable insights
 
-- 遵循网络分析最佳实践
-- 提供统计显著性检验
-- 进行网络稳健性分析
-- 验证分析假设条件
-- 提供可重现的分析代码
+## Parameters
+- `network_format`: Input format (edgelist, adjacency matrix, JSON, etc.)
+- `directed`: Whether the network is directed (default: false)
+- `weighted`: Whether the network is weighted (default: true)
+- `centrality_metrics`: List of centrality measures to compute
+- `community_method`: Community detection algorithm to use
+- `visualization_type`: Type of visualization (static, interactive)
+- `node_attributes`: Additional node properties to visualize
+- `edge_attributes`: Additional edge properties to visualize
 
-## 输出格式
+## Examples
 
-- 完整的网络分析报告
-- 标准化的网络统计表格
-- 出版质量的网络可视化
-- 网络指标对比分析
-- 可重现的Python/R代码
+### Example 1: Centrality Analysis
+User: "Analyze this social network and identify the most important actors"
+Response: Calculate all centrality measures, identify key nodes, interpret in social context.
 
-当您提到社会网络、关系分析、网络结构、社区发现等相关需求时，此技能会自动激活。
+### Example 2: Community Detection
+User: "Find communities within this organization's communication network"
+Response: Apply community detection algorithms, validate structure, interpret meaning.
+
+### Example 3: Network Visualization
+User: "Create a visualization of this collaboration network"
+Response: Generate network diagram with appropriate layout, highlight important nodes.
+
+## Quality Assurance
+
+- Verify network data integrity before analysis
+- Use multiple algorithms when possible for validation
+- Consider social context in interpretation
+- Ensure visualizations are clear and informative
+- Validate community detection results
+
+## Output Format
+
+- Complete network analysis report
+- Standardized network metrics tables
+- Network visualization files (PNG, SVG, interactive HTML)
+- Network data files in various formats
+- Reproducible analysis code
+
+## Resources
+- Social network analysis best practices
+- Network visualization guidelines
+- Community detection algorithm comparisons
+- Chinese social network characteristics (guanxi, etc.)
+- Python toolkit: `skills/network-computation/scripts/calculate_centrality.py`
+
+## Metadata
+- Compatibility: Claude 3.5 Sonnet and above
+- Domain: Social Network Analysis
+- Language: Optimized for Chinese research context

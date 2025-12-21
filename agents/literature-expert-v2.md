@@ -1,7 +1,6 @@
 ---
 name: literature-expert
-description: 文献管理专家。当用户需要文献检索、引用管理、文献质量评估或研究趋势分析时使用。优先处理紧急任务，如论文截止、导师要求、投稿修改等。
-model: claude-3-5-sonnet-20241022
+description: 文献管理专家。当用户需要文献检索、引用管理、文献质量评估或研究趋势分析时使用。
 core_skills:
   - processing-citations
   - writing

@@ -1,0 +1,77 @@
+{
+  "actors": [
+    {
+      "id": "user_alice",
+      "type": "human",
+      "role": "普通用户"
+    },
+    {
+      "id": "user_bob",
+      "type": "human",
+      "role": "商家"
+    },
+    {
+      "id": "alipay_app",
+      "type": "non-human",
+      "role": "支付平台"
+    },
+    {
+      "id": "bank_system",
+      "type": "non-human",
+      "role": "资金处理"
+    },
+    {
+      "id": "merchant_qr",
+      "type": "non-human",
+      "role": "支付接口"
+    },
+    {
+      "id": "security_protocol",
+      "type": "non-human",
+      "role": "安全保障"
+    },
+    {
+      "id": "regulatory_policy",
+      "type": "non-human",
+      "role": "规则制定"
+    }
+  ],
+  "relations": [
+    {
+      "from": "user_alice",
+      "to": "alipay_app",
+      "type": "uses"
+    },
+    {
+      "from": "user_bob",
+      "to": "merchant_qr",
+      "type": "generates"
+    },
+    {
+      "from": "alipay_app",
+      "to": "bank_system",
+      "type": "communicates_with"
+    },
+    {
+      "from": "alipay_app",
+      "to": "security_protocol",
+      "type": "follows"
+    },
+    {
+      "from": "bank_system",
+      "to": "regulatory_policy",
+      "type": "complies_with"
+    },
+    {
+      "from": "user_alice",
+      "to": "merchant_qr",
+      "type": "scans"
+    }
+  ],
+  "translation_phases": {
+    "problematisation": "定义移动支付需求",
+    "interessement": "吸引各方参与",
+    "enrollment": "确定各方角色",
+    "mobilization": "协调行动"
+  }
+}

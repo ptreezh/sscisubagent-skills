@@ -1,0 +1,815 @@
+{
+  "analysis_results": {
+    "material_base": {
+      "quantitative_results": {
+        "tool_level": {
+          "level_scores": {
+            "primitive": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "agricultural": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "industrial": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "information": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "intelligent": {
+              "score": 0.44142201341090515,
+              "level": "很低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展"
+              ]
+            }
+          },
+          "dominant_level": "intelligent",
+          "confidence": 0.44142201341090515
+        },
+        "technology_complexity": {
+          "complexity_scores": {
+            "simple": {
+              "score": 0.4210269654675913,
+              "level": "很低",
+              "evidence": [
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度"
+              ]
+            },
+            "moderate": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "complex": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "sophisticated": {
+              "score": 0.42742691711397085,
+              "level": "很低",
+              "evidence": [
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            }
+          },
+          "dominant_complexity": "sophisticated",
+          "confidence": 0.42742691711397085
+        },
+        "labor_efficiency": {
+          "efficiency_scores": {
+            "low": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "medium": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "high": {
+              "score": 0.8518265997477227,
+              "level": "很低",
+              "evidence": [
+                "智能制造、数字经济、平台经济等新业态 不断涌现，劳动生产率显著提升",
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            },
+            "very_high": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展"
+              ]
+            }
+          },
+          "dominant_efficiency": "high",
+          "confidence": 0.8518265997477227
+        },
+        "overall_productivity": 0.56034486042287,
+        "productivity_stage": "原始生产力",
+        "quality_metrics": {
+          "average_score": 0.5735585100908662,
+          "completeness": 0.0,
+          "balance": 0.9575600317366249,
+          "overall_quality": 5.1669141355733395
+        }
+      },
+      "theoretical_guidance": {
+        "phase": "material_base",
+        "focus_areas": [
+          "生产力发展水平的客观评估",
+          "生产工具和技术形态的历史分析",
+          "劳动效率的社会意义",
+          "生产力与生产关系的适应性"
+        ],
+        "key_questions": [
+          "当前生产力处于哪个历史阶段？",
+          "技术发展对社会结构的影响如何？",
+          "劳动效率变化体现了什么社会规律？",
+          "生产力发展面临哪些瓶颈？"
+        ],
+        "analysis_depth": "深入分析生产力发展的内在规律和历史必然性",
+        "specific_suggestions": [
+          "重点关注生产力阶段: 原始生产力",
+          "生产力水平较低，需要深入分析制约因素"
+        ],
+        "prompt_file": "../prompts/material-base-analysis.md",
+        "quantitative_summary": {
+          "overall_productivity": 0.56034486042287
+        }
+      },
+      "quality_assessment": {
+        "base_quality": 5.1669141355733395,
+        "completeness": 2.5,
+        "consistency": 8.0,
+        "theoretical_relevance": 6.4,
+        "overall_quality": 5.446765654229336,
+        "quality_level": "一般",
+        "improvement_suggestions": [
+          "分析质量一般，建议深化理论分析",
+          "关注不同分析维度的平衡性"
+        ]
+      },
+      "phase_completed": true
+    },
+    "production_relations": {
+      "quantitative_results": {
+        "ownership_form": {
+          "ownership_scores": {
+            "public": {
+              "score": 0.8241681236044672,
+              "level": "很低",
+              "evidence": [
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度"
+              ]
+            },
+            "private": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "state": {
+              "score": 1.2175201987977813,
+              "level": "很低",
+              "evidence": [
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度",
+                "国有经济发挥主导作用，民营经济蓬勃发展，形成了多元化的所有制结构",
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            },
+            "mixed": {
+              "score": 1.2493466479214892,
+              "level": "很低",
+              "evidence": [
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度",
+                "国有经济发挥主导作用，民营经济蓬勃发展，形成了多元化的所有制结构",
+                "收入分配制度坚持按劳分配为主体、多种分配方式并存，效率与公平并重"
+              ]
+            }
+          },
+          "dominant_ownership": "mixed",
+          "confidence": 1.2493466479214892
+        },
+        "labor_relations": {
+          "relation_scores": {
+            "exploitation": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "cooperation": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "hierarchy": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "autonomy": {
+              "score": 0.4297478839952117,
+              "level": "很低",
+              "evidence": [
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主"
+              ]
+            }
+          },
+          "dominant_relation": "autonomy",
+          "confidence": 0.4297478839952117
+        },
+        "distribution_method": {
+          "distribution_scores": {
+            "equal": {
+              "score": 0.4313635373341022,
+              "level": "很低",
+              "evidence": [
+                "收入分配制度坚持按劳分配为主体、多种分配方式并存，效率与公平并重"
+              ]
+            },
+            "unequal": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "merit": {
+              "score": 0.8216146412182628,
+              "level": "很低",
+              "evidence": [
+                "收入分配制度坚持按劳分配为主体、多种分配方式并存，效率与公平并重",
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            },
+            "need": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            }
+          },
+          "dominant_distribution": "merit",
+          "confidence": 0.8216146412182628
+        },
+        "overall_production_relations": 0.8751474167326381,
+        "class_structure": {
+          "class_scores": {
+            "bourgeoisie": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "proletariat": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "petty_bourgeoisie": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "lumpenproletariat": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            }
+          },
+          "major_classes": [],
+          "class_conflict_intensity": 0.0
+        },
+        "quality_metrics": {
+          "average_score": 0.8335697243783212,
+          "completeness": 0.3333333333333333,
+          "balance": 0.9180401236073723,
+          "overall_quality": 7.088399268335401
+        }
+      },
+      "theoretical_guidance": {
+        "phase": "production_relations",
+        "focus_areas": [
+          "生产资料所有制的性质和特征",
+          "人们在生产中的地位和相互关系",
+          "产品分配方式的公平性和效率性",
+          "阶级结构的形成和演变"
+        ],
+        "key_questions": [
+          "当前生产关系的本质特征是什么？",
+          "所有制形式如何影响社会发展？",
+          "分配方式体现了什么样的价值取向？",
+          "阶级矛盾的主要表现是什么？"
+        ],
+        "analysis_depth": "深入分析生产关系的阶级本质和历史作用",
+        "specific_suggestions": [
+          "生产关系综合评分: 0.88",
+          "阶级关系相对缓和，关注其他社会矛盾"
+        ],
+        "prompt_file": "../prompts/production-relations-analysis.md",
+        "quantitative_summary": {
+          "overall_production_relations": 0.8751474167326381
+        }
+      },
+      "quality_assessment": {
+        "base_quality": 7.088399268335401,
+        "completeness": 2.5,
+        "consistency": 8.0,
+        "theoretical_relevance": 6.4,
+        "overall_quality": 6.215359707334161,
+        "quality_level": "良好",
+        "improvement_suggestions": [
+          "分析质量良好，可进一步优化",
+          "加强理论与实践的结合"
+        ]
+      },
+      "phase_completed": true
+    },
+    "superstructure": {
+      "quantitative_results": {
+        "political_system": {
+          "system_scores": {
+            "democracy": {
+              "score": 0.4297478839952117,
+              "level": "很低",
+              "evidence": [
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主"
+              ]
+            },
+            "autocracy": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "republic": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "people": {
+              "score": 2.559108660024745,
+              "level": "低",
+              "evidence": [
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主",
+                "意识形态领域坚持马克思主义指导地位，培育和践行社会主义核心价值观",
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            }
+          },
+          "dominant_system": "people",
+          "confidence": 2.559108660024745
+        },
+        "ideology": {
+          "ideology_scores": {
+            "liberalism": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "conservatism": {
+              "score": 0.8468922982556789,
+              "level": "很低",
+              "evidence": [
+                "劳动关系呈现出新的特点，传统的雇佣关系与新兴的平台经济、零工经济并存",
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            },
+            "socialism": {
+              "score": 1.7150948555505257,
+              "level": "很低",
+              "evidence": [
+                "收入分配制度坚持按劳分配为主体、多种分配方式并存，效率与公平并重",
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主",
+                "意识形态领域坚持马克思主义指导地位，培育和践行社会主义核心价值观"
+              ]
+            },
+            "nationalism": {
+              "score": 0.417520198797781,
+              "level": "很低",
+              "evidence": [
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            }
+          },
+          "dominant_ideology": "socialism",
+          "confidence": 1.7150948555505257
+        },
+        "culture": {
+          "culture_scores": {
+            "traditional": {
+              "score": 0.8468922982556789,
+              "level": "很低",
+              "evidence": [
+                "劳动关系呈现出新的特点，传统的雇佣关系与新兴的平台经济、零工经济并存",
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            },
+            "modern": {
+              "score": 0.8,
+              "level": "很低",
+              "evidence": [
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化",
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            },
+            "revolutionary": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            },
+            "global": {
+              "score": 1.6700570397878687,
+              "level": "很低",
+              "evidence": [
+                "国有经济发挥主导作用，民营经济蓬勃发展，形成了多元化的所有制结构",
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化",
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            }
+          },
+          "dominant_culture": "global",
+          "confidence": 1.6700570397878687
+        },
+        "overall_superstructure": 2.039189032611416,
+        "economic_base_relation": {
+          "relation_scores": {
+            "determined": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "relative_independence": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "reaction": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "国有经济发挥主导作用，民营经济蓬勃发展，形成了多元化的所有制结构"
+              ]
+            },
+            "adaptation": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            }
+          },
+          "dominant_relation": "reaction",
+          "confidence": 0.4
+        },
+        "quality_metrics": {
+          "average_score": 1.9814201851210465,
+          "completeness": 1.0,
+          "balance": 0.9110948379763124,
+          "overall_quality": 13.658965254413125
+        }
+      },
+      "theoretical_guidance": {
+        "phase": "superstructure",
+        "focus_areas": [
+          "政治制度的阶级性质和服务对象",
+          "意识形态的社会功能和历史作用",
+          "文化传统与现代文明的融合",
+          "上层建筑与经济基础的辩证关系"
+        ],
+        "key_questions": [
+          "政治制度为哪个阶级服务？",
+          "主流意识形态如何维护现有秩序？",
+          "文化发展反映了什么样的社会变迁？",
+          "上层建筑如何反作用于经济基础？"
+        ],
+        "analysis_depth": "深入分析上层建筑的阶级属性和相对独立性",
+        "specific_suggestions": [
+          "上层建筑综合评分: 2.04",
+          "与经济基础关系: reaction",
+          "关注上层建筑的相对独立性"
+        ],
+        "prompt_file": "../prompts/superstructure-analysis.md",
+        "quantitative_summary": {
+          "overall_superstructure": 2.039189032611416
+        }
+      },
+      "quality_assessment": {
+        "base_quality": 13.658965254413125,
+        "completeness": 2.5,
+        "consistency": 8.0,
+        "theoretical_relevance": 6.4,
+        "overall_quality": 8.84358610176525,
+        "quality_level": "优秀",
+        "improvement_suggestions": [
+          "分析质量优秀，保持现有水平"
+        ]
+      },
+      "phase_completed": true
+    },
+    "social_change": {
+      "quantitative_results": {
+        "basic_contradictions": {
+          "contradiction_scores": {
+            "productivity_relations": {
+              "score": 1.6895614220761899,
+              "level": "很低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "社会主要矛盾已经转化为人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾"
+              ]
+            },
+            "economic_base_superstructure": {
+              "score": 0.8270997957247738,
+              "level": "很低",
+              "evidence": [
+                "社会主要矛盾已经转化为人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾"
+              ]
+            },
+            "class_contradiction": {
+              "score": 0.8270997957247738,
+              "level": "很低",
+              "evidence": [
+                "社会主要矛盾已经转化为人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾"
+              ]
+            },
+            "social_contradiction": {
+              "score": 3.286086204870949,
+              "level": "低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主",
+                "意识形态领域坚持马克思主义指导地位，培育和践行社会主义核心价值观"
+              ]
+            }
+          },
+          "primary_contradiction": "social_contradiction",
+          "contradiction_intensity": 3.286086204870949
+        },
+        "change_conditions": {
+          "condition_scores": {
+            "objective_conditions": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "subjective_conditions": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "意识形态领域坚持马克思主义指导地位，培育和践行社会主义核心价值观"
+              ]
+            },
+            "historical_conditions": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "international_conditions": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            }
+          },
+          "total_score": 0.4,
+          "maturity_level": "尚未成熟"
+        },
+        "change_drivers": {
+          "driver_scores": {
+            "class_drivers": {
+              "score": 0.8456294578131095,
+              "level": "很低",
+              "evidence": [
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主",
+                "社会主要矛盾已经转化为人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾"
+              ]
+            },
+            "technological_drivers": {
+              "score": 4.130269674591168,
+              "level": "低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度",
+                "国有经济发挥主导作用，民营经济蓬勃发展，形成了多元化的所有制结构"
+              ]
+            },
+            "economic_drivers": {
+              "score": 8.619173914764614,
+              "level": "高",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "智能制造、数字经济、平台经济等新业态 不断涌现，劳动生产率显著提升",
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度"
+              ]
+            },
+            "social_drivers": {
+              "score": 2.4589864091461755,
+              "level": "低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "政治制度坚持中国特色社会主义政治发展道路，发展全过程人民民主",
+                "意识形态领域坚持马克思主义指导地位，培育和践行社会主义核心价值观"
+              ]
+            }
+          },
+          "primary_driver": "economic_drivers",
+          "driving_force": 8.619173914764614
+        },
+        "development_trends": {
+          "trend_scores": {
+            "progressive": {
+              "score": 3.734000201698336,
+              "level": "低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "智能制造、数字经济、平台经济等新业态 不断涌现，劳动生产率显著提升",
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度"
+              ]
+            },
+            "revolutionary": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展"
+              ]
+            },
+            "reformist": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            },
+            "conservative": {
+              "score": 0.8468922982556789,
+              "level": "很低",
+              "evidence": [
+                "劳动关系呈现出新的特点，传统的雇佣关系与新兴的平台经济、零工经济并存",
+                "传统文化得到创造性转化和创新性发展，形成了开放包容的社会主义先进文化"
+              ]
+            }
+          },
+          "primary_trend": "progressive",
+          "trend_confidence": 3.734000201698336
+        },
+        "practice_paths": {
+          "path_scores": {
+            "revolutionary_path": {
+              "score": 0.0,
+              "level": "很低",
+              "evidence": []
+            },
+            "reform_path": {
+              "score": 0.4,
+              "level": "很低",
+              "evidence": [
+                "改革开放不断深化，国家治理体系和治理能力现代化稳步推进"
+              ]
+            },
+            "development_path": {
+              "score": 7.309600519064584,
+              "level": "中",
+              "evidence": [
+                "在当代中国社会，生产力发展迅速，特别是数字技术和人工智能的广泛应用， 推动了社会生产力的跨越式发展",
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度",
+                "国有经济发挥主导作用，民营经济蓬勃发展，形成了多元化的所有制结构"
+              ]
+            },
+            "cooperation_path": {
+              "score": 0.42416812360446715,
+              "level": "很低",
+              "evidence": [
+                "生产资料所有制坚持公有制为主体、多种所有制经济共同发展的基本经济制度"
+              ]
+            }
+          },
+          "feasible_paths": [
+            "development_path"
+          ],
+          "primary_path": "development_path"
+        },
+        "quality_metrics": {
+          "average_score": 4.101753373211855,
+          "completeness": 0.6666666666666666,
+          "balance": 0.04640815975586732,
+          "overall_quality": 18.54623797211502
+        }
+      },
+      "theoretical_guidance": {
+        "phase": "social_change",
+        "focus_areas": [
+          "社会基本矛盾的激化程度",
+          "社会变革的主客观条件",
+          "社会变革的动力和阻力",
+          "社会发展的可能路径和趋势"
+        ],
+        "key_questions": [
+          "当前社会的主要矛盾是什么？",
+          "社会变革的条件是否成熟？",
+          "推动社会变革的主要力量有哪些？",
+          "社会发展的历史趋势如何？"
+        ],
+        "analysis_depth": "深入分析社会变革的客观规律和历史必然性",
+        "specific_suggestions": [
+          "主要矛盾: social_contradiction",
+          "变革条件成熟度: 尚未成熟",
+          "变革条件尚未完全成熟，关注条件培育"
+        ],
+        "prompt_file": "../prompts/social-change-prediction.md",
+        "quantitative_summary": {}
+      },
+      "quality_assessment": {
+        "base_quality": 18.54623797211502,
+        "completeness": 2.5,
+        "consistency": 8.0,
+        "theoretical_relevance": 6.4,
+        "overall_quality": 10.798495188846008,
+        "quality_level": "优秀",
+        "improvement_suggestions": [
+          "分析质量优秀，保持现有水平"
+        ]
+      },
+      "phase_completed": true
+    }
+  },
+  "integrated_results": {
+    "phase_summary": {
+      "material_base": {
+        "overall_score": 5.446765654229336,
+        "key_indicators": {
+          "productivity_stage": "原始生产力",
+          "overall_productivity": 0.56034486042287
+        },
+        "quality_level": "一般",
+        "main_findings": [
+          "生产力处于原始生产力阶段"
+        ]
+      },
+      "production_relations": {
+        "overall_score": 6.215359707334161,
+        "key_indicators": {
+          "overall_relations": 0.8751474167326381,
+          "class_conflict_intensity": 0.0
+        },
+        "quality_level": "良好",
+        "main_findings": []
+      },
+      "superstructure": {
+        "overall_score": 8.84358610176525,
+        "key_indicators": {
+          "overall_superstructure": 2.039189032611416,
+          "dominant_relation": "reaction"
+        },
+        "quality_level": "优秀",
+        "main_findings": [
+          "政治制度以people为主导"
+        ]
+      },
+      "social_change": {
+        "overall_score": 10.798495188846008,
+        "key_indicators": {
+          "primary_contradiction": "social_contradiction",
+          "condition_maturity": "尚未成熟"
+        },
+        "quality_level": "优秀",
+        "main_findings": [
+          "主要矛盾是social_contradiction"
+        ]
+      }
+    },
+    "overall_quality": {
+      "average_quality": 7.826051663043689,
+      "quality_level": "良好",
+      "phase_scores": {
+        "material_base": 5.446765654229336,
+        "production_relations": 6.215359707334161,
+        "superstructure": 8.84358610176525,
+        "social_change": 10.798495188846008
+      },
+      "completed_phases": 4,
+      "total_phases": 4
+    },
+    "major_contradictions": [
+      "主要矛盾: social_contradiction"
+    ],
+    "development_trends": [
+      "主要发展趋势: progressive",
+      "生产力发展趋势: 原始生产力"
+    ],
+    "comprehensive_conclusions": [
+      "社会生产力处于原始生产力阶段",
+      "上层建筑与经济基础呈现reaction关系",
+      "主要矛盾: social_contradiction",
+      "主要发展趋势: progressive",
+      "生产力发展趋势: 原始生产力"
+    ],
+    "integration_timestamp": "2025-12-21T18:02:47.525520"
+  },
+  "comprehensive_report": "# 数字马克思社会学分析综合报告\n\n## 总体评估\n- 整体质量分数: 7.83/10\n- 质量等级: 良好\n- 完成阶段: 4/4\n\n## 各阶段分析结果\n### 物质基础分析\n- 质量分数: 5.45/10\n- 质量等级: 一般\n- 关键指标:\n  - productivity_stage: 原始生产力\n  - overall_productivity: 0.56034486042287\n- 主要发现:\n  - 生产力处于原始生产力阶段\n\n### 生产关系分析\n- 质量分数: 6.22/10\n- 质量等级: 良好\n- 关键指标:\n  - overall_relations: 0.8751474167326381\n  - class_conflict_intensity: 0.0\n\n### 上层建筑分析\n- 质量分数: 8.84/10\n- 质量等级: 优秀\n- 关键指标:\n  - overall_superstructure: 2.039189032611416\n  - dominant_relation: reaction\n- 主要发现:\n  - 政治制度以people为主导\n\n### 社会变革预测\n- 质量分数: 10.80/10\n- 质量等级: 优秀\n- 关键指标:\n  - primary_contradiction: social_contradiction\n  - condition_maturity: 尚未成熟\n- 主要发现:\n  - 主要矛盾是social_contradiction\n\n## 主要矛盾\n- 主要矛盾: social_contradiction\n\n## 发展趋势\n- 主要发展趋势: progressive\n- 生产力发展趋势: 原始生产力\n\n## 综合结论\n- 社会生产力处于原始生产力阶段\n- 上层建筑与经济基础呈现reaction关系\n- 主要矛盾: social_contradiction\n- 主要发展趋势: progressive\n- 生产力发展趋势: 原始生产力\n\n## 分析时间\n- 完成时间: 2025-12-21T18:02:47.525520",
+  "analysis_metadata": {
+    "analysis_id": "marx_analysis_20251221_180247",
+    "start_time": "2025-12-21T18:02:47.507323",
+    "end_time": "2025-12-21T18:02:47.525520",
+    "completed_phases": [
+      "material_base",
+      "production_relations",
+      "superstructure",
+      "social_change"
+    ],
+    "quality_scores": {
+      "material_base": 5.446765654229336,
+      "production_relations": 6.215359707334161,
+      "superstructure": 8.84358610176525,
+      "social_change": 10.798495188846008
+    },
+    "warnings": [],
+    "errors": [],
+    "analysis_history_count": 1
+  }
+}

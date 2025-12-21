@@ -1,0 +1,74 @@
+/* File Browser Styles */
+
+.file-browser .file-browser-header {
+  margin-bottom: 20px;
+}
+
+.file-browser .file-browser-toolbar {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.file-browser .current-path {
+  font-family: 'Courier New', monospace;
+  background-color: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.file-browser .file-list {
+  min-height: 300px;
+}
+
+.file-browser .file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.file-browser .file-item:hover {
+  background-color: #f8f9fa;
+}
+
+.file-browser .file-icon {
+  font-size: 18px;
+}
+
+.file-browser .file-name {
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.file-browser .file-name.directory {
+  color: #007bff;
+  font-weight: 500;
+}
+
+.file-browser .file-name.directory:hover {
+  text-decoration: underline;
+}
+
+.file-browser .file-actions {
+  display: flex;
+}
+
+.file-browser .btn-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.file-browser .ml-auto {
+  margin-left: auto;
+}
+
+.file-browser .mt-10 {
+  margin-top: 10px;
+}
+
+.file-browser .mr-10 {
+  margin-right: 10px;
+}

@@ -1,0 +1,39 @@
+[project]
+name = "data-analysis"
+version = "1.0.0"
+description = "执行数据分析，包括数据清洗、探索性分析、统计建模、可视化和结果解释等。结合定性洞察与定量计算。"
+authors = [{name = "zhangshuren", email = "zhangshuren@hznu.edu.cn"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=1.5.0,<3.0.0",
+    "numpy>=1.21.0,<2.0.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "scikit-learn>=1.1.0",
+    "scipy>=1.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "mypy>=0.950"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["data_analysis*"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "mypy>=0.950"
+]

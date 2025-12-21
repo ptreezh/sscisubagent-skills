@@ -1,0 +1,51 @@
+/* Stigmergy Console Styles */
+
+.stigmergy-console .console-output {
+  background-color: #000;
+  color: #0f0;
+  padding: 16px;
+  border-radius: 4px;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.stigmergy-console .console-output pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.stigmergy-console .ml-10 {
+  margin-left: 10px;
+}
+
+.command-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.command-history-item {
+  background-color: #e9ecef;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.command-history-item:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.stigmergy-console code {
+  background-color: #e9ecef;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}

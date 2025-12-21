@@ -1,0 +1,35 @@
+{
+  "network_info": {
+    "nodes": 5,
+    "edges": 6,
+    "density": 0.6
+  },
+  "centralities": {
+    "degree": {
+      "A": 0.5,
+      "B": 0.75,
+      "C": 0.75,
+      "D": 0.75,
+      "E": 0.25
+    },
+    "closeness": {
+      "A": 0.5714285714285714,
+      "B": 0.8,
+      "C": 0.8,
+      "D": 0.8,
+      "E": 0.5
+    },
+    "betweenness": {
+      "A": 0.0,
+      "B": 0.16666666666666666,
+      "C": 0.16666666666666666,
+      "D": 0.5,
+      "E": 0.0
+    }
+  },
+  "top_nodes": {
+    "degree": "B",
+    "closeness": "B",
+    "betweenness": "D"
+  }
+}

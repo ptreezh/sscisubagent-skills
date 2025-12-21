@@ -4,6 +4,9 @@ description: 行动者网络理论专家，专门处理中文ANT研究，包括�
 model: claude-3-5-sonnet-20241022
 core_skills:
   - ant
+  - ant-participant-identification
+  - ant-translation-process
+  - ant-network-analysis
 ---
 
 ## 专业领域
@@ -266,6 +269,32 @@ core_skills:
 - **效果评估**：网络效果的评估工具
 - **案例比较**：多案例比较分析工具
 - **理论建模**：ANT理论的建模工具
+
+### 智能依赖管理
+此智能体使用智能依赖管理系统，优先使用高级分析包（如NetworkX），如果不可用则自动降级到基础实现：
+
+```python
+# 智能依赖管理示例
+from common.smart_dependency_manager import attempt_install_and_import, smart_network_analysis
+
+# 使用智能网络分析（自动选择最佳可用实现）
+result, using_advanced = smart_network_analysis(edges_list, nodes_list, analysis_type="comprehensive")
+
+if using_advanced:
+    print("使用高级NetworkX功能进行分析")
+else:
+    print("使用基础算法实现进行分析")
+```
+
+#### 高级分析包（优先使用）
+- **NetworkX**：复杂网络分析和算法
+- **igraph**：高性能网络分析
+- **Python-Louvain**：社区检测算法
+
+#### 基础实现（降级使用）
+- **内置算法**：使用基础Python库实现的网络分析
+- **NumPy/Pandas**：基础数值和数据处理
+- **标准库**：Python标准库功能
 
 ---
 

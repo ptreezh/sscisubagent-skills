@@ -1,0 +1,1010 @@
+{
+  "nodes": [
+    {
+      "id": "student_0",
+      "satisfaction": 3.463531186915602
+    },
+    {
+      "id": "student_1",
+      "satisfaction": 3.6946715594581536
+    },
+    {
+      "id": "student_2",
+      "satisfaction": 3.307011153714936
+    },
+    {
+      "id": "student_3",
+      "satisfaction": 3.7816443172114376
+    },
+    {
+      "id": "student_4",
+      "satisfaction": 2.4987684606476446
+    },
+    {
+      "id": "student_5",
+      "satisfaction": 4.655011683258608
+    },
+    {
+      "id": "student_6",
+      "satisfaction": 3.434279057285945
+    },
+    {
+      "id": "student_7",
+      "satisfaction": 4.393836665270502
+    },
+    {
+      "id": "student_8",
+      "satisfaction": 3.7741802771021633
+    },
+    {
+      "id": "student_9",
+      "satisfaction": 3.865402575323027
+    },
+    {
+      "id": "student_10",
+      "satisfaction": 3.955813824185763
+    },
+    {
+      "id": "student_11",
+      "satisfaction": 3.858166848013852
+    },
+    {
+      "id": "student_12",
+      "satisfaction": 4.014178207894036
+    },
+    {
+      "id": "student_13",
+      "satisfaction": 4.563322024105945
+    },
+    {
+      "id": "student_14",
+      "satisfaction": 3.657216935761176
+    },
+    {
+      "id": "student_15",
+      "satisfaction": 4.06720300607081
+    },
+    {
+      "id": "student_16",
+      "satisfaction": 3.4282114445702185
+    },
+    {
+      "id": "student_17",
+      "satisfaction": 4.652093772359578
+    },
+    {
+      "id": "student_18",
+      "satisfaction": 2.958886158352584
+    },
+    {
+      "id": "student_19",
+      "satisfaction": 4.940752346328653
+    },
+    {
+      "id": "student_20",
+      "satisfaction": 3.4678736394845253
+    },
+    {
+      "id": "student_21",
+      "satisfaction": 2.3553799183055615
+    },
+    {
+      "id": "student_22",
+      "satisfaction": 3.6024835319286312
+    },
+    {
+      "id": "student_23",
+      "satisfaction": 2.9551586740200952
+    },
+    {
+      "id": "student_24",
+      "satisfaction": 4.172514839190979
+    },
+    {
+      "id": "student_25",
+      "satisfaction": 2.9779008165580874
+    },
+    {
+      "id": "student_26",
+      "satisfaction": 3.1430532534281763
+    },
+    {
+      "id": "student_27",
+      "satisfaction": 1.988367415243575
+    },
+    {
+      "id": "student_28",
+      "satisfaction": 3.1381549446007386
+    },
+    {
+      "id": "student_29",
+      "satisfaction": 1.5608965386968345
+    },
+    {
+      "id": "student_30",
+      "satisfaction": 2.2328777412114214
+    },
+    {
+      "id": "student_31",
+      "satisfaction": 4.108331724915438
+    },
+    {
+      "id": "student_32",
+      "satisfaction": 4.128640126920666
+    },
+    {
+      "id": "student_33",
+      "satisfaction": 3.840366049427972
+    },
+    {
+      "id": "student_34",
+      "satisfaction": 2.7264190854966297
+    },
+    {
+      "id": "student_35",
+      "satisfaction": 3.461830915086416
+    },
+    {
+      "id": "student_36",
+      "satisfaction": 3.497117968727545
+    },
+    {
+      "id": "student_37",
+      "satisfaction": 2.573308248645966
+    },
+    {
+      "id": "student_38",
+      "satisfaction": 4.70271864141372
+    },
+    {
+      "id": "student_39",
+      "satisfaction": 4.201889832460537
+    },
+    {
+      "id": "student_40",
+      "satisfaction": 3.3232286609362687
+    },
+    {
+      "id": "student_41",
+      "satisfaction": 3.5215086711956247
+    },
+    {
+      "id": "student_42",
+      "satisfaction": 3.666706246358042
+    },
+    {
+      "id": "student_43",
+      "satisfaction": 1.8666121052605673
+    },
+    {
+      "id": "student_44",
+      "satisfaction": 3.3022580939835224
+    },
+    {
+      "id": "student_45",
+      "satisfaction": 2.954412601601761
+    },
+    {
+      "id": "student_46",
+      "satisfaction": 2.6987039920840674
+    },
+    {
+      "id": "student_47",
+      "satisfaction": 3.275119765691236
+    },
+    {
+      "id": "student_48",
+      "satisfaction": 4.938149221479618
+    },
+    {
+      "id": "student_49",
+      "satisfaction": 4.012674289013608
+    }
+  ],
+  "edges": [
+    {
+      "source": "student_0",
+      "target": "student_1"
+    },
+    {
+      "source": "student_0",
+      "target": "student_2"
+    },
+    {
+      "source": "student_0",
+      "target": "student_3"
+    },
+    {
+      "source": "student_1",
+      "target": "student_0"
+    },
+    {
+      "source": "student_1",
+      "target": "student_2"
+    },
+    {
+      "source": "student_1",
+      "target": "student_3"
+    },
+    {
+      "source": "student_1",
+      "target": "student_4"
+    },
+    {
+      "source": "student_2",
+      "target": "student_0"
+    },
+    {
+      "source": "student_2",
+      "target": "student_1"
+    },
+    {
+      "source": "student_2",
+      "target": "student_3"
+    },
+    {
+      "source": "student_3",
+      "target": "student_0"
+    },
+    {
+      "source": "student_3",
+      "target": "student_1"
+    },
+    {
+      "source": "student_3",
+      "target": "student_2"
+    },
+    {
+      "source": "student_4",
+      "target": "student_0"
+    },
+    {
+      "source": "student_4",
+      "target": "student_1"
+    },
+    {
+      "source": "student_4",
+      "target": "student_2"
+    },
+    {
+      "source": "student_4",
+      "target": "student_3"
+    },
+    {
+      "source": "student_5",
+      "target": "student_0"
+    },
+    {
+      "source": "student_5",
+      "target": "student_1"
+    },
+    {
+      "source": "student_5",
+      "target": "student_2"
+    },
+    {
+      "source": "student_5",
+      "target": "student_3"
+    },
+    {
+      "source": "student_5",
+      "target": "student_4"
+    },
+    {
+      "source": "student_6",
+      "target": "student_0"
+    },
+    {
+      "source": "student_6",
+      "target": "student_1"
+    },
+    {
+      "source": "student_6",
+      "target": "student_2"
+    },
+    {
+      "source": "student_6",
+      "target": "student_3"
+    },
+    {
+      "source": "student_7",
+      "target": "student_0"
+    },
+    {
+      "source": "student_7",
+      "target": "student_1"
+    },
+    {
+      "source": "student_7",
+      "target": "student_2"
+    },
+    {
+      "source": "student_7",
+      "target": "student_3"
+    },
+    {
+      "source": "student_8",
+      "target": "student_0"
+    },
+    {
+      "source": "student_8",
+      "target": "student_1"
+    },
+    {
+      "source": "student_8",
+      "target": "student_2"
+    },
+    {
+      "source": "student_8",
+      "target": "student_3"
+    },
+    {
+      "source": "student_8",
+      "target": "student_4"
+    },
+    {
+      "source": "student_9",
+      "target": "student_0"
+    },
+    {
+      "source": "student_9",
+      "target": "student_1"
+    },
+    {
+      "source": "student_9",
+      "target": "student_2"
+    },
+    {
+      "source": "student_9",
+      "target": "student_3"
+    },
+    {
+      "source": "student_9",
+      "target": "student_4"
+    },
+    {
+      "source": "student_10",
+      "target": "student_0"
+    },
+    {
+      "source": "student_10",
+      "target": "student_1"
+    },
+    {
+      "source": "student_10",
+      "target": "student_2"
+    },
+    {
+      "source": "student_10",
+      "target": "student_3"
+    },
+    {
+      "source": "student_10",
+      "target": "student_4"
+    },
+    {
+      "source": "student_11",
+      "target": "student_0"
+    },
+    {
+      "source": "student_11",
+      "target": "student_1"
+    },
+    {
+      "source": "student_11",
+      "target": "student_2"
+    },
+    {
+      "source": "student_11",
+      "target": "student_3"
+    },
+    {
+      "source": "student_11",
+      "target": "student_4"
+    },
+    {
+      "source": "student_12",
+      "target": "student_0"
+    },
+    {
+      "source": "student_12",
+      "target": "student_1"
+    },
+    {
+      "source": "student_12",
+      "target": "student_2"
+    },
+    {
+      "source": "student_12",
+      "target": "student_3"
+    },
+    {
+      "source": "student_12",
+      "target": "student_4"
+    },
+    {
+      "source": "student_13",
+      "target": "student_0"
+    },
+    {
+      "source": "student_13",
+      "target": "student_1"
+    },
+    {
+      "source": "student_14",
+      "target": "student_0"
+    },
+    {
+      "source": "student_15",
+      "target": "student_0"
+    },
+    {
+      "source": "student_15",
+      "target": "student_1"
+    },
+    {
+      "source": "student_15",
+      "target": "student_2"
+    },
+    {
+      "source": "student_15",
+      "target": "student_3"
+    },
+    {
+      "source": "student_15",
+      "target": "student_4"
+    },
+    {
+      "source": "student_16",
+      "target": "student_0"
+    },
+    {
+      "source": "student_16",
+      "target": "student_1"
+    },
+    {
+      "source": "student_16",
+      "target": "student_2"
+    },
+    {
+      "source": "student_16",
+      "target": "student_3"
+    },
+    {
+      "source": "student_16",
+      "target": "student_4"
+    },
+    {
+      "source": "student_17",
+      "target": "student_0"
+    },
+    {
+      "source": "student_17",
+      "target": "student_1"
+    },
+    {
+      "source": "student_17",
+      "target": "student_2"
+    },
+    {
+      "source": "student_17",
+      "target": "student_3"
+    },
+    {
+      "source": "student_18",
+      "target": "student_0"
+    },
+    {
+      "source": "student_18",
+      "target": "student_1"
+    },
+    {
+      "source": "student_18",
+      "target": "student_2"
+    },
+    {
+      "source": "student_18",
+      "target": "student_3"
+    },
+    {
+      "source": "student_19",
+      "target": "student_0"
+    },
+    {
+      "source": "student_19",
+      "target": "student_1"
+    },
+    {
+      "source": "student_19",
+      "target": "student_2"
+    },
+    {
+      "source": "student_20",
+      "target": "student_0"
+    },
+    {
+      "source": "student_20",
+      "target": "student_1"
+    },
+    {
+      "source": "student_20",
+      "target": "student_2"
+    },
+    {
+      "source": "student_20",
+      "target": "student_3"
+    },
+    {
+      "source": "student_20",
+      "target": "student_4"
+    },
+    {
+      "source": "student_21",
+      "target": "student_0"
+    },
+    {
+      "source": "student_21",
+      "target": "student_1"
+    },
+    {
+      "source": "student_21",
+      "target": "student_2"
+    },
+    {
+      "source": "student_21",
+      "target": "student_3"
+    },
+    {
+      "source": "student_21",
+      "target": "student_4"
+    },
+    {
+      "source": "student_22",
+      "target": "student_0"
+    },
+    {
+      "source": "student_23",
+      "target": "student_0"
+    },
+    {
+      "source": "student_23",
+      "target": "student_1"
+    },
+    {
+      "source": "student_24",
+      "target": "student_0"
+    },
+    {
+      "source": "student_24",
+      "target": "student_1"
+    },
+    {
+      "source": "student_24",
+      "target": "student_2"
+    },
+    {
+      "source": "student_24",
+      "target": "student_3"
+    },
+    {
+      "source": "student_25",
+      "target": "student_0"
+    },
+    {
+      "source": "student_25",
+      "target": "student_1"
+    },
+    {
+      "source": "student_25",
+      "target": "student_2"
+    },
+    {
+      "source": "student_25",
+      "target": "student_3"
+    },
+    {
+      "source": "student_25",
+      "target": "student_4"
+    },
+    {
+      "source": "student_26",
+      "target": "student_0"
+    },
+    {
+      "source": "student_26",
+      "target": "student_1"
+    },
+    {
+      "source": "student_26",
+      "target": "student_2"
+    },
+    {
+      "source": "student_26",
+      "target": "student_3"
+    },
+    {
+      "source": "student_27",
+      "target": "student_0"
+    },
+    {
+      "source": "student_27",
+      "target": "student_1"
+    },
+    {
+      "source": "student_27",
+      "target": "student_2"
+    },
+    {
+      "source": "student_27",
+      "target": "student_3"
+    },
+    {
+      "source": "student_27",
+      "target": "student_4"
+    },
+    {
+      "source": "student_28",
+      "target": "student_0"
+    },
+    {
+      "source": "student_28",
+      "target": "student_1"
+    },
+    {
+      "source": "student_28",
+      "target": "student_2"
+    },
+    {
+      "source": "student_28",
+      "target": "student_3"
+    },
+    {
+      "source": "student_28",
+      "target": "student_4"
+    },
+    {
+      "source": "student_29",
+      "target": "student_0"
+    },
+    {
+      "source": "student_29",
+      "target": "student_1"
+    },
+    {
+      "source": "student_29",
+      "target": "student_2"
+    },
+    {
+      "source": "student_29",
+      "target": "student_3"
+    },
+    {
+      "source": "student_29",
+      "target": "student_4"
+    },
+    {
+      "source": "student_30",
+      "target": "student_0"
+    },
+    {
+      "source": "student_30",
+      "target": "student_1"
+    },
+    {
+      "source": "student_30",
+      "target": "student_2"
+    },
+    {
+      "source": "student_30",
+      "target": "student_3"
+    },
+    {
+      "source": "student_30",
+      "target": "student_4"
+    },
+    {
+      "source": "student_31",
+      "target": "student_0"
+    },
+    {
+      "source": "student_31",
+      "target": "student_1"
+    },
+    {
+      "source": "student_32",
+      "target": "student_0"
+    },
+    {
+      "source": "student_33",
+      "target": "student_0"
+    },
+    {
+      "source": "student_33",
+      "target": "student_1"
+    },
+    {
+      "source": "student_33",
+      "target": "student_2"
+    },
+    {
+      "source": "student_33",
+      "target": "student_3"
+    },
+    {
+      "source": "student_33",
+      "target": "student_4"
+    },
+    {
+      "source": "student_34",
+      "target": "student_0"
+    },
+    {
+      "source": "student_34",
+      "target": "student_1"
+    },
+    {
+      "source": "student_34",
+      "target": "student_2"
+    },
+    {
+      "source": "student_34",
+      "target": "student_3"
+    },
+    {
+      "source": "student_35",
+      "target": "student_0"
+    },
+    {
+      "source": "student_36",
+      "target": "student_0"
+    },
+    {
+      "source": "student_36",
+      "target": "student_1"
+    },
+    {
+      "source": "student_36",
+      "target": "student_2"
+    },
+    {
+      "source": "student_36",
+      "target": "student_3"
+    },
+    {
+      "source": "student_36",
+      "target": "student_4"
+    },
+    {
+      "source": "student_37",
+      "target": "student_0"
+    },
+    {
+      "source": "student_37",
+      "target": "student_1"
+    },
+    {
+      "source": "student_37",
+      "target": "student_2"
+    },
+    {
+      "source": "student_37",
+      "target": "student_3"
+    },
+    {
+      "source": "student_37",
+      "target": "student_4"
+    },
+    {
+      "source": "student_38",
+      "target": "student_0"
+    },
+    {
+      "source": "student_38",
+      "target": "student_1"
+    },
+    {
+      "source": "student_38",
+      "target": "student_2"
+    },
+    {
+      "source": "student_38",
+      "target": "student_3"
+    },
+    {
+      "source": "student_38",
+      "target": "student_4"
+    },
+    {
+      "source": "student_39",
+      "target": "student_0"
+    },
+    {
+      "source": "student_39",
+      "target": "student_1"
+    },
+    {
+      "source": "student_39",
+      "target": "student_2"
+    },
+    {
+      "source": "student_39",
+      "target": "student_3"
+    },
+    {
+      "source": "student_39",
+      "target": "student_4"
+    },
+    {
+      "source": "student_40",
+      "target": "student_0"
+    },
+    {
+      "source": "student_40",
+      "target": "student_1"
+    },
+    {
+      "source": "student_40",
+      "target": "student_2"
+    },
+    {
+      "source": "student_40",
+      "target": "student_3"
+    },
+    {
+      "source": "student_41",
+      "target": "student_0"
+    },
+    {
+      "source": "student_41",
+      "target": "student_1"
+    },
+    {
+      "source": "student_41",
+      "target": "student_2"
+    },
+    {
+      "source": "student_41",
+      "target": "student_3"
+    },
+    {
+      "source": "student_41",
+      "target": "student_4"
+    },
+    {
+      "source": "student_42",
+      "target": "student_0"
+    },
+    {
+      "source": "student_42",
+      "target": "student_1"
+    },
+    {
+      "source": "student_42",
+      "target": "student_2"
+    },
+    {
+      "source": "student_42",
+      "target": "student_3"
+    },
+    {
+      "source": "student_42",
+      "target": "student_4"
+    },
+    {
+      "source": "student_43",
+      "target": "student_0"
+    },
+    {
+      "source": "student_43",
+      "target": "student_1"
+    },
+    {
+      "source": "student_43",
+      "target": "student_2"
+    },
+    {
+      "source": "student_43",
+      "target": "student_3"
+    },
+    {
+      "source": "student_44",
+      "target": "student_0"
+    },
+    {
+      "source": "student_44",
+      "target": "student_1"
+    },
+    {
+      "source": "student_44",
+      "target": "student_2"
+    },
+    {
+      "source": "student_44",
+      "target": "student_3"
+    },
+    {
+      "source": "student_44",
+      "target": "student_4"
+    },
+    {
+      "source": "student_45",
+      "target": "student_0"
+    },
+    {
+      "source": "student_45",
+      "target": "student_1"
+    },
+    {
+      "source": "student_45",
+      "target": "student_2"
+    },
+    {
+      "source": "student_45",
+      "target": "student_3"
+    },
+    {
+      "source": "student_45",
+      "target": "student_4"
+    },
+    {
+      "source": "student_46",
+      "target": "student_0"
+    },
+    {
+      "source": "student_46",
+      "target": "student_1"
+    },
+    {
+      "source": "student_46",
+      "target": "student_2"
+    },
+    {
+      "source": "student_46",
+      "target": "student_3"
+    },
+    {
+      "source": "student_46",
+      "target": "student_4"
+    },
+    {
+      "source": "student_47",
+      "target": "student_0"
+    },
+    {
+      "source": "student_47",
+      "target": "student_1"
+    },
+    {
+      "source": "student_47",
+      "target": "student_2"
+    },
+    {
+      "source": "student_47",
+      "target": "student_3"
+    },
+    {
+      "source": "student_47",
+      "target": "student_4"
+    },
+    {
+      "source": "student_48",
+      "target": "student_0"
+    },
+    {
+      "source": "student_48",
+      "target": "student_1"
+    },
+    {
+      "source": "student_49",
+      "target": "student_0"
+    },
+    {
+      "source": "student_49",
+      "target": "student_1"
+    },
+    {
+      "source": "student_49",
+      "target": "student_2"
+    }
+  ]
+}

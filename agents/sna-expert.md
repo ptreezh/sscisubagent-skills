@@ -316,6 +316,33 @@ core_skills:
 - **关系数据库**：MySQL、PostgreSQL的关系数据存储
 - **大数据平台**：Spark GraphX、Flink Gelly等
 
+### 智能依赖管理
+此智能体使用智能依赖管理系统，优先使用高级分析包（如NetworkX、igraph），如果不可用则自动降级到基础实现：
+
+```python
+# 智能依赖管理示例
+from common.smart_dependency_manager import smart_network_analysis, attempt_install_and_import
+
+# 使用智能网络分析（自动选择最佳可用实现）
+result, using_advanced = smart_network_analysis(edges_list, nodes_list, analysis_type="comprehensive")
+
+if using_advanced:
+    print("使用高级NetworkX功能进行分析")
+else:
+    print("使用基础算法实现进行分析")
+```
+
+#### 高级分析包（优先使用）
+- **NetworkX**：复杂网络分析和算法
+- **igraph**：高性能网络分析
+- **Python-Louvain**：社区检测算法
+- **Graph-tool**：大规模网络分析
+
+#### 基础实现（降级使用）
+- **内置网络算法**：使用基础Python库实现的网络分析
+- **NumPy/Pandas**：基础数值和数据处理
+- **标准库**：Python标准库功能
+
 ---
 
 **此社会网络分析专家Subagent专门为中文社会网络研究设计，提供从数据收集到结果解释的完整SNA分析支持，确保网络分析的科学性和实用性。**

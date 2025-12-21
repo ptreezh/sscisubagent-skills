@@ -1,0 +1,35 @@
+{
+  "field_name": "高等教育场域",
+  "actors": [
+    {
+      "name": "大学A",
+      "type": "institution",
+      "capital": {
+        "学术": 90,
+        "经济": 80,
+        "象征": 85
+      }
+    },
+    {
+      "name": "大学B",
+      "type": "institution",
+      "capital": {
+        "学术": 70,
+        "经济": 60,
+        "象征": 75
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "大学A",
+      "to": "大学B",
+      "type": "竞争"
+    },
+    {
+      "from": "大学A",
+      "to": "教育部",
+      "type": "依赖"
+    }
+  ]
+}

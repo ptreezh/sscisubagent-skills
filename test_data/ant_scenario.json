@@ -1,0 +1,70 @@
+{
+  "network_name": "中国移动支付网络",
+  "actors": [
+    {
+      "name": "用户",
+      "type": "human",
+      "agency": "选择支付方式",
+      "relations": [
+        "使用",
+        "依赖"
+      ]
+    },
+    {
+      "name": "支付宝App",
+      "type": "non-human",
+      "agency": "处理交易",
+      "relations": [
+        "连接",
+        "验证"
+      ]
+    },
+    {
+      "name": "银行系统",
+      "type": "non-human",
+      "agency": "资金转移",
+      "relations": [
+        "授权",
+        "记录"
+      ]
+    },
+    {
+      "name": "商家",
+      "type": "human",
+      "agency": "接受支付",
+      "relations": [
+        "提供",
+        "确认"
+      ]
+    },
+    {
+      "name": "监管机构",
+      "type": "human",
+      "agency": "制定规则",
+      "relations": [
+        "规范",
+        "监督"
+      ]
+    },
+    {
+      "name": "二维码",
+      "type": "non-human",
+      "agency": "信息传递",
+      "relations": [
+        "编码",
+        "解码"
+      ]
+    }
+  ],
+  "translation_phases": {
+    "problematisation": "定义支付需求和问题",
+    "interessement": "吸引各方参与",
+    "enrollment": "确定各方角色",
+    "mobilization": "协调行动"
+  },
+  "network_properties": {
+    "stability": "高",
+    "heterogeneity": "高",
+    "centrality": "平台为中心"
+  }
+}

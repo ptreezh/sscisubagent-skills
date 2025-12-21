@@ -1,0 +1,106 @@
+/* Onboarding Flow Styles */
+
+.onboarding-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.onboarding-modal {
+  width: 400px;
+  max-width: 90%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
+
+.onboarding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.onboarding-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.onboarding-close {
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.onboarding-close:hover {
+  color: #000;
+}
+
+.onboarding-content {
+  padding: 20px;
+}
+
+.onboarding-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.onboarding-image {
+  text-align: center;
+  margin: 20px 0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.onboarding-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.onboarding-progress {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.progress-step {
+  flex: 1;
+  height: 4px;
+  background-color: #e9ecef;
+  margin-right: 4px;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.progress-step:last-child {
+  margin-right: 0;
+}
+
+.progress-step.active {
+  background-color: #007bff;
+}
+
+.progress-step.completed {
+  background-color: #28a745;
+}
+
+.onboarding-actions {
+  display: flex;
+  justify-content: flex-end;
+}

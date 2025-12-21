@@ -1,0 +1,143 @@
+{
+  "summary": {
+    "total_nodes": 7,
+    "total_edges": 6,
+    "network_density": 0.2857,
+    "top_node": "alipay_app",
+    "top_score": 0.5,
+    "hubs_count": 1,
+    "bridges_count": 4,
+    "influencers_count": 5,
+    "processing_time": 0.01
+  },
+  "details": {
+    "centralities": [
+      {
+        "node": "user_alice",
+        "degree": 0.3333,
+        "closeness": 0.5455,
+        "betweenness": 0.5333,
+        "eigenvector": 0.4642
+      },
+      {
+        "node": "alipay_app",
+        "degree": 0.5,
+        "closeness": 0.6,
+        "betweenness": 0.7333,
+        "eigenvector": 0.5968
+      },
+      {
+        "node": "user_bob",
+        "degree": 0.1667,
+        "closeness": 0.3158,
+        "betweenness": 0.0,
+        "eigenvector": 0.1612
+      },
+      {
+        "node": "merchant_qr",
+        "degree": 0.3333,
+        "closeness": 0.4286,
+        "betweenness": 0.3333,
+        "eigenvector": 0.3176
+      },
+      {
+        "node": "bank_system",
+        "degree": 0.3333,
+        "closeness": 0.4615,
+        "betweenness": 0.3333,
+        "eigenvector": 0.4082
+      },
+      {
+        "node": "security_protocol",
+        "degree": 0.1667,
+        "closeness": 0.4,
+        "betweenness": 0.0,
+        "eigenvector": 0.303
+      },
+      {
+        "node": "regulatory_policy",
+        "degree": 0.1667,
+        "closeness": 0.3333,
+        "betweenness": 0.0,
+        "eigenvector": 0.2073
+      }
+    ],
+    "top_nodes": [
+      {
+        "node": "alipay_app",
+        "degree": 0.5,
+        "closeness": 0.6,
+        "betweenness": 0.7333,
+        "eigenvector": 0.5968
+      },
+      {
+        "node": "user_alice",
+        "degree": 0.3333,
+        "closeness": 0.5455,
+        "betweenness": 0.5333,
+        "eigenvector": 0.4642
+      },
+      {
+        "node": "merchant_qr",
+        "degree": 0.3333,
+        "closeness": 0.4286,
+        "betweenness": 0.3333,
+        "eigenvector": 0.3176
+      },
+      {
+        "node": "bank_system",
+        "degree": 0.3333,
+        "closeness": 0.4615,
+        "betweenness": 0.3333,
+        "eigenvector": 0.4082
+      },
+      {
+        "node": "user_bob",
+        "degree": 0.1667,
+        "closeness": 0.3158,
+        "betweenness": 0.0,
+        "eigenvector": 0.1612
+      },
+      {
+        "node": "security_protocol",
+        "degree": 0.1667,
+        "closeness": 0.4,
+        "betweenness": 0.0,
+        "eigenvector": 0.303
+      },
+      {
+        "node": "regulatory_policy",
+        "degree": 0.1667,
+        "closeness": 0.3333,
+        "betweenness": 0.0,
+        "eigenvector": 0.2073
+      }
+    ],
+    "key_nodes": {
+      "hubs": [
+        "alipay_app"
+      ],
+      "bridges": [
+        "user_alice",
+        "alipay_app",
+        "merchant_qr",
+        "bank_system"
+      ],
+      "influencers": [
+        "user_alice",
+        "alipay_app",
+        "merchant_qr",
+        "bank_system",
+        "security_protocol"
+      ]
+    }
+  },
+  "metadata": {
+    "input_file": "test_scenarios\\research_scenarios\\ant_network_for_analysis.json",
+    "output_file": "test_scenarios\\research_scenarios\\ant_network_analysis_output.json",
+    "metric_used": "degree",
+    "timestamp": "2025-12-20T22:46:11.256488",
+    "version": "1.0.0",
+    "skill": "performing-centrality-analysis"
+  }
+}

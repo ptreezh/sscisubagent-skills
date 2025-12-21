@@ -1,0 +1,37 @@
+{
+  "nodes": [
+    "user_alice",
+    "user_bob",
+    "alipay_app",
+    "bank_system",
+    "merchant_qr",
+    "security_protocol",
+    "regulatory_policy"
+  ],
+  "edges": [
+    {
+      "source": "user_alice",
+      "target": "alipay_app"
+    },
+    {
+      "source": "user_bob",
+      "target": "merchant_qr"
+    },
+    {
+      "source": "alipay_app",
+      "target": "bank_system"
+    },
+    {
+      "source": "alipay_app",
+      "target": "security_protocol"
+    },
+    {
+      "source": "bank_system",
+      "target": "regulatory_policy"
+    },
+    {
+      "source": "user_alice",
+      "target": "merchant_qr"
+    }
+  ]
+}

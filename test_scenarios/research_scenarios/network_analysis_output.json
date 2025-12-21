@@ -1,0 +1,468 @@
+{
+  "summary": {
+    "total_nodes": 50,
+    "total_edges": 194,
+    "network_density": 0.1584,
+    "top_node": "student_0",
+    "top_score": 1.0,
+    "hubs_count": 5,
+    "bridges_count": 4,
+    "influencers_count": 4,
+    "processing_time": 0.03
+  },
+  "details": {
+    "centralities": [
+      {
+        "node": "student_0",
+        "degree": 1.0,
+        "closeness": 1.0,
+        "betweenness": 0.3646,
+        "eigenvector": 0.3639
+      },
+      {
+        "node": "student_1",
+        "degree": 0.9184,
+        "closeness": 0.9245,
+        "betweenness": 0.2064,
+        "eigenvector": 0.3579
+      },
+      {
+        "node": "student_2",
+        "degree": 0.8367,
+        "closeness": 0.8596,
+        "betweenness": 0.1358,
+        "eigenvector": 0.3461
+      },
+      {
+        "node": "student_3",
+        "degree": 0.7959,
+        "closeness": 0.8305,
+        "betweenness": 0.1146,
+        "eigenvector": 0.3373
+      },
+      {
+        "node": "student_4",
+        "degree": 0.6122,
+        "closeness": 0.7206,
+        "betweenness": 0.0553,
+        "eigenvector": 0.2854
+      },
+      {
+        "node": "student_5",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_6",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_7",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_8",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_9",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_10",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_11",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_12",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_13",
+        "degree": 0.0408,
+        "closeness": 0.5104,
+        "betweenness": 0.0,
+        "eigenvector": 0.0478
+      },
+      {
+        "node": "student_14",
+        "degree": 0.0204,
+        "closeness": 0.5052,
+        "betweenness": 0.0,
+        "eigenvector": 0.0241
+      },
+      {
+        "node": "student_15",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_16",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_17",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_18",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_19",
+        "degree": 0.0612,
+        "closeness": 0.5158,
+        "betweenness": 0.0,
+        "eigenvector": 0.0707
+      },
+      {
+        "node": "student_20",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_21",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_22",
+        "degree": 0.0204,
+        "closeness": 0.5052,
+        "betweenness": 0.0,
+        "eigenvector": 0.0241
+      },
+      {
+        "node": "student_23",
+        "degree": 0.0408,
+        "closeness": 0.5104,
+        "betweenness": 0.0,
+        "eigenvector": 0.0478
+      },
+      {
+        "node": "student_24",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_25",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_26",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_27",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_28",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_29",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_30",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_31",
+        "degree": 0.0408,
+        "closeness": 0.5104,
+        "betweenness": 0.0,
+        "eigenvector": 0.0478
+      },
+      {
+        "node": "student_32",
+        "degree": 0.0204,
+        "closeness": 0.5052,
+        "betweenness": 0.0,
+        "eigenvector": 0.0241
+      },
+      {
+        "node": "student_33",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_34",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_35",
+        "degree": 0.0204,
+        "closeness": 0.5052,
+        "betweenness": 0.0,
+        "eigenvector": 0.0241
+      },
+      {
+        "node": "student_36",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_37",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_38",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_39",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_40",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_41",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_42",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_43",
+        "degree": 0.0816,
+        "closeness": 0.5213,
+        "betweenness": 0.0,
+        "eigenvector": 0.093
+      },
+      {
+        "node": "student_44",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_45",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_46",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_47",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_48",
+        "degree": 0.0408,
+        "closeness": 0.5104,
+        "betweenness": 0.0,
+        "eigenvector": 0.0478
+      },
+      {
+        "node": "student_49",
+        "degree": 0.0612,
+        "closeness": 0.5158,
+        "betweenness": 0.0,
+        "eigenvector": 0.0707
+      }
+    ],
+    "top_nodes": [
+      {
+        "node": "student_0",
+        "degree": 1.0,
+        "closeness": 1.0,
+        "betweenness": 0.3646,
+        "eigenvector": 0.3639
+      },
+      {
+        "node": "student_1",
+        "degree": 0.9184,
+        "closeness": 0.9245,
+        "betweenness": 0.2064,
+        "eigenvector": 0.3579
+      },
+      {
+        "node": "student_2",
+        "degree": 0.8367,
+        "closeness": 0.8596,
+        "betweenness": 0.1358,
+        "eigenvector": 0.3461
+      },
+      {
+        "node": "student_3",
+        "degree": 0.7959,
+        "closeness": 0.8305,
+        "betweenness": 0.1146,
+        "eigenvector": 0.3373
+      },
+      {
+        "node": "student_4",
+        "degree": 0.6122,
+        "closeness": 0.7206,
+        "betweenness": 0.0553,
+        "eigenvector": 0.2854
+      },
+      {
+        "node": "student_5",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_8",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_9",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_10",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      },
+      {
+        "node": "student_11",
+        "degree": 0.102,
+        "closeness": 0.5269,
+        "betweenness": 0.0,
+        "eigenvector": 0.1119
+      }
+    ],
+    "key_nodes": {
+      "hubs": [
+        "student_0",
+        "student_1",
+        "student_2",
+        "student_3",
+        "student_4"
+      ],
+      "bridges": [
+        "student_0",
+        "student_1",
+        "student_2",
+        "student_3"
+      ],
+      "influencers": [
+        "student_0",
+        "student_1",
+        "student_2",
+        "student_3"
+      ]
+    }
+  },
+  "metadata": {
+    "input_file": "test_scenarios\\research_scenarios\\student_network.json",
+    "output_file": "test_scenarios\\research_scenarios\\network_analysis_output.json",
+    "metric_used": "degree",
+    "timestamp": "2025-12-20T22:46:10.213930",
+    "version": "1.0.0",
+    "skill": "performing-centrality-analysis"
+  }
+}

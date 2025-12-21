@@ -1,144 +1,145 @@
 ---
 name: field-analysis
 description: 执行布迪厄场域分析，包括场域边界识别、资本分布分析、自主性评估和习性模式分析。当需要分析社会场域的结构、权力关系和文化资本时使用此技能。
+version: 1.0.0
+author: chinese-social-sciences-subagents
+tags: [field-analysis, bourdieu, social-structure, cultural-capital, power-relations]
 ---
 
-# 场域分析技能 (Field Analysis)
+# Field Analysis Skill (Bourdieu-inspired)
 
-基于布迪厄场域理论，分析社会空间的权力结构和文化资本分布。
+## Overview
+场域分析技能基于布迪厄的社会学理论，为社会科学研究提供分析社会场域结构、权力关系和文化资本分布的框架。该技能帮助研究者识别场域边界、分析资本分布、评估场域自主性并理解行动者的习性模式。
 
-## 使用时机
+## When to Use This Skill
+Use this skill when the user requests:
+- Analysis of social fields or domains (education, politics, art, etc.)
+- Identification of field boundaries and rules of the game
+- Analysis of capital distribution and power relations
+- Assessment of field autonomy from external forces
+- Understanding of habitus and its relationship to field structure
+- Investigation of struggles and power dynamics within fields
+- Analysis of how social positions are structured and reproduced
+- Examination of the relationship between objective conditions and subjective dispositions
 
-当用户提到以下需求时，使用此技能：
-- "场域分析" 或 "布迪厄场域"
-- "权力结构分析" 或 "社会空间分析"
-- "文化资本" 或 "社会资本"
-- "自主性评估" 或 "场域自主性"
-- "习性分析" 或 "惯习模式"
-- 需要分析特定社会领域的结构和关系
+## Quick Start
+When a user requests field analysis:
+1. **Identify** the specific field and its boundaries
+2. **Map** positions and relationships within the field
+3. **Analyze** capital distribution and power relations
+4. **Assess** field autonomy and historical development
+5. **Interpret** findings in social context
 
-## 快速开始
+## Core Functions (Progressive Disclosure)
 
-### 工具链
+### Primary Functions
+- **Field Mapping**: Identify positions and relations within the field
+- **Capital Analysis**: Identify and map different types of capital
+- **Power Relations**: Identify dominant and dominated positions
+- **Basic Habitus**: Understand participants' dispositions
 
-```bash
-# 场域边界识别
-python scripts/identify_field_boundary.py \
-  --input data.json \
-  --output boundary.json
+### Secondary Functions
+- **Boundary Analysis**: Define field boundaries and exclusions
+- **Struggle Dynamics**: Analyze ongoing struggles and their stakes
+- **Autonomy Assessment**: Evaluate independence from external forces
+- **Historical Analysis**: Trace field development over time
 
-# 资本分布分析
-python scripts/analyze_capital_distribution.py \
-  --input data.json \
-  --type cultural \
-  --output capital.json
+### Advanced Functions
+- **Symbolic Violence**: Identify mechanisms of domination and misrecognition
+- **Multi-field Analysis**: Examine relationships between fields
+- **Field Evolution**: Analyze changes in field structure
+- **Complex Habitus**: Examine how habitus enables/constrains practice
 
-# 自主性评估
-python scripts/assess_autonomy.py \
-  --input data.json \
-  --output autonomy.json
+## Detailed Instructions
 
-# 习性模式分析
-python scripts/analyze_habitus.py \
-  --input data.json \
-  --output habitus.json
-```
+### 1. Field Identification
+   - Clearly define the field of analysis
+   - Identify the specific social space being examined
+   - Establish the historical and geographical context
+   - Determine the relevant time period for analysis
 
-## 核心概念
+### 2. Field Mapping
+   - Create a relational map of positions within the field
+   - Identify the key actors and their positions
+   - Analyze the objective relations between positions
+   - Determine the principles of division within the field
 
-### 1. 场域（Field）
-社会空间中的竞争领域，有自身的规则和权力结构
+### 3. Capital Analysis
+   - Identify the different types of capital valued in the field
+   - Map the distribution of capital among participants
+   - Analyze how capital is converted and recognized
+   - Examine how capital shapes position-taking
 
-### 2. 资本类型
-- **文化资本**：知识、技能、文化素养
-- **社会资本**：关系网络、社会联系
-- **象征资本**：声望、荣誉、认可
-- **经济资本**：物质财富、经济资源
+### 4. Power Relations Analysis
+   - Identify dominant and dominated positions
+   - Analyze the struggles occurring within the field
+   - Examine the stakes of these struggles
+   - Understand how power is exercised and contested
 
-### 3. 习性（Habitus）
-持久的、可转移的性情倾向系统
+### 5. Autonomy Assessment
+   - Evaluate the field's autonomy from external forces
+   - Analyze the degree of field-specific logic
+   - Identify mechanisms of symbolic violence
+   - Assess the field's historical development
 
----
+### 6. Habitus Understanding
+   - Analyze the dispositions of field participants
+   - Examine how objective conditions shape subjective dispositions
+   - Understand the relationship between structure and agency
+   - Consider how habitus enables and constrains practice
 
-## 分析流程
+### 7. Synthesis and Interpretation
+   - Integrate findings from all dimensions
+   - Connect field analysis to broader social processes
+   - Consider Chinese social context and cultural specificities
+   - Provide actionable insights
 
-### 第一步：场域边界识别
+## Parameters
+- `field_type`: Type of field (educational, political, cultural, economic, etc.)
+- `analysis_scope`: Scope of analysis (local, national, transnational)
+- `time_frame`: Time period for analysis (synchronic, diachronic)
+- `actors`: Key actors or participants in the field
+- `capital_types`: Specific types of capital to analyze
+- `methodology`: Approach to field analysis (qualitative, quantitative, mixed)
+- `cultural_context`: Cultural context considerations (especially for Chinese context)
 
-**使用工具识别**：
-- 确定场域范围和边界
-- 识别核心参与者
-- 分析场域的自主程度
+## Examples
 
-详见：`references/field-theory/INDEX.md`
+### Example 1: Educational Field Analysis
+User: "Analyze the Chinese university field in terms of capital distribution"
+Response: Map positions in the field, identify valued capitals, analyze power relations, assess autonomy.
 
----
+### Example 2: Cultural Field Analysis
+User: "Examine the contemporary Chinese art field and its autonomy"
+Response: Identify field boundaries, analyze power struggles, assess external influences, understand habitus.
 
-### 第二步：资本分布分析
+### Example 3: Political Field Analysis
+User: "Study power relations in Chinese local governance"
+Response: Map positions, analyze capital distribution, identify struggles, assess autonomy from higher authorities.
 
-**四种资本类型分析**：
-- 计算各类资本的分布
-- 识别资本不平等
-- 分析资本转换关系
+## Quality Standards
 
-详见：`references/capital-theory/INDEX.md`
+- Apply Bourdieu's theoretical framework rigorously
+- Maintain focus on relational analysis
+- Consider historical and cultural context
+- Balance structural and agency perspectives
+- Provide evidence-based interpretations
 
----
+## Output Format
 
-### 第三步：自主性评估
+- Complete field analysis report
+- Position maps and relational diagrams
+- Capital distribution analysis
+- Power relations mapping
+- Habitus analysis and interpretation
 
-**评估指标**：
-- 场域相对于外部力量的独立性
-- 内部规则的自主程度
-- 权力结构的稳定性
+## Resources
+- Bourdieu's theoretical works
+- Field analysis methodological guides
+- Chinese social structure literature
+- Examples of field analysis in Chinese context
 
-详见：`references/autonomy/INDEX.md`
-
----
-
-### 第四步：习性模式分析
-
-**分析维度**：
-- 识别行为模式和偏好
-- 分析社会化过程
-- 理解实践逻辑
-
-详见：`references/habitus/INDEX.md`
-
-## 输出格式
-
-统一的三层JSON格式：
-
-```json
-{
-  "summary": {
-    "field_name": "学术场域",
-    "autonomy_score": 0.75,
-    "capital_distribution": {...},
-    "habitus_patterns": 3
-  },
-  "details": {
-    "boundary_analysis": {...},
-    "capital_analysis": {...},
-    "autonomy_analysis": {...},
-    "habitus_analysis": {...}
-  }
-}
-```
-
-## 质量检查清单
-
-- [ ] 场域边界清晰定义
-- [ ] 资本类型准确识别
-- [ ] 自主性评估合理
-- [ ] 习性模式分析深入
-- [ ] 考虑中国本土化特点
-
-## 深入学习
-
-- **场域理论**：`references/field-theory/INDEX.md`
-- **资本理论**：`references/capital-theory/INDEX.md`
-- **中国应用**：`references/chinese-context/INDEX.md`
-
----
-
-*此技能基于布迪厄场域理论，为中国社会场域分析提供工具支持。*
+## Metadata
+- Compatibility: Claude 3.5 Sonnet and above
+- Domain: Sociology, Social Theory
+- Language: Optimized for Chinese research context

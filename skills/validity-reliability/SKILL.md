@@ -8,63 +8,128 @@ tags: [reliability, validity, research-methods, psychometrics, measurement]
 
 # Validity and Reliability Analysis Skill
 
-## 技能概述
-
+## Overview
 信度效度分析技能为社会科学研究提供全面的测量质量评估，包括信度分析（内部一致性、重测信度、评分者信度）和效度分析（内容效度、构念效度、效标效度），确保研究工具的科学性和有效性。
 
-## 核心功能
+## When to Use This Skill
+Use this skill when the user requests:
+- Reliability analysis of research instruments
+- Internal consistency assessment (Cronbach's Alpha, Omega)
+- Test-retest reliability evaluation
+- Inter-rater reliability analysis
+- Validity assessment of measurement tools
+- Content validity evaluation
+- Construct validity testing (EFA, CFA)
+- Criterion validity analysis
+- Factor analysis for scale validation
+- Scale development and refinement
 
-### 1. 信度分析
-- **内部一致性**: Cronbach's Alpha、分半信度、Omega系数
-- **重测信度**: test-retest相关性、测量误差评估
-- **评分者信度**: 一致性检验、Kappa系数、ICC
-- **复合信度**: 构念信度、平均方差提取
+## Quick Start
+When a user requests reliability and validity assessment:
+1. **Evaluate** the measurement design and data quality
+2. **Assess** reliability using appropriate coefficients
+3. **Test** validity through factor analysis and other methods
+4. **Interpret** results in the context of measurement theory
+5. **Recommend** improvements if needed
 
-### 2. 效度分析
-- **内容效度**: 专家评估、内容效度比、CVI指数
-- **构念效度**: 探索性因子分析、验证性因子分析
-- **效标效度**: 同时效度、预测效度、聚合效度
-- **区分效度**: Fornell-Larcker准则、HTMT值
+## Core Functions (Progressive Disclosure)
 
-### 3. 测量质量评估
-- **项目分析**: 难度、区分度、项目-总分相关
-- **因子分析**: 因子提取、因子旋转、因子载荷
-- **测量模型**: 结构方程建模、拟合指标
-- **测量不变性**: 跨群体比较、多组验证
+### Primary Functions
+- **Internal Consistency**: Cronbach's Alpha, item-total correlations
+- **Factor Analysis**: Exploratory Factor Analysis (EFA) for structure
+- **Convergent Validity**: Average Variance Extracted (AVE), factor loadings
+- **Basic Reporting**: Standardized reliability and validity statistics
 
-## 使用方法
+### Secondary Functions
+- **Test-Retest Reliability**: Stability over time
+- **Inter-rater Reliability**: Agreement among evaluators
+- **Discriminant Validity**: Fornell-Larcker criterion, HTMT
+- **Item Analysis**: Difficulty, discrimination indices
 
-当您需要评估研究工具的信度效度时，我会：
+### Advanced Functions
+- **Confirmatory Factor Analysis**: Model fit testing, CFA
+- **Measurement Invariance**: Cross-group comparisons
+- **Composite Reliability**: Construct reliability assessment
+- **Higher-Order Models**: Complex factor structures
 
-1. **测量设计评估**: 检查量表结构和项目设计
-2. **数据质量检查**: 处理缺失值、异常值检测
-3. **信度分析**: 计算各类信度系数和置信区间
-4. **效度验证**: 执行因子分析和效标关联
-5. **质量改进**: 提供具体的改进建议
+## Detailed Instructions
 
-## 支持的分析方法
+### 1. Measurement Design Evaluation
+   - Review scale structure and item design
+   - Check for potential response biases
+   - Assess item wording and clarity
+   - Verify response format appropriateness
 
-- Cronbach's Alpha及其置信区间
-- McDonald's Omega和复合信度
-- 探索性因子分析（EFA）
-- 验证性因子分析（CFA）
-- 收敛效度和区分效度检验
-- 跨文化测量不变性检验
+### 2. Data Quality Check
+   - Handle missing values appropriately
+   - Detect and address outliers
+   - Assess distribution characteristics
+   - Verify sample size adequacy
 
-## 质量标准
+### 3. Reliability Analysis
+   - Calculate various reliability coefficients
+   - Assess confidence intervals
+   - Identify problematic items
+   - Evaluate dimensionality
 
-- 遵循心理测量学最佳实践
-- 提供APA格式的统计报告
-- 包含效应量和置信区间
-- 进行多重比较校正
-- 验证模型假设条件
+### 4. Validity Verification
+   - Conduct factor analysis (EFA/CFA)
+   - Test convergent and discriminant validity
+   - Assess criterion-related validity
+   - Evaluate content validity evidence
 
-## 输出格式
+### 5. Quality Improvement Recommendations
+   - Suggest specific scale improvements
+   - Recommend item revisions or removal
+   - Propose additional validation studies
+   - Provide reporting guidelines
 
-- 完整的信度效度分析报告
-- 标准化的统计表格
-- 因子结构可视化
-- 测量模型路径图
-- 可重现的分析代码
+## Parameters
+- `analysis_type`: Type of analysis (reliability, validity, combined)
+- `data_format`: Format of input data (CSV, Excel, SPSS, etc.)
+- `scale_items`: List of items to analyze
+- `sample_size`: Number of participants/respondents
+- `factor_structure`: Expected factor structure (if known)
+- `validation_criteria`: External criteria for criterion validity
+- `report_format`: Format for output (APA, journal-specific, etc.)
 
-当您提到信度效度、测量质量、量表开发、心理测量等相关需求时，此技能会自动激活。
+## Examples
+
+### Example 1: Internal Consistency
+User: "Assess the internal consistency of this 20-item scale"
+Response: Calculate Cronbach's Alpha, Omega coefficient, item-total correlations, identify problematic items.
+
+### Example 2: Factor Analysis
+User: "Perform EFA to identify the factor structure of this scale"
+Response: Conduct exploratory factor analysis, determine optimal number of factors, interpret factor loadings, suggest modifications.
+
+### Example 3: Construct Validity
+User: "Test the construct validity of this new measure"
+Response: Perform CFA, assess model fit, evaluate convergent and discriminant validity, interpret results.
+
+## Quality Standards
+
+- Follow psychometric best practices
+- Provide APA-formatted statistical reports
+- Include effect sizes and confidence intervals
+- Conduct multiple comparison corrections when appropriate
+- Verify model assumption conditions
+
+## Output Format
+
+- Complete reliability and validity analysis report
+- Standardized statistical tables
+- Factor structure visualizations
+- Measurement model path diagrams
+- Reproducible analysis code
+
+## Resources
+- Best practices in psychometrics
+- Guidelines for scale development and validation
+- Statistical software syntax for reliability/validity analysis
+- Python toolkit: `skills/validity-reliability/scripts/validity_reliability_toolkit.py`
+
+## Metadata
+- Compatibility: Claude 3.5 Sonnet and above
+- Domain: Psychometrics and Scale Development
+- Language: Optimized for Chinese research context

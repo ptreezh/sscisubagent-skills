@@ -1,0 +1,28 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[env]
+PYTHONPATH = "/app"
+FLASK_ENV = "production"
+PORT = "5000"
+
+[[services]]
+name = "grounded-theory-agent"
+
+[services.variables]
+PYTHON_VERSION = "3.9"
+
+[phases.setup]
+nixPkgs = ["...", "python39"]
+
+[phases.build]
+cmds = ["pip install -r requirements-docker.txt", "python manage.py migrate"]
+
+[start]
+cmd = "gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 web_interface.grounded_theory_webapp:app"

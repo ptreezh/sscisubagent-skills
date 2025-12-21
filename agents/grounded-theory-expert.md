@@ -276,6 +276,34 @@ core_skills:
 - **注释系统**：编码注释和讨论功能
 - **报告生成**：自动生成编码报告
 
+### 智能依赖管理
+此智能体使用智能依赖管理系统，优先使用高级分析包（如scikit-learn、jieba），如果不可用则自动降级到基础实现：
+
+```python
+# 智能依赖管理示例
+from common.smart_dependency_manager import attempt_install_and_import, smart_statistical_analysis
+
+# 使用智能统计分析（自动选择最佳可用实现）
+result, using_advanced = smart_statistical_analysis(data_list, analysis_type="descriptive")
+
+if using_advanced:
+    print("使用高级统计包进行分析")
+else:
+    print("使用基础统计实现进行分析")
+```
+
+#### 高级分析包（优先使用）
+- **Jieba**：中文分词和文本处理
+- **NLTK/SpaCy**：自然语言处理
+- **Scikit-learn**：机器学习算法
+- **Transformers**：深度学习模型
+
+#### 基础实现（降级使用）
+- **内置文本处理**：Python内置字符串处理
+- **正则表达式**：文本模式匹配
+- **基础统计**：Python统计库
+- **标准库**：Python标准库功能
+
 ---
 
 **此扎根理论专家Subagent专门为中文质性研究设计，提供从开放编码到理论构建的全流程专业支持，确保扎根理论研究的科学性和规范性。**

@@ -1,0 +1,833 @@
+{
+  "quality_metrics": {
+    "theoretical_accuracy": 3.148658131937248,
+    "methodological_soundness": 1.9197101109864394,
+    "analytical_depth": 3.33416985568118,
+    "logical_coherence": 2.3997623016434733,
+    "practical_relevance": 5.166666666666667,
+    "overall_quality": 2.967989950377208,
+    "quality_level": "需要改进"
+  },
+  "quality_issues": [
+    "QualityIssue(issue_type='theoretical_accuracy', description='理论准确性不足: 3.15 < 7.0', severity='high', suggestion='加强马克思主义基本原理的学习和应用')",
+    "QualityIssue(issue_type='methodological_soundness', description='方法论科学性不足: 1.92 < 7.0', severity='high', suggestion='完善辩证思维和历史唯物主义方法论')",
+    "QualityIssue(issue_type='analytical_depth', description='分析深度不足: 3.33 < 6.0', severity='medium', suggestion='深化理论分析，增强层次性和全面性')",
+    "QualityIssue(issue_type='logical_coherence', description='逻辑连贯性不足: 2.40 < 6.0', severity='medium', suggestion='加强逻辑推理的严密性和一致性')",
+    "QualityIssue(issue_type='practical_relevance', description='实践相关性不足: 5.17 < 6.0', severity='low', suggestion='增强分析的现实针对性和应用价值')"
+  ],
+  "improvement_suggestions": [
+    "掌握辩证思维的基本方法",
+    "加强逻辑推理的严密性",
+    "避免理论概念的误用和滥用",
+    "准确理解和运用核心概念",
+    "深化理论分析的层次性",
+    "熟练运用历史唯物主义分析框架",
+    "避免逻辑矛盾和混乱",
+    "避免表面化和简单化倾向",
+    "避免脱离实际的空泛分析",
+    "深入学习马克思主义基本原理",
+    "避免机械唯物主义和教条主义",
+    "确保分析结论的一致性",
+    "提高理论的应用价值",
+    "增强分析的现实针对性",
+    "增强分析的全面性和系统性"
+  ],
+  "dialectical_results": {
+    "unity_of_opposites": {
+      "contradictions": [
+        "Contradiction(primary_aspect='生产关系', secondary_aspect='生产力', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')",
+        "Contradiction(primary_aspect='上层建筑', secondary_aspect='经济基础', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')"
+      ],
+      "primary_secondary_aspects": {
+        "生产关系-生产力": {
+          "primary_dominance": {
+            "weight": 0.2238802494255102,
+            "dominance_indicators": 1,
+            "dominance_level": "中等主导"
+          },
+          "secondary_dominance": {
+            "weight": 0.14553134030857143,
+            "dominance_indicators": 1,
+            "dominance_level": "中等主导"
+          },
+          "aspect_relationship": "辩证统一",
+          "dominant_aspect": "生产关系"
+        },
+        "上层建筑-经济基础": {
+          "primary_dominance": {
+            "weight": 0.19140589948836734,
+            "dominance_indicators": 1,
+            "dominance_level": "中等主导"
+          },
+          "secondary_dominance": {
+            "weight": 0.1768211365132653,
+            "dominance_indicators": 1,
+            "dominance_level": "中等主导"
+          },
+          "aspect_relationship": "辩证统一",
+          "dominant_aspect": "上层建筑"
+        }
+      },
+      "unity_struggle_balance": {
+        "unity_score": 0.07132578432663265,
+        "struggle_score": 0.37884408309122447,
+        "balance_state": "相对平衡",
+        "balance_quality": "低质量平衡"
+      },
+      "transformation_tendencies": {
+        "transformation_score": 0.44909713735591833,
+        "transformation_intensity": "弱转化趋势",
+        "transformation_types": {
+          "一般转化": 0.1937353837530612,
+          "发展转化": 0.2553617536028571,
+          "质的转化": 0
+        },
+        "primary_transformation_type": "发展转化"
+      },
+      "development_stages": {
+        "生产关系-生产力": {
+          "current_stage": "显现阶段",
+          "stage_characteristics": "矛盾开始显现，对立面初步形成",
+          "next_stage_tendency": "发展阶段"
+        },
+        "上层建筑-经济基础": {
+          "current_stage": "显现阶段",
+          "stage_characteristics": "矛盾开始显现，对立面初步形成",
+          "next_stage_tendency": "发展阶段"
+        }
+      },
+      "dialectical_quality": {
+        "contradiction_quality": 4.0,
+        "balance_quality": 0.22508493370892857,
+        "transformation_quality": 0.44909713735591833,
+        "overall_quality": 1.5580606903549492,
+        "quality_level": "需要改进"
+      }
+    },
+    "quantity_quality_change": {
+      "quantity_accumulation": {
+        "accumulation_score": 0.43990676251367344,
+        "accumulation_level": "积累不足",
+        "accumulation_processes": [
+          "数字技术的快速发展带来了生产力的显著提升，但传统的生产关系在一定程度上 制约了这种发展",
+          "在当代中国特色社会主义发展中，生产力与生产关系的矛盾运动推动着社会进步",
+          "数字技术的快速发展带来了生产力的显著提升，但传统的生产关系在一定程度上 制约了这种发展",
+          "上层建筑对经济基础 发挥着积极的反作用，推动了经济社会的协调发展",
+          "在当代中国特色社会主义发展中，生产力与生产关系的矛盾运动推动着社会进步",
+          "人民群众在历史发展中发挥着主体作用， 是推动社会进步的根本力量"
+        ]
+      },
+      "quality_leap_points": {
+        "leap_score": 0.05642989837653061,
+        "leap_intensity": "无明显飞跃",
+        "leap_points": []
+      },
+      "gradual_processes": {
+        "gradual_score": 0.5107235072057142,
+        "gradual_level": "渐进不明显",
+        "gradual_processes": []
+      },
+      "revolutionary_changes": {
+        "revolutionary_score": 0.07499589098908163,
+        "revolutionary_level": "革命性不明显",
+        "revolutionary_changes": [
+          "经济基础的变革要求上层建筑的相应调整"
+        ]
+      },
+      "change_directions": {
+        "direction_scores": {
+          "forward": 0.44405892514020406,
+          "backward": 0,
+          "stable": 0
+        },
+        "primary_direction": "forward",
+        "direction_certainty": "方向明确"
+      },
+      "quantity_quality_synthesis": {
+        "coordination_score": 2.0,
+        "development_pattern": "发展模式不明显",
+        "development_stage": "初始发展阶段",
+        "synthesis_quality": "需要改进"
+      }
+    },
+    "negation_of_negation": {
+      "thesis_elements": {
+        "thesis_score": 0.05642989837653061,
+        "thesis_strength": "正题不明显",
+        "thesis_elements": [
+          "人民群众在历史发展中发挥着主体作用， 是推动社会进步的根本力量"
+        ]
+      },
+      "first_negation_elements": {
+        "negation_score": 0.1280502914884694,
+        "negation_intensity": "否定不明显",
+        "negation_elements": [
+          "经济基础的变革要求上层建筑的相应调整"
+        ]
+      },
+      "second_negation_elements": {
+        "second_negation_score": 0,
+        "second_negation_intensity": "二次否定不明显",
+        "second_negation_elements": []
+      },
+      "sublation_processes": {
+        "retention_score": 0.11763286175040816,
+        "sublation_level": "扬弃不明显",
+        "retention_elements": []
+      },
+      "spiral_trajectories": {
+        "spiral_score": 0.2553617536028571,
+        "spiral_intensity": "螺旋不明显",
+        "spiral_elements": []
+      },
+      "developmental_levels": {
+        "developmental_level": "初始阶段",
+        "developmental_completeness": "发展不完整"
+      },
+      "negation_synthesis": {
+        "negation_quality": 2.0,
+        "development_trajectory": "发展轨迹不明显",
+        "synthesis_level": "需要改进"
+      }
+    },
+    "internal_connections": {
+      "unity_quantity_relation": {
+        "relation_strength": 0.7790303451774746,
+        "relation_description": "矛盾的发展是量变质变的内在动力",
+        "relation_quality": "协调不足"
+      },
+      "unity_negation_relation": {
+        "relation_strength": 0.7790303451774746,
+        "relation_description": "矛盾的解决通过否定之否定实现发展",
+        "relation_quality": "协调不足"
+      },
+      "quantity_negation_relation": {
+        "relation_strength": 0.0,
+        "relation_description": "量变质变是否定之否定的具体表现形式",
+        "relation_quality": "协调不足"
+      },
+      "overall_coherence": {
+        "overall_coherence_score": 0.5193535634516497,
+        "coherence_level": "协调不足",
+        "coherence_description": "三大规律协调不足，辩证思维需要系统性提升"
+      }
+    },
+    "overall_dialectical_level": {
+      "overall_score": 0.5193535634516497,
+      "dialectical_level": "辩证思维入门级",
+      "strengths": [],
+      "weaknesses": [
+        "对立统一分析需要加强",
+        "量变质变分析需要加强",
+        "否定之否定分析需要加强"
+      ],
+      "improvement_directions": [
+        "深入学习对立统一规律，增强矛盾分析能力",
+        "加强对量变质变规律的理解和应用",
+        "提升对否定之否定规律的掌握程度",
+        "系统性学习马克思主义辩证法基本原理"
+      ]
+    },
+    "dialectical_recommendations": [
+      "重点加强对立统一规律的学习，特别是矛盾的主要方面分析",
+      "重点学习量变质变规律，关注量变积累的临界点",
+      "重点学习否定之否定规律，理解扬弃的辩证含义",
+      "建议系统学习马克思主义辩证法，打好理论基础"
+    ],
+    "analysis_timestamp": "2025-12-21T19:08:42.128449"
+  },
+  "historical_results": {
+    "contradiction_analysis": {
+      "productive_forces": "ProductiveForces(level='原始生产力', technology_level=0.23691912128142859, labor_productivity=0, production_tools=[], scientific_knowledge=0.05691382412642858, development_potential=0.2553617536028571)",
+      "relations_of_production": "RelationsOfProduction(ownership_form='public', labor_relations='autonomy', distribution_method='equal', class_structure={'资产阶级': 0, '无产阶级': 0, '中产阶级': 0, '农民阶级': 0}, adaptation_level=0.06626496858979591)",
+      "contradiction_movement": {
+        "contradiction_state": "低水平平衡",
+        "contradiction_intensity": 0.031679346546156464,
+        "movement_tendency": "要求变革生产关系",
+        "forces_score": 0.09794431513595238,
+        "relations_score": 0.06626496858979591
+      },
+      "adaptation_level": {
+        "adaptation_level": "高度适应",
+        "adaptation_quality": 9.968320653453844,
+        "adaptation_gap": 0.031679346546156464,
+        "forces_score": 0.09794431513595238,
+        "relations_score": 0.06626496858979591
+      },
+      "development_tendency": {
+        "development_direction": "生产关系调整",
+        "urgency_level": "较紧迫",
+        "transformation_method": "渐进性改进",
+        "development_potential": 0.2553617536028571
+      },
+      "dialectical_analysis": {
+        "contradictions": [
+          "Contradiction(primary_aspect='生产关系', secondary_aspect='生产力', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')",
+          "Contradiction(primary_aspect='上层建筑', secondary_aspect='经济基础', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')"
+        ],
+        "primary_secondary_aspects": {
+          "生产关系-生产力": {
+            "primary_dominance": {
+              "weight": 0.2238802494255102,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "secondary_dominance": {
+              "weight": 0.14553134030857143,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "aspect_relationship": "辩证统一",
+            "dominant_aspect": "生产关系"
+          },
+          "上层建筑-经济基础": {
+            "primary_dominance": {
+              "weight": 0.19140589948836734,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "secondary_dominance": {
+              "weight": 0.1768211365132653,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "aspect_relationship": "辩证统一",
+            "dominant_aspect": "上层建筑"
+          }
+        },
+        "unity_struggle_balance": {
+          "unity_score": 0.07132578432663265,
+          "struggle_score": 0.37884408309122447,
+          "balance_state": "相对平衡",
+          "balance_quality": "低质量平衡"
+        },
+        "transformation_tendencies": {
+          "transformation_score": 0.44909713735591833,
+          "transformation_intensity": "弱转化趋势",
+          "transformation_types": {
+            "一般转化": 0.1937353837530612,
+            "发展转化": 0.2553617536028571,
+            "质的转化": 0
+          },
+          "primary_transformation_type": "发展转化"
+        },
+        "development_stages": {
+          "生产关系-生产力": {
+            "current_stage": "显现阶段",
+            "stage_characteristics": "矛盾开始显现，对立面初步形成",
+            "next_stage_tendency": "发展阶段"
+          },
+          "上层建筑-经济基础": {
+            "current_stage": "显现阶段",
+            "stage_characteristics": "矛盾开始显现，对立面初步形成",
+            "next_stage_tendency": "发展阶段"
+          }
+        },
+        "dialectical_quality": {
+          "contradiction_quality": 4.0,
+          "balance_quality": 0.22508493370892857,
+          "transformation_quality": 0.44909713735591833,
+          "overall_quality": 1.5580606903549492,
+          "quality_level": "需要改进"
+        }
+      },
+      "contradiction_quality": {
+        "contradiction_quality": 9.968320653453844,
+        "potential_quality": 0.2553617536028571,
+        "overall_quality": 5.111841203528351,
+        "quality_level": "一般"
+      }
+    },
+    "base_superstructure_analysis": {
+      "economic_base": "EconomicBase(productive_forces=ProductiveForces(level='原始生产力', technology_level=0.23691912128142859, labor_productivity=0, production_tools=[], scientific_knowledge=0.05691382412642858, development_potential=0.2553617536028571), relations_of_production=RelationsOfProduction(ownership_form='public', labor_relations='autonomy', distribution_method='equal', class_structure={'资产阶级': 0, '无产阶级': 0, '中产阶级': 0, '农民阶级': 0}, adaptation_level=0.06626496858979591), base_superstructure_relation='counter_effect', economic_dynamics='经济增长态势')",
+      "superstructure": "Superstructure(political_system='people', legal_system='法律体系水平: 0.1/10', ideology='socialism', culture='文化发展水平: 0.1/10', relative_independence=0, counter_effect=0.16759894282989796)",
+      "determining_role": {
+        "base_strength": "弱经济基础",
+        "determining_degree": 0.09476764851257144,
+        "forces_score": 0.11845956064071429
+      },
+      "relative_independence": {
+        "independence_level": "独立性不足",
+        "independence_score": 0,
+        "independence_features": []
+      },
+      "counter_effect": {
+        "effect_intensity": "反作用不明显",
+        "effect_direction": "积极促进作用",
+        "effect_score": 0.16759894282989796,
+        "positive_score": 0.2139083907184694,
+        "negative_score": 0.07132578432663265
+      },
+      "dialectical_unity": {
+        "unity_level": "一般辩证统一",
+        "unity_quality": 4.08745553044749,
+        "determining_score": 0.09476764851257144,
+        "independence_score": 0,
+        "effect_score": 0.16759894282989796,
+        "total_deviation": 17.73763340865753
+      },
+      "dialectical_analysis": {
+        "contradictions": [
+          "Contradiction(primary_aspect='生产关系', secondary_aspect='生产力', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')",
+          "Contradiction(primary_aspect='上层建筑', secondary_aspect='经济基础', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')"
+        ],
+        "primary_secondary_aspects": {
+          "生产关系-生产力": {
+            "primary_dominance": {
+              "weight": 0.2238802494255102,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "secondary_dominance": {
+              "weight": 0.14553134030857143,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "aspect_relationship": "辩证统一",
+            "dominant_aspect": "生产关系"
+          },
+          "上层建筑-经济基础": {
+            "primary_dominance": {
+              "weight": 0.19140589948836734,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "secondary_dominance": {
+              "weight": 0.1768211365132653,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "aspect_relationship": "辩证统一",
+            "dominant_aspect": "上层建筑"
+          }
+        },
+        "unity_struggle_balance": {
+          "unity_score": 0.07132578432663265,
+          "struggle_score": 0.37884408309122447,
+          "balance_state": "相对平衡",
+          "balance_quality": "低质量平衡"
+        },
+        "transformation_tendencies": {
+          "transformation_score": 0.44909713735591833,
+          "transformation_intensity": "弱转化趋势",
+          "transformation_types": {
+            "一般转化": 0.1937353837530612,
+            "发展转化": 0.2553617536028571,
+            "质的转化": 0
+          },
+          "primary_transformation_type": "发展转化"
+        },
+        "development_stages": {
+          "生产关系-生产力": {
+            "current_stage": "显现阶段",
+            "stage_characteristics": "矛盾开始显现，对立面初步形成",
+            "next_stage_tendency": "发展阶段"
+          },
+          "上层建筑-经济基础": {
+            "current_stage": "显现阶段",
+            "stage_characteristics": "矛盾开始显现，对立面初步形成",
+            "next_stage_tendency": "发展阶段"
+          }
+        },
+        "dialectical_quality": {
+          "contradiction_quality": 4.0,
+          "balance_quality": 0.22508493370892857,
+          "transformation_quality": 0.44909713735591833,
+          "overall_quality": 1.5580606903549492,
+          "quality_level": "需要改进"
+        }
+      },
+      "base_superstructure_quality": {
+        "forces_quality": 0.11845956064071429,
+        "superstructure_quality": 0.08379947141494898,
+        "unity_quality": 4.08745553044749,
+        "overall_quality": 1.4299048541677177,
+        "quality_level": "需要改进"
+      }
+    },
+    "formation_analysis": {
+      "current_formation": {
+        "current_formation": "社会主义社会",
+        "formation_type": "socialist_society",
+        "confidence": 1.0,
+        "formation_scores": {
+          "primitive_communism": 0,
+          "slave_society": 0,
+          "feudal_society": 0,
+          "capitalist_society": 0,
+          "socialist_society": 0.13005885029081632,
+          "communist_society": 0
+        }
+      },
+      "development_stage": {
+        "current_stage": "发展阶段",
+        "stage_type": "development",
+        "stage_scores": {
+          "emergence": 0,
+          "development": 0.2553617536028571,
+          "maturity": 0,
+          "decline": 0,
+          "transformation": 0.07499589098908163
+        }
+      },
+      "primary_contradiction": "SocialContradiction(primary_contradiction='economic_base_superstructure', secondary_contradictions=['productivity_relations', 'class_contradiction', 'social_contradiction'], contradiction_intensity=0.5576490775472449, development_stage='潜在阶段', resolution_tendency='亟待解决')",
+      "historical_necessity": {
+        "necessity_level": "历史必然性不明显",
+        "necessity_score": 0,
+        "necessity_features": []
+      },
+      "development_diversity": {
+        "diversity_level": "多样性不足",
+        "diversity_score": 0.06682528349918368,
+        "diversity_features": []
+      },
+      "people_role": {
+        "role_level": "人民主体作用不明显",
+        "role_score": 0.16778332032306123,
+        "role_features": []
+      },
+      "quantity_quality_analysis": {
+        "quantity_accumulation": {
+          "accumulation_score": 0.43990676251367344,
+          "accumulation_level": "积累不足",
+          "accumulation_processes": [
+            "数字技术的快速发展带来了生产力的显著提升，但传统的生产关系在一定程度上 制约了这种发展",
+            "在当代中国特色社会主义发展中，生产力与生产关系的矛盾运动推动着社会进步",
+            "数字技术的快速发展带来了生产力的显著提升，但传统的生产关系在一定程度上 制约了这种发展",
+            "上层建筑对经济基础 发挥着积极的反作用，推动了经济社会的协调发展",
+            "在当代中国特色社会主义发展中，生产力与生产关系的矛盾运动推动着社会进步",
+            "人民群众在历史发展中发挥着主体作用， 是推动社会进步的根本力量"
+          ]
+        },
+        "quality_leap_points": {
+          "leap_score": 0.05642989837653061,
+          "leap_intensity": "无明显飞跃",
+          "leap_points": []
+        },
+        "gradual_processes": {
+          "gradual_score": 0.5107235072057142,
+          "gradual_level": "渐进不明显",
+          "gradual_processes": []
+        },
+        "revolutionary_changes": {
+          "revolutionary_score": 0.07499589098908163,
+          "revolutionary_level": "革命性不明显",
+          "revolutionary_changes": [
+            "经济基础的变革要求上层建筑的相应调整"
+          ]
+        },
+        "change_directions": {
+          "direction_scores": {
+            "forward": 0.44405892514020406,
+            "backward": 0,
+            "stable": 0
+          },
+          "primary_direction": "forward",
+          "direction_certainty": "方向明确"
+        },
+        "quantity_quality_synthesis": {
+          "coordination_score": 2.0,
+          "development_pattern": "发展模式不明显",
+          "development_stage": "初始发展阶段",
+          "synthesis_quality": "需要改进"
+        }
+      },
+      "negation_analysis": {
+        "thesis_elements": {
+          "thesis_score": 0.05642989837653061,
+          "thesis_strength": "正题不明显",
+          "thesis_elements": [
+            "人民群众在历史发展中发挥着主体作用， 是推动社会进步的根本力量"
+          ]
+        },
+        "first_negation_elements": {
+          "negation_score": 0.1280502914884694,
+          "negation_intensity": "否定不明显",
+          "negation_elements": [
+            "经济基础的变革要求上层建筑的相应调整"
+          ]
+        },
+        "second_negation_elements": {
+          "second_negation_score": 0,
+          "second_negation_intensity": "二次否定不明显",
+          "second_negation_elements": []
+        },
+        "sublation_processes": {
+          "retention_score": 0.11763286175040816,
+          "sublation_level": "扬弃不明显",
+          "retention_elements": []
+        },
+        "spiral_trajectories": {
+          "spiral_score": 0.2553617536028571,
+          "spiral_intensity": "螺旋不明显",
+          "spiral_elements": []
+        },
+        "developmental_levels": {
+          "developmental_level": "初始阶段",
+          "developmental_completeness": "发展不完整"
+        },
+        "negation_synthesis": {
+          "negation_quality": 2.0,
+          "development_trajectory": "发展轨迹不明显",
+          "synthesis_level": "需要改进"
+        }
+      },
+      "formation_quality": {
+        "formation_quality": 10.0,
+        "stage_quality": 0.2553617536028571,
+        "necessity_quality": 0,
+        "overall_quality": 3.418453917867619,
+        "quality_level": "需要改进"
+      }
+    },
+    "comprehensive_dialectical": {
+      "unity_of_opposites": {
+        "contradictions": [
+          "Contradiction(primary_aspect='生产关系', secondary_aspect='生产力', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')",
+          "Contradiction(primary_aspect='上层建筑', secondary_aspect='经济基础', unity_relationship=2.0, struggle_intensity=4.0, transformation_tendency='活跃转化', development_stage='显现阶段')"
+        ],
+        "primary_secondary_aspects": {
+          "生产关系-生产力": {
+            "primary_dominance": {
+              "weight": 0.2238802494255102,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "secondary_dominance": {
+              "weight": 0.14553134030857143,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "aspect_relationship": "辩证统一",
+            "dominant_aspect": "生产关系"
+          },
+          "上层建筑-经济基础": {
+            "primary_dominance": {
+              "weight": 0.19140589948836734,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "secondary_dominance": {
+              "weight": 0.1768211365132653,
+              "dominance_indicators": 1,
+              "dominance_level": "中等主导"
+            },
+            "aspect_relationship": "辩证统一",
+            "dominant_aspect": "上层建筑"
+          }
+        },
+        "unity_struggle_balance": {
+          "unity_score": 0.07132578432663265,
+          "struggle_score": 0.37884408309122447,
+          "balance_state": "相对平衡",
+          "balance_quality": "低质量平衡"
+        },
+        "transformation_tendencies": {
+          "transformation_score": 0.44909713735591833,
+          "transformation_intensity": "弱转化趋势",
+          "transformation_types": {
+            "一般转化": 0.1937353837530612,
+            "发展转化": 0.2553617536028571,
+            "质的转化": 0
+          },
+          "primary_transformation_type": "发展转化"
+        },
+        "development_stages": {
+          "生产关系-生产力": {
+            "current_stage": "显现阶段",
+            "stage_characteristics": "矛盾开始显现，对立面初步形成",
+            "next_stage_tendency": "发展阶段"
+          },
+          "上层建筑-经济基础": {
+            "current_stage": "显现阶段",
+            "stage_characteristics": "矛盾开始显现，对立面初步形成",
+            "next_stage_tendency": "发展阶段"
+          }
+        },
+        "dialectical_quality": {
+          "contradiction_quality": 4.0,
+          "balance_quality": 0.22508493370892857,
+          "transformation_quality": 0.44909713735591833,
+          "overall_quality": 1.5580606903549492,
+          "quality_level": "需要改进"
+        }
+      },
+      "quantity_quality_change": {
+        "quantity_accumulation": {
+          "accumulation_score": 0.43990676251367344,
+          "accumulation_level": "积累不足",
+          "accumulation_processes": [
+            "数字技术的快速发展带来了生产力的显著提升，但传统的生产关系在一定程度上 制约了这种发展",
+            "在当代中国特色社会主义发展中，生产力与生产关系的矛盾运动推动着社会进步",
+            "数字技术的快速发展带来了生产力的显著提升，但传统的生产关系在一定程度上 制约了这种发展",
+            "上层建筑对经济基础 发挥着积极的反作用，推动了经济社会的协调发展",
+            "在当代中国特色社会主义发展中，生产力与生产关系的矛盾运动推动着社会进步",
+            "人民群众在历史发展中发挥着主体作用， 是推动社会进步的根本力量"
+          ]
+        },
+        "quality_leap_points": {
+          "leap_score": 0.05642989837653061,
+          "leap_intensity": "无明显飞跃",
+          "leap_points": []
+        },
+        "gradual_processes": {
+          "gradual_score": 0.5107235072057142,
+          "gradual_level": "渐进不明显",
+          "gradual_processes": []
+        },
+        "revolutionary_changes": {
+          "revolutionary_score": 0.07499589098908163,
+          "revolutionary_level": "革命性不明显",
+          "revolutionary_changes": [
+            "经济基础的变革要求上层建筑的相应调整"
+          ]
+        },
+        "change_directions": {
+          "direction_scores": {
+            "forward": 0.44405892514020406,
+            "backward": 0,
+            "stable": 0
+          },
+          "primary_direction": "forward",
+          "direction_certainty": "方向明确"
+        },
+        "quantity_quality_synthesis": {
+          "coordination_score": 2.0,
+          "development_pattern": "发展模式不明显",
+          "development_stage": "初始发展阶段",
+          "synthesis_quality": "需要改进"
+        }
+      },
+      "negation_of_negation": {
+        "thesis_elements": {
+          "thesis_score": 0.05642989837653061,
+          "thesis_strength": "正题不明显",
+          "thesis_elements": [
+            "人民群众在历史发展中发挥着主体作用， 是推动社会进步的根本力量"
+          ]
+        },
+        "first_negation_elements": {
+          "negation_score": 0.1280502914884694,
+          "negation_intensity": "否定不明显",
+          "negation_elements": [
+            "经济基础的变革要求上层建筑的相应调整"
+          ]
+        },
+        "second_negation_elements": {
+          "second_negation_score": 0,
+          "second_negation_intensity": "二次否定不明显",
+          "second_negation_elements": []
+        },
+        "sublation_processes": {
+          "retention_score": 0.11763286175040816,
+          "sublation_level": "扬弃不明显",
+          "retention_elements": []
+        },
+        "spiral_trajectories": {
+          "spiral_score": 0.2553617536028571,
+          "spiral_intensity": "螺旋不明显",
+          "spiral_elements": []
+        },
+        "developmental_levels": {
+          "developmental_level": "初始阶段",
+          "developmental_completeness": "发展不完整"
+        },
+        "negation_synthesis": {
+          "negation_quality": 2.0,
+          "development_trajectory": "发展轨迹不明显",
+          "synthesis_level": "需要改进"
+        }
+      },
+      "internal_connections": {
+        "unity_quantity_relation": {
+          "relation_strength": 0.7790303451774746,
+          "relation_description": "矛盾的发展是量变质变的内在动力",
+          "relation_quality": "协调不足"
+        },
+        "unity_negation_relation": {
+          "relation_strength": 0.7790303451774746,
+          "relation_description": "矛盾的解决通过否定之否定实现发展",
+          "relation_quality": "协调不足"
+        },
+        "quantity_negation_relation": {
+          "relation_strength": 0.0,
+          "relation_description": "量变质变是否定之否定的具体表现形式",
+          "relation_quality": "协调不足"
+        },
+        "overall_coherence": {
+          "overall_coherence_score": 0.5193535634516497,
+          "coherence_level": "协调不足",
+          "coherence_description": "三大规律协调不足，辩证思维需要系统性提升"
+        }
+      },
+      "overall_dialectical_level": {
+        "overall_score": 0.5193535634516497,
+        "dialectical_level": "辩证思维入门级",
+        "strengths": [],
+        "weaknesses": [
+          "对立统一分析需要加强",
+          "量变质变分析需要加强",
+          "否定之否定分析需要加强"
+        ],
+        "improvement_directions": [
+          "深入学习对立统一规律，增强矛盾分析能力",
+          "加强对量变质变规律的理解和应用",
+          "提升对否定之否定规律的掌握程度",
+          "系统性学习马克思主义辩证法基本原理"
+        ]
+      },
+      "dialectical_recommendations": [
+        "重点加强对立统一规律的学习，特别是矛盾的主要方面分析",
+        "重点学习量变质变规律，关注量变积累的临界点",
+        "重点学习否定之否定规律，理解扬弃的辩证含义",
+        "建议系统学习马克思主义辩证法，打好理论基础"
+      ],
+      "analysis_timestamp": "2025-12-21T19:08:42.180719"
+    },
+    "internal_connections": {
+      "contradiction_base_relation": {
+        "relation_strength": 3.270873028848034,
+        "relation_description": "生产力-生产关系矛盾决定经济基础-上层建筑关系",
+        "relation_quality": "协调不足"
+      },
+      "base_formation_relation": {
+        "relation_strength": 2.4241793860176686,
+        "relation_description": "经济基础-上层建筑关系决定社会形态性质",
+        "relation_quality": "协调不足"
+      },
+      "contradiction_formation_relation": {
+        "relation_strength": 4.265147560697985,
+        "relation_description": "矛盾运动推动社会形态变革发展",
+        "relation_quality": "一般协调"
+      },
+      "overall_coherence": {
+        "overall_coherence_score": 3.3200666585212293,
+        "coherence_level": "协调不足",
+        "coherence_description": "历史唯物主义三大分析协调不足，理论分析需要系统性提升"
+      }
+    },
+    "overall_theoretical_level": {
+      "overall_score": 3.3200666585212293,
+      "theoretical_level": "历史唯物主义理论入门级",
+      "strengths": [],
+      "weaknesses": [
+        "经济基础-上层建筑关系分析需要加强",
+        "社会形态发展规律分析需要加强"
+      ],
+      "improvement_directions": [
+        "深入学习生产力-生产关系矛盾运动规律",
+        "加强对经济基础-上层建筑辩证关系的理解",
+        "提升对社会形态发展规律的认识",
+        "系统学习历史唯物主义基本原理"
+      ]
+    },
+    "professional_recommendations": [
+      "生产力-生产关系矛盾分析能力良好，可加强矛盾转化分析",
+      "重点学习经济基础决定作用和上层建筑相对独立性原理",
+      "重点学习社会形态更替的历史必然性和多样性统一",
+      "建议系统学习历史唯物主义基本原理，打好理论基础"
+    ],
+    "analysis_timestamp": "2025-12-21T19:08:42.180719"
+  },
+  "detection_timestamp": "2025-12-21T19:08:42.180719"
+}

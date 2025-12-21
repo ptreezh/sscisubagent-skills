@@ -8,75 +8,126 @@ tags: [statistics, social-sciences, data-analysis, research-methods]
 
 # Mathematical Statistics Skill for Social Sciences
 
-## 技能概述
-
+## Overview
 数理统计技能为社会科学研究提供全面的统计分析支持，包括描述性统计、推断统计、回归分析、方差分析、因子分析等，确保研究数据分析的科学性和准确性。
 
-## 核心功能
+## When to Use This Skill
+Use this skill when the user requests:
+- Statistical analysis of social science data
+- Descriptive statistics (means, standard deviations, distributions)
+- Inferential statistics (t-tests, ANOVA, chi-square tests)
+- Regression analysis (linear, logistic, multiple)
+- Factor analysis or other multivariate techniques
+- Reliability and validity analysis
+- Data visualization for statistical results
+- Interpretation of statistical outputs
 
-### 1. 描述性统计分析
-- **集中趋势测量**: 均值、中位数、众数、几何平均数
-- **离散程度测量**: 标准差、方差、极差、四分位距、变异系数
-- **分布形态测量**: 偏度、峰度、正态性检验
-- **数据可视化**: 直方图、箱线图、Q-Q图、散点图
+## Quick Start
+When a user requests statistical analysis:
+1. **Understand** the research question and data structure
+2. **Select** appropriate statistical methods based on data and question
+3. **Execute** analysis with proper diagnostics
+4. **Interpret** results in the context of the research question
+5. **Visualize** findings appropriately
 
-### 2. 推断统计分析
-- **参数估计**: 点估计、区间估计、置信区间
-- **假设检验**: t检验、卡方检验、F检验、非参数检验
-- **效应量计算**: Cohen's d、eta平方、相关系数
-- **统计功效分析**: 功效计算、样本量估计
+## Core Functions (Progressive Disclosure)
 
-### 3. 回归分析
-- **简单线性回归**: 模型拟合、假设检验、预测
-- **多元线性回归**: 变量选择、多重共线性诊断
-- **逻辑回归**: 二分类、多分类、有序分类
-- **回归诊断**: 残差分析、影响点检测、模型验证
+### Primary Functions
+- **Descriptive Statistics**: Central tendency, dispersion, distribution shape
+- **Inferential Statistics**: Hypothesis testing, confidence intervals
+- **Regression Analysis**: Linear, logistic, and multiple regression
+- **Analysis of Variance**: One-way, multi-way, repeated measures ANOVA
 
-### 4. 方差分析
-- **单因素方差分析**: 组间差异检验、事后比较
-- **多因素方差分析**: 主效应、交互效应、简单效应
-- **重复测量方差分析**: 球形检验、校正方法
-- **协方差分析**: 控制变量影响、调整均值
+### Secondary Functions
+- **Multivariate Analysis**: Factor analysis, discriminant analysis
+- **Reliability Analysis**: Cronbach's Alpha, test-retest reliability
+- **Effect Size Calculation**: Cohen's d, eta squared, odds ratios
+- **Model Diagnostics**: Residual analysis, assumption checking
 
-### 5. 因子分析与信度分析
-- **探索性因子分析**: 因子提取、因子旋转、因子得分
-- **验证性因子分析**: 模型拟合、因子效度检验
-- **信度分析**: 内部一致性、重测信度、评分者信度
-- **效度分析**: 内容效度、结构效度、效标效度
+### Advanced Functions
+- **Confirmatory Factor Analysis**: Model fit, validation
+- **Advanced Modeling**: Hierarchical regression, mediation analysis
+- **Bayesian Statistics**: Posterior estimation, model comparison
+- **Power Analysis**: Sample size planning, post-hoc power
 
-## 使用方法
+## Detailed Instructions
 
-当您需要进行社会科学统计分析时，我会：
+### 1. Data Preparation
+   - Check data quality and completeness
+   - Identify and handle missing values
+   - Verify data types and distributions
+   - Assess assumptions for planned analyses
 
-1. **数据准备**: 检查数据质量、处理缺失值、验证数据类型
-2. **方法选择**: 根据研究问题和数据特征选择适当统计方法
-3. **分析执行**: 运行统计分析，计算相关指标
-4. **结果解释**: 提供统计结果的学术解释和实践建议
-5. **可视化**: 创建专业的统计图表
+### 2. Method Selection
+   - Match statistical method to research question
+   - Consider data characteristics (scale, distribution, sample size)
+   - Account for study design (between/within subjects, experimental/control)
+   - Verify assumptions for chosen method
 
-## 支持的统计检验
+### 3. Analysis Execution
+   - Perform appropriate statistical tests
+   - Calculate relevant effect sizes
+   - Generate confidence intervals
+   - Conduct diagnostic checks
 
-- t检验（单样本、独立样本、配对样本）
-- 方差分析（单因素、多因素、重复测量）
-- 卡方检验（独立性检验、拟合优度检验）
-- 相关分析（Pearson、Spearman、偏相关）
-- 回归分析（线性、逻辑、多元）
-- 非参数检验（Mann-Whitney、Wilcoxon、Kruskal-Wallis）
+### 4. Result Interpretation
+   - Report statistical significance appropriately
+   - Interpret effect sizes in practical context
+   - Consider statistical power and limitations
+   - Provide clear, jargon-free explanations
 
-## 质量保证
+### 5. Visualization
+   - Create appropriate charts for data distribution
+   - Generate plots for relationship visualization
+   - Provide publication-ready figures
+   - Include error bars and confidence intervals
 
-- 遵循统计分析最佳实践
-- 检验统计假设条件
-- 提供效应量和置信区间
-- 进行多重比较校正
-- 验证模型稳健性
+## Parameters
+- `analysis_type`: Type of statistical analysis (descriptive, inferential, regression, etc.)
+- `data_format`: Format of input data (CSV, Excel, JSON, etc.)
+- `variables`: List of variables to analyze
+- `hypothesis_type`: Type of hypothesis test (one-tailed, two-tailed)
+- `confidence_level`: Confidence level for intervals (default 0.95)
+- `effect_size`: Request for effect size calculation
+- `visualization`: Request for data visualization
 
-## 输出格式
+## Examples
 
-- 完整的统计分析报告
-- 标准化的统计表格
-- 出版质量的可视化图表
-- APA格式的结果报告
-- 可重现的Python/R代码
+### Example 1: Descriptive Analysis
+User: "Analyze this survey data and provide descriptive statistics"
+Response: Perform descriptive analysis, calculate central tendency and dispersion measures, create appropriate visualizations.
 
-当您提到统计分析、数据处理、假设检验、回归分析等相关需求时，此技能会自动激活。
+### Example 2: Regression Analysis
+User: "Run a regression to predict job satisfaction from work conditions"
+Response: Conduct multiple regression analysis, check assumptions, report coefficients and model fit, interpret results.
+
+### Example 3: ANOVA
+User: "Compare performance across three training groups"
+Response: Perform one-way ANOVA, conduct post-hoc tests if significant, report effect sizes, interpret findings.
+
+## Quality Assurance
+
+- Follow statistical analysis best practices
+- Verify statistical assumptions before analysis
+- Report effect sizes and confidence intervals
+- Conduct multiple comparison corrections when appropriate
+- Validate model robustness
+
+## Output Format
+
+- Complete statistical analysis report
+- Standardized statistical tables
+- Publication-quality visualizations
+- APA-formatted results reporting
+- Reproducible Python/R code
+
+## Resources
+- Statistical analysis best practices guidelines
+- APA formatting standards for statistics
+- Common statistical software syntax (Python, R, SPSS)
+- Python toolkit: `skills/mathematical-statistics/scripts/statistics_toolkit.py`
+
+## Metadata
+- Compatibility: Claude 3.5 Sonnet and above
+- Domain: Social Sciences Research
+- Language: Optimized for Chinese research context

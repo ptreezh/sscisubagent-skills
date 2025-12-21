@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total_categories": 1,
+    "total_codes": 20,
+    "core_categories": 1,
+    "top_categories": [
+      "学习"
+    ],
+    "processing_time": 3.98
+  },
+  "details": {
+    "categories": [
+      {
+        "category_id": 0,
+        "codes": [
+          {
+            "concept": "学习",
+            "frequency": 7,
+            "type": "一般概念"
+          },
+          {
+            "concept": "大学",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "遇到",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "很多",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "困难",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "我会",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "老师",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "帮助",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "通过",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "能够",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "更好",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "生活",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "学会",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "如何",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "自己",
+            "frequency": 2,
+            "type": "一般概念"
+          },
+          {
+            "concept": "问题",
+            "frequency": 1,
+            "type": "一般概念"
+          },
+          {
+            "concept": "主动",
+            "frequency": 1,
+            "type": "一般概念"
+          }
+        ],
+        "size": 17,
+        "total_frequency": 37,
+        "name": "学习",
+        "definition": "涉及学习, 大学, 遇到等相关概念的范畴",
+        "importance": 1.0
+      }
+    ],
+    "hierarchy": {
+      "core": [
+        0
+      ],
+      "secondary": [],
+      "hierarchy_type": "frequency_based"
+    }
+  },
+  "metadata": {
+    "input_file": "D:\\stigmergy-CLI-Multi-Agents\\sscisubagent-skills\\skills\\coding\\performing-axial-coding\\scripts\\..\\..\\performing-open-coding\\scripts\\concepts_test.json",
+    "timestamp": "2025-12-19T11:06:55.075407",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,18 @@
+=== 技能可用性测试报告 ===
+
+总技能数: 5
+通过测试: 5
+失败测试: 0
+成功率: 100.0%
+
+=== 详细测试结果 ===
+✓ 通过 ant
+✓ 通过 field-analysis
+✓ 通过 mathematical-statistics
+  脚本: 1/1 可用
+✓ 通过 network-computation
+  脚本: 1/1 可用
+✓ 通过 validity-reliability
+  脚本: 1/1 可用
+
+=== 改进建议 ===

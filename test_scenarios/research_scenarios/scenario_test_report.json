@@ -1,0 +1,13 @@
+{
+  "edu_research": {
+    "stats_analysis": "ready",
+    "network_analysis": "success",
+    "field_analysis": "available"
+  },
+  "tech_adoption": {
+    "network_analysis": "success"
+  },
+  "qualitative": {
+    "open_coding": "success"
+  }
+}

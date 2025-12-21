@@ -1,0 +1,183 @@
+{
+  "summary": {
+    "total_nodes": 10,
+    "total_edges": 13,
+    "network_density": 0.2889,
+    "top_node": "C",
+    "top_score": 0.4444,
+    "hubs_count": 0,
+    "bridges_count": 5,
+    "influencers_count": 4,
+    "processing_time": 0.01
+  },
+  "details": {
+    "centralities": [
+      {
+        "node": "A",
+        "degree": 0.3333,
+        "closeness": 0.5,
+        "betweenness": 0.0694,
+        "eigenvector": 0.4075
+      },
+      {
+        "node": "B",
+        "degree": 0.3333,
+        "closeness": 0.4737,
+        "betweenness": 0.0139,
+        "eigenvector": 0.4374
+      },
+      {
+        "node": "C",
+        "degree": 0.4444,
+        "closeness": 0.6,
+        "betweenness": 0.3333,
+        "eigenvector": 0.5035
+      },
+      {
+        "node": "D",
+        "degree": 0.3333,
+        "closeness": 0.4737,
+        "betweenness": 0.0972,
+        "eigenvector": 0.3909
+      },
+      {
+        "node": "E",
+        "degree": 0.2222,
+        "closeness": 0.4091,
+        "betweenness": 0.0417,
+        "eigenvector": 0.2228
+      },
+      {
+        "node": "F",
+        "degree": 0.3333,
+        "closeness": 0.5,
+        "betweenness": 0.1528,
+        "eigenvector": 0.2721
+      },
+      {
+        "node": "G",
+        "degree": 0.2222,
+        "closeness": 0.4737,
+        "betweenness": 0.125,
+        "eigenvector": 0.1798
+      },
+      {
+        "node": "H",
+        "degree": 0.3333,
+        "closeness": 0.5625,
+        "betweenness": 0.4444,
+        "eigenvector": 0.263
+      },
+      {
+        "node": "I",
+        "degree": 0.2222,
+        "closeness": 0.4091,
+        "betweenness": 0.2222,
+        "eigenvector": 0.0996
+      },
+      {
+        "node": "J",
+        "degree": 0.1111,
+        "closeness": 0.3,
+        "betweenness": 0.0,
+        "eigenvector": 0.0335
+      }
+    ],
+    "top_nodes": [
+      {
+        "node": "C",
+        "degree": 0.4444,
+        "closeness": 0.6,
+        "betweenness": 0.3333,
+        "eigenvector": 0.5035
+      },
+      {
+        "node": "A",
+        "degree": 0.3333,
+        "closeness": 0.5,
+        "betweenness": 0.0694,
+        "eigenvector": 0.4075
+      },
+      {
+        "node": "B",
+        "degree": 0.3333,
+        "closeness": 0.4737,
+        "betweenness": 0.0139,
+        "eigenvector": 0.4374
+      },
+      {
+        "node": "D",
+        "degree": 0.3333,
+        "closeness": 0.4737,
+        "betweenness": 0.0972,
+        "eigenvector": 0.3909
+      },
+      {
+        "node": "F",
+        "degree": 0.3333,
+        "closeness": 0.5,
+        "betweenness": 0.1528,
+        "eigenvector": 0.2721
+      },
+      {
+        "node": "H",
+        "degree": 0.3333,
+        "closeness": 0.5625,
+        "betweenness": 0.4444,
+        "eigenvector": 0.263
+      },
+      {
+        "node": "E",
+        "degree": 0.2222,
+        "closeness": 0.4091,
+        "betweenness": 0.0417,
+        "eigenvector": 0.2228
+      },
+      {
+        "node": "G",
+        "degree": 0.2222,
+        "closeness": 0.4737,
+        "betweenness": 0.125,
+        "eigenvector": 0.1798
+      },
+      {
+        "node": "I",
+        "degree": 0.2222,
+        "closeness": 0.4091,
+        "betweenness": 0.2222,
+        "eigenvector": 0.0996
+      },
+      {
+        "node": "J",
+        "degree": 0.1111,
+        "closeness": 0.3,
+        "betweenness": 0.0,
+        "eigenvector": 0.0335
+      }
+    ],
+    "key_nodes": {
+      "hubs": [],
+      "bridges": [
+        "C",
+        "F",
+        "G",
+        "H",
+        "I"
+      ],
+      "influencers": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    }
+  },
+  "metadata": {
+    "input_file": "test_scenarios\\network_test_data.json",
+    "output_file": "test_scenarios\\network_output.json",
+    "metric_used": "degree",
+    "timestamp": "2025-12-20T22:43:31.291379",
+    "version": "1.0.0",
+    "skill": "performing-centrality-analysis"
+  }
+}
