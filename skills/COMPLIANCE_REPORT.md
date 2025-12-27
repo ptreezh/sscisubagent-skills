@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document summarizes the compliance improvements made to the SSCI subagent skills to align with the agentskills.io standard. All skills have been audited and updated to ensure they follow the proper structure and include necessary metadata.
+This document provides a comprehensive report on the compliance improvements made to the SSCI subagent skills to align with the agentskills.io standard. All skills have been audited and updated to ensure they follow the proper structure and include necessary metadata.
 
 ## Changes Made
 
@@ -68,17 +68,17 @@ This document summarizes the compliance improvements made to the SSCI subagent s
 12. alienation_analysis
 13. ant-network-analysis
 14. field-analysis
-15. field-capital-analysis
-16. field-habitus-analysis
-17. historical-materialist-analysis
-18. practical-marxist-application
-19. writing-grounded-theory-memos
-20. performing-axial-coding
-21. performing-open-coding
-22. performing-selective-coding
-23. checking-theory-saturation
-24. field-boundary-identification
-25. 2025_12_21_cnki-downloader.skill.install
+15. field-boundary-identification
+16. field-capital-analysis
+17. field-habitus-analysis
+18. historical-materialist-analysis
+19. practical-marxist-application
+20. writing-grounded-theory-memos
+21. performing-axial-coding
+22. performing-open-coding
+23. performing-selective-coding
+24. checking-theory-saturation
+25. field-boundary-identification
 
 ## Best Practices Implemented
 
