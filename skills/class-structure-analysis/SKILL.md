@@ -1,236 +1,211 @@
-# 阶级结构分析技能
+﻿---
+name: class-structure-analysis
+description: 鍩轰簬椹厠鎬濅富涔夐樁绾х悊璁猴紝瀵圭ぞ浼氶樁绾х粨鏋勩€侀樁绾у叧绯汇€侀樁绾ф剰璇嗗拰闃剁骇娴佸姩杩涜绯荤粺鍒嗘瀽鐨勬妧鑳斤紝杩愮敤椹厠鎬濈殑闃剁骇鍒嗘瀽鐞嗚妗嗘灦锛岃瘎浼扮ぞ浼氱粨鏋勫拰闃剁骇鍔ㄦ€?version: 2.0.0
+author: AgentPsy Team
+license: MIT
+tags: [class-analysis, marxist-sociology, social-structure, class-consciousness, class-dynamics]
+compatibility: Node.js environment
+metadata:
+  domain: social-sciences
+  methodology: marxist-class-analysis
+  complexity: advanced
+  integration_type: analysis_tool
+  last_updated: "2025-12-26"
+allowed-tools: [node, bash, read_file, write_file]
+---
 
-## 核心功能
+# 闃剁骇缁撴瀯鍒嗘瀽鎶€鑳?
+## 鏍稿績鍔熻兘
 
-### 1. 传统阶级分析
-- **资产阶级分析**：资本占有程度、控制权分析、剥削机制识别
-- **无产阶级分析**：劳动力商品化程度、阶级意识水平、革命潜力评估
-- **小资产阶级分析**：中间阶层地位、生产资料占有状况、阶级倾向分析
-- **农民阶级分析**：农村生产力发展、阶级分化趋势、地位变化
+### 1. 浼犵粺闃剁骇鍒嗘瀽
+- **璧勪骇闃剁骇鍒嗘瀽**锛氳祫鏈崰鏈夌▼搴︺€佹帶鍒舵潈鍒嗘瀽銆佸墺鍓婃満鍒惰瘑鍒?- **鏃犱骇闃剁骇鍒嗘瀽**锛氬姵鍔ㄥ姏鍟嗗搧鍖栫▼搴︺€侀樁绾ф剰璇嗘按骞炽€侀潻鍛芥綔鍔涜瘎浼?- **灏忚祫浜ч樁绾у垎鏋?*锛氫腑闂撮樁灞傚湴浣嶃€佺敓浜ц祫鏂欏崰鏈夌姸鍐点€侀樁绾у€惧悜鍒嗘瀽
+- **鍐滄皯闃剁骇鍒嗘瀽**锛氬啘鏉戠敓浜у姏鍙戝睍銆侀樁绾у垎鍖栬秼鍔裤€佸湴浣嶅彉鍖?
+### 2. 鐜颁唬绀句細闃跺眰璇嗗埆
+- **鐭ヨ瘑宸ヤ綔鑰呴樁灞?*锛氭暟瀛楁椂浠ｇ煡璇嗗垎瀛愰樁灞傜壒寰佸拰鍦颁綅
+- **骞冲彴宸ヤ汉闃跺眰**锛氶浂宸ョ粡娴庝粠涓氳€呯殑闃剁骇鍦颁綅鍜岀壒寰?- **鏁板瓧涓骇闃剁骇**锛氭暟瀛楃粡娴庡偓鐢熺殑鏂颁腑浜ч樁绾у垎鏋?- **鎶€鏈棤浜ч樁绾?*锛氳鎶€鏈浛浠ｇ殑宸ヤ汉闃剁骇鍒嗘瀽
 
-### 2. 新兴社会阶层识别
-- **知识工作者阶层**：数字时代知识分子阶层特征和地位
-- **平台工人阶层**：零工经济从业者的阶级地位和特征
-- **数字中产阶级**：数字经济催生的新中产阶级分析
-- **技术无产阶级**：被技术替代的工人阶级分析
+### 3. 闃剁骇鍏崇郴鍒嗘瀽
+- **闃剁骇鍒╃泭鍏崇郴**锛氬垎鏋愪笉鍚岄樁绾ч棿鐨勫埄鐩婂叧绯诲拰鍐茬獊
+- **闃剁骇鐭涚浘鍒嗘瀽**锛氳瘑鍒富瑕侀樁绾х煕鐩惧拰娆¤闃剁骇鐭涚浘
+- **闃剁骇鑱旂洘鍒嗘瀽**锛氬垎鏋愰樁绾ч棿鐨勮仈鐩熷叧绯诲拰鍚堜綔鍙兘鎬?- **闃剁骇鏂椾簤鎬佸娍**锛氬垎鏋愰樁绾ф枟浜夌殑鐜扮姸鍜屽彂灞曡秼鍔?
+### 4. 闃剁骇鎰忚瘑璇勪及
+- **鑷湪闃剁骇鎰忚瘑**锛氶樁绾ф剰璇嗙殑钀岃娊闃舵鍒嗘瀽
+- **鑷负闃剁骇鎰忚瘑**锛氶樁绾ф剰璇嗙殑鎴愮啛闃舵璇勪及
+- **闈╁懡闃剁骇鎰忚瘑**锛氶樁绾ф剰璇嗙殑闈╁懡闃舵璇嗗埆
+- **褰卞搷鍥犵礌鍒嗘瀽**锛氬奖鍝嶉樁绾ф剰璇嗗彂灞曠殑鍚勭鍥犵礌
 
-### 3. 阶级关系分析
-- **阶级利益关系**：不同阶级间的利益关系和冲突
-- **阶级矛盾分析**：主要阶级矛盾和次要阶级矛盾识别
-- **阶级联盟分析**：阶级间的联盟关系和合作可能性
-- **阶级斗争态势**：阶级斗争的现状和发展趋势
+## 搴旂敤鍦烘櫙
 
-### 4. 阶级意识演化评估
-- **自在阶级意识**：阶级意识的萌芽阶段分析
-- **自为阶级意识**：阶级意识的成熟阶段评估
-- **革命阶级意识**：阶级意识的革命阶段识别
-- **影响因素分析**：影响阶级意识发展的各种因素
+### 鍦烘櫙1锛氬綋浠ｄ腑鍥界ぞ浼氶樁绾х粨鏋勫垎鏋?**杈撳叆**锛氭敹鍏ユ暟鎹€佽亴涓氭暟鎹€佹暀鑲叉暟鎹€佽储浜ф暟鎹?
+**鍒嗘瀽娴佺▼**锛?1. **闃剁骇璇嗗埆**锛氬熀浜庣敓浜ц祫鏂欏崰鏈夌姸鍐佃瘑鍒樁绾?2. **鍏崇郴鍒嗘瀽**锛氬垎鏋愪笉鍚岄樁绾ч棿鐨勫叧绯?3. **鎰忚瘑璇勪及**锛氳瘎浼板悇闃剁骇鐨勯樁绾ф剰璇嗘按骞?4. **鍔ㄦ€侀娴?*锛氶娴嬮樁绾х粨鏋勭殑鏈潵鍙樺寲
 
+**杈撳嚭绀轰緥**锛?```
+# 褰撲唬涓浗绀句細闃剁骇缁撴瀯鍒嗘瀽鎶ュ憡
 
+## 闃剁骇鏋勬垚鍒嗘瀽
+### 璧勪骇闃剁骇锛堢害鍗?%锛?- 浜烘暟锛氱害2800涓囦汉
+- 鐗瑰緛锛氬崰鏈夊ぇ閲忕敓浜ц祫鏂欙紝閫氳繃鍓ュ墛闆囦剑鍔冲姩鑾峰緱鏀跺叆
+- 缁嗗垎锛?  - 澶ц祫浜ч樁绾э細鎷ユ湁鍨勬柇璧勬湰锛屾帶鍒跺浗姘戠粡娴庡懡鑴?  - 涓瓑璧勪骇闃剁骇锛氭嫢鏈変腑绛夎妯¤祫鏈紝浠庝簨缁忚惀绠＄悊
+  - 灏忚祫浜ч樁绾э細鎷ユ湁灏戦噺璧勬湰锛屽弬涓庡姵鍔ㄥ拰绠＄悊
 
-## 应用场景
+### 鏃犱骇闃剁骇锛堢害鍗?0%锛?- 浜烘暟锛氱害9.8浜夸汉
+- 鐗瑰緛锛氫笉鍗犳湁鐢熶骇璧勬枡锛岄潬鍑哄崠鍔冲姩鍔涗负鐢?- 缁嗗垎锛?  - 浜т笟宸ヤ汉锛氬湪鍒堕€犱笟銆佸缓绛戜笟绛変骇涓氬伐浣滅殑宸ヤ汉
+  - 鏈嶅姟涓氬伐浜猴細鍦ㄦ湇鍔′笟宸ヤ綔鐨勫姵鍔ㄨ€?  - 鏁板瓧鍔冲伐锛氫粠浜嬪钩鍙扮粡娴庛€佹暟瀛楃粡娴庣殑鍔冲姩鑰?  - 鍐滄皯宸ワ細鍦ㄥ煄甯備粠浜嬮潪鍐滀骇涓氱殑鍐滄潙鍔冲姩鑰?
+### 灏忚祫浜ч樁绾э紙绾﹀崰25%锛?- 浜烘暟锛氱害3.5浜夸汉
+- 鐗瑰緛锛氬崰鏈夊皯閲忕敓浜ц祫鏂欙紝涓昏渚濋潬鑷繁鍔冲姩涓虹敓
+- 缁嗗垎锛?  - 涓綋鍔冲姩鑰咃細涓綋宸ュ晢鎴枫€佸皬搴椾富
+  - 鑷敱鑱屼笟鑰咃細寰嬪笀銆佸尰鐢熴€佽璁″笀绛?  - 灏忎紒涓氫富锛氬皬寰紒涓氱粡钀ヨ€?  - 鍐滄潙涓綋鎴凤細鍐滄潙涓綋缁忚惀鑰?
+### 闃剁骇鍏崇郴鍒嗘瀽
+- 璧勪骇闃剁骇涓庢棤浜ч樁绾э細鍩烘湰鐭涚浘鍏崇郴锛屽瓨鍦ㄥ墺鍓婁笌琚墺鍓婂叧绯?- 璧勪骇闃剁骇涓庡皬璧勪骇闃剁骇锛氭棦鏈夊悎浣滃張鏈夌珵浜夊叧绯?- 鏃犱骇闃剁骇涓庡皬璧勪骇闃剁骇锛氬彲鑳界殑鍚堜綔鍏崇郴锛屼篃鍙兘鐨勭珵浜夊叧绯?```
 
-### 场景1：数字平台劳动阶级分析
-**输入**：平台工人收入数据、工作时间数据、权益状况数据
+### 鍦烘櫙2锛氭暟瀛楃粡娴庝腑鐨勬柊闃剁骇鍏崇郴鍒嗘瀽
+**杈撳叆**锛氬钩鍙扮粡娴庢暟鎹€佹暟瀛楀姵宸ヨ皟鏌ャ€佹妧鏈彂灞曟暟鎹?
+**鍒嗘瀽娴佺▼**锛?1. **璇嗗埆**鏁板瓧鏃朵唬鐨勬柊鍏撮樁绾у拰闃跺眰
+2. **鍒嗘瀽**鏁板瓧骞冲彴涓庢暟瀛楀姵宸ョ殑鍏崇郴
+3. **璇勪及**鏁板瓧鍔冲姩鐨勫墺鍓婃€ц川
+4. **棰勬祴**鏁板瓧缁忔祹瀵逛紶缁熼樁绾х粨鏋勭殑褰卞搷
 
-**分析流程**：
-1. **阶级地位定量分析**：分析平台工人在阶级结构中的位置
-2. **阶级特征定性识别**：识别平台工人的阶级特征和倾向
-3. **阶级关系网络分析**：分析平台工人与其他阶级的关系
-4. **阶级意识评估**：评估平台工人的阶级意识水平
-5. **斗争潜力分析**：分析平台工人的斗争潜力和策略
+**杈撳嚭绀轰緥**锛?```
+# 鏁板瓧缁忔祹涓殑闃剁骇鍏崇郴鍒嗘瀽
 
-**输出示例**：
-```
-# 数字平台劳动阶级分析报告
+## 鏁板瓧璧勪骇闃剁骇
+- 鐗瑰緛锛氬崰鏈夋暟瀛楀钩鍙般€佺畻娉曘€佹暟鎹瓑鏁板瓧鐢熶骇璧勬枡
+- 浠ｈ〃锛氬ぇ鍨嬫暟瀛楀钩鍙颁紒涓氭墍鏈夎€?- 鍓ュ墛鏂瑰紡锛氶€氳繃鍗犳湁鏁板瓧鍔冲姩鎴愭灉瀹炵幇鍓ュ墛
 
-## 阶级结构定位
-- 阶级地位：介于无产阶级与小资产阶级之间的新中间阶层
-- 生产资料关系：不占有生产资料，主要靠出卖劳动力
-- 剥削机制：被平台通过算法和数据垄断进行剥削
+## 鏁板瓧鏃犱骇闃剁骇
+- 鐗瑰緛锛氫笉鍗犳湁鏁板瓧鐢熶骇璧勬枡锛屽嚭鍗栨暟瀛楀姵鍔?- 浠ｈ〃锛氱綉绾﹁溅鍙告満銆佸鍗栭獞鎵嬨€佸唴瀹瑰垱浣滆€?- 鍔冲姩鐗圭偣锛氬姵鍔ㄦ椂闂撮暱銆佹敹鍏ヤ笉绋冲畾銆佺ぞ浼氫繚闅滅己澶?
+## 鏁板瓧灏忚祫浜ч樁绾?- 鐗瑰緛锛氭嫢鏈夊皯閲忔暟瀛楃敓浜ц祫鏂欙紝鑷富缁忚惀
+- 浠ｈ〃锛氱嫭绔嬪紑鍙戣€呫€佹暟瀛楀唴瀹瑰垱浣滆€?- 浣嶇疆锛氬浜庤祫浜ч樁绾у拰鏃犱骇闃剁骇涔嬮棿鐨勪腑闂村湴浣?
+## 鏁板瓧闃剁骇鍏崇郴
+- 骞冲彴涓庡姵鍔ㄨ€咃細鍏稿瀷鐨勫墺鍓婂叧绯?- 鏁版嵁鎵€鏈夋潈锛氭暟瀛楃敓浜ц祫鏂欐墍鏈夋潈闆嗕腑鍖?- 绠楁硶鎺у埗锛氶€氳繃绠楁硶瀹炵幇瀵瑰姵鍔ㄨ繃绋嬬殑鎺у埗
+- 鏁板瓧楦挎矡锛氬姞鍓ч樁绾у垎鍖栫殑鏁板瓧鎶€鏈樊璺?```
 
-## 定量分析结果
-- 收入水平：月均收入5000-8000元
-- 工作时间：平均每日工作10-12小时
-- 社会保障覆盖率：不足30%
-- 罢工参与率：15%（呈上升趋势）
+## 璐ㄩ噺鏍囧噯
 
-## 阶级意识水平
-- 当前阶段：萌芽意识阶段
-- 主要诉求：提高收入、改善工作条件
-- 组织化程度：初步形成互助组织
-- 斗争策略：主要采取个体化斗争
+### 鐞嗚鍑嗙‘鎬ц姹?- **闃剁骇姒傚康绮剧‘搴?*锛氣墺95% (鍩轰簬椹厠鎬濅富涔夐樁绾х悊璁?
+- **鐞嗚搴旂敤鍑嗙‘鎬?*锛氣墺90% (姝ｇ‘杩愮敤闃剁骇鍒嗘瀽鐞嗚)
+- **椹厠鎬濅富涔変竴鑷存€?*锛氣墺92% (绗﹀悎椹厠鎬濅富涔夊熀鏈師鐞?
+- **鐞嗚娣卞害瑕佹眰**锛氣墺85% (娣卞叆鍒嗘瀽闃剁骇鏈川)
 
-## 发展建议
-- 组织建设：建立行业工会组织
-- 权益保障：完善平台工人权益保护制度
-- 意识提升：开展阶级意识教育活动
-- 策略联盟：与无产阶级建立联盟关系
-```
+### 鍒嗘瀽涓撲笟鎬ц姹?- **闃剁骇璇嗗埆鍑嗙‘鐜?*锛氣墺90%
+- **闃剁骇鍏崇郴鍒嗘瀽绮惧害**锛氣墺85%
+- **闃剁骇鎰忚瘑璇勪及娣卞害**锛氣墺80%
+- **闃剁骇鍔ㄦ€侀娴嬪噯纭€?*锛氣墺75%
 
-### 场景2：知识工作者阶级分析
-**输入**：知识分子收入数据、教育背景数据、职业流动数据
-
-**分析流程**：
-1. **阶层特征定量分析**：分析知识工作者的阶层特征
-2. **阶级本质定性分析**：分析知识工作者的阶级本质
-3. **阶级分化趋势**：分析知识工作者内部的分化
-4. **阶级倾向评估**：评估知识工作者的政治倾向
-5. **联盟关系分析**：分析与其他阶级的联盟可能性
-
-**输出示例**：
-```
-# 知识工作者阶级分析报告
-
-## 阶层特征分析
-- 规模：占总就业人口的25%（持续增长）
-- 收入水平：中高收入群体，月均15000-30000元
-- 教育水平：本科及以上学历占90%
-- 工作性质：主要从事脑力劳动
-
-## 阶级本质识别
-- 生产关系地位：既是被剥削者，也参与剥削过程
-- 阶级特征：具有小资产阶级倾向，但缺乏独立性
-- 政治倾向：自由主义倾向较强，阶级意识相对模糊
-- 发展潜力：是潜在的革命力量
-
-## 内部分化分析
-- 高端知识分子：接近资产阶级立场
-- 中低端知识分子：接近无产阶级立场
-- 新兴知识分子：阶级立场摇摆不定
-
-## 联盟策略建议
-- 与无产阶级联盟：共同反对资产阶级剥削
-- 组织知识分子工会：维护知识分子权益
-- 开展思想启蒙：提升阶级觉悟
-```
-
-## 质量保证机制
-
-### 理论准确性检查
+### 瀹炶返搴旂敤瑕佹眰
+- **鐜板疄閽堝鎬?*锛氶拡瀵瑰叿浣撻樁绾х幇璞?- **瑙ｅ喅鍙鎬?*锛氭彁鍑虹殑瑙ｅ喅鏂规蹇呴』鍙
+- **浜烘皯鎬?*锛氫綋鐜颁汉姘戠兢浼楁牴鏈埄鐩?- **杩涙鎬?*锛氭帹鍔ㄧぞ浼氬叕骞虫涔?
+## 鎶€鏈緷璧?
+### 鏍稿績渚濊禆鍖?- **pandas**: 鏁版嵁澶勭悊鍜屽垎鏋?- **numpy**: 鏁板€艰绠楀拰缁熻鍒嗘瀽
+- **jieba**: 涓枃鏂囨湰鍒嗘瀽鍜岃涔夌悊瑙?- **scikit-learn**: 鏈哄櫒瀛︿範绠楁硶鐢ㄤ簬闃剁骇璇嗗埆
+- **networkx**: 闃剁骇鍏崇郴缃戠粶鍒嗘瀽
+- **matplotlib/seaborn**: 鏁版嵁鍙鍖?
+### 鏅鸿兘渚濊禆绠＄悊
+璇ユ妧鑳戒娇鐢ㄦ櫤鑳戒緷璧栫鐞嗙郴缁燂紝浼樺厛浣跨敤楂樼骇鍒嗘瀽鍖咃紝濡傛灉涓嶅彲鐢ㄥ垯鑷姩闄嶇骇鍒板熀纭€瀹炵幇锛?
 ```python
-def validate_class_analysis_accuracy(self, analysis_result: Dict) -> Dict:
-    """验证阶级分析的理论准确性"""
-    
-    validation_checks = {
-        'marxist_concepts': self.validate_marxist_concepts(analysis_result),
-        'class_methodology': self.validate_class_analysis_methodology(analysis_result),
-        'theoretical_relations': self.validate_theoretical_relations(analysis_result),
-        'historical_consistency': self.validate_historical_consistency(analysis_result)
-    }
-    
-    accuracy_score = np.mean(list(validation_checks.values()))
-    
-    return {
-        'validation_results': validation_checks,
-        'overall_accuracy': accuracy_score,
-        'meets_marxist_standard': accuracy_score >= 0.75,
-        'accuracy_improvements': self.generate_accuracy_improvements(validation_checks)
-    }
-```
+from common.smart_dependency_manager import attempt_install_and_import, smart_text_analysis
 
-### 定性定量一致性检查
-```python
-def check_qualitative_quantitative_consistency(self, analysis_result: Dict) -> Dict:
-    """检查定性定量分析的一致性"""
-    
-    consistency_checks = {
-        'data_theory_alignment': self.check_data_theory_alignment(analysis_result),
-        'quantitative_support': self.check_quantitative_support(analysis_result),
-        'qualitative_depth': self.check_qualitative_depth(analysis_result),
-        'synthesis_quality': self.check_synthesis_quality(analysis_result)
-    }
-    
-    consistency_score = np.mean(list(consistency_checks.values()))
-    
-    return {
-        'consistency_checks': consistency_checks,
-        'overall_consistency': consistency_score,
-        'synthesis_recommendations': self.generate_synthesis_recommendations(consistency_checks)
-    }
-```
-
-## 技术依赖
-
-### 核心依赖包
-- **pandas/numpy**: 数据处理和数值计算
-- **matplotlib/seaborn**: 数据可视化
-- **networkx**: 社会网络分析
-- **scikit-learn**: 机器学习算法
-- **jieba**: 中文文本处理
-
-### 智能依赖管理
-```python
-from common.smart_dependency_manager import attempt_install_and_import, smart_network_analysis
-
-# 智能网络分析
-network_result, using_advanced = smart_network_analysis(class_relations_data)
-
-if using_advanced:
-    print("使用高级网络分析算法")
+# 鏅鸿兘瀵煎叆鏂囨湰鍒嗘瀽鍖?jieba, using_advanced_jieba = attempt_install_and_import('jieba', '0.42.1')
+if using_advanced_jieba:
+    print("浣跨敤楂樼骇jieba杩涜涓枃闃剁骇鍒嗘瀽")
 else:
-    print("使用基础网络分析实现")
+    print("浣跨敤鍩虹鏂囨湰澶勭悊杩涜闃剁骇鍒嗘瀽")
+
+# 鏅鸿兘缁熻鍒嗘瀽
+result, using_advanced = smart_text_analysis(phenomenon_data, analysis_type="class_analysis")
 ```
 
-## 使用指南
+### 闄嶇骇绛栫暐
+- **楂樼骇鍖呬笉鍙敤鏃?*锛氫娇鐢≒ython鍐呯疆鏂囨湰澶勭悊鍔熻兘
+- **鏈哄櫒瀛︿範涓嶅彲鐢ㄦ椂**锛氫娇鐢ㄨ鍒欏熀纭€鐨勯樁绾ц瘑鍒?- **鍙鍖栧寘涓嶅彲鐢ㄦ椂**锛氳緭鍑烘枃鏈牸寮忕殑鍒嗘瀽缁撴灉
+- **缃戠粶鍒嗘瀽涓嶅彲鐢ㄦ椂**锛氫娇鐢ㄥ熀纭€缁熻鏂规硶
 
-### 输入格式
+## 浣跨敤鎸囧崡
+
+### 璋冪敤鏂瑰紡
+```
+鐢ㄦ埛: "鍒嗘瀽褰撲唬涓浗鐨勯樁绾х粨鏋?
+鏅鸿兘浣? 鑷姩鍔犺浇class-structure-analysis鎶€鑳?鎵ц: class_analyzer.comprehensive_class_analysis(social_data)
+杈撳嚭: 闃剁骇缁撴瀯鍒嗘瀽鎶ュ憡
+```
+
+### 杈撳叆鏍煎紡
 ```json
 {
-  "analysis_target": "阶级结构分析目标",
-  "data_sources": {
-    "economic_data": "经济统计数据",
-    "social_data": "社会调查数据",
-    "demographic_data": "人口统计数据",
-    "survey_data": "问卷调查数据"
+  "social_phenomenon": "闇€瑕佸垎鏋愮殑绀句細鐜拌薄",
+  "data": {
+    "income_data": "鏀跺叆鏁版嵁",
+    "occupation_data": "鑱屼笟鏁版嵁",
+    "property_data": "璐骇鏁版嵁",
+    "education_data": "鏁欒偛鏁版嵁"
   },
-  "analysis_focus": ["traditional_classes", "emerging_classes", "class_relations"],
+  "analysis_type": "class_analysis",
+  "focus_areas": ["class_identification", "class_relations", "class_consciousness", "class_dynamics"],
   "depth_level": "comprehensive",
-  "output_format": "detailed_report"
+  "theory_framework": "marxist_class_theory"
 }
 ```
 
-### 输出格式
+### 杈撳嚭鏍煎紡
 ```json
 {
-  "class_structure_analysis": {
-    "traditional_classes": "传统阶级分析结果",
-    "emerging_classes": "新兴阶层分析结果",
-    "class_relations": "阶级关系分析结果",
-    "consciousness_levels": "阶级意识水平评估"
-  },
-  "quantitative_results": {
-    "class_sizes": "各类阶级人数和比例",
-    "income_distribution": "收入分布数据",
-    "mobility_patterns": "社会流动模式"
-  },
-  "qualitative_analysis": {
-    "class_nature": "阶级本质分析",
-    "political_orientation": "政治倾向分析",
-    "development_trends": "发展趋势分析"
+  "analysis_result": {
+    "class_structure": {
+      "bourgeoisie": {
+        "size": "璧勪骇闃剁骇瑙勬ā",
+        "characteristics": "璧勪骇闃剁骇鐗瑰緛",
+        "subdivisions": "璧勪骇闃剁骇缁嗗垎"
+      },
+      "proletariat": {
+        "size": "鏃犱骇闃剁骇瑙勬ā",
+        "characteristics": "鏃犱骇闃剁骇鐗瑰緛",
+        "subdivisions": "鏃犱骇闃剁骇缁嗗垎"
+      },
+      "petit_bourgeoisie": {
+        "size": "灏忚祫浜ч樁绾ц妯?,
+        "characteristics": "灏忚祫浜ч樁绾х壒寰?,
+        "subdivisions": "灏忚祫浜ч樁绾х粏鍒?
+      }
+    },
+    "class_relations": {
+      "relations_matrix": "闃剁骇鍏崇郴鐭╅樀",
+      "primary_contradictions": "涓昏闃剁骇鐭涚浘",
+      "alliance_potential": "闃剁骇鑱旂洘娼滃姏"
+    },
+    "class_consciousness": {
+      "awareness_level": "闃剁骇鎰忚瘑姘村钩",
+      "organizational_capacity": "缁勭粐鑳藉姏",
+      "revolutionary_potential": "闈╁懡娼滃姏"
+    },
+    "class_dynamics": {
+      "movement_trends": "闃剁骇娴佸姩瓒嬪娍",
+      "structural_changes": "缁撴瀯鍙樺寲",
+      "future_predictions": "鏈潵棰勬祴"
+    }
   },
   "quality_metrics": {
-    "theoretical_accuracy": 0.85,
-    "analysis_depth": 0.80,
-    "practical_relevance": 0.90
+    "theoretical_accuracy": 0.88,
+    "analysis_depth": 0.82,
+    "marxist_alignment": 0.91,
+    "practical_guidance": 0.85
+  },
+  "intervention_recommendations": {
+    "immediate_actions": "鍗虫椂琛屽姩寤鸿",
+    "medium_strategies": "涓湡绛栫暐瑙勫垝",
+    "long_term_vision": "闀挎湡鎰挎櫙鐩爣"
   }
 }
 ```
 
-## 持续改进
+## 鎸佺画鏀硅繘
 
-### 反馈优化机制
-- **实践验证**：跟踪阶级分析预测的实践验证情况
-- **理论发展**：根据马克思主义阶级理论发展更新分析框架
-- **数据扩充**：不断扩充阶级分析的数据来源
-- **方法创新**：引入新的分析方法和工具
-
-### 精度提升策略
-- **算法优化**：优化阶级分析算法的精度
-- **数据质量**：提高输入数据的质量和完整性
-- **模型验证**：建立更完善的模型验证机制
-- **专家评议**：定期邀请专家评议分析质量
-
+### 鍙嶉鏈哄埗
+- **鐢ㄦ埛鍙嶉鏀堕泦**锛氭敹闆嗙敤鎴峰闃剁骇鍒嗘瀽缁撴灉鐨勫弽棣?- **涓撳璇勮**锛氶個璇烽┈鍏嬫€濅富涔変笓瀹惰瘎璁樁绾х悊璁哄簲鐢?- **瀹炶返楠岃瘉**锛氳窡韪樁绾у垎鏋愮粨鏋滅殑瀹炶返楠岃瘉
+- **鐞嗚鍙戝睍**锛氭牴鎹┈鍏嬫€濅富涔夌悊璁哄彂灞曟洿鏂板垎鏋愭鏋?
+### 鏇存柊绛栫暐
+- **鐞嗚娣卞寲**锛氭繁鍖栧椹厠鎬濋樁绾х悊璁虹殑鐞嗚В鍜屽簲鐢?- **鏂规硶鍒涙柊**锛氬紩鍏ユ柊鐨勯樁绾ц瘑鍒拰鍒嗘瀽鏂规硶
+- **妗堜緥鎵╁厖**锛氫笉鏂墿鍏呴樁绾у垎鏋愭渚嬪簱
+- **绮惧害鎻愬崌**锛氭彁楂橀樁绾ц瘑鍒拰鍒嗘瀽鐨勭簿搴?
 ---
 
-**此阶级结构分析技能为数字马克思智能体的核心技能，实现传统阶级理论与数字时代特征的完美结合，确保阶级分析的准确性和实践指导价值。**
+**姝ら樁绾х粨鏋勫垎鏋愭妧鑳戒负鏁板瓧椹厠鎬濇櫤鑳戒綋鐨勪笓闂ㄦ妧鑳斤紝鎻愪緵绉戝銆佸噯纭殑椹厠鎬濅富涔夐樁绾у垎鏋愭柟娉曪紝纭繚鍦ㄦ暟瀛楁椂浠ｅ闃剁骇鐜拌薄鐨勬繁鍒荤悊瑙ｅ拰鏈夋晥鍒嗘瀽銆?*

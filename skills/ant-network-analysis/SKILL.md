@@ -1,154 +1,132 @@
 ---
 name: ant-network-analysis
-description: 分析行动者网络的结构、动态和稳定性，包括网络拓扑、关系强度、中心性、凝聚力和演化过程。当需要分析网络结构、识别关键节点、评估网络稳定性或追踪网络演化时使用此技能。
+description: 当用户需要分析行动者网络的结构、动态和稳定性，包括网络拓扑、关系强度、中心性、凝聚力和演化过程时使用此技能
 version: 1.0.0
 author: chinese-social-sciences-subagents
+license: MIT
 tags: [actor-network-theory, ANT, network-analysis, topology, stability, dynamics, socio-technical-networks]
+compatibility: Claude 3.5 Sonnet and above
+metadata:
+  domain: science-and-technology-studies
+  methodology: actor-network-theory
+  complexity: advanced
+  integration_type: analysis_tool
+  last_updated: "2025-12-21"
+allowed-tools: [python, bash, read_file, write_file]
 ---
 
-# ANT Network Analysis Skill
+# ANT网络分析技能 (ANT Network Analysis)
 
-## Overview
-ANT网络分析技能专注于分析行动者网络的结构特征、动态变化和稳定性机制。该技能帮助研究者理解网络的拓扑结构、关系模式、权力分布、稳定化机制以及网络随时间的演化过程。
+## 概述
 
-## When to Use This Skill
-Use this skill when the user requests:
-- Analysis of network topology and structure
-- Identification of key nodes and critical connections
-- Assessment of network stability and robustness
-- Examination of network dynamics and change processes
-- Evaluation of network cohesion and fragmentation
-- Study of power distribution within networks
-- Tracing of network evolution over time
-- Analysis of network resilience to disruptions
+分析行动者网络的结构特征、动态变化和稳定性机制，帮助研究者理解网络的拓扑结构、关系模式、权力分布、稳定化机制以及网络随时间的演化过程。
 
-## Quick Start
-When a user requests network analysis:
-1. **Map** the network topology and structure
-2. **Analyze** key relationships and connections
-3. **Identify** central nodes and critical actors
-4. **Assess** network stability and vulnerabilities
-5. **Trace** dynamic changes and evolution
+## 使用时机
 
-## Core Functions (Progressive Disclosure)
+当用户请求以下分析时使用此技能：
+- 网络拓扑和结构分析
+- 关键节点和关键连接识别
+- 网络稳定性和鲁棒性评估
+- 网络动态和变化过程检查
+- 网络凝聚性和碎片化评估
+- 网络内权力分布研究
+- 网络演化过程追踪
+- 网络对干扰的韧性分析
 
-### Primary Functions
-- **Network Topology**: Map the structure of relationships
-- **Relationship Analysis**: Analyze the nature and strength of connections
-- **Stability Assessment**: Evaluate factors maintaining network stability
-- **Basic Dynamics**: Identify simple changes in network structure
+## 快速开始
 
-### Secondary Functions
-- **Centrality Analysis**: Identify key actors and critical connections
-- **Cohesion Measurement**: Assess network cohesion and fragmentation
-- **Boundary Analysis**: Examine network boundaries and exclusions
-- **Power Distribution**: Analyze how power flows through the network
+当用户请求网络分析时：
+1. **绘制**网络拓扑和结构
+2. **分析**关键关系和连接
+3. **识别**中心节点和关键行动者
+4. **评估**网络稳定性和脆弱性
+5. **追踪**动态变化和演化
 
-### Advanced Functions
-- **Dynamic Evolution**: Trace changes in network structure over time
-- **Resilience Analysis**: Assess network resilience to disruptions
-- **Multi-layer Analysis**: Examine multiple types of relationships
-- **Stabilization Mechanisms**: Analyze processes of network stabilization
+## 核心流程
 
-## Detailed Instructions
+### 第一阶段：网络拓扑映射
+   - 创建行动者关系的综合地图
+   - 识别行动者之间的连接类型
+   - 绘制网络的整体结构
+   - 分析连接模式
+   - 考虑网络的边界
 
-### 1. Network Topology Mapping
-   - Create a comprehensive map of actor relationships
-   - Identify the types of connections between actors
-   - Map the overall structure of the network
-   - Analyze the patterns of connections
-   - Consider the boundaries of the network
+### 第二阶段：关系分析
+   - 评估不同关系的强度
+   - 识别连接的性质（支持性、冲突性、中性）
+   - 分析关系的方向性
+   - 检查连接的质量和持久性
+   - 考虑关系的多样性
 
-### 2. Relationship Analysis
-   - Assess the strength of different relationships
-   - Identify the nature of connections (supportive, conflicting, neutral)
-   - Analyze the directionality of relationships
-   - Examine the quality and durability of connections
-   - Consider the multiplicity of relationships
+### 第三阶段：中心性和关键行动者分析
+   - 识别网络中的中心行动者
+   - 分析关键中介的角色
+   - 评估影响力分布
+   - 识别潜在瓶颈或脆弱点
+   - 考虑连接的冗余性
 
-### 3. Centrality and Key Actor Analysis
-   - Identify central actors in the network
-   - Analyze the roles of key intermediaries
-   - Assess the distribution of influence
-   - Identify potential bottlenecks or vulnerabilities
-   - Consider the redundancy of connections
+### 第四阶段：稳定性评估
+   - 评估维持网络稳定性的因素
+   - 识别不稳定性的潜在来源
+   - 评估关键连接的鲁棒性
+   - 分析网络稳定化的机制
+   - 考虑维持网络连接的成本
 
-### 4. Stability Assessment
-   - Evaluate the factors maintaining network stability
-   - Identify potential sources of instability
-   - Assess the robustness of key connections
-   - Analyze the mechanisms of network stabilization
-   - Consider the costs of maintaining network connections
+### 第五阶段：动态分析
+   - 追踪网络结构随时间的变化
+   - 识别网络转换的时刻
+   - 分析网络变化的原因
+   - 评估外部事件对网络的影响
+   - 考虑潜在的未来发展
 
-### 5. Dynamic Analysis
-   - Trace changes in network structure over time
-   - Identify moments of network transformation
-   - Analyze the causes of network changes
-   - Assess the impact of external events on the network
-   - Consider potential future developments
+## 输出格式
 
-### 6. Cohesion and Fragmentation Analysis
-   - Assess the overall cohesion of the network
-   - Identify subgroups or clusters within the network
-   - Analyze the connections between subgroups
-   - Consider the risks of fragmentation
-   - Examine the mechanisms that maintain unity
+```json
+{
+  "summary": {
+    "network_type": "socio-technical",
+    "node_count": 25,
+    "edge_count": 42,
+    "network_density": 0.12,
+    "stability_score": 0.78
+  },
+  "details": {
+    "topology": {...},
+    "relationships": {...},
+    "centrality_analysis": {...},
+    "stability_assessment": {...},
+    "dynamics": {...}
+  },
+  "metadata": {
+    "timestamp": "2025-12-21T10:30:00",
+    "version": "1.0.0"
+  }
+}
+```
 
-### 7. Power and Influence Analysis
-   - Map the distribution of power within the network
-   - Identify actors with disproportionate influence
-   - Analyze how power flows through the network
-   - Consider mechanisms of resistance and control
-   - Assess the democratization of influence
+## 质量标准
 
-## Parameters
-- `network_type`: Type of network (technological, scientific, organizational, etc.)
-- `analysis_scope`: Scope of analysis (local, global, multi-scale)
-- `time_frame`: Time frame for analysis (synchronic, diachronic)
-- `centrality_focus`: Focus on specific centrality measures
-- `stability_aspects`: Aspects of stability to analyze
-- `dynamic_processes`: Dynamic processes to examine
-- `methodology`: Approach to network analysis (qualitative, quantitative, mixed)
+- 严格应用网络分析原则
+- 考虑结构和动态两个方面
+- 评估网络韧性和适应性
+- 考虑非人类行动者在网络结构中的作用
+- 保持对行动者关系和依赖的关注
 
-## Examples
+## 深入学习
 
-### Example 1: Technological Network Analysis
-User: "Analyze the network structure of the Chinese high-speed rail development"
-Response: Map actors (government, companies, technologies), assess connections, evaluate stability, trace evolution.
+- ANT背景下的网络分析文献
+- 社会网络分析方法论
+- 复杂系统和网络理论
+- 中国背景下网络分析的实例
 
-### Example 2: Academic Collaboration Network
-User: "Analyze the network of international collaborations in Chinese universities"
-Response: Map collaborative relationships, identify key institutions, assess network cohesion, analyze power distribution.
+## 完成标志
 
-### Example 3: Policy Implementation Network
-User: "Analyze the network structure of poverty alleviation policy implementation"
-Response: Map policy actors, analyze relationships, assess network stability, trace implementation dynamics.
+完成高质量的ANT网络分析应该：
+1. 提供完整的网络拓扑映射
+2. 识别关键节点和连接
+3. 评估网络稳定性和动态
+4. 分析权力分布和影响
 
-## Quality Standards
+---
 
-- Apply network analysis principles rigorously
-- Consider both structural and dynamic aspects
-- Assess network resilience and adaptability
-- Consider the role of non-human actors in network structure
-- Maintain focus on actor relationships and dependencies
-
-## Output Format
-
-- Complete network topology map
-- Relationship strength and nature analysis
-- Centrality and key actor identification
-- Stability and vulnerability assessment
-- Dynamic evolution timeline
-- Network cohesion and fragmentation analysis
-- Power distribution mapping
-
-## Resources
-- Network analysis literature in ANT context
-- Social network analysis methodologies
-- Complex systems and network theory
-- Examples of network analysis in Chinese context
-
-## Metadata
-- Compatibility: Claude 3.5 Sonnet and above
-- Domain: Science and Technology Studies, Network Analysis
-- Language: Optimized for Chinese research context
+*此技能为行动者网络理论分析提供专业的网络结构和动态分析支持，确保研究的科学性和严谨性。*

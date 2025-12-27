@@ -1,0 +1,47 @@
+{
+  "skillId": "business-model-canvas-analysis",
+  "name": "商业模式画布分析",
+  "version": "2.0.0",
+  "description": "基于权威商业模式画布理论，对企业进行九要素分析",
+  "category": "business-analysis",
+  "tags": [
+    "business-model",
+    "canvas",
+    "strategy",
+    "analysis"
+  ],
+  "author": "Business Model Expert Agent",
+  "license": "MIT",
+  "requirements": {
+    "inputs": [
+      {
+        "name": "companyData",
+        "type": "object",
+        "description": "企业基础数据，包括名称、行业、业务等信息",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysisResults",
+        "type": "object",
+        "description": "商业模式画布九要素分析结果"
+      }
+    ]
+  },
+  "execution": {
+    "type": "automated",
+    "timeout": 30000,
+    "retries": 2
+  },
+  "dependencies": [
+    "data-collection-skill",
+    "validation-skill"
+  ],
+  "metadata": {
+    "complexity": "high",
+    "estimatedTime": "3-5 minutes",
+    "accuracy": "high",
+    "coverage": "comprehensive"
+  }
+}

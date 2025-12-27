@@ -1,0 +1,35 @@
+﻿[project]
+name = "did-analysis"
+version = "2.0.0"
+description = "鍩轰簬鍙岄噸宸垎娉?Difference-in-Differences)鐞嗚锛屽鏀跨瓥骞查鎴栦簨浠跺奖鍝嶈繘琛屽洜鏋滄帹鏂垎鏋愮殑鎶€鑳斤紝杩愮敤骞宠瓒嬪娍鍋囪銆佸畨鎱板墏妫€楠岀瓑鏂规硶锛岃瘎浼板共棰勬晥鏋滃拰鏀跨瓥褰卞搷"
+authors = [{name = "SSAI Team", email = "contact@agentpsy.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "statsmodels>=0.14.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "scikit-learn>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

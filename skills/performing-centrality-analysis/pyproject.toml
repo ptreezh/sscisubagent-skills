@@ -1,7 +1,7 @@
-[project]
+﻿[project]
 name = "performing-centrality-analysis"
 version = "1.0.0"
-description = "社会网络中心性分析工具集：度中心性、接近中心性、中介中心性、特征向量中心性"
+description = "绀句細缃戠粶涓績鎬у垎鏋愬伐鍏烽泦锛氬害涓績鎬с€佹帴杩戜腑蹇冩€с€佷腑浠嬩腑蹇冩€с€佺壒寰佸悜閲忎腑蹇冩€?
 requires-python = ">=3.8"
 dependencies = [
     "networkx>=3.0",
@@ -18,3 +18,4 @@ default = true
 
 [tool.uv.cache]
 keys = ["networkx"]
+

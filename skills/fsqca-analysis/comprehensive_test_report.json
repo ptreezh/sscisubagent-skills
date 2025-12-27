@@ -1,0 +1,207 @@
+{
+  "calibration": {
+    "direct": {
+      "range": [
+        0.0,
+        1.0
+      ],
+      "valid": true,
+      "length": 20
+    },
+    "threshold": {
+      "range": [
+        0.0,
+        1.0
+      ],
+      "valid": true,
+      "length": 20
+    },
+    "interpolation": {
+      "range": [
+        0.0,
+        1.0
+      ],
+      "valid": true,
+      "length": 20
+    },
+    "gaussian": {
+      "range": [
+        0.0,
+        0.9953352589526276
+      ],
+      "valid": true,
+      "length": 20
+    },
+    "sigmoid": {
+      "range": [
+        0.08177241295633753,
+        0.9729196904226877
+      ],
+      "valid": true,
+      "length": 20
+    },
+    "indirect": {
+      "range": [
+        0.0,
+        1.0
+      ],
+      "valid": true,
+      "length": 20
+    },
+    "consistency_coverage": {
+      "valid": true,
+      "consistency": 0.8787878787878789,
+      "coverage": 0.9354838709677421
+    }
+  },
+  "truth_table": {
+    "build": {
+      "valid": true,
+      "shape": [
+        8,
+        13
+      ],
+      "contradictory_count": 1,
+      "remainder_count": 2
+    },
+    "contradiction_handling": {
+      "valid": true,
+      "processed_shape": [
+        7,
+        13
+      ]
+    },
+    "quality_metrics": {
+      "valid": true,
+      "metrics": {
+        "contradiction_rate": 0.125,
+        "avg_consistency": 0.7752324947108572,
+        "remainder_ratio": 0.2,
+        "coverage": 0.25
+      }
+    }
+  },
+  "minimization": {
+    "minimization": {
+      "valid": true,
+      "solution_count": 3,
+      "solutions": [
+        {
+          "type": "complex",
+          "expression": "(A * ~B * C) + (A * B * ~C) + (~A * B * C) + (A * B * C)",
+          "consistency": 0.8611871514235339,
+          "coverage": 1.0,
+          "complexity": 4
+        },
+        {
+          "type": "primed",
+          "expression": "",
+          "consistency": 0.0,
+          "coverage": 0,
+          "complexity": 0
+        },
+        {
+          "type": "intermediate",
+          "expression": "",
+          "consistency": 0.0,
+          "coverage": 0,
+          "complexity": 0
+        }
+      ]
+    },
+    "quality_assessment": {
+      "valid": true,
+      "metrics": {
+        "coverage": 1.0,
+        "consistency": 0.8611871514235339,
+        "complexity": 4,
+        "frequency": 12,
+        "PRI": 0.8611871514235339,
+        "AICc": Infinity
+      }
+    },
+    "solution_evaluation": {
+      "valid": true,
+      "evaluation": {
+        "solution_type": "complex",
+        "expression": "(A * ~B * C) + (A * B * ~C) + (~A * B * C) + (A * B * C)",
+        "quality_metrics": {
+          "coverage": 1.0,
+          "consistency": 0.8611871514235339,
+          "complexity": 4,
+          "frequency": 12,
+          "PRI": 0.8611871514235339,
+          "AICc": Infinity
+        },
+        "interpretability": 0.360888901828263,
+        "robustness": 1.0
+      }
+    }
+  },
+  "integration": {
+    "theoretical_analysis": {
+      "valid": true
+    },
+    "calibration_guidance": {
+      "valid": true
+    },
+    "quantitative_analysis": {
+      "valid": true
+    },
+    "result_interpretation": {
+      "valid": true
+    },
+    "report_generation": {
+      "valid": true
+    },
+    "integration_success": true
+  },
+  "progressive_disclosure": {
+    "valid": true,
+    "levels": {
+      "level_1": true,
+      "level_2": true,
+      "level_3": true,
+      "level_4": true
+    },
+    "qualitative_quantitative": true
+  },
+  "qualitative_quantitative": {
+    "valid": true,
+    "qualitative_methods": {
+      "theoretical_analysis": true,
+      "calibration_guidance": true,
+      "result_interpretation": true
+    },
+    "quantitative_components": {
+      "calibrator": true,
+      "truth_table_builder": true,
+      "minimizer": true
+    }
+  },
+  "documentation": {
+    "prompts": {
+      "prompts/theoretical-analysis.md": true,
+      "prompts/calibration-guidance.md": true,
+      "prompts/result-interpretation.md": true,
+      "prompts/theoretical-analysis-outline.md": true,
+      "prompts/calibration-guidance-outline.md": true,
+      "prompts/result-interpretation-outline.md": true
+    },
+    "references": {
+      "references/METHODOLOGY.md": true,
+      "references/BEST_PRACTICES.md": true,
+      "references/METHODOLOGY-outline.md": true,
+      "references/BEST_PRACTICES-outline.md": true
+    },
+    "scripts": {
+      "scripts/calibration.py": true,
+      "scripts/truth_table.py": true,
+      "scripts/minimization.py": true,
+      "scripts/integrated_analysis.py": true
+    },
+    "assets": {
+      "assets/templates/report_template.md": true
+    }
+  }
+}

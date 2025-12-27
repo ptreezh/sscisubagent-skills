@@ -1,7 +1,7 @@
-[project]
+﻿[project]
 name = "performing-selective-coding"
 version = "1.0.0"
-description = "选择式编码工具集：核心范畴识别、故事线构建、理论整合"
+description = "閫夋嫨寮忕紪鐮佸伐鍏烽泦锛氭牳蹇冭寖鐣磋瘑鍒€佹晠浜嬬嚎鏋勫缓銆佺悊璁烘暣鍚?
 requires-python = ">=3.8"
 dependencies = [
     "pandas>=2.0.0",
@@ -18,3 +18,4 @@ default = true
 
 [tool.uv.cache]
 keys = ["networkx", "scikit-learn"]
+

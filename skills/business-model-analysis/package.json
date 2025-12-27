@@ -1,0 +1,23 @@
+﻿{
+  "name": "business-model-analysis-skill",
+  "version": "1.0.0",
+  "description": "鍟嗕笟妯″紡鍒嗘瀽鎶€鑳斤紝鐢ㄤ簬鍒嗘瀽浼佷笟鍟嗕笟妯″紡",
+  "main": "skill.js",
+  "scripts": {
+    "test": "node test.js",
+    "e2e-test": "node e2e-test.js",
+    "start": "node skill.js"
+  },
+  "keywords": [
+    "business",
+    "model",
+    "analysis",
+    "canvas",
+    "competitive-analysis",
+    "value-proposition",
+    "agentskills"
+  ],
+  "author": "AgentPsy Team",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,0 +1,191 @@
+﻿{
+  "skill": {
+    "id": "business-ecosystem-data-collection",
+    "version": "2.0.0",
+    "name": "鍟嗕笟鐢熸€佺郴缁熸暟鎹悳闆嗘妧鑳?,
+    "description": "涓撻棬鐢ㄤ簬鎼滈泦鍟嗕笟鐢熸€佺郴缁熷垎鏋愭墍闇€鏁版嵁鐨勬妧鑳斤紝鍖呮嫭浼佷笟淇℃伅銆佸叧绯绘暟鎹€佽涓氫俊鎭瓑",
+    "category": "data-collection",
+    "tags": [
+      "data-collection",
+      "business-intelligence",
+      "ecosystem-research",
+      "entity-recognition",
+      "relationship-mapping",
+      "market-research"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "web-scraping",
+      "api-integration",
+      "data-verification"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/business-ecosystem-data-collection",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "targetIndustry",
+      "searchScope"
+    ],
+    "properties": {
+      "targetIndustry": {
+        "type": "string",
+        "description": "鐩爣琛屼笟"
+      },
+      "searchScope": {
+        "type": "object",
+        "description": "鎼滅储鑼冨洿",
+        "properties": {
+          "geographic": {
+            "type": "string",
+            "description": "鍦扮悊鑼冨洿",
+            "default": "global"
+          },
+          "timeRange": {
+            "type": "string",
+            "description": "鏃堕棿鑼冨洿",
+            "enum": ["recent", "last_year", "last_3_years", "last_5_years"],
+            "default": "recent"
+          },
+          "entityTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "瀹炰綋绫诲瀷",
+            "enum": ["corporations", "startups", "regulators", "investors", "suppliers", "customers", "all"],
+            "default": ["all"]
+          }
+        }
+      },
+      "dataTypes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "闇€瑕佹悳闆嗙殑鏁版嵁绫诲瀷",
+        "enum": [
+          "company_profiles",
+          "financial_data", 
+          "business_models",
+          "relationships",
+          "market_positions",
+          "regulatory_info",
+          "all"
+        ],
+        "default": ["all"]
+      },
+      "collectionDepth": {
+        "type": "string",
+        "description": "鎼滈泦娣卞害",
+        "enum": ["basic", "standard", "comprehensive"],
+        "default": "standard"
+      },
+      "verificationRequired": {
+        "type": "boolean",
+        "description": "鏄惁闇€瑕佹暟鎹獙璇?,
+        "default": true
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鎼滈泦鍒扮殑鏁版嵁",
+        "properties": {
+          "collectedEntities": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "鎼滈泦鍒扮殑瀹炰綋鍒楄〃"
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "瀹炰綋闂寸殑鍏崇郴"
+          },
+          "industryInfo": {
+            "type": "object",
+            "description": "琛屼笟淇℃伅"
+          },
+          "collectionMetrics": {
+            "type": "object",
+            "description": "鎼滈泦鎸囨爣"
+          },
+          "dataQualityReport": {
+            "type": "object",
+            "description": "鏁版嵁璐ㄩ噺鎶ュ憡"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "collectionTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "鎼滈泦鏃堕棿"
+              },
+              "sourceCount": {
+                "type": "number",
+                "description": "鏁版嵁婧愭暟閲?
+              },
+              "verificationStatus": {
+                "type": "string",
+                "description": "楠岃瘉鐘舵€?
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 120000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

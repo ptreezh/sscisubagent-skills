@@ -1,0 +1,117 @@
+# 竞争分析技能提示词
+
+## 主要提示词
+请基于竞争战略理论，对以下企业进行全面的竞争分析。使用波特五力模型、SWOT分析、竞争对手分析等理论框架，从市场竞争、竞争对手、竞争定位、竞争优势、市场份额、定价策略、差异化策略等维度进行分析。
+
+### 分析维度
+1. **市场竞争分析**：分析企业所处市场竞争格局和强度
+2. **竞争对手分析**：识别和分析主要竞争对手的策略和能力
+3. **竞争定位分析**：评估企业竞争定位和战略选择
+4. **五力模型分析**：应用波特五力模型分析竞争环境
+5. **竞争优势分析**：识别和评估企业竞争优势和可持续性
+6. **市场份额分析**：分析企业市场份额和变化趋势
+7. **定价策略分析**：分析企业定价策略和竞争性
+8. **差异化策略分析**：评估企业差异化竞争策略
+
+### 理论基础
+- 竞争战略理论：波特竞争战略框架
+- 五力模型：供应商、购买者、竞争者、替代品、新进入者
+- 竞争情报理论：竞争对手分析框架
+- SWOT分析：优势、劣势、机会、威胁分析
+
+### 输出格式
+```json
+{
+  "competitiveElements": {
+    "marketCompetitiveness": {
+      "intensity": "市场竞争激烈",
+      "drivers": ["技术变革", "成本压力"],
+      "trends": ["数字化转型", "可持续发展"],
+      "assessment": "企业处于中等竞争强度市场"
+    },
+    "competitorAnalysis": {
+      "keyCompetitors": [
+        {
+          "name": "主要竞争对手A",
+          "marketShare": 0.25,
+          "strengths": ["品牌优势", "技术领先"],
+          "weaknesses": ["成本较高"],
+          "strategy": "差异化战略"
+        }
+      ],
+      "competitiveDynamics": "动态竞争环境"
+    },
+    "competitivePositioning": {
+      "position": "成本领先与差异化结合",
+      "valueProposition": "高性价比产品",
+      "differentiation": "技术创新与客户服务",
+      "effectiveness": "高"
+    },
+    "fiveForcesAnalysis": {
+      "rivalryIntensity": 0.7,
+      "threatNewEntrants": 0.5,
+      "supplierPower": 0.4,
+      "buyerPower": 0.6,
+      "substituteThreat": 0.3
+    },
+    "competitiveAdvantage": {
+      "sources": ["技术优势", "规模经济", "品牌价值"],
+      "sustainability": "高",
+      "valueChain": "完整的价值链优势"
+    },
+    "marketShare": {
+      "currentShare": 0.18,
+      "trend": "稳步增长",
+      "relativeShare": 0.85
+    },
+    "pricingStrategy": {
+      "approach": "价值定价",
+      "competitiveness": "有竞争力",
+      "flexibility": "高"
+    },
+    "differentiationStrategy": {
+      "dimensions": ["产品创新", "客户服务", "品牌形象"],
+      "effectiveness": "高",
+      "perceivedValue": "客户感知价值高"
+    }
+  },
+  "overallAssessment": {
+    "executiveSummary": "该企业具有较强的竞争地位，在技术方面有明显优势，但面临激烈的市场竞争。",
+    "validationScore": 87,
+    "improvementRecommendations": [
+      "加强差异化战略以应对竞争",
+      "优化定价策略提高竞争力"
+    ]
+  }
+}
+```
+
+### 质量控制
+- 确保分析基于竞争战略理论基础
+- 验证各维度分析的完整性和准确性
+- 检查建议的可行性和针对性
+- 确保结论与提供的企业信息一致
+
+## 子技能提示词
+
+### 1. 竞争对手分析提示词
+分析主要竞争对手：
+- 识别关键竞争对手
+- 评估竞争对手优势和劣势
+- 分析竞争对手战略意图
+- 预测竞争对手反应
+
+### 2. 五力模型分析提示词
+应用波特五力模型：
+- 分析行业内竞争者竞争强度
+- 评估新进入者威胁
+- 评估供应商议价能力
+- 评估购买者议价能力
+- 评估替代品威胁
+
+### 3. 竞争优势分析提示词
+识别竞争优势：
+- 分析企业核心竞争力
+- 评估竞争优势可持续性
+- 识别价值创造来源
+- 提出优势强化建议

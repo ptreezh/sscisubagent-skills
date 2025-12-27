@@ -1,0 +1,21 @@
+﻿{
+  "name": "business-ecosystem-data-collection-skill",
+  "version": "2.0.0",
+  "description": "鍟嗕笟鐢熸€佺郴缁熸暟鎹悳闆嗘妧鑳斤紝鐢ㄤ簬鎼滈泦鍟嗕笟鐢熸€佺郴缁熷垎鏋愭墍闇€鏁版嵁",
+  "main": "skill.js",
+  "scripts": {
+    "test": "node test.js",
+    "e2e-test": "node e2e-test.js",
+    "start": "node skill.js"
+  },
+  "keywords": [
+    "business",
+    "ecosystem",
+    "data-collection",
+    "agentskills",
+    "analysis"
+  ],
+  "author": "AgentPsy Team",
+  "license": "MIT",
+  "dependencies": {}
+}

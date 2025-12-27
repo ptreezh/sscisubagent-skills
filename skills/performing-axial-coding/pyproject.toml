@@ -1,7 +1,7 @@
-[project]
+﻿[project]
 name = "performing-axial-coding"
 version = "1.0.0"
-description = "扎根理论轴心编码技能 - 范畴构建与关系分析"
+description = "鎵庢牴鐞嗚杞村績缂栫爜鎶€鑳?- 鑼冪暣鏋勫缓涓庡叧绯诲垎鏋?
 requires-python = ">=3.8"
 dependencies = [
     "pandas>=2.0.0",
@@ -27,3 +27,4 @@ default = true
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-v --cov=scripts --cov-report=term-missing"
+

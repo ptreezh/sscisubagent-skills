@@ -1,0 +1,195 @@
+﻿{
+  "skill": {
+    "id": "visualization-expert",
+    "version": "2.0.0",
+    "name": "鍙鍖栦笓瀹舵妧鑳?,
+    "description": "鍩轰簬鏁版嵁鍙鍖栫悊璁哄拰鏈€浣冲疄璺碉紝涓轰紒涓氬垎鏋愮粨鏋滃垱寤虹洿瑙傘€佹湁鏁堢殑鍙鍖栧浘琛ㄥ拰浠〃鏉跨殑涓撲笟鎶€鑳?,
+    "category": "data-visualization",
+    "tags": [
+      "data-visualization",
+      "chart-generation",
+      "dashboard-design",
+      "information-design",
+      "visual-analytics",
+      "business-intelligence"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-processing",
+      "chart-generation",
+      "dashboard-framework"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/visualization-expert",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "data",
+      "visualizationType"
+    ],
+    "properties": {
+      "data": {
+        "type": "object",
+        "description": "寰呭彲瑙嗗寲鐨勬暟鎹?,
+        "required": true
+      },
+      "visualizationType": {
+        "type": "string",
+        "description": "鍙鍖栫被鍨?,
+        "enum": [
+          "bar-chart",
+          "line-chart",
+          "pie-chart",
+          "scatter-plot",
+          "dashboard",
+          "heatmap",
+          "network-graph",
+          "custom-visualization"
+        ],
+        "required": true
+      },
+      "config": {
+        "type": "object",
+        "description": "鍙鍖栭厤缃€夐」",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "鍥捐〃鏍囬"
+          },
+          "theme": {
+            "type": "string",
+            "description": "涓婚椋庢牸",
+            "enum": ["light", "dark", "corporate", "minimal"]
+          },
+          "size": {
+            "type": "object",
+            "description": "鍥捐〃灏哄",
+            "properties": {
+              "width": {
+                "type": "number",
+                "description": "瀹藉害"
+              },
+              "height": {
+                "type": "number",
+                "description": "楂樺害"
+              }
+            }
+          },
+          "format": {
+            "type": "string",
+            "description": "杈撳嚭鏍煎紡",
+            "enum": ["svg", "png", "html", "json"]
+          }
+        }
+      },
+      "targetAudience": {
+        "type": "string",
+        "description": "鐩爣鍙椾紬",
+        "enum": ["executives", "managers", "analysts", "customers"]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍙鍖栫粨鏋?,
+        "properties": {
+          "visualization": {
+            "type": "object",
+            "description": "鍙鍖栧璞?,
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "鍙鍖栫被鍨?
+              },
+              "content": {
+                "type": "string",
+                "description": "鍙鍖栧唴瀹癸紙SVG銆丠TML鎴栧浘鍍忔暟鎹級"
+              },
+              "metadata": {
+                "type": "object",
+                "description": "鍏冩暟鎹?,
+                "properties": {
+                  "width": {
+                    "type": "number",
+                    "description": "瀹藉害"
+                  },
+                  "height": {
+                    "type": "number",
+                    "description": "楂樺害"
+                  },
+                  "dataPoints": {
+                    "type": "number",
+                    "description": "鏁版嵁鐐规暟閲?
+                  },
+                  "accessibility": {
+                    "type": "object",
+                    "description": "鏃犻殰纰嶈闂俊鎭?
+                  }
+                }
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "鍙鍖栨敼杩涘缓璁?
+          },
+          "accessibilityReport": {
+            "type": "object",
+            "description": "鏃犻殰纰嶈闂姤鍛?
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

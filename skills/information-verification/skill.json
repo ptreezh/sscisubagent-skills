@@ -1,0 +1,198 @@
+﻿{
+  "skill": {
+    "id": "information-verification",
+    "version": "2.0.0",
+    "name": "淇℃伅楠岃瘉涓撳鎶€鑳?,
+    "description": "鍩轰簬淇℃伅绉戝鍜岄獙璇佺悊璁猴紝瀵逛紒涓氫俊鎭潵婧愩€佸噯纭€с€佸彲淇″害鍜屾椂鏁堟€ц繘琛屽叏闈㈤獙璇佺殑涓撲笟鎶€鑳?,
+    "category": "information-verification",
+    "tags": [
+      "data-validation",
+      "source-verification",
+      "credibility-assessment",
+      "information-quality",
+      "fact-checking",
+      "data-integrity"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-validation",
+      "source-authentication",
+      "credibility-assessment"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/information-verification",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "information",
+      "verificationType"
+    ],
+    "properties": {
+      "information": {
+        "type": "object",
+        "description": "寰呴獙璇佺殑淇℃伅",
+        "required": true
+      },
+      "verificationType": {
+        "type": "string",
+        "description": "楠岃瘉绫诲瀷",
+        "enum": [
+          "source-verification",
+          "accuracy-check",
+          "credibility-assessment",
+          "data-integrity",
+          "completeness-check",
+          "timeliness-check",
+          "consistency-check",
+          "comprehensive-verification"
+        ],
+        "required": true
+      },
+      "config": {
+        "type": "object",
+        "description": "楠岃瘉閰嶇疆閫夐」",
+        "properties": {
+          "depth": {
+            "type": "string",
+            "description": "楠岃瘉娣卞害",
+            "enum": ["basic", "standard", "deep", "comprehensive"]
+          },
+          "authoritativeSources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "鏉冨▉淇℃伅婧愬垪琛?
+          },
+          "toleranceLevel": {
+            "type": "number",
+            "description": "瀹归敊姘村钩 (0-1)",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "楠岃瘉缁撴灉",
+        "properties": {
+          "verification": {
+            "type": "object",
+            "description": "楠岃瘉瀵硅薄",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "楠岃瘉绫诲瀷"
+              },
+              "result": {
+                "type": "object",
+                "description": "楠岃瘉缁撴灉",
+                "properties": {
+                  "isVerified": {
+                    "type": "boolean",
+                    "description": "鏄惁楠岃瘉閫氳繃"
+                  },
+                  "confidenceScore": {
+                    "type": "number",
+                    "description": "缃俊搴﹀垎鏁?(0-100)"
+                  },
+                  "details": {
+                    "type": "object",
+                    "description": "楠岃瘉璇︽儏"
+                  },
+                  "issues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "闂绫诲瀷"
+                        },
+                        "severity": {
+                          "type": "string",
+                          "enum": ["critical", "high", "medium", "low"],
+                          "description": "闂涓ラ噸鎬?
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "闂鎻忚堪"
+                        },
+                        "suggestion": {
+                          "type": "string",
+                          "description": "瑙ｅ喅寤鸿"
+                        }
+                      }
+                    },
+                    "description": "鍙戠幇鐨勯棶棰樺垪琛?
+                  }
+                }
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "楠岃瘉鏀硅繘寤鸿"
+          },
+          "dataQualityReport": {
+            "type": "object",
+            "description": "鏁版嵁璐ㄩ噺鎶ュ憡"
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": false,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

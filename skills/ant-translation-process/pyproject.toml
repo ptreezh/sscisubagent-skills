@@ -1,0 +1,35 @@
+﻿[project]
+name = "ant-translation-process"
+version = "2.0.0"
+description = "鍩轰簬琛屽姩鑰呯綉缁滅悊璁猴紝鍒嗘瀽杞瘧杩囩▼鐨勬妧鑳斤紝杩愮敤鍥涢樁娈佃浆璇戞ā鍨嬶紙闂鍖?鍒╃泭鍖?寰佸彫-鍔ㄥ憳锛夛紝杩借釜琛屽姩鑰呯綉缁滄瀯寤哄拰婕斿寲杩囩▼"
+authors = [{name = "SSAI Team", email = "contact@agentpsy.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "networkx>=3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "scipy>=1.10.0",
+    "jieba>=0.42.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

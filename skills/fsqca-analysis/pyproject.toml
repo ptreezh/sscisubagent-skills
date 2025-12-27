@@ -1,0 +1,36 @@
+﻿[project]
+name = "fsqca-analysis"
+version = "1.0.0"
+description = "鎵ц妯＄硦闆嗗畾鎬ф瘮杈冨垎鏋?fsQCA)锛岀粨鍚堝畾鎬х悊璁哄垎鏋愪笌瀹氶噺璁＄畻"
+authors = [{name = "zhangshuren", email = "zhangshuren@hznu.edu.cn"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "mypy>=0.950"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["fsqca_analysis*"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "mypy>=0.950"
+]

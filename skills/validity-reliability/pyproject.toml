@@ -1,0 +1,36 @@
+﻿[project]
+name = "validity-reliability"
+version = "2.0.0"
+description = "鍩轰簬蹇冪悊娴嬮噺瀛﹀拰缁熻瀛︾悊璁猴紝瀵逛紒涓氳皟鐮旀暟鎹€侀噺琛ㄦ暟鎹瓑杩涜淇″害鏁堝害鍒嗘瀽鐨勬妧鑳斤紝杩愮敤Cronbach's Alpha銆佸洜瀛愬垎鏋愩€侀獙璇佹€у洜瀛愬垎鏋愮瓑鏂规硶锛岃瘎浼版祴閲忓伐鍏风殑鍙潬鎬у拰鏈夋晥鎬?
+authors = [{name = "SSAI Team", email = "contact@agentpsy.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "factor-analyzer>=0.4.0",
+    "pingouin>=0.5.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

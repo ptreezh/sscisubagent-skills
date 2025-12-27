@@ -1,0 +1,268 @@
+﻿{
+  "skill": {
+    "id": "capital-analysis",
+    "version": "2.0.0",
+    "name": "璧勬湰鍒嗘瀽鎶€鑳?,
+    "description": "鍩轰簬鐜颁唬閲戣瀺鐞嗚锛屽浼佷笟璧勬湰缁撴瀯銆佽瀺璧勭瓥鐣ャ€佹姇璧勫喅绛栧拰椋庨櫓绠＄悊杩涜娣卞叆鍒嗘瀽鐨勪笓涓氭妧鑳?,
+    "category": "financial-analysis",
+    "tags": [
+      "capital-structure",
+      "financial-analysis",
+      "investment-strategy",
+      "risk-assessment",
+      "valuation",
+      "cash-flow"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-validation",
+      "financial-modeling",
+      "market-data"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/capital-analysis",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "companyData"
+    ],
+    "properties": {
+      "companyData": {
+        "type": "object",
+        "description": "浼佷笟鐩稿叧淇℃伅",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "浼佷笟鍚嶇О",
+            "required": true
+          },
+          "industry": {
+            "type": "string",
+            "description": "鎵€灞炶涓?
+          },
+          "financials": {
+            "type": "object",
+            "description": "璐㈠姟鎶ヨ〃鏁版嵁"
+          },
+          "marketInfo": {
+            "type": "object",
+            "description": "甯傚満鐩稿叧淇℃伅"
+          }
+        }
+      },
+      "detailedAnalysis": {
+        "type": "boolean",
+        "description": "鏄惁杩涜璇︾粏鍒嗘瀽",
+        "default": false
+      },
+      "detailedReport": {
+        "type": "boolean",
+        "description": "鏄惁鐢熸垚璇︾粏鎶ュ憡",
+        "default": false
+      },
+      "comparativeAnalysis": {
+        "type": "boolean",
+        "description": "鏄惁鍖呭惈瀵规瘮鍒嗘瀽",
+        "default": false
+      },
+      "focusAreas": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "鎸囧畾鍒嗘瀽棰嗗煙",
+        "enum": [
+          "capitalStructure",
+          "financingPattern",
+          "investmentStrategy",
+          "riskProfile",
+          "valuationMetrics",
+          "cashFlowAnalysis",
+          "financingNeeds",
+          "investorRelations"
+        ]
+      },
+      "analysisDepth": {
+        "type": "string",
+        "description": "鍒嗘瀽娣卞害",
+        "enum": ["summary", "standard", "detailed"],
+        "default": "standard"
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍒嗘瀽缁撴灉",
+        "properties": {
+          "summary": {
+            "type": "object",
+            "description": "鍒嗘瀽鎽樿",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "鎽樿鏍囬"
+              },
+              "executiveSummary": {
+                "type": "string",
+                "description": "鎵ц鎽樿"
+              },
+              "keyHighlights": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "鍏抽敭浜偣"
+              },
+              "overallRating": {
+                "type": "string",
+                "description": "鎬讳綋璇勭骇"
+              }
+            }
+          },
+          "keyMetrics": {
+            "type": "object",
+            "description": "鍏抽敭鎸囨爣",
+            "properties": {
+              "debtToEquity": {
+                "type": "number",
+                "description": "璐熷€烘潈鐩婃瘮"
+              },
+              "roe": {
+                "type": "number",
+                "description": "鍑€璧勪骇鏀剁泭鐜?
+              },
+              "currentRatio": {
+                "type": "number",
+                "description": "娴佸姩姣旂巼"
+              },
+              "interestCoverage": {
+                "type": "number",
+                "description": "鍒╂伅淇濋殰鍊嶆暟"
+              },
+              "operatingCashFlow": {
+                "type": "number",
+                "description": "缁忚惀鐜伴噾娴?
+              }
+            }
+          },
+          "capitalElements": {
+            "type": "object",
+            "description": "璧勬湰瑕佺礌鍒嗘瀽缁撴灉",
+            "properties": {
+              "capitalStructure": {
+                "type": "object",
+                "description": "璧勬湰缁撴瀯鍒嗘瀽"
+              },
+              "financingPattern": {
+                "type": "object",
+                "description": "铻嶈祫妯″紡鍒嗘瀽"
+              },
+              "investmentStrategy": {
+                "type": "object",
+                "description": "鎶曡祫绛栫暐鍒嗘瀽"
+              },
+              "riskProfile": {
+                "type": "object",
+                "description": "椋庨櫓鐘跺喌鍒嗘瀽"
+              },
+              "valuationMetrics": {
+                "type": "object",
+                "description": "浼板€兼寚鏍囧垎鏋?
+              },
+              "cashFlowAnalysis": {
+                "type": "object",
+                "description": "鐜伴噾娴佸垎鏋?
+              },
+              "financingNeeds": {
+                "type": "object",
+                "description": "铻嶈祫闇€姹傚垎鏋?
+              },
+              "investorRelations": {
+                "type": "object",
+                "description": "鎶曡祫鑰呭叧绯诲垎鏋?
+              }
+            }
+          },
+          "ratings": {
+            "type": "object",
+            "description": "鍚勯」璇勭骇",
+            "properties": {
+              "capitalStructureRating": {
+                "type": "string",
+                "description": "璧勬湰缁撴瀯璇勭骇"
+              },
+              "financingStrategyRating": {
+                "type": "string",
+                "description": "铻嶈祫绛栫暐璇勭骇"
+              },
+              "investmentEfficiencyRating": {
+                "type": "string",
+                "description": "鎶曡祫鏁堢巼璇勭骇"
+              },
+              "riskManagementRating": {
+                "type": "string",
+                "description": "椋庨櫓绠＄悊璇勭骇"
+              },
+              "overallRating": {
+                "type": "number",
+                "description": "鎬讳綋璇勭骇鍒嗘暟"
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          },
+          "detailLevel": {
+            "type": "string",
+            "description": "璇︾粏绋嬪害"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

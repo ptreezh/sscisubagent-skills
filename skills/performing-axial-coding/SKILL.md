@@ -1,6 +1,6 @@
 ---
 name: performing-axial-coding
-description: 执行扎根理论的轴心编码过程，包括范畴识别、属性维度分析、关系建立和Paradigm构建。当需要将开放编码的结果整合为系统性的范畴体系，建立概念间的逻辑关系时使用此技能。
+description: 当用户需要执行扎根理论的轴心编码，包括范畴识别、属性维度分析、关系建立和Paradigm模型构建时使用此技能
 version: 1.0.0
 author: chinese-social-sciences-subagents
 tags: [grounded-theory, axial-coding, category-analysis, paradigm-model, qualitative-research]
@@ -12,6 +12,25 @@ tags: [grounded-theory, axial-coding, category-analysis, paradigm-model, qualita
 专门用于扎根理论研究的轴心编码阶段，将开放编码产生的概念整合为系统性的范畴体系，并建立范畴间的逻辑关系。
 
 ## When to Use This Skill
+Use this skill when the user requests:
+- Integration of open coding concepts into categories
+- Identification of category properties and dimensions
+- Establishment of relationships between categories
+- Construction of paradigm models (conditions-context-actions-outcomes)
+- Development of theoretical frameworks from coded data
+- Systematic approach to mid-stage qualitative analysis
+- Chinese qualitative data analysis following grounded theory principles
+
+## Quick Start
+When a user requests axial coding:
+1. **Group** related concepts from open coding into categories
+2. **Analyze** properties and dimensions of each category
+3. **Establish** relationships between categories
+4. **Construct** paradigm models linking categories
+5. **Validate** the coherence of the category system
+
+## 使用时机
+
 当用户提到以下需求时，使用此技能：
 - "轴心编码" 或 "执行轴心编码"
 - "范畴构建" 或 "概念归类"
@@ -19,121 +38,6 @@ tags: [grounded-theory, axial-coding, category-analysis, paradigm-model, qualita
 - "范畴关系" 或 "概念关系"
 - "Paradigm构建" 或 "范式构建"
 - 需要将开放编码结果整合为理论框架
-
-## Quick Start
-当用户请求轴心编码时：
-1. **识别**核心范畴和次要范畴
-2. **分析**范畴的属性和维度
-3. **建立**范畴间的关系
-4. **构建**Paradigm模型
-5. **验证**范畴体系的完整性
-
-## Core Functions (Progressive Disclosure)
-
-### Primary Functions
-- **Category Recognition**: Identify and group related concepts
-- **Relationship Mapping**: Map connections between categories
-- **Basic Properties**: Identify core attributes of categories
-- **Simple Paradigm**: Basic condition-action-result modeling
-
-### Secondary Functions
-- **Property Analysis**: Analyze category attributes and dimensions
-- **Relationship Classification**: Classify relationship types (causal, conditional, etc.)
-- **Category Hierarchy**: Establish category hierarchy and structure
-- **Cross-category Mapping**: Map relationships across categories
-
-### Advanced Functions
-- **Paradigm Construction**: Build full paradigm models (phenomenon-condition-action-outcome)
-- **Complex Relationships**: Analyze multiple relationship layers
-- **Category Integration**: Integrate categories into cohesive framework
-- **Theory Validation**: Validate theoretical framework coherence
-
-## Detailed Instructions
-
-### 1. Category Recognition
-   - Identify related concepts from open coding
-   - Group concepts by similarity and common themes
-   - Name categories with action-oriented terms
-   - Define category boundaries and scope
-   - Establish category relationships
-
-### 2. Property and Dimension Analysis
-   - Identify key attributes of each category
-   - Define dimensions of variation within categories
-   - Establish measurement scales for dimensions
-   - Map attribute distributions
-   - Validate attribute relevance
-
-### 3. Relationship Building
-   - Identify causal relationships between categories
-   - Map conditional relationships
-   - Establish temporal relationships
-   - Analyze reciprocal relationships
-   - Validate relationship strength and evidence
-
-### 4. Paradigm Construction
-   - Identify core phenomenon in the field
-   - Determine conditions that enable/impede the phenomenon
-   - Map actions/strategies employed in response to conditions
-   - Analyze outcomes of these actions
-   - Validate the logical coherence of the paradigm
-
-### 5. Framework Integration
-   - Integrate all elements into coherent framework
-   - Validate internal consistency
-   - Assess theoretical contribution
-   - Consider Chinese cultural context
-   - Prepare for selective coding phase
-
-## Parameters
-- `analysis_depth`: Depth of analysis (initial, intermediate, comprehensive)
-- `category_types`: Types of categories to identify (causal, structural, functional, etc.)
-- `relationship_focus`: Focus on specific relationship types
-- `paradigm_elements`: Specific elements of paradigm to construct
-- `validation_approach`: Approach to framework validation
-- `cultural_context`: Considerations for Chinese research context
-- `methodology`: Approach to axial coding (systematic, thematic, etc.)
-
-## Examples
-
-### Example 1: Educational Research
-User: "Perform axial coding on my student engagement concepts"
-Response: Group concepts into categories, analyze relationships, build paradigm model.
-
-### Example 2: Organizational Study
-User: "Analyze relationships between organizational factors in my data"
-Response: Identify key categories, map relationships, construct organizational paradigm.
-
-### Example 3: Health Research
-User: "Create a theoretical framework from my patient care concepts"
-Response: Develop categories, analyze properties, build causal paradigm.
-
-## Quality Standards
-
-- Apply systematic grouping of concepts
-- Establish clear category definitions
-- Analyze relationships rigorously
-- Construct coherent paradigm models
-- Consider Chinese cultural context appropriately
-
-## Output Format
-
-- Complete category system with definitions
-- Property and dimension analysis for each category
-- Relationship mapping between categories
-- Paradigm model with all components
-- Framework validation assessment
-
-## Resources
-- Grounded Theory methodology guides
-- Axial coding technique manuals
-- Paradigm model construction examples
-- Chinese qualitative research resources
-
-## Metadata
-- Compatibility: Claude 3.5 Sonnet and above
-- Domain: Qualitative Research, Grounded Theory
-- Language: Optimized for Chinese research context
 
 ## 快速开始
 

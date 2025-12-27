@@ -1,0 +1,175 @@
+﻿{
+  "skill": {
+    "id": "business-model-analysis",
+    "version": "1.0.0",
+    "name": "鍟嗕笟妯″紡鍒嗘瀽鎶€鑳?,
+    "description": "涓撻棬鐢ㄤ簬鍒嗘瀽浼佷笟鍟嗕笟妯″紡鐨勬妧鑳斤紝鑳藉鎼滈泦鍜屽垎鏋愮湡瀹炵殑浼佷笟鍟嗕笟妯″紡淇℃伅",
+    "category": "business-analysis",
+    "tags": [
+      "business-model",
+      "competitive-analysis",
+      "value-proposition",
+      "business-intelligence",
+      "market-analysis"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills"
+  },
+  "api": {
+    "endpoint": "/api/skills/business-model-analysis",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "targetCompany",
+      "analysisType"
+    ],
+    "properties": {
+      "targetCompany": {
+        "type": "string",
+        "description": "鐩爣鍏徃鍚嶇О"
+      },
+      "analysisType": {
+        "type": "string",
+        "description": "鍒嗘瀽绫诲瀷",
+        "enum": [
+          "business-model-canvas",
+          "competitive-analysis",
+          "value-proposition",
+          "revenue-streams",
+          "comprehensive"
+        ]
+      },
+      "industryContext": {
+        "type": "string",
+        "description": "琛屼笟鑳屾櫙"
+      },
+      "geographicScope": {
+        "type": "string",
+        "description": "鍦扮悊鑼冨洿",
+        "default": "global"
+      },
+      "analysisDepth": {
+        "type": "string",
+        "description": "鍒嗘瀽娣卞害",
+        "enum": ["basic", "standard", "comprehensive"],
+        "default": "standard"
+      },
+      "dataSources": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "鏁版嵁婧?,
+        "enum": ["annual_reports", "news", "competitors", "market_research", "all"],
+        "default": ["all"]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍒嗘瀽缁撴灉",
+        "properties": {
+          "businessModelCanvas": {
+            "type": "object",
+            "description": "鍟嗕笟妯″紡鐢诲竷鍒嗘瀽缁撴灉"
+          },
+          "competitiveAnalysis": {
+            "type": "object",
+            "description": "绔炰簤鍒嗘瀽缁撴灉"
+          },
+          "valueProposition": {
+            "type": "object",
+            "description": "浠峰€间富寮犲垎鏋愮粨鏋?
+          },
+          "revenueStreams": {
+            "type": "object",
+            "description": "鏀跺叆娴佸垎鏋愮粨鏋?
+          },
+          "marketPositioning": {
+            "type": "object",
+            "description": "甯傚満瀹氫綅鍒嗘瀽缁撴灉"
+          },
+          "strengthsWeaknesses": {
+            "type": "object",
+            "description": "浼樺娍鍔ｅ娍鍒嗘瀽"
+          },
+          "opportunitiesThreats": {
+            "type": "object",
+            "description": "鏈轰細濞佽儊鍒嗘瀽"
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "鏀硅繘寤鸿"
+          },
+          "dataQualityReport": {
+            "type": "object",
+            "description": "鏁版嵁璐ㄩ噺鎶ュ憡"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "analysisTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "鍒嗘瀽鏃堕棿"
+              },
+              "dataSourceCount": {
+                "type": "number",
+                "description": "鏁版嵁婧愭暟閲?
+              },
+              "dataReliabilityScore": {
+                "type": "number",
+                "description": "鏁版嵁鍙潬鎬у垎鏁?
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 2,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

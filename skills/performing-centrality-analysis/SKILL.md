@@ -1,6 +1,6 @@
 ---
 name: performing-centrality-analysis
-description: 执行社会网络中心性分析，包括度中心性、接近中心性、介数中心性和特征向量中心性的计算和解释。当需要识别网络中的关键节点、权力中心或信息枢纽时使用此技能。
+description: 当用户需要执行社会网络中心性分析，包括度中心性、接近中心性、介数中心性和特征向量中心性的计算和解释时使用此技能
 version: 1.0.0
 author: chinese-social-sciences-subagents
 tags: [social-network-analysis, centrality-measures, network-analysis, graph-theory, node-importance]
@@ -29,123 +29,6 @@ When a user requests centrality analysis:
 4. **Analyze** the relationship between different centrality measures
 5. **Interpret** results in Chinese social network context
 
-## Core Functions (Progressive Disclosure)
-
-### Primary Functions
-- **Degree Centrality**: Calculate and interpret number of direct connections
-- **Closeness Centrality**: Measure ease of reaching other nodes
-- **Basic Network Metrics**: Compute basic network properties (density, components, etc.)
-- **Node Ranking**: Rank nodes by different centrality measures
-
-### Secondary Functions
-- **Betweenness Centrality**: Identify nodes that control information flow
-- **Eigenvector Centrality**: Find nodes connected to other important nodes
-- **Centrality Comparison**: Compare different centrality measures
-- **Key Node Identification**: Identify hubs, bridges, and influencers
-
-### Advanced Functions
-- **Centrality Correlation**: Analyze relationships between centrality measures
-- **Centrality Significance Testing**: Assess statistical significance of centrality values
-- **Multi-level Analysis**: Analyze centrality at different network levels
-- **Dynamic Centrality**: Track centrality changes over time
-
-## Detailed Instructions
-
-### 1. Network Data Preparation
-   - Validate network format (adjacency matrix, edgelist, etc.)
-   - Check for missing or invalid connections
-   - Identify isolated nodes
-   - Determine network type (directed/undirected, weighted/unweighted)
-   - Clean and preprocess network data
-
-### 2. Centrality Calculation
-   - Calculate degree centrality (number of connections)
-   - Compute closeness centrality (ease of access to other nodes)
-   - Determine betweenness centrality (control over shortest paths)
-   - Calculate eigenvector centrality (influence through connections to other important nodes)
-   - Consider weighted versions if applicable
-
-### 3. Hub Detection
-   - Identify high-degree nodes (hubs)
-   - Calculate hub significance using appropriate thresholds
-   - Compare with random network expectations
-   - Consider Chinese network characteristics (e.g., guanxi networks)
-
-### 4. Bridge/Broker Identification
-   - Identify nodes with high betweenness centrality
-   - Assess their role in connecting network components
-   - Evaluate their control over information flow
-   - Consider their strategic position in the network
-
-### 5. Influence Analysis
-   - Identify nodes with high eigenvector centrality
-   - Analyze their connections to other important nodes
-   - Assess their indirect influence through network position
-   - Consider their role in Chinese social contexts
-
-### 6. Centrality Comparison
-   - Compare rankings across different centrality measures
-   - Identify nodes that rank high on multiple measures
-   - Analyze discrepancies between measures
-   - Interpret differences in social context
-   - Consider cultural factors in Chinese networks
-
-### 7. Result Interpretation
-   - Integrate centrality findings with social context
-   - Connect results to research questions
-   - Consider Chinese social network characteristics
-   - Provide actionable insights
-
-## Parameters
-- `network_type`: Type of network (directed, undirected, weighted, bipartite)
-- `centrality_measures`: List of centrality measures to calculate (default: all four)
-- `top_k`: Number of top-ranked nodes to report (default: 10)
-- `threshold`: Threshold for identifying significant nodes (default: 0.5)
-- `weighted`: Whether to use weighted centrality measures (default: True)
-- `methodology`: Approach to centrality analysis (exact computation, approximation, etc.)
-- `cultural_context`: Cultural context considerations (especially for Chinese context)
-
-## Examples
-
-### Example 1: Academic Collaboration Network
-User: "Analyze the centrality of researchers in a collaboration network"
-Response: Calculate all centrality measures, identify key researchers, analyze their roles in the network.
-
-### Example 2: Information Flow Network
-User: "Identify key brokers in an information sharing network"
-Response: Calculate betweenness centrality, identify bridge nodes, assess their control over information flow.
-
-### Example 3: Organizational Network
-User: "Find influential employees in an organizational communication network"
-Response: Calculate eigenvector centrality, identify key influencers, analyze their network position.
-
-## Quality Standards
-
-- Apply network analysis principles rigorously
-- Calculate multiple centrality measures for comprehensive view
-- Consider network characteristics (directed/undirected, weighted/unweighted)
-- Interpret results in appropriate social context
-- Provide evidence-based interpretations
-
-## Output Format
-
-- Complete centrality analysis report
-- Node rankings by different centrality measures
-- Identification of hubs, bridges, and influencers
-- Comparison of centrality measures
-- Network visualization highlighting key nodes
-
-## Resources
-- Social network analysis literature
-- Centrality measure calculation guides
-- Examples of centrality analysis in Chinese context
-- Network analysis software documentation
-
-## Metadata
-- Compatibility: Claude 3.5 Sonnet and above
-- Domain: Social Network Analysis, Graph Theory
-- Language: Optimized for Chinese research context
-
 ## 使用时机
 
 当用户提到以下需求时，使用此技能：
@@ -156,99 +39,106 @@ Response: Calculate eigenvector centrality, identify key influencers, analyze th
 - "信息枢纽" 或 "信息传播"
 - 需要量化分析网络中节点的重要性
 
-## 四种中心性类型
-
-| 类型 | 含义 | 应用场景 |
-|-----|------|---------|
-| **度中心性** | 直接连接数量 | 识别活跃节点 |
-| **接近中心性** | 到达其他节点的容易程度 | 识别信息传播效率高的节点 |
-| **介数中心性** | 最短路径中出现频率 | 识别桥梁和中介节点 |
-| **特征向量中心性** | 连接到重要节点的程度 | 识别具有间接影响力的节点 |
-
-详见：`references/centrality-theory/INDEX.md`
-
----
-
 ## 快速开始
 
-### 工具链
+### 工具链（5个核心脚本）
 
 ```bash
-# 计算所有中心性指标
+# 1. 计算所有中心性指标
 python scripts/calculate_centrality.py \
   --input network.json \
   --output centrality.json
 
-# 按特定指标排序
+# 2. 按特定指标排序
 python scripts/calculate_centrality.py \
   --input network.json \
   --metric betweenness \
   --top 20
 
-# 识别关键节点
+# 3. 识别关键节点
 python scripts/identify_key_nodes.py \
   --input centrality.json \
   --output key_nodes.json
 
-# 比较不同中心性
+# 4. 比较不同中心性
 python scripts/compare_centralities.py \
   --input centrality.json \
   --output comparison.json
 
-# 可视化
+# 5. 网络可视化
 python scripts/visualize_centrality.py \
   --input network.json \
   --centrality centrality.json \
   --output network_viz.png
 ```
 
----
-
 ## 核心流程
 
-### 第一步：计算中心性
+### 第一步：数据预处理
 
-**使用工具自动计算**：
-- 4种中心性一次性计算
-- 自动识别关键节点（hubs, bridges, influencers）
-- 输出标准化JSON格式
+使用预处理工具清洗网络数据：
+```bash
+python scripts/preprocess_network_data.py --input raw_data.json --output clean_network.json
+```
 
-**定性解释**：
-- 结合研究问题解释中心性含义
-- 考虑中国社会网络的"关系"特点
+**关键要点**：
+- 网络格式验证
+- 缺失值处理
+- 异常值检测
 
-详见：`references/centrality-theory/INDEX.md`
+详见：`references/data-preparation.md`
 
----
+### 第二步：中心性计算
 
-### 第二步：识别关键节点
+使用计算工具获得四种中心性指标：
+```bash
+python scripts/calculate_centrality.py --input clean_network.json --output centrality_measures.json
+```
 
-**使用工具分类**：
-- Hubs：度中心性高（≥0.5）
-- Bridges：介数中心性高（≥0.1）
-- Influencers：特征向量中心性高（≥0.3）
+**计算指标**：
+- 度中心性：节点的直接连接数
+- 接近中心性：到达其他节点的容易程度
+- 介数中心性：在最短路径中的重要性
+- 特征向量中心性：连接到重要节点的程度
 
-**定性分析**：
-- 验证关键节点的实际影响力
-- 分析节点角色和功能
+详见：`references/centrality-theory.md`
 
-详见：`references/examples/INDEX.md`
+### 第三步：关键节点识别
 
----
+使用分类工具识别不同类型的节点：
+```bash
+python scripts/identify_key_nodes.py --input centrality_measures.json --output node_classifications.json
+```
 
-### 第三步：比较和解释
+**节点类型**：
+- Hubs（枢纽节点）：度中心性高
+- Bridges（桥接节点）：介数中心性高
+- Influencers（影响者）：特征向量中心性高
 
-**使用工具对比**：
-- 计算不同中心性的相关性
-- 识别中心性差异大的节点
+详见：`references/node-classification.md`
 
-**定性解释**：
-- 解释为什么某些节点在不同中心性上表现不同
-- 结合中国文化背景（关系网络、面子文化）
+### 第四步：中心性比较分析
 
-详见：`references/chinese-context/INDEX.md`
+使用比较工具分析不同中心性指标的关系：
+```bash
+python scripts/compare_centralities.py --input centrality_measures.json --output comparison_report.json
+```
 
----
+**比较维度**：
+- 相关性分析
+- 排名差异
+- 一致性检验
+
+详见：`references/centrality-comparison.md`
+
+### 第五步：结果解释
+
+结合社会背景解释中心性结果：
+- 识别权力结构
+- 分析信息流动
+- 理解网络功能
+
+详见：`references/social-interpretation.md`
 
 ## 输出格式
 
@@ -266,14 +156,31 @@ python scripts/visualize_centrality.py \
     "influencers_count": 4
   },
   "details": {
-    "centralities": [...],
+    "centralities": {
+      "degree": [...],
+      "closeness": [...],
+      "betweenness": [...],
+      "eigenvector": [...]
+    },
     "top_nodes": [...],
-    "key_nodes": {...}
+    "key_nodes": {
+      "hubs": [...],
+      "bridges": [...],
+      "influencers": [...]
+    }
+  },
+  "metadata": {
+    "timestamp": "2025-12-21T10:30:00",
+    "version": "1.0.0"
   }
 }
 ```
 
+详见：`references/output-format.md`
+
 ## 质量检查清单
+
+在完成中心性分析后，请检查以下项目：
 
 - [ ] 网络数据格式正确，节点边信息完整
 - [ ] 所有4种中心性指标计算正确
@@ -281,44 +188,14 @@ python scripts/visualize_centrality.py \
 - [ ] 结果解释准确，考虑中国"关系"网络特点
 - [ ] 可视化清晰，突出关键节点
 
----
-
-## 常见问题
-
-**快速诊断**：
-- 网络规模过大 → 见 `references/troubleshooting/INDEX.md` - 性能优化
-- 中心性结果矛盾 → 使用 `compare_centralities.py` 分析差异
-- 可视化不清晰 → 见 `references/examples/INDEX.md` - 可视化方法
-
----
+详见：`references/quality-checklist.md`
 
 ## 深入学习
 
-- **中心性理论**：`references/centrality-theory/INDEX.md` - 公式和算法
-- **中国社会网络**：`references/chinese-context/INDEX.md` - 关系网络特点
-- **实践案例**：`references/examples/INDEX.md` - 完整分析案例
-- **故障排除**：`references/troubleshooting/INDEX.md` - 问题诊断
-
-**问题：中心性分布极不均匀**
-- 解决：检查网络结构和数据质量
-- 方法：分析网络的基本结构特征
-
-**问题：中文语境下的解释困难**
-- 解决：结合中国文化和社会背景
-- 策略：使用贴近中文研究者理解的表达方式
-
-## 技术工具建议
-
-**Python库推荐**：
-- **NetworkX**：网络分析的核心库
-- **Matplotlib/Seaborn**：可视化
-- **Pandas**：数据处理
-- **NumPy**：数值计算
-
-**其他工具**：
-- **Gephi**：交互式网络可视化
-- **UCINET**：专业社会网络分析软件
-- **R语言的igraph包**：网络分析
+- **中心性理论**：`references/centrality-theory.md` - 公式和算法
+- **中国社会网络**：`references/chinese-network-characteristics.md` - 关系网络特点
+- **实践案例**：`references/case-studies.md` - 完整分析案例
+- **故障排除**：`references/troubleshooting.md` - 问题诊断
 
 ## 完成标志
 
@@ -330,4 +207,4 @@ python scripts/visualize_centrality.py \
 
 ---
 
-*此技能专为中文社会科学研究设计，提供全面的网络中心性分析支持，帮助研究者深入理解网络结构和权力关系。*
+*此技能为中文社会科学研究提供全面的网络中心性分析支持，帮助研究者深入理解网络结构和权力关系。*

@@ -1,0 +1,33 @@
+﻿[project]
+name = "processing-network-data"
+version = "2.0.0"
+description = "涓撻棬鐢ㄤ簬澶勭悊绀句細缃戠粶鏁版嵁鐨勬妧鑳斤紝鍖呮嫭鏁版嵁娓呮礂銆佹牸寮忚浆鎹€侀獙璇佸拰鏍囧噯鍖栵紝纭繚缃戠粶鏁版嵁璐ㄩ噺锛屼负鍚庣画缃戠粶鍒嗘瀽鎻愪緵楂樿川閲忔暟鎹緭鍏?
+authors = [{name = "SSAI Team", email = "contact@agentpsy.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "networkx>=3.0",
+    "matplotlib>=3.7.0",
+    "scipy>=1.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

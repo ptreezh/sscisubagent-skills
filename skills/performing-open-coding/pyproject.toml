@@ -1,7 +1,7 @@
-[project]
+﻿[project]
 name = "performing-open-coding"
 version = "1.0.0"
-description = "扎根理论开放编码技能 - 中文质性数据分析"
+description = "鎵庢牴鐞嗚寮€鏀剧紪鐮佹妧鑳?- 涓枃璐ㄦ€ф暟鎹垎鏋?
 requires-python = ">=3.8"
 dependencies = [
     "jieba>=0.42.1",
@@ -17,13 +17,12 @@ dev = [
 ]
 
 [tool.uv]
-# 使用国内镜像加速
-[[tool.uv.index]]
+# 浣跨敤鍥藉唴闀滃儚鍔犻€?[[tool.uv.index]]
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
 default = true
 
-# 缓存jieba词典
+# 缂撳瓨jieba璇嶅吀
 [tool.uv.cache]
 keys = ["jieba"]
 
@@ -33,3 +32,4 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "-v --cov=scripts --cov-report=term-missing"
+

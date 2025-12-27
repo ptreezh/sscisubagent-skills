@@ -1,0 +1,223 @@
+﻿{
+  "skill": {
+    "id": "management-theory-analysis",
+    "version": "2.0.0",
+    "name": "绠＄悊鐞嗚鍒嗘瀽鎶€鑳?,
+    "description": "鍩轰簬鐜颁唬绠＄悊鐞嗚锛屽浼佷笟绠＄悊妯″紡銆佺粍缁囩粨鏋勩€侀瀵煎姏鍜屼紒涓氭枃鍖栬繘琛屽叏闈㈠垎鏋愮殑涓撲笟鎶€鑳?,
+    "category": "management-analysis",
+    "tags": [
+      "management-theory",
+      "organizational-behavior",
+      "leadership",
+      "corporate-culture",
+      "decision-making",
+      "governance"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-validation",
+      "organizational-modeling",
+      "leadership-assessment"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/management-theory-analysis",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "companyData"
+    ],
+    "properties": {
+      "companyData": {
+        "type": "object",
+        "description": "浼佷笟鐩稿叧淇℃伅",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "浼佷笟鍚嶇О",
+            "required": true
+          },
+          "industry": {
+            "type": "string",
+            "description": "鎵€灞炶涓?
+          },
+          "employees": {
+            "type": "number",
+            "description": "鍛樺伐鏁伴噺"
+          },
+          "headquarters": {
+            "type": "string",
+            "description": "鎬婚儴浣嶇疆"
+          }
+        }
+      },
+      "detailedReport": {
+        "type": "boolean",
+        "description": "鏄惁鐢熸垚璇︾粏鎶ュ憡",
+        "default": false
+      },
+      "focusAreas": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "鎸囧畾鍒嗘瀽棰嗗煙",
+        "enum": [
+          "organizationalStructure",
+          "leadershipStyle",
+          "corporateCulture",
+          "decisionMakingProcess",
+          "talentManagement",
+          "performanceManagement",
+          "governanceMechanism",
+          "managementInnovation"
+        ]
+      },
+      "analysisDepth": {
+        "type": "string",
+        "description": "鍒嗘瀽娣卞害",
+        "enum": ["summary", "standard", "detailed"],
+        "default": "standard"
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍒嗘瀽缁撴灉",
+        "properties": {
+          "analysisSummary": {
+            "type": "object",
+            "description": "鍒嗘瀽鎽樿",
+            "properties": {
+              "executiveSummary": {
+                "type": "string",
+                "description": "鎵ц鎽樿"
+              },
+              "keyFindings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "鍏抽敭鍙戠幇"
+              },
+              "overallAssessment": {
+                "type": "string",
+                "description": "鎬讳綋璇勪及"
+              }
+            }
+          },
+          "managementElements": {
+            "type": "object",
+            "description": "绠＄悊瑕佺礌鍒嗘瀽缁撴灉",
+            "properties": {
+              "organizationalStructure": {
+                "type": "object",
+                "description": "缁勭粐鏋舵瀯鍒嗘瀽"
+              },
+              "leadershipStyle": {
+                "type": "object",
+                "description": "棰嗗椋庢牸鍒嗘瀽"
+              },
+              "corporateCulture": {
+                "type": "object",
+                "description": "浼佷笟鏂囧寲鍒嗘瀽"
+              },
+              "decisionMakingProcess": {
+                "type": "object",
+                "description": "鍐崇瓥鏈哄埗鍒嗘瀽"
+              },
+              "talentManagement": {
+                "type": "object",
+                "description": "浜烘墠绠＄悊鍒嗘瀽"
+              },
+              "performanceManagement": {
+                "type": "object",
+                "description": "缁╂晥绠＄悊鍒嗘瀽"
+              },
+              "governanceMechanism": {
+                "type": "object",
+                "description": "娌荤悊鏈哄埗鍒嗘瀽"
+              },
+              "managementInnovation": {
+                "type": "object",
+                "description": "绠＄悊鍒涙柊鍒嗘瀽"
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "鏀硅繘寤鸿"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "generationTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "鐢熸垚鏃堕棿"
+              },
+              "validationScore": {
+                "type": "number",
+                "description": "楠岃瘉鍒嗘暟"
+              },
+              "contextLevel": {
+                "type": "string",
+                "description": "涓婁笅鏂囩骇鍒?
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

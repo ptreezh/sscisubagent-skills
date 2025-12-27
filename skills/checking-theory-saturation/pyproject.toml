@@ -1,7 +1,7 @@
-[project]
+﻿[project]
 name = "checking-theory-saturation"
 version = "1.0.0"
-description = "理论饱和度检验工具集：概念饱和、范畴完整、关系稳定、理论完整"
+description = "鐞嗚楗卞拰搴︽楠屽伐鍏烽泦锛氭蹇甸ケ鍜屻€佽寖鐣村畬鏁淬€佸叧绯荤ǔ瀹氥€佺悊璁哄畬鏁?
 requires-python = ">=3.8"
 dependencies = [
     "pandas>=2.0.0",
@@ -14,3 +14,4 @@ dependencies = [
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
 default = true
+

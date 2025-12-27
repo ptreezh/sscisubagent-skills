@@ -1,163 +1,156 @@
 ---
 name: field-boundary-identification
-description: 识别和分析社会场域的边界，包括场域范围、界限、排除机制和与其他场域的关系。当需要定义场域边界、确定场域范围或分析场域边界维持机制时使用此技能。
+description: 当用户需要识别和分析社会场域的边界，包括场域范围、界限、排除机制和与其他场域的关系时使用此技能
 version: 1.0.0
 author: chinese-social-sciences-subagents
+license: MIT
 tags: [field-analysis, boundary-identification, field-theory, bourdieu, social-structure, exclusion-mechanisms]
+compatibility: Claude 3.5 Sonnet and above
+metadata:
+  domain: sociology
+  methodology: field-theory
+  complexity: advanced
+  integration_type: analysis_tool
+  last_updated: "2025-12-21"
+allowed-tools: [python, bash, read_file, write_file]
 ---
 
-# Field Boundary Identification Skill
+# 场域边界识别技能 (Field Boundary Identification)
 
-## Overview
+## 概述
+
 场域边界识别技能专注于识别和分析社会场域的边界、范围和排除机制。该技能帮助研究者确定场域的界限、理解边界维持机制、分析场域内外的关系以及识别场域的特殊性。
 
-## When to Use This Skill
-Use this skill when the user requests:
-- Definition of field boundaries and scope
-- Analysis of inclusion and exclusion mechanisms
-- Identification of field-specific rules and principles
-- Examination of field boundaries in historical context
-- Analysis of field autonomy and independence
-- Understanding of field-specific logic
-- Study of relationships between fields
-- Investigation of boundary maintenance and change processes
+## 使用时机
 
-## Quick Start
-When a user requests boundary identification:
-1. **Define** the field of analysis
-2. **Identify** the boundaries and limits
-3. **Analyze** inclusion and exclusion mechanisms
-4. **Map** relationships with other fields
-5. **Assess** boundary permeability and stability
+当用户请求以下分析时使用此技能：
+- 定义场域边界和范围
+- 分析包含和排除机制
+- 识别场域特定规则和原则
+- 检查历史背景下的场域边界
+- 分析场域自主性和独立性
+- 理解场域特定逻辑
+- 研究场域间关系
+- 调查边界维护和变化过程
 
-## Core Functions (Progressive Disclosure)
+## 快速开始
 
-### Primary Functions
-- **Field Definition**: Clearly define the field of analysis
-- **Boundary Mapping**: Identify the spatial and conceptual boundaries
-- **Inclusion Mechanisms**: Identify how actors are included in the field
-- **Exclusion Mechanisms**: Identify how actors are excluded from the field
+当用户请求边界识别时：
+1. **定义**分析场域
+2. **识别**边界和限制
+3. **分析**包含和排除机制
+4. **绘制**与其他场域的关系
+5. **评估**边界渗透性和稳定性
 
-### Secondary Functions
-- **Rule Analysis**: Examine field-specific rules and principles
-- **Logic Identification**: Identify the specific logic of the field
-- **Autonomy Assessment**: Evaluate independence from external forces
-- **Boundary Negotiation**: Analyze processes of boundary contestation
+## 核心流程
 
-### Advanced Functions
-- **Multi-field Analysis**: Examine relationships with adjacent fields
-- **Boundary Dynamics**: Analyze processes of boundary change
-- **Historical Boundary Analysis**: Trace boundary evolution over time
-- **Boundary Permeability**: Assess the porosity of field boundaries
+### 第一阶段：场域定义
+   - 明确定义分析场域
+   - 指定场域类型（教育、政治、文化、经济等）
+   - 建立历史和地理背景
+   - 确定分析的适当时间框架
+   - 识别涉及的关键行动者和机构
 
-## Detailed Instructions
+### 第二阶段：边界映射
+   - 识别场域的空间边界
+   - 绘制场域的概念边界
+   - 分析制度边界
+   - 考虑象征边界
+   - 检查时间边界
 
-### 1. Field Definition
-   - Clearly define the field of analysis
-   - Specify the type of field (educational, political, cultural, economic, etc.)
-   - Establish the historical and geographical context
-   - Determine the appropriate time frame for analysis
-   - Identify the key actors and institutions involved
+### 第三阶段：包含机制分析
+   - 识别将行动者纳入场域的机制
+   - 分析成员资格标准
+   - 检查场域进入过程
+   - 考虑参与场域所需的资源
+   - 绘制成员资格路径
 
-### 2. Boundary Mapping
-   - Identify the spatial boundaries of the field
-   - Map the conceptual boundaries of the field
-   - Analyze the institutional boundaries
-   - Consider the symbolic boundaries
-   - Examine the temporal boundaries
+### 第四阶段：排除机制分析
+   - 识别将行动者排除出场域的机制
+   - 分析进入场域的障碍
+   - 检查场域排除的形式
+   - 考虑排除对被排除行动者的影响
+   - 绘制排除对场域的后果
 
-### 3. Inclusion Mechanisms Analysis
-   - Identify the mechanisms that include actors in the field
-   - Analyze the criteria for field membership
-   - Examine the processes of field entry
-   - Consider the resources required for field participation
-   - Map the pathways to field membership
+### 第五阶段：规则和逻辑分析
+   - 识别管理场域的特定规则
+   - 分析场域特定逻辑
+   - 检查场域逻辑与外部逻辑的差异
+   - 考虑场域规则与场域边界的关系
+   - 评估场域特定逻辑的稳定性
 
-### 4. Exclusion Mechanisms Analysis
-   - Identify the mechanisms that exclude actors from the field
-   - Analyze the barriers to field entry
-   - Examine the forms of field exclusion
-   - Consider the effects of exclusion on excluded actors
-   - Map the consequences of exclusion for the field
+### 第六阶段：自主性评估
+   - 评估场域对外部力量的自主性
+   - 分析场域特定逻辑的程度
+   - 识别象征暴力机制
+   - 评估场域的历史发展
+   - 考虑自主性与边界的关系
 
-### 5. Rule and Logic Analysis
-   - Identify the specific rules governing the field
-   - Analyze the logic specific to the field
-   - Examine how the field logic differs from external logics
-   - Consider the relationship between field rules and field boundaries
-   - Assess the stability of field-specific logic
+### 第七阶段：多场域关系
+   - 检查与相邻场域的关系
+   - 分析边界互动和交流
+   - 考虑邻近场域对边界维护的影响
+   - 绘制场域间的依赖关系
+   - 评估场域间关系对边界稳定性的影响
 
-### 6. Autonomy Assessment
-   - Evaluate the field's autonomy from external forces
-   - Analyze the degree of field-specific logic
-   - Identify mechanisms of symbolic violence
-   - Assess the field's historical development
-   - Consider the relationship between autonomy and boundaries
+### 第八阶段：边界动态
+   - 追踪场域边界的演变历程
+   - 分析边界争议的时刻
+   - 检查边界变化的过程
+   - 考虑推动边界变化的因素
+   - 评估边界变化的后果
 
-### 7. Multi-field Relationships
-   - Examine relationships with adjacent fields
-   - Analyze boundary interactions and exchanges
-   - Consider the effects of neighboring fields on boundary maintenance
-   - Map the dependencies between fields
-   - Assess the impact of inter-field relationships on boundary stability
+## 输出格式
 
-### 8. Boundary Dynamics
-   - Trace the historical evolution of field boundaries
-   - Analyze moments of boundary contestation
-   - Examine processes of boundary change
-   - Consider the factors driving boundary shifts
-   - Assess the consequences of boundary changes
+```json
+{
+  "summary": {
+    "field_type": "educational",
+    "boundaries_identified": 6,
+    "inclusion_mechanisms": 4,
+    "exclusion_mechanisms": 3,
+    "autonomy_score": 0.72
+  },
+  "details": {
+    "field_definition": {...},
+    "boundaries": {...},
+    "mechanisms": {...},
+    "rules_logic": {...},
+    "autonomy_assessment": {...}
+  },
+  "metadata": {
+    "timestamp": "2025-12-21T10:30:00",
+    "version": "1.0.0"
+  }
+}
+```
 
-## Parameters
-- `field_type`: Type of field (educational, political, cultural, economic, etc.)
-- `boundary_scope`: Scope of boundary analysis (spatial, conceptual, institutional)
-- `inclusion_criteria`: Criteria for field membership
-- `exclusion_mechanisms`: Mechanisms of field exclusion
-- `autonomy_level`: Level of field autonomy to assess
-- `time_frame`: Time period for historical boundary analysis
-- `multi_field`: Relationship with adjacent fields to examine
-- `methodology`: Approach to boundary analysis (qualitative, ethnographic, etc.)
-- `cultural_context`: Cultural context considerations (especially for Chinese context)
+## 质量标准
 
-## Examples
+- 严格应用布迪厄的边界概念
+- 考虑正式和非正式边界
+- 评估边界与场域逻辑的关系
+- 检查边界的历时发展
+- 考虑边界对场域动态的影响
 
-### Example 1: Educational Field Boundary
-User: "Analyze the boundaries of the Chinese university field"
-Response: Define field scope, identify admission requirements, analyze exclusion mechanisms, assess autonomy from external forces.
+## 深入学习
 
-### Example 2: Artistic Field Boundary
-User: "Examine the boundaries of the contemporary Chinese art field"
-Response: Map institutional boundaries, analyze inclusion/exclusion mechanisms, assess autonomy from market/political forces.
+- 布迪厄关于场域边界的理论作品
+- 边界分析方法指南
+- 中国语境下的边界分析示例
+- 场域边界的比较研究
 
-### Example 3: Political Field Boundary
-User: "Study the boundaries of local governance in Chinese cities"
-Response: Define field scope, identify actor inclusion/exclusion criteria, analyze relationships with higher authorities.
+## 完成标志
 
-## Quality Standards
+完成高质量的边界识别应包括：
+1. 完整的场域边界定义
+2. 边界映射和可视化
+3. 包含/排除机制分析
+4. 规则和逻辑识别
+5. 自主性评估
+6. 多场域关系分析
+7. 历史边界演变时间线
 
-- Apply Bourdieu's boundary concepts rigorously
-- Consider both formal and informal boundaries
-- Assess the relationship between boundaries and field logic
-- Examine the historical development of boundaries
-- Consider the impact of boundaries on field dynamics
+---
 
-## Output Format
-
-- Complete field boundary definition
-- Boundary mapping and visualization
-- Inclusion/exclusion mechanism analysis
-- Rule and logic identification
-- Autonomy assessment
-- Multi-field relationship analysis
-- Historical boundary evolution timeline
-
-## Resources
-- Bourdieu's theoretical works on field boundaries
-- Boundary analysis methodological guides
-- Examples of boundary analysis in Chinese context
-- Comparative studies of field boundaries
-
-## Metadata
-- Compatibility: Claude 3.5 Sonnet and above
-- Domain: Sociology, Social Theory
-- Language: Optimized for Chinese research context
+*此技能为社会科学研究提供专业的场域边界识别和分析支持，确保研究的科学性和严谨性。*

@@ -1,0 +1,219 @@
+﻿{
+  "skill": {
+    "id": "operations-analysis",
+    "version": "2.0.0",
+    "name": "杩愯惀鍒嗘瀽鎶€鑳?,
+    "description": "鍩轰簬杩愯惀绠＄悊鐞嗚锛屽浼佷笟杩愯惀娴佺▼銆佹晥鐜囥€佽川閲忋€佷緵搴旈摼绛夎繘琛岀郴缁熷垎鏋愮殑涓撲笟鎶€鑳?,
+    "category": "operations-analysis",
+    "tags": [
+      "operations-management",
+      "process-optimization",
+      "supply-chain",
+      "quality-management",
+      "efficiency-analysis",
+      "lean-manufacturing"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-validation",
+      "process-modeling",
+      "quality-assessment"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/operations-analysis",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "companyData"
+    ],
+    "properties": {
+      "companyData": {
+        "type": "object",
+        "description": "浼佷笟鐩稿叧淇℃伅",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "浼佷笟鍚嶇О",
+            "required": true
+          },
+          "industry": {
+            "type": "string",
+            "description": "鎵€灞炶涓?
+          },
+          "operationsData": {
+            "type": "object",
+            "description": "杩愯惀鐩稿叧鏁版嵁"
+          }
+        }
+      },
+      "detailedReport": {
+        "type": "boolean",
+        "description": "鏄惁鐢熸垚璇︾粏鎶ュ憡",
+        "default": false
+      },
+      "focusAreas": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "鎸囧畾鍒嗘瀽棰嗗煙",
+        "enum": [
+          "processEfficiency",
+          "qualityManagement",
+          "supplyChain",
+          "costOptimization",
+          "capacityPlanning",
+          "inventoryManagement",
+          "logistics",
+          "performanceMetrics"
+        ]
+      },
+      "analysisDepth": {
+        "type": "string",
+        "description": "鍒嗘瀽娣卞害",
+        "enum": ["summary", "standard", "detailed"],
+        "default": "standard"
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍒嗘瀽缁撴灉",
+        "properties": {
+          "analysisSummary": {
+            "type": "object",
+            "description": "鍒嗘瀽鎽樿",
+            "properties": {
+              "executiveSummary": {
+                "type": "string",
+                "description": "鎵ц鎽樿"
+              },
+              "keyFindings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "鍏抽敭鍙戠幇"
+              },
+              "overallAssessment": {
+                "type": "string",
+                "description": "鎬讳綋璇勪及"
+              }
+            }
+          },
+          "operationsElements": {
+            "type": "object",
+            "description": "杩愯惀瑕佺礌鍒嗘瀽缁撴灉",
+            "properties": {
+              "processEfficiency": {
+                "type": "object",
+                "description": "娴佺▼鏁堢巼鍒嗘瀽"
+              },
+              "qualityManagement": {
+                "type": "object",
+                "description": "璐ㄩ噺绠＄悊鍒嗘瀽"
+              },
+              "supplyChain": {
+                "type": "object",
+                "description": "渚涘簲閾惧垎鏋?
+              },
+              "costOptimization": {
+                "type": "object",
+                "description": "鎴愭湰浼樺寲鍒嗘瀽"
+              },
+              "capacityPlanning": {
+                "type": "object",
+                "description": "浜ц兘瑙勫垝鍒嗘瀽"
+              },
+              "inventoryManagement": {
+                "type": "object",
+                "description": "搴撳瓨绠＄悊鍒嗘瀽"
+              },
+              "logistics": {
+                "type": "object",
+                "description": "鐗╂祦鍒嗘瀽"
+              },
+              "performanceMetrics": {
+                "type": "object",
+                "description": "缁╂晥鎸囨爣鍒嗘瀽"
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "鏀硅繘寤鸿"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "generationTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "鐢熸垚鏃堕棿"
+              },
+              "validationScore": {
+                "type": "number",
+                "description": "楠岃瘉鍒嗘暟"
+              },
+              "contextLevel": {
+                "type": "string",
+                "description": "涓婁笅鏂囩骇鍒?
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

@@ -1,0 +1,205 @@
+﻿{
+  "skill": {
+    "id": "ecosystem-relationship-analysis",
+    "version": "2.0.0",
+    "name": "鐢熸€佺郴缁熷叧绯诲垎鏋愭妧鑳?,
+    "description": "涓撻棬鍒嗘瀽鍟嗕笟鐢熸€佺郴缁熶腑鍚勪富浣撻棿鍏崇郴鐨勬妧鑳斤紝鍖呮嫭鍚堜綔銆佺珵浜夈€佷緵搴斻€佹姇璧勩€佺洃绠＄瓑澶氱鍏崇郴绫诲瀷",
+    "category": "ecosystem-analysis",
+    "tags": [
+      "ecosystem-relationships",
+      "business-networks",
+      "relationship-mapping",
+      "stakeholder-analysis",
+      "network-theory",
+      "business-ecology"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-validation",
+      "network-analysis",
+      "relationship-modeling"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/ecosystem-relationship-analysis",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "entities",
+      "relationships"
+    ],
+    "properties": {
+      "entities": {
+        "type": "array",
+        "description": "鐢熸€佺郴缁熶腑鐨勫疄浣撳垪琛?,
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "瀹炰綋ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "瀹炰綋鍚嶇О"
+            },
+            "type": {
+              "type": "string",
+              "description": "瀹炰綋绫诲瀷"
+            },
+            "characteristics": {
+              "type": "object",
+              "description": "瀹炰綋鐗瑰緛"
+            }
+          }
+        }
+      },
+      "relationships": {
+        "type": "array",
+        "description": "瀹炰綋闂寸殑鍏崇郴鍒楄〃",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "婧愬疄浣揑D"
+            },
+            "target": {
+              "type": "string",
+              "description": "鐩爣瀹炰綋ID"
+            },
+            "type": {
+              "type": "string",
+              "description": "鍏崇郴绫诲瀷"
+            },
+            "strength": {
+              "type": "number",
+              "description": "鍏崇郴寮哄害",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      },
+      "analysisDepth": {
+        "type": "string",
+        "description": "鍒嗘瀽娣卞害",
+        "enum": ["basic", "standard", "comprehensive"],
+        "default": "standard"
+      },
+      "relationshipTypes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "鍏虫敞鐨勫叧绯荤被鍨?,
+        "enum": ["cooperation", "competition", "supply", "investment", "regulation", "service", "platform", "all"]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍒嗘瀽缁撴灉",
+        "properties": {
+          "relationshipAnalysis": {
+            "type": "object",
+            "description": "鍏崇郴鍒嗘瀽缁撴灉",
+            "properties": {
+              "relationshipTypes": {
+                "type": "object",
+                "description": "鍚勭被鍏崇郴鐨勫垎鏋?
+              },
+              "keyRelationships": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "description": "鍏抽敭鍏崇郴"
+              },
+              "networkProperties": {
+                "type": "object",
+                "description": "缃戠粶灞炴€?
+              }
+            }
+          },
+          "ecosystemHealth": {
+            "type": "object",
+            "description": "鐢熸€佺郴缁熷仴搴峰害璇勪及"
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "鍏崇郴浼樺寲寤鸿"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "generationTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "鐢熸垚鏃堕棿"
+              },
+              "validationScore": {
+                "type": "number",
+                "description": "楠岃瘉鍒嗘暟"
+              },
+              "contextLevel": {
+                "type": "string",
+                "description": "涓婁笅鏂囩骇鍒?
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

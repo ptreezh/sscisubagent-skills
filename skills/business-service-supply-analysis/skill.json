@@ -1,0 +1,233 @@
+﻿{
+  "skill": {
+    "id": "business-service-supply-analysis",
+    "version": "2.0.0",
+    "name": "涓氬姟鏈嶅姟渚涚粰鍏崇郴鍒嗘瀽鎶€鑳?,
+    "description": "涓撻棬鍒嗘瀽鍟嗕笟鐢熸€佺郴缁熶腑涓氬姟鏈嶅姟渚涚粰鍏崇郴鐨勬妧鑳斤紝鍖呮嫭鏈嶅姟娴併€佷环鍊兼祦銆佷緵闇€鍖归厤绛?,
+    "category": "ecosystem-analysis",
+    "tags": [
+      "service-supply",
+      "value-flow",
+      "supply-chain",
+      "business-processes",
+      "resource-allocation",
+      "service-networks"
+    ],
+    "author": "AgentPsy Team",
+    "license": "MIT",
+    "repository": "https://github.com/AgentPsy/agent-skills",
+    "dependencies": [
+      "data-validation",
+      "process-modeling",
+      "supply-chain-analysis"
+    ]
+  },
+  "api": {
+    "endpoint": "/api/skills/business-service-supply-analysis",
+    "method": "POST",
+    "contentType": "application/json"
+  },
+  "inputs": {
+    "required": [
+      "entities",
+      "services",
+      "supplyRelationships"
+    ],
+    "properties": {
+      "entities": {
+        "type": "array",
+        "description": "鍙備笌鏈嶅姟渚涚粰鐨勫疄浣撳垪琛?,
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "瀹炰綋ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "瀹炰綋鍚嶇О"
+            },
+            "type": {
+              "type": "string",
+              "description": "瀹炰綋绫诲瀷锛坧rovider, consumer, intermediary绛夛級"
+            },
+            "capabilities": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "瀹炰綋鑳藉姏"
+            }
+          }
+        }
+      },
+      "services": {
+        "type": "array",
+        "description": "鏈嶅姟鍒楄〃",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "鏈嶅姟ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "鏈嶅姟鍚嶇О"
+            },
+            "type": {
+              "type": "string",
+              "description": "鏈嶅姟绫诲瀷"
+            },
+            "provider": {
+              "type": "string",
+              "description": "鏈嶅姟鎻愪緵鍟咺D"
+            }
+          }
+        }
+      },
+      "supplyRelationships": {
+        "type": "array",
+        "description": "渚涚粰鍏崇郴鍒楄〃",
+        "items": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "鏈嶅姟鎻愪緵鍟咺D"
+            },
+            "consumer": {
+              "type": "string",
+              "description": "鏈嶅姟娑堣垂鑰匢D"
+            },
+            "service": {
+              "type": "string",
+              "description": "鏈嶅姟ID"
+            },
+            "quantity": {
+              "type": "number",
+              "description": "鏈嶅姟鏁伴噺/棰戠巼"
+            },
+            "quality": {
+              "type": "number",
+              "description": "鏈嶅姟璐ㄩ噺璇勫垎",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      },
+      "analysisDepth": {
+        "type": "string",
+        "description": "鍒嗘瀽娣卞害",
+        "enum": ["basic", "standard", "comprehensive"],
+        "default": "standard"
+      },
+      "focusAreas": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "鍏虫敞棰嗗煙",
+        "enum": ["supply-chain", "value-flow", "resource-allocation", "process-efficiency", "all"]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "鎵ц鏄惁鎴愬姛"
+      },
+      "data": {
+        "type": "object",
+        "description": "鍒嗘瀽缁撴灉",
+        "properties": {
+          "supplyChainAnalysis": {
+            "type": "object",
+            "description": "渚涘簲閾惧垎鏋愮粨鏋?
+          },
+          "valueFlowAnalysis": {
+            "type": "object",
+            "description": "浠峰€兼祦鍒嗘瀽缁撴灉"
+          },
+          "resourceAllocation": {
+            "type": "object",
+            "description": "璧勬簮鍒嗛厤鍒嗘瀽缁撴灉"
+          },
+          "processEfficiency": {
+            "type": "object",
+            "description": "娴佺▼鏁堢巼鍒嗘瀽缁撴灉"
+          },
+          "supplyDemandBalance": {
+            "type": "object",
+            "description": "渚涢渶骞宠　鍒嗘瀽缁撴灉"
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "浼樺寲寤鸿"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "generationTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "鐢熸垚鏃堕棿"
+              },
+              "validationScore": {
+                "type": "number",
+                "description": "楠岃瘉鍒嗘暟"
+              },
+              "contextLevel": {
+                "type": "string",
+                "description": "涓婁笅鏂囩骇鍒?
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "skillId": {
+            "type": "string",
+            "description": "鎶€鑳絀D"
+          },
+          "version": {
+            "type": "string",
+            "description": "鎶€鑳界増鏈?
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "鎵ц鏃堕棿"
+          },
+          "validationScore": {
+            "type": "number",
+            "description": "楠岃瘉鍒嗘暟"
+          }
+        }
+      }
+    }
+  },
+  "configuration": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "cacheEnabled": true,
+    "cacheTTL": 3600
+  },
+  "security": {
+    "authentication": "required",
+    "authorization": "user_or_service",
+    "dataPrivacy": {
+      "dataAnonymization": true,
+      "sensitiveDataHandling": "encrypted"
+    }
+  }
+}

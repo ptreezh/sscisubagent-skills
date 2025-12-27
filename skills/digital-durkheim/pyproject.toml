@@ -1,0 +1,36 @@
+﻿[project]
+name = "digital-durkheim"
+version = "2.0.0"
+description = "鍩轰簬娑傚皵骞茬ぞ浼氬鐞嗚锛屽绀句細浜嬪疄銆侀泦浣撴剰璇嗐€佺ぞ浼氬洟缁撱€佸姛鑳藉垎鏋愮瓑杩涜鍒嗘瀽鐨勬妧鑳斤紝杩愮敤瀹炶瘉涓讳箟鏂规硶鍜屽姛鑳戒富涔夋鏋讹紝璇勪及绀句細鐜拌薄鐨勬秱灏斿共寮忕壒寰?
+authors = [{name = "SSAI Team", email = "contact@agentpsy.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "jieba>=0.42.1",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "networkx>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

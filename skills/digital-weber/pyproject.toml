@@ -1,0 +1,36 @@
+﻿[project]
+name = "digital-weber"
+version = "2.0.0"
+description = "鍩轰簬闊︿集绀句細瀛︾悊璁猴紝瀵圭ぞ浼氳鍔ㄧ被鍨嬪銆佺悊鎬у寲杩囩▼銆佹潈濞佸悎娉曟€с€佸畻鏁欑ぞ浼氬绛夎繘琛屽垎鏋愮殑鎶€鑳斤紝杩愮敤鐞嗘兂绫诲瀷鏂规硶鍜屽缁村垎鏋愭鏋讹紝璇勪及绀句細鐜拌薄鐨勯煢浼紡鐗瑰緛"
+authors = [{name = "SSAI Team", email = "contact@agentpsy.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "jieba>=0.42.1",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "networkx>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true

@@ -1,0 +1,35 @@
+﻿[project]
+name = "research-design"
+version = "1.0.0"
+description = "鎵ц鐮旂┒璁捐锛屽寘鎷棶棰樺畾涔夈€佹柟娉曢€夋嫨銆佹暟鎹敹闆嗚鍒掋€佸垎鏋愮瓥鐣ュ拰浼︾悊鑰冭檻绛?
+authors = [{name = "zhangshuren", email = "zhangshuren@hznu.edu.cn"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=1.5.0,<3.0.0",
+    "numpy>=1.21.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "mypy>=0.950"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["research_design*"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "mypy>=0.950"
+]

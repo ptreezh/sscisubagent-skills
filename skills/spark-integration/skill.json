@@ -1,0 +1,37 @@
+﻿{
+  "skillId": "spark-integration",
+  "name": "绉戝ぇ璁鏄熺伀澶фā鍨嬮泦鎴?,
+  "version": "1.0.0",
+  "description": "闆嗘垚绉戝ぇ璁鏄熺伀澶фā鍨嬭繘琛屾櫤鑳藉垎鏋?,
+  "author": "AgentPsy",
+  "tags": ["spark", "ai", "analysis", "璁", "鏄熺伀"],
+  "requirements": {
+    "api_key": true,
+    "model": "spark-max"
+  },
+  "capabilities": [
+    "璋冪敤绉戝ぇ璁API杩涜鏂囨湰鍒嗘瀽",
+    "鏀寔澶氱璁鏄熺伀妯″瀷",
+    "鎻愪緵鏅鸿兘瀵硅瘽鍔熻兘"
+  ],
+  "endpoints": [
+    {
+      "name": "callSparkAPI",
+      "description": "璋冪敤绉戝ぇ璁鏄熺伀澶фā鍨婣PI",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "杈撳叆鐨勬彁绀鸿瘝"
+          },
+          "model": {
+            "type": "string",
+            "description": "瑕佷娇鐢ㄧ殑妯″瀷"
+          }
+        },
+        "required": ["prompt"]
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 name: checking-theory-saturation
-description: 检验扎根理论饱和度，包括新概念识别、范畴完善度、关系充分性和理论完整性评估。当需要判断理论是否达到饱和、是否需要补充数据或是否可以结束研究时使用此技能。
+description: 当用户需要检验扎根理论饱和度，包括新概念识别、范畴完善度、关系充分性和理论完整性评估时使用此技能
 version: 1.0.0
 author: chinese-social-sciences-subagents
 tags: [grounded-theory, saturation-analysis, qualitative-research, concept-identification, category-development]
@@ -12,6 +12,26 @@ tags: [grounded-theory, saturation-analysis, qualitative-research, concept-ident
 为扎根理论研究提供科学、系统的理论饱和度检验，确保理论构建的完整性和可靠性。
 
 ## When to Use This Skill
+Use this skill when the user requests:
+- Assessment of theoretical saturation in grounded theory
+- Determination of whether new concepts are still emerging
+- Evaluation of category development completeness
+- Checking if sufficient data has been collected
+- Validation of theoretical framework completeness
+- Decision-making about ending data collection
+- Assessment of concept, category, and theory sufficiency
+- Evaluation of theoretical explanation adequacy
+
+## Quick Start
+When a user requests saturation assessment:
+1. **Analyze** new data for emerging concepts
+2. **Evaluate** category development completeness
+3. **Assess** relationship network stability
+4. **Validate** theoretical explanation adequacy
+5. **Determine** if additional data is needed
+
+## 使用时机
+
 当用户提到以下需求时，使用此技能：
 - "理论饱和度" 或 "饱和度检验"
 - "理论是否饱和" 或 "检查饱和度"
@@ -20,291 +40,109 @@ tags: [grounded-theory, saturation-analysis, qualitative-research, concept-ident
 - "理论完整性" 或 "理论完善度"
 - 需要评估理论构建的充分性
 
-## Quick Start
-当用户请求饱和度检验时：
-1. **评估**现有概念是否充分
-2. **分析**范畴发展的完整性
-3. **检查**关系网络的稳定性
-4. **验证**理论解释的充分性
-5. **确定**是否需要继续收集数据
+## 快速开始
 
-## Core Functions (Progressive Disclosure)
+### 检验流程
+1. **概念饱和检验**：分析新数据中是否出现新概念
+2. **范畴饱和检验**：评估范畴属性和维度的发展充分性
+3. **关系饱和检验**：检查概念间关系的稳定性
+4. **理论饱和检验**：验证理论框架的完整性
+5. **综合判断**：基于多维度证据做出饱和度判断
 
-### Primary Functions
-- **Concept Saturation**: Assess whether new concepts are still emerging
-- **Category Development**: Evaluate completeness of category development
-- **Relationship Stability**: Assess stability of category relationships
-- **Basic Validation**: Validate basic theoretical explanations
+### 判断标准
+- **概念层面**：连续分析多份数据无新概念出现
+- **范畴层面**：范畴属性和维度发展充分
+- **关系层面**：关系网络稳定且完整
+- **理论层面**：理论能解释所有重要现象
 
-### Secondary Functions
-- **Attribute Analysis**: Examine completeness of category attributes
-- **Dimension Assessment**: Evaluate category dimension development
-- **Internal Consistency**: Verify consistency within categories
-- **Explanation Coverage**: Assess breadth of theoretical explanation
+## 核心流程
 
-### Advanced Functions
-- **Saturation Trajectory**: Trace the trajectory of saturation over time
-- **Marginal Gains**: Assess diminishing returns in concept discovery
-- **Cross-validation**: Validate saturation through multiple approaches
-- **Future Projection**: Project likelihood of new discoveries
+### 第一步：概念饱和评估
+1. **新概念识别**：分析新数据中是否出现新概念
+2. **概念重要性评估**：评估新概念对理论的贡献
+3. **概念抽象层次检查**：验证概念抽象层次适当性
+4. **概念频率统计**：计算新概念出现频率
 
-## Detailed Instructions
+### 第二步：范畴饱和评估
+1. **属性完整性检查**：评估范畴属性发展充分性
+2. **维度完整性检查**：评估范畴维度覆盖全面性
+3. **范畴间关系稳定性**：检查范畴关系是否稳定
+4. **范畴定义清晰度**：验证范畴边界清晰性
 
-### 1. Concept Saturation Assessment
-   - Analyze new data for emergence of new concepts
-   - Compare new concepts with existing ones
-   - Assess significance of new concepts
-   - Evaluate abstraction level appropriateness
-   - Determine if new concepts affect core theory
+### 第三步：关系饱和评估
+1. **新关系识别**：检查是否出现新概念关系
+2. **关系稳定性**：验证现有关系是否稳定
+3. **关系强度评估**：评估关系强度合理性
+4. **关系网络完整性**：检查关系网络覆盖完整性
 
-### 2. Category Development Evaluation
-   - Check completeness of category attributes
-   - Assess development of category dimensions
-   - Verify internal consistency of categories
-   - Examine relationships between categories
-   - Evaluate category boundaries and definitions
+### 第四步：理论饱和评估
+1. **解释覆盖度**：验证理论解释现象的全面性
+2. **理论一致性**：检查理论内部逻辑一致性
+3. **理论贡献度**：评估理论的学术贡献
+4. **理论适用性**：验证理论的实践适用性
 
-### 3. Relationship Network Analysis
-   - Identify new relationships between concepts/categories
-   - Assess stability of existing relationships
-   - Examine strength and nature of relationships
-   - Validate relationship accuracy and relevance
-   - Consider relationship network completeness
+### 第五步：综合判断
+1. **多维度证据整合**：整合各层面饱和度证据
+2. **饱和度信心评估**：评估饱和度判断的信心水平
+3. **后续步骤建议**：提供是否继续收集数据的建议
+4. **质量保证措施**：实施饱和度验证措施
 
-### 4. Theoretical Explanation Validation
-   - Check if theory explains all significant phenomena
-   - Assess internal consistency of theoretical framework
-   - Evaluate theoretical contribution and value
-   - Examine logical coherence of theory
-   - Consider practical applicability of theory
+## 输出格式
 
-### 5. Data Sufficiency Assessment
-   - Evaluate adequacy of collected data
-   - Assess diversity of data sources
-   - Consider representativeness of sample
-   - Examine data quality and depth
-   - Determine if additional data is needed
+```json
+{
+  "summary": {
+    "saturation_level": "fully_saturated|partially_saturated|not_saturated",
+    "confidence_level": 0.85,
+    "concepts_emerging_rate": 0.05,
+    "categories_development_score": 0.92
+  },
+  "details": {
+    "concept_saturation": {
+      "new_concepts_recent": 2,
+      "average_per_data_set": 0.3,
+      "significance_level": "low"
+    },
+    "category_saturation": {
+      "attributes_completeness": 0.88,
+      "dimensions_coverage": 0.91,
+      "relations_stability": 0.94
+    },
+    "theory_saturation": {
+      "explanation_coverage": 0.95,
+      "internal_consistency": 0.89,
+      "phenomena_explained": 23
+    }
+  },
+  "recommendations": {
+    "continue_data_collection": false,
+    "focus_areas": ["minor_refinements"],
+    "next_steps": ["proceed_to_selective_coding"]
+  }
+}
+```
 
-### 6. Saturation Judgment Process
-   - Synthesize evidence from all dimensions
-   - Consider multiple indicators of saturation
-   - Assess confidence in saturation judgment
-   - Plan for validation of judgment
-   - Document reasoning for decision
+## 质量标准
 
-## Parameters
-- `saturation_level`: Degree of saturation to assess (strict, moderate, lenient)
-- `data_type`: Type of data being analyzed (interviews, observations, documents)
-- `theoretical_focus`: Focus of theoretical development (process, structure, outcome)
-- `sampling_strategy`: Strategy used for data collection (theoretical, purposive, etc.)
-- `analysis_stage`: Stage of analysis (early, mid, late)
-- `field_context`: Context of research field (especially for Chinese context)
-- `methodology`: Approach to saturation assessment (qualitative, quantitative, mixed)
+- 采用多维度饱和度评估方法
+- 基于充分证据进行饱和度判断
+- 考虑中国研究语境的特殊性
+- 提供明确的后续步骤建议
 
-## Examples
+## 深入学习
 
-### Example 1: Conceptual Saturation
-User: "How do I determine if I have reached conceptual saturation in my interview data?"
-Response: Assess new concept emergence rate, evaluate concept significance, validate with additional data.
-
-### Example 2: Category Saturation
-User: "Evaluate whether my categories are sufficiently developed"
-Response: Examine attribute completeness, assess dimension development, verify internal consistency.
-
-### Example 3: Theoretical Saturation
-User: "Assess if my theoretical framework adequately explains the phenomenon"
-Response: Check explanation coverage, assess internal consistency, evaluate theoretical contribution.
-
-## Quality Standards
-
-- Apply saturation assessment rigorously and systematically
-- Consider multiple indicators of saturation
-- Assess both concept and category saturation
-- Evaluate theoretical explanation completeness
-- Consider cultural and contextual factors
-
-## Output Format
-
-- Complete saturation assessment report
-- Concept emergence analysis
-- Category development evaluation
-- Theoretical explanation validation
-- Recommendations for next steps
-
-## Resources
-- Grounded Theory methodology literature
-- Saturation assessment guidelines
-- Examples of saturation in Chinese research context
-- Methodological discussions on saturation
-
-## Metadata
-- Compatibility: Claude 3.5 Sonnet and above
-- Domain: Qualitative Research, Grounded Theory
-- Language: Optimized for Chinese research context
-
-## 执行步骤
-
-### 第一步：概念饱和检验
-
-1. **分析最新数据**
-   - 仔细分析最近收集的数据
-   - 寻找是否有新的概念或观点
-   - 评估新概念的重要性和独特性
-
-2. **概念完整性检查**
-   - 检查现有概念库是否完整
-   - 识别可能遗漏的概念类型
-   - 评估概念的覆盖范围
-
-3. **概念抽象层次评估**
-   - 检查概念的抽象层次是否合适
-   - 确保概念不过于具体或过于抽象
-   - 验证概念的理论价值
-
-### 第二步：范畴饱和检验
-
-1. **范畴属性检查**
-   - 检查每个范畴的属性是否充分
-   - 识别可能遗漏的重要属性
-   - 评估属性定义的准确性
-
-2. **范畴维度评估**
-   - 验证范畴维度的完整性
-   - 检查维度的覆盖范围
-   - 评估维度定义的合理性
-
-3. **范畴内部一致性**
-   - 检查范畴内部概念的一致性
-   - 识别范畴内部的矛盾
-   - 确保范畴的逻辑清晰
-
-### 第三步：关系饱和检验
-
-1. **新关系识别**
-   - 检查是否有新的概念关系发现
-   - 分析关系的变化和发展
-   - 评估新关系的重要性
-
-2. **关系网络验证**
-   - 检查现有关系网络的完整性
-   - 识别可能遗漏的关系
-   - 验证关系的准确性和稳定性
-
-3. **关系强度评估**
-   - 评估关系强度的合理性
-   - 检查关系的实证支持
-   - 验证关系的理论意义
-
-### 第四步：理论饱和检验
-
-1. **理论解释力评估**
-   - 检查理论是否解释所有重要现象
-   - 识别理论的解释盲点
-   - 评估解释的深度和广度
-
-2. **理论一致性验证**
-   - 检查理论内部的一致性
-   - 识别理论间的矛盾
-   - 确保理论的逻辑连贯
-
-3. **理论价值评估**
-   - 评估理论的理论贡献
-   - 识别理论的实践意义
-   - 验证理论的创新性
-
-## 饱和度判断标准
-
-### 完全饱和
-- 连续分析多份新数据，无新概念出现
-- 所有范畴的属性和维度发展充分
-- 范畴间关系网络稳定且完整
-- 理论能够解释所有重要现象
-
-### 部分饱和
-- 偶尔出现新概念，但不影响核心理论
-- 主要范畴发展充分，次要范畴有待完善
-- 核心关系稳定，个别关系需要调整
-- 理论基本完整，局部有待完善
-
-### 未饱和
-- 仍有新的重要概念不断出现
-- 多个范畴的属性和维度发展不充分
-- 范畴间关系仍在变化中
-- 理论解释存在明显空白
-
-## 质量检查清单
-
-在完成饱和度检验后，请检查以下项目：
-
-### 概念饱和检查
-- [ ] 连续分析多份数据无新概念
-- [ ] 现有概念覆盖所有重要现象
-- [ ] 概念抽象层次合适
-- [ ] 概念定义清晰准确
-
-### 范畴饱和检查
-- [ ] 所有范畴属性充分
-- [ ] 范畴维度完整
-- [ ] 范畴内部一致
-- [ ] 范畴逻辑清晰
-
-### 关系饱和检查
-- [ ] 重要关系全部识别
-- [ ] 关系网络完整
-- [ ] 关系强度合理
-- [ ] 关系实证支持充分
-
-### 理论饱和检查
-- [ ] 理论解释全面
-- [ ] 理论逻辑一致
-- [ ] 理论价值明确
-- [ ] 理论贡献显著
-
-## 检验结果处理
-
-### 达到饱和
-- 可以结束数据收集
-- 进行最终理论整合
-- 准备研究报告撰写
-- 考虑理论推广和应用
-
-### 部分饱和
-- 针对性补充数据收集
-- 完善不足的概念和范畴
-- 调整不稳定的关系
-- 强化理论解释
-
-### 未饱和
-- 继续广泛收集数据
-- 深化概念和范畴发展
-- 系统建立关系网络
-- 重新构建理论框架
-
-## 常见问题处理
-
-**问题：难以判断是否真正饱和**
-- 解决：制定明确的检验标准和程序
-- 方法：多人独立检验，交叉验证结果
-
-**问题：饱和度标准不一致**
-- 解决：建立统一的评估标准
-- 策略：使用量化和质性相结合的方法
-
-**问题：担心过早结束研究**
-- 解决：设置保守的饱和度标准
-- 建议：多轮验证后再做决定
-
-**问题：理论价值不明确**
-- 解决：与现有理论进行对比分析
-- 方法：寻找理论的创新点和贡献点
+- 扎根理论方法论文献
+- 理论饱和度评估指南
+- 中国语境下的饱和度评估案例
+- 质性研究质量评估资源
 
 ## 完成标志
 
-完成高质量的理论饱和度检验应该：
-1. 明确判断理论的饱和状态
-2. 提供详细的检验证据
-3. 给出具体的后续建议
-4. 确保理论构建的科学性
+完成理论饱和度检验后应产出：
+1. 明确的饱和度判断结果
+2. 详细的多维度评估报告
+3. 基于证据的判断理由
+4. 清晰的后续步骤建议
 
 ---
 
