@@ -1,7 +1,7 @@
 ﻿---
 name: management-theory-analysis
 description: 鍩轰簬鐜颁唬绠＄悊鐞嗚妗嗘灦锛屽浼佷笟绠＄悊妯″紡銆佺粍缁囩粨鏋勩€侀瀵煎姏鍜屼紒涓氭枃鍖栬繘琛屽叏闈㈠垎鏋愮殑鎶€鑳斤紝缁撳悎缁忓吀绠＄悊鐞嗚鍜岀幇浠ｇ鐞嗗疄璺碉紝閫氳繃澶氱淮搴﹁瘎浼颁负浼佷笟绠＄悊浼樺寲鎻愪緵鐞嗚鏀寔鍜屽疄璺垫寚瀵?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [management-theory, organizational-analysis, leadership-assessment, corporate-culture, decision-making, governance]
 compatibility: Node.js environment

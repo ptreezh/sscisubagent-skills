@@ -2,7 +2,7 @@
 name: writing-grounded-theory-memos
 description: 撰写扎根理论备忘录，包括过程记录、反思分析、理论备忘录和编码备忘录。当需要记录编码过程、深化理论思考、保存研究发现或进行理论反思时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [grounded-theory, memo-writing, process-documentation, theoretical-reflection, qualitative-research]
 ---
 
@@ -53,110 +53,169 @@ tags: [grounded-theory, memo-writing, process-documentation, theoretical-reflect
 - 数据处理的技术细节
 - 操作中的问题和解决方案
 
+## 脚本调用时机
+当需要生成不同类型的备忘录时，调用对应的脚本：
+- 生成过程备忘录：`generate_process_memo.py`
+- 生成理论备忘录：`generate_theory_memo.py`
+- 生成反思备忘录：`generate_reflection_memo.py`
+- 生成操作备忘录：`generate_operational_memo.py`
+- 备忘录格式化：`format_memo.py`
+- 备忘录质量检查：`check_memo_quality.py`
+
+## 统一输入格式
+```json
+{
+  "memo_context": {
+    "memo_type": "process|theory|reflection|operational",
+    "research_topic": "研究主题",
+    "coding_stage": "编码阶段(开放/轴心/选择式)",
+    "memo_purpose": "备忘录目的"
+  },
+  "input_data": {
+    "session_info": {
+      "date": "会话日期",
+      "duration": "持续时间",
+      "data_source": "数据来源",
+      "participants": "参与者",
+      "location": "地点"
+    },
+    "coding_info": {
+      "concepts_identified": [
+        {
+          "id": "概念ID",
+          "name": "概念名称",
+          "definition": "概念定义",
+          "examples": ["示例列表"]
+        }
+      ],
+      "categories_developed": [
+        {
+          "id": "范畴ID",
+          "name": "范畴名称",
+          "properties": "范畴属性",
+          "relationships": ["关系列表"]
+        }
+      ],
+      "decisions_made": ["决策列表"],
+      "challenges_encountered": ["挑战列表"],
+      "solutions_applied": ["解决方案列表"]
+    },
+    "analysis_content": {
+      "patterns_observed": ["观察到的模式"],
+      "theoretical_insights": ["理论洞察"],
+      "concept_evolution": "概念演化过程",
+      "empirical_support": "实证支持",
+      "evidence_examples": ["证据示例"]
+    },
+    "reflection_content": {
+      "critical_reflections": ["批判性反思"],
+      "method_effectiveness": "方法有效性评估",
+      "limitations_identified": ["局限性"],
+      "lessons_learned": ["经验教训"],
+      "improvement_suggestions": ["改进建议"]
+    }
+  },
+  "output_requirements": {
+    "formality_level": "正式程度",
+    "detail_level": "详细程度",
+    "structure_preference": "结构偏好",
+    "audience": "目标读者"
+  }
+}
+```
+
+## 统一输出格式
+```json
+{
+  "summary": {
+    "memo_type": "备忘录类型",
+    "memo_title": "备忘录标题",
+    "creation_date": "创建日期",
+    "coding_stage": "编码阶段",
+    "processing_time": "处理时间(秒)"
+  },
+  "details": {
+    "memo_content": {
+      "header": {
+        "title": "标题",
+        "date": "日期",
+        "author": "作者",
+        "coding_stage": "编码阶段"
+      },
+      "content_sections": [
+        {
+          "section_title": "章节标题",
+          "section_content": "章节内容",
+          "content_type": "内容类型"
+        }
+      ],
+      "structured_elements": {
+        "key_points": ["要点列表"],
+        "decisions": ["决策列表"],
+        "reflections": ["反思列表"],
+        "next_steps": ["下一步列表"],
+        "questions": ["问题列表"]
+      }
+    },
+    "theoretical_components": {
+      "new_insights": ["新的理论洞察"],
+      "concept_developments": ["概念发展"],
+      "theory_connections": ["理论连接"],
+      "gaps_identified": ["识别的空白"]
+    },
+    "process_documentation": {
+      "methods_used": ["使用的方法"],
+      "challenges_faced": ["面临的挑战"],
+      "solutions_developed": ["开发的解决方案"],
+      "lessons_learned": ["学到的经验"]
+    },
+    "quality_indicators": {
+      "completeness_score": "完整性分数(0-1)",
+      "reflexivity_score": "反思性分数(0-1)",
+      "theoretical_depth": "理论深度分数(0-1)",
+      "actionability": "可操作性分数(0-1)"
+    }
+  },
+  "formatted_output": {
+    "markdown_content": "格式化后的Markdown内容",
+    "file_path": "建议的文件路径",
+    "naming_suggestion": "命名建议"
+  },
+  "metadata": {
+    "timestamp": "时间戳",
+    "version": "版本号",
+    "skill": "writing-grounded-theory-memos",
+    "processing_stage": "处理阶段"
+  }
+}
+```
+
 ## 执行步骤
 
 ### 第一步：确定备忘录类型
 
 根据用户需求确定合适的备忘录类型：
-- **过程记录** → 过程备忘录
-- **理论发展** → 理论备忘录
-- **反思分析** → 反思备忘录
-- **技术操作** → 操作备忘录
+- **过程记录** → 调用 `generate_process_memo.py`
+- **理论发展** → 调用 `generate_theory_memo.py`
+- **反思分析** → 调用 `generate_reflection_memo.py`
+- **技术操作** → 调用 `generate_operational_memo.py`
 
-### 第二步：收集必要信息
+### 第二步：准备输入数据
 
-根据备忘录类型收集相关信息：
-- 基本背景信息（时间、数据来源等）
-- 具体的编码或分析内容
+根据备忘录类型准备相应输入数据：
+- 会话信息（时间、数据来源等）
+- 编码或分析内容
 - 思考过程和理由
 - 初步结果和发现
 - 遇到的问题和解决方案
 
-### 第三步：撰写备忘录内容
+### 第三步：执行脚本生成备忘录
 
-按照标准格式撰写备忘录：
-
-#### 过程备忘录格式：
-```markdown
-# 过程备忘录 - [日期]
-
-## 会话信息
-- **日期**：[具体日期]
-- **时间**：[持续时间]
-- **数据来源**：[具体数据]
-- **编码类型**：[开放/轴心/选择式编码]
-
-## 编码决策
-- **识别的概念**：[概念列表]
-- **编码理由**：[详细说明]
-- **做出的改变**：[修改内容]
-- **遇到的问题**：[问题描述]
-
-## 初步分析
-- **观察到的模式**：[模式描述]
-- **出现的范畴**：[范畴列表]
-- **理论洞察**：[初步洞察]
-
-## 下一步行动
-- **立即行动**：[具体行动]
-- **进一步问题**：[待解决问题]
-- **数据需求**：[需要的数据]
-```
-
-#### 理论备忘录格式：
-```markdown
-# 理论备忘录 - [主题]
-
-## 当前理论状态
-- **研究阶段**：[具体阶段]
-- **核心概念**：[概念列表]
-- **概念关系**：[关系描述]
-
-## 理论洞察
-- **新的见解**：[详细描述]
-- **概念演化**：[演化过程]
-- **理论空白**：[空白识别]
-
-## 实证支持
-- **支持数据**：[数据描述]
-- **案例示例**：[具体案例]
-- **矛盾证据**：[矛盾发现]
-
-## 未来方向
-- **完善需求**：[改进建议]
-- **进一步问题**：[研究问题]
-- **研究意义**：[理论和实践意义]
-```
-
-#### 反思备忘录格式：
-```markdown
-# 反思备忘录 - [主题]
-
-## 反思背景
-- **反思触发点**：[具体事件]
-- **当前进展**：[进展描述]
-- **遇到的挑战**：[挑战列表]
-
-## 批判性反思
-- **成功之处**：[成功经验]
-- **不足之处**：[失败原因]
-- **原因分析**：[深入分析]
-- **经验教训**：[学到的教训]
-
-## 方法反思
-- **方法有效性**：[评估结果]
-- **存在局限**：[局限性描述]
-- **适应需求**：[改进方案]
-
-## 理论反思
-- **理论充分性**：[理论评估]
-- **概念清晰性**：[清晰度评价]
-- **理论贡献**：[贡献描述]
-```
+使用对应的脚本生成备忘录内容，并通过 `format_memo.py` 进行格式化。
 
 ### 第四步：质量检查
 
-确保备忘录满足以下标准：
+使用 `check_memo_quality.py` 进行质量检查，确保备忘录满足标准：
 - **及时性**：编码后立即记录
 - **具体性**：详细记录具体内容
 - **反思性**：包含深度分析

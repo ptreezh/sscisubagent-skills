@@ -2,7 +2,7 @@
 name: performing-selective-coding
 description: 当用户需要执行扎根理论的选择式编码，包括核心范畴识别、故事线构建、理论框架整合和理论饱和度检验时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [grounded-theory, selective-coding, core-category, theory-integration, saturation-assessment]
 ---
 
@@ -40,35 +40,127 @@ When a user requests selective coding:
 - "理论饱和度" 或 "饱和度检验"
 - 需要整合所有范畴构建核心理论
 
-## 快速开始
+## 脚本调用时机
+当需要执行选择式编码的不同阶段时，调用对应的脚本：
+- 核心范畴识别：调用 `identify_core_category.py`
+- 故事线构建：调用 `construct_storyline.py`
+- 理论框架整合：调用 `integrate_theory.py`
+- 理论饱和度检验：调用 `check_saturation.py`
 
-### 工具链（4个核心脚本）
+## 统一输入格式
+```json
+{
+  "coding_context": {
+    "research_topic": "研究主题",
+    "previous_coding_stages": ["开放编码", "轴心编码"],
+    "theoretical_perspective": "理论视角",
+    "coding_purpose": "编码目的"
+  },
+  "input_data": {
+    "categories": [
+      {
+        "id": "范畴ID",
+        "name": "范畴名称",
+        "definition": "范畴定义",
+        "type": "范畴类型(核心/次要)",
+        "concepts": ["概念ID列表"],
+        "properties": "范畴属性"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "关系ID",
+        "from_category": "源范畴ID",
+        "to_category": "目标范畴ID",
+        "type": "关系类型",
+        "strength": "关系强度(0-1)"
+      }
+    ],
+    "axial_codes": "轴心编码结果",
+    "paradigm_models": ["Paradigm模型列表"]
+  },
+  "coding_parameters": {
+    "core_category_criteria": {
+      "explanatory_power": "解释力权重",
+      "connectivity": "连接度权重",
+      "data_support": "数据支持权重"
+    },
+    "saturation_thresholds": {
+      "new_concept_rate": 0.05,
+      "category_completion": 0.90,
+      "relationship_rate": 0.10,
+      "theory_completion": 0.90
+    }
+  }
+}
+```
 
-```bash
-# 第一步：识别核心范畴
-python scripts/identify_core_category.py \
-  --input categories.json \
-  --relations relationships.json \
-  --output core_category.json
-
-# 第二步：构建故事线
-python scripts/construct_storyline.py \
-  --input data.json \
-  --categories categories.json \
-  --relations relationships.json \
-  --output storyline.json
-
-# 第三步：整合理论框架
-python scripts/integrate_theory.py \
-  --categories categories.json \
-  --relations relationships.json \
-  --output theory.json
-
-# 第四步：检验饱和度
-python scripts/check_saturation.py \
-  --existing theory.json \
-  --new new_data.json \
-  --output saturation.json
+## 统一输出格式
+```json
+{
+  "summary": {
+    "core_category": "核心范畴名称",
+    "saturation_score": "饱和度分数(0-1)",
+    "propositions_count": "理论命题数量",
+    "is_fully_saturated": "是否完全饱和",
+    "processing_time": "处理时间(秒)"
+  },
+  "details": {
+    "core_category_analysis": {
+      "id": "核心范畴ID",
+      "name": "核心范畴名称",
+      "definition": "核心范畴定义",
+      "explanatory_power": "解释力(0-1)",
+      "connectivity": "连接度(0-1)",
+      "data_support": "数据支持度(0-1)",
+      "rationale": "选择理由",
+      "related_categories": ["相关范畴ID列表"]
+    },
+    "storyline": {
+      "central_narrative": "中心叙事",
+      "key_elements": {
+        "actors": ["主要行动者"],
+        "events": ["关键事件"],
+        "processes": ["核心过程"],
+        "outcomes": ["结果"]
+      },
+      "causal_chains": ["因果链条"],
+      "chronological_order": "时间顺序"
+    },
+    "theory_framework": {
+      "theoretical_propositions": [
+        {
+          "id": "命题ID",
+          "statement": "命题陈述",
+          "categories_involved": ["涉及范畴"],
+          "mechanism": "作用机制"
+        }
+      ],
+      "conceptual_model": "概念模型描述",
+      "boundary_conditions": "边界条件",
+      "scope": "理论适用范围"
+    },
+    "saturation_report": {
+      "new_concept_rate": "新概念率",
+      "category_completion": "范畴完成度",
+      "new_relationship_rate": "新关系率",
+      "theory_completion": "理论完成度",
+      "saturation_status": "饱和状态评估",
+      "additional_data_needed": "是否需要更多数据"
+    },
+    "statistics": {
+      "theoretical_integration": "理论整合度",
+      "framework_coherence": "框架一致性",
+      "conceptual_density": "概念密度"
+    }
+  },
+  "metadata": {
+    "timestamp": "时间戳",
+    "version": "版本号",
+    "skill": "performing-selective-coding",
+    "processing_stage": "处理阶段"
+  }
+}
 ```
 
 ## 核心流程

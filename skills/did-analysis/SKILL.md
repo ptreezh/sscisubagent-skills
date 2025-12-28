@@ -9,7 +9,7 @@ metadata:
   complexity: advanced
   version: 2.0.0
   integration_type: theoretical_quantitative
-  author: zhangshuren@hznu.edu.cn
+  author: socienceAI.com
   website: http://agentpsy.com
 allowed-tools: python bash read_file write_file task
 ---

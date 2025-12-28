@@ -1,0 +1,37 @@
+[
+  {
+    "conversation_id": "conv_1766461734_0",
+    "timestamp": 1766461734.5217485,
+    "satisfaction_score": 5,
+    "feedback_text": "Great suggestion!",
+    "datetime": "2025-12-23T11:48:54.521749"
+  },
+  {
+    "conversation_id": "conv_1766461752_2",
+    "timestamp": 1766461752.199233,
+    "satisfaction_score": 5,
+    "feedback_text": "Great suggestion!",
+    "datetime": "2025-12-23T11:49:12.199233"
+  },
+  {
+    "conversation_id": "conv_1766461752_5",
+    "timestamp": 1766461752.4989536,
+    "satisfaction_score": 2,
+    "feedback_text": "Low satisfaction for test 0",
+    "datetime": "2025-12-23T11:49:12.498954"
+  },
+  {
+    "conversation_id": "conv_1766461752_6",
+    "timestamp": 1766461752.549249,
+    "satisfaction_score": 2,
+    "feedback_text": "Low satisfaction for test 1",
+    "datetime": "2025-12-23T11:49:12.549249"
+  },
+  {
+    "conversation_id": "conv_1766461752_7",
+    "timestamp": 1766461752.599802,
+    "satisfaction_score": 2,
+    "feedback_text": "Low satisfaction for test 2",
+    "datetime": "2025-12-23T11:49:12.599802"
+  }
+]

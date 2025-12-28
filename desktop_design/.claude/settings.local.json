@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm test)",
+      "Bash(npm config set:*)",
+      "Bash(dir node_moduleselectron)",
+      "Bash(set ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/:*)",
+      "Bash(curl:*)",
+      "Bash(powershell:*)",
+      "Bash(npm test:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(npx playwright test:*)",
+      "Bash(npm run build)",
+      "Bash(node test/final-comprehensive-verification.test.js)",
+      "Bash(node:*)",
+      "Bash(\"D:\\\\stigmergy-CLI-Multi-Agents\\\\sscisubagent-skills\\\\desktop_design\\\\desktop-app\\\\node_modules\\\\electron\\\\dist\\\\electron.exe\" --version)",
+      "Bash(npx electron --version)",
+      "Bash(npm run --help:*)",
+      "Bash(npx jest:*)",
+      "Bash(dir:*)",
+      "Bash(npm start)",
+      "Bash(timeout:*)",
+      "Bash(test:*)",
+      "Bash(npm run test:frontend:coverage:*)",
+      "Bash(npm config get:*)",
+      "Bash(set ELECTRON_CUSTOM_DIR={{ version }})",
+      "mcp__Playwright__browser_navigate",
+      "mcp__Playwright__browser_take_screenshot"
+    ]
+  }
+}

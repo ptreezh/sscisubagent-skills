@@ -1,0 +1,60 @@
+name: trusted-web-scraper
+version: 1.0.0
+description: 可信网站爬虫技能，专门用于爬取企业官网、教育网、政务网等可信网站的信息
+author: chinese-social-sciences-subagents
+license: MIT
+tags: [web-scraping, trusted-sources, data-collection, research, enterprise-websites, educational-sites, government-sites]
+compatibility: Claude 3.5 Sonnet and above
+metadata:
+  domain: data-collection
+  methodology: web-scraping
+  complexity: advanced
+  integration_type: data_collection_tool
+  last_updated: "2025-12-27"
+allowed_tools: [python, bash, read_file, write_file, web_fetch]
+
+modules:
+  - name: trusted_web_scraper
+    path: modules/trusted_web_scraper.py
+    description: 核心爬虫功能模块，包含可信度验证、信息提取、数据处理等功能
+
+scripts:
+  - name: trusted_web_scraper
+    path: scripts/trusted_web_scraper.py
+    description: 主执行脚本，提供命令行接口
+
+dependencies:
+  required:
+    - requests>=2.31.0
+    - beautifulsoup4>=4.12.0
+  optional:
+    - lxml>=4.9.0
+    - selenium>=4.15.0
+    - playwright>=1.40.0
+  dev:
+    - pytest>=7.0
+    - black>=23.0
+    - flake8>=6.0
+
+integration:
+  type: skill
+  activation_keywords: ["爬取可信网站", "网站信息收集", "企业官网信息", "教育网站信息", "政府网站信息", "可信数据收集"]
+  usage_examples:
+    - "请从北京大学官网收集计算机科学专业的课程信息"
+    - "分析腾讯公司的企业社会责任报告内容"
+    - "提取教育部最新政策文件的关键信息"
+  
+testing:
+  primary_test: test_comprehensive.py
+  test_coverage: 
+    - open_coding_functionality
+    - axial_coding_functionality  
+    - selective_coding_functionality
+    - memo_writing_functionality
+    - saturation_check_functionality
+  minimum_coverage: 80%
+
+maintenance:
+  update_schedule: quarterly
+  monitoring: active
+  support_contact: chinese-social-sciences-subagents@example.com

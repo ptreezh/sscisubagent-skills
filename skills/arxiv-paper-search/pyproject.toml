@@ -1,0 +1,29 @@
+[project]
+name = "arxiv-paper-search"
+version = "1.0.0"
+description = "arXiv论文检索与下载技能 - 在arXiv学术平台检索、下载论文摘要和全文PDF"
+authors = [
+    {name = "ssci-research-tools"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "feedparser>=6.0.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []
+
+[project.scripts]
+arxiv-search = "scripts.arxiv_searcher:main"

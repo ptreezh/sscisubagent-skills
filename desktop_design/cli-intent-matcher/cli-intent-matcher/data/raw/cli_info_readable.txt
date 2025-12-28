@@ -1,0 +1,39 @@
+=== CLI TOOLS ===
+
+stigmergy:
+  Available: Yes
+  Parameters: ['-', '-V,', '--version', '-h,', '--help']
+
+claude:
+  Available: Yes
+  Parameters: ['-', '-p/--print', '-d,', '--debug', '--verbose', '-p,', '--print', '-p', '--output-format', '--print):', '--json-schema', '--include-partial-messages', '--input-format', '--mcp-debug', '--dangerously-skip-permissions', '--allow-dangerously-skip-permissions', '--max-budget-usd', '--print)', '--replay-user-messages', '--allowedTools,', '--allowed-tools', '--tools', '--disallowedTools,', '--disallowed-tools', '--mcp-config', '--system-prompt', '--append-system-prompt', '--permission-mode', '-c,', '--continue', '-r,', '--resume', '--fork-session', '--continue)', '--no-session-persistence', '--model', '--agent', '--betas', '--fallback-model', '--settings', '--add-dir', '--ide', '--strict-mcp-config', '--mcp-config,', '--session-id', '--agents', '--setting-sources', '--plugin-dir', '--disable-slash-commands', '--chrome', '--no-chrome', '-v,', '--version', '-h,', '--help']
+
+qwen:
+  Available: Yes
+  Parameters: ['-', '-p/--prompt', '-i/--prompt-interactive', '--telemetry', '--telemetry-*', '--telemetry-target', '--telemetry-otlp-endpoint', '--telemetry-otlp-protocol', '--telemetry-log-prompts', '--telemetry-outfile', '-d,', '--debug', '--proxy', '--chat-recording', '--continue/--resume', '-m,', '--model', '-p,', '--prompt', '-i,', '--prompt-interactive', '-s,', '--sandbox', '--sandbox-image', '-a,', '--all-files', '--show-memory-usage', '-y,', '--yolo', '--approval-mode', '--checkpointing', '--experimental-acp', '--channel', '--allowed-mcp-server-names', '--allowed-tools', '-e,', '--extensions', '-l,', '--list-extensions', '--include-directories', '--include-directories)', '--openai-logging', '--openai-logging-dir', '--openai-api-key', '--openai-base-url', '--tavily-api-key', '--google-api-key', '--google-search-engine-id', '--web-search-default', '--screen-reader', '--vlm-switch-mode', '--input-format', '-o,', '--output-format', '--include-partial-messages', '-c,', '--continue', '-r,', '--resume', '--max-session-turns', '--core-tools', '--exclude-tools', '--auth-type', '-v,', '--version', '-h,', '--help']
+
+gemini:
+  Available: Yes
+  Parameters: ['-', '-p/--prompt', '-i/--prompt-interactive', '-d,', '--debug', '-m,', '--model', '-p,', '--prompt', '-i,', '--prompt-interactive', '-s,', '--sandbox', '-y,', '--yolo', '--approval-mode', '--experimental-acp', '--allowed-mcp-server-names', '--allowed-tools', '-e,', '--extensions', '-l,', '--list-extensions', '-r,', '--resume', '--list-sessions', '--delete-session', '--include-directories', '--include-directories)', '--screen-reader', '-o,', '--output-format', '-v,', '--version', '-h,', '--help']
+
+codebuddy:
+  Available: Yes
+  Parameters: ['-', '-p/--print', '-V,', '--version', '-d,', '--debug', '--verbose', '-p,', '--print', '--output-format', '--print):', '--input-format', '--include-partial-messages', '-y,', '--dangerously-skip-permissions', '--permission-mode', '--allowedTools', '--disallowedTools', '--mcp-config', '-c,', '--continue', '-r,', '--resume', '--model', '--fallback-model', '--print)', '--add-dir', '--ide', '-v,', '--strict-mcp-config', '--mcp-config,', '--session-id', '-H,', '--header', '--serve', '--port', '--host', '--acp', '--sandbox', '--sandbox-upload-dir', '--sandbox-new', '--sandbox-id', '--sandbox-kill', '--teleport', '--max-turns', '--system-prompt', '--system-prompt-file', '--append-system-prompt', '--agents', '--settings', '--setting-sources', '--fork-session', '--continue)', '--replay-user-messages', '-h,', '--help', '-g']
+
+iflow:
+  Available: Yes
+  Parameters: ['-', '-p/--prompt', '-p', '-i', '-m,', '--model', '-p,', '--prompt', '-i,', '--prompt-interactive', '-c,', '--continue', '-r,', '--resume', '-s,', '--sandbox', '--sandbox-image', '-d,', '--debug', '-a,', '--all-files', '--all_files', '--show-memory-usage', '--show_memory_usage', '-y,', '--yolo', '--default', '--plan', '--thinking', '--autoEdit', '--telemetry', '--telemetry-*', '--telemetry-target', '--telemetry-otlp-endpoint', '--telemetry-log-prompts', '--telemetry-outfile', '--checkpointing', '--experimental-acp', '--port', '--experimental-acp)', '--allowed-mcp-server-names', '--include-directories,', '--add-dir', '--include-directories)', '--max-turns', '--max_turns', '--max-tokens', '--max_tokens', '--timeout', '-o,', '--output-file', '--output_file', '-v,', '--version', '-h,', '--help']
+
+codex:
+  Available: Yes
+  Parameters: ['--last', '-c,', '--config', '-', '--enable', '--disable', '-i,', '--image', '-m,', '--model', '--oss', '-c', '--local-provider', '--oss,', '-p,', '--profile', '-s,', '--sandbox', '-a,', '--ask-for-approval', '--full-auto', '--dangerously-bypass-approvals-and-sandbox', '-C,', '--cd', '--search', '--add-dir', '-h,', '--help', '-V,', '--version']
+
+qodercli:
+  Available: Yes
+  Parameters: ['-w', '-v', '-p', '-f', '--max-turns', '--allowed-tools', '--ask-user-tool', '--attachment', '--branch', '--worktree)', '-c,', '--continue', '--dangerously-skip-permissions', '--disallowed-tools', '-h,', '--help', '--max-output-tokens', '-', '--print', '--model', '-f,', '--output-format', '--path', '-p,', '-q,', '--quiet', '-r,', '--resume', '-v,', '--version', '-w,', '--workspace', '--worktree', '--yolo', '--dangerously-skip-permissions）', '--help"']
+
+copilot:
+  Available: Yes
+  Parameters: ['-', '--add-dir', '--additional-mcp-config', '--agent', '--allow-all-paths', '--allow-all-tools', '--allow-tool', '--banner', '--continue', '--deny-tool', '--disable-builtin-mcps', '--disable-mcp-server', '--disable-parallel-tools-execution', '--disallow-temp-dir', '--enable-all-github-mcp-tools', '-h,', '--help', '-i,', '--interactive', '--log-dir', '--log-level', '--model', '--no-color', '--no-custom-instructions', '-p,', '--prompt', '--resume', '-s,', '--silent', '-p', '--screen-reader', '--stream', '-v,', '--version']
+
+=== SKILLS ===

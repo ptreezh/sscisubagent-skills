@@ -1,7 +1,7 @@
 ﻿---
 name: competitive-analysis
 description: 鍩轰簬绔炰簤鎴樼暐鐞嗚锛屽浼佷笟绔炰簤鐜銆佺珵浜夊鎵嬨€佺珵浜変紭鍔垮拰绔炰簤绛栫暐杩涜鍏ㄩ潰鍒嗘瀽鐨勬妧鑳斤紝杩愮敤娉㈢壒浜斿姏妯″瀷銆丼WOT鍒嗘瀽绛夌粡鍏哥悊璁烘鏋讹紝璇勪及浼佷笟甯傚満绔炰簤鍦颁綅鍜岀珵浜夌瓥鐣ョ殑鏈夋晥鎬?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [competitive-analysis, strategy, porter-five-forces, swot, market-share, competitor-analysis]
 compatibility: Node.js environment

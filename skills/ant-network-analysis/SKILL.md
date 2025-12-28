@@ -2,7 +2,7 @@
 name: ant-network-analysis
 description: 当用户需要分析行动者网络的结构、动态和稳定性，包括网络拓扑、关系强度、中心性、凝聚力和演化过程时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 license: MIT
 tags: [actor-network-theory, ANT, network-analysis, topology, stability, dynamics, socio-technical-networks]
 compatibility: Claude 3.5 Sonnet and above

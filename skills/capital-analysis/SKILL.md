@@ -1,7 +1,7 @@
 ﻿---
 name: capital-analysis
 description: 鍩轰簬鐜颁唬閲戣瀺鐞嗚锛屽浼佷笟璧勬湰缁撴瀯銆佽瀺璧勭瓥鐣ャ€佹姇璧勫喅绛栧拰椋庨櫓绠＄悊杩涜鍏ㄩ潰娣卞叆鍒嗘瀽鐨勬妧鑳斤紝閫氳繃瀹氶噺璁＄畻涓庡畾鎬у垎鏋愮浉缁撳悎鐨勬柟寮忥紝璇勪及浼佷笟璐㈠姟鍋ュ悍鐘跺喌鍜岃祫鏈厤缃晥鐜?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [finance, capital, analysis, valuation, risk-management, investment]
 compatibility: Node.js environment

@@ -2,7 +2,7 @@
 name: performing-centrality-analysis
 description: 当用户需要执行社会网络中心性分析，包括度中心性、接近中心性、介数中心性和特征向量中心性的计算和解释时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [social-network-analysis, centrality-measures, network-analysis, graph-theory, node-importance]
 ---
 

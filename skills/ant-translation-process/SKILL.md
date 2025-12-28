@@ -2,7 +2,7 @@
 name: ant-translation-process
 description: 追踪行动者网络理论中的转译过程，包括问题化、利益化、征召和动员四个阶段，以及争议和转译失败的分析。当需要追踪事实构建过程、分析网络稳定化过程或理解技术社会构建过程时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [actor-network-theory, ANT, translation-process, problematization, enrolment, mobilization, controversy]
 ---
 

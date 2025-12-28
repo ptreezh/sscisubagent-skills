@@ -2,7 +2,7 @@
 name: spark-integration
 description: 闆嗘垚绉戝ぇ璁鏄熺伀澶фā鍨嬭繘琛屾櫤鑳藉垎鏋愮殑鏍囧噯鍖栨妧鑳斤紝鎻愪緵鏂囨湰鍒嗘瀽銆佹櫤鑳藉璇濄€佸唴瀹圭敓鎴愮瓑AI鑳藉姏锛屾敮鎸佸绉嶆槦鐏ā鍨嬶紝涓哄叾浠栨妧鑳芥彁渚涚粺涓€鐨凙I鑳藉姏鎺ュ彛
 version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [ai-integration, spark-large-model, text-analysis, intelligent-dialogue, content-generation]
 compatibility: Node.js environment with API access

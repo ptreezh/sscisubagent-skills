@@ -1,0 +1,10 @@
+{
+  "skill_name": "business-ecosystem-data-collection",
+  "version": "1.0.0",
+  "scripts": {
+    "business-ecosystem-data-collection": "scripts/ecosystem_data_collector.py"
+  },
+  "dependencies": [],
+  "author": "AgentPsy Team",
+  "license": "MIT"
+}

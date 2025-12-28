@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "total_codes": 20,
+    "duplicate_pairs": 0,
+    "merge_suggestions": 0,
+    "similarity_threshold": 0.7,
+    "processing_time": 2.57
+  },
+  "details": {
+    "duplicates": [],
+    "merge_suggestions": [],
+    "relationships": []
+  },
+  "metadata": {
+    "input_file": "D:\\stigmergy-CLI-Multi-Agents\\sscisubagent-skills\\skills\\coding\\performing-open-coding\\scripts\\concepts_test.json",
+    "timestamp": "2025-12-19T10:02:43.898703",
+    "version": "1.0.0"
+  }
+}

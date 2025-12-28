@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "network-computation-expert"
+version = "1.0.0"
+description = "社会网络计算专家分析技能，整合网络数据处理、网络构建、中心性分析、社区检测和网络可视化功能"
+authors = ["chinese-social-sciences-subagents"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+networkx = {version = "^3.2.1", optional = true}
+numpy = {version = "^1.21.0", optional = true}
+pandas = {version = "^1.3.0", optional = true}
+matplotlib = {version = "^3.4.0", optional = true}
+seaborn = {version = "^0.11.0", optional = true}
+scipy = {version = "^1.7.0", optional = true}
+
+[tool.poetry.extras]
+network = ["networkx"]
+analysis = ["numpy", "pandas", "scipy"]
+visualization = ["matplotlib", "seaborn"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+network-computation-expert-analyzer = "scripts.network_computation_expert_analyzer:main"

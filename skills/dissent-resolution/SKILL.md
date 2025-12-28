@@ -2,7 +2,7 @@
 name: dissent-resolution
 description: 研究分歧解决技能，处理学术研究中的不同观点、争议和异议，促进建设性对话和共识达成
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [dissent-resolution, academic-discourse, research-methodology, consensus-building, disagreement-management]
 ---
 

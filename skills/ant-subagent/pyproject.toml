@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ant-subagent"
+version = "1.0.0"
+description = "A comprehensive Actor-Network Theory analysis tool that integrates network analysis, participant identification, and translation processes."
+authors = ["SSCI Subagent System"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+networkx = "^3.2"
+matplotlib = "^3.6.0"
+pyvis = "^0.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

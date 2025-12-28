@@ -6,7 +6,7 @@ Alienation Type Classification Script
 
 这个脚本识别和分类不同类型的异化现象，为精准分析提供基础。
 
-作者: 数字马克思智能体
+作者: socienceAI.com
 版本: 1.0.0
 日期: 2025-12-21
 """

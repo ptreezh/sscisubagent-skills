@@ -13,7 +13,7 @@ This document provides a comprehensive report on the compliance improvements mad
 
 ### 2. Email and Brand Updates
 - Replaced all instances of "SSAI" with "AgentPsy"
-- Updated email addresses from "team@ssai.com" to "contact@agentpsy.com"
+- Updated email addresses from "zhangshuren@freeagentskills.com" to "zhangshuren@freeagentskills.com"
 - Ensured consistency across all documentation files
 
 ### 3. Skills Structure Compliance

@@ -1,0 +1,15 @@
+{
+  "skill_name": "ecosystem-analysis",
+  "version": "1.0.0",
+  "scripts": {
+    "performing-industry-ecosystem-analysis": "scripts/business_ecosystem_analyzer.py performing-industry-ecosystem-analysis",
+    "identifying-key-species-in-industry": "scripts/business_ecosystem_analyzer.py identifying-key-species-in-industry",
+    "analyzing-business-model-of-key-species": "scripts/business_ecosystem_analyzer.py analyzing-business-model-of-key-species",
+    "constructing-business-ecosystem-map": "scripts/business_ecosystem_analyzer.py constructing-business-ecosystem-map",
+    "analyzing-digital-transformation-impact-on-business": "scripts/business_ecosystem_analyzer.py analyzing-digital-transformation-impact-on-business",
+    "assessing-ecosystem-impact-of-digital-transformation": "scripts/business_ecosystem_analyzer.py assessing-ecosystem-impact-of-digital-transformation"
+  },
+  "dependencies": [],
+  "author": "AgentPsy Team",
+  "license": "MIT"
+}

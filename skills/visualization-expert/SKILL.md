@@ -1,7 +1,7 @@
 ﻿---
 name: visualization-expert
 description: 鍩轰簬鏁版嵁鍙鍖栫悊璁哄拰鏈€浣冲疄璺碉紝涓轰紒涓氬垎鏋愮粨鏋滃垱寤虹洿瑙傘€佹湁鏁堢殑鍙鍖栧浘琛ㄥ拰浠〃鏉跨殑鎶€鑳斤紝杩愮敤淇℃伅璁捐鍘熷垯鍜岃瑙夊垎鏋愭妧鏈紝灏嗗鏉傛暟鎹浆鍖栦负鏄撲簬鐞嗚В鐨勮瑙夎〃鐜板舰寮?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [data-visualization, chart-generation, dashboard-design, information-design, visual-analytics]
 compatibility: Node.js environment

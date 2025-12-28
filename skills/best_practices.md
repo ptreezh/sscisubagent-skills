@@ -23,7 +23,7 @@ metadata:
   complexity: beginner/intermediate/advanced
   integration_type: analysis_tool/other
   last_updated: "YYYY-MM-DD"
-  author: author-name  # Not required but useful
+  author: socienceAI.com
   version: 1.0.0  # Not required but useful
 allowed-tools: [python, bash, read_file, write_file]  # Experimental but useful
 tags: [list, of, relevant, tags]  # Not required but useful for discovery

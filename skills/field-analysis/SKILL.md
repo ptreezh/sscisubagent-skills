@@ -2,7 +2,7 @@
 name: field-analysis
 description: 执行布迪厄场域分析，包括场域边界识别、资本分布分析、自主性评估和习性模式分析。当需要分析社会场域的结构、权力关系和文化资本时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [field-analysis, bourdieu, social-structure, cultural-capital, power-relations]
 ---
 

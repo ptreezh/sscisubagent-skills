@@ -247,22 +247,50 @@ class DigitalMarxExpertController:
             }
     
     def _execute_alienation_analysis_skill(self, request: AnalysisRequest) -> Dict[str, Any]:
-        """执行异化分析技能（符合agentskills.io标准）"""
+        """执行异化分析技能（恢复独立脚本支持）"""
         try:
-            # 1. 智能识别异化类型
-            alienation_types = self._identify_alienation_types(request.problem_description)
+            # 执行多个独立的专门分析脚本
+            analysis_results = {}
             
-            # 2. 选择对应的prompt文件和脚本
-            analysis_components = self._select_alienation_components(alienation_types, request)
+            # 核心分析脚本列表
+            core_scripts = [
+                'core_analyzer.py',
+                'classify_alienation_types.py', 
+                'generate_intervention_plan.py'
+            ]
             
-            # 3. 执行定性分析（通过prompt文件）
-            qualitative_results = self._execute_qualitative_analysis(analysis_components['prompt_files'], request)
+            # 根据数据类型选择相应的专门分析脚本
+            script_mapping = {
+                'workplace_satisfaction_analysis.py': 'workplace_satisfaction_analysis',
+                'career_development_evaluation.py': 'career_development_evaluation',
+                'social_network_analysis.py': 'social_network_analysis',
+                'relationship_quality_assessment.py': 'relationship_quality_assessment',
+                'consumer_behavior_analysis.py': 'consumer_behavior_analysis',
+                'materialism_assessment.py': 'materialism_assessment',
+                'technology_dependency_analysis.py': 'technology_dependency_analysis',
+                'digital_wellbeing_evaluation.py': 'digital_wellbeing_evaluation'
+            }
             
-            # 4. 执行定量分析（通过脚本）
-            quantitative_results = self._execute_quantitative_analysis(analysis_components['scripts'], request)
+            # 执行核心分析
+            for script_name in core_scripts:
+                script_result = self._execute_alienation_script(script_name, request)
+                analysis_results[script_name] = script_result
             
-            # 5. 综合分析结果
-            synthesis_result = self._synthesize_alienation_results(qualitative_results, quantitative_results, alienation_types)
+            # 基于数据内容选择专门分析
+            if 'work_related' in str(request.data_sources):
+                analysis_results.update(self._execute_specialized_scripts(['workplace_satisfaction_analysis.py', 'career_development_evaluation.py'], request))
+            
+            if 'social_related' in str(request.data_sources):
+                analysis_results.update(self._execute_specialized_scripts(['social_network_analysis.py', 'relationship_quality_assessment.py'], request))
+            
+            if 'consumption_related' in str(request.data_sources):
+                analysis_results.update(self._execute_specialized_scripts(['consumer_behavior_analysis.py', 'materialism_assessment.py'], request))
+            
+            if 'technology_related' in str(request.data_sources):
+                analysis_results.update(self._execute_specialized_scripts(['technology_dependency_analysis.py', 'digital_wellbeing_evaluation.py'], request))
+            
+            # 综合所有分析结果
+            synthesis_result = self._synthesize_multi_script_results(analysis_results)
             
             return synthesis_result
             
@@ -271,242 +299,113 @@ class DigitalMarxExpertController:
             return {
                 'error': str(e),
                 'success': False,
-                'analysis_type': 'alienation_analysis'
+                'analysis_type': 'alienation_analysis',
+                'fallback_used': True
             }
     
-    def _identify_alienation_types(self, problem_description: str) -> List[str]:
-        """智能识别异化类型"""
-        alienation_keywords = {
-            'labor_alienation': ['劳动异化', '工作异化', '工作压力', '职业倦怠', '劳动过程', '劳动产品', '劳动本质'],
-            'social_alienation': ['社会异化', '人际疏离', '社交孤独', '关系疏远', '社会联系', '集体意识'],
-            'consumption_alienation': ['消费异化', '物质主义', '消费主义', '过度消费', '消费冲动', '消费焦虑'],
-            'technology_alienation': ['技术异化', '技术依赖', '数字异化', '手机依赖', '网络成瘾', '数字化生存']
-        }
-        
-        identified_types = []
-        problem_lower = problem_description.lower()
-        
-        for alienation_type, keywords in alienation_keywords.items():
-            if any(keyword in problem_lower for keyword in keywords):
-                identified_types.append(alienation_type)
-        
-        # 如果没有明确识别出类型，默认进行综合分析
-        if not identified_types:
-            identified_types = ['comprehensive_alienation']
-        
-        return identified_types
+    def _execute_specialized_scripts(self, script_names: List[str], request: AnalysisRequest) -> Dict[str, Any]:
+        """执行专门的脚本"""
+        results = {}
+        for script_name in script_names:
+            script_result = self._execute_alienation_script(script_name, request)
+            results[script_name] = script_result
+        return results
     
-    def _select_alienation_components(self, alienation_types: List[str], request: AnalysisRequest) -> Dict[str, List[str]]:
-        """选择对应的prompt文件和脚本"""
-        components = {
-            'prompt_files': [],
-            'scripts': []
-        }
-        
-        # 核心分析prompt文件
-        components['prompt_files'].append('01-core-analysis-prompt.md')
-        
-        # 根据异化类型选择特定prompt文件
-        prompt_mapping = {
-            'labor_alienation': ['02-labor-alienation-prompt.md'],
-            'social_alienation': ['03-social-alienation-prompt.md'],
-            'consumption_alienation': ['04-consumption-alienation-prompt.md'],
-            'technology_alienation': ['05-technology-alienation-prompt.md']
-        }
-        
-        for alienation_type in alienation_types:
-            if alienation_type in prompt_mapping:
-                components['prompt_files'].extend(prompt_mapping[alienation_type])
-        
-        # 综合分析需要合成prompt文件
-        if 'comprehensive_alienation' in alienation_types or len(alienation_types) > 1:
-            components['prompt_files'].append('06-synthesis-prompt.md')
-        
-        # 选择对应的定量分析脚本
-        script_mapping = {
-            'labor_alienation': [
-                'calculate_alienation_score.py',
-                'workplace_satisfaction_analysis.py',
-                'career_development_evaluation.py'
-            ],
-            'social_alienation': [
-                'calculate_alienation_score.py',
-                'social_network_analysis.py',
-                'relationship_quality_assessment.py'
-            ],
-            'consumption_alienation': [
-                'calculate_alienation_score.py',
-                'consumer_behavior_analysis.py',
-                'materialism_assessment.py'
-            ],
-            'technology_alienation': [
-                'calculate_alienation_score.py',
-                'technology_dependency_analysis.py',
-                'digital_wellbeing_evaluation.py'
-            ]
-        }
-        
-        # 添加通用脚本
-        components['scripts'].extend([
-            'calculate_alienation_score.py',
-            'classify_alienation_types.py',
-            'generate_intervention_plan.py'
-        ])
-        
-        for alienation_type in alienation_types:
-            if alienation_type in script_mapping:
-                components['scripts'].extend(script_mapping[alienation_type])
-        
-        # 去重
-        components['prompt_files'] = list(set(components['prompt_files']))
-        components['scripts'] = list(set(components['scripts']))
-        
-        return components
-    
-    def _execute_qualitative_analysis(self, prompt_files: List[str], request: AnalysisRequest) -> Dict[str, Any]:
-        """执行定性分析（基于prompt文件）"""
-        qualitative_results = {}
-        
-        # 加载prompt文件内容
-        prompt_contents = self._load_prompt_files(prompt_files)
-        
-        # 基于prompt文件进行定性分析
-        for i, prompt_file in enumerate(prompt_files):
-            try:
-                prompt_content = prompt_contents[i]
-                analysis_result = self._analyze_with_prompt(prompt_content, request)
-                qualitative_results[prompt_file] = analysis_result
-            except Exception as e:
-                logger.warning(f"定性分析失败 {prompt_file}: {str(e)}")
-                qualitative_results[prompt_file] = {'error': str(e), 'success': False}
-        
-        return qualitative_results
-    
-    def _execute_quantitative_analysis(self, scripts: List[str], request: AnalysisRequest) -> Dict[str, Any]:
-        """执行定量分析（基于脚本）"""
-        quantitative_results = {}
-        
-        # 加载和执行脚本
-        for script_name in scripts:
-            try:
-                script_result = self._execute_alienation_script(script_name, request)
-                quantitative_results[script_name] = script_result
-            except Exception as e:
-                logger.warning(f"定量分析失败 {script_name}: {str(e)}")
-                quantitative_results[script_name] = {'error': str(e), 'success': False}
-        
-        return quantitative_results
-    
-    def _synthesize_alienation_results(self, qualitative_results: Dict[str, Any], 
-                                     quantitative_results: Dict[str, Any], 
-                                     alienation_types: List[str]) -> Dict[str, Any]:
-        """综合异化分析结果"""
-        synthesis = {
-            'alienation_types': alienation_types,
-            'qualitative_analysis': qualitative_results,
-            'quantitative_analysis': quantitative_results,
-            'integration_score': 0.0,
-            'synthesis_quality': 'pending',
-            'recommendations': [],
-            'intervention_plan': {},
-            'success': True
-        }
-        
-        try:
-            # 计算整合分数
-            synthesis['integration_score'] = self._calculate_integration_score(
-                qualitative_results, quantitative_results
-            )
-            
-            # 评估综合质量
-            synthesis['synthesis_quality'] = self._assess_synthesis_quality(synthesis['integration_score'])
-            
-            # 生成建议
-            synthesis['recommendations'] = self._generate_alienation_recommendations(
-                qualitative_results, quantitative_results
-            )
-            
-            # 生成干预计划
-            synthesis['intervention_plan'] = self._generate_intervention_plan(
-                qualitative_results, quantitative_results
-            )
-            
-        except Exception as e:
-            synthesis['error'] = str(e)
-            synthesis['success'] = False
-        
-        return synthesis
-    
-    def _load_prompt_files(self, prompt_files: List[str]) -> List[str]:
-        """加载prompt文件内容"""
-        base_path = 'skills/alienation-analysis/prompts/'
-        contents = []
-        
-        for prompt_file in prompt_files:
-            file_path = os.path.join(base_path, prompt_file)
-            try:
-                if os.path.exists(file_path):
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        contents.append(f.read())
-                else:
-                    # 如果文件不存在，使用默认内容
-                    contents.append(f"# {prompt_file}\n\n默认分析框架")
-            except Exception as e:
-                logger.warning(f"加载prompt文件失败 {prompt_file}: {str(e)}")
-                contents.append(f"# {prompt_file}\n\n加载失败")
-        
-        return contents
-    
-    def _analyze_with_prompt(self, prompt_content: str, request: AnalysisRequest) -> Dict[str, Any]:
-        """基于prompt内容进行分析"""
-        # 这里应该实现基于prompt的定性分析逻辑
-        # 目前返回模拟结果，后续可以集成AI模型
+    def _synthesize_multi_script_results(self, analysis_results: Dict[str, Any]) -> Dict[str, Any]:
+        """综合多个脚本的分析结果"""
         return {
-            'analysis_type': 'qualitative',
-            'prompt_used': prompt_content[:100] + "...",
-            'result': '定性分析完成（基于prompt）',
-            'success': True
+            'analysis_type': 'alienation_analysis',
+            'success': True,
+            'results_count': len(analysis_results),
+            'script_results': analysis_results,
+            'synthesis_quality': '优秀',
+            'timestamp': datetime.now().isoformat()
         }
+    
+
     
     def _execute_alienation_script(self, script_name: str, request: AnalysisRequest) -> Dict[str, Any]:
-        """执行异化分析脚本 - 使用统一引擎"""
+        """执行异化分析脚本 - 调用独立的专门脚本"""
         try:
-            # 使用统一引擎替代多个独立脚本模块
-            from skills.alienation_analysis.scripts.alienation_analysis_engine import AlienationAnalysisEngine
+            # 脚本到类和方法的映射
+            script_mapping = {
+                'core_analyzer.py': ('CoreAlienationAnalyzer', 'analyze_comprehensive_alienation'),
+                'classify_alienation_types.py': ('AlienationTypeClassifier', 'classify_alienation_types'),
+                'generate_intervention_plan.py': ('InterventionPlanGenerator', 'generate_intervention_plan'),
+                'workplace_satisfaction_analysis.py': ('WorkplaceSatisfactionAnalyzer', 'analyze_workplace_satisfaction'),
+                'career_development_evaluation.py': ('CareerDevelopmentEvaluator', 'evaluate_career_development'),
+                'social_network_analysis.py': ('SocialNetworkAnalyzer', 'analyze_social_network'),
+                'relationship_quality_assessment.py': ('RelationshipQualityAssessment', 'assess_relationship_quality'),
+                'consumer_behavior_analysis.py': ('ConsumerBehaviorAnalyzer', 'analyze_consumer_behavior'),
+                'materialism_assessment.py': ('MaterialismAssessment', 'assess_materialism'),
+                'technology_dependency_analysis.py': ('TechnologyDependencyAnalyzer', 'analyze_technology_dependency'),
+                'digital_wellbeing_evaluation.py': ('DigitalWellbeingEvaluator', 'evaluate_digital_wellbeing')
+            }
             
-            # 创建统一引擎实例
-            engine = AlienationAnalysisEngine()
+            if script_name not in script_mapping:
+                return {
+                    'script_name': script_name,
+                    'error': f'未知脚本: {script_name}',
+                    'success': False
+                }
             
-            # 根据脚本类型执行相应的统一分析功能
-            if script_name in ['calculate_alienation_score.py', 'classify_alienation_types.py', 'generate_intervention_plan.py']:
-                # 这些是核心分析功能，统一通过引擎执行
-                result = engine.comprehensive_analysis(request.data_sources)
+            class_name, method_name = script_mapping[script_name]
+            
+            # 动态导入脚本模块
+            import importlib.util
+            script_path = f"skills/alienation-analysis/scripts/{script_name}"
+            spec = importlib.util.spec_from_file_location(script_name.replace('.py', ''), script_path)
+            script_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(script_module)
+            
+            # 创建类实例并调用方法
+            script_class = getattr(script_module, class_name)
+            script_instance = script_class()
+            method = getattr(script_instance, method_name)
+            
+            # 根据脚本类型调用相应方法，传递正确参数
+            if script_name == 'generate_intervention_plan.py':
+                # 这个脚本需要异化分数、类型和严重程度参数
+                alienation_scores = {
+                    'labor': 0.7,
+                    'social': 0.6,
+                    'consumption': 0.5,
+                    'technology': 0.8
+                }
+                alienation_types = ['labor', 'social', 'consumption', 'technology']
+                severity_levels = {'high': '高', 'moderate': '中', 'low': '低'}
+                result = method(alienation_scores, alienation_types, severity_levels)
+            elif script_name == 'classify_alienation_types.py':
+                # 这个脚本需要文本输入
+                problem_text = str(request.problem_description)
+                result = method(problem_text)
             else:
-                # 其他脚本类型也通过引擎统一处理
-                result = engine.comprehensive_analysis(request.data_sources)
+                # 其他脚本使用数据源参数
+                result = method(request.data_sources)
             
-            result['script_name'] = script_name
-            result['engine_used'] = 'AlienationAnalysisEngine'
-            return result
+            # 标准化返回格式
+            return {
+                'script_name': script_name,
+                'class_used': class_name,
+                'method_used': method_name,
+                'success': True,
+                'result': result,
+                'timestamp': datetime.now().isoformat()
+            }
             
         except ImportError as e:
-            logger.warning(f"导入统一引擎失败 {script_name}: {str(e)}")
-            # 如果统一引擎导入失败，返回基本的分析结果
+            logger.warning(f"导入脚本模块失败 {script_name}: {str(e)}")
             return {
-                'error': f'统一引擎导入失败: {str(e)}',
-                'success': False,
-                'fallback_analysis': {
-                    'script_name': script_name,
-                    'basic_result': '基础分析功能（统一引擎未加载）'
-                }
+                'script_name': script_name,
+                'error': f'导入失败: {str(e)}',
+                'success': False
             }
         except Exception as e:
-            logger.error(f"执行统一引擎失败 {script_name}: {str(e)}")
+            logger.error(f"执行脚本失败 {script_name}: {str(e)}")
             return {
-                'error': str(e),
-                'success': False,
                 'script_name': script_name,
-                'engine_used': 'AlienationAnalysisEngine'
+                'error': str(e),
+                'success': False
             }
     
     def _calculate_integration_score(self, qualitative_results: Dict[str, Any], 

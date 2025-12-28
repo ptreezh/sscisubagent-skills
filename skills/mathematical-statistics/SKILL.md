@@ -2,7 +2,7 @@
 name: mathematical-statistics
 description: 当用户需要执行社会科学研究的数理统计分析，包括描述性统计、推断统计、回归分析、方差分析、因子分析等时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [statistics, social-sciences, data-analysis, research-methods, descriptive-stats, inferential-stats, regression-analysis]
 ---
 

@@ -2,7 +2,7 @@
 name: performing-open-coding
 description: 当用户需要执行扎根理论的开放编码，包括中文质性数据的概念识别、初始编码、持续比较和备忘录撰写时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [grounded-theory, open-coding, concept-identification, initial-coding, qualitative-analysis]
 ---
 
@@ -39,6 +39,98 @@ When a user requests open coding:
 - "持续比较" 或 "编码比较"
 - "备忘录撰写" 或 "编码备忘录"
 - 需要分析中文访谈、观察记录或文档资料
+
+## 脚本调用时机
+当需要执行开放编码的不同阶段时，调用对应的脚本：
+- 数据预处理阶段：调用 `preprocess_text.py`
+- 概念识别阶段：调用 `auto_loader.py`
+- 持续比较阶段：调用 `compare_codes.py`
+- 概念聚类阶段：调用 `cluster_concepts.py`
+- 编码验证阶段：调用 `validate_codes.py`
+
+## 统一输入格式
+```json
+{
+  "coding_context": {
+    "research_topic": "研究主题",
+    "data_source_type": "数据来源类型(访谈/观察/文档)",
+    "language": "数据语言",
+    "coding_purpose": "编码目的"
+  },
+  "raw_data": {
+    "content": "原始文本内容",
+    "segments": [
+      {
+        "id": "段落ID",
+        "text": "段落文本",
+        "context": "上下文信息"
+      }
+    ]
+  },
+  "coding_parameters": {
+    "abstraction_level": "抽象层次",
+    "coding_depth": "编码深度",
+    "theoretical_focus": "理论关注点"
+  },
+  "previous_results": {
+    "concepts": "之前识别的概念",
+    "codes": "之前创建的编码",
+    "memos": "之前的备忘录"
+  }
+}
+```
+
+## 统一输出格式
+```json
+{
+  "summary": {
+    "total_concepts": "识别的概念总数",
+    "total_codes": "创建的编码总数",
+    "processing_time": "处理时间(秒)",
+    "coding_progress": "编码进度"
+  },
+  "details": {
+    "concepts": [
+      {
+        "id": "概念ID",
+        "name": "概念名称(动词开头)",
+        "definition": "概念定义",
+        "examples": ["示例1", "示例2"],
+        "frequency": "出现频率",
+        "source_segments": ["来源段落ID列表"]
+      }
+    ],
+    "codes": [
+      {
+        "id": "编码ID",
+        "concept_id": "关联概念ID",
+        "segment_id": "来源段落ID",
+        "code_text": "编码文本",
+        "context": "上下文信息"
+      }
+    ],
+    "relationships": [
+      {
+        "from_concept": "源概念ID",
+        "to_concept": "目标概念ID",
+        "relationship_type": "关系类型",
+        "strength": "关系强度(0-1)"
+      }
+    ],
+    "statistics": {
+      "concept_diversity": "概念多样性",
+      "coding_density": "编码密度",
+      "intercoder_agreement": "编码者间一致性(可选)"
+    }
+  },
+  "metadata": {
+    "timestamp": "时间戳",
+    "version": "版本号",
+    "skill": "performing-open-coding",
+    "processing_stage": "处理阶段"
+  }
+}
+```
 
 ## 快速开始
 

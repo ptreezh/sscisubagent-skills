@@ -1,7 +1,7 @@
 ﻿---
 name: class-structure-analysis
 description: 鍩轰簬椹厠鎬濅富涔夐樁绾х悊璁猴紝瀵圭ぞ浼氶樁绾х粨鏋勩€侀樁绾у叧绯汇€侀樁绾ф剰璇嗗拰闃剁骇娴佸姩杩涜绯荤粺鍒嗘瀽鐨勬妧鑳斤紝杩愮敤椹厠鎬濈殑闃剁骇鍒嗘瀽鐞嗚妗嗘灦锛岃瘎浼扮ぞ浼氱粨鏋勫拰闃剁骇鍔ㄦ€?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [class-analysis, marxist-sociology, social-structure, class-consciousness, class-dynamics]
 compatibility: Node.js environment

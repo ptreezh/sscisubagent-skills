@@ -1,0 +1,10 @@
+{
+  "skill_name": "ecosystem-relationship-analysis",
+  "version": "1.0.0",
+  "scripts": {
+    "ecosystem-relationship-analysis": "scripts/ecosystem_relationship_analyzer.py"
+  },
+  "dependencies": [],
+  "author": "AgentPsy Team",
+  "license": "MIT"
+}

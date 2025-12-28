@@ -97,7 +97,8 @@
       "analysis": [
         "skills/analysis/centrality-analysis-skill.md",
         "skills/analysis/network-data-skill.md",
-        "skills/analysis/qualitative-analysis-skill.md"
+        "skills/analysis/qualitative-analysis-skill.md",
+        "skills/alienation-analysis/SKILL.md"
       ],
       "writing": [
         "skills/writing/paper-structure-skill.md",

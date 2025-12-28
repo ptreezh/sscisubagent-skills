@@ -1,0 +1,16 @@
+{
+  "skill_name": "digital-transformation",
+  "version": "1.0.0",
+  "scripts": {
+    "business-scene-deconstruction-analysis": "scripts/digital_transformation_analyzer.py business-scene-deconstruction",
+    "digitization-deconstruction-analysis": "scripts/digital_transformation_analyzer.py digitization-deconstruction",
+    "online-transformation-deconstruction-analysis": "scripts/digital_transformation_analyzer.py online-transformation-deconstruction",
+    "intelligent-transformation-deconstruction-analysis": "scripts/digital_transformation_analyzer.py intelligent-transformation-deconstruction",
+    "innovation-niche-identification": "scripts/digital_transformation_analyzer.py innovation-niche-identification",
+    "business-model-reconstruction": "scripts/digital_transformation_analyzer.py business-model-reconstruction",
+    "business-innovation-pathway-planning": "scripts/digital_transformation_analyzer.py business-innovation-pathway-planning"
+  },
+  "dependencies": [],
+  "author": "AgentPsy Team",
+  "license": "MIT"
+}

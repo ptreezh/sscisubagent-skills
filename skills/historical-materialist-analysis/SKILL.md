@@ -1,7 +1,7 @@
 ﻿---
 name: historical-materialist-analysis
 description: 鍩轰簬椹厠鎬濅富涔夊巻鍙插敮鐗╀富涔夌悊璁猴紝瀵圭ぞ浼氱幇璞°€佺粡娴庡彂灞曘€佸埗搴﹀彉杩佽繘琛屽巻鍙蹭笌閫昏緫鐩哥粺涓€鐨勫垎鏋愭妧鑳斤紝杩愮敤鐢熶骇鍔涗笌鐢熶骇鍏崇郴銆佺粡娴庡熀纭€涓庝笂灞傚缓绛戠殑杈╄瘉鍏崇郴鍘熺悊锛屽垎鏋愮ぞ浼氬彂灞曠殑瀹㈣瑙勫緥鍜岃秼鍔?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [historical-materialism, marxist-analysis, social-development, production-relations, economic-base, superstructure]
 compatibility: Node.js environment

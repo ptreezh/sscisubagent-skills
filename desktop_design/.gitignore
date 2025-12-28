@@ -1,0 +1,97 @@
+# Dependencies
+node_modules/
+.npm/
+.yarn/
+
+# Build outputs
+dist/
+build/
+out/
+release/
+.bundle/
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+
+# Package lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Test results and coverage
+test-results/
+test-report.xml
+coverage/
+.nyc_output/
+
+# Electron specific
+electron-dist/
+*.asar
+
+# Project specific exclusions
+stigmergy-desktop-app/node_modules/
+stigmergy-desktop-app/dist/
+stigmergy-desktop-app/*.log
+stigmergy-desktop-app/*.tmp
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Cache files
+.cache/
+.nyc_output/
+.rpt2_cache/
+
+# Lock files
+*.lock
+
+# Nuxt/Vuepress generated files
+.nuxt/
+.vuepress/dist/
+
+# Next.js
+.next/
+
+# Documentation builds
+docs/_book/
+
+# Archive files
+*.zip
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.7z

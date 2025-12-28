@@ -2,7 +2,7 @@
 name: business-service-supply-analysis
 description: 鍒嗘瀽鍟嗕笟鐢熸€佺郴缁熶腑涓氬姟鏈嶅姟渚涚粰鍏崇郴鐨勬妧鑳斤紝娑电洊鏈嶅姟娴併€佷环鍊兼祦銆佷緵闇€鍖归厤銆佽祫婧愰厤缃晥鐜囩瓑鍏抽敭瑕佺礌
 version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [business, service, supply, analysis, ecosystem, network]
 compatibility: Node.js environment

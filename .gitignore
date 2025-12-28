@@ -103,3 +103,54 @@ temp-iflow-cli/
 # Output directories
 qwen-compatible/
 iflow-compatible/
+
+# Project specific
+*.json.bak
+test_output.json
+test_*.json
+*_output.json
+*_results.json
+analysis_*.json
+
+# HTML Reports
+*.html
+!index.html
+
+# Temporary scripts
+temp_*.py
+tmp_*.py
+test_*.py
+validate_*.py
+
+# Logs
+*.log
+quality_assurance.log
+digital_marx_expert.log
+
+# Backup files
+*.bak
+*_backup.*
+backup/
+
+# Project temp directories
+temp-subagents/
+temp-skill-builder/
+temp-qwen-code/
+temp-iflow-cli/
+project_backup/
+desktop_design/desktop-app/
+desktop_design/desktop-app-fresh/
+desktop_design/electron-src/
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Distribution
+dist/
+build/
+*.egg-info/
+# 临时文件
+nul
+

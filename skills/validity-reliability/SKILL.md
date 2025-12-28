@@ -2,7 +2,7 @@
 name: validity-reliability
 description: 当用户需要执行研究信度效度分析，包括内部一致性、重测信度、评分者信度、构念效度、内容效度、效标效度等全面分析时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 license: MIT
 tags: [reliability, validity, research-methods, psychometrics, measurement, scale-validation]
 compatibility: Claude 3.5 Sonnet and above

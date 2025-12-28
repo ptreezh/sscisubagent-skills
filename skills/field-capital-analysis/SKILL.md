@@ -2,7 +2,7 @@
 name: field-capital-analysis
 description: 分析社会场域中的资本类型、分布、转换和竞争，包括经济资本、社会资本、文化资本和象征资本。当需要分析场域中的资本分布、理解资本转换机制或评估资本竞争格局时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [field-analysis, capital-analysis, economic-capital, social-capital, cultural-capital, symbolic-capital, bourdieu, social-structure]
 ---
 

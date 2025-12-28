@@ -2,7 +2,7 @@
 name: dialectical-quantitative-synthesis
 description: 鍩轰簬椹厠鎬濅富涔夎京璇佹硶锛屽皢瀹氶噺鍒嗘瀽涓庡畾鎬у垎鏋愩€佺悊璁轰笌瀹炶返銆佸巻鍙蹭笌閫昏緫鐩哥粨鍚堢殑缁煎悎鍒嗘瀽鎶€鑳斤紝瀹炵幇杈╄瘉鎬濈淮涓庢暟鎹垎鏋愮殑鏈夋満铻嶅悎
 version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [dialectical-analysis, quantitative-methods, qualitative-analysis, marxist-methodology, synthesis]
 compatibility: Node.js environment

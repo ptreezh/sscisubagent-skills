@@ -2,7 +2,7 @@
 name: performing-axial-coding
 description: 当用户需要执行扎根理论的轴心编码，包括范畴识别、属性维度分析、关系建立和Paradigm模型构建时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [grounded-theory, axial-coding, category-analysis, paradigm-model, qualitative-research]
 ---
 
@@ -39,22 +39,116 @@ When a user requests axial coding:
 - "Paradigm构建" 或 "范式构建"
 - 需要将开放编码结果整合为理论框架
 
-## 快速开始
+## 脚本调用时机
+当需要执行轴心编码的不同阶段时，调用对应的脚本：
+- 范畴识别阶段：调用 `identify_categories.py`
+- 属性分析阶段：调用 `analyze_properties.py`（可选）
+- 关系建立阶段：调用 `build_relationships.py`
+- Paradigm构建阶段：调用 `construct_paradigm.py`
 
-### 工具链（4个核心脚本）
+## 统一输入格式
+```json
+{
+  "coding_context": {
+    "research_topic": "研究主题",
+    "previous_coding_stage": "前期编码阶段(开放编码/轴心编码)",
+    "theoretical_perspective": "理论视角",
+    "coding_purpose": "编码目的"
+  },
+  "input_data": {
+    "concepts": [
+      {
+        "id": "概念ID",
+        "name": "概念名称",
+        "definition": "概念定义",
+        "examples": ["示例1", "示例2"]
+      }
+    ],
+    "codes": [
+      {
+        "id": "编码ID",
+        "concept_id": "关联概念ID",
+        "text": "编码文本",
+        "source_segment": "来源段落"
+      }
+    ],
+    "previous_categories": [
+      {
+        "id": "前期范畴ID",
+        "name": "前期范畴名称",
+        "concepts": ["概念ID列表"]
+      }
+    ]
+  },
+  "coding_parameters": {
+    "abstraction_level": "抽象层次要求",
+    "number_of_categories": "目标范畴数量",
+    "category_type": "范畴类型(核心/次要)",
+    "relationship_types": ["因果", "条件", "策略", "互动"]
+  }
+}
+```
 
-```bash
-# 1. 范畴识别（从开放编码结果）
-python scripts/identify_categories.py --input codes.json --output categories.json
-
-# 2. 属性分析（可选）
-python scripts/analyze_properties.py --input categories.json --output properties.json
-
-# 3. 关系建立
-python scripts/build_relationships.py --input categories.json --output relationships.json
-
-# 4. Paradigm构建
-python scripts/construct_paradigm.py --input relationships.json --output paradigm.json
+## 统一输出格式
+```json
+{
+  "summary": {
+    "total_categories": "范畴总数",
+    "core_categories": "核心范畴数",
+    "total_relationships": "关系总数",
+    "paradigm_completeness": "Paradigm完整度",
+    "processing_time": "处理时间(秒)"
+  },
+  "details": {
+    "categories": [
+      {
+        "id": "范畴ID",
+        "name": "范畴名称",
+        "definition": "范畴定义",
+        "concepts": ["概念ID列表"],
+        "properties": {
+          "dimension": "维度特征",
+          "values": ["维度值"],
+          "conditions": "条件特征"
+        },
+        "type": "范畴类型(核心/次要)",
+        "frequency": "出现频次",
+        "source_segments": ["来源段落ID列表"]
+      }
+    ],
+    "relationships": [
+      {
+        "id": "关系ID",
+        "from_category": "源范畴ID",
+        "to_category": "目标范畴ID",
+        "type": "关系类型(因果/条件/策略/互动)",
+        "strength": "关系强度(0-1)",
+        "evidence": "关系证据",
+        "description": "关系描述"
+      }
+    ],
+    "paradigm_model": {
+      "phenomenon": "核心现象",
+      "conditions": ["条件范畴列表"],
+      "context": "情境",
+      "action_strategies": ["行动策略列表"],
+      "consequences": ["后果列表"],
+      "intervening_conditions": ["中介条件"],
+      "outcomes": "结果"
+    },
+    "statistics": {
+      "category_cohesion": "范畴内聚度",
+      "relationship_density": "关系密度",
+      "paradigm_coherence": "Paradigm一致性"
+    }
+  },
+  "metadata": {
+    "timestamp": "时间戳",
+    "version": "版本号",
+    "skill": "performing-axial-coding",
+    "processing_stage": "处理阶段"
+  }
+}
 ```
 
 ## 核心流程

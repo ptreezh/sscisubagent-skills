@@ -1,0 +1,9 @@
+[
+  {
+    "timestamp": "2025-12-23T11:38:25.464213",
+    "model_name": "adaptive_model_20251223_113825",
+    "accuracy": 0.8823529411764706,
+    "training_size": 81,
+    "feature_count": 200
+  }
+]

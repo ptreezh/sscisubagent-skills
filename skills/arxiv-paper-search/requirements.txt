@@ -1,0 +1,13 @@
+# arXiv论文检索技能 - 最小依赖
+# 只包含必需的依赖，使用 uv 管理
+
+# 核心依赖（必需）
+requests>=2.31.0      # HTTP请求
+feedparser>=6.0.10    # 解析arXiv API的Atom/RSS响应
+
+# 安装方法:
+# 方法1: 使用 uv（推荐）
+# uv pip install -r requirements.txt
+#
+# 方法2: 使用 pip
+# pip install -r requirements.txt

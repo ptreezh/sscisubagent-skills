@@ -2,7 +2,7 @@
 name: business-model-analysis
 description: 鍒嗘瀽浼佷笟鍟嗕笟妯″紡鐨凙I鎶€鑳斤紝浠庣湡瀹炴暟鎹簮鎼滈泦浼佷笟淇℃伅锛岃繘琛屽叏闈㈢殑鍟嗕笟妯″紡鍒嗘瀽锛屽寘鎷晢涓氭ā寮忕敾甯冦€佺珵浜夊垎鏋愩€佷环鍊间富寮犲垎鏋愮瓑
 version: 1.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [business, model, analysis, canvas, competitive-analysis, value-proposition]
 compatibility: Node.js environment

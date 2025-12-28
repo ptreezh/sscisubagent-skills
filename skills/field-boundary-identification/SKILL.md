@@ -2,7 +2,7 @@
 name: field-boundary-identification
 description: 当用户需要识别和分析社会场域的边界，包括场域范围、界限、排除机制和与其他场域的关系时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 license: MIT
 tags: [field-analysis, boundary-identification, field-theory, bourdieu, social-structure, exclusion-mechanisms]
 compatibility: Claude 3.5 Sonnet and above

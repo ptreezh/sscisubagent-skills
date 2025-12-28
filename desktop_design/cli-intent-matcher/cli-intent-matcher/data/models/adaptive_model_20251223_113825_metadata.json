@@ -1,0 +1,7 @@
+{
+  "accuracy": 0.8823529411764706,
+  "feature_count": 200,
+  "training_size": 81,
+  "training_date": "2025-12-23T11:38:25.462690",
+  "model_version": "adaptive-v1"
+}

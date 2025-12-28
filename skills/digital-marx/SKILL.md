@@ -9,7 +9,7 @@ metadata:
   complexity: advanced
   version: 1.0.0
   integration_type: theoretical_quantitative
-  author: zhangshuren@hznu.edu.cn
+  author: socienceAI.com
   website: http://agentpsy.com
 allowed-tools: python bash read_file write_file task
 ---
@@ -21,6 +21,82 @@ allowed-tools: python bash read_file write_file task
 - 阶级结构与社会关系分析
 - 资本运动规律与剩余价值分析
 - 意识形态批判与文化分析
+
+## 脚本调用时机
+当需要执行数字马克思社会学分析时，调用 `integrated_marx_analyzer.py` 脚本。
+
+## 输入格式
+```json
+{
+  "analysis_context": "分析的背景和范围",
+  "target_society": "目标社会或现象",
+  "analysis_phases": [
+    "material_base_analysis", 
+    "production_relation_analysis", 
+    "superstructure_analysis", 
+    "social_change_prediction"
+  ],
+  "data_sources": [
+    {
+      "type": "数据类型(文本/统计/其他)",
+      "content": "具体数据内容",
+      "relevance": "与分析的相关性"
+    }
+  ],
+  "specific_questions": [
+    "需要解答的具体问题"
+  ],
+  "constraints": {
+    "theoretical_framework": "理论框架限制",
+    "time_period": "时间范围",
+    "geographical_scope": "地理范围"
+  }
+}
+```
+
+## 输出格式
+```json
+{
+  "analysis_type": "digital-marx-analysis",
+  "material_base_analysis": {
+    "productivity_level": "生产力水平",
+    "production_tools": "生产工具特征",
+    "technology_form": "技术形态",
+    "labor_efficiency": "劳动效率评估",
+    "technical_impact": "科技进步对生产的影响"
+  },
+  "production_relation_analysis": {
+    "ownership_form": "生产资料所有制形式",
+    "production_position": "人们在生产中的地位",
+    "product_distribution": "产品分配方式",
+    "class_structure": "阶级结构分析",
+    "contradiction_assessment": "矛盾分析"
+  },
+  "superstructure_analysis": {
+    "political_system": "政治制度与法律体系",
+    "ideology_form": "意识形态形式与功能",
+    "culture_psychology": "文化与社会心理",
+    "base_superstructure_relation": "上层建筑与经济基础关系"
+  },
+  "social_change_prediction": {
+    "basic_contradiction": "社会基本矛盾分析",
+    "change_condition": "变革条件评估",
+    "trend_prediction": "发展趋势预测",
+    "practice_path": "实践路径建议"
+  },
+  "quality_assessment": {
+    "theoretical_consistency": "理论一致性检验结果",
+    "methodological_validity": "方法论有效性",
+    "analysis_completeness": "分析完整性"
+  },
+  "outputs": {
+    "historical_materialism_report": "历史唯物主义分析报告",
+    "class_structure_report": "阶级结构分析报告",
+    "capital_movement_report": "资本运动分析报告",
+    "social_change_assessment": "社会变革评估"
+  }
+}
+```
 
 ## 分析流程
 

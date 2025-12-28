@@ -2,7 +2,7 @@
 name: performing-network-computation
 description: 当用户需要执行社会网络计算分析，包括网络构建、基础指标计算、社区检测、网络可视化和高级网络分析时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [social-network-analysis, network-computation, graph-analysis, community-detection, network-visualization]
 ---
 

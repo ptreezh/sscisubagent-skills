@@ -1,0 +1,46 @@
+[project]
+name = "trusted-web-scraper"
+version = "1.0.0"
+description = "可信网站爬虫技能，专门用于爬取企业官网、教育网、政务网等可信网站的信息"
+authors = [{"name" = "chinese-social-sciences-subagents"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0 ; sys_platform != 'win32'",  # 在Windows上可能有安装问题，所以条件性安装
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "flake8>=6.0",
+]
+full = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+    "selenium>=4.15.0",
+    "playwright>=1.40.0",
+]
+
+[project.scripts]
+trusted-web-scraper = "scripts.trusted_web_scraper:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trusted_web_scraper*"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "flake8>=6.0",
+]

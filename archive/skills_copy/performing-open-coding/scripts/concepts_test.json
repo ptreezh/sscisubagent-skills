@@ -1,0 +1,135 @@
+{
+  "summary": {
+    "total_concepts": 20,
+    "text_length": 240,
+    "top_concepts": [
+      "学习",
+      "大学",
+      "过程",
+      "遇到",
+      "很多"
+    ],
+    "processing_time": 1.41
+  },
+  "details": {
+    "concepts": [
+      {
+        "concept": "学习",
+        "frequency": 7,
+        "type": "一般概念"
+      },
+      {
+        "concept": "大学",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "过程",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "遇到",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "很多",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "困难",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "我会",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "老师",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "帮助",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "通过",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "能够",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "更好",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "生活",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "学会",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "如何",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "自己",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "努力",
+        "frequency": 2,
+        "type": "一般概念"
+      },
+      {
+        "concept": "问题",
+        "frequency": 1,
+        "type": "一般概念"
+      },
+      {
+        "concept": "主动",
+        "frequency": 1,
+        "type": "一般概念"
+      },
+      {
+        "concept": "寻求",
+        "frequency": 1,
+        "type": "行动概念"
+      }
+    ],
+    "suggestions": [
+      "重点关注行动概念：寻求",
+      "高频概念建议编码：学习, 大学, 过程, 遇到, 很多, 困难, 我会, 老师, 帮助, 通过"
+    ],
+    "concept_types": {
+      "行动概念": 1,
+      "情感概念": 0,
+      "关系概念": 0,
+      "一般概念": 19
+    }
+  },
+  "metadata": {
+    "input_file": "D:\\stigmergy-CLI-Multi-Agents\\sscisubagent-skills\\skills\\coding\\performing-open-coding\\scripts\\..\\..\\..\\..\\test_data\\open_coding\\sample_interview.txt",
+    "output_file": "concepts_test.json",
+    "timestamp": "2025-12-19T10:01:09.774367",
+    "version": "1.0.0",
+    "skill": "performing-open-coding"
+  }
+}

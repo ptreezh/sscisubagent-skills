@@ -2,7 +2,7 @@
 name: ant-participant-identification
 description: 识别行动者网络理论中的参与者，包括人类和非人类行动者，以及他们的特征、关系和网络位置。当需要识别人类和非人类行动者、确定其角色和特征时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [actor-network-theory, ANT, participant-identification, human-actors, non-human-actors, socio-technical]
 ---
 

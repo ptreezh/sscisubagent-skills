@@ -1,0 +1,302 @@
+# AgentSkills.io 发布配置
+# 作者: socienceAI.com
+# 联系: zhangshuren@freeagentskills.com
+
+# 项目信息
+project:
+  name: "sscisubagent-skills"
+  displayName: "SSCI Subagent Skills"
+  description: "中文社会科学研究多代理技能系统 - A comprehensive multi-agent skill system for social science research"
+  version: "1.0.0"
+  license: "MIT"
+  repository: "https://github.com/ptreezh/sscisubagent-skills"
+  homepage: "https://github.com/ptreezh/sscisubagent-skills"
+  author: "socienceAI.com"
+  email: "zhangshuren@freeagentskills.com"
+
+# 关键词（用于SEO和搜索）
+keywords:
+  - "social science research"
+  - "社会科学研究"
+  - "qualitative research"
+  - "质性研究"
+  - "quantitative research"
+  - "量化研究"
+  - "grounded theory"
+  - "扎根理论"
+  - "social network analysis"
+  - "社会网络分析"
+  - "actor-network theory"
+  - "行动者网络理论"
+  - "Bourdieu field theory"
+  - "布迪厄场域理论"
+  - "digital Marxism"
+  - "数字马克思主义"
+  - "literature review"
+  - "文献综述"
+  - "citation management"
+  - "引用管理"
+  - "bibliometric analysis"
+  - "文献计量分析"
+  - "QCA"
+  - "模糊集定性比较分析"
+  - "research design"
+  - "研究设计"
+  - "data analysis"
+  - "数据分析"
+
+# 分类
+categories:
+  - "social-science"
+  - "research-tools"
+  - "data-analysis"
+  - "literature-management"
+  - "qualitative-analysis"
+  - "quantitative-analysis"
+
+# 支持的CLI工具
+supported_clis:
+  - name: "Claude Code"
+    version: ">= 1.0.0"
+    compatibility: "full"
+
+  - name: "Gemini CLI"
+    version: ">= 2.0.0"
+    compatibility: "partial"
+
+  - name: "Qwen CLI"
+    version: ">= 1.5.0"
+    compatibility: "partial"
+
+# 智能体列表
+agents:
+  - id: "grounded-theory-expert"
+    name: "Grounded Theory Expert"
+    file: "agents/grounded-theory-expert.md"
+    description: "扎根理论专家，提供开放式编码、轴心编码、选择式编码和理论饱和度检验的完整支持"
+    category: "qualitative-research"
+    keywords:
+      - "grounded theory"
+      - "扎根理论"
+      - "qualitative coding"
+      - "质性编码"
+      - "theoretical saturation"
+      - "理论饱和"
+
+  - id: "sna-expert"
+    name: "Social Network Analysis Expert"
+    file: "agents/sna-expert.md"
+    description: "社会网络分析专家，提供网络数据收集、中心性测量、社区检测和结构洞分析"
+    category: "network-analysis"
+    keywords:
+      - "social network analysis"
+      - "社会网络分析"
+      - "centrality"
+      - "中心性"
+      - "community detection"
+      - "社区检测"
+
+  - id: "ant-expert"
+    name: "Actor-Network Theory Expert"
+    file: "agents/ant-expert.md"
+    description: "行动者网络理论专家，分析异质性行动者网络、追踪事实构建过程"
+    category: "theoretical-framework"
+    keywords:
+      - "actor-network theory"
+      - "行动者网络理论"
+      - "ANT"
+      - "translation"
+      - "转译"
+
+  - id: "field-expert"
+    name: "Bourdieu Field Theory Expert"
+    file: "agents/field-expert.md"
+    description: "布迪厄场域理论专家，分析场域结构、资本分布和习性模式"
+    category: "theoretical-framework"
+    keywords:
+      - "Bourdieu"
+      - "field theory"
+      - "场域理论"
+      - "social capital"
+      - "社会资本"
+      - "habitus"
+      - "习性"
+
+  - id: "literature-expert"
+    name: "Literature Expert"
+    file: "agents/literature-expert.md"
+    description: "文献管理专家，整合中英文论文自动检索、下载、引用管理和研究趋势分析"
+    category: "literature-management"
+    keywords:
+      - "literature review"
+      - "文献综述"
+      - "citation management"
+      - "引用管理"
+      - "academic writing"
+      - "学术写作"
+      - "arXiv"
+      - "PubScholar"
+
+  - id: "digital-marx-expert"
+    name: "Digital Marxism Expert"
+    file: "agents/digital-marx-expert.md"
+    description: "数字马克思主义专家，基于历史唯物主义分析数字时代的异化、资本运动规律和意识形态批判"
+    category: "critical-theory"
+    keywords:
+      - "Marxism"
+      - "马克思主义"
+      - "historical materialism"
+      - "历史唯物主义"
+      - "alienation"
+      - "异化"
+      - "digital capitalism"
+      - "数字资本主义"
+
+# 技能映射（skills目录到agentskills.io的映射）
+skills_mapping:
+  # 扎根理论技能
+  - source: "skills/performing-open-coding/SKILL.md"
+    target: "grounded-theory/open-coding"
+    name: "Performing Open Coding"
+    description: "执行开放式编码，识别和编码初始概念"
+
+  - source: "skills/performing-axial-coding/SKILL.md"
+    target: "grounded-theory/axial-coding"
+    name: "Performing Axial Coding"
+    description: "执行轴心编码，建立概念间的联系"
+
+  - source: "skills/performing-selective-coding/SKILL.md"
+    target: "grounded-theory/selective-coding"
+    name: "Performing Selective Coding"
+    description: "执行选择式编码，整合和提炼核心理论"
+
+  - source: "skills/checking-theory-saturation/SKILL.md"
+    target: "grounded-theory/saturation-check"
+    name: "Checking Theory Saturation"
+    description: "检验理论饱和度"
+
+  - source: "skills/writing-grounded-theory-memos/SKILL.md"
+    target: "grounded-theory/memos"
+    name: "Writing Grounded Theory Memos"
+    description: "撰写扎根理论备忘录"
+
+  # 网络分析技能
+  - source: "skills/network-computation/SKILL.md"
+    target: "network-analysis/computation"
+    name: "Network Computation"
+    description: "社会网络计算分析"
+
+  - source: "skills/performing-centrality-analysis/SKILL.md"
+    target: "network-analysis/centrality"
+    name: "Centrality Analysis"
+    description: "中心性测量"
+
+  - source: "skills/processing-network-data/SKILL.md"
+    target: "network-analysis/data-processing"
+    name: "Processing Network Data"
+    description: "网络数据处理"
+
+  # 文献检索技能
+  - source: "skills/arxiv-paper-search/SKILL.md"
+    target: "literature/arxiv-search"
+    name: "arXiv Paper Search"
+    description: "arXiv论文检索和下载"
+    api_required: false
+    dependencies:
+      - "requests>=2.31.0"
+      - "feedparser>=6.0.10"
+
+  - source: "skills/pubscholar-auto-search/SKILL.md"
+    target: "literature/pubscholar-search"
+    name: "PubScholar Auto Search"
+    description: "PubScholar中文论文自动检索"
+    api_required: false
+    dependencies:
+      - "playwright>=1.40.0"
+
+  # 统计分析技能
+  - source: "skills/mathematical-statistics/SKILL.md"
+    target: "statistics/mathematical"
+    name: "Mathematical Statistics"
+    description: "数理统计分析"
+
+  - source: "skills/validity-reliability/SKILL.md"
+    target: "statistics/validity-reliability"
+    name: "Validity and Reliability Analysis"
+    description: "信度和效度分析"
+
+  # QCA分析技能
+  - source: "skills/fsqca-analysis/SKILL.md"
+    target: "qca/fsqca"
+    name: "fsQCA Analysis"
+    description: "模糊集定性比较分析"
+
+  - source: "skills/msqca-analysis/SKILL.md"
+    target: "qca/msqca"
+    name: "msQCA Analysis"
+    description: "多值定性比较分析"
+
+  - source: "skills/did-analysis/SKILL.md"
+    target: "causal-inference/did"
+    name: "Difference-in-Differences"
+    description: "双重差分分析"
+
+  # 理论分析技能
+  - source: "skills/ant/SKILL.md"
+    target: "theory/ant"
+    name: "Actor-Network Theory"
+    description: "行动者网络理论分析"
+
+  - source: "skills/field-analysis/SKILL.md"
+    target: "theory/field"
+    name: "Field Analysis"
+    description: "布迪厄场域分析"
+
+  - source: "skills/digital-marx/SKILL.md"
+    target: "theory/digital-marx"
+    name: "Digital Marxism"
+    description: "数字马克思主义分析"
+
+  - source: "skills/digital-weber/SKILL.md"
+    target: "theory/digital-weber"
+    name: "Digital Weber"
+    description: "数字韦伯理论分析"
+
+  - source: "skills/digital-durkheim/SKILL.md"
+    target: "theory/digital-durkheim"
+    name: "Digital Durkheim"
+    description: "数字迪尔凯姆理论分析"
+
+# 发布配置
+publishing:
+  # 是否自动发布所有技能
+  auto_publish_all: true
+
+  # 排除的技能
+  exclude_skills:
+    - "archive/*"
+    - "desktop_design/*"
+    - "project_backup/*"
+
+  # 技能验证
+  validation:
+    require_test: false  # 是否要求测试
+    require_examples: true  # 是否要求示例
+    min_python_version: "3.8"
+
+  # 文档要求
+  documentation:
+    require_readme: true
+    require_changelog: true
+    require_license: true
+
+# API配置
+api:
+  base_url: "https://api.agentskills.io/v1"
+  endpoint: "/skills/publish"
+  timeout: 30
+
+# 认证配置
+auth:
+  type: "bearer_token"
+  env_var: "AGENTSKILLS_API_KEY"

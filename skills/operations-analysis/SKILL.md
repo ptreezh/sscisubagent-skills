@@ -1,7 +1,7 @@
 ﻿---
 name: operations-analysis
 description: 鍩轰簬杩愯惀绠＄悊鐞嗚锛屽浼佷笟杩愯惀娴佺▼銆佹晥鐜囥€佽川閲忋€佷緵搴旈摼绛夎繘琛岀郴缁熷垎鏋愮殑鎶€鑳斤紝杩愮敤绮剧泭鐢熶骇銆佸叚瑗挎牸鐜涖€佷緵搴旈摼绠＄悊绛夌悊璁烘鏋讹紝璇勪及浼佷笟杩愯惀鏁堣兘鍜屼紭鍖栨満浼?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [operations-management, process-efficiency, quality-management, supply-chain, lean-manufacturing, six-sigma]
 compatibility: Node.js environment

@@ -1,7 +1,7 @@
 ﻿---
 name: information-verification
 description: 鍩轰簬淇℃伅绉戝鍜岄獙璇佺悊璁猴紝瀵逛紒涓氫俊鎭潵婧愩€佸噯纭€с€佸彲淇″害鍜屾椂鏁堟€ц繘琛屽叏闈㈤獙璇佺殑鎶€鑳斤紝纭繚鍒嗘瀽鎵€渚濇嵁鐨勪俊鎭湡瀹炪€佸噯纭€佸彲闈?version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [information-verification, data-quality, accuracy-check, credibility-assessment, source-verification]
 compatibility: Node.js environment
@@ -63,7 +63,7 @@ const information = {
   year: 2023,
   source: "骞村害鎶ュ憡",
   publishedDate: "2024-04-15",
-  author: "璐㈠姟閮ㄩ棬",
+  author: socienceAI.com
   methodology: "浼氳鍑嗗垯"
 };
 ```
@@ -157,7 +157,7 @@ const comprehensiveVerification = await informationVerificationSkill.execute({
     year: 2023,
     source: "淇℃伅鏉ユ簮",
     publishedDate: "鍙戝竷鏃ユ湡",
-    author: "浣滆€?,
+    author: socienceAI.com
     methodology: "鏂规硶璁?
   },
   verificationType: "accuracy-check",  // 楠岃瘉绫诲瀷

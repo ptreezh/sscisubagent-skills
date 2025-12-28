@@ -1,0 +1,142 @@
+[
+  {
+    "id": "conv_1766461734_0",
+    "timestamp": 1766461734.5206547,
+    "datetime": "2025-12-23T11:48:54.520655",
+    "user_input": "帮我写一份项目文档",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"帮我写一份项目文档\"",
+    "feedback": {
+      "conversation_id": "conv_1766461734_0",
+      "timestamp": 1766461734.5217485,
+      "satisfaction_score": 5,
+      "feedback_text": "Great suggestion!",
+      "datetime": "2025-12-23T11:48:54.521749"
+    },
+    "satisfaction_score": 5,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461734_1",
+    "timestamp": 1766461734.5632145,
+    "datetime": "2025-12-23T11:48:54.563215",
+    "user_input": "帮我设计一个网页界面",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"帮我设计一个网页界面\"",
+    "feedback": null,
+    "satisfaction_score": null,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_2",
+    "timestamp": 1766461752.197086,
+    "datetime": "2025-12-23T11:49:12.197086",
+    "user_input": "帮我写一份项目文档",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"帮我写一份项目文档\"",
+    "feedback": {
+      "conversation_id": "conv_1766461752_2",
+      "timestamp": 1766461752.199233,
+      "satisfaction_score": 5,
+      "feedback_text": "Great suggestion!",
+      "datetime": "2025-12-23T11:49:12.199233"
+    },
+    "satisfaction_score": 5,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_3",
+    "timestamp": 1766461752.243983,
+    "datetime": "2025-12-23T11:49:12.243983",
+    "user_input": "帮我设计一个网页界面",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"帮我设计一个网页界面\"",
+    "feedback": null,
+    "satisfaction_score": null,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_4",
+    "timestamp": 1766461752.456429,
+    "datetime": "2025-12-23T11:49:12.456429",
+    "user_input": "帮我分析这份PDF报告",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call skill pdf \"帮我分析这份PDF报告\"",
+    "feedback": null,
+    "satisfaction_score": null,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_5",
+    "timestamp": 1766461752.4973986,
+    "datetime": "2025-12-23T11:49:12.497399",
+    "user_input": "测试输入 0",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"测试输入 0\"",
+    "feedback": {
+      "conversation_id": "conv_1766461752_5",
+      "timestamp": 1766461752.4989536,
+      "satisfaction_score": 2,
+      "feedback_text": "Low satisfaction for test 0",
+      "datetime": "2025-12-23T11:49:12.498954"
+    },
+    "satisfaction_score": 2,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_6",
+    "timestamp": 1766461752.547113,
+    "datetime": "2025-12-23T11:49:12.547113",
+    "user_input": "测试输入 1",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"测试输入 1\"",
+    "feedback": {
+      "conversation_id": "conv_1766461752_6",
+      "timestamp": 1766461752.549249,
+      "satisfaction_score": 2,
+      "feedback_text": "Low satisfaction for test 1",
+      "datetime": "2025-12-23T11:49:12.549249"
+    },
+    "satisfaction_score": 2,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_7",
+    "timestamp": 1766461752.597284,
+    "datetime": "2025-12-23T11:49:12.597284",
+    "user_input": "测试输入 2",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"测试输入 2\"",
+    "feedback": {
+      "conversation_id": "conv_1766461752_7",
+      "timestamp": 1766461752.599802,
+      "satisfaction_score": 2,
+      "feedback_text": "Low satisfaction for test 2",
+      "datetime": "2025-12-23T11:49:12.599802"
+    },
+    "satisfaction_score": 2,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461752_8",
+    "timestamp": 1766461752.6485267,
+    "datetime": "2025-12-23T11:49:12.648527",
+    "user_input": "帮我分析这份PDF报告",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call skill pdf \"帮我分析这份PDF报告\"",
+    "feedback": null,
+    "satisfaction_score": null,
+    "follow_up_analyzed": false
+  },
+  {
+    "id": "conv_1766461803_9",
+    "timestamp": 1766461803.9397166,
+    "datetime": "2025-12-23T11:50:03.939717",
+    "user_input": "帮我写一篇关于AI的报告",
+    "cli_intent": "stigmergy",
+    "cli_command": "stigmergy call \"帮我写一篇关于AI的报告\"",
+    "feedback": null,
+    "satisfaction_score": null,
+    "follow_up_analyzed": false
+  }
+]

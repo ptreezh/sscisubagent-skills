@@ -2,7 +2,7 @@
 name: conflict-resolution
 description: 当用户需要解决学术研究中的理论、方法论、解释、价值观等分歧，提供建设性对话和共识建立策略时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 license: MIT
 tags: [conflict-resolution, academic-discourse, research-methodology, consensus-building, disagreement-management]
 compatibility: Claude 3.5 Sonnet and above

@@ -2,7 +2,7 @@
 name: alienation-analysis
 description: 鍩轰簬椹厠鎬濅富涔夊紓鍖栫悊璁猴紝瀵圭幇浠ｇぞ浼氫腑鐨勫姵鍔ㄥ紓鍖栥€佺ぞ浼氬叧绯诲紓鍖栥€佹秷璐瑰紓鍖栧拰鎶€鏈紓鍖栫幇璞¤繘琛屾繁搴﹀垎鏋愮殑鎶€鑳斤紝杩愮敤椹厠鎬濈殑鍥涢噸寮傚寲鐞嗚妗嗘灦锛岃瘎浼板紓鍖栫▼搴﹀苟鎻愬嚭瓒呰秺璺緞
 version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [alienation-theory, marxist-analysis, labor-studies, social-phenomena, critical-theory]
 compatibility: Node.js environment

@@ -2,7 +2,7 @@
 name: ant
 description: 当用户需要执行行动者网络理论分析，包括参与者识别、关系网络构建、转译过程追踪和网络动态分析时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 license: MIT
 tags: [actor-network-theory, ANT, science-technology-studies, socio-technical, networks]
 compatibility: Claude 3.5 Sonnet and above

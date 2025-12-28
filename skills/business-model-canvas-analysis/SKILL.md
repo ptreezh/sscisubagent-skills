@@ -2,7 +2,7 @@
 name: business-model-canvas-analysis
 description: 鍩轰簬鏉冨▉鍟嗕笟妯″紡鐢诲竷鐞嗚锛屽浼佷笟杩涜鍏ㄩ潰鐨勫晢涓氭ā寮忓垎鏋愶紝鍖呮嫭鍟嗕笟妯″紡鐢诲竷鐨勪節涓牳蹇冭绱狅細瀹㈡埛缁嗗垎銆佷环鍊间富寮犮€佹笭閬撻€氳矾銆佸鎴峰叧绯汇€佹敹鍏ユ潵婧愩€佸叧閿祫婧愩€佸叧閿椿鍔ㄣ€佸叧閿悎浣滀紮浼村拰鎴愭湰缁撴瀯
 version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [business, model, canvas, analysis, strategy, osterwalder]
 compatibility: Node.js environment

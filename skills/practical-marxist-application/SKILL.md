@@ -2,7 +2,7 @@
 name: practical-marxist-application
 description: 鍩轰簬椹厠鎬濅富涔夊熀鏈師鐞嗭紝灏嗙悊璁轰笌瀹炶返鐩哥粨鍚堬紝瑙ｅ喅瀹為檯闂鐨勬妧鑳斤紝閫氳繃鐞嗚鎸囧瀹炶返銆佸疄璺甸獙璇佺悊璁虹殑鏂瑰紡锛屽疄鐜伴┈鍏嬫€濅富涔夌悊璁哄湪涓浗绀句細鐜板疄涓殑鍏蜂綋搴旂敤
 version: 2.0.0
-author: AgentPsy Team
+author: socienceAI.com
 license: MIT
 tags: [marxist-application, theory-practice, praxis, social-problems, economic-analysis]
 compatibility: Node.js environment

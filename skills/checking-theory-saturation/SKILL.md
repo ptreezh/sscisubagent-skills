@@ -2,7 +2,7 @@
 name: checking-theory-saturation
 description: 当用户需要检验扎根理论饱和度，包括新概念识别、范畴完善度、关系充分性和理论完整性评估时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [grounded-theory, saturation-analysis, qualitative-research, concept-identification, category-development]
 ---
 
@@ -40,20 +40,151 @@ When a user requests saturation assessment:
 - "理论完整性" 或 "理论完善度"
 - 需要评估理论构建的充分性
 
-## 快速开始
+## 脚本调用时机
+当需要执行理论饱和度检验时，调用对应的脚本：
+- 概念饱和检验：`assess_concept_saturation.py`
+- 范畴饱和检验：`assess_category_saturation.py`
+- 关系饱和检验：`assess_relationship_saturation.py`
+- 理论饱和检验：`assess_theory_saturation.py`
+- 综合饱和度判断：`make_saturation_judgment.py`
 
-### 检验流程
-1. **概念饱和检验**：分析新数据中是否出现新概念
-2. **范畴饱和检验**：评估范畴属性和维度的发展充分性
-3. **关系饱和检验**：检查概念间关系的稳定性
-4. **理论饱和检验**：验证理论框架的完整性
-5. **综合判断**：基于多维度证据做出饱和度判断
+## 统一输入格式
+```json
+{
+  "saturation_context": {
+    "research_topic": "研究主题",
+    "current_coding_stage": "当前编码阶段",
+    "theoretical_perspective": "理论视角",
+    "saturation_purpose": "饱和度检验目的"
+  },
+  "input_data": {
+    "existing_theory": {
+      "concepts": [
+        {
+          "id": "概念ID",
+          "name": "概念名称",
+          "frequency": "出现频率",
+          "last_appearance": "最后出现位置"
+        }
+      ],
+      "categories": [
+        {
+          "id": "范畴ID",
+          "name": "范畴名称",
+          "attributes": ["属性列表"],
+          "dimensions": ["维度列表"],
+          "relationships": ["关系列表"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "关系ID",
+          "from": "源概念/范畴ID",
+          "to": "目标概念/范畴ID",
+          "type": "关系类型",
+          "strength": "关系强度(0-1)"
+        }
+      ],
+      "theoretical_framework": "理论框架描述"
+    },
+    "new_data": [
+      {
+        "id": "新数据ID",
+        "content": "新数据内容",
+        "type": "数据类型",
+        "source": "数据来源"
+      }
+    ],
+    "saturation_criteria": {
+      "concept_threshold": 0.05,
+      "category_threshold": 0.90,
+      "relationship_threshold": 0.10,
+      "theory_threshold": 0.90
+    }
+  },
+  "analysis_parameters": {
+    "confidence_level": 0.95,
+    "statistical_significance": 0.05,
+    "minimum_sample_size": 10
+  }
+}
+```
 
-### 判断标准
-- **概念层面**：连续分析多份数据无新概念出现
-- **范畴层面**：范畴属性和维度发展充分
-- **关系层面**：关系网络稳定且完整
-- **理论层面**：理论能解释所有重要现象
+## 统一输出格式
+```json
+{
+  "summary": {
+    "saturation_level": "fully_saturated|partially_saturated|not_saturated",
+    "overall_saturation_score": "总体饱和度分数(0-1)",
+    "confidence_level": "置信度(0-1)",
+    "concepts_emerging_rate": "新概念出现率(0-1)",
+    "categories_development_score": "范畴发展分数(0-1)",
+    "processing_time": "处理时间(秒)"
+  },
+  "details": {
+    "concept_saturation": {
+      "new_concepts_identified": [
+        {
+          "id": "新概念ID",
+          "name": "新概念名称",
+          "significance": "重要性(0-1)",
+          "data_source": "数据来源"
+        }
+      ],
+      "new_concepts_count": "新概念数量",
+      "average_per_dataset": "每份数据平均新概念数",
+      "significance_level": "重要性水平(high/medium/low)",
+      "trend_analysis": "趋势分析"
+    },
+    "category_saturation": {
+      "attributes_completeness": "属性完整度(0-1)",
+      "dimensions_coverage": "维度覆盖度(0-1)",
+      "relations_stability": "关系稳定性(0-1)",
+      "category_maturity_scores": {
+        "category_id": "成熟度分数(0-1)"
+      }
+    },
+    "relationship_saturation": {
+      "new_relationships_count": "新关系数",
+      "relationships_stability": "关系稳定性(0-1)",
+      "network_completeness": "网络完整度(0-1)",
+      "new_relationships": [
+        {
+          "id": "新关系ID",
+          "from": "源概念/范畴ID",
+          "to": "目标概念/范畴ID",
+          "type": "关系类型",
+          "significance": "重要性(0-1)"
+        }
+      ]
+    },
+    "theory_saturation": {
+      "explanation_coverage": "解释覆盖度(0-1)",
+      "internal_consistency": "内部一致性(0-1)",
+      "phenomena_explained_count": "解释现象数",
+      "theory_maturity": "理论成熟度(0-1)"
+    },
+    "statistical_analysis": {
+      "confidence_interval": "置信区间",
+      "statistical_significance": "统计显著性",
+      "sample_size": "样本量",
+      "effect_size": "效应量"
+    }
+  },
+  "recommendations": {
+    "continue_data_collection": "是否继续收集数据(true/false)",
+    "focus_areas": ["需要关注的领域列表"],
+    "next_steps": ["下一步建议列表"],
+    "data_collection_strategy": "数据收集策略建议"
+  },
+  "metadata": {
+    "timestamp": "时间戳",
+    "version": "版本号",
+    "skill": "checking-theory-saturation",
+    "analysis_method": "分析方法"
+  }
+}
+```
 
 ## 核心流程
 

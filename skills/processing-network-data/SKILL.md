@@ -2,7 +2,7 @@
 name: processing-network-data
 description: 当用户需要处理社会网络数据，包括关系数据收集、矩阵构建、数据清洗验证和多模网络处理时使用此技能
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 license: MIT
 tags: [social-network-analysis, network-data-processing, data-cleaning, matrix-construction, relational-data]
 compatibility: Claude 3.5 Sonnet and above

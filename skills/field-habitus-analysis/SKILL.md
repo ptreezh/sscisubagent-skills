@@ -2,7 +2,7 @@
 name: field-habitus-analysis
 description: 分析社会场域中的习性模式，包括行动者的行为倾向、认知结构、实践逻辑和场域结构的相互关系。当需要理解行动者的实践逻辑、分析习性与场域的关系或评估习性对场域实践的影响时使用此技能。
 version: 1.0.0
-author: chinese-social-sciences-subagents
+author: socienceAI.com
 tags: [field-analysis, habitus-analysis, practice-theory, disposition, embodied-knowledge, field-structure, bourdieu, social-theory]
 ---
 
