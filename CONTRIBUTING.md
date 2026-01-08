@@ -30,7 +30,7 @@ If you found a bug or have a feature request:
 ```bash
 # Fork 项目到您的 GitHub 账户
 # Fork the project to your GitHub account
-git clone https://github.com/yourusername/sscisubagent-skills.git
+git clone https://github.com/ptreezh/sscisubagent-skills.git
 cd sscisubagent-skills
 ```
 

@@ -191,5 +191,5 @@ and versioning adheres to [Semantic Versioning](https://semver.org/).
 
 ## 链接 / Links
 
-- [当前版本](https://github.com/yourusername/sscisubagent-skills/releases/tag/v1.0.0)
-- [所有版本](https://github.com/yourusername/sscisubagent-skills/releases)
+- [当前版本](https://github.com/ptreezh/sscisubagent-skills/releases/tag/v1.0.0)
+- [所有版本](https://github.com/ptreezh/sscisubagent-skills/releases)

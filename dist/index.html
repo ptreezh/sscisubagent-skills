@@ -305,24 +305,22 @@
         <div class="modern-container text-center">
             <h1 class="display-3 fw-bold mb-4">中文社会科学AI研究助手</h1>
             <p class="lead mb-5">专为中文社会科学研究者打造的智能研究平台</p>
+            <p class="mb-4" style="font-size: 1.2rem; opacity: 0.9;">无需编程基础 · 一键安装 · 开箱即用</p>
 
             <!-- 增加超级链接到hero区域 -->
             <div class="hero-links mb-4" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
                 <a href="#quick-install" class="github-btn me-3">
-                    <i class="fas fa-rocket me-2"></i>极速安装指南
+                    <i class="fas fa-rocket me-2"></i>开始安装（3步搞定）
                 </a>
                 <a href="#features" class="btn btn-light btn-lg">
-                    <i class="fas fa-star me-2"></i>核心功能
-                </a>
-                <a href="#download" class="btn btn-light btn-lg">
-                    <i class="fas fa-download me-2"></i>下载安装
+                    <i class="fas fa-star me-2"></i>看看有什么功能
                 </a>
             </div>
 
             <div class="hero-buttons">
                 <a href="https://github.com/ptreezh/sscisubagent-skills" target="_blank" class="github-btn me-3">
                     <i class="fab fa-github me-2"></i>
-                    GitHub
+                    GitHub 源码
                 </a>
                 <a href="../../index.html" class="btn btn-light btn-lg">
                     <i class="fas fa-flask me-2"></i>
@@ -655,93 +653,148 @@
         <!-- Quick Install Section (moved to top) -->
         <section id="quick-install" class="py-5" style="background: var(--light-bg);">
             <div class="modern-container">
-                <h2 class="section-title text-center">极速安装指南</h2>
+                <h2 class="section-title text-center">🎯 3步快速安装</h2>
+                <p class="text-center mb-5" style="font-size: 1.2rem;">无需任何技术背景，照着做就行！</p>
 
-                <!-- Statistics Section (moved here) -->
+                <!-- 安装步骤 -->
+                <div class="row mb-5">
+                    <div class="col-lg-4">
+                        <div class="text-center mb-4">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin: 0 auto 1.5rem; font-size: 2.5rem;">
+                                1
+                            </div>
+                            <h5 style="color: #1e293b;">安装 npm（如果还没有）</h5>
+                            <p style="color: #64748b;">打开命令行，输入：</p>
+                            <div class="code-block" style="background: #f1f5f9;">
+                                <a href="https://nodejs.org/" target="_blank" style="color: #3b82f6; text-decoration: underline;">下载 Node.js</a> 并安装
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center mb-4">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin: 0 auto 1.5rem; font-size: 2.5rem;">
+                                2
+                            </div>
+                            <h5 style="color: #1e293b;">复制这行命令</h5>
+                            <p style="color: #64748b;">在命令行中输入：</p>
+                            <div class="code-block" style="background: #f1f5f9;">
+                                npm install -g ssci-subagent-skills
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <button onclick="navigator.clipboard.writeText('npm install -g ssci-subagent-skills'); this.textContent = '已复制！'; setTimeout(() => this.textContent = '📋 复制命令', 3000);" style="background: #3b82f6; color: white; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer;">
+                                    📋 复制命令
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center mb-4">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin: 0 auto 1.5rem; font-size: 2.5rem;">
+                                3
+                            </div>
+                            <h5 style="color: #1e293b;">安装完成！</h5>
+                            <p style="color: #64748b;">等待1-2分钟，自动配置完成</p>
+                            <div class="code-block" style="background: #f1f5f9;">
+                                npm run validate
+                            </div>
+                            <p style="font-size: 0.85rem; color: #10b981; margin-top: 0.5rem;">看到"61 有效技能"就说明成功了！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Section (updated) -->
                 <div class="row mb-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-card">
-                            <div class="stats-number">6+</div>
-                            <h4>专业智能体</h4>
+                            <div class="stats-number">11</div>
+                            <h4>智能助手</h4>
+                            <p style="font-size: 0.9rem; color: #64748b;">就像11个专家随时待命</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-card">
-                            <div class="stats-number">15</div>
-                            <h4>专业技能</h4>
+                            <div class="stats-number">61</div>
+                            <h4>研究技能</h4>
+                            <p style="font-size: 0.9rem; color: #64748b;">涵盖文献、编码、分析等</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-card">
-                            <div class="stats-number">100%</div>
-                            <h4>测试覆盖</h4>
+                            <div class="stats-number">10</div>
+                            <h4>可用工具</h4>
+                            <p style="font-size: 0.9rem; color: #64748b;">支持多个AI工具</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-card">
-                            <div class="stats-number">8</div>
-                            <h4>支持语言</h4>
+                            <div class="stats-number">1</div>
+                            <h4>命令搞定</h4>
+                            <p style="font-size: 0.9rem; color: #64748b;">一条命令全部安装</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Technology Stack (moved here) -->
+                <!-- 技术栈展示 -->
                 <div class="row text-center mb-5">
-                    <div class="col-lg-6">
-                        <h4>前端技术</h4>
+                    <div class="col-12">
+                        <h4 style="margin-bottom: 1rem;">🛠️ 支持的 AI 工具（任选其一或多个）</h4>
                         <div class="mb-4">
-                            <span class="tech-badge">Next.js 15</span>
-                            <span class="tech-badge">TypeScript</span>
-                            <span class="tech-badge">Tailwind CSS</span>
-                            <span class="tech-badge">Bootstrap 5</span>
+                            <span class="tech-badge">Claude</span>
+                            <span class="tech-badge">iFlow</span>
+                            <span class="tech-badge">Qwen</span>
+                            <span class="tech-badge">Gemini</span>
+                            <span class="tech-badge">Copilot</span>
+                            <span class="tech-badge">Codex</span>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h4>后端技术</h4>
-                        <div class="mb-4">
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Prisma</span>
-                            <span class="tech-badge">SQLite</span>
-                        </div>
+                        <p style="color: #64748b;">就像给电脑装了10个不同的AI助手，随时切换使用</p>
                     </div>
                 </div>
 
-                <!-- Quick Start -->
+                <!-- 常见问题 -->
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="text-center mb-4">
-                            <div class="feature-icon">
-                                <i class="fas fa-download"></i>
+                    <div class="col-12">
+                        <div style="background: #f8fafc; border-radius: 15px; padding: 2rem;">
+                            <h4 style="margin-bottom: 1.5rem;">❓ 常见问题</h4>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" style="cursor: pointer; padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                                        <i class="fas fa-question-circle me-2" style="color: #3b82f6;"></i>
+                                        需要编程基础吗？
+                                    </h5>
+                                    <div class="accordion-body" style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem; display: none;">
+                                        <p><strong>不需要！</strong>只要会复制粘贴命令就行。安装过程都是自动的，不需要写任何代码。</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" style="cursor: pointer; padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                                        <i class="fas fa-question-circle me-2" style="color: #3b82f6;"></i>
+                                        安装失败了怎么办？
+                                    </h5>
+                                    <div class="accordion-body" style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem; display: none;">
+                                        <p>查看<a href="../INSTALLATION_TROUBLESHOOTING.md" target="_blank" style="color: #3b82f6;">故障排除指南</a>，里面有详细的解决方法。</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" style="cursor: pointer; padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                                        <i class="fas fa-question-circle me-2" style="color: #3b82f6;"></i>
+                                        占用多少空间？
+                                    </h5>
+                                    <div class="accordion-body" style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem; display: none;">
+                                        <p>只有 12.6 MB，非常小巧！就像一个普通手机应用的大小。</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" style="cursor: pointer; padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                                        <i class="fas fa-question-circle me-2" style="color: #3b82f6;"></i>
+                                        安装后怎么用？
+                                    </h5>
+                                    <div class="accordion-body" style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 0.5rem; display: none;">
+                                        <p>打开你安装的AI工具（比如Claude），直接用自然语言提问就行，比如"帮我分析这个文本的场域结构"。</p>
+                                    </div>
+                                </div>
                             </div>
-                            <h5>1. 下载项目</h5>
-                            <p>从 GitHub 克隆或下载 ZIP 文件</p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="text-center mb-4">
-                            <div class="feature-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h5>2. 安装依赖</h5>
-                            <p>安装所需的 CLI 工具和依赖</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="text-center mb-4">
-                            <div class="feature-icon">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <h5>3. 开始使用</h5>
-                            <p>按照文档指引开始研究工作</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <a href="QUICK_INSTALL.html" class="btn btn-primary btn-lg">
-                        <i class="fas fa-rocket me-2"></i>
-                        极简安装指南
-                    </a>
                 </div>
             </div>
         </section>

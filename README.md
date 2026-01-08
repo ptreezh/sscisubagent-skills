@@ -57,7 +57,7 @@ SSCI Subagent Skills is a professional multi-agent skill system designed for Chi
 
 ```bash
 # 克隆仓库 / Clone repository
-git clone https://github.com/yourusername/sscisubagent-skills.git
+git clone https://github.com/ptreezh/sscisubagent-skills.git
 cd sscisubagent-skills
 
 # 安装依赖 / Install dependencies
@@ -514,7 +514,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 项目主页: [https://github.com/yourusername/sscisubagent-skills](https://github.com/yourusername/sscisubagent-skills)
 - 问题反馈: [GitHub Issues](https://github.com/yourusername/sscisubagent-skills/issues)
-- 邮件: your.email@example.com
+- 邮件: zhang.shuren@foxmail.com
 
 ---
 
