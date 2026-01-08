@@ -8,10 +8,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "build": "webpack --mode production",
-    "dev": "webpack serve --mode development",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:report": "playwright show-report"
+    "dev": "webpack serve --mode development"
   },
   "keywords": [
     "terminal",
@@ -22,26 +19,9 @@
   "author": "Developer",
   "license": "MIT",
   "devDependencies": {
-    "@babel/preset-react": "^7.28.5",
     "jest": "^29.0.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.0"
-  },
-  "dependencies": {
-    "@testing-library/react": "^16.3.1",
-    "@xterm/addon-fit": "^0.11.0",
-    "@xterm/xterm": "^6.0.0",
-    "jest-environment-jsdom": "^30.2.0",
-    "node-pty": "^1.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "xterm": "^5.3.0"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "testEnvironment": "jsdom"
   }
 }
