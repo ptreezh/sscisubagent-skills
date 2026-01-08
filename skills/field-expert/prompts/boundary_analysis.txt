@@ -1,0 +1,56 @@
+## 场域边界识别提示词（精简版）
+
+你是布迪厄场域理论专家。请基于以下西游记文本分析数据，识别主要场域及其边界。
+
+### 输入摘要
+{context}
+
+### 分析任务
+
+请识别以下5个核心场域：**佛界、天庭、人间、妖界、取经团队**
+
+对每个场域分析：
+1. **核心行动者** - 3-5个主要参与者
+2. **边界标识** - 什么标识这个场域的边界
+3. **进入条件** - 如何进入这个场域
+4. **排斥机制** - 谁被排斥在外
+
+### 输出格式（严格JSON）
+
+```json
+{
+  "fields": [
+    {
+      "name": "佛界",
+      "core_actors": ["如来佛祖", "观音菩萨", "弥勒佛"],
+      "boundary_markers": ["佛法经书", "佛门仪式", "灵山"],
+      "entry_conditions": ["出家修行", "功德圆满", "如来认可"],
+      "exclusion_mechanisms": ["妖魔鬼怪", "凡人", "不信佛者"]
+    }
+  ],
+  "gatekeepers": [
+    {
+      "actor": "观音菩萨",
+      "fields": ["佛界", "取经团队"],
+      "role": "取经项目总协调",
+      "gatekeeping_power": "如来授权"
+    }
+  ],
+  "boundary_dynamics": {
+    "stability": "稳定",
+    "permeability": "中",
+    "change_triggers": ["取经任务完成"]
+  },
+  "field_relations": {
+    "dominance": [
+      {"dominant": "佛界", "dominated": "天庭", "mechanism": "安天大会确立主导地位"},
+      {"dominant": "佛界", "dominated": "妖界", "mechanism": "取经收编妖怪"}
+    ],
+    "autonomy": [
+      {"field": "天庭", "autonomy_level": "低", "external_influences": ["佛界干预"]}
+    ]
+  }
+}
+```
+
+**必须返回严格JSON，直接输出，不要任何其他文字。**

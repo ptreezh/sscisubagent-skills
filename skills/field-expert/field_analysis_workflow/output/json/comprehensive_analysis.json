@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-06T21:34:27.651368",
+    "analysis_type": "bourdieu_field",
+    "methodology": "LLM-based analysis"
+  },
+  "boundary_analysis": {
+    "fields": [
+      {
+        "name": "天庭",
+        "core_actors": [
+          "玉皇大帝",
+          "太上老君",
+          "观音菩萨"
+        ]
+      },
+      {
+        "name": "佛界",
+        "core_actors": [
+          "如来佛祖"
+        ]
+      },
+      {
+        "name": "人间",
+        "core_actors": [
+          "唐僧",
+          "孙悟空",
+          "猪八戒",
+          "沙僧"
+        ]
+      },
+      {
+        "name": "妖界",
+        "core_actors": [
+          "牛魔王",
+          "白骨精"
+        ]
+      }
+    ],
+    "gatekeepers": [],
+    "boundary_dynamics": {},
+    "field_relations": {}
+  },
+  "capital_analysis": {
+    "capital_types": {},
+    "distribution": {
+      "天庭": {},
+      "佛界": {},
+      "人间": {},
+      "妖界": {}
+    },
+    "ranking": []
+  },
+  "habitus_analysis": {
+    "actors": [
+      {
+        "name": "[DETECTOR] Found claude in PATH",
+        "habitus": [
+          "C:\\Users\\Zhang\\AppData\\Roaming\\npm\\claude"
+        ]
+      },
+      {
+        "name": "[EXEC] claude",
+        "habitus": [
+          "【文本资料】"
+        ]
+      },
+      {
+        "name": "- 总开放编码数",
+        "habitus": [
+          "49个"
+        ]
+      },
+      {
+        "name": "- 主范畴",
+        "habitus": [
+          "12个"
+        ]
+      },
+      {
+        "name": "- 关系数",
+        "habitus": [
+          "47条"
+        ]
+      },
+      {
+        "name": "## 轴心编码",
+        "habitus": [
+          "6大维度18范畴"
+        ]
+      },
+      {
+        "name": "### 维度一",
+        "habitus": [
+          "起源与本体"
+        ]
+      },
+      {
+        "name": "### 维度二",
+        "habitus": [
+          "成长与觉醒"
+        ]
+      },
+      {
+        "name": "### 维度三",
+        "habitus": [
+          "求道与修炼"
+        ]
+      },
+      {
+        "name": "### 维度四",
+        "habitus": [
+          "权力与秩序"
+        ]
+      },
+      {
+        "name": "### 维度五",
+        "habitus": [
+          "冲突与对抗"
+        ]
+      },
+      {
+        "name": "### 维度六",
+        "habitus": [
+          "秩序重构"
+        ]
+      },
+      {
+        "name": "- 检验范围",
+        "habitus": [
+          "第6-7回（观音探查与悟空被救）"
+        ]
+      },
+      {
+        "name": "- 新增编码数",
+        "habitus": [
+          "8个"
+        ]
+      },
+      {
+        "name": "- 检验目的",
+        "habitus": [
+          "验证ESOC理论的饱和度"
+        ]
+      },
+      {
+        "name": "孙悟空",
+        "habitus": [
+          "反抗权威",
+          "追求自由",
+          "机智灵活"
+        ]
+      },
+      {
+        "name": "猪八戒",
+        "habitus": [
+          "贪吃懒惰",
+          "性情温和",
+          "眷恋人世"
+        ]
+      },
+      {
+        "name": "唐僧",
+        "habitus": [
+          "坚定信念",
+          "慈悲为循",
+          "循规蹈矩"
+        ]
+      }
+    ],
+    "symbolic_violence": {},
+    "cross_field": {}
+  },
+  "dynamics_analysis": {
+    "competition": {},
+    "power": {},
+    "evolution": {},
+    "theory": {}
+  }
+}

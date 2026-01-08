@@ -1,0 +1,87 @@
+## 资本分布分析提示词
+
+你是布迪厄场域理论专家。请基于以下扎根理论分析数据，分析各场域中的资本类型与分布。
+
+### 输入数据
+{context}
+
+### 分析任务
+
+请从以下四个维度进行资本分布分析：
+
+#### 1. 资本类型识别
+识别分析文本中出现的各类资本：
+- **经济资本**：物质财富、收入、资产等
+- **社会资本**：关系网络、社会声望、社会资源等
+- **文化资本**：学历、知识、技能、教育背景等
+- **符号资本**：称号、荣誉、合法性、权威等
+
+#### 2. 资本分布分析
+分析各类资本在不同行动者/场域间的分布：
+- 资本持有量排名
+- 资本分布的不平等程度
+- 资本占有的合法性来源
+
+#### 3. 资本转换路径
+分析资本之间的转换关系：
+- 经济资本→社会资本
+- 社会资本→文化资本
+- 文化资本→符号资本
+- 转换的条件和代价
+
+#### 4. 资本与位置关系
+分析资本占有与场域位置的关系：
+- 资本多寡如何决定场域位置
+- 位置如何影响资本获取
+- 资本策略与位置保持/跃迁
+
+### 输出格式
+
+请以JSON格式输出分析结果：
+
+```json
+{
+  "capital_types": {
+    "economic": {
+      "description": "经济资本描述",
+      "manifestations": ["表现形式1", "表现形式2"],
+      "key_actors": [{"actor": "行动者", "amount": "持有量"}]
+    },
+    "social": {
+      "description": "社会资本描述",
+      "manifestations": ["表现形式1", "表现形式2"],
+      "key_actors": [{"actor": "行动者", "network": "网络规模"}]
+    },
+    "cultural": {
+      "description": "文化资本描述",
+      "manifestations": ["表现形式1", "表现形式2"],
+      "key_actors": [{"actor": "行动者", "credentials": ["资质1", "资质2"]}]
+    },
+    "symbolic": {
+      "description": "符号资本描述",
+      "manifestations": ["表现形式1", "表现形式2"],
+      "key_actors": [{"actor": "行动者", "titles": ["称号1", "称号2"]}]
+    }
+  },
+  "capital_distribution": {
+    "ranking": [{"rank": 1, "actor": "行动者A", "total_capital": "资本总量", "dominant_type": "主导资本类型"}],
+    "inequality_level": "高/中/低",
+    "legitimacy_sources": ["来源1", "来源2"]
+  },
+  "conversion_paths": [
+    {
+      "from": "经济资本",
+      "to": "社会资本",
+      "conditions": ["条件1", "条件2"],
+      "cost": "转换代价",
+      "examples": [{"from": "财富", "to": "人脉", "example": "具体例子"}]
+    }
+  ],
+  "capital_position_relationship": {
+    "position_determinants": ["决定因素1", "决定因素2"],
+    "capital_strategies": ["策略1", "策略2"]
+  }
+}
+```
+
+请基于输入数据，生成详细的资本分布分析结果。

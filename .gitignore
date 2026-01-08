@@ -154,3 +154,208 @@ build/
 # 临时文件
 nul
 
+# ============================================
+# 项目特定排除规则 - 不应发布的内容
+# ============================================
+
+# 分析结果JSON文件
+*_results.json
+*_coding_results.json
+saturation_*.json
+grounded_theory_*.json
+saturation_analysis_*.json
+run_saturation_*.json
+operational_concepts_output.json
+codebuddy_results.json
+
+# 分析报告Markdown文件
+*_扎根理论分析报告.md
+建构主义概念开放编码结果.json
+
+# 开发文档和报告
+*_REPORT.md
+*_STATUS.md
+*_SUMMARY.md
+*_PROCESS.md
+*_VERIFICATION.md
+AUTHOR_INFO_UPDATE_REPORT.md
+DEPLOYMENT_COMPLETION_REPORT.md
+EXPERT_AGENTS_VERIFICATION.md
+FINAL_SUMMARY.md
+LITERATURE_EXPERT_STATUS.md
+LITERATURE_SEARCH_LOGIC.md
+PROJECT_CLEANUP_SUMMARY.md
+PUBSCHOLAR_SKILL_SUMMARY.md
+LITERATURE_EXPERT_INTEGRATION_*.md
+
+# 其他CLI工具配置文件
+claude.md
+gemini.md
+qwen.md
+iflow.md
+codebuddy.md
+codex.md
+copilot.md
+qodercli.md
+
+# SEOer项目（整个目录）
+SEOer/
+
+# Desktop Design项目（整个目录）
+desktop_design/
+
+# 测试数据（整个目录）
+test_data/
+
+# 测试报告（整个目录）
+test_reports/
+
+# 测试脚本
+test_*.py
+*_test.py
+validate_*.py
+fix_*.py
+debug_*.py
+correct_*.py
+
+# 临时脚本和运行脚本
+temp_*.py
+tmp_*.py
+run_*.py
+multi_cli_*.py
+complete_*.py
+prepare_*.py
+pipeline_*.py
+
+# 临时提示词和输入文件
+temp_prompt*.txt
+temp_input.json
+open_coding_prompt.txt
+proposition_prompt.txt
+validity_prompt.txt
+p1.txt
+
+# 临时输出文件
+*_output.json
+*_output.txt
+
+# 临时工作目录
+work/
+project_backup/
+
+# Docs目录（如果是内部文档）
+docs/
+
+# Scripts目录中的临时脚本
+scripts/temp_*.py
+scripts/generate_*.py
+scripts/insurance_*.py
+scripts/workflow_*.py
+
+# Skills目录中的临时文件
+skills/temp_*.txt
+skills/temp_prompt_*.txt
+skills/debug_*.txt
+
+# Agents目录中的临时文件
+agents/*_DATA_CONSTITUTION*.md
+agents/*_TDD.py
+agents/*_REAL_DATA*.py
+agents/tdd_*.py
+agents/LITERATURE_EXPERT_*.md
+agents/*_integration.py
+
+# Desktop Design中的特定目录
+desktop_design/desktop-app/
+desktop_design/desktop-app-fresh/
+desktop_design/electron-src/
+desktop_design/terminal-integration-tdd/node_modules/
+desktop_design/terminal-integration-tdd/dist/
+
+# Archive目录（历史备份）
+archive/
+
+# Tests目录
+tests/
+
+# Web输出
+web_output/
+
+# 临时图片
+field-analysis-report.jpg
+
+# ============================================
+# 额外排除规则
+# ============================================
+
+# 临时文本文件
+stage*_text.txt
+stage*_open_coding.txt
+grounded_skill_content.txt
+skill规范.txt
+
+# 测试CLI输出文件
+test_cli*.txt
+
+# TDD相关文件
+run_tdd.bat
+*_TDD.py
+*_REAL_DATA*.py
+tdd_*.py
+
+# 临时Python脚本
+codebuddy_grounder.py
+improved_open_coding.py
+
+# Digital Transformation Innovation Analyst临时文件
+agents/digital-transformation-innovation-analyst/*.py
+agents/digital-transformation-innovation-analyst/*_DATA_CONSTITUTION*.md
+agents/digital-transformation-innovation-analyst/*_SKILL_SPECIFICATION.md
+agents/digital-transformation-innovation-analyst/README_*.md
+
+# Skills配置文件（临时）
+skills/digital-transformation/config_*.json
+skills/field-expert/workflow_spec.json
+skills/field-expert/WORKFLOW_SPEC.md
+
+# Skills临时输出
+skills/field-expert/scripts/debug_*.txt
+
+# Agent文档（临时）
+AGENTS.md
+
+# ============================================
+# Agents目录中的临时文件和脚本
+# ============================================
+
+# Digital Ecosystem Analyst（未完成）
+agents/digital-ecosystem-analyst/
+
+# Digital Transformation Innovation Analyst中的Python脚本
+agents/digital-transformation-innovation-analyst/*.py
+agents/digital-transformation-innovation-analyst/*_DATA_CONSTITUTION*.md
+agents/digital-transformation-innovation-analyst/*_SKILL_SPECIFICATION.md
+agents/digital-transformation-innovation-analyst/README_*.md
+
+# ============================================
+# Skills目录中的测试脚本和临时文件
+# ============================================
+
+# Digital Transformation技能脚本（测试用）
+skills/digital-transformation/scripts/*.py
+skills/digital-transformation/config_*.json
+
+# Ecosystem Analysis技能脚本（测试用）
+skills/ecosystem-analysis/scripts/*.py
+
+# Field Expert临时文件和调试文件
+skills/field-expert/workflow_spec.json
+skills/field-expert/WORKFLOW_SPEC.md
+skills/field-expert/scripts/debug_*.txt
+skills/field-expert/scripts/debug_output*.txt
+skills/field-expert/scripts/temp_prompt_*.txt
+
+# 未完成的技能
+skills/grounded-theory-expert-enhanced/
+skills/patent-downloader/
+

@@ -1,0 +1,89 @@
+## 场域动力学分析提示词
+
+你是布迪厄场域理论专家。请基于以下前期分析结果，进行场域动力学分析。
+
+### 输入数据
+{context}
+
+### 分析任务
+
+请从以下四个维度进行场域动力学分析：
+
+#### 1. 场域竞争分析
+分析场域内的竞争格局：
+- 竞争主体（主要竞争者及其实力对比）
+- 竞争资源（竞争的核心资源与利益）
+- 竞争策略（各主体的竞争策略与手段）
+- 竞争结果（竞争格局的变化趋势）
+
+#### 2. 权力关系分析
+分析场域内的权力结构与运作：
+- 权力来源（权力的基础与合法性来源）
+- 权力结构（权力的层级分布与网络结构）
+- 权力运作（权力的行使方式与机制）
+- 权力抵抗（抵抗权力的形式与效果）
+
+#### 3. 场域演变趋势
+分析场域的历史演变与未来趋势：
+- 发展阶段（场域发展的阶段划分）
+- 演变动力（推动场域变化的主要动力）
+- 演变阻力（阻碍场域变化的主要阻力）
+- 未来趋势（场域可能的发展方向）
+
+#### 4. 综合理论建构
+基于以上分析，提炼理论命题：
+- 核心发现（最关键的分析发现）
+- 理论命题（1-3个可检验的命题）
+- 研究启示（对相关研究的启示）
+
+### 输出格式
+
+请以JSON格式输出分析结果：
+
+```json
+{
+  "competition_analysis": {
+    "competitors": [
+      {
+        "actor": "竞争者名称",
+        "position": "场域位置",
+        "capital_advantage": "资本优势",
+        "strategy": "竞争策略"
+      }
+    ],
+    "competed_resources": ["资源1", "资源2"],
+    "competition_patterns": ["模式1", "模式2"],
+    "competition_trends": "竞争格局趋势"
+  },
+  "power_relations": {
+    "power_sources": [{"source": "来源", "holders": ["持有者1", "持有者2"]}],
+    "power_structure": {
+      "hierarchy": "层级结构描述",
+      "network": "网络结构描述"
+    },
+    "power_mechanisms": ["机制1", "机制2"],
+    "resistance_forms": ["形式1", "形式2"]
+  },
+  "field_evolution": {
+    "development_stages": [
+      {"stage": 1, "period": "时期", "characteristics": ["特征1", "特征2"]}
+    ],
+    "driving_forces": ["动力1", "动力2"],
+    "resistance_forces": ["阻力1", "阻力2"],
+    "future_trends": ["趋势1", "趋势2"]
+  },
+  "theory_construction": {
+    "core_findings": ["发现1", "发现2"],
+    "theoretical_propositions": [
+      {
+        "proposition": "命题内容",
+        "evidence": "支撑证据",
+        "testability": "可检验性"
+      }
+    ],
+    "research_implications": ["启示1", "启示2"]
+  }
+}
+```
+
+请基于输入数据，生成详细的场域动力学分析结果。

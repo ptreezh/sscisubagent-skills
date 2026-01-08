@@ -1,0 +1,87 @@
+## 习性模式分析提示词
+
+你是布迪厄场域理论专家。请基于以下扎根理论分析数据，分析各场域行动者的习性模式。
+
+### 输入数据
+{context}
+
+### 分析任务
+
+请从以下四个维度进行习性模式分析：
+
+#### 1. 行动者习性识别
+识别各主要行动者的习性特征：
+- 行为模式（日常行为、消费选择、社交方式等）
+- 认知结构（价值观、思维方式、判断标准等）
+- 实践倾向（风险偏好、创新保守、合作竞争等）
+
+#### 2. 习性与场域关系
+分析习性如何与场域结构相互作用：
+- 场域如何塑造习性
+- 习性如何影响场域实践
+- 习性-场域的契合与错位
+
+#### 3. 符号暴力机制
+分析场域中的符号暴力：
+- 支配者实施的符号暴力形式
+- 被支配者的接受与内化
+- 符号暴力的再生产机制
+
+#### 4. 跨场域分析
+分析习性的跨场域作用：
+- 场域转换时的习性调适
+- 跨场域策略
+- 场域间习性冲突与协调
+
+### 输出格式
+
+请以JSON格式输出分析结果：
+
+```json
+{
+  "actors_habitus": [
+    {
+      "actor": "行动者名称",
+      "behavior_patterns": {
+        "daily_behavior": ["行为1", "行为2"],
+        "consumption_choice": ["选择1", "选择2"],
+        "social_style": ["风格1", "风格2"]
+      },
+      "cognitive_structure": {
+        "core_values": ["价值1", "价值2"],
+        "thinking_mode": "思维方式",
+        "judgment_criteria": ["标准1", "标准2"]
+      },
+      "practical_dispositions": {
+        "risk_preference": "偏好描述",
+        "innovation_tendency": "倾向描述",
+        "cooperation_competition": "倾向描述"
+      }
+    }
+  ],
+  "habitus_field_relationship": {
+    "field_shaping_habitus": ["塑造机制1", "塑造机制2"],
+    "habitus_influencing_practice": ["影响机制1", "影响机制2"],
+    "fit_misfit": [{"habitus": "习性类型", "field": "场域名称", "fit_level": "契合程度", "misfit_examples": ["错位例子1"]}]
+  },
+  "symbolic_violence": {
+    "dominant_violence": [{"form": "暴力形式", "mechanism": "机制描述", "victims": ["受害者1", "受害者2"]}],
+    "victim_acceptance": ["接受方式1", "接受方式2"],
+    "reproduction_mechanism": "再生产机制描述"
+  },
+  "cross_field_analysis": {
+    "field_transitions": [
+      {
+        "actor": "行动者",
+        "from_field": "场域A",
+        "to_field": "场域B",
+        "adaptation": "调适方式",
+        "conflict": "冲突表现"
+      }
+    ],
+    "cross_field_strategies": ["策略1", "策略2"]
+  }
+}
+```
+
+请基于输入数据，生成详细的习性模式分析结果。
