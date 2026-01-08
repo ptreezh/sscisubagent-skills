@@ -1,6 +1,18 @@
 ---
 name: ecosystem-relationship-analysis
 description: 专门分析商业生态系统中各主体间关系的技能，提供关系类型分析、网络拓扑分析、关键关系识别、生态系统健康度评估等功能，分析合作、竞争、供应、投资、监管等多种关系类型
+version: 1.0.0
+author: socienceAI.com
+license: MIT
+tags: [ecosystem, relationship-analysis, network, stability, community-detection]
+compatibility: Node.js environment
+metadata:
+  domain: business-analysis
+  methodology: network-analysis
+  complexity: intermediate
+  integration_type: analysis_tool
+  last_updated: "2025-12-26"
+allowed-tools: [node, bash, read_file, write_file]
 ---
 
 # 生态系统关系分析技能

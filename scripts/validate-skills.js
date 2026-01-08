@@ -34,7 +34,12 @@ function validateSkillFile(skillPath) {
     return false;
   }
 
-  const content = fs.readFileSync(skillFile, 'utf8');
+  let content = fs.readFileSync(skillFile, 'utf8');
+
+  // 去除BOM字符（如果存在）
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
 
   // 检查YAML frontmatter
   if (!content.startsWith('---')) {
@@ -70,7 +75,12 @@ function validateAgentFile(agentPath) {
     return false;
   }
 
-  const content = fs.readFileSync(agentPath, 'utf8');
+  let content = fs.readFileSync(agentPath, 'utf8');
+
+  // 去除BOM字符（如果存在）
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
 
   // 检查YAML frontmatter
   if (!content.startsWith('---')) {

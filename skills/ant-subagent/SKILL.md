@@ -1,3 +1,19 @@
+---
+name: ant-subagent
+description: 行动者网络理论子智能体，提供网络分析、参与者识别和转译过程分析的统一接口
+version: 1.0.0
+author: socienceAI.com
+license: MIT
+tags: [ant, actor-network-theory, subagent, network-analysis, participant-identification]
+compatibility: Claude 3.5 Sonnet and above, iFlow CLI
+metadata:
+  domain: sociology
+  methodology: actor-network-theory
+  complexity: advanced
+  last_updated: "2025-12-20"
+allowed-tools: [python, bash, read_file, write_file]
+---
+
 # ANT Subagent (Actor-Network Theory Subagent)
 
 ## Skill Overview

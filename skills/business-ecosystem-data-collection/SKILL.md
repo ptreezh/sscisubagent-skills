@@ -1,6 +1,18 @@
 ---
 name: business-ecosystem-data-collection
-description: 从真实外部数据源收集商业生态系统分析所需数据，包括企业信息、关系数据、行业信息等，为后续生态系统分析提供高质量数据支持。
+description: 从真实外部数据源收集商业生态系统分析所需数据，包括企业信息、关系数据、行业信息等，为后续生态系统分析提供高质量数据支持
+version: 1.0.0
+author: socienceAI.com
+license: MIT
+tags: [business, ecosystem, data-collection, real-data, external-sources]
+compatibility: Node.js environment
+metadata:
+  domain: business-analysis
+  methodology: data-collection
+  complexity: intermediate
+  integration_type: analysis_tool
+  last_updated: "2025-12-26"
+allowed-tools: [node, bash, read_file, write_file]
 ---
 
 # 商业生态系统数据收集技能

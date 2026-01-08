@@ -1,10 +1,10 @@
 {
   "name": "ssci-subagent-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SSCI中文社会科学研究技能包 - 提供扎根理论、社会网络分析、场域分析等专业研究技能",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node scripts/postinstall.js",
+    "postinstall": "node scripts/postinstall.js || echo 'Postinstall completed with warnings'",
     "deploy": "stigmergy skill sync",
     "validate": "node scripts/validate-skills.js",
     "test": "echo \"Error: no test specified\" && exit 1"
