@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <title>中文社会科学AI研究助手 - SocienceAI</title>
+    <meta name="description" content="专为中文社会科学研究者打造的智能研究平台，提供文献管理、扎根理论、社会网络分析等专业功能">
+    <meta name="robots" content="index,follow">
+    <meta name="keywords" content="AI,社会科学,研究助手,文献管理,扎根理论,中文本土化">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="中文社会科学AI研究助手 - SocienceAI">
+    <meta property="og:description" content="专为中文社会科学研究者打造的智能研究平台，提供文献管理、扎根理论、社会网络分析等专业功能">
+    <meta property="og:url" content="https://socienceAI.com/agents/dist/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Favicon -->
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+            :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #0ea5e9;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0 100px 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            pointer-events: none; /* 修复：让伪元素不拦截点击事件 */
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+        }
+
+        .stats-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 15px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .github-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .github-btn:hover {
+            background: #555;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        .download-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .cli-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cli-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cli-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .claude-icon { color: #d97706; }
+        .qwen-icon { color: #059669; }
+        .iflow-icon { color: #7c3aed; }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+
+        .code-block.small {
+            font-size: 0.8rem;
+            padding: 10px;
+        }
+
+        /* 新增样式 */
+        .compliance-banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compliance-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .agent-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+
+        .skill-category {
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .deployment-option {
+            transition: all 0.3s ease;
+        }
+
+        .deployment-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .cli-tool-card {
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .cli-tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0 80px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="modern-nav">
+        <div class="modern-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+                <a href="../../../index.html" class="nav-brand">
+                    <img src="../../../logo.png" alt="SocienceAI Logo" class="nav-logo">
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SocienceAI</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">让社会科学与AI双向赋能</div>
+                    </div>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="../../../index.html" class="nav-link">首页</a></li>
+                    <li><a href="../../../ai-agents.html" class="nav-link">Agent服务</a></li>
+                    <li><a href="../../../resources.html" class="nav-link">精品AI</a></li>
+                    <li><a href="../../Tech/index.html" class="nav-link">赋能工具</a></li>
+                    <li><a href="../../../courses/courses.html" class="nav-link">培训课程</a></li>
+                    <li><a href="../../../Dao/index.html" class="nav-link">关于我们</a></li>
+                    <li><a href="../../../contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-btn" style="display: none; background: none; border: none; cursor: pointer; padding: 0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="modern-container text-center">
+            <h1 class="display-3 fw-bold mb-4">中文社会科学AI研究助手</h1>
+            <p class="lead mb-5">专为中文社会科学研究者打造的智能研究平台</p>
+
+            <!-- 增加超级链接到hero区域 -->
+            <div class="hero-links mb-4" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="#quick-install" class="github-btn me-3">
+                    <i class="fas fa-rocket me-2"></i>极速安装指南
+                </a>
+                <a href="#features" class="btn btn-light btn-lg">
+                    <i class="fas fa-star me-2"></i>核心功能
+                </a>
+                <a href="#download" class="btn btn-light btn-lg">
+                    <i class="fas fa-download me-2"></i>下载安装
+                </a>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="https://github.com/ptreezh/sscisubagent-skills" target="_blank" class="github-btn me-3">
+                    <i class="fab fa-github me-2"></i>
+                    GitHub
+                </a>
+                <a href="../../index.html" class="btn btn-light btn-lg">
+                    <i class="fas fa-flask me-2"></i>
+                    SocienceAI 实验室
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main style="flex-grow: 1;">
+        <!-- Features Section -->
+        <section id="features" class="py-5" style="background: white;">
+            <div class="modern-container">
+                <h2 class="section-title text-center">核心功能与标准符合性</h2>
+                
+                <!-- 标准符合性展示 -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="compliance-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                            <h3 style="margin-bottom: 1.5rem;">🏆 多标准兼容 · 跨平台支持</h3>
+                            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✓</div>
+                                    <div style="font-weight: bold;">Claude Skills</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.9;">官方标准</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✓</div>
+                                    <div style="font-weight: bold;">OpenSkills</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.9;">开放标准</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✓</div>
+                                    <div style="font-weight: bold;">Stigmergy</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.9;">统一管理</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✓</div>
+                                    <div style="font-weight: bold;">agentskills.io</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.9;">生态标准</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 专业智能体详细功能 -->
+                <h3 class="text-center mb-4" style="color: #1e293b;">🧠 专业智能体 (6个)</h3>
+                <div class="row mb-5">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="agent-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; height: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; color: #1e293b;">literature-expert</h4>
+                                    <span class="badge bg-success">中文文献管理专家</span>
+                                </div>
+                            </div>
+                            <h5 style="color: #475569; margin-bottom: 0.5rem;">核心功能覆盖：</h5>
+                            <ul style="font-size: 0.9rem; color: #64748b; padding-left: 1.2rem;">
+                                <li>中文社会科学文献智能检索</li>
+                                <li>CSSCI、CNKI、万方数据库集成</li>
+                                <li>引用格式自动规范化(GB/T 7714)</li>
+                                <li>文献质量评估与筛选</li>
+                                <li>研究趋势分析与热点识别</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge bg-primary me-1">Claude Skills</span>
+                                <span class="badge bg-info me-1">OpenSkills</span>
+                                <span class="badge bg-warning">Stigmergy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="agent-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; height: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; color: #1e293b;">grounded-theory-expert</h4>
+                                    <span class="badge bg-success">扎根理论专家</span>
+                                </div>
+                            </div>
+                            <h5 style="color: #475569; margin-bottom: 0.5rem;">核心功能覆盖：</h5>
+                            <ul style="font-size: 0.9rem; color: #64748b; padding-left: 1.2rem;">
+                                <li>中文质性数据开放编码分析</li>
+                                <li>轴心编码与范式模型构建</li>
+                                <li>选择式编码与核心范畴识别</li>
+                                <li>理论饱和度检验与评估</li>
+                                <li>扎根理论备忘录自动生成</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge bg-primary me-1">Claude Skills</span>
+                                <span class="badge bg-info me-1">OpenSkills</span>
+                                <span class="badge bg-warning">Stigmergy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="agent-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; height: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; color: #1e293b;">sna-expert</h4>
+                                    <span class="badge bg-success">社会网络分析专家</span>
+                                </div>
+                            </div>
+                            <h5 style="color: #475569; margin-bottom: 0.5rem;">核心功能覆盖：</h5>
+                            <ul style="font-size: 0.9rem; color: #64748b; padding-left: 1.2rem;">
+                                <li>社会网络数据收集与预处理</li>
+                                <li>多维度中心性指标计算分析</li>
+                                <li>结构洞与桥梁节点识别</li>
+                                <li>凝聚子群与社区检测算法</li>
+                                <li>网络可视化与关系图谱生成</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge bg-primary me-1">Claude Skills</span>
+                                <span class="badge bg-info me-1">OpenSkills</span>
+                                <span class="badge bg-warning">Stigmergy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="agent-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; height: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; color: #1e293b;">field-analysis-expert</h4>
+                                    <span class="badge bg-success">布迪厄场域分析专家</span>
+                                </div>
+                            </div>
+                            <h5 style="color: #475569; margin-bottom: 0.5rem;">核心功能覆盖：</h5>
+                            <ul style="font-size: 0.9rem; color: #64748b; padding-left: 1.2rem;">
+                                <li>社会场域边界识别与界定</li>
+                                <li>资本类型分析(经济/文化/社会资本)</li>
+                                <li>场域自主性评估与测量</li>
+                                <li>习性(habitus)与场域关系分析</li>
+                                <li>场域动力学与变迁机制研究</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge bg-primary me-1">Claude Skills</span>
+                                <span class="badge bg-info me-1">OpenSkills</span>
+                                <span class="badge bg-warning">Stigmergy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="agent-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; height: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; color: #1e293b;">ant-expert</h4>
+                                    <span class="badge bg-success">行动者网络理论专家</span>
+                                </div>
+                            </div>
+                            <h5 style="color: #475569; margin-bottom: 0.5rem;">核心功能覆盖：</h5>
+                            <ul style="font-size: 0.9rem; color: #64748b; padding-left: 1.2rem;">
+                                <li>行动者识别与网络图谱构建</li>
+                                <li>转译过程四阶段分析</li>
+                                <li>争议点与利益相关者映射</li>
+                                <li>异质网络稳定性评估</li>
+                                <li>技术社会共构分析</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge bg-primary me-1">Claude Skills</span>
+                                <span class="badge bg-info me-1">OpenSkills</span>
+                                <span class="badge bg-warning">Stigmergy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="agent-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; height: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #06b6d4, #0891b2); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                    <i class="fas fa-globe-asia"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; color: #1e293b;">chinese-localization-expert</h4>
+                                    <span class="badge bg-success">中文本土化专家</span>
+                                </div>
+                            </div>
+                            <h5 style="color: #475569; margin-bottom: 0.5rem;">核心功能覆盖：</h5>
+                            <ul style="font-size: 0.9rem; color: #64748b; padding-left: 1.2rem;">
+                                <li>西方理论概念中文语境适配</li>
+                                <li>研究方法论本土化调适</li>
+                                <li>中文术语标准化与规范化</li>
+                                <li>跨文化研究效度评估</li>
+                                <li>中文学术表达优化提升</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge bg-primary me-1">Claude Skills</span>
+                                <span class="badge bg-info me-1">OpenSkills</span>
+                                <span class="badge bg-warning">Stigmergy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 专业技能包详细功能 -->
+                <h3 class="text-center mb-4" style="color: #1e293b;">🛠️ 专业技能包 (61个有效技能)</h3>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="skill-category" style="background: #f8fafc; border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="color: #1e293b; margin-bottom: 1rem;">📝 编码分析技能 (5个)</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">performing-open-coding</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">中文质性数据概念识别、初始编码、持续比较分析</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">performing-axial-coding</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">范畴识别、属性维度分析、关系建立</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">performing-selective-coding</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">核心范畴识别、故事线构建、理论框架整合</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">checking-theory-saturation</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">新概念识别、范畴完善度评估</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">writing-grounded-theory-memos</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">过程记录、反思分析、理论备忘录</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="skill-category" style="background: #f8fafc; border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="color: #1e293b; margin-bottom: 1rem;">📊 数据分析技能 (3个)</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">performing-centrality-analysis</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">度中心性、接近中心性、介数中心性、特征向量中心性</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">performing-network-computation</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">网络构建、基础指标计算、社区检测、网络可视化</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">processing-network-data</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">关系数据收集、矩阵构建、数据清洗验证</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="skill-category" style="background: #f8fafc; border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="color: #1e293b; margin-bottom: 1rem;">🔬 方法论技能 (1个)</h4>
+                            <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">resolving-research-conflicts</h5>
+                                <p style="font-size: 0.85rem; color: #64748b; margin: 0;">理论分歧、方法论争议、解释冲突、价值观分歧的识别与解决</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="skill-category" style="background: #f8fafc; border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="color: #1e293b; margin-bottom: 1rem;">📁 特殊目录技能 (6个)</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">ant</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">行动者网络理论分析工具</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">conflict-resolution</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">研究冲突解决工具集</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">field-analysis</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">布迪厄场域分析工具</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">mathematical-statistics</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">数理统计分析工具</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">network-computation</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">网络计算工具集</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">validity-reliability</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">信效度分析工具</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">field-expert</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">场域分析专家（增强版）</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">grounded-theory-expert</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">扎根理论专家</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">business-ecosystem-analysis</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">商业生态系统分析</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">digital-transformation</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">数字化转型分析</p>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                                    <h5 style="color: #475569; font-size: 0.95rem; margin-bottom: 0.5rem;">ecosystem-analysis</h5>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">生态系统分析</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Install Section (moved to top) -->
+        <section id="quick-install" class="py-5" style="background: var(--light-bg);">
+            <div class="modern-container">
+                <h2 class="section-title text-center">极速安装指南</h2>
+
+                <!-- Statistics Section (moved here) -->
+                <div class="row mb-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-number">6+</div>
+                            <h4>专业智能体</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-number">15</div>
+                            <h4>专业技能</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-number">100%</div>
+                            <h4>测试覆盖</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-number">8</div>
+                            <h4>支持语言</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Stack (moved here) -->
+                <div class="row text-center mb-5">
+                    <div class="col-lg-6">
+                        <h4>前端技术</h4>
+                        <div class="mb-4">
+                            <span class="tech-badge">Next.js 15</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                            <span class="tech-badge">Bootstrap 5</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>后端技术</h4>
+                        <div class="mb-4">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Prisma</span>
+                            <span class="tech-badge">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Start -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="text-center mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h5>1. 下载项目</h5>
+                            <p>从 GitHub 克隆或下载 ZIP 文件</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5>2. 安装依赖</h5>
+                            <p>安装所需的 CLI 工具和依赖</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <h5>3. 开始使用</h5>
+                            <p>按照文档指引开始研究工作</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="QUICK_INSTALL.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket me-2"></i>
+                        极简安装指南
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="modern-container">
+                <h2 class="section-title text-center">下载与安装</h2>
+
+                <!-- GitHub Download -->
+                <div class="row mb-5">
+                    <div class="col-lg-6">
+                        <h5>GitHub 下载</h5>
+                        <p>通过 GitHub 克隆或下载项目：</p>
+                        <div class="code-block">
+                            git clone https://github.com/ptreezh/sscisubagent-skills.git<br>
+                            cd sscisubagent-skills
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://github.com/ptreezh/sscisubagent-skills" target="_blank" class="btn btn-primary">
+                                <i class="fab fa-github me-2"></i>访问 GitHub 仓库
+                            </a>
+                            <a href="https://github.com/ptreezh/sscisubagent-skills/stargazers" target="_blank" class="btn btn-outline-warning">
+                                <i class="fas fa-star me-2"></i>Star 项目
+                            </a>
+                            <a href="https://github.com/ptreezh/sscisubagent-skills/issues" target="_blank" class="btn btn-outline-info">
+                                <i class="fas fa-bug me-2"></i>问题反馈
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5>直接下载</h5>
+                        <p>下载 ZIP 文件，解压即可使用：</p>
+                        <div class="mt-3">
+                            <a href="https://github.com/ptreezh/sscisubagent-skills/archive/refs/heads/main.zip" target="_blank" class="btn btn-success">
+                                <i class="fas fa-download me-2"></i>下载 ZIP
+                            </a>
+                            <a href="https://github.com/ptreezh/sscisubagent-skills/releases" target="_blank" class="btn btn-outline-secondary">
+                                <i class="fas fa-tag me-2"></i>查看发布版本
+                            </a>
+                            <a href="../../index.html" class="btn btn-outline-primary">
+                                <i class="fas fa-globe me-2"></i>SocienceAI 实验室
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stigmergy 统一管理 -->
+                <h3 class="text-center mb-4">Stigmergy 统一管理系统</h3>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="cli-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                            <div class="cli-icon" style="color: white; font-size: 3rem;">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3 style="color: white; margin-bottom: 1rem;">一键部署 · 跨CLI协作</h3>
+                            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Stigmergy 统一管理系统让多个AI CLI工具无缝协作，智能分发任务，统一管理技能。</p>
+                            
+                            <div class="code-block" style="background: rgba(255,255,255,0.1); color: white; font-size: 1rem;">
+                                # 一键部署所有技能
+                                npm run deploy:stigmergy
+                                
+                                # 跨CLI调用示例
+                                stigmergy use claude "扎根理论分析"
+                                stigmergy use qwen "网络中心性计算"
+                                stigmergy call "智能选择最佳CLI"
+                            </div>
+                            
+                            <div class="mt-4" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                                <span class="badge bg-light text-dark">✓ 7个CLI支持</span>
+                                <span class="badge bg-light text-dark">🔄 智能路由</span>
+                                <span class="badge bg-light text-dark">🎯 任务分发</span>
+                                <span class="badge bg-light text-dark">👥 团队协作</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 支持的CLI工具概览 -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h4 class="text-center mb-3">支持的AI CLI工具</h4>
+                        <div style="background: #f8fafc; border-radius: 10px; padding: 1.5rem;">
+                            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">🤖</div>
+                                    <div style="font-weight: bold;">Claude</div>
+                                    <span class="badge bg-success">✓</span>
+                                </div>
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">☁️</div>
+                                    <div style="font-weight: bold;">Qwen</div>
+                                    <span class="badge bg-success">✓</span>
+                                </div>
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">🧠</div>
+                                    <div style="font-weight: bold;">iFlow</div>
+                                    <span class="badge bg-success">✓</span>
+                                </div>
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">⭐</div>
+                                    <div style="font-weight: bold;">Gemini</div>
+                                    <span class="badge bg-success">✓</span>
+                                </div>
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">💻</div>
+                                    <div style="font-weight: bold;">CodeBuddy</div>
+                                    <span class="badge bg-warning">⚠</span>
+                                </div>
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">🔧</div>
+                                    <div style="font-weight: bold;">Codex</div>
+                                    <span class="badge bg-warning">⚠</span>
+                                </div>
+                                <div style="text-align: center; padding: 0.5rem;">
+                                    <div style="font-size: 1.5rem;">🎲</div>
+                                    <div style="font-weight: bold;">QoderCLI</div>
+                                    <span class="badge bg-secondary">🔒</span>
+                                </div>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+                                ✓ 完全支持 | ⚠ 需要适配 | 🔒 需要登录
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快速开始 -->
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1.5rem; text-align: center; height: 100%;">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🚀</div>
+                            <h5 style="color: #1e293b;">快速部署</h5>
+                            <div class="code-block small">
+                                npm run deploy:stigmergy
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1.5rem; text-align: center; height: 100%;">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🔄</div>
+                            <h5 style="color: #1e293b;">智能路由</h5>
+                            <div class="code-block small">
+                                stigmergy call "任务描述"
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1.5rem; text-align: center; height: 100%;">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">👥</div>
+                            <h5 style="color: #1e293b;">团队协作</h5>
+                            <div class="code-block small">
+                                stigmergy skill sync
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="modern-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="footer-logo">AI</div>
+                        <div class="footer-title">SocienceAI</div>
+                    </div>
+                    <p class="footer-description">
+                        SocienceAI致力于构建AI与社会科学研究的双向赋能体系，通过AI释放人类研究者自由创新的核心潜力，提升AI智能体的集体智能和社会智能。
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>AI社科方法</h4>
+                    <ul class="footer-links">
+                        <li><a href="../grounded-theory.html">扎根理论</a></li>
+                        <li><a href="../social-network-analysis.html">社会网络分析</a></li>
+                        <li><a href="../actor-network-analysis.html">行动者网络分析</a></li>
+                        <li><a href="../bourdieu-field-analysis.html">布迪厄场域分析</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>社科智能体</h4>
+                    <ul class="footer-links">
+                        <li><a href="../digital-durkheim.html">数字迪尔凯姆专家</a></li>
+                        <li><a href="../digital-marx.html">数字马克思专家</a></li>
+                        <li><a href="../digital-weber.html">数字韦伯专家</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>AI与商业</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../Tech/AiProductDesign.html">AI产品设计</a></li>
+                        <li><a href="../../Tech/AiMarketingTechnology.html">AI营销技术</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../../Dao/index.html">关于我们</a></li>
+                        <li><a href="../../../Dao/Manifesto.html">项目使命</a></li>
+                        <li><a href="../../../contact.html">联系我们</a></li>
+                        <li><a href="../../../privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SocienceAI. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        });
+
+        // 点击菜单项后关闭移动端菜单
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navMenu = document.querySelector('.nav-menu');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有卡片
+        document.querySelectorAll('.feature-card, .stats-card, .cli-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
