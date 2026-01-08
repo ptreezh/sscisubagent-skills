@@ -1,0 +1,81 @@
+{
+  "name": "ssci-subagent-skills",
+  "version": "1.0.0",
+  "description": "SSCI中文社会科学研究技能包 - 提供扎根理论、社会网络分析、场域分析等专业研究技能",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "deploy": "stigmergy skill sync",
+    "validate": "node scripts/validate-skills.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ssci",
+    "social-science",
+    "grounded-theory",
+    "sna",
+    "field-analysis",
+    "stigmergy",
+    "ai-skills",
+    "claude",
+    "iflow",
+    "qwen"
+  ],
+  "author": {
+    "name": "socienceAI.com",
+    "email": "zhangshuren@freeagentskills.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ptreezh/sscisubagent-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ptreezh/sscisubagent-skills/issues"
+  },
+  "homepage": "https://github.com/ptreezh/sscisubagent-skills#readme",
+  "stigmergy": {
+    "skills": [
+      "skills/ant",
+      "skills/field-analysis",
+      "skills/field-expert",
+      "skills/grounded-theory-expert",
+      "skills/network-computation",
+      "skills/mathematical-statistics",
+      "skills/validity-reliability",
+      "skills/conflict-resolution",
+      "skills/business-ecosystem-analysis",
+      "skills/digital-transformation",
+      "skills/ecosystem-analysis"
+    ],
+    "agents": [
+      "agents/ant-expert.md",
+      "agents/field-analysis-expert.md",
+      "agents/grounded-theory-expert.md",
+      "agents/literature-expert.md",
+      "agents/sna-expert.md",
+      "agents/chinese-localization-expert.md",
+      "agents/digital-marx-expert.md"
+    ],
+    "autoSync": true,
+    "targetCLIs": [
+      "claude",
+      "iflow",
+      "qwen",
+      "gemini"
+    ]
+  },
+  "files": [
+    "skills/",
+    "agents/",
+    "common/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "scripts/postinstall.js",
+    "scripts/validate-skills.js"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
