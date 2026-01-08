@@ -1,6 +1,6 @@
 {
   "name": "ssci-subagent-skills",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SSCI中文社会科学研究技能包 - 提供扎根理论、社会网络分析、场域分析等专业研究技能",
   "main": "index.js",
   "scripts": {
