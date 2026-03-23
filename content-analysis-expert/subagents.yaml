@@ -1,0 +1,106 @@
+# Content Analysis Expert - Subagents Configuration
+# 内容分析专家子智能体配置
+
+version: "1.0"
+description: "内容分析专家子智能体系统，支持编码方案设计、信度检验和频次分析"
+
+subagents:
+  # 编码方案设计智能体
+  - id: ca-coding-designer
+    name: 编码方案设计师
+    role: |
+      设计和开发系统化编码方案
+      - 类别定义和命名
+      - 编码簿编写
+      - 示例选择
+      - 排除规则制定
+    tools:
+      - coding_scheme.py
+    triggers:
+      - "设计编码方案"
+      - "创建编码簿"
+      - "编码类别"
+  
+  # 信度检验智能体
+  - id: ca-reliability-tester
+    name: 信度检验专家
+    role: |
+      计算和评估编码者间信度
+      - Cohen's Kappa
+      - Krippendorff's Alpha
+      - Scott's Pi
+      - 百分比一致
+      - Fleiss' Kappa
+    tools:
+      - reliability_tester.py
+    triggers:
+      - "信度检验"
+      - "编码者一致性"
+      - "Kappa系数"
+      - "信度测试"
+  
+  # 频次分析智能体
+  - id: ca-frequency-analyzer
+    name: 频次分析专家
+    role: |
+      分析编码数据的频次分布
+      - 频次统计
+      - 百分比计算
+      - 列联表分析
+      - 卡方检验
+      - 趋势分析
+      - 组间比较
+    tools:
+      - frequency_analyzer.py
+    triggers:
+      - "频次分析"
+      - "卡方检验"
+      - "分布统计"
+      - "列联表"
+
+# 并行执行配置
+parallel_execution:
+  enabled: true
+  max_concurrent: 3
+
+# 工作流程
+workflow:
+  - step: 1
+    agent: ca-coding-designer
+    action: 根据研究问题设计编码方案和编码簿
+  - step: 2
+    agent: ca-reliability-tester
+    action: 计算编码者间信度，评估编码质量
+  - step: 3
+    agent: ca-frequency-analyzer
+    action: 分析编码结果，生成频次报告
+
+# 信度标准
+reliability_standards:
+  krippendorffs_alpha:
+    excellent: 0.80
+    acceptable: 0.67
+    minimum: 0.60
+  
+  cohens_kappa:
+    excellent: 0.80
+    good: 0.60
+    acceptable: 0.40
+  
+  percent_agreement:
+    excellent: 0.95
+    good: 0.90
+    minimum: 0.80
+
+# 输出配置
+output:
+  formats:
+    - markdown
+    - json
+    - csv
+  include:
+    - coding_book
+    - reliability_report
+    - frequency_tables
+    - contingency_tables
+    - trend_analysis

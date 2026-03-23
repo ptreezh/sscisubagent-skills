@@ -1,0 +1,49 @@
+# Change Management Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: resistance-analyzer
+    name: 阻力分析师
+    role: 识别和分析变革阻力
+    triggers:
+      - "阻力"
+      - "反对"
+      - "障碍"
+
+  - id: stakeholder-mapper
+    name: 利益相关者分析师
+    role: 分析变革利益相关者
+    triggers:
+      - "利益相关者"
+      - "干系人"
+      - "支持者"
+
+  - id: communication-planner
+    name: 沟通规划师
+    role: 制定变革沟通策略
+    triggers:
+      - "沟通"
+      - "宣传"
+      - "传播"
+
+  - id: implementation-tracker
+    name: 实施跟踪师
+    role: 跟踪变革实施进度
+    triggers:
+      - "进度"
+      - "跟踪"
+      - "实施"
+
+workflow:
+  - step: 1
+    action: "变革需求诊断"
+  - step: 2
+    action: "利益相关者分析"
+  - step: 3
+    action: "阻力识别与应对"
+  - step: 4
+    action: "沟通计划制定"
+  - step: 5
+    action: "实施推进"
+  - step: 6
+    action: "效果评估与调整"

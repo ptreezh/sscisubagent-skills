@@ -1,0 +1,159 @@
+name: actor-network-analysis-expert
+version: 5.2.0-cli-native+auto-exec
+description: |
+  行动者网络理论专家技能（AI CLI 原生版），支持自动任务队列执行。
+  基于 Latour (2005), Callon (1986), Law (1992) 的 ANT 方法论。
+  
+  核心能力：
+  - 行动者识别（人+非人完全对称）
+  - 转译过程追踪（4阶段完整）
+  - 对称性分析
+  - 争议识别与映射
+  - 黑箱打开分析
+  
+  v5.1 更新：
+  - 修复Windows目录创建兼容性问题
+  - 添加自动执行模式（创建任务列表后立即执行）
+  
+  严格遵循6大绝对禁止原则：
+  - 禁止人为/非人二分法
+  - 禁止未追踪到底就停止
+  - 禁止预设网络边界
+  - 禁止静态网络观
+  - 禁止功能主义解释
+  - 禁止黑箱化
+
+author: SocienceAI Methodology Expert
+license: MIT
+repository: https://github.com/socienceai/agentskills
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Actor-Network Theory (Latour 1987, Callon 1986, Law 1992)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "40分钟/案例"
+  parallel: "45分钟/10案例（8.9x加速）"
+
+analysis_types:
+  - actor-identification
+  - translation-process-tracing
+  - network-construction
+  - symmetry-analysis
+  - controversy-mapping
+  - blackbox-opening
+
+category: network-analysis
+tags:
+  - actor-network-theory
+  - ANT
+  - latour
+  - translation-process
+  - symmetry-principle
+  - callon
+  - sociology-of-translation
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（访谈、文档、观察记录、artifacts）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整转译叙事报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: identify-actors
+    description: 识别行动者（人+非人）
+    file: tools/actor_extractor.py
+    runtime: python3
+
+  - name: trace-translation
+    description: 追踪转译过程4阶段
+    file: tools/translation_stage_controller.py
+    runtime: python3
+
+  - name: symmetry-check
+    description: 对称性检查
+    file: tools/symmetry_checker.py
+    runtime: python3
+
+  - name: map-controversies
+    description: 争议映射
+    file: tools/controversy_recorder.py
+    runtime: python3
+
+  - name: open-blackbox
+    description: 打开黑箱
+    file: tools/blackbox_opener.py
+    runtime: python3
+
+  - name: assess-saturation
+    description: 网络饱和度评估
+    file: tools/assess_network_saturation.py
+    runtime: python3
+
+  - name: analyze
+    description: 主分析入口
+    file: tools/analyze.py
+    runtime: python3
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: symmetry_check
+    description: 对称性检查 - 非人行动者≥30%
+    rule: "非人行动者比例必须≥30%"
+  - name: translation_completeness
+    description: 转译完整性 - 4阶段必须完整
+    rule: "问题化→利益赋予→招募→动员 必须完整";
+  - name: blackbox_opening
+    description: 黑箱打开检查
+    rule: "所有黑箱必须被打开"
+  - name: controversy_recording
+    description: 争议记录检查
+    rule: "所有争议和失败必须记录"
+  - name: actor_traceability
+    description: 行动者可追溯性检查
+    rule: "每个行动者都必须追溯到底"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - networkx>=2.6
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+  - iflow
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)

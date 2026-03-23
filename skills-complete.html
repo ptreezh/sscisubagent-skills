@@ -1,0 +1,933 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>方法论技能 - SocienceAI</title>
+    <meta name="description" content="57 种社会科学方法论技能，一键下载，手把手教你做研究">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --light-bg: #f9fafb;
+            --white: #ffffff;
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text-primary); margin: 0; padding: 0; }
+        .modern-nav { background: var(--white); box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .modern-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .nav-brand { display: flex; align-items: center; text-decoration: none; color: inherit; }
+        .nav-logo { width: 48px; height: 48px; margin-right: 1rem; border-radius: 0.5rem; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; }
+        .nav-link { text-decoration: none; color: var(--text-secondary); font-weight: 500; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color); }
+        .hero-section { padding: 6rem 0; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; text-align: center; }
+        .hero-title { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.25rem; margin-bottom: 2rem; }
+        .modern-card { background: var(--white); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.3s ease; margin-bottom: 1.5rem; }
+        .modern-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); border-color: var(--primary-color); }
+        .card-title { font-size: 1.25rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .card-scholar { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .card-methods { list-style: none; padding: 0; margin: 0 0 1rem 0; }
+        .card-methods li { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+        .card-methods li:before { content: "✓ "; color: var(--primary-color); font-weight: bold; }
+        .btn { display: inline-block; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: all 0.3s; cursor: pointer; border: none; font-size: 0.875rem; margin-right: 0.5rem; }
+        .btn-primary { background: var(--primary-color); color: white; }
+        .btn-primary:hover { background: var(--secondary-color); }
+        .btn-secondary { background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+        .btn-secondary:hover { background: var(--primary-color); color: white; }
+        .category-section { padding: 4rem 0; }
+        .category-section:nth-child(even) { background: var(--light-bg); }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .modern-footer { background: #111827; color: #9ca3af; padding: 3rem 0; }
+        .footer-brand { display: flex; align-items: center; margin-bottom: 1rem; }
+        .footer-logo { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem; margin-right: 1rem; }
+        .footer-title { font-size: 1.5rem; font-weight: 700; color: white; }
+        .footer-description { line-height: 1.6; margin-bottom: 2rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #374151; text-align: center; }
+        .search-box { max-width: 600px; margin: 2rem auto; display: flex; gap: 0.5rem; }
+        .search-input { flex: 1; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 1rem; }
+        .search-input:focus { outline: none; border-color: var(--primary-color); }
+        .filter-buttons { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
+        .filter-btn { padding: 0.5rem 1rem; border: 2px solid var(--border-color); background: white; border-radius: 2rem; cursor: pointer; transition: all 0.3s; }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--primary-color); background: var(--primary-color); color: white; }
+        @media (max-width: 768px) { .nav-menu { display: none; } .hero-title { font-size: 2rem; } .skills-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="modern-nav">
+        <div class="modern-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+                <a href="index.html" class="nav-brand">
+                    <img src="logo.png" alt="SocienceAI Logo" class="nav-logo">
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SocienceAI</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">让社会科学与 AI 双向赋能</div>
+                    </div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">首页</a></li>
+                    <li><a href="skills.html" class="nav-link active">方法论技能</a></li>
+                    <li><a href="resources.html" class="nav-link">精品 AI</a></li>
+                    <li><a href="Tech/index.html" class="nav-link">赋能工具</a></li>
+                    <li><a href="courses/courses.html" class="nav-link">培训课程</a></li>
+                    <li><a href="whitePaper/index.html" class="nav-link">白皮书</a></li>
+                    <li><a href="Dao/index.html" class="nav-link">关于我们</a></li>
+                    <li><a href="blog/" class="nav-link">博客</a></li>
+                    <li><a href="contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="modern-container">
+            <h1 class="hero-title">57 种专业方法论技能</h1>
+            <p class="hero-subtitle">一键下载，手把手教你做研究</p>
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索技能名称、学者或方法...">
+                <button class="btn btn-primary" onclick="filterSkills()">搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterCategory('all')">全部</button>
+            <button class="filter-btn" onclick="filterCategory('质性研究')">质性研究</button>
+            <button class="filter-btn" onclick="filterCategory('定量研究')">定量研究</button>
+            <button class="filter-btn" onclick="filterCategory('混合方法')">混合方法</button>
+            <button class="filter-btn" onclick="filterCategory('商业分析')">商业分析</button>
+            <button class="filter-btn" onclick="filterCategory('社会理论')">社会理论</button>
+        </div>
+
+
+        <section class="category-section" data-category="质性研究">
+            <div class="modern-container">
+                <h2 class="section-title">质性研究</h2>
+                <p class="section-subtitle">20 个专业方法论技能</p>
+                <div class="skills-grid">
+
+                    <div class="modern-card" data-name="扎根理论" data-scholar="Kathy Charmaz" data-methods="开放编码 轴心编码 选择式编码 理论饱和度">
+                        <h3 class="card-title">扎根理论</h3>
+                        <p class="card-scholar">对标学者：Kathy Charmaz</p>
+                        <ul class="card-methods">
+                            <li>开放编码</li><li>轴心编码</li><li>选择式编码</li><li>理论饱和度</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="grounded-theory-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="grounded-theory-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="行动者网络分析" data-scholar="Bruno Latour" data-methods="行动者识别 转译过程 网络稳定化 黑箱化分析">
+                        <h3 class="card-title">行动者网络分析</h3>
+                        <p class="card-scholar">对标学者：Bruno Latour</p>
+                        <ul class="card-methods">
+                            <li>行动者识别</li><li>转译过程</li><li>网络稳定化</li><li>黑箱化分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="actor-network-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="actor-network-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="布迪厄场域分析" data-scholar="Pierre Bourdieu" data-methods="场域识别 资本分析 习性分析 位置 - 习性分析">
+                        <h3 class="card-title">布迪厄场域分析</h3>
+                        <p class="card-scholar">对标学者：Pierre Bourdieu</p>
+                        <ul class="card-methods">
+                            <li>场域识别</li><li>资本分析</li><li>习性分析</li><li>位置 - 习性分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="bourdieu-field-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="bourdieu-field-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="案例研究" data-scholar="Robert K. Yin" data-methods="案例选择 数据收集 模式匹配 解释构建">
+                        <h3 class="card-title">案例研究</h3>
+                        <p class="card-scholar">对标学者：Robert K. Yin</p>
+                        <ul class="card-methods">
+                            <li>案例选择</li><li>数据收集</li><li>模式匹配</li><li>解释构建</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="case-study-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="case-study-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="内容分析" data-scholar="Klaus Krippendorff" data-methods="编码方案 信度检验 类别构建 频率分析">
+                        <h3 class="card-title">内容分析</h3>
+                        <p class="card-scholar">对标学者：Klaus Krippendorff</p>
+                        <ul class="card-methods">
+                            <li>编码方案</li><li>信度检验</li><li>类别构建</li><li>频率分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="content-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="content-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="对话分析" data-scholar="Harvey Sacks" data-methods="话轮转换 序列组织 修复机制 偏好组织">
+                        <h3 class="card-title">对话分析</h3>
+                        <p class="card-scholar">对标学者：Harvey Sacks</p>
+                        <ul class="card-methods">
+                            <li>话轮转换</li><li>序列组织</li><li>修复机制</li><li>偏好组织</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="conversation-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="conversation-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="话语分析" data-scholar="Norman Fairclough" data-methods="文本分析 话语实践 社会实践 批判分析">
+                        <h3 class="card-title">话语分析</h3>
+                        <p class="card-scholar">对标学者：Norman Fairclough</p>
+                        <ul class="card-methods">
+                            <li>文本分析</li><li>话语实践</li><li>社会实践</li><li>批判分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="discourse-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="discourse-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="文档分析" data-scholar="John W. Creswell" data-methods="文档收集 内容编码 主题提取 三角验证">
+                        <h3 class="card-title">文档分析</h3>
+                        <p class="card-scholar">对标学者：John W. Creswell</p>
+                        <ul class="card-methods">
+                            <li>文档收集</li><li>内容编码</li><li>主题提取</li><li>三角验证</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="document-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="document-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="民族志" data-scholar="Clifford Geertz" data-methods="参与观察 深度访谈 田野笔记 深描">
+                        <h3 class="card-title">民族志</h3>
+                        <p class="card-scholar">对标学者：Clifford Geertz</p>
+                        <ul class="card-methods">
+                            <li>参与观察</li><li>深度访谈</li><li>田野笔记</li><li>深描</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="ethnography-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="ethnography-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="互联网研究" data-scholar="Christine Hine" data-methods="虚拟民族志 网络分析 数字痕迹 在线访谈">
+                        <h3 class="card-title">互联网研究</h3>
+                        <p class="card-scholar">对标学者：Christine Hine</p>
+                        <ul class="card-methods">
+                            <li>虚拟民族志</li><li>网络分析</li><li>数字痕迹</li><li>在线访谈</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="internet-research-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="internet-research-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="解释性现象分析" data-scholar="Jonathan Smith" data-methods="现象学还原 解释学循环 个案分析 主题提炼">
+                        <h3 class="card-title">解释性现象分析</h3>
+                        <p class="card-scholar">对标学者：Jonathan Smith</p>
+                        <ul class="card-methods">
+                            <li>现象学还原</li><li>解释学循环</li><li>个案分析</li><li>主题提炼</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="ipa-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="ipa-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="叙事分析" data-scholar="Catherine Kohler Riessman" data-methods="故事结构 情节分析 人物分析 主题分析">
+                        <h3 class="card-title">叙事分析</h3>
+                        <p class="card-scholar">对标学者：Catherine Kohler Riessman</p>
+                        <ul class="card-methods">
+                            <li>故事结构</li><li>情节分析</li><li>人物分析</li><li>主题分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="narrative-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="narrative-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="现象学" data-scholar="Edmund Husserl" data-methods="本质还原 先验还原 意向性分析 生活世界">
+                        <h3 class="card-title">现象学</h3>
+                        <p class="card-scholar">对标学者：Edmund Husserl</p>
+                        <ul class="card-methods">
+                            <li>本质还原</li><li>先验还原</li><li>意向性分析</li><li>生活世界</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="phenomenology-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="phenomenology-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="二手数据分析" data-scholar="Louise Corti" data-methods="数据评估 重新分析 比较分析 元分析">
+                        <h3 class="card-title">二手数据分析</h3>
+                        <p class="card-scholar">对标学者：Louise Corti</p>
+                        <ul class="card-methods">
+                            <li>数据评估</li><li>重新分析</li><li>比较分析</li><li>元分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="secondary-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="secondary-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="符号学分析" data-scholar="Roland Barthes" data-methods="能指/所指 外延/内涵 神话分析 符号系统">
+                        <h3 class="card-title">符号学分析</h3>
+                        <p class="card-scholar">对标学者：Roland Barthes</p>
+                        <ul class="card-methods">
+                            <li>能指/所指</li><li>外延/内涵</li><li>神话分析</li><li>符号系统</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="semiotics-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="semiotics-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="主题分析" data-scholar="Virginia Braun" data-methods="数据熟悉 初始编码 主题搜索 主题审查">
+                        <h3 class="card-title">主题分析</h3>
+                        <p class="card-scholar">对标学者：Virginia Braun</p>
+                        <ul class="card-methods">
+                            <li>数据熟悉</li><li>初始编码</li><li>主题搜索</li><li>主题审查</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="thematic-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="thematic-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="视觉分析" data-scholar="Gillian Rose" data-methods="内容分析 符号分析 话语分析 实践分析">
+                        <h3 class="card-title">视觉分析</h3>
+                        <p class="card-scholar">对标学者：Gillian Rose</p>
+                        <ul class="card-methods">
+                            <li>内容分析</li><li>符号分析</li><li>话语分析</li><li>实践分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="visual-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="visual-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="社会序列分析" data-scholar="Andrew Abbott" data-methods="序列编码 模式识别 时间分析 事件史">
+                        <h3 class="card-title">社会序列分析</h3>
+                        <p class="card-scholar">对标学者：Andrew Abbott</p>
+                        <ul class="card-methods">
+                            <li>序列编码</li><li>模式识别</li><li>时间分析</li><li>事件史</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="social-sequence-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="social-sequence-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="修辞分析" data-scholar="Kenneth Burke" data-methods="戏剧五要素 认同分析 隐喻分析 论证分析">
+                        <h3 class="card-title">修辞分析</h3>
+                        <p class="card-scholar">对标学者：Kenneth Burke</p>
+                        <ul class="card-methods">
+                            <li>戏剧五要素</li><li>认同分析</li><li>隐喻分析</li><li>论证分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="rhetoric-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="rhetoric-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="数据分析" data-scholar="John W. Tukey" data-methods="探索性分析 描述统计 推断统计 可视化">
+                        <h3 class="card-title">数据分析</h3>
+                        <p class="card-scholar">对标学者：John W. Tukey</p>
+                        <ul class="card-methods">
+                            <li>探索性分析</li><li>描述统计</li><li>推断统计</li><li>可视化</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="data-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="data-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section" data-category="定量研究">
+            <div class="modern-container">
+                <h2 class="section-title">定量研究</h2>
+                <p class="section-subtitle">15 个专业方法论技能</p>
+                <div class="skills-grid">
+
+                    <div class="modern-card" data-name="社会网络分析" data-scholar="Linton Freeman" data-methods="中心性分析 社区检测 结构洞 网络可视化">
+                        <h3 class="card-title">社会网络分析</h3>
+                        <p class="card-scholar">对标学者：Linton Freeman</p>
+                        <ul class="card-methods">
+                            <li>中心性分析</li><li>社区检测</li><li>结构洞</li><li>网络可视化</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="social-network-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="social-network-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="QCA 定性比较分析" data-scholar="Charles Ragin" data-methods="模糊集校准 真值表 布尔最小化 必要性/充分性">
+                        <h3 class="card-title">QCA 定性比较分析</h3>
+                        <p class="card-scholar">对标学者：Charles Ragin</p>
+                        <ul class="card-methods">
+                            <li>模糊集校准</li><li>真值表</li><li>布尔最小化</li><li>必要性/充分性</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="qca-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="qca-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="DID 双重差分" data-scholar="Angrist & Pischke" data-methods="平行趋势 双向固定效应 稳健性检验 安慰剂检验">
+                        <h3 class="card-title">DID 双重差分</h3>
+                        <p class="card-scholar">对标学者：Angrist & Pischke</p>
+                        <ul class="card-methods">
+                            <li>平行趋势</li><li>双向固定效应</li><li>稳健性检验</li><li>安慰剂检验</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="did-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="did-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="回归分析" data-scholar="Ronald Fisher" data-methods="OLS 估计 假设检验 模型诊断 共线性检验">
+                        <h3 class="card-title">回归分析</h3>
+                        <p class="card-scholar">对标学者：Ronald Fisher</p>
+                        <ul class="card-methods">
+                            <li>OLS 估计</li><li>假设检验</li><li>模型诊断</li><li>共线性检验</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="regression-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="regression-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="问卷设计" data-scholar="Don A. Dillman" data-methods="问题设计 抽样方法 信度检验 效度检验">
+                        <h3 class="card-title">问卷设计</h3>
+                        <p class="card-scholar">对标学者：Don A. Dillman</p>
+                        <ul class="card-methods">
+                            <li>问题设计</li><li>抽样方法</li><li>信度检验</li><li>效度检验</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="survey-design-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="survey-design-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="因子分析" data-scholar="Charles Spearman" data-methods="探索性因子 验证性因子 因子旋转 因子得分">
+                        <h3 class="card-title">因子分析</h3>
+                        <p class="card-scholar">对标学者：Charles Spearman</p>
+                        <ul class="card-methods">
+                            <li>探索性因子</li><li>验证性因子</li><li>因子旋转</li><li>因子得分</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="factor-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="factor-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="结构方程模型" data-scholar="Karl Jöreskog" data-methods="测量模型 结构模型 路径分析 模型拟合">
+                        <h3 class="card-title">结构方程模型</h3>
+                        <p class="card-scholar">对标学者：Karl Jöreskog</p>
+                        <ul class="card-methods">
+                            <li>测量模型</li><li>结构模型</li><li>路径分析</li><li>模型拟合</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="sem-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="sem-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="多层线性模型" data-scholar="Stephen Raudenbush" data-methods="随机截距 随机斜率 跨层交互 增长模型">
+                        <h3 class="card-title">多层线性模型</h3>
+                        <p class="card-scholar">对标学者：Stephen Raudenbush</p>
+                        <ul class="card-methods">
+                            <li>随机截距</li><li>随机斜率</li><li>跨层交互</li><li>增长模型</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="multilevel-modeling-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="multilevel-modeling-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="机器学习研究" data-scholar="Tom Mitchell" data-methods="监督学习 无监督学习 特征工程 模型评估">
+                        <h3 class="card-title">机器学习研究</h3>
+                        <p class="card-scholar">对标学者：Tom Mitchell</p>
+                        <ul class="card-methods">
+                            <li>监督学习</li><li>无监督学习</li><li>特征工程</li><li>模型评估</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="machine-learning-research-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="machine-learning-research-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="NLP 文本挖掘" data-scholar="Christopher Manning" data-methods="分词 词性标注 情感分析 主题模型">
+                        <h3 class="card-title">NLP 文本挖掘</h3>
+                        <p class="card-scholar">对标学者：Christopher Manning</p>
+                        <ul class="card-methods">
+                            <li>分词</li><li>词性标注</li><li>情感分析</li><li>主题模型</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="nlp-text-mining-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="nlp-text-mining-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="文献计量分析" data-scholar="Eugene Garfield" data-methods="引文分析 共引分析 耦合分析 h 指数">
+                        <h3 class="card-title">文献计量分析</h3>
+                        <p class="card-scholar">对标学者：Eugene Garfield</p>
+                        <ul class="card-methods">
+                            <li>引文分析</li><li>共引分析</li><li>耦合分析</li><li>h 指数</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="bibliometric-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="bibliometric-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="Meta 分析" data-scholar="Gene V. Glass" data-methods="效应量计算 异质性检验 发表偏倚 亚组分析">
+                        <h3 class="card-title">Meta 分析</h3>
+                        <p class="card-scholar">对标学者：Gene V. Glass</p>
+                        <ul class="card-methods">
+                            <li>效应量计算</li><li>异质性检验</li><li>发表偏倚</li><li>亚组分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="meta-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="meta-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="RCT 实验设计" data-scholar="Ronald A. Fisher" data-methods="随机化 对照组 盲法 样本量计算">
+                        <h3 class="card-title">RCT 实验设计</h3>
+                        <p class="card-scholar">对标学者：Ronald A. Fisher</p>
+                        <ul class="card-methods">
+                            <li>随机化</li><li>对照组</li><li>盲法</li><li>样本量计算</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="rct-experimental-design-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="rct-experimental-design-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="纵向数据分析" data-scholar="John Nesselroade" data-methods="增长曲线 潜变量增长 时间序列 面板数据">
+                        <h3 class="card-title">纵向数据分析</h3>
+                        <p class="card-scholar">对标学者：John Nesselroade</p>
+                        <ul class="card-methods">
+                            <li>增长曲线</li><li>潜变量增长</li><li>时间序列</li><li>面板数据</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="longitudinal-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="longitudinal-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="CAS 仿真模拟" data-scholar="John Holland" data-methods="Agent 建模 涌现分析 适应性 非线性">
+                        <h3 class="card-title">CAS 仿真模拟</h3>
+                        <p class="card-scholar">对标学者：John Holland</p>
+                        <ul class="card-methods">
+                            <li>Agent 建模</li><li>涌现分析</li><li>适应性</li><li>非线性</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="cas-simulation-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="cas-simulation-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section" data-category="混合方法">
+            <div class="modern-container">
+                <h2 class="section-title">混合方法</h2>
+                <p class="section-subtitle">2 个专业方法论技能</p>
+                <div class="skills-grid">
+
+                    <div class="modern-card" data-name="混合方法研究" data-scholar="John Creswell" data-methods="三角验证 解释性序列 探索性序列 转换整合">
+                        <h3 class="card-title">混合方法研究</h3>
+                        <p class="card-scholar">对标学者：John Creswell</p>
+                        <ul class="card-methods">
+                            <li>三角验证</li><li>解释性序列</li><li>探索性序列</li><li>转换整合</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="mixed-methods-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="mixed-methods-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="行动研究" data-scholar="Kurt Lewin" data-methods="计划 行动 观察 反思">
+                        <h3 class="card-title">行动研究</h3>
+                        <p class="card-scholar">对标学者：Kurt Lewin</p>
+                        <ul class="card-methods">
+                            <li>计划</li><li>行动</li><li>观察</li><li>反思</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="action-research-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="action-research-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section" data-category="商业分析">
+            <div class="modern-container">
+                <h2 class="section-title">商业分析</h2>
+                <p class="section-subtitle">16 个专业方法论技能</p>
+                <div class="skills-grid">
+
+                    <div class="modern-card" data-name="商业生态系统分析" data-scholar="James F. Moore" data-methods="生态映射 角色分析 共同进化 健康度评估">
+                        <h3 class="card-title">商业生态系统分析</h3>
+                        <p class="card-scholar">对标学者：James F. Moore</p>
+                        <ul class="card-methods">
+                            <li>生态映射</li><li>角色分析</li><li>共同进化</li><li>健康度评估</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="business-ecosystem-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="business-ecosystem-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="商业模式分析" data-scholar="Alexander Osterwalder" data-methods="画布模型 价值主张 收入模式 成本结构">
+                        <h3 class="card-title">商业模式分析</h3>
+                        <p class="card-scholar">对标学者：Alexander Osterwalder</p>
+                        <ul class="card-methods">
+                            <li>画布模型</li><li>价值主张</li><li>收入模式</li><li>成本结构</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="business-model-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="business-model-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="品牌资产分析" data-scholar="David Aaker" data-methods="品牌知名度 品牌联想 感知质量 品牌忠诚度">
+                        <h3 class="card-title">品牌资产分析</h3>
+                        <p class="card-scholar">对标学者：David Aaker</p>
+                        <ul class="card-methods">
+                            <li>品牌知名度</li><li>品牌联想</li><li>感知质量</li><li>品牌忠诚度</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="brand-equity-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="brand-equity-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="消费者行为分析" data-scholar="Leon G. Schiffman" data-methods="购买决策 影响因素 细分市场 行为预测">
+                        <h3 class="card-title">消费者行为分析</h3>
+                        <p class="card-scholar">对标学者：Leon G. Schiffman</p>
+                        <ul class="card-methods">
+                            <li>购买决策</li><li>影响因素</li><li>细分市场</li><li>行为预测</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="consumer-behavior-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="consumer-behavior-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="组织诊断" data-scholar="Warren G. Bennis" data-methods="组织评估 问题识别 变革建议 效果评估">
+                        <h3 class="card-title">组织诊断</h3>
+                        <p class="card-scholar">对标学者：Warren G. Bennis</p>
+                        <ul class="card-methods">
+                            <li>组织评估</li><li>问题识别</li><li>变革建议</li><li>效果评估</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="organizational-diagnosis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="organizational-diagnosis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="系统动力学" data-scholar="Jay W. Forrester" data-methods="因果回路 存量流量 反馈分析 仿真模拟">
+                        <h3 class="card-title">系统动力学</h3>
+                        <p class="card-scholar">对标学者：Jay W. Forrester</p>
+                        <ul class="card-methods">
+                            <li>因果回路</li><li>存量流量</li><li>反馈分析</li><li>仿真模拟</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="system-dynamics-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="system-dynamics-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="设计思维" data-scholar="Tim Brown" data-methods="共情 定义 构思 原型 测试">
+                        <h3 class="card-title">设计思维</h3>
+                        <p class="card-scholar">对标学者：Tim Brown</p>
+                        <ul class="card-methods">
+                            <li>共情</li><li>定义</li><li>构思</li><li>原型</li><li>测试</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="design-thinking-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="design-thinking-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="精益创业" data-scholar="Eric Ries" data-methods="MVP 构建 - 测量 - 学习 创新核算  pivot">
+                        <h3 class="card-title">精益创业</h3>
+                        <p class="card-scholar">对标学者：Eric Ries</p>
+                        <ul class="card-methods">
+                            <li>MVP</li><li>构建 - 测量 - 学习</li><li>创新核算</li><li> pivot</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="lean-startup-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="lean-startup-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="敏捷项目管理" data-scholar="Jeff Sutherland" data-methods="Scrum Sprint 每日站会 回顾会议">
+                        <h3 class="card-title">敏捷项目管理</h3>
+                        <p class="card-scholar">对标学者：Jeff Sutherland</p>
+                        <ul class="card-methods">
+                            <li>Scrum</li><li>Sprint</li><li>每日站会</li><li>回顾会议</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="agile-pm-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="agile-pm-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="OKR 目标管理" data-scholar="Andrew Grove" data-methods="目标设定 关键结果 对齐 跟踪">
+                        <h3 class="card-title">OKR 目标管理</h3>
+                        <p class="card-scholar">对标学者：Andrew Grove</p>
+                        <ul class="card-methods">
+                            <li>目标设定</li><li>关键结果</li><li>对齐</li><li>跟踪</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="okr-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="okr-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="平衡计分卡" data-scholar="Robert Kaplan" data-methods="财务维度 客户维度 内部流程 学习成长">
+                        <h3 class="card-title">平衡计分卡</h3>
+                        <p class="card-scholar">对标学者：Robert Kaplan</p>
+                        <ul class="card-methods">
+                            <li>财务维度</li><li>客户维度</li><li>内部流程</li><li>学习成长</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="balanced-scorecard-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="balanced-scorecard-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="SWOT 分析" data-scholar="Albert Humphrey" data-methods="优势 劣势 机会 威胁">
+                        <h3 class="card-title">SWOT 分析</h3>
+                        <p class="card-scholar">对标学者：Albert Humphrey</p>
+                        <ul class="card-methods">
+                            <li>优势</li><li>劣势</li><li>机会</li><li>威胁</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="swot-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="swot-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="PEST 分析" data-scholar="Francis Aguilar" data-methods="政治 经济 社会 技术">
+                        <h3 class="card-title">PEST 分析</h3>
+                        <p class="card-scholar">对标学者：Francis Aguilar</p>
+                        <ul class="card-methods">
+                            <li>政治</li><li>经济</li><li>社会</li><li>技术</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="pest-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="pest-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="波特五力分析" data-scholar="Michael Porter" data-methods="供应商议价力 购买者议价力 新进入者威胁 替代品威胁 行业竞争">
+                        <h3 class="card-title">波特五力分析</h3>
+                        <p class="card-scholar">对标学者：Michael Porter</p>
+                        <ul class="card-methods">
+                            <li>供应商议价力</li><li>购买者议价力</li><li>新进入者威胁</li><li>替代品威胁</li><li>行业竞争</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="porter-five-forces-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="porter-five-forces-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="价值主张分析" data-scholar="Michael Lanning" data-methods="客户细分 价值地图 痛点分析 收益分析">
+                        <h3 class="card-title">价值主张分析</h3>
+                        <p class="card-scholar">对标学者：Michael Lanning</p>
+                        <ul class="card-methods">
+                            <li>客户细分</li><li>价值地图</li><li>痛点分析</li><li>收益分析</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="value-proposition-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="value-proposition-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="变革管理" data-scholar="John P. Kotter" data-methods="紧迫感 指导联盟 愿景 授权行动">
+                        <h3 class="card-title">变革管理</h3>
+                        <p class="card-scholar">对标学者：John P. Kotter</p>
+                        <ul class="card-methods">
+                            <li>紧迫感</li><li>指导联盟</li><li>愿景</li><li>授权行动</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="change-management-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="change-management-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section" data-category="社会理论">
+            <div class="modern-container">
+                <h2 class="section-title">社会理论</h2>
+                <p class="section-subtitle">3 个专业方法论技能</p>
+                <div class="skills-grid">
+
+                    <div class="modern-card" data-name="数字马克思分析" data-scholar="David Harvey" data-methods="数字劳动 剩余价值 意识形态批判 阶级结构">
+                        <h3 class="card-title">数字马克思分析</h3>
+                        <p class="card-scholar">对标学者：David Harvey</p>
+                        <ul class="card-methods">
+                            <li>数字劳动</li><li>剩余价值</li><li>意识形态批判</li><li>阶级结构</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="digital-marx-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="digital-marx-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="数字涂尔干分析" data-scholar="Émile Durkheim" data-methods="集体意识 社会团结 神圣/世俗 失范">
+                        <h3 class="card-title">数字涂尔干分析</h3>
+                        <p class="card-scholar">对标学者：Émile Durkheim</p>
+                        <ul class="card-methods">
+                            <li>集体意识</li><li>社会团结</li><li>神圣/世俗</li><li>失范</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="digital-durkheim-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="digital-durkheim-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card" data-name="数字韦伯分析" data-scholar="Max Weber" data-methods="理性化 科层制 祛魅 权威类型">
+                        <h3 class="card-title">数字韦伯分析</h3>
+                        <p class="card-scholar">对标学者：Max Weber</p>
+                        <ul class="card-methods">
+                            <li>理性化</li><li>科层制</li><li>祛魅</li><li>权威类型</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="digital-weber-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="digital-weber-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section" data-category="工具">
+            <div class="modern-container">
+                <h2 class="section-title">工具</h2>
+                <p class="section-subtitle">1 个专业方法论技能</p>
+                <div class="skills-grid">
+
+                    <div class="modern-card" data-name="技能升级" data-scholar="SocienceAI" data-methods="技能评估 学习路径 实践项目 认证">
+                        <h3 class="card-title">技能升级</h3>
+                        <p class="card-scholar">对标学者：SocienceAI</p>
+                        <ul class="card-methods">
+                            <li>技能评估</li><li>学习路径</li><li>实践项目</li><li>认证</li>
+                        </ul>
+                        <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="skill-upgrade-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="skill-upgrade-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="modern-footer">
+        <div class="modern-container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <div class="footer-brand">
+                        <div class="footer-logo">AI</div>
+                        <div class="footer-title">SocienceAI</div>
+                    </div>
+                    <p class="footer-description">SocienceAI 致力于构建 AI 与社会科学研究的双向赋能体系，通过 AI 释放人类研究者自由创新的核心潜力，提升 AI 智能体的集体智能和社会智能。</p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="skills.html">方法论技能</a></li>
+                        <li><a href="Tech/index.html">赋能工具</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="Dao/index.html">关于我们</a></li>
+                        <li><a href="Dao/Manifesto.html">项目使命</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SocienceAI. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterSkills() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.modern-card');
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const scholar = card.getAttribute('data-scholar').toLowerCase();
+                const methods = card.getAttribute('data-methods').toLowerCase();
+                if (name.includes(searchInput) || scholar.includes(searchInput) || methods.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterCategory(category) {
+            const sections = document.querySelectorAll('.category-section');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            sections.forEach(section => {
+                if (category === 'all' || section.getAttribute('data-category') === category) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                filterSkills();
+            }
+        });
+    </script>
+</body>
+</html>

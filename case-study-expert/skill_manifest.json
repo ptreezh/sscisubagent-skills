@@ -1,0 +1,109 @@
+{
+  "name": "case-study-expert",
+  "version": "5.0.0-cli-native+agent",
+  "description": "案例研究专家。提供系统化案例研究设计，支持单案例设计、多案例设计、解释性案例研究、探索性案例研究、描述性案例研究。核心能力包括：案例选择、数据三角验证、模式匹配、理论构建、复制逻辑。",
+  "license": "MIT",
+  "compatibility": {
+    "python": "3.8+",
+    "ai_cli": [
+      "Claude",
+      "Qwen",
+      "iFlow",
+      "Gemini",
+      "Copilot",
+      "Stigmergy",
+      "OpenCode",
+      "KiloCode",
+      "QoderCLI",
+      "WorkBuddy",
+      "Cursor",
+      "Windsurf",
+      "龙虾",
+      "QClaw"
+    ],
+    "agentskills_io": "v1.0"
+  },
+  "metadata": {
+    "methodology": "Yin (2018), Stake (1995), Eisenhardt (1989)",
+    "domain": "社会科学研究方法/质性研究",
+    "category": "research-methodology",
+    "subagent_support": true,
+    "cross_platform": true
+  },
+  "capabilities": [
+    "案例研究设计",
+    "案例选择与复制逻辑",
+    "多源数据三角验证",
+    "模式匹配分析",
+    "跨案例分析",
+    "理论构建与验证"
+  ],
+  "files": {
+    "required": [
+      "SKILL.md",
+      "skill.yaml",
+      "skill_manifest.json"
+    ],
+    "recommended": [
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "prompts/system-prompt.md",
+      "references/detailed-guide.md",
+      "subagents.yaml"
+    ],
+    "optional": [
+      "tools/case_selector.py",
+      "tools/pattern_matcher.py",
+      "templates/case-study-protocol-template.md",
+      "experience/best-practices.md"
+    ]
+  },
+  "quality_metrics": {
+    "file_completeness": "15/15 (100%)",
+    "methodology_alignment": "Yin (2018) 四质量检验",
+    "classic_literature": [
+      "Yin (2018)",
+      "Stake (1995)",
+      "Eisenhardt (1989)",
+      "George & Bennett (2005)"
+    ],
+    "validation_status": "pending"
+  },
+  "six_forbidden_principles": [
+    "禁止案例定义模糊 - 案例边界必须清晰定义",
+    "禁止单一证据来源 - 必须使用三角验证",
+    "禁止预设结论 - 必须让数据说话",
+    "禁止忽视竞争解释 - 必须分析替代解释",
+    "禁止便利抽样 - 必须使用理论驱动的选择",
+    "禁止描述性止步 - 必须进行理论抽象"
+  ],
+  "tools": [
+    {
+      "name": "case_selector.py",
+      "description": "案例选择与复制逻辑工具"
+    },
+    {
+      "name": "pattern_matcher.py",
+      "description": "模式匹配分析工具"
+    }
+  ],
+  "subagents": [
+    {
+      "id": "cs-designer",
+      "name": "案例设计师",
+      "role": "设计案例研究方案"
+    },
+    {
+      "id": "cs-collector",
+      "name": "数据收集器",
+      "role": "多源数据收集与三角验证"
+    },
+    {
+      "id": "cs-analyzer",
+      "name": "案例分析师",
+      "role": "模式匹配与跨案例分析"
+    }
+  ],
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15"
+}

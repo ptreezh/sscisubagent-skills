@@ -1,0 +1,43 @@
+# Phenomenology Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: pheno-epoch
+    name: 悬置引导师
+    role: 引导现象学态度与悬置过程
+    triggers:
+      - "悬置"
+      - "epoché"
+      - "预设"
+
+  - id: pheno-analyst
+    name: 意义分析师
+    role: 执行意义单元分析
+    triggers:
+      - "意义单元"
+      - "分析"
+      - "编码"
+
+  - id: pheno-essence
+    name: 本质提取师
+    role: 执行本质还原与结构揭示
+    triggers:
+      - "本质"
+      - "还原"
+      - "结构"
+
+workflow:
+  - step: 1
+    action: "研究问题界定"
+  - step: 2
+    action: "现象学态度准备(悬置)"
+  - step: 3
+    action: "经验数据收集"
+  - step: 4
+    action: "意义单元分析"
+  - step: 5
+    action: "想象变异检验"
+  - step: 6
+    action: "本质结构综合"
+  - step: 7
+    action: "现象学描述撰写"

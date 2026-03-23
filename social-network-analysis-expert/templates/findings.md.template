@@ -1,0 +1,107 @@
+# 社会网络分析发现记录
+
+**任务 ID**: {{task_id}}  
+**创建时间**: {{created_at}}  
+**最后更新**: {{updated_at}}
+
+---
+
+## Phase 2: 中心性分析发现
+
+### 中心性排名
+
+| 排名 | 节点 | 度中心性 | 中介中心性 | 接近中心性 | 特征向量中心性 | 综合得分 |
+|------|------|----------|------------|------------|----------------|----------|
+| 1 | {{node}} | {{degree}} | {{betweenness}} | {{closeness}} | {{eigenvector}} | {{composite}} |
+| 2 | {{node}} | {{degree}} | {{betweenness}} | {{closeness}} | {{eigenvector}} | {{composite}} |
+| 3 | {{node}} | {{degree}} | {{betweenness}} | {{closeness}} | {{eigenvector}} | {{composite}} |
+
+### 关键节点识别
+
+**最中心节点**: {{most_central_node}}  
+**关键经纪人**: {{key_broker}}  
+**孤立节点**: {{isolated_nodes}}
+
+---
+
+## Phase 3: 社群检测发现
+
+### 社群列表
+
+| 社群 ID | 成员数 | 密度 | 模块化贡献 | 主要特征 |
+|---------|--------|------|------------|----------|
+| 1 | {{size}} | {{density}} | {{modularity}} | {{feature}} |
+| 2 | {{size}} | {{density}} | {{modularity}} | {{feature}} |
+| 3 | {{size}} | {{density}} | {{modularity}} | {{feature}} |
+
+### 社群详情
+
+#### 社群 1: {{name}}
+- **成员**: {{members}}
+- **密度**: {{density}}
+- **特征**: {{characteristics}}
+
+#### 社群 2: {{name}}
+- **成员**: {{members}}
+- **密度**: {{density}}
+- **特征**: {{characteristics}}
+
+---
+
+## Phase 4: 结构洞分析发现
+
+### 结构洞位置
+
+| 节点 | 约束 | 有效规模 | 效率 | 层级性 | 经纪人类型 |
+|------|--------|----------|------|--------|------------|
+| {{node}} | {{constraint}} | {{effective_size}} | {{efficiency}} | {{hierarchy}} | {{broker_type}} |
+| {{node}} | {{constraint}} | {{effective_size}} | {{efficiency}} | {{hierarchy}} | {{broker_type}} |
+
+### 关键经纪人
+
+**顶级经纪人**: {{top_broker}}  
+**约束最低**: {{lowest_constraint}}  
+**效率最高**: {{highest_efficiency}}
+
+---
+
+## Phase 5: 可视化发现
+
+### 网络布局
+
+- **布局算法**: {{layout_algorithm}}
+- **节点颜色映射**: {{color_mapping}}
+- **节点大小映射**: {{size_mapping}}
+
+### 视觉模式
+
+**核心 - 边缘结构**: {{core_periphery}}  
+**小世界特征**: {{small_world}}  
+**无标度特征**: {{scale_free}}
+
+---
+
+## 关键洞察
+
+### 洞察 1: {{title}}
+{{key_insight}}
+
+### 洞察 2: {{title}}
+{{key_insight}}
+
+### 洞察 3: {{title}}
+{{key_insight}}
+
+---
+
+## 数据引用
+
+| 编号 | 原始数据 | 来源 | 时间 |
+|------|----------|------|------|
+| D001 | "{{data}}" | {{source}} | {{timestamp}} |
+
+---
+
+**备注**: {{notes}}
+
+**下次更新计划**: {{next_update_plan}}

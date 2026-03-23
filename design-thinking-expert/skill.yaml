@@ -1,0 +1,266 @@
+# 设计思维专家技能配置文件
+# Version: 5.0.0-cli-native+agent
+# Methodology: IDEO/Stanford d.school Design Thinking
+
+metadata:
+  name: design-thinking-expert
+  version: "5.0.0-cli-native+agent"
+  category: "innovation-methods"
+  methodology: "Design Thinking"
+  author: "SocienceAI Methodology Expert"
+  created: "2026-03-18"
+  license: "MIT"
+  agentskills_io: true
+  cross_platform: true
+  subagent_support: true
+
+description:
+  brief: "以人为本的创新问题解决方法论"
+  full: |
+    基于IDEO和斯坦福d.school的设计思维方法论，提供五阶段创新框架：
+    同理心洞察、问题定义、创意发散、原型制作、用户测试。
+    适用于产品创新、服务设计、用户体验优化等场景。
+
+trigger_keywords:
+  - 设计思维
+  - Design Thinking
+  - 用户中心设计
+  - 创新方法论
+  - 原型设计
+  - 同理心研究
+  - 用户洞察
+  - 头脑风暴
+  - 人本设计
+  - 创意思维
+
+capabilities:
+  core:
+    - 同理心洞察
+    - 问题定义与重构
+    - 创意发散与收敛
+    - 快速原型制作
+    - 用户测试与迭代
+  
+  advanced:
+    - 多元创新方法整合
+    - 跨领域类比创新
+    - 服务设计蓝图
+    - 创新工作坊设计
+    - 组织创新文化培育
+
+workflow:
+  stages:
+    - id: "empathize"
+      name: "同理心洞察"
+      description: "深入理解用户需求和痛点"
+      activities:
+        - "用户访谈设计与执行"
+        - "用户观察与记录"
+        - "同理心地图构建"
+        - "用户旅程映射"
+      outputs:
+        - "用户画像"
+        - "同理心地图"
+        - "用户旅程图"
+        - "关键洞察清单"
+      tools:
+        - "empathy_map"
+        - "user_journey"
+        - "interview_guide"
+      timeout: 600
+      
+    - id: "define"
+      name: "问题定义"
+      description: "构建清晰的设计挑战"
+      activities:
+        - "POV陈述构建"
+        - "HMW问题重构"
+        - "问题空间探索"
+        - "核心问题确定"
+      outputs:
+        - "POV陈述"
+        - "HMW问题列表"
+        - "设计挑战定义"
+      tools:
+        - "pov_template"
+        - "hmw_generator"
+        - "problem_space"
+      timeout: 300
+      
+    - id: "ideate"
+      name: "创意发散"
+      description: "生成大量创新方案"
+      activities:
+        - "头脑风暴会议"
+        - "SCAMPER应用"
+        - "概念聚类"
+        - "方案筛选"
+      outputs:
+        - "创意概念库"
+        - "概念地图"
+        - "优选方案列表"
+      tools:
+        - "brainstorming"
+        - "scamper"
+        - "concept_clustering"
+      timeout: 400
+      
+    - id: "prototype"
+      name: "原型制作"
+      description: "快速验证核心假设"
+      activities:
+        - "假设优先级排序"
+        - "原型类型选择"
+        - "快速原型制作"
+        - "测试准备"
+      outputs:
+        - "低保真原型"
+        - "测试脚本"
+        - "假设验证计划"
+      tools:
+        - "prototype_selector"
+        - "assumption_mapper"
+        - "storyboard"
+      timeout: 300
+      
+    - id: "test"
+      name: "用户测试"
+      description: "收集反馈指导迭代"
+      activities:
+        - "用户测试执行"
+        - "反馈收集"
+        - "发现分析"
+        - "迭代建议"
+      outputs:
+        - "测试报告"
+        - "用户反馈分析"
+        - "迭代建议"
+      tools:
+        - "usability_test"
+        - "feedback_analyzer"
+        - "iteration_planner"
+      timeout: 400
+
+forbidden_rules:
+  - id: "FR001"
+    rule: "禁止脱离用户需求设计"
+    description: "所有设计必须基于真实用户洞察，不能闭门造车"
+    
+  - id: "FR002"
+    rule: "禁止过早收敛方案"
+    description: "必须充分发散后再收敛，不能急于确定方案"
+    
+  - id: "FR003"
+    rule: "禁止完美主义阻碍原型"
+    description: "原型追求快速而非完美，用最小成本验证假设"
+    
+  - id: "FR004"
+    rule: "禁止忽视负面反馈"
+    description: "必须认真对待批评和失败信号，它们是迭代的关键"
+    
+  - id: "FR005"
+    rule: "禁止线性执行五阶段"
+    description: "设计思维是迭代循环，不是线性流水线"
+    
+  - id: "FR006"
+    rule: "禁止团队同质化思维"
+    description: "必须引入多元视角，避免群体思维"
+
+quality_gates:
+  stage_complete:
+    - "所有活动已完成"
+    - "输出物已生成"
+    - "质量检查通过"
+    
+  iteration_required:
+    - "用户反馈负面超过50%"
+    - "核心假设被证伪"
+    - "发现新的用户需求"
+
+task_queue:
+  auto_create: true
+  persistence: true
+  dependency_tracking: true
+  
+  task_types:
+    - empathy_research
+    - problem_definition
+    - ideation_session
+    - prototype_creation
+    - user_testing
+    - iteration_planning
+  
+  execution:
+    model_driven: true
+    tool_first: true
+    state_persistence: true
+  
+  checkpoints:
+    - "empathy_insights.json"
+    - "problem_definition.json"
+    - "ideation.json"
+    - "prototype.json"
+    - "testing.json"
+
+integration:
+  ai_cli:
+    - claude
+    - qwen
+    - iflow
+    - gemini
+    - copilot
+    - stigmergy
+    - opencode
+    - kilocode
+    - qodercli
+    - workbuddy
+    - cursor
+    - windsurf
+    - qclaw
+    - openclaw
+    - wukong
+  
+  agentskills_io: "v1.0"
+  
+  file_formats:
+    input:
+      - ".md"
+      - ".json"
+      - ".txt"
+      - ".csv"
+    output:
+      - ".md"
+      - ".json"
+      - ".html"
+      - ".pdf"
+
+tools:
+  python:
+    - "empathy_map_generator.py"
+    - "user_journey_mapper.py"
+    - "hmw_generator.py"
+    - "brainstorming_facilitator.py"
+    - "prototype_selector.py"
+    - "usability_analyzer.py"
+  
+  templates:
+    - "empathy_map_template.md"
+    - "user_journey_template.md"
+    - "pov_template.md"
+    - "hmw_template.md"
+    - "prototype_report_template.md"
+    - "usability_test_template.md"
+
+references:
+  classic_literature:
+    - "Brown, T. (2009). Change by Design"
+    - "IDEO (2015). The Field Guide to Human-Centered Design"
+    - "Kelley, T., & Kelley, D. (2013). Creative Confidence"
+    - "Stanford d.school Design Thinking Bootcamp Bootleg"
+  
+  methodology:
+    - "五阶段设计思维模型"
+    - "同理心地图工具"
+    - "POV陈述框架"
+    - "HMW问题重构"
+    - "SCAMPER创新法"

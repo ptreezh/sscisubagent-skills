@@ -1,0 +1,55 @@
+# SWOT Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: internal-analyzer
+    name: 内部分析师
+    role: 分析内部优势与劣势
+    triggers:
+      - "内部分析"
+      - "优势"
+      - "劣势"
+      - "SW"
+
+  - id: external-analyzer
+    name: 外部分析师
+    role: 分析外部机会与威胁
+    triggers:
+      - "外部分析"
+      - "机会"
+      - "威胁"
+      - "OT"
+
+  - id: strategy-generator
+    name: 战略生成师
+    role: 生成四象限战略方案
+    triggers:
+      - "战略"
+      - "SO战略"
+      - "WO战略"
+      - "ST战略"
+      - "WT战略"
+
+  - id: priority-ranker
+    name: 优先级排序师
+    role: 评估和排序战略优先级
+    triggers:
+      - "优先级"
+      - "排序"
+      - "评估"
+
+workflow:
+  - step: 1
+    action: "环境扫描"
+  - step: 2
+    action: "内部分析(识别S/W)"
+  - step: 3
+    action: "外部分析(识别O/T)"
+  - step: 4
+    action: "因素评估与权重"
+  - step: 5
+    action: "战略匹配(SO/WO/ST/WT)"
+  - step: 6
+    action: "优先级排序"
+  - step: 7
+    action: "行动计划制定"

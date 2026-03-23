@@ -1,0 +1,47 @@
+# 组织诊断技能钩子配置
+
+hooks:
+  before_task:
+    - name: initialize_workspace
+      actions:
+        - create_directory: "{{workspace_path}}"
+
+  after_stage:
+    - name: validate_boxes
+      trigger: stage == "diagnosis"
+      actions:
+        - check: "boxes.purposes.score != null"
+        - check: "boxes.structure.score != null"
+        - check: "boxes.relationships.score != null"
+        - check: "boxes.leadership.score != null"
+        - check: "boxes.rewards.score != null"
+        - check: "boxes.mechanisms.score != null"
+
+persistence:
+  session:
+    path: ".claude/session/org-diagnosis/"
+  project:
+    path: "{{project_root}}/org-diagnosis-workspace/"
+  learning:
+    path: "experience/patterns.md"
+
+subagents:
+  enabled: true
+  agents:
+    - id: purpose-analyzer
+      role: 目标诊断
+    - id: structure-analyzer
+      role: 结构诊断
+    - id: relationship-analyzer
+      role: 关系诊断
+    - id: leadership-analyzer
+      role: 领导诊断
+    - id: reward-analyzer
+      role: 激励诊断
+    - id: mechanism-analyzer
+      role: 机制诊断
+
+quality_checks:
+  box_completeness:
+    all_six_boxes: true
+    min_score_per_box: 1

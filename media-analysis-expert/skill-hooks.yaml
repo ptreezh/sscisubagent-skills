@@ -1,0 +1,38 @@
+# 媒介分析技能钩子
+
+hooks:
+  - id: FORBIDDEN_001
+    name: 禁止技术决定论
+    description: 媒介技术不单独决定社会效果
+    trigger: 断言媒介"必然导致"某种效果
+    action: 要求分析社会语境因素
+
+  - id: FORBIDDEN_002
+    name: 禁止忽视社会语境
+    description: 媒介嵌入社会关系
+    trigger: 孤立分析媒介技术
+    action: 增加制度和文化维度
+
+  - id: FORBIDDEN_003
+    name: 禁止忽视权力关系
+    description: 媒介涉及权力分配
+    trigger: 忽视所有权和控制
+    action: 增加政治经济分析
+
+  - id: FORBIDDEN_004
+    name: 禁止忽视历史维度
+    description: 媒介有历史演变
+    trigger: 静态分析媒介
+    action: 增加历史变迁分析
+
+  - id: FORBIDDEN_005
+    name: 禁止忽视受众能动性
+    description: 受众不是被动接收
+    trigger: 视受众为被动
+    action: 分析受众能动性
+
+  - id: FORBIDDEN_006
+    name: 禁止忽视全球不平等
+    description: 媒介发展不均衡
+    trigger: 忽视全球维度
+    action: 增加全球政治经济视角

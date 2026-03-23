@@ -1,0 +1,91 @@
+# 文献计量分析技能钩子配置
+# 版本: 1.0.0
+
+skill_info:
+  name: "bibliometric-analysis-expert"
+  version: "1.0.0"
+  description: "文献计量分析专家技能"
+  methodology: "Van Raan, Leydesdorff, Glänzel"
+
+persistence:
+  session:
+    enabled: true
+    path: "workspace/sessions"
+  project:
+    enabled: true
+    path: "workspace/projects"
+  learning:
+    enabled: true
+    path: "lesson-memory.md"
+
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "持续比较文献指标和分析结果"
+  record:
+    enabled: true
+    format: "结构化数据表"
+  chain:
+    enabled: true
+    phases:
+      - "数据获取→清洗"
+      - "清洗→描述分析"
+      - "描述→引文分析"
+      - "引文→网络分析"
+  trace:
+    enabled: true
+    decision_log: true
+
+forbidden_principles:
+  - id: "FORBIDDEN_001"
+    name: "禁止选择性数据报告"
+    description: "必须报告完整的数据检索过程和结果"
+    severity: "critical"
+  - id: "FORBIDDEN_002"
+    name: "禁止忽视数据消歧"
+    description: "必须进行作者和机构消歧处理"
+    severity: "high"
+  - id: "FORBIDDEN_003"
+    name: "禁止方法选择不当"
+    description: "根据研究目的选择合适的分析方法"
+    severity: "high"
+  - id: "FORBIDDEN_004"
+    name: "禁止忽视数据质量"
+    description: "必须评估数据完整性和质量"
+    severity: "high"
+  - id: "FORBIDDEN_005"
+    name: "禁止过度解释结果"
+    description: "结果解释需结合领域知识，避免过度推断"
+    severity: "medium"
+  - id: "FORBIDDEN_006"
+    name: "禁止忽视领域背景"
+    description: "分析必须结合学科背景和研究领域特点"
+    severity: "medium"
+
+triggers:
+  on_session_start:
+    - action: "load_persistence"
+    - action: "validate_data_source"
+  on_data_load:
+    - action: "check_data_quality"
+    - action: "perform_disambiguation"
+  on_analysis_complete:
+    - action: "validate_results"
+    - action: "save_learning"
+
+tools:
+  co_citation_analyzer:
+    type: "python"
+    path: "tools/co_citation_analyzer.py"
+  keyword_cooccurrence:
+    type: "python"
+    path: "tools/keyword_cooccurrence.py"
+  author_network:
+    type: "python"
+    path: "tools/author_network.py"
+
+quality_control:
+  min_papers: 100
+  min_citations: 10
+  disambiguation_required: true
+  visualization_required: true

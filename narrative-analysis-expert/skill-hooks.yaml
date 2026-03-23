@@ -1,0 +1,206 @@
+# 叙事分析专家 - 技能钩子配置
+
+## 基本配置
+skill_name: narrative-analysis-expert
+version: "5.0.0"
+methodology: "Riessman (2008), McAdams (2001), Labov (1972)"
+
+## CRCT思维链配置
+crct_config:
+  constant_comparison:
+    enabled: true
+    description: "持续比较叙事要素，确保分析的系统性"
+  
+  record:
+    enabled: true
+    persistence: "session"
+    path: "data/sessions/{session_id}/narrative_records/"
+  
+  chain:
+    enabled: true
+    max_chain_length: 50
+  
+  trace:
+    enabled: true
+    trace_level: "detailed"
+
+## 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: "data/sessions/{session_id}/narrative/"
+    retention: "session_end"
+    contents:
+      - "raw_transcripts/"
+      - "structure_analysis/"
+      - "theme_analysis/"
+      - "identity_analysis/"
+      - "analysis_logs/"
+  
+  project:
+    enabled: true
+    path: "data/projects/{project_id}/narrative/"
+    retention: "project_end"
+    contents:
+      - "all_transcripts/"
+      - "cross_narrative_analysis/"
+      - "theme_clustering/"
+      - "final_reports/"
+  
+  learning:
+    enabled: true
+    path: "data/learning/narrative-analysis/"
+    retention: "permanent"
+    contents:
+      - "analysis_patterns/"
+      - "theme_categories/"
+      - "quality_benchmarks/"
+
+## 6大绝对禁止原则
+six_forbidden_principles:
+  - principle: "禁止脱离语境断章取义"
+    description: "叙事必须在完整语境中理解，不可抽取片段"
+    detection_keywords: ["单独编码", "抽取句子", "片段分析"]
+    
+  - principle: "禁止忽视讲述者视角"
+    description: "叙事的意义在于讲述者如何建构，不可强加研究者解读"
+    detection_keywords: ["研究者认为", "应该解释为", "实际意义是"]
+    
+  - principle: "禁止简化叙事复杂性"
+    description: "叙事往往包含矛盾和模糊，不可过度简化"
+    detection_keywords: ["简单归纳", "统称为", "只是"]
+    
+  - principle: "禁止忽视叙事表演性"
+    description: "叙事是讲述行为，不可只关注内容忽视讲述过程"
+    detection_keywords: ["只看内容", "忽略语气", "不考虑情境"]
+    
+  - principle: "禁止标准化分析框架"
+    description: "叙事分析需灵活适应，不可机械套用固定框架"
+    detection_keywords: ["机械套用", "固定模板", "标准化分析"]
+    
+  - principle: "禁止忽视伦理责任"
+    description: "叙事研究涉及深度个人经验，不可忽视伦理考量"
+    detection_keywords: ["无需知情同意", "可以公开", "忽略隐私"]
+
+## 分析阶段钩子
+analysis_hooks:
+  pre_analysis:
+    - name: "verify_input_complete"
+      action: "验证叙事文本完整性"
+      
+    - name: "check_ethics_approval"
+      action: "检查伦理审批状态"
+      
+  during_analysis:
+    - name: "maintain_narrative_integrity"
+      action: "保持叙事完整性"
+      
+    - name: "track_analysis_decisions"
+      action: "追踪分析决策"
+      
+    - name: "check_forbidden_principles"
+      action: "检查是否违反禁止原则"
+      
+  post_analysis:
+    - name: "validate_findings"
+      action: "验证研究发现"
+      
+    - name: "generate_transparency_report"
+      action: "生成透明度报告"
+      
+    - name: "prepare_participant_feedback"
+      action: "准备参与者反馈材料"
+
+## 工具调用钩子
+tool_hooks:
+  structure_parser:
+    pre_call:
+      - "验证输入文本不为空"
+    post_call:
+      - "验证结构分析完整性"
+      - "记录缺失要素"
+      
+  theme_extractor:
+    pre_call:
+      - "确保叙事已完整阅读"
+    post_call:
+      - "验证主题来自叙事本身"
+      - "检查是否保持叙事完整性"
+      
+  identity_analyzer:
+    pre_call:
+      - "确认叙事足够长（建议>200字）"
+    post_call:
+      - "验证身份转变分析合理性"
+      - "检查基调分析证据充分"
+
+## 质量检查点
+quality_checkpoints:
+  data_collection:
+    - "访谈是否建立信任关系"
+    - "转录是否逐字保留原话"
+    - "是否标注非语言表达"
+    
+  analysis:
+    - "是否保持叙事完整性"
+    - "主题是否从叙事中生成"
+    - "是否提供分析证据"
+    - "是否记录分析决策"
+    
+  reporting:
+    - "是否大量引用原文"
+    - "分析过程是否透明"
+    - "是否尊重参与者声音"
+
+## 输出格式配置
+output_formats:
+  structure_analysis:
+    template: "labov_structure_report"
+    includes:
+      - "原始文本片段"
+      - "结构要素标注"
+      - "完整性评估"
+      - "缺失要素提示"
+      
+  theme_analysis:
+    template: "theme_report"
+    includes:
+      - "主要主题"
+      - "子主题"
+      - "原文证据"
+      - "主题网络"
+      
+  identity_analysis:
+    template: "identity_report"
+    includes:
+      - "叙事基调"
+      - "核心情节"
+      - "身份转变"
+      - "关键短语"
+
+## 会话管理
+session_management:
+  max_session_duration: "4h"
+  checkpoint_interval: "30min"
+  auto_save: true
+  
+  context_management:
+    max_narratives_per_session: 10
+    preserve_analysis_history: true
+    enable_session_resume: true
+
+## 学习与进化
+learning_config:
+  pattern_learning: true
+  quality_benchmark_learning: true
+  theme_category_evolution: true
+  
+  evolution_triggers:
+    - "每10个叙事分析后更新模式库"
+    - "发现新主题类别时扩展分类"
+    - "质量问题出现时更新检查点"
+
+---
+**配置版本**: 1.0.0
+**创建时间**: 2026-03-15
+**维护者**: 叙事分析专家技能

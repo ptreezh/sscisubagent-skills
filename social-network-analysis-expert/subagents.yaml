@@ -1,0 +1,76 @@
+# SNA Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Network Construction Agent
+  - name: sna-network-builder
+    description: 构建网络对象并计算基础指标
+    prompt_template: prompts/network-building-prompt.md
+    tools:
+      - build-network
+    output_format: json
+    responsibility: |
+      - 解析边列表/邻接矩阵
+      - 构建NetworkX图对象
+      - 计算基础网络指标（节点数、边数、密度、连通性）
+      - 验证网络数据有效性
+    
+  # Centrality Analysis Agent
+  - name: sna-centrality-analyzer
+    description: 计算并解释多种中心性指标
+    prompt_template: prompts/centrality-analysis-prompt.md
+    tools:
+      - calculate-centrality
+    output_format: json
+    responsibility: |
+      - 计算度中心性、介数中心性、接近中心性
+      - 计算特征向量中心性、PageRank
+      - 生成中心性排名
+      - 提供中心性解释框架
+      
+  # Community Detection Agent
+  - name: sna-community-detector
+    description: 社群检测与模块化分析
+    prompt_template: prompts/community-detection-prompt.md
+    tools:
+      - detect-communities
+    output_format: json
+    responsibility: |
+      - 执行Louvain社群检测
+      - 计算模块化Q值
+      - 分析社群内部结构
+      - 验证社群划分质量
+      
+  # Structural Holes Agent
+  - name: sna-structural-holes-analyzer
+    description: 结构洞分析与经纪人识别
+    prompt_template: prompts/structural-holes-prompt.md
+    tools:
+      - analyze-structural-holes
+    output_format: json
+    responsibility: |
+      - 计算Burt约束指标
+      - 计算有效规模
+      - 识别经纪人节点
+      - 分析网络效率
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 4
+  coordination: sequential_merge
+  
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  
+# Agent Dependencies
+dependencies:
+  sna-centrality-analyzer:
+    requires: [sna-network-builder]
+  sna-community-detector:
+    requires: [sna-network-builder]
+  sna-structural-holes-analyzer:
+    requires: [sna-network-builder]

@@ -1,0 +1,38 @@
+# 修辞分析技能钩子
+
+hooks:
+  - id: FORBIDDEN_001
+    name: 禁止脱离语境
+    description: 视觉分析必须在语境中进行
+    trigger: 孤立分析图像形式
+    action: 要求提供语境信息
+
+  - id: FORBIDDEN_002
+    name: 禁止忽视生产消费
+    description: 图像有意义链
+    trigger: 仅分析图像本身
+    action: 增加生产和受众分析
+
+  - id: FORBIDDEN_003
+    name: 禁止过度主观
+    description: 分析需有依据
+    trigger: 主观感受代替分析
+    action: 要求提供证据支持
+
+  - id: FORBIDDEN_004
+    name: 禁止忽视权力关系
+    description: 观看涉及权力
+    trigger: 忽视观看的政治
+    action: 增加权力关系分析
+
+  - id: FORBIDDEN_005
+    name: 禁止忽视技术维度
+    description: 技术影响意义
+    trigger: 忽视媒介特性
+    action: 分析技术条件
+
+  - id: FORBIDDEN_006
+    name: 禁止忽视历史变迁
+    description: 视觉有历史性
+    trigger: 静态分析图像
+    action: 增加历史维度

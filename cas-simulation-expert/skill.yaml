@@ -1,0 +1,159 @@
+---
+name: cas-simulation-expert
+version: 5.0.0-cli-native+agent
+description: |
+  Complex Adaptive Systems Simulation Expert - 复杂适应系统仿真专家技能（AI CLI 原生版）。
+  支持自动任务队列执行和子Agent并行处理。基于Agent-Based Modeling (ABM) 方法论。
+
+  **质量优先，严谨仿真**：严格遵循Holland (1995)、Arthur (1994) CAS方法论。
+  确保主体异质性、空间结构合理、涌现验证完成、多次运行分析。
+
+  基于 Holland (1995, 1998)、Arthur (1994)、Epstein & Axtell (1996) 的复杂适应系统方法论。
+
+  核心能力：
+  - 多主体建模（Agent-Based Modeling）：主体定义、行为规则、环境设置
+  - 互动机制设计：主体间互动、主体与环境互动、信息资源流动
+  - 涌现分析：微观-宏观链接、涌现模式识别、相变与临界点
+  - 仿真实验：参数敏感性分析、场景测试、模式验证
+
+  六大绝对禁止原则：
+  - 禁止过度简化主体（必须考虑异质性）
+  - 禁止忽视空间（必须设置适当空间结构）
+  - 禁止忽视随机性（必须包含适当随机性）
+  - 禁止不验证涌现（必须与真实数据对比）
+  - 禁止单一运行（必须多次蒙特卡洛运行）
+  - 禁止黑箱仿真（必须完全透明可复现）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Complex Adaptive Systems (Holland 1995, Arthur 1994)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  crct-enabled: true
+  agentskills-io: true
+  cross-platform: true
+  academic-alignment: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "2-4小时/单模型，4-8周/完整ABM项目"
+  parallel: "30分钟/参数扫描并行（多核加速）"
+  quality_guarantee: "涌现验证通过，蒙特卡洛≥100次，参数敏感性完成"
+
+analysis_types:
+  - agent-modeling
+  - interaction-design
+  - emergence-analysis
+  - parameter-sweep
+  - scenario-testing
+  - full-simulation
+
+category: simulation
+tags:
+  - cas
+  - simulation
+  - abm
+  - emergence
+  - complex-systems
+  - agent-based-modeling
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: CAS仿真数据（主体属性、环境参数、互动规则等）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型（agent-modeling/interaction-design/emergence-analysis/parameter-sweep/scenario-testing/full-simulation）
+
+outputs:
+  results:
+    type: object
+    description: 仿真结果（时间序列、涌现模式、统计数据）
+  report:
+    type: string
+    description: 完整仿真报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: analyze
+    description: 数据分析与预处理
+    module: analyze
+  - name: abm-builder
+    description: 构建Agent-Based模型
+    module: abm_builder
+  - name: emergence-detector
+    description: 检测涌现现象
+    module: emergence_detector
+  - name: simulation-runner
+    description: 运行仿真实验
+    module: simulation_runner
+  - name: parameter-sweep
+    description: 参数扫描与敏感性分析
+    module: parameter_sweep
+  - name: emergence-pattern-analyzer
+    description: 分析涌现模式
+    module: emergence_pattern_analyzer
+  - name: interaction-designer
+    description: 设计Agent互动机制
+    module: interaction_designer
+  - name: scenario-builder
+    description: 构建仿真场景
+    module: scenario_builder
+  - name: visualization-generator
+    description: 生成可视化图表
+    module: visualization_generator
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: agent_heterogeneity
+    description: 主体异质性检查
+    rule: "主体必须具有异质性，不得过度简化"
+  - name: spatial_structure
+    description: 空间结构检查
+    rule: "必须设置适当的空间结构（网格/网络/连续空间）"
+  - name: randomness_check
+    description: 随机性检查
+    rule: "必须包含适当的随机性（个体变异/环境噪声）"
+  - name: emergence_validation
+    description: 涌现验证检查
+    rule: "涌现模式必须与真实数据对比验证"
+  - name: monte_carlo_runs
+    description: 蒙特卡洛运行检查
+    rule: "必须运行≥100次蒙特卡洛仿真"
+  - name: transparency_check
+    description: 透明性检查
+    rule: "必须报告所有参数设置，确保可复现"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - mesa>=2.0.0
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - networkx>=2.6.0
+    - matplotlib>=3.5.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*) Bash(mesa:*)

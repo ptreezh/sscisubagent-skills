@@ -1,0 +1,130 @@
+# Qwen CLI Skill 配置
+# 用于 Qwen CLI 环境中的 skill 加载和进化机制
+
+skill_name: grounded-theory-expert
+version: 2.1.0
+
+# Qwen CLI 特定配置
+qwen_cli:
+  # Skill 加载路径
+  load_path: ~/.qwen/skills/grounded-theory-expert
+  
+  # 自动加载
+  auto_load: true
+  
+  # 优先级
+  priority: 1
+  
+  # 触发词
+  triggers:
+    - "扎根理论"
+    - "grounded theory"
+    - "质性编码"
+    - "开放性编码"
+    - "轴心编码"
+    - "选择式编码"
+    - "理论饱和度"
+
+# hooks 集成
+hooks:
+  # 会话启动 hook
+  session-start:
+    - action: load_soul
+      file: soul.md
+      inject_to: system_prompt
+    
+    - action: load_lessons
+      file: lesson-memory.md
+      inject_to: context
+    
+    - action: load_cases
+      directory: case-library/successful-cases/
+      inject_to: context
+  
+  # 任务完成 hook
+  post-task:
+    - action: record_lesson
+      file: lesson-memory.md
+      condition: task_complete
+    
+    - action: add_case
+      directory: case-library/successful-cases/
+      condition: task_success
+  
+  # 用户输入前 hook
+  pre-prompt:
+    - action: inject_skill_state
+      template: skill-state-injection.md
+      inject_to: system_prompt
+
+# 进化机制
+evolution:
+  # 自动进化
+  auto_evolve: true
+  
+  # 进化触发条件
+  triggers:
+    - event: task_complete
+      action: record_lesson
+    
+    - event: session_count
+      interval: 10
+      action: periodic_evolution
+    
+    - event: success_case
+      action: add_to_case_library
+  
+  # 进化输出
+  output:
+    - file: evolution-report.md
+      on: periodic_evolution
+    
+    - file: lesson-memory.md
+      on: task_complete
+
+# 文件系统集成
+filesystem:
+  # 使用 Qwen CLI 的文件系统
+  use_cli_filesystem: true
+  
+  # 文件路径
+  paths:
+    soul: soul.md
+    lessons: lesson-memory.md
+    cases: case-library/
+    hooks: skill-hooks.yaml
+  
+  # 文件权限
+  permissions:
+    read: true
+    write: true
+    execute: false
+
+# 日志配置
+logging:
+  # 使用 Qwen CLI 的日志系统
+  use_cli_logging: true
+  
+  # 日志级别
+  level: info
+  
+  # 日志文件
+  file: logs/evolution-log.md
+  
+  # 日志格式
+  format: "[{timestamp}] {level} - {message}"
+
+# 环境检测
+environment_detection:
+  enabled: true
+  
+  # 检测 Qwen CLI 环境
+  qwen_cli:
+    env_var: QWEN_CLI
+    config_path: ~/.qwen/
+    skills_path: ~/.qwen/skills/
+  
+  # 备用模式（非 Qwen CLI 环境）
+  fallback:
+    mode: standalone
+    config_file: skill-hooks.yaml

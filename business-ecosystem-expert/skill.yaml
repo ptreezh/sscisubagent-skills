@@ -1,0 +1,167 @@
+name: business-ecosystem-expert
+version: 5.0.0-cli-native+agent
+description: |
+  商业生态系统分析专家技能（AI CLI 原生版），支持自动任务队列执行。
+  基于 Moore (1993, 1996), Iansiti & Levien (2004), Adner (2012) 的商业生态理论。
+  
+  核心能力：
+  - 生态结构分析（核心企业+关键物种+价值网络）
+  - 共生关系分析（价值共创+利益分配+风险共担）
+  - 演化动态分析（协同进化+创新扩散+生态重构）
+  - 健康度评估（多样性+稳定性+可持续性）
+  
+  严格遵循6大绝对禁止原则：
+  - 禁止孤立分析核心企业
+  - 禁止静态生态观
+  - 禁止忽视共生关系
+  - 禁止简化价值流动
+  - 禁止忽视环境因素
+  - 禁止价值中立声称
+
+author: SocienceAI Methodology Expert
+license: MIT
+repository: https://github.com/socienceai/agentskills
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Business Ecosystem Analysis (Moore 1993, Iansiti & Levien 2004, Adner 2012)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+  state-persistence: true
+  self-iteration: true
+  academic-alignment: true
+  agentskills-io: true
+  cross-platform: true
+  created: "2026-03-08"
+  updated: "2026-03-14"
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "20分钟/生态"
+  parallel: "25分钟/10生态（8x加速）"
+
+analysis_types:
+  - ecosystem-mapping
+  - value-flow-analysis
+  - platform-dynamics
+  - resilience-assessment
+  - stakeholder-analysis
+  - innovation-impact
+
+category: business-analysis
+tags:
+  - business-ecosystem
+  - value-network
+  - platform-dynamics
+  - resilience
+  - co-evolution
+  - moore
+  - iansiti
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 生态系统数据（企业信息、关系数据、环境因素）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 生态系统分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: ecosystem-mapper
+    description: 映射商业生态系统结构和参与者
+    file: tools/ecosystem_mapper.py
+    runtime: python3
+
+  - name: value-flow-analyzer
+    description: 分析生态系统价值流和价值共创机制
+    file: tools/value_flow_analyzer.py
+    runtime: python3
+
+  - name: platform-dynamics
+    description: 分析平台动态和网络效应
+    file: tools/platform_dynamics.py
+    runtime: python3
+
+  - name: resilience-calculator
+    description: 计算生态系统韧性和健康度
+    file: tools/resilience_calculator.py
+    runtime: python3
+
+  - name: stakeholder-analyzer
+    description: 分析利益相关者关系和利益分配
+    file: tools/stakeholder_analyzer.py
+    runtime: python3
+
+  - name: innovation-impact-evaluator
+    description: 评估创新对生态系统的影响
+    file: tools/innovation_impact_evaluator.py
+    runtime: python3
+
+  - name: analyze
+    description: 主分析入口
+    file: tools/analyze.py
+    runtime: python3
+
+  - name: planning-integration
+    description: Planning-with-Files 持久化集成
+    file: tools/planning-integration.py
+    runtime: python3
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: ecosystem_completeness
+    description: 生态系统完整性检查
+    rule: "必须包含核心企业+合作伙伴+竞争者+顾客"
+  - name: value_network_check
+    description: 价值网络检查
+    rule: "价值流必须为多向网络"
+  - name: evolution_analysis
+    description: 演化分析检查
+    rule: "必须包含协同进化轨迹分析"
+  - name: environment_factors
+    description: 环境因素检查
+    rule: "必须包含技术/政策/文化环境分析"
+  - name: perspective_clarity
+    description: 视角清晰度检查
+    rule: "必须明确利益相关者视角"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - networkx>=2.6
+    - matplotlib>=3.4.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+  - iflow
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)

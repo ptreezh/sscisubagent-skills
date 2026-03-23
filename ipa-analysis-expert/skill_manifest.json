@@ -1,0 +1,163 @@
+{
+  "skill_name": "ipa-analysis-expert",
+  "display_name": "诠释现象学分析专家",
+  "version": "5.0.0",
+  "description": "诠释现象学分析专家。提供系统化IPA分析流程，支持双重建构本体论、主题分析、模式识别、理论整合。核心能力包括：访谈设计、转录分析、主题提炼、主从主题构建、个体差异分析。遵循Smith & Osborn (2015)标准。",
+  
+  "methodology": {
+    "primary_framework": "Smith & Osborn (2015)",
+    "secondary_frameworks": ["Smith et al. (2009)", "Larkin & Thompson (2012)"],
+    "paradigm": "诠释主义",
+    "epistemology": "双重建构"
+  },
+  
+  "core_competencies": [
+    {
+      "name": "三类注释",
+      "description": "描述性、语言性、概念性注释并行",
+      "tools": ["annotation_guide.py"]
+    },
+    {
+      "name": "主题发展",
+      "description": "从注释涌现主题",
+      "tools": ["theme_developer.py"]
+    },
+    {
+      "name": "主从结构构建",
+      "description": "构建主主题与从主题结构",
+      "tools": ["structure_builder.py"]
+    }
+  ],
+  
+  "analysis_process": [
+    {
+      "stage": "研究设计",
+      "steps": ["研究问题", "同质抽样", "访谈设计"]
+    },
+    {
+      "stage": "数据收集",
+      "steps": ["半结构化访谈", "深度追问", "转录"]
+    },
+    {
+      "stage": "单案例分析",
+      "steps": ["阅读重读", "三类注释", "发展主题", "构建结构"]
+    },
+    {
+      "stage": "跨案例分析",
+      "steps": ["逐案例重复", "模式识别", "整合主从表"]
+    },
+    {
+      "stage": "撰写报告",
+      "steps": ["叙事呈现", "引语支撑", "解释分析"]
+    }
+  ],
+  
+  "annotation_types": [
+    {
+      "name": "描述性注释",
+      "focus": "参与者说了什么",
+      "principle": "使用参与者语言，不加诠释"
+    },
+    {
+      "name": "语言性注释",
+      "focus": "参与者如何说",
+      "principle": "关注隐喻、停顿、强调"
+    },
+    {
+      "name": "概念性注释",
+      "focus": "研究者的诠释性思考",
+      "principle": "使用心理学术语，明确研究者视角"
+    }
+  ],
+  
+  "forbidden_principles": [
+    "禁止跳过注释直接命名主题",
+    "禁止过度概括忽视个体差异",
+    "禁止忽视研究者自反性",
+    "禁止主题命名脱离原文",
+    "禁止忽视语言特征",
+    "禁止跨案例分析跳过单案例"
+  ],
+  
+  "quality_standards": {
+    "yardley_principles": [
+      "环境敏感性",
+      "承诺与严谨",
+      "透明性与连贯性",
+      "影响与重要性"
+    ],
+    "validation_strategies": [
+      "成员检验",
+      "同侪审查",
+      "审计追踪",
+      "自反日志"
+    ]
+  },
+  
+  "tools": [
+    {
+      "name": "annotation_guide.py",
+      "function": "三类注释指导与检查",
+      "cli_commands": ["--guide", "--example", "--check"]
+    },
+    {
+      "name": "theme_developer.py",
+      "function": "主题发展与验证",
+      "cli_commands": ["--from-annotations", "--validate", "--suggest"]
+    },
+    {
+      "name": "structure_builder.py",
+      "function": "主从结构构建与导出",
+      "cli_commands": ["--build", "--validate", "--export"]
+    }
+  ],
+  
+  "file_structure": {
+    "required_files": [
+      "SKILL.md",
+      "skill.yaml",
+      "subagents.yaml",
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "skill_manifest.json"
+    ],
+    "directories": [
+      "prompts/",
+      "references/",
+      "cases/positive/",
+      "cases/negative/",
+      "templates/",
+      "tools/",
+      "experience/"
+    ]
+  },
+  
+  "sample_guidelines": {
+    "homogeneity": "同质样本原则",
+    "student_project": "3-6人",
+    "masters_thesis": "6-12人",
+    "doctoral_thesis": "10-20人"
+  },
+  
+  "integration": {
+    "agentskills_io": "v1.0",
+    "cross_platform": true,
+    "supported_clis": [
+      "Claude", "Qwen", "iFlow", "Gemini", 
+      "Copilot", "Stigmergy", "OpenCode", 
+      "KiloCode", "QoderCLI", "WorkBuddy", 
+      "Cursor", "Windsurf"
+    ]
+  },
+  
+  "references": [
+    "Smith, J.A., & Osborn, M. (2015). Interpretative phenomenological analysis.",
+    "Smith, J.A., Flowers, P., & Larkin, M. (2009). Interpretative Phenomenological Analysis.",
+    "Larkin, M., & Thompson, A.R. (2012). Interpretative phenomenological analysis.",
+    "Yardley, L. (2000). Dilemmas in qualitative health research."
+  ],
+  
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15",
+  "maintainer": "IPA分析专家技能"
+}

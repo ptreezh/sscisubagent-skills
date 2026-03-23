@@ -1,0 +1,206 @@
+---
+name: soul-agent-creator
+version: 1.0.0
+description: |
+  Soul Agent 创建专家 - 通过自然语言对话创建社会科学方法论专家分身。
+  
+  核心能力：
+  - 需求澄清与技能匹配
+  - Soul Agent 配置生成
+  - 目录结构创建
+  - 个性化定制
+  - 激活指导
+  
+  使用场景：
+  - 用户想创建方法论分身时
+  - 需要定制学术 AI 助手时
+  - 配置 Soul Agent 时
+  - 了解可用方法论技能时
+
+author: SocienceAI
+license: MIT
+repository: https://github.com/socienceai/agentskills
+
+category: development
+tags:
+  - soul-agent
+  - skill-creation
+  - methodology
+  - social-science
+  - configuration
+
+inputs:
+  task:
+    type: string
+    required: true
+    description: 任务类型（create/list/configure/activate）
+  skill_preference:
+    type: string
+    required: false
+    description: 用户偏好的技能类型（质性/定量/混合/理论）
+  custom_name:
+    type: string
+    required: false
+    description: 自定义分身名称
+  research_field:
+    type: string
+    required: false
+    description: 用户研究领域
+
+outputs:
+  result:
+    type: object
+    description: 创建结果（包含 soul_id、路径等）
+  config_files:
+    type: array
+    description: 生成的配置文件列表
+  activation_guide:
+    type: string
+    description: 激活说明
+
+prompts:
+  system: SKILL.md
+
+tools:
+  - name: list-skills
+    description: 列出所有可用的方法论技能
+    module: list_skills
+  - name: generate-soul-config
+    description: 生成 SOUL.md 和 SOUL_CONFIG.yaml
+    module: generate_soul_config
+  - name: create-directory-structure
+    description: 创建完整的分身目录结构
+    module: create_directory_structure
+  - name: validate-soul-config
+    description: 验证配置完整性
+    module: validate_soul_config
+  - name: activate-soul
+    description: 激活新创建的分身
+    module: activate_soul
+  - name: recommend-skill
+    description: 根据用户需求推荐技能
+    module: recommend_skill
+
+quality_checks:
+  - name: soul_md_exists
+    description: SOUL.md 文件存在性检查
+    rule: "必须有 SOUL.md 文件"
+  - name: soul_config_yaml_exists
+    description: SOUL_CONFIG.yaml 文件存在性检查
+    rule: "必须有 SOUL_CONFIG.yaml 文件"
+  - name: methodology_md_exists
+    description: METHODOLOGY.md 文件存在性检查
+    rule: "必须有 METHODOLOGY.md 文件"
+  - name: valid_yaml
+    description: YAML 格式有效性检查
+    rule: "YAML 格式必须有效"
+  - name: directory_structure_complete
+    description: 目录结构完整性检查
+    rule: "必须包含 memory/、evolution/、cases/等目录"
+  - name: metadata_json_exists
+    description: metadata.json 文件存在性检查
+    rule: "必须有 metadata.json 文件"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - pyyaml>=6.0
+    - jinja2>=3.0
+    - pathlib
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - stigmergy
+
+allowed-tools: Read Write Bash(Git:*) Bash(python:*) --allow
+
+workflow:
+  phases:
+    - name: 需求澄清
+      required: true
+      actions:
+        - 询问研究领域
+        - 询问方法论偏好
+        - 询问使用场景
+        - 询问功能需求
+    
+    - name: 技能推荐
+      required: true
+      actions:
+        - 根据需求推荐技能
+        - 展示技能对比
+        - 解释核心概念
+    
+    - name: 配置确认
+      required: true
+      actions:
+        - 显示配置摘要
+        - 确认分身名称
+        - 确认存储位置
+        - 获得用户确认
+    
+    - name: 生成创建
+      required: true
+      actions:
+        - 生成 SOUL.md
+        - 生成 SOUL_CONFIG.yaml
+        - 生成 METHODOLOGY.md
+        - 创建目录结构
+        - 生成 metadata.json
+    
+    - name: 激活指导
+      required: true
+      actions:
+        - 显示激活方式
+        - 提供使用说明
+        - 建议下一步操作
+
+prohibitions:
+  - id: 1
+    name: 禁止未确认直接生成
+    description: "在用户未确认配置前，不得直接生成分身文件"
+    severity: critical
+  
+  - id: 2
+    name: 禁止强制推荐
+    description: "不得推荐用户未明确提及的方法论技能（除非用户要求推荐）"
+    severity: high
+  
+  - id: 3
+    name: 禁止过度技术化
+    description: "不得使用过于技术化的术语（除非用户显示熟悉）"
+    severity: medium
+  
+  - id: 4
+    name: 禁止忽略定制需求
+    description: "不得忽略用户的个性化定制需求"
+    severity: high
+  
+  - id: 5
+    name: 禁止不提供激活说明
+    description: "创建完成后必须提供激活说明"
+    severity: critical
+
+success_criteria:
+  - "用户能够清晰表达自己的需求"
+  - "推荐的方法论技能与用户需求匹配"
+  - "生成的配置文件完整且格式正确"
+  - "目录结构符合标准"
+  - "用户理解如何激活和使用分身"
+
+examples:
+  - name: 直接创建
+    input: "我想创建一个扎根理论的分身，用于分析访谈数据"
+    output: "好的！我来帮你创建一个扎根理论专家分身。在开始之前，我需要了解几个问题：1. 自定义名称 2. 对标学者偏好 3. 主要用途..."
+  
+  - name: 探索式创建
+    input: "我是管理学研究生，想定制一个方法论 AI 助手，但不知道有哪些选择"
+    output: "欢迎！我来帮你选择最适合的方法论分身。作为管理学研究生，你可能需要...请告诉我你的具体研究方向..."
+  
+  - name: 快速创建
+    input: "帮我快速创建一个社会网络分析分身，默认配置就行"
+    output: "好的！我将为你创建一个社会网络分析分身，使用默认配置：分身名称：社会网络分析专家，对标学者：Linton Freeman..."
+
+---

@@ -1,0 +1,157 @@
+# OKR Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Objective Designer Agent
+  - name: objective-designer
+    description: 目标设计Agent - 创建激励性目标
+    prompt_template: prompts/objective-design-prompt.md
+    tools:
+      - objective_designer
+    output_format: json
+    quality_checks:
+      - objective_inspirational
+      - objective_time_bound
+      - objective_actionable
+    required_output:
+      - objective_statement
+      - objective_rationale
+      - alignment_to_strategy
+
+  # Key Result Creator Agent
+  - name: key-result-creator
+    description: 关键结果创建Agent - 设计可度量结果
+    prompt_template: prompts/key-result-prompt.md
+    tools:
+      - key_result_creator
+    output_format: json
+    quality_checks:
+      - key_result_measurable
+      - key_result_achievable
+      - key_result_time_bound
+    required_output:
+      - key_results
+      - success_metrics
+      - measurement_method
+
+  # Alignment Validator Agent
+  - name: alignment-validator
+    description: 对齐验证Agent - 检查目标层级对齐
+    prompt_template: prompts/alignment-check-prompt.md
+    tools:
+      - alignment_validator
+    output_format: json
+    quality_checks:
+      - vertical_alignment
+      - horizontal_alignment
+      - no_conflicts
+    required_output:
+      - alignment_matrix
+      - gaps_identified
+      - recommendations
+
+  # Progress Tracker Agent
+  - name: progress-tracker
+    description: 进度追踪Agent - 监控OKR执行进度
+    prompt_template: prompts/progress-tracking-prompt.md
+    tools:
+      - progress_tracker
+    output_format: json
+    quality_checks:
+      - progress_updated
+      - blockers_identified
+      - actions_defined
+    required_output:
+      - progress_score
+      - blockers
+      - action_items
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: hierarchical
+
+# OKR Cycle Configuration
+okr_cycle:
+  planning:
+    description: "OKR规划阶段"
+    agents: [objective-designer, key-result-creator]
+    mode: sequential
+    
+  alignment:
+    description: "对齐检查阶段"
+    agents: [alignment-validator]
+    mode: sequential
+    depends_on: planning
+    
+  tracking:
+    description: "执行追踪阶段"
+    agents: [progress-tracker]
+    mode: periodic
+    
+  review:
+    description: "评审阶段"
+    activities:
+      - mid_quarter_check
+      - end_quarter_review
+      - retrospective
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 4
+  persistence_file: task_plan.md
+
+# Quality Assurance
+quality_assurance:
+  verification_steps:
+    - objective_clarity_check
+    - key_result_measurable_check
+    - alignment_consistency_check
+
+# Phase-Based Execution
+phases:
+  phase1_objectives:
+    description: "目标设定阶段"
+    agents: [objective-designer]
+    mode: sequential
+    output: objectives.json
+    
+  phase2_key_results:
+    description: "关键结果设计阶段"
+    agents: [key-result-creator]
+    mode: sequential
+    depends_on: phase1_objectives
+    output: key_results.json
+    
+  phase3_alignment:
+    description: "对齐验证阶段"
+    agents: [alignment-validator]
+    mode: sequential
+    depends_on: phase2_key_results
+    output: alignment_report.json
+    
+  phase4_tracking:
+    description: "进度追踪阶段"
+    agents: [progress-tracker]
+    mode: periodic
+    depends_on: phase3_alignment
+    output: progress_report.json
+
+# Scoring Configuration
+scoring:
+  scale: 0.0-1.0
+  target: 0.6-0.7  # 理想完成率
+  interpretation:
+    "0.0-0.3": "未达成，需要分析原因"
+    "0.4-0.6": "部分达成，有进展"
+    "0.7-0.9": "良好达成，目标设置合理"
+    "1.0": "目标可能过于简单，考虑提高"
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  okr_file: okr_quarter.json
+  progress_file: progress_tracking.json

@@ -1,0 +1,138 @@
+# 主题分析专家配置文件
+name: thematic-analysis-expert
+version: "5.0.0"
+description: |
+  主题分析(Thematic Analysis)专家技能，基于Braun & Clarke方法论，提供六步骤分析流程。
+
+# 技能类型
+type: research_methodology
+category: qualitative_analysis
+
+# 优先级 (3=最高)
+priority: 3
+
+# 关键词
+keywords:
+  - 主题分析
+  - 质性研究
+  - 编码
+  - Braun Clarke
+  - 访谈分析
+  - 主题发展
+  - 编码方案
+
+# 支持的分析类型
+analysis_types:
+  - exploratory      # 探索性分析
+  - inductive        # 归纳式分析
+  - deductive        # 演绎式分析
+  - reflexive        # 反思性分析
+
+# 分析流程
+workflow:
+  - name: familiarization
+    description: 熟悉数据
+    step: 1
+  - name: coding
+    description: 生成初始代码
+    step: 2
+  - name: theme_searching
+    description: 搜索主题
+    step: 3
+  - name: theme_reviewing
+    description: 审查主题
+    step: 4
+  - name: theme_defining
+    description: 定义命名主题
+    step: 5
+  - name: reporting
+    description: 撰写报告
+    step: 6
+
+# 输入格式
+input_formats:
+  - text             # 文本格式
+  - json             # JSON格式
+  - csv              # CSV格式
+  - transcript       # 访谈转录
+
+# 输出格式
+output_formats:
+  - markdown         # Markdown报告
+  - json             # 结构化数据
+  - html             # HTML报告
+  - codebook         # 编码簿
+
+# 依赖
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy
+    - pandas
+    - textblob
+
+# 子智能体
+subagents:
+  - name: coding_expert
+    role: 初始编码专家
+    description: 执行Step 1-2，熟悉数据和生成初始代码
+  - name: theme_developer
+    role: 主题发展专家
+    description: 执行Step 3-4，搜索和审查主题
+  - name: report_writer
+    role: 报告撰写专家
+    description: 执行Step 5-6，定义主题和撰写报告
+  - name: quality_controller
+    role: 质量控制专家
+    description: 贯穿全程的质量检验
+
+# 工具函数
+tools:
+  - name: code_extractor
+    description: 从文本中提取初始代码
+    file: tools/code_extractor.py
+  - name: theme_cluster
+    description: 将代码聚类为主题
+    file: tools/theme_cluster.py
+  - name: saturation_checker
+    description: 检验主题饱和度
+    file: tools/saturation_checker.py
+  - name: quality_assessor
+    description: 评估分析质量
+    file: tools/quality_assessor.py
+
+# 提示词模板
+prompts:
+  system: prompts/system-prompt.md
+  coding: prompts/coding-prompt.md
+  theme_development: prompts/theme-development-prompt.md
+  report_writing: prompts/report-writing-prompt.md
+
+# 参考文档
+references:
+  - references/detailed-guide.md
+  - references/braun-clarke-2006.md
+
+# 质量标准
+quality_standards:
+  internal_coherence: 主题内部一致性
+  external_distinctiveness: 主题外部异质性
+  coverage_adequacy: 覆盖充分性
+  interpretive_depth: 解释深度
+
+# 适用场景
+use_cases:
+  - 访谈数据分析
+  - 焦点小组分析
+  - 开放式问卷分析
+  - 文本材料分析
+  - 社交媒体内容分析
+
+# 方法论参考
+methodology:
+  primary_source: "Braun & Clarke (2006)"
+  framework: six_step_approach
+  orientations:
+    - reflexive
+    - codebook
+    - coding_reliability

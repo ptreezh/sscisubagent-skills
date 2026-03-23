@@ -1,0 +1,51 @@
+# Social Sequence Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: sequence-builder
+    name: 序列构建师
+    role: 构建和分析状态序列
+    triggers:
+      - "序列构建"
+      - "状态定义"
+      - "序列"
+
+  - id: distance-calculator
+    name: 距离计算师
+    role: 计算序列间距离
+    triggers:
+      - "距离"
+      - "最优匹配"
+      - "相似性"
+
+  - id: cluster-analyzer
+    name: 聚类分析师
+    role: 发现典型序列模式
+    triggers:
+      - "聚类"
+      - "类型"
+      - "模式识别"
+
+  - id: trajectory-visualizer
+    name: 轨迹可视化师
+    role: 可视化序列和轨迹
+    triggers:
+      - "可视化"
+      - "轨迹图"
+      - "序列图"
+
+workflow:
+  - step: 1
+    action: "数据准备"
+  - step: 2
+    action: "状态定义"
+  - step: 3
+    action: "序列构建"
+  - step: 4
+    action: "距离计算"
+  - step: 5
+    action: "聚类分析"
+  - step: 6
+    action: "可视化呈现"
+  - step: 7
+    action: "结果解释"

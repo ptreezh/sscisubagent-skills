@@ -1,0 +1,38 @@
+name: media-analysis-expert
+version: 1.0.0
+description: 媒介分析专家技能，基于McLuhan, Postman, Williams方法论
+author: SocienceAI
+created: 2026-03-18
+
+methodology:
+  - McLuhan (1964) - 媒介环境学
+  - Postman (1985) - 技术批判
+  - Williams (1974) - 文化唯物主义
+  - Couldry & Hepp (2017) - 深度媒介化
+
+capabilities:
+  - 媒介技术分析
+  - 媒介制度分析
+  - 媒介文化分析
+  - 媒介化过程分析
+  - 跨媒介比较
+  - 媒介生态分析
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止技术决定论
+  - id: FORBIDDEN_002
+    name: 禁止忽视社会语境
+  - id: FORBIDDEN_003
+    name: 禁止忽视权力关系
+  - id: FORBIDDEN_004
+    name: 禁止忽视历史维度
+  - id: FORBIDDEN_005
+    name: 禁止忽视受众能动性
+  - id: FORBIDDEN_006
+    name: 禁止忽视全球不平等
+
+tools:
+  - medium_ecology_analyzer.py
+  - mediatization_tracker.py
+  - platform_power_analyzer.py

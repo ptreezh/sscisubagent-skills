@@ -1,0 +1,106 @@
+# Discourse Analysis Expert - Subagents Configuration
+# 话语分析专家子智能体配置
+
+version: "1.0"
+description: "话语分析专家子智能体系统，支持多范式话语分析"
+
+subagents:
+  # 文本分析智能体
+  - id: da-text-analyzer
+    name: 文本分析器
+    role: |
+      执行文本层面的语言学分析
+      - 词汇分析（词选、分类、隐喻）
+      - 语法分析（及物性、情态、转换）
+      - 文本结构分析
+    triggers:
+      - "文本分析"
+      - "词汇分析"
+      - "语法分析"
+  
+  # 话语策略分析智能体
+  - id: da-strategy-analyzer
+    name: 话语策略分析器
+    role: |
+      识别和分析话语策略
+      - 指称策略（命名）
+      - 谓语策略（定性）
+      - 论证策略（正当化）
+      - 视角策略（立场）
+      - 强化/弱化策略
+    tools:
+      - discourse_strategy.py
+    triggers:
+      - "话语策略"
+      - "分析策略"
+  
+  # 权力关系分析智能体
+  - id: da-power-analyzer
+    name: 权力关系分析器
+    role: |
+      分析话语中的权力关系和意识形态
+      - 权力不对称
+      - 意识形态效果
+      - 霸权话语
+      - 抵抗话语
+    triggers:
+      - "权力分析"
+      - "意识形态"
+      - "批判分析"
+
+# 分析框架
+frameworks:
+  fairclough:
+    name: "Fairclough三维模型"
+    levels:
+      - text: "文本层面"
+      - discursive_practice: "话语实践层面"
+      - social_practice: "社会实践层面"
+  
+  van_dijk:
+    name: "van Dijk社会认知方法"
+    dimensions:
+      - macro_structure: "宏观结构"
+      - micro_structure: "微观结构"
+      - cognitive: "认知维度"
+  
+  wodak:
+    name: "Wodak话语历史方法"
+    strategies:
+      - referential: "指称策略"
+      - predicational: "谓语策略"
+      - argumentative: "论证策略"
+      - perspectivization: "视角策略"
+      - intensification: "强化策略"
+      - mitigation: "弱化策略"
+
+# 分析维度
+analysis_dimensions:
+  lexical:
+    - word_choice: "词汇选择"
+    - classification: "分类系统"
+    - value_loading: "价值负载"
+    - metaphor: "隐喻分析"
+  
+  grammatical:
+    - transitivity: "及物性"
+    - modality: "情态"
+    - transformation: "转换"
+    - nominalization: "名词化"
+  
+  textual:
+    - genre_structure: "体裁结构"
+    - information_structure: "信息结构"
+    - coherence: "连贯性"
+    - cohesion: "衔接手段"
+
+# 输出配置
+output:
+  formats:
+    - markdown
+    - json
+  include:
+    - text_analysis
+    - strategy_identification
+    - power_analysis
+    - ideological_assessment

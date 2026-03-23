@@ -1,0 +1,144 @@
+---
+name: digital-durkheim-expert
+version: 5.2.0-cli-native+reoptimized
+description: |
+  涂尔干理论分析专家技能（AI CLI 原生版 - v5.2重新优化版）。支持自动任务队列执行和子Agent并行处理。
+  包含完整的绝对禁止原则、任务分解规则、防虎头蛇尾机制，以及智能任务选择。
+
+  **质量优先，效率兼顾**：保留涂尔干方法论100%严谨性，简单任务智能提速，复杂任务完整流程。
+  基于 Durkheim (1893, 1897, 1912) 的社会学理论。
+
+  核心能力：
+  - 社会事实识别（外在性、强制性、普遍性）
+  - 自杀类型分析（利己型、利他型、失范型、宿命型）
+  - 失范程度评估
+  - 团结类型分析（机械团结、有机团结）
+  - 集体意识分析
+  - 社会整合度测量
+
+  严格遵循涂尔干方法论原则（6大绝对禁止原则，100%保留）：
+  - 社会事实的外在性和强制性
+  - 集体层面分析
+  - 社会整合与失范理论
+  - 历史背景化分析
+  - **禁止未验证就报告完成**（防虎头蛇尾）
+  - **禁止追求完成感**（防虎头蛇尾）
+  - **禁止牺牲分析质量**（防虎头蛇尾）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.2.0-cli-native+reoptimized"
+  methodology: "Durkheimian Sociology"
+  reoptimized: true
+  reoptimized_date: "2026-03-12"
+  reoptimized_notes: "保留所有6大绝对禁止原则，添加智能任务选择和子Agent支持。质量优先，效率兼顾。方法论严谨性：0%妥协。"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "2-5分钟/简单案例，40-50分钟/复杂案例"
+  parallel: "15分钟/5简单案例（2.7x加速），45分钟/10复杂案例（8.9x加速）"
+  quality_guarantee: "方法论严谨性：0%妥协"
+
+analysis_types:
+  - social-facts
+  - suicide-types
+  - anomie
+  - solidarity
+  - collective-consciousness
+  - social-integration
+
+category: social-science-analysis
+tags:
+  - durkheim
+  - social-facts
+  - suicide
+  - anomie
+  - solidarity
+  - collective-consciousness
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（访谈、文档、观察记录、统计数据）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: identify-social-facts
+    description: 识别社会事实（外在性、强制性、普遍性）
+    module: social_facts_identifier
+  - name: analyze-suicide-types
+    description: 分析自杀类型（利己型/利他型/失范型/宿命型）
+    module: suicide_type_analyzer
+  - name: calculate-anomie
+    description: 计算失范程度
+    module: anomie_calculator
+  - name: analyze-solidarity
+    description: 分析团结类型（机械团结/有机团结）
+    module: solidarity_analyzer
+  - name: analyze-collective-consciousness
+    description: 分析集体意识强度和内容
+    module: collective_consciousness_analyzer
+  - name: measure-integration
+    description: 测量社会整合度
+    module: social_integration_measurer
+  - name: analyze
+    description: 主分析入口
+    module: analyze
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: social_facts_identification
+    description: 社会事实识别检查
+    rule: "必须验证外在性、强制性、普遍性"
+  - name: collective_level_analysis
+    description: 集体层面分析检查
+    rule: "必须在集体层面进行分析"
+  - name: theoretical_explanation
+    description: 理论解释检查
+    rule: "统计必须服务于理论解释"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)

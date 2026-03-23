@@ -1,0 +1,26 @@
+{
+  "current_day": 7,
+  "completed_tasks": [
+    "创建项目目录",
+    "初始化 Git",
+    "创建基础文件结构",
+    "创建 README.md"
+  ],
+  "pending_tasks": [],
+  "generated_pages": [
+    "index.md",
+    "grounded-theory.md",
+    "sna.md",
+    "ant.md",
+    "bourdieu.md",
+    "qca.md",
+    "did.md",
+    "regression.md",
+    "survey.md",
+    "mixed-methods.md",
+    "digital-marx.md",
+    "digital-durkheim.md",
+    "digital-weber.md",
+    "methodologies/index.md"
+  ]
+}

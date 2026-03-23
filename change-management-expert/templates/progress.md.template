@@ -1,0 +1,17 @@
+# 进度模板
+
+## 变革进度
+- **开始时间**: {{start_time}}
+- **当前阶段**: {{current_stage}}
+
+## 已完成阶段
+{{completed_stages}}
+
+## 关键里程碑
+{{milestones}}
+
+## 阻力与应对
+{{resistance_and_response}}
+
+---
+**最后更新**: {{timestamp}}

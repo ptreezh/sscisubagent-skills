@@ -1,0 +1,19 @@
+{
+  "name": "rhetoric-analysis-expert",
+  "version": "1.0.0",
+  "description": "修辞分析专家技能，基于Aristotle, Burke, Perelman方法论",
+  "created": "2026-03-18",
+  "methodology": ["Aristotle Rhetoric", "Burke Dramatism", "Perelman New Rhetoric"],
+  "capabilities": {
+    "persuasion_analysis": "说服策略分析(Logos, Pathos, Ethos)",
+    "device_detection": "修辞格识别",
+    "argument_analysis": "论证结构分析",
+    "situation_assessment": "修辞情境评估"
+  },
+  "tools": [
+    "rhetorical_device_detector.py",
+    "argument_analyzer.py",
+    "persuasion_evaluator.py"
+  ],
+  "file_count": 15
+}

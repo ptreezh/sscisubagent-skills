@@ -1,0 +1,327 @@
+# Bourdieu Field Analysis Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Field Boundary Agent
+  - name: field-boundary-analyzer
+    description: 场域边界分析Agent - 识别场域边界、入场条件和结构
+    prompt_template: prompts/field-boundary-prompt.md
+    tools:
+      - identify-field
+    output_format: json
+    quality_checks:
+      - boundary_criteria_defined
+      - entry_requirements_identified
+      - actor_types_classified
+    required_output:
+      - field_name
+      - boundary_criteria
+      - entry_requirements
+      - actor_types
+      - field_structure
+
+  # Capital Analysis Agent
+  - name: capital-distribution-analyzer
+    description: 资本分布分析Agent - 分析四种资本的分布和转换
+    prompt_template: prompts/capital-analysis-prompt.md
+    tools:
+      - analyze-capital
+    output_format: json
+    quality_checks:
+      - capital_types >= 3
+      - distribution_analyzed
+      - conversion_logic_identified
+    required_output:
+      - capital_types
+      - capital_distribution
+      - conversion_logics
+      - symbolic_effects
+
+  # Habitus Detection Agent
+  - name: habitus-detector
+    description: 习性识别Agent - 追溯场域经验，识别习性模式
+    prompt_template: prompts/habitus-detection-prompt.md
+    tools:
+      - detect-habitus
+    output_format: json
+    quality_checks:
+      - field_experience_traced
+      - behavior_patterns_identified
+      - habitus_position_correspondence
+    required_output:
+      - primary_habitus
+      - secondary_habitus
+      - behavior_patterns
+      - practice_sense
+
+  # Position Mapping Agent
+  - name: position-mapper
+    description: 位置映射Agent - 映射行动者位置和策略
+    prompt_template: prompts/position-mapping-prompt.md
+    tools:
+      - map-positions
+    output_format: json
+    quality_checks:
+      - positions_identified
+      - strategies_analyzed
+      - trajectories_traced
+    required_output:
+      - position_distribution
+      - position_taking_strategies
+      - trajectories
+      - competition_dynamics
+
+  # Field Dynamics Agent
+  - name: field-dynamics-tracker
+    description: 场域动力学Agent - 追踪场域演变和动态
+    prompt_template: prompts/field-dynamics-prompt.md
+    tools:
+      - track-dynamics
+    output_format: json
+    quality_checks:
+      - history_traced
+      - key_events_identified
+      - current_dynamics_analyzed
+    required_output:
+      - field_history
+      - key_events
+      - current_dynamics
+      - emerging_trends
+
+  # Autonomy Assessment Agent
+  - name: autonomy-assessor
+    description: 场域自主性评估Agent - 评估场域相对自主程度
+    prompt_template: prompts/autonomy-assessment-prompt.md
+    tools:
+      - calculate-autonomy
+    output_format: json
+    quality_checks:
+      - rule_autonomy_assessed
+      - external_influences_analyzed
+      - defense_strategies_identified
+    required_output:
+      - autonomy_scores
+      - external_influences
+      - dependency_analysis
+      - defense_strategies
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# CRCT Chain Configuration
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "每个行动者分析必须与其他行动者比较"
+    required_fields:
+      - comparison_with_similar_positions
+      - capital_differences
+      - habitus_differences
+      - strategy_differences
+  
+  record:
+    enabled: true
+    description: "所有分析决策必须记录"
+    required_fields:
+      - actor_identification
+      - capital_composition
+      - habitus_characteristics
+      - position_strategies
+  
+  chain:
+    enabled: true
+    description: "建立位置间的关系链条"
+    required_fields:
+      - related_positions
+      - relationship_type
+      - evidence_from_data
+  
+  trace:
+    enabled: true
+    description: "追踪行动者的轨迹演化"
+    required_fields:
+      - initial_position
+      - trajectory_path
+      - current_position
+      - evolution_reasons
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - field_boundary_check
+    - capital_heterogeneity_check
+    - habitus_correspondence_check
+    - autonomy_assessment_check
+
+  strict_prohibitions:
+    - no_essentialist_explanations
+    - no_single_capital_analysis
+    - no_ignoring_field_autonomy
+    - no_static_position_view
+    - no_ignoring_habitus
+    - no_predictive_claims
+
+# Phase-Based Execution
+phases:
+  phase1_field_boundary:
+    description: "场域边界识别阶段"
+    agents: [field-boundary-analyzer]
+    mode: sequential
+    output: field_boundary.json
+    quality_gate: boundary_criteria_defined
+    
+  phase2_capital_analysis:
+    description: "资本分布分析阶段"
+    agents: [capital-distribution-analyzer]
+    mode: sequential
+    depends_on: phase1_field_boundary
+    output: capital_distribution.json
+    quality_gate: capital_types >= 3
+    
+  phase3_habitus_detection:
+    description: "习性模式识别阶段"
+    agents: [habitus-detector]
+    mode: parallel_with_phase2
+    depends_on: phase1_field_boundary
+    output: habitus_patterns.json
+    quality_gate: habitus_position_correspondence
+    
+  phase4_position_mapping:
+    description: "位置映射阶段"
+    agents: [position-mapper]
+    mode: sequential
+    depends_on: [phase2_capital_analysis, phase3_habitus_detection]
+    output: position_map.json
+    quality_gate: positions_identified
+    
+  phase5_dynamics_tracking:
+    description: "场域动力学追踪阶段"
+    agents: [field-dynamics-tracker]
+    mode: sequential
+    depends_on: phase4_position_mapping
+    output: field_dynamics.json
+    quality_gate: history_traced
+    
+  phase6_autonomy_assessment:
+    description: "场域自主性评估阶段"
+    agents: [autonomy-assessor]
+    mode: sequential
+    depends_on: phase5_dynamics_tracking
+    output: autonomy_report.json
+    quality_gate: autonomy_assessed
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("场域边界") or user_request_contains("场域识别")
+      then: fast_mode
+      execution: single_agent(field-boundary-analyzer)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("资本") or user_request_contains("文化资本")
+      then: fast_mode
+      execution: single_agent(capital-distribution-analyzer)
+      estimated_time: "20-30 minutes"
+
+    - if: user_request_contains("习性") or user_request_contains("惯习")
+      then: fast_mode
+      execution: single_agent(habitus-detector)
+      estimated_time: "15-25 minutes"
+
+    - if: user_request_contains("位置") or user_request_contains("策略")
+      then: fast_mode
+      execution: single_agent(position-mapper)
+      estimated_time: "20-30 minutes"
+
+    - if: user_request_contains("动力学") or user_request_contains("演变")
+      then: fast_mode
+      execution: single_agent(field-dynamics-tracker)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("自主性") or user_request_contains("场域独立")
+      then: fast_mode
+      execution: single_agent(autonomy-assessor)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains_any(["完整分析", "场域分析", "全流程", "布迪厄分析"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4, phase5, phase6])
+      estimated_time: "1-2 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  analysis_log_file: analysis_log.json
+  memo_file: memos.json
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes
+
+# Relational Thinking Enhancement
+relational_thinking:
+  enabled: true
+  checks:
+    - name: essentialist_language
+      description: "检测本质主义语言"
+      patterns:
+        - "他天生..."
+        - "她本质..."
+        - "中国人都是..."
+        - "女性总是..."
+      action: warn_and_correct
+    
+    - name: single_capital_focus
+      description: "检测单一资本分析"
+      check: capital_types >= 3
+      action: require_additional_capital
+    
+    - name: position_determinism
+      description: "检测位置决定论"
+      check: trajectory_analyzed
+      action: require_dynamics_analysis
+
+# Field Theory Methodological Alignment
+methodological_alignment:
+  bourdieu_principles:
+    - name: relational_thinking
+      description: "关系性思维 - 所有现象在场域关系中理解"
+      enforcement: strict
+    
+    - name: capital_heterogeneity
+      description: "资本异质性 - 至少分析3种资本"
+      enforcement: strict
+    
+    - name: field_autonomy
+      description: "场域自主性 - 评估相对独立程度"
+      enforcement: required
+    
+    - name: habitus_field_correspondence
+      description: "习性-场域对应 - 追溯场域经验"
+      enforcement: required
+    
+    - name: dynamic_position
+      description: "动态位置观 - 分析位置争夺"
+      enforcement: required
+    
+    - name: understanding_priority
+      description: "理解优先 - 禁止预测性研究"
+      enforcement: strict

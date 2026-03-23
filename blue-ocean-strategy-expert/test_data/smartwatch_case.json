@@ -1,0 +1,243 @@
+{
+  "case_name": "智能手表行业蓝海战略分析测试案例",
+  "case_description": "模拟智能手表行业的蓝海战略分析场景，用于测试技能的分析能力",
+  "industry": "智能可穿戴设备",
+  "company": "TechWatch Pro",
+  "data_collection_date": "2026-03-18",
+
+  "competition_factors": [
+    {
+      "name": "价格",
+      "industry_level": 6.0,
+      "company_level": 7.0,
+      "description": "产品定价水平"
+    },
+    {
+      "name": "电池续航",
+      "industry_level": 4.0,
+      "company_level": 5.0,
+      "description": "电池使用时间"
+    },
+    {
+      "name": "健康监测",
+      "industry_level": 7.0,
+      "company_level": 8.0,
+      "description": "健康功能丰富度"
+    },
+    {
+      "name": "运动功能",
+      "industry_level": 8.0,
+      "company_level": 9.0,
+      "description": "运动追踪能力"
+    },
+    {
+      "name": "智能通知",
+      "industry_level": 7.0,
+      "company_level": 7.0,
+      "description": "消息推送功能"
+    },
+    {
+      "name": "外观设计",
+      "industry_level": 6.0,
+      "company_level": 5.0,
+      "description": "产品设计美感"
+    },
+    {
+      "name": "防水性能",
+      "industry_level": 7.0,
+      "company_level": 6.0,
+      "description": "防水等级"
+    },
+    {
+      "name": "应用生态",
+      "industry_level": 8.0,
+      "company_level": 6.0,
+      "description": "第三方应用支持"
+    },
+    {
+      "name": "语音助手",
+      "industry_level": 6.0,
+      "company_level": 5.0,
+      "description": "AI语音交互"
+    },
+    {
+      "name": "支付功能",
+      "industry_level": 5.0,
+      "company_level": 4.0,
+      "description": "移动支付能力"
+    }
+  ],
+
+  "competitors": [
+    {
+      "name": "Apple Watch",
+      "market_share": 35,
+      "strengths": ["品牌", "应用生态", "健康监测"],
+      "weaknesses": ["价格", "电池续航"],
+      "value_curve": {
+        "价格": 3,
+        "电池续航": 3,
+        "健康监测": 9,
+        "运动功能": 8,
+        "智能通知": 9,
+        "外观设计": 8,
+        "防水性能": 7,
+        "应用生态": 10,
+        "语音助手": 8,
+        "支付功能": 9
+      }
+    },
+    {
+      "name": "Samsung Galaxy Watch",
+      "market_share": 18,
+      "strengths": ["外观设计", "健康监测", "Android兼容"],
+      "weaknesses": ["电池续航", "应用生态"],
+      "value_curve": {
+        "价格": 5,
+        "电池续航": 4,
+        "健康监测": 8,
+        "运动功能": 7,
+        "智能通知": 8,
+        "外观设计": 8,
+        "防水性能": 7,
+        "应用生态": 6,
+        "语音助手": 7,
+        "支付功能": 7
+      }
+    },
+    {
+      "name": "华为Watch",
+      "market_share": 15,
+      "strengths": ["电池续航", "健康监测", "价格"],
+      "weaknesses": ["应用生态", "支付功能"],
+      "value_curve": {
+        "价格": 7,
+        "电池续航": 8,
+        "健康监测": 8,
+        "运动功能": 8,
+        "智能通知": 7,
+        "外观设计": 7,
+        "防水性能": 7,
+        "应用生态": 5,
+        "语音助手": 6,
+        "支付功能": 5
+      }
+    }
+  ],
+
+  "six_paths_analysis": {
+    "path_1_alternatives": {
+      "alternatives": ["传统手表", "运动手环", "智能手机"],
+      "customer_reasons": {
+        "传统手表": "品牌身份象征、无需充电、经典设计",
+        "运动手环": "长续航、轻便、价格低",
+        "智能手机": "功能全面、屏幕大、生态完整"
+      },
+      "opportunities": ["融合传统手表设计美感", "学习运动手环的轻便和续航"]
+    },
+    "path_2_strategic_groups": {
+      "groups": [
+        {
+          "name": "高端智能手表",
+          "players": ["Apple Watch", "Samsung Galaxy Watch"],
+          "price_range": "2000-4000元",
+          "value_proposition": "全功能智能体验"
+        },
+        {
+          "name": "中端智能手表",
+          "players": ["华为Watch", "小米手表"],
+          "price_range": "800-2000元",
+          "value_proposition": "性价比均衡体验"
+        },
+        {
+          "name": "运动手环",
+          "players": ["小米手环", "华为手环"],
+          "price_range": "100-300元",
+          "value_proposition": "基础运动追踪"
+        }
+      ],
+      "crossing_opportunities": "融合高端设计和中端价格"
+    },
+    "path_3_buyer_chain": {
+      "roles": [
+        {
+          "role": "购买者",
+          "description": "消费者本人或礼品购买者",
+          "concerns": ["价格", "品牌"]
+        },
+        {
+          "role": "使用者",
+          "description": "日常佩戴者",
+          "concerns": ["舒适度", "功能实用性", "续航"]
+        },
+        {
+          "role": "影响者",
+          "description": "科技博主、朋友推荐",
+          "concerns": ["功能创新", "性价比"]
+        }
+      ],
+      "neglected_role": "礼品接收者的情感需求"
+    },
+    "path_4_complementary": {
+      "before_use": ["选购比较", "配件选购"],
+      "during_use": ["数据同步", "健康咨询", "运动指导"],
+      "after_use": ["数据报告", "设备升级"],
+      "unmet_needs": ["个性化健康建议", "专业运动教练服务"]
+    },
+    "path_5_functional_emotional": {
+      "current_orientation": "功能导向",
+      "elements": ["健康监测", "运动追踪", "智能通知"],
+      "conversion_opportunity": "增加情感价值：时尚配饰、身份象征、社交连接"
+    },
+    "path_6_trends": {
+      "technology_trends": ["AI健康诊断", "柔性屏幕", "生物传感技术进步"],
+      "social_trends": ["健康意识提升", "老龄化社会", "运动健身潮流"],
+      "regulatory_trends": ["医疗级认证", "数据隐私法规"],
+      "economic_trends": ["消费升级", "关注性价比"]
+    }
+  },
+
+  "noncustomer_analysis": {
+    "tier_1_ready_to_jump": {
+      "description": "曾经使用智能手表但现在不使用",
+      "reasons": ["续航太短", "功能鸡肋", "价格太高"],
+      "size_estimate": "约20%的前智能手表用户"
+    },
+    "tier_2_refusing": {
+      "description": "有意识地拒绝智能手表",
+      "reasons": ["喜欢传统手表", "担心隐私", "觉得无用"],
+      "size_estimate": "约30%的潜在客户"
+    },
+    "tier_3_unexplored": {
+      "description": "从未考虑智能手表",
+      "reasons": ["不知道有此产品", "不认为与己相关"],
+      "size_estimate": "约50%的潜在客户"
+    }
+  },
+
+  "expected_four_actions": {
+    "eliminate": {
+      "factors": ["冗余的智能通知", "复杂的第三方应用"],
+      "reasons": ["减少干扰", "降低复杂度", "提升续航"]
+    },
+    "reduce": {
+      "factors": ["价格"],
+      "reasons": ["吸引非客户群体"]
+    },
+    "raise": {
+      "factors": ["电池续航", "外观设计"],
+      "reasons": ["解决核心痛点", "增加情感价值"]
+    },
+    "create": {
+      "factors": ["健康管理订阅服务", "时尚配饰属性"],
+      "reasons": ["开辟新收入来源", "吸引传统手表用户"]
+    }
+  },
+
+  "validation_criteria": {
+    "differentiation": "新价值曲线应与Apple Watch有明显差异",
+    "low_cost": "应实现成本节约或价格优势",
+    "noncustomer_appeal": "应能吸引至少一个非客户群体",
+    "sustainability": "应建立一定的竞争壁垒"
+  }
+}

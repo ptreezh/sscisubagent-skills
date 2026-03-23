@@ -1,0 +1,860 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <title>社会科学AI资源导航 - SocienceAI</title>
+    <meta name="description" content="社会科学AI研究资源导航，为社会科学研究者提供专业的AI工具、文献检索、数据分析等资源">
+    <meta name="robots" content="index,follow">
+    <meta name="keywords" content="AI,社会科学,研究工具,学术资源,文献检索,数据分析,研究助手">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="社会科学AI资源导航 - SocienceAI">
+    <meta property="og:description" content="社会科学AI研究资源导航，为社会科学研究者提供专业的AI工具、文献检索、数据分析等资源">
+    <meta property="og:url" content="https://socienceAI.com/resources">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resources_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="modern-nav">
+        <div class="modern-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+                <a href="/" class="nav-brand">
+                    <img src="logo.png" alt="SocienceAI Logo" class="nav-logo">
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SocienceAI</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">让社会科学与AI双向赋能</div>
+                    </div>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-link">首页</a></li>
+                    <li><a href="skills.html" class="nav-link">Agent服务</a></li>
+                    <li><a href="resources.html" class="nav-link">精品AI</a></li>
+                    <li><a href="Tech/index.html" class="nav-link">赋能工具</a></li>
+                    <li><a href="courses/courses.html" class="nav-link">培训课程</a></li>
+                    <li><a href="whitePaper/index.html" class="nav-link">白皮书</a></li>
+                    <li><a href="Dao/Manifesto.html" class="nav-link">关于我们</a></li>
+                    <li><a href="contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-btn" style="display: none; background: none; border: none; cursor: pointer; padding: 0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="modern-container">
+            <div class="hero-content">
+                <h1 class="page-title">学术AI资源精选导航</h1>
+                <p class="page-subtitle">
+                    精选最适合学术研究者的AI工具和学术资源，按研究流程分类，助力您的学术研究
+                </p>
+
+                <!-- 国内资源快速访问 -->
+                <div class="domestic-resources-bar">
+                    <h3 style="margin: 1rem 0 0.75rem 0; color: var(--text-primary);">国内资源快速访问</h3>
+                    <div class="domestic-resources-container">
+                        <a href="https://chat.z.ai/" class="resource-tag-link recommended" data-tooltip="需要选择z.ai(full stack)模式，先对话，让AI凝练对齐需求→生成规范执行文档、核验无歧义→上传文档让AI 执行" target="_blank" rel="noopener">z.ai</a>
+                        <a href="https://www.iflow.cn/" class="resource-tag-link recommended" data-tooltip="需要选择心流高研模式，先对话，让AI凝练对齐需求→生成规范执行文档、核验无歧义→上传文档让AI 执行" target="_blank" rel="noopener">心流</a>
+                        <a href="https://www.tongyi.com/" class="resource-tag-link recommended" data-tooltip="需要选择通义深研模式，先对话，让AI凝练对齐需求→生成规范执行文档、核验无歧义→上传文档让AI 执行" target="_blank" rel="noopener">通义</a>
+                        <a href="https://www.moonshot.cn/" class="resource-tag-link recommended" data-tooltip="需要选择KIMI（OK Computer）模式，先对话，让AI凝练对齐需求→生成规范执行文档、核验无歧义→上传文档让AI 执行" target="_blank" rel="noopener">KIMI</a>
+                        <a href="https://www.coze.cn/studio?invite_code=ef4c0243de4149269f4fd644bfad2cda" class="resource-tag-link recommended" data-tooltip="需要选择扣子空间模式，先对话，让AI凝练对齐需求→生成规范执行文档、核验无歧义→上传文档让AI 执行" target="_blank" rel="noopener">扣子</a>
+                        <a href="https://metaso.cn/study?s=studyy&referrer_s=studyy" class="resource-tag-link" data-tooltip="中文学术搜索引擎，提供便捷的学术资源查找" target="_blank" rel="noopener">今天学点啥</a>
+                        <a href="https://zread.ai/ptreezh/sscisubagent-skills" class="resource-tag-link" data-tooltip="AI论文阅读助手，提供智能阅读和理解功能" target="_blank" rel="noopener">ZRead.AI</a>
+                        <a href="https://www.aminer.cn/" class="resource-tag-link" data-tooltip="学者情报分析平台，帮助了解研究趋势和学者网络" target="_blank" rel="noopener">AMiner</a>
+                        <a href="https://zsyyb.cn/" class="resource-tag-link" data-tooltip="中文预印版论文获取平台" target="_blank" rel="noopener">预印版平台</a>
+                        <a href="https://surveygo.modelbest.cn/" class="resource-tag-link" data-tooltip="真实文献长综述--几万字" target="_blank" rel="noopener">清华卷姬</a>
+                        <a href="https://atypica.musedam.cc/" class="resource-tag-link" data-tooltip="PersonA访谈和市场用户研究" target="_blank" rel="noopener">atypica用研AI</a>
+                        <a href="https://xueshu.baidu.com/" class="resource-tag-link" data-tooltip="中文学术资源搜索平台" target="_blank" rel="noopener">百度学术</a>
+                        <a href="https://www.bohrium.com/" class="resource-tag-link" data-tooltip="科研服务平台" target="_blank" rel="noopener">玻尔铭</a>
+                        <a href="https://findinai.cn/" class="resource-tag-link" data-tooltip="AI文献检索和发现平台" target="_blank" rel="noopener">FindinAI</a>
+                        <a href="https://yiyan.baidu.com/" class="resource-tag-link" data-tooltip="百度开发的中文大语言模型" target="_blank" rel="noopener">文心一言</a>
+                        <a href="https://xinghuo.xfyun.cn/" class="resource-tag-link" data-tooltip="科大讯飞开发的AI助手" target="_blank" rel="noopener">讯飞星火</a>
+                        <a href="https://tongyi.aliyun.com/wanxiang/" class="resource-tag-link" data-tooltip="阿里通义的图像生成功能" target="_blank" rel="noopener">通义万相</a>
+                        <a href="https://tingwu.aliyun.com/" class="resource-tag-link" data-tooltip="通义的音频理解和转写功能" target="_blank" rel="noopener">通义听悟</a>
+                        <a href="https://www.doubao.com/" class="resource-tag-link" data-tooltip="字节跳动开发的多功能AI助手" target="_blank" rel="noopener">豆包</a>
+                        <a href="https://agent.minimaxi.com/" class="resource-tag-link recommended" data-tooltip="需要选择Minimax专业模式，先对话，让AI凝练对齐需求→生成规范执行文档、核验无歧义→上传文档让AI 执行" target="_blank" rel="noopener">Minimax</a>
+                        <a href="https://www.chatpdf.com" class="resource-tag-link" data-tooltip="与PDF文档直接对话的AI工具" target="_blank" rel="noopener">ChatPDF</a>
+                        <a href="https://www.onlinedoctranslator.com/" class="resource-tag-link" data-tooltip="多格式文档翻译工具" target="_blank" rel="noopener">DocTranslator</a>
+                        <a href="http://www.socienceai.com/" class="resource-tag-link" data-tooltip="专注于AI与社会科学研究融合的平台" target="_blank" rel="noopener">社科AI实验室</a>
+                        <a href="http://agentpsy.com" class="resource-tag-link" data-tooltip="AI人格研究与实验室平台" target="_blank" rel="noopener">AI人格实验室</a>
+                        <a href="https://www.scholay.com/" class="resource-tag-link" data-tooltip="中文文献检索与综述工具" target="_blank" rel="noopener">Scholay</a>
+                        <a href="https://inciteful.xyz/" class="resource-tag-link" data-tooltip="文献综述神器，构建论文引用网络，快速找到相关研究脉络" target="_blank" rel="noopener">Inciteful</a>
+                        <a href="http://iwrite.unipus.cn" class="resource-tag-link" data-tooltip="AIGC内容检测工具" target="_blank" rel="noopener">GPTCheck</a>
+                        <a href="https://www.aibiye.com/?code=ZaImeD" class="resource-tag-link" data-tooltip="论文AI检测查重" target="_blank" rel="noopener">aibiye</a>
+                        <a href="https://www.qianbixiezuo.com?i=qbzqAI" class="resource-tag-link" data-tooltip="无限免费改稿平台" target="_blank" rel="noopener">千笔写作</a>
+                        <a href="https://www.mmc.cc/?fromId=ajj2sbud" class="resource-tag-link" data-tooltip="茅茅虫论文工具" target="_blank" rel="noopener">茅茅虫</a>
+                    </div>
+                </div>
+
+                <!-- 收藏按钮 -->
+                <div class="bookmark-section">
+                    <button class="bookmark-btn" onclick="addBookmark()">
+                        <span class="bookmark-icon">🔖</span>
+                        收藏本页 - AI学术不迷航
+                    </button>
+                    <a href="whitePaper/tools.html" class="bookmark-btn" target="_blank" style="margin-left: 1rem; text-decoration: none;">
+                        <span class="bookmark-icon">📄</span>
+                        工具教学效率倍增
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 资源分类 -->
+    <main class="resources-container">
+        
+        <!-- 研究规划与课题发现 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">🔍</span>
+                研究规划与课题发现
+                <span class="category-tag tag-planning">规划类</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.aminer.cn/" target="_blank" rel="noopener" class="resource-title">
+                            AMiner
+                        </a>
+                        <p class="resource-description">学者情报分析平台，帮助了解研究趋势和学者网络</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> aminer.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                        <span class="resource-tag tag-research">研究</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://elicit.org/" target="_blank" rel="noopener" class="resource-title">
+                            Elicit
+                        </a>
+                        <p class="resource-description">文献筛选和研究发现工具，自动化研究初探</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> elicit.org
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://www.researchrabbit.ai/" target="_blank" rel="noopener" class="resource-title">
+                            Research Rabbit
+                        </a>
+                        <p class="resource-description">知识网络可视化，发现文献间的关联关系</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> researchrabbit.ai
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                        <span class="resource-tag tag-research">研究</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://www.connectedpapers.com/" target="_blank" rel="noopener" class="resource-title">
+                            Connected Papers
+                        </a>
+                        <p class="resource-description">论文关联图谱，可视化展示论文引用关系</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> connectedpapers.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                        <span class="resource-tag tag-visualization">可视化</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://consensus.app/" target="_blank" rel="noopener" class="resource-title">
+                            Consensus
+                        </a>
+                        <p class="resource-description">基于科学研究的回答引擎，快速找到研究证据</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> consensus.app
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://www.semanticscholar.org/" target="_blank" rel="noopener" class="resource-title">
+                            Semantic Scholar
+                        </a>
+                        <p class="resource-description">AI驱动的学术搜索引擎，深度分析论文内容</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> semanticscholar.org
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文献检索与获取 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">📚</span>
+                文献检索与获取
+                <span class="category-tag tag-search">检索类</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card foreign-resource">
+                        <a href="https://scholar.google.com" target="_blank" rel="noopener" class="resource-title">
+                            Google Scholar
+                        </a>
+                        <p class="resource-description">全球最全面的学术搜索引擎</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> scholar.google.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card domestic-resource">
+                        <a href="https://xueshu.baidu.com/" target="_blank" rel="noopener" class="resource-title">
+                            百度学术
+                        </a>
+                        <p class="resource-description">中文学术资源搜索平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> xueshu.baidu.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+                    
+                    <div class="resource-card foreign-resource">
+                        <a href="https://arxiv.org" target="_blank" rel="noopener" class="resource-title">
+                            arXiv
+                        </a>
+                        <p class="resource-description">开放获取的电子预印本文献库</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> arxiv.org
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card foreign-resource">
+                        <a href="https://core.ac.uk" target="_blank" rel="noopener" class="resource-title">
+                            CORE
+                        </a>
+                        <p class="resource-description">全球开放获取论文聚合平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> core.ac.uk
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card domestic-resource">
+                        <a href="https://zsyyb.cn/" target="_blank" rel="noopener" class="resource-title">
+                            预印版平台
+                        </a>
+                        <p class="resource-description">中文预印版论文获取平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> zsyyb.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://metaso.cn/study?s=studyy&referrer_s=studyy" target="_blank" rel="noopener" class="resource-title">
+                            今天学点啥
+                        </a>
+                        <p class="resource-description">中文学术搜索引擎</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> metaso.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+                    
+                    <div class="resource-card foreign-resource">
+                        <a href="https://www.ssrn.com/" target="_blank" rel="noopener" class="resource-title">
+                            SSRN
+                        </a>
+                        <p class="resource-description">社会科学研究中心网络</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> ssrn.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://scite.ai" target="_blank" rel="noopener" class="resource-title">
+                            scite
+                        </a>
+                        <p class="resource-description">智能引用分析工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> scite.ai
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.scholay.com/" target="_blank" rel="noopener" class="resource-title">
+                            Scholay
+                        </a>
+                        <p class="resource-description">中文文献检索与综述工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> scholay.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card foreign-resource">
+                        <a href="https://inciteful.xyz/" target="_blank" rel="noopener" class="resource-title">
+                            Inciteful
+                        </a>
+                        <p class="resource-description">文献综述神器，构建论文引用网络，快速找到相关研究脉络</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> inciteful.xyz
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文献管理与阅读 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">📖</span>
+                文献管理与阅读
+                <span class="category-tag tag-management">管理类</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card foreign-resource">
+                        <a href="https://www.zotero.org" target="_blank" rel="noopener" class="resource-title">
+                            Zotero
+                        </a>
+                        <p class="resource-description">强大的开源文献管理工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> zotero.org
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://www.chatpdf.com" target="_blank" rel="noopener" class="resource-title">
+                            ChatPDF
+                        </a>
+                        <p class="resource-description">与PDF文档直接对话的AI工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> chatpdf.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://www.onlinedoctranslator.com/" target="_blank" rel="noopener" class="resource-title">
+                            DocTranslator
+                        </a>
+                        <p class="resource-description">多格式文档翻译工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> onlinedoctranslator.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.bohrium.com/" target="_blank" rel="noopener" class="resource-title">
+                            玻尔铭
+                        </a>
+                        <p class="resource-description">科研服务平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> bohrium.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <a href="https://www.arxiv-sanity.com/" target="_blank" rel="noopener" class="resource-title">
+                            ArXiv Sanity
+                        </a>
+                        <p class="resource-description">arXiv论文理解和筛选工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> arxiv-sanity.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI研究助手 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">🤖</span>
+                AI研究助手
+                <span class="category-tag tag-ai">AI类</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card domestic-resource recommended-card">
+                        <a href="https://chat.z.ai/" target="_blank" rel="noopener" class="resource-title">
+                            z.ai
+                        </a>
+                        <p class="resource-description">清华智谱开发的AI助手</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> chat.z.ai
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                        <span class="resource-tag tag-recommended">推荐</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource recommended-card">
+                        <a href="https://www.iflow.cn/" target="_blank" rel="noopener" class="resource-title">
+                            心流
+                        </a>
+                        <p class="resource-description">专注深度研究的AI平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> iflow.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                        <span class="resource-tag tag-recommended">推荐</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource recommended-card">
+                        <a href="https://www.tongyi.com/" target="_blank" rel="noopener" class="resource-title">
+                            通义
+                        </a>
+                        <p class="resource-description">阿里巴巴开发的超大规模语言模型</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> tongyi.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                        <span class="resource-tag tag-recommended">推荐</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource recommended-card">
+                        <a href="https://www.moonshot.cn/" target="_blank" rel="noopener" class="resource-title">
+                            KIMI
+                        </a>
+                        <p class="resource-description">月之暗面开发的超长上下文AI模型</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> moonshot.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                        <span class="resource-tag tag-recommended">推荐</span>
+                    </div>
+                    
+                    <div class="resource-card foreign-resource">
+                        <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="resource-title">
+                            ChatGPT
+                        </a>
+                        <p class="resource-description">最广泛使用的通用AI助手</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> chat.openai.com
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card foreign-resource">
+                        <a href="https://www.perplexity.ai/" target="_blank" rel="noopener" class="resource-title">
+                            Perplexity AI
+                        </a>
+                        <p class="resource-description">以引用来源为基础的答案引擎</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> perplexity.ai
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card foreign-resource">
+                        <a href="https://claude.ai/" target="_blank" rel="noopener" class="resource-title">
+                            Claude
+                        </a>
+                        <p class="resource-description">Anthropic开发的AI助手，擅长深度分析</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> claude.ai
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                    
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.doubao.com/" target="_blank" rel="noopener" class="resource-title">
+                            豆包
+                        </a>
+                        <p class="resource-description">字节跳动开发的多功能AI助手</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> doubao.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 写作与发表 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">✍️</span>
+                写作与发表
+                <span class="category-tag tag-writing">写作类</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card domestic-resource">
+                        <a href="https://surveygo.modelbest.cn/" target="_blank" rel="noopener" class="resource-title">
+                            清华卷姬
+                        </a>
+                        <p class="resource-description">清华开发的文献综述生成工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> surveygo.modelbest.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener" class="resource-title">
+                            文心一言
+                        </a>
+                        <p class="resource-description">百度开发的中文大语言模型</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> yiyan.baidu.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="http://iwrite.unipus.cn" target="_blank" rel="noopener" class="resource-title">
+                            GPTCheck
+                        </a>
+                        <p class="resource-description">AIGC内容检测工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> iwrite.unipus.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.aibiye.com/?code=ZaImeD" target="_blank" rel="noopener" class="resource-title">
+                            aibiye
+                        </a>
+                        <p class="resource-description">论文AI检测查重</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> aibiye.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.qianbixiezuo.com?i=qbzqAI" target="_blank" rel="noopener" class="resource-title">
+                            千笔写作
+                        </a>
+                        <p class="resource-description">无限免费改稿平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> qianbixiezuo.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.mmc.cc/?fromId=ajj2sbud" target="_blank" rel="noopener" class="resource-title">
+                            茅茅虫
+                        </a>
+                        <p class="resource-description">茅茅虫论文工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> mmc.cc
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 演示与PPT工具 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">📊</span>
+                演示与PPT工具
+                <span class="category-tag tag-presentation">演示类</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card domestic-resource">
+                        <a href="http://ai-to.cn/url?u=mindshow" target="_blank" rel="noopener" class="resource-title">
+                            麦当秀AI
+                        </a>
+                        <p class="resource-description">高质量教学PPT</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> ai-to.cn
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://ppt.designkit.com/workspace?channel=aigjgppt" target="_blank" rel="noopener" class="resource-title">
+                            LivePPT
+                        </a>
+                        <p class="resource-description">智能PPT制作工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> ppt.designkit.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.islide.cc/?mtm_campaign=aigjg" target="_blank" rel="noopener" class="resource-title">
+                            iSlide
+                        </a>
+                        <p class="resource-description">专业级PPT设计工具，模板库丰富，支持一键换色等高级功能</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> islide.cc
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.qzoffice.com/?from=tomyres" target="_blank" rel="noopener" class="resource-title">
+                            轻竹PPT
+                        </a>
+                        <p class="resource-description">30秒快速生成PPT，支持Word转PPT</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> qzoffice.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://www.chat-ppt.com/?channel=tomyres" target="_blank" rel="noopener" class="resource-title">
+                            ChatPPT
+                        </a>
+                        <p class="resource-description">对话式PPT生成工具，只需描述需求就能获得完整演示文稿，模板质量优秀</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> chat-ppt.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+
+                    <div class="resource-card domestic-resource">
+                        <a href="https://easinote.seewo.com" target="_blank" rel="noopener" class="resource-title">
+                            希沃白板
+                        </a>
+                        <p class="resource-description">智能教学演示工具</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> easinote.seewo.com
+                        </p>
+                        <span class="resource-tag tag-domestic">国内</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 国外资源专区 -->
+        <section class="category-section">
+            <div class="category-header">
+                <span class="category-icon">🌍</span>
+                国外学术资源 (需国际网络访问)
+                <span class="category-tag tag-foreign">国外资源</span>
+            </div>
+            <div class="category-content">
+                <div class="resources-grid">
+                    <div class="resource-card foreign-resource">
+                        <a href="https://journals.plos.org/plosone/" target="_blank" rel="noopener" class="resource-title">
+                            PLOS ONE
+                        </a>
+                        <p class="resource-description">高质量开放获取学术期刊</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> journals.plos.org
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+
+                    <div class="resource-card foreign-resource">
+                        <a href="https://osf.io" target="_blank" rel="noopener" class="resource-title">
+                            Open Science Framework
+                        </a>
+                        <p class="resource-description">开放科学研究平台</p>
+                        <p class="resource-domain">
+                            <span class="domain-icon">🌐</span> osf.io
+                        </p>
+                        <span class="resource-tag tag-foreign">国外</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">SocienceAI</div>
+                    <div class="footer-description">
+                        专注AI与社会科学研究的深度融合，为研究者提供智能化工具和方法论支持。
+                    </div>
+                </div>
+
+                <div>
+                    <h4>核心服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="skills.html">Agent智能体服务</a></li>
+                        <li><a href="resources.html">AI工具导航</a></li>
+                        <li><a href="Tech/index.html">技术赋能平台</a></li>
+                        <li><a href="courses/courses.html">专业培训课程</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>AI与商业</h4>
+                    <ul class="footer-links">
+                        <li><a href="../Tech/AiProductDesign.html">AI产品设计</a></li>
+                        <li><a href="../Tech/AiMarketingTechnology.html">AI营销技术</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="Dao/Manifesto.html">关于我们</a></li>
+                        <li><a href="Dao/Manifesto.html">项目使命</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SocienceAI. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 收藏功能
+        function addBookmark() {
+            var currentUrl = window.location.href;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(currentUrl).then(function() {
+                    alert('✅ 页面链接已复制到剪贴板！按 Ctrl+V 粘贴到收藏夹');
+                }).catch(function() {
+                    fallbackCopy(currentUrl);
+                });
+            } else {
+                fallbackCopy(currentUrl);
+            }
+        }
+
+        function fallbackCopy(text) {
+            var textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert('✅ 页面链接已复制到剪贴板！按 Ctrl+V 粘贴到收藏夹');
+            } catch (err) {
+                alert('⚠️ 请手动复制链接：' + text);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // Tooltip功能
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipElements = document.querySelectorAll('[data-tooltip]');
+
+            for (var i = 0; i < tooltipElements.length; i++) {
+                (function(element) {
+                    var tooltipText = element.getAttribute('data-tooltip');
+
+                    // 创建tooltip
+                    var tooltip = document.createElement('div');
+                    tooltip.className = 'dynamic-tooltip';
+                    tooltip.textContent = tooltipText;
+                    tooltip.style.cssText = 'display:none;position:absolute;z-index:10000;background:#333;color:white;padding:8px 12px;border-radius:4px;font-size:0.85rem;max-width:250px;word-wrap:break-word;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);';
+
+                    // 添加箭头
+                    var arrow = document.createElement('div');
+                    arrow.style.cssText = 'position:absolute;bottom:-4px;left:50%;margin-left:-4px;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #333;';
+                    tooltip.appendChild(arrow);
+
+                    document.body.appendChild(tooltip);
+
+                    // 鼠标事件
+                    element.addEventListener('mouseenter', function() {
+                        var rect = element.getBoundingClientRect();
+
+                        tooltip.style.display = 'block';
+
+                        var left = rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2);
+                        var top = rect.top + window.scrollY - tooltip.offsetHeight - 8;
+
+                        // 边界检查
+                        if (left < 5) left = 5;
+                        if (left + tooltip.offsetWidth > window.innerWidth - 5) {
+                            left = window.innerWidth - tooltip.offsetWidth - 5;
+                        }
+                        if (top < window.scrollY + 5) {
+                            top = rect.bottom + window.scrollY + 8;
+                        }
+
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.top = top + 'px';
+                    });
+
+                    element.addEventListener('mouseleave', function() {
+                        tooltip.style.display = 'none';
+                    });
+                })(tooltipElements[i]);
+            }
+
+            // 滚动动画功能
+            const resourceCards = document.querySelectorAll('.resource-card');
+
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            resourceCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // 立即显示已完全可见的卡片
+            resourceCards.forEach(card => {
+                if (isElementInViewport(card)) {
+                    card.classList.add('visible');
+                }
+            });
+        });
+
+        // 检查元素是否在视口内
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    </script>
+</body>
+</html>

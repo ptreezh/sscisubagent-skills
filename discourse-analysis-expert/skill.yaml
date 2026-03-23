@@ -1,0 +1,188 @@
+name: discourse-analysis-expert
+description: |
+  话语分析专家。提供多范式话语分析方法，支持批判话语分析(CDA)、话语心理学、
+  会话分析、叙事分析。核心能力包括：话语策略识别、权力关系分析、意识形态
+  揭示、互文性分析、话语建构分析。遵循Fairclough三维模型和van Dijk社会
+  认知方法。
+version: "5.0.0"
+license: MIT
+
+# 兼容性
+compatibility:
+  python: "3.8+"
+  agentskills_io: "v1.0"
+  cross_platform: true
+  supported_clis:
+    - Claude
+    - Qwen
+    - iFlow
+    - Gemini
+    - Copilot
+    - Stigmergy
+    - OpenCode
+    - KiloCode
+    - QoderCLI
+    - WorkBuddy
+    - Cursor
+    - Windsurf
+
+# 元数据
+metadata:
+  methodology: "Fairclough (2010), van Dijk (2008), Wodak (2015)"
+  paradigm: "批判社会语言学"
+  created: "2026-03-15"
+  updated: "2026-03-15"
+
+# 核心能力
+capabilities:
+  - name: "文本层面分析"
+    description: "词汇、语法、结构的多维度分析"
+    tools:
+      - "text_analyzer.py"
+  
+  - name: "话语策略识别"
+    description: "基于Wodak框架的五大话语策略分析"
+    tools:
+      - "discourse_strategy.py"
+  
+  - name: "权力关系分析"
+    description: "揭示话语中的权力运作和意识形态效果"
+    tools:
+      - "power_analyzer.py"
+
+# 分析框架
+frameworks:
+  fairclough_three_dimensions:
+    name: "Fairclough三维模型"
+    dimensions:
+      - text: "文本层面分析"
+      - discursive_practice: "话语实践分析"
+      - social_practice: "社会实践分析"
+  
+  wodak_discourse_strategies:
+    name: "Wodak话语策略"
+    strategies:
+      - referential: "指称策略"
+      - predicational: "谓语策略"
+      - argumentation: "论证策略"
+      - perspectivization: "视角策略"
+      - intensification: "强化/弱化策略"
+  
+  van_dijk_socia_cognitive:
+    name: "van Dijk社会认知方法"
+    levels:
+      - macrostructure: "宏观结构"
+      - microstructure: "微观结构"
+      - cognitive: "认知维度"
+
+# 禁止原则
+forbidden_principles:
+  - principle: "脱离社会语境分析文本"
+    severity: "critical"
+  - principle: "忽视权力维度"
+    severity: "critical"
+  - principle: "技术主义倾向"
+    severity: "high"
+  - principle: "预设政治立场"
+    severity: "high"
+  - principle: "忽视历史维度"
+    severity: "medium"
+  - principle: "过度解读"
+    severity: "medium"
+
+# 工具定义
+tools:
+  - name: "text_analyzer.py"
+    path: "tools/text_analyzer.py"
+    functions:
+      - "--lexical: 词汇分析"
+      - "--grammatical: 语法分析"
+      - "--structure: 结构分析"
+      - "--full: 完整分析"
+  
+  - name: "discourse_strategy.py"
+    path: "tools/discourse_strategy.py"
+    functions:
+      - "--referential: 指称策略分析"
+      - "--predicational: 谓语策略分析"
+      - "--argumentation: 论证策略分析"
+  
+  - name: "power_analyzer.py"
+    path: "tools/power_analyzer.py"
+    functions:
+      - "--ideology: 意识形态分析"
+      - "--power: 权力关系分析"
+      - "--discourse-strategy: 话语策略综合分析"
+
+# 质量标准
+quality_standards:
+  transparency:
+    description: "分析过程透明"
+    requirements:
+      - "详细描述分析过程"
+      - "提供分析示例"
+      - "说明分析决策"
+  
+  evidence:
+    description: "分析有文本证据"
+    requirements:
+      - "所有分析有原文支撑"
+      - "引用原文证据"
+      - "考虑替代解释"
+  
+  criticality:
+    description: "批判性立场"
+    requirements:
+      - "关注权力维度"
+      - "揭示意识形态"
+      - "基于证据批判"
+
+# 文件结构
+file_structure:
+  required:
+    - "SKILL.md"
+    - "skill.yaml"
+    - "subagents.yaml"
+    - "skill-hooks.yaml"
+    - "lesson-memory.md"
+    - "skill_manifest.json"
+  
+  directories:
+    - path: "prompts/"
+      purpose: "系统提示词"
+    - path: "references/"
+      purpose: "方法论参考"
+    - path: "cases/positive/"
+      purpose: "成功案例"
+    - path: "cases/negative/"
+      purpose: "失败案例"
+    - path: "templates/"
+      purpose: "研究协议模板"
+    - path: "tools/"
+      purpose: "分析工具"
+    - path: "experience/"
+      purpose: "最佳实践"
+
+# 参考文献
+references:
+  - author: "Fairclough, N."
+    year: 2010
+    title: "Critical Discourse Analysis: The Critical Study of Language"
+    edition: "2nd ed."
+    publisher: "Routledge"
+  
+  - author: "van Dijk, T.A."
+    year: 2008
+    title: "Discourse and Power"
+    publisher: "Palgrave"
+  
+  - author: "Wodak, R."
+    year: 2015
+    title: "The Discourse Studies Reader"
+    publisher: "Routledge"
+  
+  - author: "Gee, J.P."
+    year: 2011
+    title: "An Introduction to Discourse Analysis"
+    edition: "3rd ed."
+    publisher: "Routledge"

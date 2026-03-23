@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>方法论技能 - SocienceAI</title>
+    <meta name="description" content="60+ 种社会科学方法论技能，一键下载，手把手教你做研究">
+    <meta name="robots" content="index,follow">
+    <meta name="keywords" content="社会科学，方法论，技能，AI，研究工具">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --light-bg: #f9fafb;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .modern-nav {
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .modern-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .nav-logo {
+            width: 48px;
+            height: 48px;
+            margin-right: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .hero-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .modern-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .modern-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .card-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .skill-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .meta-item {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .meta-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .category-section {
+            padding: 5rem 0;
+        }
+        
+        .category-section:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        .modern-footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 0;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-description {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="modern-nav">
+        <div class="modern-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+                <a href="index.html" class="nav-brand">
+                    <img src="logo.png" alt="SocienceAI Logo" class="nav-logo">
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SocienceAI</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">让社会科学与 AI 双向赋能</div>
+                    </div>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">首页</a></li>
+                    <li><a href="skills.html" class="nav-link active">方法论技能</a></li>
+                    <li><a href="resources.html" class="nav-link">精品 AI</a></li>
+                    <li><a href="Tech/index.html" class="nav-link">赋能工具</a></li>
+                    <li><a href="courses/courses.html" class="nav-link">培训课程</a></li>
+                    <li><a href="whitePaper/index.html" class="nav-link">白皮书</a></li>
+                    <li><a href="Dao/index.html" class="nav-link">关于我们</a></li>
+                    <li><a href="blog/" class="nav-link">博客</a></li>
+                    <li><a href="contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+
+                <button id="mobile-menu-btn" style="display: none; background: none; border: none; cursor: pointer; padding: 0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="modern-container">
+            <h1 class="hero-title">60+ 种专业方法论技能</h1>
+            <p class="hero-subtitle">一键下载，手把手教你做研究</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#skills" class="btn btn-primary" style="background: white; color: var(--primary-color);">查看全部技能</a>
+                <a href="index.html" class="btn btn-primary" style="background: transparent; color: white; border: 2px solid white;">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能分类展示 -->
+    <main>
+        <!-- 质性研究方法 -->
+        <section id="skills" class="category-section">
+            <div class="modern-container">
+                <h2 class="section-title">质性研究方法</h2>
+                <p class="section-subtitle">专业的质性研究方法论技能，支持访谈数据分析、理论建构、社会网络分析等</p>
+                
+                <div class="skills-grid">
+                    <!-- 扎根理论 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">扎根理论</h3>
+                        <p class="card-description">基于 Glaser & Strauss (1967) 和 Charmaz (2014) 的经典方法论，提供完整的三级编码支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 开放编码</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 轴心编码</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 选择式编码</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 理论饱和度检验</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Kathy Charmaz
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>访谈分析、理论建构
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="grounded-theory-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="grounded-theory-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 社会网络分析 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">社会网络分析</h3>
+                        <p class="card-description">基于 Freeman (1979) 和 Wasserman & Faust (1994) 的经典方法论，提供完整的网络分析支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 中心性分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 社区检测</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 结构洞分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 网络可视化</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Linton Freeman
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>组织网络、社交网络
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="social-network-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="social-network-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 行动者网络理论 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">行动者网络理论</h3>
+                        <p class="card-description">基于 Latour (2005) 和 Callon (1986) 的经典方法论，追踪人 - 非人行动者的网络建构。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 行动者识别</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 转译过程分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 网络稳定化</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 黑箱化分析</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Bruno Latour
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>科技社会学、创新扩散
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="actor-network-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="actor-network-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 布迪厄场域分析 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">布迪厄场域分析</h3>
+                        <p class="card-description">基于 Bourdieu (1984, 1993) 的经典方法论，提供场域、资本、习性的完整分析框架。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 场域识别</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 资本分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 习性分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 位置 - 习性分析</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Pierre Bourdieu
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>文化研究、教育社会学
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="bourdieu-field-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="bourdieu-field-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 定量研究方法 -->
+        <section class="category-section">
+            <div class="modern-container">
+                <h2 class="section-title">定量研究方法</h2>
+                <p class="section-subtitle">专业的定量研究方法论技能，支持 QCA、DID、回归分析等</p>
+                
+                <div class="skills-grid">
+                    <!-- QCA -->
+                    <div class="modern-card">
+                        <h3 class="card-title">QCA 定性比较分析</h3>
+                        <p class="card-description">基于 Ragin (1987, 2008) 的经典方法论，提供模糊集校准、真值表构建、布尔最小化完整支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 模糊集校准</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 真值表构建</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 布尔最小化</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 必要性/充分性分析</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Charles Ragin
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>中小样本比较、因果复杂性
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="qca-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="qca-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- DID -->
+                    <div class="modern-card">
+                        <h3 class="card-title">DID 双重差分</h3>
+                        <p class="card-description">基于 Angrist & Pischke (2009) 的经典方法论，提供平行趋势检验、双向固定效应完整支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 平行趋势检验</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 双向固定效应</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 稳健性检验</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 安慰剂检验</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Angrist & Pischke
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>政策评估、准实验设计
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="did-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="did-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 回归分析 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">回归分析</h3>
+                        <p class="card-description">基于 Fisher (1925) 的经典方法论，提供 OLS 估计、假设检验、模型诊断完整支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ OLS 估计</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 假设检验</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 模型诊断</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 共线性检验</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Ronald Fisher
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>计量经济分析、实证研究
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="regression-analysis-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="regression-analysis-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 问卷设计 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">问卷设计</h3>
+                        <p class="card-description">基于 Dillman (2014) 的经典方法论，提供问题设计、抽样方法、信效度检验完整支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 问题设计</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 抽样方法</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 信度检验</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 效度检验</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Don A. Dillman
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>社会调查、市场研究
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="survey-design-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="survey-design-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 混合方法与社会理论 -->
+        <section class="category-section">
+            <div class="modern-container">
+                <h2 class="section-title">混合方法与社会理论</h2>
+                <p class="section-subtitle">混合方法研究与社会理论视角的专业技能</p>
+                
+                <div class="skills-grid">
+                    <!-- 混合方法 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">混合方法研究</h3>
+                        <p class="card-description">基于 Creswell & Plano Clark (2018) 的经典方法论，提供三角验证、互补设计完整支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 三角验证设计</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 解释性序列设计</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 探索性序列设计</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 转换整合</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>John Creswell
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>复杂现象研究、多层次分析
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="mixed-methods-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="mixed-methods-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 数字马克思 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">数字马克思分析</h3>
+                        <p class="card-description">基于 Harvey (2010) 和 Fuchs (2014) 的数字政治经济学方法论，提供数字劳动、剩余价值分析支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 数字劳动分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 剩余价值追踪</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 意识形态批判</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 阶级结构分析</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>David Harvey
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>平台经济、数字劳动
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="digital-marx-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="digital-marx-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 数字涂尔干 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">数字涂尔干分析</h3>
+                        <p class="card-description">基于 Durkheim (1912) 的功能主义方法论，提供集体意识、社会团结分析支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 集体意识识别</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 社会团结分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 神圣/世俗分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 失范现象分析</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Émile Durkheim
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>数字宗教、在线社区
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="digital-durkheim-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="digital-durkheim-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+
+                    <!-- 数字韦伯 -->
+                    <div class="modern-card">
+                        <h3 class="card-title">数字韦伯分析</h3>
+                        <p class="card-description">基于 Weber (1922) 的解释社会学方法论，提供理性化、科层制分析支持。</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ 理性化分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 科层制研究</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 祛魅过程分析</li>
+                            <li style="margin-bottom: 0.5rem;">✓ 权威类型分析</li>
+                        </ul>
+                        <div class="skill-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">对标学者：</span>Max Weber
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">适用场景：</span>平台科层制、数字权威
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <a href="digital-weber-expert/" class="btn btn-primary">技能详情</a>
+                            <a href="digital-weber-expert/" download class="btn btn-secondary">下载技能</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 5rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
+            <div class="modern-container">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">开始你的专业研究之旅</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9;">所有技能开源免费，立即开始</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html" class="btn btn-primary" style="background: white; color: var(--primary-color);">立即开始</a>
+                    <a href="Tech/index.html" class="btn btn-primary" style="background: transparent; color: white; border: 2px solid white;">查看赋能工具</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="modern-container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <div class="footer-brand">
+                        <div class="footer-logo">AI</div>
+                        <div class="footer-title">SocienceAI</div>
+                    </div>
+                    <p class="footer-description">
+                        SocienceAI 致力于构建 AI 与社会科学研究的双向赋能体系，通过 AI 释放人类研究者自由创新的核心潜力，提升 AI 智能体的集体智能和社会智能。
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">AI 社科方法</h4>
+                    <ul class="footer-links">
+                        <li><a href="grounded-theory-expert/">扎根理论</a></li>
+                        <li><a href="social-network-analysis-expert/">社会网络分析</a></li>
+                        <li><a href="actor-network-analysis-expert/">行动者网络分析</a></li>
+                        <li><a href="bourdieu-field-analysis-expert/">布迪厄场域分析</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">社科技能</h4>
+                    <ul class="footer-links">
+                        <li><a href="digital-durkheim-expert/">数字迪尔凯姆专家</a></li>
+                        <li><a href="digital-marx-expert/">数字马克思专家</a></li>
+                        <li><a href="digital-weber-expert/">数字韦伯专家</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">AI 与商业</h4>
+                    <ul class="footer-links">
+                        <li><a href="Tech/AiProductDesign.html">AI 产品设计</a></li>
+                        <li><a href="Tech/AiMarketingTechnology.html">AI 营销技术</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="Dao/index.html">关于我们</a></li>
+                        <li><a href="Dao/Manifesto.html">项目使命</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SocienceAI. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        });
+
+        // 点击菜单项后关闭移动端菜单
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navMenu = document.querySelector('.nav-menu');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有卡片
+        document.querySelectorAll('.modern-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

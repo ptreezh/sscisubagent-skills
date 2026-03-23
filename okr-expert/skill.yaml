@@ -1,0 +1,102 @@
+---
+name: okr-expert
+version: 5.0.0-cli-native+agent
+description: |
+  OKR目标管理专家技能（AI CLI 原生版）。支持John Doerr OKR框架的完整实施。
+  
+  核心能力：
+  - 目标设定：激励性的定性目标设计
+  - 关键结果设计：可度量的定量结果定义
+  - 对齐检验：组织层级目标对齐验证
+  - 进度追踪：OKR执行进度监控
+
+  基于 John Doerr (2018)《这就是OKR》方法论。
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "OKR (John Doerr 2018)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  agentskills-io: true
+  cross-platform: true
+
+analysis_types:
+  - objective-setting
+  - key-result-design
+  - alignment-check
+  - progress-tracking
+  - full-okr-cycle
+
+category: organizational-management
+tags:
+  - okr
+  - goal-management
+  - key-results
+  - performance-alignment
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 组织战略数据和当前状态
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: OKR设计结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: objective-designer
+    description: 目标设计工具
+    module: objective_designer
+  - name: key-result-creator
+    description: 关键结果创建工具
+    module: key_result_creator
+  - name: alignment-validator
+    description: 对齐验证工具
+    module: alignment_validator
+  - name: progress-tracker
+    description: 进度追踪工具
+    module: progress_tracker
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: objective_inspirational
+    description: 目标激励性检查
+    rule: "目标必须具有激励性，不包含数字"
+  - name: key_result_measurable
+    description: 关键结果可度量检查
+    rule: "关键结果必须可量化、有时限"
+  - name: alignment_check
+    description: 对齐检查
+    rule: "下级OKR必须支持上级OKR"
+
+dependencies:
+  python: ">=3.8"
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

@@ -1,0 +1,160 @@
+---
+name: bourdieu-field-analysis-expert
+version: 5.0.0-cli-native+agent
+description: |
+  布迪厄场域分析专家技能（AI CLI 原生版），支持自动任务队列执行和子Agent并行处理。
+  基于 Bourdieu (1977, 1984, 1990, 1993) 的场域理论体系。
+
+  **质量优先，关系性分析**：严格遵循布迪厄方法论，确保资本分析≥3种、场域边界明确、习性-位置对应。
+
+  核心能力：
+  - 场域边界识别与结构分析
+  - 资本分布分析（经济/文化/社会/符号资本）
+  - 习性模式识别与追溯
+  - 位置取用与策略分析
+  - 场域动力学追踪
+  - 场域自主性评估
+
+  严格遵循场域分析六大核心原则：
+  - 关系性思维原则（反本质主义）
+  - 资本异质性原则（多元资本分析）
+  - 场域自主性原则（相对独立）
+  - 习性-场域对应原则（主客观统一）
+  - 位置-策略动态原则（持续争夺）
+  - 理解优先原则（反预测）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Bourdieu's Field Theory (Bourdieu 1977, 1984, 1990, 1993)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  crct-enabled: true
+  agentskills-io: true
+  cross-platform: true
+  theoretical_framework: |
+    场域理论核心概念：
+    - 场域(Field)：社会空间中的关系网络
+    - 资本(Capital)：经济、文化、社会、符号
+    - 习性(Habitus)：内化的行为倾向
+    - 位置(Position)：资本分布决定的位置
+    - 位置取用(Position-taking)：策略性行动
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "40分钟/案例"
+  parallel: "45分钟/10案例（8.9x加速）"
+  quality_guarantee: "资本分析≥3种，场域边界明确，习性-位置对应验证"
+
+analysis_types:
+  - field-structure
+  - capital-distribution
+  - habitus-analysis
+  - position-taking
+  - field-dynamics
+  - autonomy-assessment
+  - full-analysis
+
+category: social-science-analysis
+tags:
+  - bourdieu
+  - field-theory
+  - capital
+  - habitus
+  - social-space
+  - cultural-capital
+  - position-taking
+  - sociology
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（访谈、文档、观察记录、统计数据）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整场域分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: identify-field
+    description: 识别场域边界
+    module: field_identifier
+  - name: analyze-capital
+    description: 分析资本分布
+    module: capital_analyzer
+  - name: detect-habitus
+    description: 识别习性模式
+    module: habitus_detector
+  - name: map-positions
+    description: 映射行动者位置
+    module: position_mapper
+  - name: track-dynamics
+    description: 追踪场域动力学
+    module: field_dynamics_tracker
+  - name: calculate-autonomy
+    description: 计算场域自主性
+    module: autonomy_calculator
+  - name: analyze
+    description: 主分析入口
+    module: analyze
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: capital_heterogeneity
+    description: 资本异质性检查
+    rule: "必须分析经济/文化/社会/符号四种资本中的至少3种"
+    threshold: 3
+  - name: field_boundary
+    description: 场域边界检查
+    rule: "场域边界必须有明确的区分标准和入场条件"
+    required: true
+  - name: habitus_correspondence
+    description: 习性对应检查
+    rule: "习性模式必须与场域位置对应，追溯场域经验"
+    required: true
+  - name: relational_thinking
+    description: 关系性思维检查
+    rule: "所有解释必须是关系性的，禁止本质主义语言"
+    required: true
+  - name: autonomy_assessment
+    description: 场域自主性检查
+    rule: "必须评估场域的相对自主程度和外部依赖"
+    required: true
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)

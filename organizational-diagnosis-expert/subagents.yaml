@@ -1,0 +1,49 @@
+# Organizational Diagnosis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: six-box-diagnoser
+    name: 六盒诊断师
+    role: 执行Weisbord六盒模型诊断
+    triggers:
+      - "六盒"
+      - "Weisbord"
+      - "六盒子"
+
+  - id: seven-s-analyzer
+    name: 7S分析师
+    role: 执行麦肯锡7S一致性分析
+    triggers:
+      - "7S"
+      - "麦肯锡"
+      - "一致性"
+
+  - id: gap-identifier
+    name: 差距识别师
+    role: 识别组织现状与目标的差距
+    triggers:
+      - "差距"
+      - "问题"
+      - "诊断"
+
+  - id: intervention-planner
+    name: 干预规划师
+    role: 制定组织干预方案
+    triggers:
+      - "干预"
+      - "改进"
+      - "方案"
+
+workflow:
+  - step: 1
+    action: "确定诊断范围"
+  - step: 2
+    action: "收集组织数据"
+  - step: 3
+    action: "应用诊断模型分析"
+  - step: 4
+    action: "识别关键问题"
+  - step: 5
+    action: "分析根因"
+  - step: 6
+    action: "制定干预方案"

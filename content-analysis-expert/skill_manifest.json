@@ -1,0 +1,102 @@
+{
+  "skill_name": "content-analysis-expert",
+  "version": "5.0.0",
+  "methodology": "Krippendorff (2018), Neuendorf (2017)",
+  "description": "量化内容分析专家，提供编码方案设计、信度检验、频次分析和效度验证",
+  "capabilities": [
+    "编码方案设计与优化",
+    "信度检验（Krippendorff's α, Cohen's κ）",
+    "频次分析与统计推断",
+    "效度检验与质量保证",
+    "编码员培训指导",
+    "分析报告撰写"
+  ],
+  "methodology_framework": {
+    "core_principles": [
+      "客观性 - 编码过程可复制",
+      "系统性 - 编码规则一致应用",
+      "量化性 - 结果支持统计推断"
+    ],
+    "analysis_units": [
+      "记录单位",
+      "语境单位",
+      "计数单位"
+    ],
+    "reliability_standards": {
+      "excellent": "α ≥ 0.90",
+      "good": "α ≥ 0.80",
+      "minimum": "α ≥ 0.667"
+    }
+  },
+  "tools": [
+    {
+      "name": "coding_scheme",
+      "path": "tools/coding_scheme.py",
+      "description": "编码方案创建与管理",
+      "cli_usage": "python tools/coding_scheme.py --create --config scheme.yaml"
+    },
+    {
+      "name": "reliability_tester",
+      "path": "tools/reliability_tester.py",
+      "description": "信度系数计算",
+      "cli_usage": "python tools/reliability_tester.py --coder1 a.json --coder2 b.json"
+    },
+    {
+      "name": "frequency_analyzer",
+      "path": "tools/frequency_analyzer.py",
+      "description": "频次统计分析",
+      "cli_usage": "python tools/frequency_analyzer.py --input coded.json"
+    }
+  ],
+  "forbidden_principles": [
+    {
+      "id": 1,
+      "principle": "禁止类目定义模糊",
+      "description": "类目必须有清晰、可操作的定义"
+    },
+    {
+      "id": 2,
+      "principle": "禁止类目重叠",
+      "description": "类目之间必须互斥，不重叠"
+    },
+    {
+      "id": 3,
+      "principle": "禁止信度检验缺失",
+      "description": "必须进行信度检验并达到可接受标准"
+    },
+    {
+      "id": 4,
+      "principle": "禁止编码方案预设后不调整",
+      "description": "预测试后应根据问题调整方案"
+    },
+    {
+      "id": 5,
+      "principle": "禁止忽视效度检验",
+      "description": "必须检验内容效度、构念效度"
+    },
+    {
+      "id": 6,
+      "principle": "禁止量化分析不当",
+      "description": "统计方法选择必须适当"
+    }
+  ],
+  "crct_config": {
+    "constant_comparison": "编码过程中持续比较不同内容，确保一致性",
+    "record": "记录所有编码决策和分歧解决方案",
+    "chain": "研究问题→编码方案→数据→结论的逻辑链条",
+    "trace": "编码过程可追溯、可验证"
+  },
+  "persistence_layers": {
+    "session": "data/sessions/{session_id}/content_analysis/",
+    "project": "data/projects/{project_id}/content_analysis/",
+    "learning": "data/learning/content-analysis/"
+  },
+  "references": [
+    "Krippendorff, K. (2018). Content analysis: An introduction to its methodology (4th ed.).",
+    "Neuendorf, K. A. (2017). The content analysis guidebook (2nd ed.).",
+    "Riffe, D., Lacy, S., & Fico, F. (2014). Analyzing media messages.",
+    "Berelson, B. (1952). Content analysis in communication research."
+  ],
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15"
+}

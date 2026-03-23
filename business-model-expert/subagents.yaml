@@ -1,0 +1,147 @@
+# Business Model Expert - 子Agent配置
+# 基于 Osterwalder (2010), Teece (2010), Porter 框架
+
+metadata:
+  skill: business-model-expert
+  version: "5.0.0-cli-native+agent"
+  parallel_support: true
+  max_concurrent: 5
+
+subagents:
+  # 子Agent 1: 画布设计专家
+  - id: bm-canvas-designer
+    name: 商业模式画布设计专家
+    description: 基于 Osterwalder 方法设计商业模式画布
+    methodology: "Business Model Canvas (Osterwalder 2010)"
+    capabilities:
+      - 客户细分设计
+      - 价值主张构建
+      - 渠道路径规划
+      - 客户关系定义
+      - 收入来源识别
+      - 核心资源分析
+      - 关键活动识别
+      - 合作伙伴网络
+      - 成本结构计算
+    input_schema:
+      business_data: object
+      industry_context: string
+    output_schema:
+      canvas: object
+      recommendations: array
+
+  # 子Agent 2: 价值主张专家
+  - id: bm-value-proposition-builder
+    name: 价值主张构建专家
+    description: 构建和优化价值主张
+    methodology: "Value Proposition Design (Osterwalder 2014)"
+    capabilities:
+      - 客户任务分析
+      - 痛点识别
+      - 收益分析
+      - 价值匹配
+      - 差异化定位
+    input_schema:
+      customer_segments: array
+      pain_points: array
+      gains: array
+    output_schema:
+      value_propositions: array
+      fit_score: number
+
+  # 子Agent 3: 收入模型专家
+  - id: bm-revenue-model-analyzer
+    name: 收入模型分析专家
+    description: 分析和设计收入模型与定价策略
+    methodology: "Revenue Model Design (Teece 2010)"
+    capabilities:
+      - 定价策略分析
+      - 收入流设计
+      - 盈利模式评估
+      - 商业模式创新
+    input_schema:
+      cost_structure: object
+      market_data: object
+    output_schema:
+      revenue_streams: array
+      pricing_strategy: object
+      profitability: object
+
+  # 子Agent 4: 成本结构专家
+  - id: bm-cost-structure-calculator
+    name: 成本结构计算专家
+    description: 计算和分析成本结构
+    capabilities:
+      - 固定成本分析
+      - 变动成本分析
+      - 规模经济评估
+      - 成本优化建议
+    input_schema:
+      operations_data: object
+      resource_requirements: array
+    output_schema:
+      cost_structure: object
+      optimization_recommendations: array
+
+  # 子Agent 5: 竞争优势专家
+  - id: bm-competitive-advantage-analyzer
+    name: 竞争优势分析专家
+    description: 基于 Porter 框架分析竞争优势
+    methodology: "Competitive Advantage (Porter 1985)"
+    capabilities:
+      - 五力分析
+      - 价值链分析
+      - 核心能力识别
+      - 竞争定位
+    input_schema:
+      industry_data: object
+      competitor_analysis: object
+    output_schema:
+      competitive_position: object
+      strategic_recommendations: array
+
+# 执行模式配置
+execution_modes:
+  cli_queue:
+    description: "CLI任务队列（基础）"
+    sequential: true
+    timeout_per_task: 600
+    
+  subagent_parallel:
+    description: "子Agent并行（增强）"
+    sequential: false
+    max_concurrent: 5
+    timeout_per_task: 300
+
+# 任务分解规则
+task_decomposition:
+  simple_tasks:
+    - 单一模块画布设计
+    - 单一价值主张构建
+    - 基础成本计算
+    
+  complex_tasks:
+    - 完整商业模式设计
+    - 多产品线分析
+    - 竞争战略规划
+
+# 质量检查点
+quality_checks:
+  - name: canvas_completeness
+    description: 画布9模块完整性检查
+    threshold: 100%
+    
+  - name: value_proposition_fit
+    description: 价值主张与客户需求匹配度
+    threshold: 80%
+    
+  - name: cost_revenue_alignment
+    description: 成本与收入对齐检查
+    threshold: 90%
+
+# 绝对禁止原则
+absolute_prohibitions:
+  - 禁止跳过画布完整性检查
+  - 禁止忽略竞争分析
+  - 禁止虚构市场数据
+  - 禁止简化财务分析

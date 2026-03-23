@@ -1,0 +1,149 @@
+# 设计思维专家子Agent配置
+# Version: 5.0.0-cli-native+agent
+
+subagents:
+  empathy-researcher:
+    name: "同理心研究专家"
+    description: "专注于用户访谈设计、用户观察、同理心地图构建"
+    capabilities:
+      - 用户访谈设计
+      - 用户观察记录
+      - 同理心地图生成
+      - 用户旅程映射
+    triggers:
+      - "用户研究"
+      - "访谈设计"
+      - "同理心"
+      - "用户洞察"
+    tools:
+      - empathy_map_generator.py
+      - user_journey_mapper.py
+
+  problem-definer:
+    name: "问题定义专家"
+    description: "专注于POV陈述构建、HMW问题重构"
+    capabilities:
+      - POV陈述构建
+      - HMW问题生成
+      - 问题空间分析
+      - 核心矛盾识别
+    triggers:
+      - "问题定义"
+      - "POV"
+      - "HMW"
+      - "设计挑战"
+    tools:
+      - hmw_generator.py
+
+  ideation-facilitator:
+    name: "创意发散专家"
+    description: "专注于头脑风暴、创意聚类、方案筛选"
+    capabilities:
+      - 头脑风暴引导
+      - SCAMPER创新法
+      - 创意聚类分析
+      - 方案评估
+    triggers:
+      - "创意"
+      - "头脑风暴"
+      - "SCAMPER"
+      - "发散"
+    tools:
+      - brainstorming_facilitator.py
+      - idea_cluster_analyzer.py
+
+  prototype-designer:
+    name: "原型设计专家"
+    description: "专注于原型类型选择、快速原型制作"
+    capabilities:
+      - 假设优先级排序
+      - 原型类型推荐
+      - 原型设计指导
+      - 测试脚本编写
+    triggers:
+      - "原型"
+      - "快速验证"
+      - "低保真"
+      - "测试准备"
+    tools:
+      - prototype_selector.py
+      - assumption_mapper.py
+
+  usability-tester:
+    name: "用户测试专家"
+    description: "专注于可用性测试设计、反馈分析"
+    capabilities:
+      - 可用性测试设计
+      - 用户反馈收集
+      - 反馈分析
+      - 迭代建议生成
+    triggers:
+      - "测试"
+      - "可用性"
+      - "用户反馈"
+      - "迭代"
+    tools:
+      - usability_analyzer.py
+      - feedback_analyzer.py
+
+# 并行执行配置
+parallel_execution:
+  enabled: true
+  max_concurrent: 3
+  timeout_per_agent: 300
+  
+  # 适用场景
+  applicable_stages:
+    - name: "多用户同理心研究"
+      agents: [empathy-researcher]
+      parallel: true
+      description: "同时进行多个用户的同理心研究"
+    
+    - name: "创意发散与筛选"
+      agents: [ideation-facilitator, problem-definer]
+      parallel: false
+      description: "先发散后收敛的创意流程"
+    
+    - name: "多原型并行测试"
+      agents: [prototype-designer, usability-tester]
+      parallel: true
+      description: "同时测试多个原型方案"
+
+# 优雅降级配置
+graceful_fallback:
+  enabled: true
+  fallback_mode: "cli-queue"
+  
+  # 降级触发条件
+  fallback_triggers:
+    - "子Agent不可用"
+    - "并行执行超时"
+    - "资源不足"
+  
+  # 降级后的处理
+  fallback_actions:
+    - "回退到CLI任务队列模式"
+    - "串行执行各阶段"
+    - "记录降级事件"
+
+# 子Agent协同规则
+collaboration_rules:
+  - rule: "同理心阶段完成后，将洞察传递给问题定义专家"
+    from: empathy-researcher
+    to: problem-definer
+    data: [user_insights, empathy_maps, user_journeys]
+  
+  - rule: "问题定义完成后，将HMW问题传递给创意发散专家"
+    from: problem-definer
+    to: ideation-facilitator
+    data: [pov_statement, hmw_questions]
+  
+  - rule: "创意筛选后，将优选方案传递给原型设计专家"
+    from: ideation-facilitator
+    to: prototype-designer
+    data: [selected_ideas, evaluation_criteria]
+  
+  - rule: "原型完成后，传递给用户测试专家"
+    from: prototype-designer
+    to: usability-tester
+    data: [prototypes, test_scripts, assumptions]

@@ -1,0 +1,45 @@
+# PESTEL分析发现记录模板
+
+## 项目信息
+
+- **分析对象**: {{analysis_target}}
+- **记录时间**: {{record_date}}
+
+---
+
+## 六维度发现
+
+### 政治因素(P)
+{{political_findings}}
+
+### 经济因素(E)
+{{economic_findings}}
+
+### 社会因素(S)
+{{social_findings}}
+
+### 技术因素(T)
+{{technological_findings}}
+
+### 环境因素(EN)
+{{environmental_findings}}
+
+### 法律因素(L)
+{{legal_findings}}
+
+---
+
+## 关键发现
+
+### 机会
+{{opportunities}}
+
+### 威胁
+{{threats}}
+
+### 战略启示
+{{strategic_insights}}
+
+---
+
+**模板版本**: 5.0.0

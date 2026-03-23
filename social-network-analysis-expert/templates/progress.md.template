@@ -1,0 +1,158 @@
+# 社会网络分析进度日志
+
+**任务 ID**: {{task_id}}  
+**创建时间**: {{created_at}}  
+**最后更新**: {{updated_at}}
+
+---
+
+## 会话日志
+
+### Session {{session_number}} ({{date}})
+
+**目标**:
+- {{goal_1}}
+- {{goal_2}}
+
+**完成的工作**:
+- [x] {{completed_task_1}}
+- [x] {{completed_task_2}}
+- [ ] {{pending_task}}
+
+**发现的问题**:
+- {{issue_1}}
+- {{issue_2}}
+
+**解决方案**:
+- {{solution_1}}
+- {{solution_2}}
+
+**下一步计划**:
+- {{next_step_1}}
+- {{next_step_2}}
+
+**会话时长**: {{duration}} 分钟
+
+---
+
+## 阶段完成情况
+
+### Phase 1: 网络构建
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 节点数：{{num_nodes}}
+  - 边数：{{num_edges}}
+  - 密度：{{density}}
+
+### Phase 2: 中心性分析
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 中心性排名：{{ranking}}
+  - 关键节点：{{key_nodes}}
+
+### Phase 3: 社群检测
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 社群数：{{num_communities}}
+  - 模块化 Q 值：{{modularity}}
+
+### Phase 4: 结构洞分析
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 结构洞位置：{{num_structural_holes}}
+  - 关键经纪人：{{key_brokers}}
+
+### Phase 5: 可视化
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 布局算法：{{layout}}
+  - 可视化数据：{{visualization_data}}
+
+### Phase 6: 报告生成
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 报告长度：{{report_length}}
+  - 关键发现：{{num_findings}}
+
+---
+
+## 测试记录
+
+| 测试类型 | 结果 | 备注 | 时间 |
+|----------|------|------|------|
+| 网络验证 | 通过/失败 | {{comments}} | {{timestamp}} |
+| 中心性计算 | 通过/失败 | {{comments}} | {{timestamp}} |
+| 社群检测 | 通过/失败 | {{comments}} | {{timestamp}} |
+| 结构洞分析 | 通过/失败 | {{comments}} | {{timestamp}} |
+
+---
+
+## 错误与解决方案
+
+| 错误 | 阶段 | 尝试次数 | 解决方案 | 状态 | 时间 |
+|------|------|----------|----------|------|------|
+| {{error}} | {{phase}} | {{attempts}} | {{solution}} | {{status}} | {{timestamp}} |
+
+---
+
+## 文件修改记录
+
+| 文件 | 操作 | 原因 | 时间 |
+|------|------|------|------|
+| {{file}} | 创建/修改/删除 | {{reason}} | {{timestamp}} |
+
+---
+
+## 质量检查点
+
+### 已完成检查
+- [x] Phase 1 完成：网络有效性验证
+- [x] Phase 2 完成：中心性归一化检查
+- [ ] Phase 3 完成：模块化 Q 值 > 0.3
+- [ ] Phase 4 完成：约束指标范围检查
+- [ ] Phase 5 完成：可视化布局合理
+- [ ] Phase 6 完成：报告完整
+
+### 待完成检查
+- [ ] {{checkpoint}}
+
+---
+
+## 当前状态
+
+**当前阶段**: Phase {{current_phase}}  
+**完成进度**: {{completed_phases}}/6 阶段 ({{progress_percentage}}%)  
+**总耗时**: {{total_time}} 分钟  
+**预计剩余**: {{estimated_remaining}} 分钟  
+**下次会话**: {{next_session_date}}
+
+---
+
+## 反思与笔记
+
+### 方法决策
+{{methodological_notes}}
+
+### 分析洞见
+{{analytical_insights}}
+
+### 技术笔记
+{{technical_notes}}
+
+---
+
+**备注**: {{general_notes}}
+
+**下次更新**: {{next_update}}

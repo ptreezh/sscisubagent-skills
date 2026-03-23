@@ -1,0 +1,805 @@
+{
+  "meta": {
+    "name": "SocienceAI技能语义图谱",
+    "version": "1.0.0",
+    "created": "2026-03-18",
+    "description": "基于SkillNet和Cognee方法论构建的技能关联语义网络，支持AI Agent智能技能发现与编排",
+    "totalNodes": 60,
+    "totalEdges": 59
+  },
+  "ontology": {
+    "layers": {
+      "taxonomy": {
+        "description": "技能分类层，按方法论领域组织",
+        "categories": [
+          "qualitative-methods",
+          "quantitative-methods",
+          "mixed-methods",
+          "experimental-methods",
+          "computational-methods",
+          "strategic-analysis",
+          "marketing-analysis",
+          "organizational-management",
+          "network-methods",
+          "field-theory",
+          "theoretical-analysis",
+          "complex-systems",
+          "empirical-analysis",
+          "business-analysis",
+          "meta-skills",
+          "media-studies",
+          "historical-methods"
+        ]
+      },
+      "relational": {
+        "description": "关系层，定义技能间的语义关联",
+        "relationTypes": {
+          "compose": {
+            "description": "组合关系：技能A是技能B的组成部分",
+            "weight": 1.0,
+            "directional": true
+          },
+          "depend_on": {
+            "description": "依赖关系：使用技能A需要先使用技能B",
+            "weight": 0.9,
+            "directional": true
+          },
+          "similar_to": {
+            "description": "相似关系：功能相似可互相参考",
+            "weight": 0.7,
+            "directional": false
+          },
+          "prerequisite": {
+            "description": "前置关系：技能A是技能B的学习前置",
+            "weight": 0.8,
+            "directional": true
+          },
+          "alternative": {
+            "description": "替代关系：互斥替代方案",
+            "weight": 0.6,
+            "directional": false
+          },
+          "extends": {
+            "description": "扩展关系：技能A扩展了技能B的能力",
+            "weight": 0.85,
+            "directional": true
+          },
+          "complementary": {
+            "description": "互补关系：技能A和B配合使用效果更佳",
+            "weight": 0.75,
+            "directional": false
+          }
+        }
+      },
+      "skill_package": {
+        "description": "技能包层，具体可部署的技能实例",
+        "requiredFiles": ["SKILL.md", "skill.yaml"],
+        "optionalFiles": ["subagents.yaml", "prompts/", "tools/", "cases/", "references/"]
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": "grounded-theory-expert",
+      "name": "扎根理论专家",
+      "category": "qualitative-methods",
+      "description": "三阶段编码：开放式编码、轴心编码、选择性编码，理论饱和度检验",
+      "complexity": "high",
+      "tags": ["质性研究", "理论构建", "编码", "归纳推理"],
+      "triggerPhrases": ["扎根理论", "开放式编码", "理论构建", "质性研究设计", "理论饱和"]
+    },
+    {
+      "id": "thematic-analysis-expert",
+      "name": "主题分析专家",
+      "category": "qualitative-methods",
+      "description": "Braun & Clarke六步骤分析框架，支持反思性主题分析",
+      "complexity": "medium",
+      "tags": ["质性研究", "主题提取", "编码", "模式识别"],
+      "triggerPhrases": ["主题分析", "提取主题", "模式识别", "编码分析"]
+    },
+    {
+      "id": "social-network-analysis-expert",
+      "name": "社会网络分析专家",
+      "category": "network-methods",
+      "description": "中心性分析、社区检测、结构洞分析、网络可视化",
+      "complexity": "high",
+      "tags": ["网络分析", "中心性", "社区检测", "关系数据"],
+      "triggerPhrases": ["社会网络", "网络分析", "中心性", "社区结构", "关系分析"]
+    },
+    {
+      "id": "actor-network-analysis-expert",
+      "name": "行动者网络分析专家",
+      "category": "network-methods",
+      "description": "ANT方法论：行动者识别、转译过程、黑箱打开、争议映射",
+      "complexity": "high",
+      "tags": ["ANT", "行动者", "转译", "对称性"],
+      "triggerPhrases": ["行动者网络", "ANT", "转译过程", "黑箱", "对称性分析"]
+    },
+    {
+      "id": "bourdieu-field-analysis-expert",
+      "name": "布迪厄场域分析专家",
+      "category": "field-theory",
+      "description": "场域结构分析、资本分布、习性识别、自主性评估",
+      "complexity": "high",
+      "tags": ["场域理论", "资本", "习性", "布迪厄"],
+      "triggerPhrases": ["场域分析", "资本分析", "习性", "布迪厄", "权力关系"]
+    },
+    {
+      "id": "digital-marx-expert",
+      "name": "数字马克思分析专家",
+      "category": "theoretical-analysis",
+      "description": "阶级分析、异化识别、生产方式分析、意识形态批判",
+      "complexity": "high",
+      "tags": ["马克思主义", "阶级", "异化", "批判理论"],
+      "triggerPhrases": ["马克思", "阶级分析", "异化", "生产方式", "意识形态"]
+    },
+    {
+      "id": "digital-durkheim-expert",
+      "name": "数字涂尔干分析专家",
+      "category": "theoretical-analysis",
+      "description": "社会整合、集体意识、失范检测、团结类型分析",
+      "complexity": "high",
+      "tags": ["涂尔干", "社会整合", "失范", "团结"],
+      "triggerPhrases": ["涂尔干", "社会整合", "失范", "集体意识", "团结"]
+    },
+    {
+      "id": "digital-weber-expert",
+      "name": "数字韦伯分析专家",
+      "category": "theoretical-analysis",
+      "description": "社会行动类型、理性化过程、官僚制分析、权威类型",
+      "complexity": "high",
+      "tags": ["韦伯", "理性化", "官僚制", "权威"],
+      "triggerPhrases": ["韦伯", "理性化", "官僚制", "权威类型", "社会行动"]
+    },
+    {
+      "id": "qca-analysis-expert",
+      "name": "QCA定性比较分析专家",
+      "category": "empirical-analysis",
+      "description": "多值QCA、真值表构建、必要/充分条件、解的类型",
+      "complexity": "high",
+      "tags": ["QCA", "比较分析", "因果条件", "集合论"],
+      "triggerPhrases": ["QCA", "定性比较", "必要条件", "充分条件", "组态分析"]
+    },
+    {
+      "id": "did-analysis-expert",
+      "name": "双重差分分析专家",
+      "category": "empirical-analysis",
+      "description": "DID实验设计、平行趋势检验、因果推断、稳健性检验",
+      "complexity": "high",
+      "tags": ["DID", "因果推断", "准实验", "政策评估"],
+      "triggerPhrases": ["双重差分", "DID", "因果推断", "政策评估", "平行趋势"]
+    },
+    {
+      "id": "cas-simulation-expert",
+      "name": "复杂适应系统仿真专家",
+      "category": "complex-systems",
+      "description": "Agent建模、涌现行为、适应性分析、仿真验证",
+      "complexity": "high",
+      "tags": ["CAS", "仿真", "涌现", "Agent建模"],
+      "triggerPhrases": ["复杂适应系统", "仿真建模", "涌现行为", "Agent模型"]
+    },
+    {
+      "id": "system-dynamics-expert",
+      "name": "系统动力学专家",
+      "category": "complex-systems",
+      "description": "因果回路图、存量流量图、反馈分析、政策模拟",
+      "complexity": "high",
+      "tags": ["系统动力学", "反馈回路", "存量流量", "动态模拟"],
+      "triggerPhrases": ["系统动力学", "因果回路", "反馈分析", "动态建模"]
+    },
+    {
+      "id": "swot-analysis-expert",
+      "name": "SWOT战略分析专家",
+      "category": "strategic-analysis",
+      "description": "四象限战略矩阵、因素评估、战略匹配、行动计划",
+      "complexity": "low",
+      "tags": ["SWOT", "战略分析", "优势劣势", "机会威胁"],
+      "triggerPhrases": ["SWOT", "战略分析", "优势劣势", "机会威胁", "四象限"]
+    },
+    {
+      "id": "pest-analysis-expert",
+      "name": "PEST/PESTEL环境分析专家",
+      "category": "strategic-analysis",
+      "description": "六维度宏观环境分析、因素识别、影响评估、趋势预测",
+      "complexity": "low",
+      "tags": ["PEST", "PESTEL", "宏观环境", "环境扫描"],
+      "triggerPhrases": ["PEST", "PESTEL", "宏观环境", "环境分析", "政治经济社会"]
+    },
+    {
+      "id": "porter-five-forces-expert",
+      "name": "波特五力模型专家",
+      "category": "strategic-analysis",
+      "description": "五力分析、行业吸引力评估、竞争战略建议",
+      "complexity": "medium",
+      "tags": ["波特五力", "竞争分析", "行业分析", "战略定位"],
+      "triggerPhrases": ["波特五力", "竞争分析", "行业吸引力", "供应商议价", "买方议价"]
+    },
+    {
+      "id": "blue-ocean-strategy-expert",
+      "name": "蓝海战略专家",
+      "category": "strategic-analysis",
+      "description": "价值创新分析、四步动作框架、战略布局图、六条路径探索",
+      "complexity": "medium",
+      "tags": ["蓝海战略", "价值创新", "四步动作", "非竞争"],
+      "triggerPhrases": ["蓝海战略", "价值创新", "四步动作", "战略布局图", "非客户"]
+    },
+    {
+      "id": "balanced-scorecard-expert",
+      "name": "平衡计分卡专家",
+      "category": "strategic-analysis",
+      "description": "战略地图构建、四维度指标体系、因果链验证、战略对齐",
+      "complexity": "medium",
+      "tags": ["平衡计分卡", "战略地图", "KPI", "绩效管理"],
+      "triggerPhrases": ["平衡计分卡", "战略地图", "KPI设计", "绩效指标", "战略对齐"]
+    },
+    {
+      "id": "design-thinking-expert",
+      "name": "设计思维专家",
+      "category": "strategic-analysis",
+      "description": "五阶段创新框架：同理心洞察、问题定义、创意发散、原型制作、用户测试",
+      "complexity": "medium",
+      "tags": ["设计思维", "创新", "用户中心", "原型"],
+      "triggerPhrases": ["设计思维", "用户洞察", "原型设计", "创新方法", "同理心"]
+    },
+    {
+      "id": "lean-startup-expert",
+      "name": "精益创业专家",
+      "category": "strategic-analysis",
+      "description": "MVP开发、验证学习、构建-衡量-学习循环、转型决策",
+      "complexity": "medium",
+      "tags": ["精益创业", "MVP", "验证学习", "商业模式"],
+      "triggerPhrases": ["精益创业", "MVP", "验证学习", "转型", "商业模式验证"]
+    },
+    {
+      "id": "value-proposition-expert",
+      "name": "价值主张设计专家",
+      "category": "strategic-analysis",
+      "description": "价值主张画布、客户画像、价值匹配、痛点收益分析",
+      "complexity": "medium",
+      "tags": ["价值主张", "商业模式", "客户画像", "痛点分析"],
+      "triggerPhrases": ["价值主张", "价值画布", "客户画像", "痛点收益", "价值匹配"]
+    },
+    {
+      "id": "okr-expert",
+      "name": "OKR目标管理专家",
+      "category": "organizational-management",
+      "description": "目标设定、关键结果设计、对齐检验、进度追踪",
+      "complexity": "medium",
+      "tags": ["OKR", "目标管理", "关键结果", "绩效对齐"],
+      "triggerPhrases": ["OKR", "目标管理", "关键结果", "目标对齐", "绩效追踪"]
+    },
+    {
+      "id": "agile-pm-expert",
+      "name": "敏捷项目管理专家",
+      "category": "organizational-management",
+      "description": "Scrum框架、用户故事、迭代规划、敏捷度量",
+      "complexity": "medium",
+      "tags": ["敏捷", "Scrum", "用户故事", "迭代"],
+      "triggerPhrases": ["敏捷管理", "Scrum", "用户故事", "迭代规划", "Sprint"]
+    },
+    {
+      "id": "change-management-expert",
+      "name": "变革管理专家",
+      "category": "organizational-management",
+      "description": "Kotter八步骤模型、Lewin三阶段模型、ADKAR模型、阻力管理",
+      "complexity": "medium",
+      "tags": ["变革管理", "组织变革", "阻力管理", "变革模型"],
+      "triggerPhrases": ["变革管理", "组织变革", "Kotter", "ADKAR", "变革阻力"]
+    },
+    {
+      "id": "organizational-diagnosis-expert",
+      "name": "组织诊断专家",
+      "category": "organizational-management",
+      "description": "Weisbord六盒模型、麦肯锡7S模型、组织结构分析、绩效诊断",
+      "complexity": "medium",
+      "tags": ["组织诊断", "六盒模型", "7S模型", "组织健康"],
+      "triggerPhrases": ["组织诊断", "六盒模型", "7S模型", "组织健康", "绩效诊断"]
+    },
+    {
+      "id": "consumer-behavior-expert",
+      "name": "消费者行为分析专家",
+      "category": "marketing-analysis",
+      "description": "消费者决策旅程、购买动机分析、消费心理研究、行为预测",
+      "complexity": "medium",
+      "tags": ["消费者行为", "决策旅程", "购买动机", "消费心理"],
+      "triggerPhrases": ["消费者行为", "决策旅程", "购买动机", "消费心理", "行为预测"]
+    },
+    {
+      "id": "brand-equity-expert",
+      "name": "品牌资产评估专家",
+      "category": "marketing-analysis",
+      "description": "Aaker品牌资产模型、Keller品牌共鸣模型、品牌价值评估",
+      "complexity": "medium",
+      "tags": ["品牌资产", "品牌价值", "品牌共鸣", "Aaker模型"],
+      "triggerPhrases": ["品牌资产", "品牌价值", "品牌评估", "品牌共鸣", "Aaker"]
+    },
+    {
+      "id": "business-ecosystem-expert",
+      "name": "商业生态系统分析专家",
+      "category": "business-analysis",
+      "description": "物种识别、生态位分析、共生关系、演化路径",
+      "complexity": "high",
+      "tags": ["商业生态", "生态位", "共生关系", "平台战略"],
+      "triggerPhrases": ["商业生态", "生态系统", "生态位", "共生关系", "平台战略"]
+    },
+    {
+      "id": "business-model-expert",
+      "name": "商业模式分析专家",
+      "category": "business-analysis",
+      "description": "商业模式画布、四维度分析、竞争定位、价值创造",
+      "complexity": "medium",
+      "tags": ["商业模式", "商业模式画布", "价值创造", "竞争定位"],
+      "triggerPhrases": ["商业模式", "商业模式画布", "价值主张", "收入模式", "成本结构"]
+    },
+    {
+      "id": "data-analysis-expert",
+      "name": "数据分析专家",
+      "category": "quantitative-methods",
+      "description": "描述性统计、推断统计、可视化生成、探索性分析",
+      "complexity": "medium",
+      "tags": ["数据分析", "统计", "可视化", "探索性分析"],
+      "triggerPhrases": ["数据分析", "统计分析", "数据可视化", "描述性统计", "推断统计"]
+    },
+    {
+      "id": "meta-analysis-expert",
+      "name": "元分析专家",
+      "category": "quantitative-methods",
+      "description": "系统性文献综述和元分析全流程支持，证据等级金字塔顶端方法",
+      "complexity": "high",
+      "tags": ["元分析", "系统综述", "效应量", "证据整合"],
+      "triggerPhrases": ["元分析", "Meta分析", "系统综述", "效应量", "证据整合"]
+    },
+    {
+      "id": "sem-analysis-expert",
+      "name": "结构方程模型专家",
+      "category": "quantitative-methods",
+      "description": "SEM全流程支持，包括CFA、路径分析、模型拟合评估、中介效应检验",
+      "complexity": "high",
+      "tags": ["SEM", "结构方程", "验证性因子", "路径分析"],
+      "triggerPhrases": ["结构方程模型", "SEM", "验证性因子分析", "路径分析", "中介效应"]
+    },
+    {
+      "id": "regression-analysis-expert",
+      "name": "回归分析专家",
+      "category": "quantitative-methods",
+      "description": "OLS/Logistic/Poisson回归、假设检验、模型诊断、效应分析",
+      "complexity": "medium",
+      "tags": ["回归分析", "OLS", "Logistic", "假设检验"],
+      "triggerPhrases": ["回归分析", "OLS回归", "Logistic回归", "模型诊断", "效应分析"]
+    },
+    {
+      "id": "factor-analysis-expert",
+      "name": "因子分析专家",
+      "category": "quantitative-methods",
+      "description": "探索性因子分析、验证性因子分析、因子旋转、信效度检验",
+      "complexity": "high",
+      "tags": ["因子分析", "EFA", "CFA", "维度降维"],
+      "triggerPhrases": ["因子分析", "EFA", "CFA", "探索性因子", "验证性因子"]
+    },
+    {
+      "id": "multilevel-modeling-expert",
+      "name": "多层线性模型专家",
+      "category": "quantitative-methods",
+      "description": "层次数据结构、随机效应、跨层交互、模型比较",
+      "complexity": "high",
+      "tags": ["多层模型", "HLM", "层次数据", "随机效应"],
+      "triggerPhrases": ["多层模型", "HLM", "层次线性模型", "随机效应", "跨层分析"]
+    },
+    {
+      "id": "longitudinal-analysis-expert",
+      "name": "纵向数据分析专家",
+      "category": "quantitative-methods",
+      "description": "追踪数据、增长曲线、潜变量增长模型、时间序列",
+      "complexity": "high",
+      "tags": ["纵向分析", "追踪数据", "增长曲线", "时间序列"],
+      "triggerPhrases": ["纵向分析", "追踪数据", "增长曲线", "潜变量增长", "时间序列"]
+    },
+    {
+      "id": "bibliometric-analysis-expert",
+      "name": "文献计量分析专家",
+      "category": "quantitative-methods",
+      "description": "引文分析、共现分析、知识图谱、研究前沿探测",
+      "complexity": "medium",
+      "tags": ["文献计量", "引文分析", "共现分析", "知识图谱"],
+      "triggerPhrases": ["文献计量", "引文分析", "共现分析", "知识图谱", "研究前沿"]
+    },
+    {
+      "id": "secondary-analysis-expert",
+      "name": "二手数据分析专家",
+      "category": "quantitative-methods",
+      "description": "二手数据源评估、数据清洗、变量重构、稳健性检验",
+      "complexity": "medium",
+      "tags": ["二手数据", "数据清洗", "变量重构", "稳健性"],
+      "triggerPhrases": ["二手数据", "二手数据分析", "数据清洗", "变量重构"]
+    },
+    {
+      "id": "content-analysis-expert",
+      "name": "内容分析专家",
+      "category": "qualitative-methods",
+      "description": "系统化内容编码、类目构建、信度检验、量化内容分析",
+      "complexity": "medium",
+      "tags": ["内容分析", "编码", "类目构建", "信度检验"],
+      "triggerPhrases": ["内容分析", "内容编码", "类目构建", "量化内容"]
+    },
+    {
+      "id": "discourse-analysis-expert",
+      "name": "话语分析专家",
+      "category": "qualitative-methods",
+      "description": "话语结构分析、权力话语、互文性、批判话语分析",
+      "complexity": "high",
+      "tags": ["话语分析", "权力话语", "互文性", "批判话语"],
+      "triggerPhrases": ["话语分析", "话语结构", "权力话语", "批判话语", "互文性"]
+    },
+    {
+      "id": "ethnography-expert",
+      "name": "民族志专家",
+      "category": "qualitative-methods",
+      "description": "田野调查、参与观察、文化描述、深描写作",
+      "complexity": "high",
+      "tags": ["民族志", "田野调查", "参与观察", "文化描述"],
+      "triggerPhrases": ["民族志", "田野调查", "参与观察", "文化描述", "深描"]
+    },
+    {
+      "id": "case-study-expert",
+      "name": "案例研究专家",
+      "category": "mixed-methods",
+      "description": "单案例/多案例设计、案例选择、数据三角验证、案例内比较",
+      "complexity": "medium",
+      "tags": ["案例研究", "案例设计", "三角验证", "案例比较"],
+      "triggerPhrases": ["案例研究", "案例设计", "单案例", "多案例", "三角验证"]
+    },
+    {
+      "id": "ipa-analysis-expert",
+      "name": "解释现象学分析专家",
+      "category": "qualitative-methods",
+      "description": "IPA方法论、现象学访谈、逐行编码、主题网络构建",
+      "complexity": "high",
+      "tags": ["IPA", "现象学", "逐行编码", "主题网络"],
+      "triggerPhrases": ["IPA", "解释现象学", "现象学分析", "逐行编码", "生活体验"]
+    },
+    {
+      "id": "narrative-analysis-expert",
+      "name": "叙事分析专家",
+      "category": "qualitative-methods",
+      "description": "故事结构分析、叙事身份、时序重构、叙事类型",
+      "complexity": "medium",
+      "tags": ["叙事分析", "故事结构", "叙事身份", "时序重构"],
+      "triggerPhrases": ["叙事分析", "故事结构", "叙事身份", "生活故事", "叙事类型"]
+    },
+    {
+      "id": "phenomenology-expert",
+      "name": "现象学分析专家",
+      "category": "qualitative-methods",
+      "description": "现象学还原、本质直观、生活世界、意向性分析",
+      "complexity": "high",
+      "tags": ["现象学", "还原", "本质直观", "生活世界"],
+      "triggerPhrases": ["现象学", "现象学还原", "本质直观", "生活世界", "意向性"]
+    },
+    {
+      "id": "conversation-analysis-expert",
+      "name": "会话分析专家",
+      "category": "qualitative-methods",
+      "description": "话轮转换、序列组织、修复机制、机构性谈话",
+      "complexity": "high",
+      "tags": ["会话分析", "话轮转换", "序列组织", "修复机制"],
+      "triggerPhrases": ["会话分析", "话轮转换", "序列组织", "谈话分析", "对话分析"]
+    },
+    {
+      "id": "semiotics-analysis-expert",
+      "name": "符号学分析专家",
+      "category": "qualitative-methods",
+      "description": "符号系统、能指所指、符号类型、符号过程",
+      "complexity": "high",
+      "tags": ["符号学", "能指所指", "符号类型", "意义生产"],
+      "triggerPhrases": ["符号学", "符号分析", "能指所指", "意义生产", "符号系统"]
+    },
+    {
+      "id": "rhetoric-analysis-expert",
+      "name": "修辞分析专家",
+      "category": "qualitative-methods",
+      "description": "修辞策略、论证结构、修辞格、说服技巧",
+      "complexity": "medium",
+      "tags": ["修辞分析", "修辞策略", "论证结构", "说服技巧"],
+      "triggerPhrases": ["修辞分析", "修辞策略", "论证分析", "说服技巧", "修辞格"]
+    },
+    {
+      "id": "visual-analysis-expert",
+      "name": "视觉分析专家",
+      "category": "qualitative-methods",
+      "description": "图像语义、视觉修辞、视觉叙事、凝视理论",
+      "complexity": "medium",
+      "tags": ["视觉分析", "图像分析", "视觉修辞", "视觉叙事"],
+      "triggerPhrases": ["视觉分析", "图像分析", "视觉修辞", "凝视分析", "图像意义"]
+    },
+    {
+      "id": "mixed-methods-expert",
+      "name": "混合方法研究专家",
+      "category": "mixed-methods",
+      "description": "研究设计整合、顺序设计、并行设计、数据整合",
+      "complexity": "high",
+      "tags": ["混合方法", "研究设计", "数据整合", "方法三角"],
+      "triggerPhrases": ["混合方法", "质性与量化结合", "数据整合", "方法三角验证"]
+    },
+    {
+      "id": "action-research-expert",
+      "name": "行动研究专家",
+      "category": "mixed-methods",
+      "description": "参与式行动研究、螺旋循环、反思实践、变革导向",
+      "complexity": "high",
+      "tags": ["行动研究", "参与式", "反思实践", "变革导向"],
+      "triggerPhrases": ["行动研究", "参与式研究", "实践变革", "反思循环"]
+    },
+    {
+      "id": "rct-experimental-design-expert",
+      "name": "随机对照试验设计专家",
+      "category": "experimental-methods",
+      "description": "RCT设计、随机化、干预设计、因果识别",
+      "complexity": "high",
+      "tags": ["RCT", "随机对照", "实验设计", "因果识别"],
+      "triggerPhrases": ["RCT", "随机对照试验", "实验设计", "随机化", "干预研究"]
+    },
+    {
+      "id": "nlp-text-mining-expert",
+      "name": "NLP文本挖掘专家",
+      "category": "computational-methods",
+      "description": "文本预处理、情感分析、主题模型、命名实体识别",
+      "complexity": "high",
+      "tags": ["NLP", "文本挖掘", "情感分析", "主题模型"],
+      "triggerPhrases": ["NLP", "文本挖掘", "情感分析", "主题模型", "自然语言处理"]
+    },
+    {
+      "id": "machine-learning-research-expert",
+      "name": "机器学习研究专家",
+      "category": "computational-methods",
+      "description": "特征工程、模型选择、交叉验证、超参数调优",
+      "complexity": "high",
+      "tags": ["机器学习", "特征工程", "模型选择", "交叉验证"],
+      "triggerPhrases": ["机器学习", "特征工程", "模型训练", "交叉验证", "预测模型"]
+    },
+    {
+      "id": "social-sequence-analysis-expert",
+      "name": "社会序列分析专家",
+      "category": "computational-methods",
+      "description": "序列数据、最优匹配、状态转移、序列聚类",
+      "complexity": "high",
+      "tags": ["序列分析", "最优匹配", "状态转移", "序列聚类"],
+      "triggerPhrases": ["序列分析", "最优匹配", "状态转移", "生命周期分析", "轨迹分析"]
+    },
+    {
+      "id": "survey-design-expert",
+      "name": "问卷设计专家",
+      "category": "qualitative-methods",
+      "description": "问卷结构设计、题项编写、量表选择、信效度预检验",
+      "complexity": "medium",
+      "tags": ["问卷设计", "量表", "题项", "信效度"],
+      "triggerPhrases": ["问卷设计", "量表设计", "题项编写", "信效度检验", "问卷结构"]
+    },
+    {
+      "id": "media-analysis-expert",
+      "name": "媒介分析专家",
+      "category": "media-studies",
+      "description": "媒介框架分析、媒介效应、媒介生态、跨媒介叙事",
+      "complexity": "medium",
+      "tags": ["媒介分析", "框架分析", "媒介效应", "媒介生态"],
+      "triggerPhrases": ["媒介分析", "框架分析", "媒介效应", "媒体内容", "媒介生态"]
+    },
+    {
+      "id": "internet-research-expert",
+      "name": "互联网研究专家",
+      "category": "media-studies",
+      "description": "网络民族志、数字痕迹、社交媒体分析、网络空间研究",
+      "complexity": "medium",
+      "tags": ["互联网研究", "网络民族志", "数字痕迹", "社交媒体"],
+      "triggerPhrases": ["互联网研究", "网络民族志", "数字痕迹", "社交媒体分析"]
+    },
+    {
+      "id": "historical-analysis-expert",
+      "name": "历史分析专家",
+      "category": "historical-methods",
+      "description": "史料批判、历史叙事、比较历史、时间尺度分析",
+      "complexity": "high",
+      "tags": ["历史分析", "史料批判", "历史叙事", "比较历史"],
+      "triggerPhrases": ["历史分析", "史料批判", "历史叙事", "历史比较", "时间尺度"]
+    },
+    {
+      "id": "document-analysis-expert",
+      "name": "文档分析专家",
+      "category": "historical-methods",
+      "description": "文档来源评估、文档语境化、交叉验证、文档批判",
+      "complexity": "medium",
+      "tags": ["文档分析", "来源评估", "交叉验证", "文档批判"],
+      "triggerPhrases": ["文档分析", "文档评估", "来源批判", "档案研究"]
+    },
+    {
+      "id": "skill-upgrade-expert",
+      "name": "技能提升专家",
+      "category": "meta-skills",
+      "description": "技能质量评估、v5.0.0-cli-native+agent标准、技能增强、技能验证",
+      "complexity": "high",
+      "tags": ["元技能", "技能提升", "质量评估", "技能验证"],
+      "triggerPhrases": ["技能提升", "技能评估", "技能增强", "技能验证", "v5.0.0标准"]
+    }
+  ],
+  "edges": [
+    {"source": "thematic-analysis-expert", "target": "grounded-theory-expert", "type": "compose", "weight": 1.0, "note": "主题分析是扎根理论编码过程的核心组成部分"},
+    {"source": "content-analysis-expert", "target": "grounded-theory-expert", "type": "compose", "weight": 0.85, "note": "内容分析方法常用于扎根理论的编码阶段"},
+    {"source": "grounded-theory-expert", "target": "thematic-analysis-expert", "type": "extends", "weight": 0.9, "note": "扎根理论扩展了主题分析的理论构建能力"},
+    {"source": "thematic-analysis-expert", "target": "content-analysis-expert", "type": "similar_to", "weight": 0.75, "note": "两者都是质性编码方法，但侧重点不同"},
+    {"source": "ipa-analysis-expert", "target": "phenomenology-expert", "type": "compose", "weight": 0.95, "note": "IPA是现象学方法论的具体应用方法"},
+    {"source": "phenomenology-expert", "target": "ipa-analysis-expert", "type": "prerequisite", "weight": 0.8, "note": "理解现象学哲学是IPA研究的基础"},
+    {"source": "narrative-analysis-expert", "target": "phenomenology-expert", "type": "similar_to", "weight": 0.65, "note": "都关注个体经验，但叙事分析侧重故事结构"},
+    {"source": "sem-analysis-expert", "target": "factor-analysis-expert", "type": "depend_on", "weight": 0.9, "note": "SEM中的测量模型依赖因子分析"},
+    {"source": "sem-analysis-expert", "target": "regression-analysis-expert", "type": "compose", "weight": 0.85, "note": "SEM包含路径分析，是回归的扩展"},
+    {"source": "regression-analysis-expert", "target": "data-analysis-expert", "type": "compose", "weight": 0.9, "note": "回归分析是数据分析的核心方法"},
+    {"source": "multilevel-modeling-expert", "target": "regression-analysis-expert", "type": "extends", "weight": 0.9, "note": "多层模型是回归分析的层次扩展"},
+    {"source": "longitudinal-analysis-expert", "target": "multilevel-modeling-expert", "type": "similar_to", "weight": 0.7, "note": "纵向数据常采用多层模型框架"},
+    {"source": "did-analysis-expert", "target": "regression-analysis-expert", "type": "compose", "weight": 0.85, "note": "DID本质是面板回归的应用"},
+    {"source": "meta-analysis-expert", "target": "regression-analysis-expert", "type": "depend_on", "weight": 0.7, "note": "元分析中的元回归依赖回归方法"},
+    {"source": "qca-analysis-expert", "target": "case-study-expert", "type": "complementary", "weight": 0.8, "note": "QCA常用于多案例研究的比较分析"},
+    {"source": "social-network-analysis-expert", "target": "actor-network-analysis-expert", "type": "alternative", "weight": 0.6, "note": "SNA侧重结构量化，ANT侧重关系建构"},
+    {"source": "actor-network-analysis-expert", "target": "social-network-analysis-expert", "type": "complementary", "weight": 0.7, "note": "ANT可借助SNA方法进行网络可视化"},
+    {"source": "bourdieu-field-analysis-expert", "target": "social-network-analysis-expert", "type": "complementary", "weight": 0.75, "note": "场域分析可结合网络分析识别位置关系"},
+    {"source": "digital-marx-expert", "target": "digital-durkheim-expert", "type": "alternative", "weight": 0.55, "note": "马克思侧重阶级冲突，涂尔干侧重社会整合"},
+    {"source": "digital-marx-expert", "target": "digital-weber-expert", "type": "complementary", "weight": 0.7, "note": "马克思的阶级分析与韦伯的分层分析互补"},
+    {"source": "digital-durkheim-expert", "target": "digital-weber-expert", "type": "complementary", "weight": 0.75, "note": "涂尔干的整合视角与韦伯的理性化视角互补"},
+    {"source": "swot-analysis-expert", "target": "pest-analysis-expert", "type": "complementary", "weight": 0.85, "note": "SWOT的外部因素常来自PEST分析"},
+    {"source": "swot-analysis-expert", "target": "porter-five-forces-expert", "type": "complementary", "weight": 0.8, "note": "SWOT的机会威胁可由五力分析支撑"},
+    {"source": "porter-five-forces-expert", "target": "blue-ocean-strategy-expert", "type": "alternative", "weight": 0.65, "note": "五力侧重竞争，蓝海侧重非竞争"},
+    {"source": "balanced-scorecard-expert", "target": "swot-analysis-expert", "type": "complementary", "weight": 0.75, "note": "BSC将SWOT战略转化为可执行指标"},
+    {"source": "blue-ocean-strategy-expert", "target": "value-proposition-expert", "type": "compose", "weight": 0.85, "note": "蓝海战略的核心是价值创新"},
+    {"source": "value-proposition-expert", "target": "business-model-expert", "type": "compose", "weight": 0.9, "note": "价值主张是商业模式画布的核心要素"},
+    {"source": "lean-startup-expert", "target": "value-proposition-expert", "type": "depend_on", "weight": 0.85, "note": "精益创业需要价值主张假设验证"},
+    {"source": "lean-startup-expert", "target": "design-thinking-expert", "type": "complementary", "weight": 0.8, "note": "设计思维为精益创业提供用户洞察方法"},
+    {"source": "okr-expert", "target": "balanced-scorecard-expert", "type": "similar_to", "weight": 0.7, "note": "OKR侧重目标追踪，BSC侧重战略执行"},
+    {"source": "agile-pm-expert", "target": "lean-startup-expert", "type": "complementary", "weight": 0.8, "note": "敏捷方法支持精益创业的快速迭代"},
+    {"source": "change-management-expert", "target": "organizational-diagnosis-expert", "type": "prerequisite", "weight": 0.85, "note": "变革前需要组织诊断识别问题"},
+    {"source": "consumer-behavior-expert", "target": "design-thinking-expert", "type": "complementary", "weight": 0.8, "note": "消费者行为洞察支持设计思维的同理心阶段"},
+    {"source": "brand-equity-expert", "target": "consumer-behavior-expert", "type": "depend_on", "weight": 0.75, "note": "品牌资产评估依赖消费者认知测量"},
+    {"source": "business-ecosystem-expert", "target": "business-model-expert", "type": "extends", "weight": 0.8, "note": "商业生态系统扩展了单一商业模式分析"},
+    {"source": "cas-simulation-expert", "target": "system-dynamics-expert", "type": "similar_to", "weight": 0.65, "note": "都关注复杂系统，但方法论不同"},
+    {"source": "cas-simulation-expert", "target": "social-network-analysis-expert", "type": "complementary", "weight": 0.75, "note": "CAS中的Agent可基于网络结构"},
+    {"source": "nlp-text-mining-expert", "target": "content-analysis-expert", "type": "extends", "weight": 0.8, "note": "NLP扩展了传统内容分析的规模"},
+    {"source": "nlp-text-mining-expert", "target": "thematic-analysis-expert", "type": "complementary", "weight": 0.75, "note": "NLP可辅助主题提取"},
+    {"source": "machine-learning-research-expert", "target": "data-analysis-expert", "type": "extends", "weight": 0.85, "note": "机器学习是数据分析的进阶方法"},
+    {"source": "machine-learning-research-expert", "target": "regression-analysis-expert", "type": "extends", "weight": 0.85, "note": "ML模型是回归模型的非线性扩展"},
+    {"source": "mixed-methods-expert", "target": "qualitative-methods", "type": "compose", "weight": 0.9, "note": "混合方法整合质性方法"},
+    {"source": "mixed-methods-expert", "target": "quantitative-methods", "type": "compose", "weight": 0.9, "note": "混合方法整合量化方法"},
+    {"source": "action-research-expert", "target": "case-study-expert", "type": "compose", "weight": 0.75, "note": "行动研究常采用案例研究方法"},
+    {"source": "ethnography-expert", "target": "case-study-expert", "type": "similar_to", "weight": 0.65, "note": "都关注情境深度理解，但民族志更强调参与"},
+    {"source": "conversation-analysis-expert", "target": "discourse-analysis-expert", "type": "similar_to", "weight": 0.7, "note": "都关注语言使用，但会话分析更微观"},
+    {"source": "semiotics-analysis-expert", "target": "discourse-analysis-expert", "type": "complementary", "weight": 0.75, "note": "符号学与话语分析都关注意义生产"},
+    {"source": "visual-analysis-expert", "target": "semiotics-analysis-expert", "type": "compose", "weight": 0.8, "note": "视觉分析常采用符号学方法"},
+    {"source": "rhetoric-analysis-expert", "target": "discourse-analysis-expert", "type": "complementary", "weight": 0.75, "note": "修辞分析补充话语分析的论证维度"},
+    {"source": "media-analysis-expert", "target": "discourse-analysis-expert", "type": "compose", "weight": 0.8, "note": "媒介分析常采用话语分析方法"},
+    {"source": "internet-research-expert", "target": "ethnography-expert", "type": "extends", "weight": 0.8, "note": "网络民族志是民族志的数字延伸"},
+    {"source": "internet-research-expert", "target": "nlp-text-mining-expert", "type": "complementary", "weight": 0.75, "note": "互联网研究可结合NLP方法"},
+    {"source": "historical-analysis-expert", "target": "document-analysis-expert", "type": "compose", "weight": 0.9, "note": "历史分析依赖文档分析方法"},
+    {"source": "bibliometric-analysis-expert", "target": "meta-analysis-expert", "type": "prerequisite", "weight": 0.8, "note": "文献计量是元分析的文献检索基础"},
+    {"source": "survey-design-expert", "target": "data-analysis-expert", "type": "prerequisite", "weight": 0.85, "note": "问卷设计是数据收集的前置"},
+    {"source": "social-sequence-analysis-expert", "target": "longitudinal-analysis-expert", "type": "similar_to", "weight": 0.7, "note": "都关注时间维度，但序列分析侧重离散状态"},
+    {"source": "rct-experimental-design-expert", "target": "did-analysis-expert", "type": "alternative", "weight": 0.6, "note": "RCT是真实验，DID是准实验替代"},
+    {"source": "factor-analysis-expert", "target": "survey-design-expert", "type": "complementary", "weight": 0.8, "note": "因子分析支持量表开发与验证"},
+    {"source": "skill-upgrade-expert", "target": "all-skills", "type": "extends", "weight": 1.0, "note": "元技能可应用于所有技能的质量提升"}
+  ],
+  "taskPatterns": [
+    {
+      "pattern_id": "qualitative-data-analysis",
+      "description": "分析非结构化文本数据，提取主题和模式",
+      "keywords": ["访谈分析", "文本编码", "主题提取", "质性数据"],
+      "recommended_skills": [
+        {"skill": "grounded-theory-expert", "preference": 0.95},
+        {"skill": "thematic-analysis-expert", "preference": 0.90},
+        {"skill": "content-analysis-expert", "preference": 0.80}
+      ]
+    },
+    {
+      "pattern_id": "strategic-planning",
+      "description": "制定组织战略方向和竞争策略",
+      "keywords": ["战略规划", "竞争分析", "商业模式", "战略定位"],
+      "recommended_skills": [
+        {"skill": "swot-analysis-expert", "preference": 0.90},
+        {"skill": "blue-ocean-strategy-expert", "preference": 0.85},
+        {"skill": "porter-five-forces-expert", "preference": 0.80}
+      ]
+    },
+    {
+      "pattern_id": "causal-inference",
+      "description": "建立因果关系，评估干预效果",
+      "keywords": ["因果推断", "干预效果", "政策评估", "因果识别"],
+      "recommended_skills": [
+        {"skill": "did-analysis-expert", "preference": 0.90},
+        {"skill": "rct-experimental-design-expert", "preference": 0.85},
+        {"skill": "qca-analysis-expert", "preference": 0.75}
+      ]
+    },
+    {
+      "pattern_id": "social-theory-analysis",
+      "description": "运用经典社会理论分析社会现象",
+      "keywords": ["社会理论", "阶级分析", "社会整合", "理性化"],
+      "recommended_skills": [
+        {"skill": "digital-marx-expert", "preference": 0.85},
+        {"skill": "digital-durkheim-expert", "preference": 0.85},
+        {"skill": "digital-weber-expert", "preference": 0.85}
+      ]
+    },
+    {
+      "pattern_id": "network-analysis",
+      "description": "分析社会关系网络和结构",
+      "keywords": ["网络分析", "关系数据", "中心性", "社区结构"],
+      "recommended_skills": [
+        {"skill": "social-network-analysis-expert", "preference": 0.90},
+        {"skill": "actor-network-analysis-expert", "preference": 0.85},
+        {"skill": "bourdieu-field-analysis-expert", "preference": 0.75}
+      ]
+    },
+    {
+      "pattern_id": "startup-validation",
+      "description": "验证创业假设，设计商业模式",
+      "keywords": ["创业验证", "商业模式", "MVP", "价值主张"],
+      "recommended_skills": [
+        {"skill": "lean-startup-expert", "preference": 0.95},
+        {"skill": "value-proposition-expert", "preference": 0.90},
+        {"skill": "business-model-expert", "preference": 0.85}
+      ]
+    },
+    {
+      "pattern_id": "organizational-transformation",
+      "description": "诊断组织问题，推动变革实施",
+      "keywords": ["组织变革", "组织诊断", "变革管理", "绩效改进"],
+      "recommended_skills": [
+        {"skill": "organizational-diagnosis-expert", "preference": 0.90},
+        {"skill": "change-management-expert", "preference": 0.90},
+        {"skill": "balanced-scorecard-expert", "preference": 0.80}
+      ]
+    },
+    {
+      "pattern_id": "quantitative-modeling",
+      "description": "构建统计模型，检验假设关系",
+      "keywords": ["统计建模", "假设检验", "回归分析", "结构方程"],
+      "recommended_skills": [
+        {"skill": "regression-analysis-expert", "preference": 0.85},
+        {"skill": "sem-analysis-expert", "preference": 0.85},
+        {"skill": "multilevel-modeling-expert", "preference": 0.75}
+      ]
+    },
+    {
+      "pattern_id": "user-research",
+      "description": "深入理解用户需求和行为",
+      "keywords": ["用户研究", "用户体验", "消费者洞察", "同理心研究"],
+      "recommended_skills": [
+        {"skill": "design-thinking-expert", "preference": 0.90},
+        {"skill": "consumer-behavior-expert", "preference": 0.85},
+        {"skill": "ethnography-expert", "preference": 0.75}
+      ]
+    },
+    {
+      "pattern_id": "innovation-methodology",
+      "description": "应用创新方法论解决问题",
+      "keywords": ["创新方法", "设计思维", "问题解决", "创意生成"],
+      "recommended_skills": [
+        {"skill": "design-thinking-expert", "preference": 0.90},
+        {"skill": "blue-ocean-strategy-expert", "preference": 0.80},
+        {"skill": "lean-startup-expert", "preference": 0.75}
+      ]
+    }
+  ],
+  "routingConfig": {
+    "semanticWeight": 0.40,
+    "patternWeight": 0.35,
+    "historyWeight": 0.25,
+    "minConfidence": 0.50,
+    "maxRecommendations": 5,
+    "enableFeedback": true
+  },
+  "feedbackLoop": {
+    "observe": {
+      "description": "记录技能执行结果和效果评分",
+      "metrics": ["success", "partial", "failure", "error"]
+    },
+    "promote": {
+      "description": "将成功经验提升为偏好权重",
+      "threshold": 0.7,
+      "decayRate": 0.05
+    }
+  }
+}

@@ -1,0 +1,174 @@
+# 主题分析专家 - 子智能体配置
+
+# =====================================================
+# 子智能体定义
+# =====================================================
+
+# 编码专家 - 执行Step 1-2
+coding_expert:
+  name: 编码专家
+  role: 初始编码专家
+  description: |
+    负责主题分析的前两个步骤：
+    - Step 1: 熟悉数据 - 反复阅读，记录初步想法
+    - Step 2: 生成初始代码 - 系统编码整个数据集
+  capabilities:
+    - 数据熟悉与概览
+    - 初步观察记录
+    - 开放性编码
+    - 代码命名与定义
+  prompts:
+    - prompts/system-prompt.md
+    - prompts/coding-prompt.md
+  tools:
+    - tools/code_extractor.py
+  output:
+    - 初始代码列表
+    - 编码数据集
+    - 编码备忘录
+
+# 主题发展专家 - 执行Step 3-4
+theme_developer:
+  name: 主题发展专家
+  role: 主题发展专家
+  description: |
+    负责主题分析的中间两个步骤：
+    - Step 3: 搜索主题 - 将代码聚类为潜在主题
+    - Step 4: 审查主题 - 检验主题内部一致性和外部差异性
+  capabilities:
+    - 代码聚类分析
+    - 主题识别与命名
+    - 主题边界界定
+    - 主题质量评估
+  prompts:
+    - prompts/system-prompt.md
+    - prompts/theme-development-prompt.md
+  tools:
+    - tools/theme_cluster.py
+  output:
+    - 候选主题列表
+    - 主题-代码映射
+    - 主题审查报告
+
+# 报告撰写专家 - 执行Step 5-6
+report_writer:
+  name: 报告撰写专家
+  role: 报告撰写专家
+  description: |
+    负责主题分析的最后两个步骤：
+    - Step 5: 定义命名主题 - 明确主题核心和边界
+    - Step 6: 撰写报告 - 选择引文，撰写分析叙事
+  capabilities:
+    - 主题定义撰写
+    - 引文选择与分析
+    - 分析叙事构建
+    - 报告结构化呈现
+  prompts:
+    - prompts/system-prompt.md
+    - prompts/report-writing-prompt.md
+  tools: []
+  output:
+    - 主题定义文档
+    - 分析报告
+    - 引文集
+
+# 质量控制专家 - 贯穿全程
+quality_controller:
+  name: 质量控制专家
+  role: 质量控制专家
+  description: |
+    负责整个分析过程的质量检验：
+    - 信度检验：编码一致性、主题饱和度
+    - 效度检验：构念效度、内部效度、外部效度
+    - 反思性实践：研究者位置性、假设检验
+  capabilities:
+    - 编码一致性计算
+    - 主题饱和度检验
+    - 质量标准评估
+    - 反思性审查
+  prompts:
+    - prompts/system-prompt.md
+  tools:
+    - tools/saturation_checker.py
+    - tools/quality_assessor.py
+  output:
+    - 质量检验报告
+    - 饱和度评估
+    - 改进建议
+
+# =====================================================
+# 协作模式
+# =====================================================
+
+workflow:
+  # 阶段1: 编码阶段
+  phase_1:
+    name: 编码阶段
+    steps: [1, 2]
+    primary_agent: coding_expert
+    supporting_agents:
+      - quality_controller
+    deliverables:
+      - 初始代码列表
+      - 编码数据集
+  
+  # 阶段2: 主题发展阶段
+  phase_2:
+    name: 主题发展阶段
+    steps: [3, 4]
+    primary_agent: theme_developer
+    supporting_agents:
+      - quality_controller
+      - coding_expert
+    deliverables:
+      - 候选主题列表
+      - 主题审查报告
+  
+  # 阶段3: 报告撰写阶段
+  phase_3:
+    name: 报告撰写阶段
+    steps: [5, 6]
+    primary_agent: report_writer
+    supporting_agents:
+      - quality_controller
+      - theme_developer
+    deliverables:
+      - 最终分析报告
+
+# =====================================================
+# 交互规则
+# =====================================================
+
+interaction_rules:
+  # 顺序依赖
+  sequential:
+    - coding_expert → theme_developer
+    - theme_developer → report_writer
+  
+  # 反馈循环
+  feedback_loops:
+    - quality_controller → coding_expert
+    - quality_controller → theme_developer
+    - quality_controller → report_writer
+  
+  # 协作检查点
+  checkpoints:
+    - step: 2
+      action: 编码审查会议
+      participants: [coding_expert, quality_controller]
+    - step: 4
+      action: 主题审查会议
+      participants: [theme_developer, quality_controller, coding_expert]
+    - step: 6
+      action: 报告审查会议
+      participants: [report_writer, quality_controller]
+
+# =====================================================
+# 质量阈值
+# =====================================================
+
+quality_thresholds:
+  coding_consistency: 0.80      # 编码一致性阈值
+  theme_saturation: 0.85        # 主题饱和度阈值
+  coverage_rate: 0.90           # 数据覆盖率阈值
+  interpretive_depth: "medium"  # 解释深度最低要求

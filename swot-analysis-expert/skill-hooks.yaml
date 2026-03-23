@@ -1,0 +1,131 @@
+# SWOT分析技能钩子配置
+
+hooks:
+  # 任务开始前钩子
+  before_task:
+    - name: initialize_workspace
+      description: 初始化SWOT分析工作空间
+      actions:
+        - create_directory: "{{workspace_path}}"
+        - create_file: "{{workspace_path}}/task_plan.md"
+        - create_file: "{{workspace_path}}/progress.md"
+        - create_file: "{{workspace_path}}/findings.md"
+    
+    - name: load_templates
+      description: 加载分析模板
+      actions:
+        - copy_template: "templates/task_plan.md.template"
+        - copy_template: "templates/progress.md.template"
+        - copy_template: "templates/findings.md.template"
+
+  # 阶段完成后钩子
+  after_stage:
+    - name: validate_factors
+      description: 验证因素识别结果
+      trigger: stage == "factor_identification"
+      actions:
+        - check: "factors.S.length >= 3"
+        - check: "factors.W.length >= 3"
+        - check: "factors.O.length >= 3"
+        - check: "factors.T.length >= 3"
+        - report: "因素完整性检查结果"
+    
+    - name: validate_evaluation
+      description: 验证因素评估结果
+      trigger: stage == "factor_evaluation"
+      actions:
+        - check: "weights.total == 1.0"
+        - check: "all_factors_have_scores"
+        - report: "评估完整性检查结果"
+    
+    - name: validate_strategies
+      description: 验证战略生成结果
+      trigger: stage == "strategy_generation"
+      actions:
+        - check: "strategies.SO.length >= 2"
+        - check: "strategies.WO.length >= 2"
+        - check: "strategies.ST.length >= 2"
+        - check: "strategies.WT.length >= 2"
+        - check: "all_strategies_have_factor_links"
+        - report: "战略完整性检查结果"
+
+  # 任务完成后钩子
+  after_task:
+    - name: generate_report
+      description: 生成最终报告
+      actions:
+        - compile: "SWOT分析报告"
+        - export: "pdf, markdown"
+    
+    - name: update_experience
+      description: 更新经验库
+      actions:
+        - extract_patterns: true
+        - update_lesson_memory: true
+
+  # 错误处理钩子
+  on_error:
+    - name: save_state
+      description: 保存当前状态
+      actions:
+        - save_checkpoint: true
+        - log_error: true
+    
+    - name: suggest_recovery
+      description: 建议恢复方案
+      actions:
+        - analyze_error: true
+        - suggest_fix: true
+
+# 状态持久化配置
+persistence:
+  session:
+    path: ".claude/session/swot/"
+    retention: "24h"
+  
+  project:
+    path: "{{project_root}}/swot-workspace/"
+    retention: "30d"
+  
+  learning:
+    path: "experience/patterns.md"
+    retention: "permanent"
+
+# 子Agent配置
+subagents:
+  enabled: true
+  fallback_to_cli: true
+  parallel_threshold: 5
+  
+  agents:
+    - id: internal-analyzer
+      role: 内部因素分析
+      capabilities: [resource_analysis, capability_analysis]
+    
+    - id: external-analyzer
+      role: 外部因素分析
+      capabilities: [pestel_analysis, industry_analysis]
+    
+    - id: strategy-generator
+      role: 战略生成
+      capabilities: [so_strategy, wo_strategy, st_strategy, wt_strategy]
+    
+    - id: priority-ranker
+      role: 优先级排序
+      capabilities: [feasibility_check, risk_assessment]
+
+# 质量检查配置
+quality_checks:
+  factor_completeness:
+    min_per_category: 3
+    required_evidence: true
+  
+  evaluation_validity:
+    impact_range: [1, 5]
+    probability_range: [1, 5]
+    weight_sum: 1.0
+  
+  strategy_quality:
+    min_per_type: 2
+    require_factor_link: true
+    require_action_plan: true

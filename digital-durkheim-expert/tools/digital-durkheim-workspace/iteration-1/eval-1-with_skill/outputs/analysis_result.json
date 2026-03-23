@@ -1,0 +1,40 @@
+{
+  "data_type": "str",
+  "analysis_type": "traffic_rules_analysis",
+  "dimensions": {
+    "externality": {
+      "score": 0.0,
+      "evidence_count": 0,
+      "description": "外在性 - 社会事实独立于个体存在"
+    },
+    "coerciveness": {
+      "score": 0.6,
+      "evidence_count": 3,
+      "description": "强制性 - 社会事实对个体施加压力"
+    },
+    "generality": {
+      "score": 0.2,
+      "evidence_count": 1,
+      "description": "普遍性 - 社会事实在社会中广泛存在"
+    },
+    "functionality": {
+      "score": 0.0,
+      "evidence_count": 0,
+      "description": "功能性 - 社会事实对社会具有功能"
+    },
+    "materiality": {
+      "score": 1.0,
+      "material_count": 1,
+      "non_material_count": 0,
+      "description": "物质性/精神性 - 社会事实的存在形式"
+    }
+  },
+  "specific_facts": [],
+  "strength": 0.2,
+  "classification": {
+    "is_social_fact": false,
+    "fact_type": "非社会事实",
+    "confidence": 0.3
+  },
+  "verdict": "非社会事实"
+}

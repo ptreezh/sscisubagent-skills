@@ -1,0 +1,12 @@
+{
+  "text": "受访者 A：我觉得工作压力真的很大。每天早上起床想到要去上班就很抗拒。\n\n受访者 A：公司要求很高，KPI 压得喘不过气来。每天都要加班到很晚，回到家已经很累了。\n\n受访者 A：但是为了家庭，为了这份工资，还是要坚持下去。有时候会想，这样的工作到底有什么意义。\n\n受访者 A：我也想过换工作，但是现在的就业环境不好，不敢轻易辞职。\n\n受访者 A：有时候会跟同事聊聊，大家都有类似的感受。好像这就是成年人的常态吧。\n\n受访者 A：周末也不想出门，就想在家躺着。感觉生活失去了色彩，就是工作、睡觉、再工作的循环。",
+  "research_question": "工作压力如何影响员工的心理健康和生活质量？",
+  "paradigm": "straussian",
+  "theoretical_sensitivity": {
+    "prior_knowledge": "职业倦怠、工作压力、心理健康",
+    "sensitizing_concepts": ["职业倦怠", "工作 - 生活平衡", "社会支持"]
+  },
+  "memo_types": ["code", "theoretical", "operational"],
+  "reliability_threshold": 0.7,
+  "saturation_threshold": 80
+}

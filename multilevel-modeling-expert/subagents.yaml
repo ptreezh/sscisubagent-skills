@@ -1,0 +1,43 @@
+# Multilevel Modeling Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: ml-icc
+    name: ICC计算器
+    role: 计算组内相关系数
+    triggers:
+      - "ICC"
+      - "组内相关"
+      - "组效应"
+
+  - id: ml-builder
+    name: 模型构建器
+    role: 构建多层模型
+    triggers:
+      - "模型构建"
+      - "随机截距"
+      - "随机斜率"
+
+  - id: ml-diagnoser
+    name: 模型诊断器
+    role: 模型诊断与比较
+    triggers:
+      - "诊断"
+      - "模型比较"
+      - "拟合"
+
+workflow:
+  - step: 1
+    action: "数据结构分析"
+  - step: 2
+    action: "空模型与ICC计算"
+  - step: 3
+    action: "随机截距模型"
+  - step: 4
+    action: "随机斜率检验"
+  - step: 5
+    action: "跨层交互模型"
+  - step: 6
+    action: "模型诊断与比较"
+  - step: 7
+    action: "结果解释与报告"

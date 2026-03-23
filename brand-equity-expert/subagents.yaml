@@ -1,0 +1,49 @@
+# Brand Equity Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: awareness-meter
+    name: 品牌认知分析师
+    role: 测量品牌认知度
+    triggers:
+      - "认知度"
+      - "知名度"
+      - "识别"
+
+  - id: image-analyzer
+    name: 品牌形象分析师
+    role: 分析品牌形象和联想
+    triggers:
+      - "形象"
+      - "联想"
+      - "个性"
+
+  - id: loyalty-evaluator
+    name: 品牌忠诚分析师
+    role: 评估品牌忠诚度
+    triggers:
+      - "忠诚"
+      - "复购"
+      - "NPS"
+
+  - id: equity-calculator
+    name: 品牌价值评估师
+    role: 计算品牌资产价值
+    triggers:
+      - "品牌价值"
+      - "估值"
+      - "资产评估"
+
+workflow:
+  - step: 1
+    action: "品牌诊断范围界定"
+  - step: 2
+    action: "品牌认知度测量"
+  - step: 3
+    action: "品牌形象分析"
+  - step: 4
+    action: "品牌忠诚度评估"
+  - step: 5
+    action: "品牌资产价值计算"
+  - step: 6
+    action: "品牌战略建议"

@@ -1,0 +1,33 @@
+# Action Research Expert - Skill Configuration
+name: action-research-expert
+version: "5.0.0"
+description: "行动研究专家"
+
+types:
+  participatory:
+    name: "参与式行动研究"
+    focus: "社区赋权"
+  collaborative:
+    name: "协作行动研究"
+    focus: "专业发展"
+  practitioner:
+    name: "实践者研究"
+    focus: "自我反思"
+  action_learning:
+    name: "行动学习"
+    focus: "团队学习"
+
+spiral_model:
+  stages:
+    - plan: "计划"
+    - act: "行动"
+    - observe: "观察"
+    - reflect: "反思"
+  cycles: "多轮迭代"
+
+quality_criteria:
+  - practical_relevance: "实践相关性"
+  - participation_depth: "参与深度"
+  - cycle_completeness: "循环完整性"
+  - reflection_depth: "反思深度"
+  - knowledge_contribution: "知识贡献"

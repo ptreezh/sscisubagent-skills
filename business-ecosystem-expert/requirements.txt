@@ -1,0 +1,16 @@
+# Business Ecosystem Expert - Python Dependencies
+# Version: 5.0.0-cli-native+agent
+
+# Core Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+
+# Network Analysis
+networkx>=2.6
+
+# Visualization
+matplotlib>=3.4.0
+
+# Optional Advanced Analysis
+# scipy>=1.7.0
+# scikit-learn>=1.0.0

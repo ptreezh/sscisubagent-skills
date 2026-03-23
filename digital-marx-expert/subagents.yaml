@@ -1,0 +1,174 @@
+# Marx Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Mode of Production Identification Agent
+  - name: marx-mode-of-production-identifier
+    description: 识别生产方式及其矛盾（生产力与生产关系）
+    prompt_template: prompts/mode-of-production-prompt.md
+    tools:
+      - mode_of_production_identifier
+    output_format: json
+    quality_checks:
+      - productive_forces_identified
+      - relations_of_production_identified
+      - contradiction_analyzed
+
+  # Class Structure Analysis Agent
+  - name: marx-class-analyzer
+    description: 分析阶级结构和阶级斗争
+    prompt_template: prompts/class-analysis-prompt.md
+    tools:
+      - class_analyzer
+    output_format: json
+    quality_checks:
+      - class_positions_identified
+      - class_consciousness_assessed
+      - class_struggle_dynamics
+
+  # Labor Process Analysis Agent
+  - name: marx-labor-process-analyzer
+    description: 分析劳动过程的异化和剥削
+    prompt_template: prompts/labor-process-prompt.md
+    tools:
+      - labor_process_analyzer
+      - alienation_calculator
+    output_format: json
+    quality_checks:
+      - labor_process_described
+      - exploitation_mechanism_identified
+      - surplus_value_calculated
+
+  # Alienation Assessment Agent
+  - name: marx-alienation-assessor
+    description: 评估四重异化程度
+    prompt_template: prompts/alienation-prompt.md
+    tools:
+      - alienation_calculator
+    output_format: json
+    quality_checks:
+      - labor_alienation_measured
+      - product_alienation_measured
+      - self_alienation_measured
+      - others_alienation_measured
+
+  # Commodification Analysis Agent
+  - name: marx-commodification-analyzer
+    description: 分析商品化和拜物教现象
+    prompt_template: prompts/commodification-prompt.md
+    tools:
+      - commodification_analyzer
+    output_format: json
+    quality_checks:
+      - use_value_analyzed
+      - exchange_value_analyzed
+      - commodity_fetishism_identified
+
+  # Economic Crisis Analysis Agent
+  - name: marx-crisis-analyzer
+    description: 分析经济危机的成因和机制
+    prompt_template: prompts/crisis-prompt.md
+    tools:
+      - crisis_analyzer
+    output_format: json
+    quality_checks:
+      - crisis_type_identified
+      - tendency_of_profit_rate_analyzed
+      - overproduction_assessed
+
+  # Comprehensive Analysis Agent (Full Mode)
+  - name: marx-comprehensive-analyzer
+    description: 完整马克思主义分析（所有维度）
+    prompt_template: prompts/comprehensive-analysis-prompt.md
+    tools:
+      - mode_of_production_identifier
+      - class_analyzer
+      - labor_process_analyzer
+      - alienation_calculator
+      - commodification_analyzer
+      - crisis_analyzer
+    output_format: markdown
+    execution_mode: sequential
+    quality_checks:
+      - all_dimensions_analyzed
+      - historical_materialism_applied
+      - dialectical_analysis_completed
+      - class_perspective_maintained
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 6
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 3
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 3
+  verification_steps:
+    - tool_output_validation
+    - theoretical_correctness_check
+    - historical_materialism_check
+    - class_analysis_verification
+
+  strict_prohibitions:
+    - no_completion_without_verification
+    - no_ignoring_class_perspective
+    - no_sacrificing_dialectical_analysis
+    - noSkipping_historical_context
+
+# Early Stopping Rules (Quality-Preserving)
+early_stopping:
+  enabled: true
+  conditions:
+    - user_explicitly_requested_single_analysis
+    - all_required_verification_passed
+    - tool_returned_complete_results
+  prohibited_conditions:
+    - incomplete_verification
+    - missing_class_analysis
+    - user_requested_comprehensive_analysis
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("生产方式") or user_request_contains("mode of production")
+      then: fast_mode
+      execution: single_agent(marx-mode-of-production-identifier)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains("阶级分析") or user_request_contains("class")
+      then: fast_mode
+      execution: single_agent(marx-class-analyzer)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains("异化") or user_request_contains("alienation")
+      then: fast_mode
+      execution: single_agent(marx-alienation-assessor)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains_any(["完整分析", "综合分析", "全面分析", "马克思主义分析"])
+      then: full_mode
+      execution: sequential_agents(all_6_agents)
+      estimated_time: "40-50 minutes"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes

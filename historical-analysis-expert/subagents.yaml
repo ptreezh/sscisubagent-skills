@@ -1,0 +1,24 @@
+subagents:
+  - id: causal_analyst
+    name: 历史因果分析师
+    role: 分析历史事件的因果机制
+    capabilities:
+      - 因果链识别
+      - 必要/充分条件
+      - 反事实推理
+
+  - id: process_tracer
+    name: 过程追踪师
+    role: 追踪历史过程的演变
+    capabilities:
+      - 阶段识别
+      - 机制追踪
+      - 关键节点分析
+
+  - id: comparator
+    name: 比较历史分析师
+    role: 进行跨案例比较
+    capabilities:
+      - 案例选择
+      - 变量控制
+      - 模式识别

@@ -1,0 +1,39 @@
+# Organizational Diagnosis Expert - Skill Configuration
+name: organizational-diagnosis-expert
+version: "5.0.0"
+description: "组织诊断专家"
+
+models:
+  weisbord_six_box:
+    name: "Weisbord六盒模型"
+    boxes:
+      - purposes: "目标"
+      - structure: "结构"
+      - relationships: "关系"
+      - rewards: "激励"
+      - mechanisms: "机制"
+      - leadership: "领导"
+  mckinsey_7s:
+    name: "麦肯锡7S模型"
+    hard_elements:
+      - strategy: "战略"
+      - structure: "结构"
+      - systems: "制度"
+    soft_elements:
+      - shared_values: "共同价值观"
+      - style: "风格"
+      - staff: "人员"
+      - skills: "技能"
+  nadler_tushman:
+    name: "Nadler-Tushman一致性模型"
+    components:
+      - inputs: "输入"
+      - transformation: "转换"
+      - outputs: "输出"
+
+diagnosis_process:
+  - scope_definition: "确定诊断范围"
+  - data_collection: "收集数据"
+  - analysis: "分析诊断"
+  - feedback: "反馈报告"
+  - intervention: "干预方案"

@@ -1,0 +1,138 @@
+# SWOT分析进度跟踪
+
+## 项目信息
+
+- **分析对象**: {{analysis_target}}
+- **开始时间**: {{start_date}}
+- **计划完成**: {{planned_completion}}
+- **当前状态**: {{current_status}}
+
+---
+
+## 阶段进度
+
+### 阶段1：环境扫描
+- 状态: {{stage1_status}}
+- 开始: {{stage1_start}}
+- 完成: {{stage1_end}}
+- 进度: {{stage1_progress}}%
+
+| 子任务 | 状态 | 完成时间 |
+|--------|------|----------|
+| 内部环境扫描 | {{task1_1_status}} | {{task1_1_end}} |
+| 外部环境扫描 | {{task1_2_status}} | {{task1_2_end}} |
+| 数据收集 | {{task1_3_status}} | {{task1_3_end}} |
+
+### 阶段2：因素识别
+- 状态: {{stage2_status}}
+- 开始: {{stage2_start}}
+- 完成: {{stage2_end}}
+- 进度: {{stage2_progress}}%
+
+| 子任务 | 状态 | 完成时间 |
+|--------|------|----------|
+| 优势识别 | {{task2_1_status}} | {{task2_1_end}} |
+| 劣势识别 | {{task2_2_status}} | {{task2_2_end}} |
+| 机会识别 | {{task2_3_status}} | {{task2_3_end}} |
+| 威胁识别 | {{task2_4_status}} | {{task2_4_end}} |
+| 因素筛选 | {{task2_5_status}} | {{task2_5_end}} |
+
+### 阶段3：因素评估
+- 状态: {{stage3_status}}
+- 开始: {{stage3_start}}
+- 完成: {{stage3_end}}
+- 进度: {{stage3_progress}}%
+
+| 子任务 | 状态 | 完成时间 |
+|--------|------|----------|
+| 影响程度评估 | {{task3_1_status}} | {{task3_1_end}} |
+| 概率评估 | {{task3_2_status}} | {{task3_2_end}} |
+| 权重计算 | {{task3_3_status}} | {{task3_3_end}} |
+| 因素排序 | {{task3_4_status}} | {{task3_4_end}} |
+
+### 阶段4：战略生成
+- 状态: {{stage4_status}}
+- 开始: {{stage4_start}}
+- 完成: {{stage4_end}}
+- 进度: {{stage4_progress}}%
+
+| 子任务 | 状态 | 完成时间 |
+|--------|------|----------|
+| SO战略生成 | {{task4_1_status}} | {{task4_1_end}} |
+| WO战略生成 | {{task4_2_status}} | {{task4_2_end}} |
+| ST战略生成 | {{task4_3_status}} | {{task4_3_end}} |
+| WT战略生成 | {{task4_4_status}} | {{task4_4_end}} |
+| 战略评估 | {{task4_5_status}} | {{task4_5_end}} |
+
+### 阶段5：行动计划
+- 状态: {{stage5_status}}
+- 开始: {{stage5_start}}
+- 完成: {{stage5_end}}
+- 进度: {{stage5_progress}}%
+
+| 子任务 | 状态 | 完成时间 |
+|--------|------|----------|
+| 优先级确定 | {{task5_1_status}} | {{task5_1_end}} |
+| 资源匹配 | {{task5_2_status}} | {{task5_2_end}} |
+| 时间规划 | {{task5_3_status}} | {{task5_3_end}} |
+| 责任分配 | {{task5_4_status}} | {{task5_4_end}} |
+| 风险预案 | {{task5_5_status}} | {{task5_5_end}} |
+
+---
+
+## 整体进度
+
+```
+总进度: {{overall_progress}}%
+
+[{{progress_bar}}]
+```
+
+| 指标 | 数值 |
+|------|------|
+| 总任务数 | 20 |
+| 已完成 | {{completed_tasks}} |
+| 进行中 | {{in_progress_tasks}} |
+| 待开始 | {{pending_tasks}} |
+| 已延期 | {{delayed_tasks}} |
+
+---
+
+## 里程碑
+
+| 里程碑 | 计划日期 | 实际日期 | 状态 |
+|--------|----------|----------|------|
+| 环境扫描完成 | {{m1_planned}} | {{m1_actual}} | {{m1_status}} |
+| 因素识别完成 | {{m2_planned}} | {{m2_actual}} | {{m2_status}} |
+| 因素评估完成 | {{m3_planned}} | {{m3_actual}} | {{m3_status}} |
+| 战略生成完成 | {{m4_planned}} | {{m4_actual}} | {{m4_status}} |
+| 最终报告提交 | {{m5_planned}} | {{m5_actual}} | {{m5_status}} |
+
+---
+
+## 问题与风险
+
+### 当前问题
+
+| 问题 | 影响 | 状态 | 解决方案 |
+|------|------|------|----------|
+| {{issue1}} | {{issue1_impact}} | {{issue1_status}} | {{issue1_solution}} |
+
+### 风险跟踪
+
+| 风险 | 概率 | 影响 | 状态 | 应对措施 |
+|------|------|------|------|----------|
+| {{risk1}} | {{risk1_prob}} | {{risk1_impact}} | {{risk1_status}} | {{risk1_mitigation}} |
+
+---
+
+## 更新日志
+
+| 日期 | 更新内容 | 更新人 |
+|------|----------|--------|
+| {{update1_date}} | {{update1_content}} | {{update1_person}} |
+
+---
+
+**模板版本**: 5.0.0
+**最后更新**: {{last_updated}}

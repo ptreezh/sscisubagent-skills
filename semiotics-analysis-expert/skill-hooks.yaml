@@ -1,0 +1,13 @@
+# 符号学技能钩子配置
+skill_info:
+  name: "semiotics-analysis-expert"
+  version: "1.0.0"
+
+persistence:
+  session: { enabled: true }
+  learning: { enabled: true, path: "lesson-memory.md" }
+
+forbidden_principles:
+  - { id: FORBIDDEN_001, name: 禁止脱离文化语境 }
+  - { id: FORBIDDEN_002, name: 禁止忽视历史变迁 }
+  - { id: FORBIDDEN_003, name: 禁止过度解读 }

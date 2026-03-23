@@ -1,0 +1,37 @@
+# 波特五力分析发现报告
+
+## 项目信息
+- **分析对象**: {{analysis_target}}
+- **完成时间**: {{completion_time}}
+
+## 五力评估结果
+
+### 1. 现有竞争者竞争程度
+**强度**: {{rivalry_intensity}}/5
+**分析**: {{rivalry_analysis}}
+
+### 2. 潜在进入者威胁
+**强度**: {{entry_intensity}}/5
+**分析**: {{entry_analysis}}
+
+### 3. 替代品威胁
+**强度**: {{substitute_intensity}}/5
+**分析**: {{substitute_analysis}}
+
+### 4. 供应商议价能力
+**强度**: {{supplier_intensity}}/5
+**分析**: {{supplier_analysis}}
+
+### 5. 买方议价能力
+**强度**: {{buyer_intensity}}/5
+**分析**: {{buyer_analysis}}
+
+## 行业吸引力判断
+**综合评分**: {{overall_score}}/5
+**判断**: {{attractiveness}}
+
+## 战略建议
+{{strategic_recommendations}}
+
+---
+**报告版本**: 1.0.0

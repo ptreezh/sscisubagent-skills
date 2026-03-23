@@ -1,0 +1,33 @@
+# Brand Equity Expert - Skill Configuration
+name: brand-equity-expert
+version: "5.0.0"
+description: "品牌资产评估专家"
+
+models:
+  aaker:
+    name: "Aaker品牌资产模型"
+    dimensions:
+      - brand_loyalty: "品牌忠诚度"
+      - brand_awareness: "品牌认知度"
+      - brand_associations: "品牌联想"
+      - perceived_quality: "感知质量"
+      - other_assets: "其他资产"
+  keller:
+    name: "Keller品牌共鸣模型"
+    stages:
+      - salience: "显著性"
+      - performance: "表现"
+      - imagery: "形象"
+      - judgments: "判断"
+      - feelings: "感受"
+      - resonance: "共鸣"
+
+measurement:
+  awareness: ["识别率", "回忆率", "熟悉度"]
+  image: ["联想", "个性", "态度"]
+  loyalty: ["复购率", "NPS", "转换成本"]
+
+valuation:
+  - interbrand: "Interbrand方法"
+  - brandz: "BrandZ方法"
+  - financial: "财务方法"

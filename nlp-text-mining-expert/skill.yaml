@@ -1,0 +1,35 @@
+# NLP Text Mining Expert - Skill Configuration
+name: nlp-text-mining-expert
+version: "5.0.0"
+description: "NLP文本挖掘专家"
+
+analysis_types:
+  topic_modeling:
+    name: "主题建模"
+    methods: ["LDA", "NMF", "BERTopic"]
+  sentiment_analysis:
+    name: "情感分析"
+    methods: ["词典方法", "机器学习", "BERT"]
+  text_classification:
+    name: "文本分类"
+    methods: ["SVM", "CNN", "BERT"]
+  ner:
+    name: "命名实体识别"
+    methods: ["CRF", "BiLSTM-CRF", "BERT-NER"]
+
+preprocessing:
+  - clean: "文本清洗"
+  - tokenize: "分词"
+  - remove_stopwords: "去停用词"
+  - normalize: "标准化"
+
+feature_extraction:
+  - bow: "词袋模型"
+  - tfidf: "TF-IDF"
+  - word2vec: "词向量"
+  - bert: "BERT嵌入"
+
+quality_metrics:
+  - coherence: "主题一致性"
+  - accuracy: "分类准确率"
+  - f1_score: "F1分数"

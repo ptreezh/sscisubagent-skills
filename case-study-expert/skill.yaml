@@ -1,0 +1,42 @@
+# Case Study Expert - Skill Configuration
+name: case-study-expert
+version: "5.0.0"
+description: "案例研究专家，支持单案例和多案例设计"
+
+study_types:
+  exploratory:
+    purpose: "生成假设"
+    design: "开放性"
+  descriptive:
+    purpose: "描述现象"
+    design: "已有框架"
+  explanatory:
+    purpose: "解释因果"
+    design: "验证性"
+
+case_selection:
+  single_case:
+    - critical: "关键案例"
+    - extreme: "极端案例"
+    - typical: "典型案例"
+    - revelatory: "启示性案例"
+    - longitudinal: "纵向案例"
+  
+  multiple_case:
+    logic: "复制逻辑"
+    replication:
+      - literal: "逐案例复制"
+      - theoretical: "理论复制"
+
+data_sources:
+  - documentation: "档案记录"
+  - interviews: "访谈"
+  - direct_observation: "直接观察"
+  - participant_observation: "参与观察"
+  - physical_artifacts: "物理人工制品"
+
+quality_tests:
+  construct_validity: "多证据来源、证据链"
+  internal_validity: "模式匹配、解释构建"
+  external_validity: "复制逻辑、分析性推广"
+  reliability: "案例研究草案、数据库"

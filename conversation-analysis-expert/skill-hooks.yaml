@@ -1,0 +1,45 @@
+# 会话分析技能钩子配置
+skill_info:
+  name: "conversation-analysis-expert"
+  version: "1.0.0"
+  methodology: "Sacks, Schegloff, Jefferson"
+
+persistence:
+  session:
+    enabled: true
+  project:
+    enabled: true
+  learning:
+    enabled: true
+    path: "lesson-memory.md"
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止脱离语境解释
+    severity: critical
+  - id: FORBIDDEN_002
+    name: 禁止预设意图
+    severity: critical
+  - id: FORBIDDEN_003
+    name: 禁止忽视转换细节
+    severity: high
+  - id: FORBIDDEN_004
+    name: 禁止跳过转写验证
+    severity: high
+  - id: FORBIDDEN_005
+    name: 禁止过度理论化
+    severity: medium
+  - id: FORBIDDEN_006
+    name: 禁止忽视参与者视角
+    severity: high
+
+tools:
+  turn_taker:
+    type: python
+    path: tools/turn_taker.py
+  sequence_analyzer:
+    type: python
+    path: tools/sequence_analyzer.py
+  repair_detector:
+    type: python
+    path: tools/repair_detector.py
