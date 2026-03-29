@@ -9,18 +9,18 @@ hero:
       text: 开始使用
       link: /guide/quick-start
     - theme: alt
-      text: 技能协同平台
-      link: /skills/
+      text: 浏览全部技能
+      link: /methodologies/
 features:
   - icon: 📚
-    title: 12 种方法论技能
-    details: 扎根理论、社会网络分析、QCA 等
+    title: 60 种方法论技能
+    details: 质性研究、定量分析、战略管理、社会理论全覆盖
   - icon: 🤖
     title: AI 辅助分析
-    details: 智能编码、自动验证
+    details: 子Agent并行、CRCT思维链、自动验证
   - icon: ✅
     title: 严格质量保证
-    details: 所有报告经过严格测试
+    details: 6大绝对禁止原则、学术标准方法论
 ---
 
 ## 什么是 SocienceAI？
