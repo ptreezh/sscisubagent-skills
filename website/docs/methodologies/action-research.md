@@ -1,10 +1,10 @@
-# 混合方法研究专家
+# 行动研究专家
 
 🔄 **混合方法研究** | 质量评分 ⭐⭐⭐⭐⭐ (5.0/5.0) | v5.0.0
 
 ## 概述
 
-混合方法研究专家。提供系统化混合方法设计，支持收敛设计、解释性设计、
+行动研究专家。提供系统化行动研究方法，支持参与式行动研究(PAR)、
 
 ## 核心能力
 
@@ -20,17 +20,17 @@
 
 ```bash
 # 在 Claude Code 中调用
-claude "使用混合方法研究专家分析以下研究问题..."
+claude "使用行动研究专家分析以下研究问题..."
 
 # 或加载技能
-/skill mixed-methods-expert
+/skill action-research-expert
 ```
 
 ## 技能详情
 
 | 属性 | 值 |
 |------|-----|
-| 技能ID | `mixed-methods-expert` |
+| 技能ID | `action-research-expert` |
 | 版本 | 5.0.0 |
 | 分类 | 混合方法研究 |
 | 质量评分 | 5.0/5.0 |
@@ -38,7 +38,7 @@ claude "使用混合方法研究专家分析以下研究问题..."
 
 ## 相关技能
 
-- [行动研究专家](/methodologies/action-research)
+- [混合方法研究专家](/methodologies/mixed-methods)
 
 ---
 

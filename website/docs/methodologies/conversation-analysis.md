@@ -1,12 +1,10 @@
-# 扎根理论专家
+# 会话分析专家
 
 📝 **质性研究方法** | 质量评分 ⭐⭐⭐⭐⭐ (5.0/5.0) | v5.0.0-cli-native+agent
 
-> 🤖 支持子Agent并行执行，可大幅提升分析效率
-
 ## 概述
 
-扎根理论分析专家。提供开放编码、主轴编码、选择性编码的系统化流程，支持理论饱和度检验和CRCT思维链。适用于质性研究、理论建构、数据深度分析场景。
+会话分析专家技能基于民族方法论和会话分析(CA)传统，提供对日常对话、机构对话、医患沟通、课堂互动等的系统分析能力。
 
 ## 核心能力
 
@@ -22,17 +20,17 @@
 
 ```bash
 # 在 Claude Code 中调用
-claude "使用扎根理论专家分析以下研究问题..."
+claude "使用会话分析专家分析以下研究问题..."
 
 # 或加载技能
-/skill grounded-theory-expert
+/skill conversation-analysis-expert
 ```
 
 ## 技能详情
 
 | 属性 | 值 |
 |------|-----|
-| 技能ID | `grounded-theory-expert` |
+| 技能ID | `conversation-analysis-expert` |
 | 版本 | 5.0.0-cli-native+agent |
 | 分类 | 质性研究方法 |
 | 质量评分 | 5.0/5.0 |
