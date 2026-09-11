@@ -1,0 +1,48 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the swot-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 10.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.85
+quality_score: 77.47
+refinement_history:
+- delta: 55.72
+  quality_score: 55.72
+  timestamp: '2026-04-26T14:38:43.668302+00:00'
+- delta: 15.75
+  quality_score: 71.47
+  timestamp: '2026-04-26T23:33:10.064438+00:00'
+- delta: 11.620000000000005
+  quality_score: 77.47
+  timestamp: '2026-05-02T09:05:43.664624+00:00'
+skill: swot-analysis-expert
+structure_base: 101.3
+timestamp: '2026-05-02T09:05:43.664624+00:00'
+total_100: 116.3

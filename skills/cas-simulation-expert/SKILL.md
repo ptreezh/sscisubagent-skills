@@ -1,16 +1,15 @@
 ---
 name: cas-simulation-expert
 description: |
-  复杂适应系统仿真专家。提供ABM建模、涌现检测、参数敏感性分析、模式识别功能。适用于复杂系统研究、社会仿真、政策模拟场景。
+  Complex Adaptive Systems (CAS) simulation expert. Provides ABM modeling, emergence detection, parameter sensitivity analysis, and pattern recognition. Suitable for complex systems research, social simulation, and policy modeling.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -208,6 +207,31 @@ CLI集成:
   - 实时仿真控制
   - 动态参数调整
   - 涌现模式检测
+```
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | abm_builder.py | 多主体建模构建器，基于Mesa框架生成ABM模型代码 |
+| 2 | simulation_runner.py | 仿真运行器，支持批量运行与蒙特卡洛分析 |
+| 3 | emergence_detector.py | 涌现检测工具，识别微观到宏观的涌现模式 |
+| 4 | emergence_pattern_analyzer.py | 涌现模式分析，检测临界点与相变 |
+| 5 | parameter_sweep.py | 参数扫描，参数敏感性全面分析 |
+| 6 | interaction_designer.py | 互动机制设计，主体间互动规则配置 |
+| 7 | scenario_builder.py | 场景构建器，支持多情景仿真设计 |
+| 8 | visualization_generator.py | 可视化生成，网络图与时序图输出 |
+| 9 | analyze.py | 仿真数据分析，支持预处理与统计验证 |
+| 10 | evolution.py | 演化状态追踪，CAS仿真质量门控与阶段演进 |
+
+### CLI用法
+
+```bash
+python tools/abm_builder.py --config agents.json --output model.py
+python tools/simulation_runner.py --model model.py --runs 100 --steps 500
+python tools/emergence_detector.py --data simulation_results.json --patterns clustering,phase_transition
 ```
 
 ## 🧠 自迭代与学习机制（Level 4）

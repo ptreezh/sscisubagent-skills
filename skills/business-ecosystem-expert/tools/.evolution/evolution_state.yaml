@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(analyze.py)
+  output: "[TOOL: analyze.py]\n\nTraceback (most recent call last):\n  File \"D:\\\
+    socienceAI\\agentskills\\business-ecosystem-expert\\tools\\analyze.py\", line\
+    \ 16, in <module>\n    from tools.planning_integration import PlanningFilesManager\n\
+    ModuleNotFoundError: No module named 'tools.planning_integration'"
+  passed: true
+test_prompt: "Please use the business-ecosystem-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 12.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 10.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 0.0
+quality_score: 60.72
+refinement_history:
+- delta: 70.1
+  quality_score: 70.1
+  timestamp: '2026-04-26T05:14:45.180320+00:00'
+skill: business-ecosystem-expert
+structure_base: 79.3
+timestamp: '2026-04-26T05:14:45.180320+00:00'
+total_100: 104.3

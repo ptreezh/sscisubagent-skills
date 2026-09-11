@@ -1,0 +1,56 @@
+benchmark:
+  benchmark_score: 7.0
+  eval_mode: tool_case
+  output: "{\n  \"status\": \"success\",\n  \"skill\": \"grounded-theory-expert\"\
+    ,\n  \"timestamp\": \"2026-05-03T11:23:47.680893\",\n  \"stage\": \"axial_coding\"\
+    ,\n  \"mode\": \"llm_coordinated\",\n  \"message\": \"⚠️ 定性分析由LLM基于理论原则判断。本协调器只管理数据结构和工作流。\"\
+    ,\n  \"workflow\": {\n    \"all_stages\": [\n      \"open_coding\",\n      \"\
+    axial_coding\",\n      \"selective_coding\",\n      \"saturation\"\n    ],\n \
+    \   \"current_stage\": \"axial_coding\",\n    \"completed_stages\": [\n      \"\
+    open_coding\"\n    ],\n    \"remaining_stages\": [\n      \"selective_coding\"\
+    ,\n      \"saturation\"\n    ],\n    \"progress_pct\": 50\n  },\n  \"data\": {},\n\
+    \  \"output_file\": null\n}"
+  passed: true
+  test_prompt: '[tool benchmark for grounded-theory-expert]'
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 7.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 70.5
+quality_score: 79.0
+refinement_history:
+- delta: 74.75
+  quality_score: 74.75
+  timestamp: '2026-04-26T11:07:43.613821+00:00'
+- delta: 20.799999999999997
+  quality_score: 70.5
+  timestamp: '2026-04-28T13:02:49.207826+00:00'
+- delta: 8.5
+  quality_score: 79.0
+  timestamp: '2026-05-03T03:24:09.701928+00:00'
+skill: grounded-theory-expert
+structure_base: 103.0
+timestamp: '2026-05-03T03:24:09.701928+00:00'
+total_100: 120.5

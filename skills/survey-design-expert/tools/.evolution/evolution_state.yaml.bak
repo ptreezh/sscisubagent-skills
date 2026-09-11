@@ -1,0 +1,76 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: llm_judgment
+  output: "[TOOL: analyze.py]\n{\n  \"status\": \"success\",\n  \"skill\": \"survey-design-expert\"\
+    ,\n  \"timestamp\": \"2026-04-26T12:53:30.501960\",\n  \"data\": {\n    \"test\"\
+    : \"data\"\n  },\n  \"analysis\": {\n    \"status\": \"completed\",\n    \"analysis_type\"\
+    : \"survey_design_analysis\",\n    \"summary\": \"调查设计分析已完成\",\n    \"timestamp\"\
+    : \"2026-04-26T12:53:30.501960\"\n  }\n}\n"
+  passed: false
+  test_prompt: 设计一份关于『工作-生活平衡』的问卷，要求包含量表题和人口统计学变量。
+dimensions:
+  architecture:
+    score: 10.0
+    weight: 15
+  benchmark:
+    score: 8.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 10.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: false
+previous_score: 7.96
+quality_score: 7.96
+refinement_history:
+- delta: 2.78
+  quality_score: 7.78
+  timestamp: '2026-04-25T10:43:48.751253+00:00'
+- delta: -0.1
+  quality_score: 7.68
+  timestamp: '2026-04-25T11:12:08.970946+00:00'
+- delta: 0.0
+  note: re-evaluated after failed improvement, no regression
+  quality_score: 7.68
+  timestamp: '2026-04-25T19:14:11.041200+00:00'
+- delta: 0.23000000000000043
+  quality_score: 7.91
+  timestamp: '2026-04-25T11:21:40.878626+00:00'
+- delta: 0.15000000000000036
+  quality_score: 7.83
+  timestamp: '2026-04-25T11:24:46.538804+00:00'
+- delta: 0.08000000000000007
+  quality_score: 7.91
+  timestamp: '2026-04-25T11:33:54.654695+00:00'
+- delta: -0.45
+  note: re-eval (no improvement)
+  quality_score: 7.46
+  timestamp: '2026-04-25T11:42:50.584545+00:00'
+- delta: 0.0
+  note: re-eval (no improvement)
+  quality_score: 7.46
+  timestamp: '2026-04-25T11:42:50.584545+00:00'
+- delta: 0.3700000000000001
+  quality_score: 7.83
+  timestamp: '2026-04-25T11:55:26.444818+00:00'
+- delta: 0.04999999999999982
+  quality_score: 7.96
+  timestamp: '2026-04-25T12:12:06.815051+00:00'
+skill: survey-design-expert
+structure_base: 87.6
+timestamp: '2026-04-26T04:54:48.479103+00:00'
+total_100: 79.6

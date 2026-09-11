@@ -1,38 +1,18 @@
 ---
 name: narrative-analysis-expert
 description: |
-  叙事分析专家。提供系统化叙事研究方法，支持叙事结构分析、叙事认同、
-  生活故事访谈、叙事治疗取向研究。核心能力包括：情节分析、人物塑造、
-  时空建构、叙事主题、身份建构。遵循Riessman (2008)和McAdams (2001)框架。
+  Narrative Analysis expert. Provides story structure identification, temporal sequencing, narrative plot mapping, voice and perspective analysis, and narrative coherence assessment. Suitable for qualitative research, biographical studies, and narrative inquiry.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Riessman (2008), McAdams (2001), Labov (1972)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 叙事分析专家 (Narrative Analysis Expert)
-
-## 概述
-
-叙事分析关注人们如何通过讲述故事来建构意义和身份。叙事不仅是研究数据，更是理解人类经验的核心方式。
-
-## 核心理论基础
-
-### 叙事转向
-- **社会建构主义**: 叙事建构现实
-- **身份理论**: 自我即故事
-- **意义建构**: 叙事作为意义载体
-
-### 三种叙事研究取向
-
-| 取向 | 焦点 | 代表学者 |
-|------|------|---------|
+---|------|---------|
 | 结构分析 | 叙事语法 | Labov, Gee |
 | 内容分析 | 叙事主题 | McAdams, Singer |
 | 表演分析 | 叙事实践 | Riessman, Mishler |
@@ -213,13 +193,35 @@ AI: 我将采用Labov结构分析 + McAdams叙事认同框架：
 救赎性叙事: 困境 → 转变 → 成长
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `structure_parser.py` | Labov结构解析 |
-| `theme_extractor.py` | 叙事主题提取 |
-| `identity_analyzer.py` | 叙事认同分析 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | structure_parser.py | Labov六要素叙事结构解析 |
+| 2 | theme_extractor.py | 叙事主题提取与聚类 |
+| 3 | identity_analyzer.py | 叙事认同与基调分析 |
+
+### CLI用法
+
+```bash
+python tools/structure_parser.py --file narrative.txt --parse
+python tools/theme_extractor.py --input "叙事文本" --extract
+python tools/identity_analyzer.py --input "叙事文本" --tone
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

@@ -1,0 +1,67 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: llm_judgment
+  output: "[TOOL: analyze-structural-holes.py]\n结构洞分析结果:\n  平均约束：0.454\n  结构洞位置数：16\n\
+    \n前 5 个经纪人节点:\n  0: 约束=0.155, 有效规模=13.75\n  33: 约束=0.156, 有效规模=15.24\n  2: 约束=0.185,\
+    \ 有效规模=7.80\n  31: 约束=0.245, 有效规模=5.00\n  32: 约束=0.249, 有效规模=9.83\n"
+  passed: false
+  test_prompt: 分析一个微信群的互动网络，识别意见领袖和信息传播路径。
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 10.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: false
+previous_score: 9.72
+quality_score: 9.72
+refinement_history:
+- delta: 5.0
+  quality_score: 5.0
+  timestamp: '2026-04-24T13:57:29.561918+00:00'
+- delta: 4.1
+  quality_score: 9.1
+  timestamp: '2026-04-25T10:41:33.205639+00:00'
+- delta: 0.3700000000000001
+  quality_score: 7.83
+  timestamp: '2026-04-25T11:38:28.649331+00:00'
+- delta: -0.3
+  note: re-eval (no improvement)
+  quality_score: 7.53
+  timestamp: '2026-04-25T11:47:01.159875+00:00'
+- delta: 0.0
+  note: re-eval (no improvement)
+  quality_score: 7.53
+  timestamp: '2026-04-25T11:47:01.159875+00:00'
+- delta: 0.3800000000000008
+  quality_score: 9.48
+  timestamp: '2026-04-25T14:18:23.106336+00:00'
+- delta: 0.21999999999999975
+  quality_score: 7.83
+  timestamp: '2026-04-26T00:53:17.301013+00:00'
+- delta: 1.8900000000000006
+  quality_score: 9.72
+  timestamp: '2026-04-26T01:07:24.368903+00:00'
+skill: social-network-analysis-expert
+structure_base: 72.8
+timestamp: '2026-04-26T04:53:21.222941+00:00'
+total_100: 97.2

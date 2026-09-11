@@ -1,7 +1,57 @@
-conditions_identified: 0
-iteration: 1
-phase: conditions
-quality_score: 0.0
-refinement_history: []
-solutions_found: 0
-updated_at: '2026-03-13T08:02:01.687700'
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(analyze.py)
+  output: '[TOOL: analyze.py]
+
+    === Detail Level 1 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''detail_level'']
+
+
+    === Detail Level 2 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''main_results'',
+    ''detail_level'']
+
+
+    === Detail Level 3 ===
+
+    输出字段：[''status'', ''skill'', ''timestamp'', ''detail_level'', ''data'', ''phases'']'
+  passed: true
+test_prompt: "Please use the qca-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 8.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 0.0
+quality_score: 59.38
+refinement_history:
+- delta: 59.38
+  quality_score: 59.38
+  timestamp: '2026-05-03T22:45:57.519169+00:00'
+skill: qca-analysis-expert
+structure_base: 77.5
+timestamp: '2026-05-03T22:45:57.519169+00:00'
+total_100: 90.0

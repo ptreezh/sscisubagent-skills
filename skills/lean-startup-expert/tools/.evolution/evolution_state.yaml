@@ -1,0 +1,48 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the lean-startup-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 64.12
+quality_score: 78.53
+refinement_history:
+- delta: 57.75
+  quality_score: 57.75
+  timestamp: '2026-04-26T14:30:36.028802+00:00'
+- delta: 12.000000000000007
+  quality_score: 64.12
+  timestamp: '2026-04-30T14:14:58.942165+00:00'
+- delta: 14.409999999999997
+  quality_score: 78.53
+  timestamp: '2026-05-01T14:20:30.625330+00:00'
+skill: lean-startup-expert
+structure_base: 102.7
+timestamp: '2026-05-01T14:20:30.625330+00:00'
+total_100: 117.7

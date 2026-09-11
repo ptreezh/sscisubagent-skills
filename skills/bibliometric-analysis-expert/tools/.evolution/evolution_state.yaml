@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.5
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the bibliometric-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.5
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 56.8
+quality_score: 62.94
+refinement_history:
+- delta: 69.93
+  quality_score: 69.93
+  timestamp: '2026-04-26T05:17:33.273578+00:00'
+- delta: 6.140000000000001
+  quality_score: 62.94
+  timestamp: '2026-04-27T14:09:50.769707+00:00'
+skill: bibliometric-analysis-expert
+structure_base: 81.75
+timestamp: '2026-04-27T14:09:50.769707+00:00'
+total_100: 98.0

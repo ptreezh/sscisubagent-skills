@@ -1,189 +1,84 @@
 #!/usr/bin/env python3
 """
 digital-weber-expert - 理性化分析工具
-分析社会理性化程度：目的理性、价值理性、传统理性、情感理性
-基于韦伯社会行动理论
+分析社会理性化程度，基于韦伯社会行动理论
+
+⚠️ 核心原则：定性分析由LLM驱动，本工具仅返回空结构+方法论备忘录。
+不包含任何硬编码关键词判断。
 """
 
-from typing import Dict, List, Any
-import re
-import json
+from typing import Dict, List, Any, TypedDict
 
 
-# 理性化指标
-RATIONALIZATION_INDICATORS = {
-    # 目的理性
-    "purposive_rational": {
-        "keywords": [
-            "目的",
-            "目标",
-            "效率",
-            "计算",
-            "利益",
-            " purpose ",
-            " goal ",
-            " efficiency ",
-            " calculation ",
-            " interest ",
-        ],
-        "description": "目的理性 - 以目标为导向的工具合理性",
+# 韦伯理性化理论方法论备忘录（供LLM定性判断参考，非硬编码）
+RATIONALIZATION_MEMO = [
+    {
+        "type": "type_guidance",
+        "role": "llm_guidance",
+        "content": (
+            "【韦伯四类社会行动类型】\n"
+            "1. 目的理性行动（Zweckrational）：以手段-目标计算为核心的理性行动。"
+            "分析要点：行动者是否明确计算成本收益？是否有效率意识？"
+            "判断时问：行动者是否在权衡手段与目标？\n"
+            "2. 价值理性行动（Wertrational）：以绝对价值信念为依据的行动。"
+            "分析要点：行动者是否表达某种信念或义务？是否超越功利计算？"
+            "判断时问：行动者是否说"因为这是对的"而非"因为这样划算"？\n"
+            "3. 情感行动（Affective）：由情感、激情直接驱动的非理性行动。"
+            "分析要点：是否有强烈的情感表达？是否缺乏理性计算？"
+            "判断时问：这是情感反应还是理性选择？\n"
+            "4. 传统行动（Traditional）：沿袭习惯、风俗的行动，理由是"一直如此"。"
+            "分析要点：行动者是否引用惯例？是否缺乏反思？"
+            "判断时问：这是深思熟虑还是惯性使然？"
+        )
     },
-    # 价值理性
-    "value_rational": {
-        "keywords": [
-            "价值",
-            "信念",
-            "义务",
-            "责任",
-            "伦理",
-            " value ",
-            " belief ",
-            " duty ",
-            " ethics ",
-        ],
-        "description": "价值理性 - 以价值信念为导向的合理性",
+    {
+        "type": "iron_cage_guidance",
+        "role": "llm_guidance",
+        "content": (
+            "【理性化铁笼（Iron Cage）分析】\n"
+            "目的理性（工具理性）压倒价值理性是现代性的核心矛盾。\n"
+            "分析时问：这个案例中，工具理性（效率/计算）是否压倒了价值理性（意义/信念）？"
+        )
     },
-    # 传统理性
-    "traditional_rational": {
-        "keywords": [
-            "传统",
-            "习惯",
-            "惯例",
-            "风俗",
-            " heritage ",
-            " custom ",
-            " tradition ",
-            " convention ",
-        ],
-        "description": "传统理性 - 基于传统习惯的合理性",
-    },
-    # 情感理性
-    "affective_rational": {
-        "keywords": [
-            "情感",
-            "情绪",
-            "激情",
-            "感情",
-            " emotion ",
-            " feeling ",
-            " passion ",
-            " affect ",
-        ],
-        "description": "情感理性 - 基于情感冲动的行为",
-    },
-}
+    {
+        "type": "analysis_method",
+        "role": "llm_guidance",
+        "content": (
+            "【分析方法论】\n"
+            "• 不能仅凭"效率"等词判定目的理性，要分析行动者的自我诠释\n"
+            "• 同一文本可能包含多种理性类型，需区分主次\n"
+            "• 关注：谁在说？情境是什么？行动者自己如何解释行动理由？"
+        )
+    }
+]
 
 
 class RationalizationAnalyzer:
-    """理性化分析器"""
+    """理性化分析器 — 仅返回空结构，LLM定性判断填充"""
 
-    def __init__(self):
-        self.analysis_results = []
-
-    def analyze_rationalization(self, data: Any, focus: str = None) -> Dict:
+    def analyze(self, text: str, context: str = "") -> Dict[str, Any]:
         """
-        分析理性化程度
+        分析文本中的理性化类型
 
-        参数:
-            data: 分析数据
-            focus: 关注重点
+        ⚠️ 所有类型判断由LLM基于理论原则作出，本工具不包含任何关键词匹配。
 
         返回:
-            理性化分析结果
+            空结构结果（LLM填充rationalization_types等字段）
         """
-        # 转换为文本
-        text = self._convert_to_text(data)
-
-        # 分析各理性类型
-        purposive = self._analyze_dimension("purposive_rational", text)
-        value = self._analyze_dimension("value_rational", text)
-        traditional = self._analyze_dimension("traditional_rational", text)
-        affective = self._analyze_dimension("affective_rational", text)
-
-        # 确定主导理性类型
-        dominant = self._determine_dominant_rational(
-            purposive, value, traditional, affective
-        )
-
-        # 计算理性化程度
-        rationalization_degree = self._calculate_rationalization_degree(
-            purposive, value
-        )
-
-        # 生成理论解释
-        explanation = self._generate_explanation(dominant, rationalization_degree)
-
         return {
-            "data_type": type(data).__name__,
-            "focus": focus,
-            "rational_types": {
-                "purposive_rational": purposive,
-                "value_rational": value,
-                "traditional_rational": traditional,
-                "affective_rational": affective,
-            },
-            "dominant_type": dominant,
-            "rationalization_degree": rationalization_degree,
-            "explanation": explanation,
+            "status": "success",
+            "mode": "llm_driven",
+            "message": "⚠️ 理性化类型判断由LLM基于韦伯理论原则完成，本工具仅提供方法论引导。",
+            "text": text,
+            # 以下字段由LLM填充，Python不判断
+            "rationalization_types": {},  # {type_name: {presence, strength, evidence, reasoning}}
+            "dominant_type": None,       # LLM判断：最主要类型
+            "iron_cage_evidence": [],    # LLM判断：工具理性压倒价值理性的证据
+            "methodology_memo": RATIONALIZATION_MEMO,
         }
-
-    def _convert_to_text(self, data: Any) -> str:
-        if isinstance(data, str):
-            return data
-        elif isinstance(data, dict):
-            return json.dumps(data, ensure_ascii=False)
-        elif isinstance(data, list):
-            return " ".join(str(item) for item in data)
-        else:
-            return str(data)
-
-    def _analyze_dimension(self, dimension: str, text: str) -> Dict:
-        indicators = RATIONALIZATION_INDICATORS.get(dimension, {})
-        keywords = indicators.get("keywords", [])
-        count = sum(len(re.findall(kw, text, re.IGNORECASE)) for kw in keywords)
-        score = min(1.0, count / 3)
-        return {
-            "score": score,
-            "evidence_count": count,
-            "description": indicators.get("description", ""),
-        }
-
-    def _determine_dominant_rational(self, purposive, value, traditional, affective):
-        scores = {
-            "目的理性": purposive.get("score", 0),
-            "价值理性": value.get("score", 0),
-            "传统理性": traditional.get("score", 0),
-            "情感理性": affective.get("score", 0),
-        }
-        max_type = max(scores, key=scores.get)
-        max_score = scores[max_type]
-        if max_score < 0.2:
-            return "未确定"
-        return max_type
-
-    def _calculate_rationalization_degree(self, purposive, value):
-        return (purposive.get("score", 0) + value.get("score", 0)) / 2
-
-    def _generate_explanation(self, dominant, degree):
-        if degree > 0.6:
-            level = "高度理性化"
-        elif degree > 0.3:
-            level = "中等理性化"
-        else:
-            level = "低度理性化"
-        return f"{level}社会，主要以{dominant}为主。"
-
-
-def analyze_rationalization(data: Any, focus: str = None) -> Dict:
-    analyzer = RationalizationAnalyzer()
-    return analyzer.analyze_rationalization(data, focus)
 
 
 if __name__ == "__main__":
-    test_data = """
-    现代资本主义社会以目的理性为主导。
-    人们追求效率最大化，进行理性计算。
-    目标和利益成为行动的主要驱动力。
-    """
-    result = analyze_rationalization(test_data)
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    analyzer = RationalizationAnalyzer()
+    result = analyzer.analyze("测试文本")
+    print(result)

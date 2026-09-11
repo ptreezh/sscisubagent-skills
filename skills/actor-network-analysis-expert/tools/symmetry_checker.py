@@ -11,141 +11,34 @@ import json
 import re
 
 
-# 非人行动者类别关键词
-NONHUMAN_CATEGORIES = {
-    "technology": [
-        "software",
-        "hardware",
-        "algorithm",
-        "system",
-        "platform",
-        "device",
-        "tool",
-        "machine",
-        "robot",
-        "AI",
-        "database",
-        "network",
-        "server",
-        "app",
-        "application",
-    ],
-    "artifact": [
-        "document",
-        "protocol",
-        "standard",
-        "policy",
-        "law",
-        "regulation",
-        "contract",
-        "agreement",
-        "certificate",
-        "license",
-    ],
-    "nature": [
-        "river",
-        "mountain",
-        "climate",
-        "weather",
-        "soil",
-        "water",
-        "air",
-        "animal",
-        "plant",
-        "ecosystem",
-        "environment",
-    ],
-    "organization": [
-        "company",
-        "corporation",
-        "agency",
-        "institution",
-        "department",
-        "team",
-        "group",
-        "association",
-    ],
-    "concept": [
-        "idea",
-        "theory",
-        "model",
-        "framework",
-        "paradigm",
-        "method",
-        "approach",
-        "strategy",
-    ],
-    "material": [
-        "building",
-        "road",
-        "bridge",
-        "vehicle",
-        "equipment",
-        "infrastructure",
-        "facility",
-    ],
-}
+# ANT对称性原则methodology memo
+# 行动者分类是诠释性判断，由LLM基于ANT理论完成
+# Python仅提供数据结构和统计辅助
+SYMMETRY_METHODOLOGY_MEMO = """【ANT对称性原则 - LLM专属判断】
+Callon(1986)和Latour(1992)的ANT要求对人类和非人行动者使用相同的分析范畴。
+- 禁止：仅因名称含"algorithm"/"system"就归类为"非人"
+- 禁止：仅因名称含"manager"/"engineer"就归类为"人类"
+- 正确做法：基于行动者的行为角色（actor role）而非名称标签分类
+- 对称性评估：非人行动者是否被赋予与人类行动者同等的"行动者资格"
+- 30%阈值仅作为信号，LLM需判断"这是真实对称还是形式对称"
+"""
 
-# 人类行动者类别关键词
-HUMAN_CATEGORIES = {
-    "individual": [
-        "person",
-        "individual",
-        "human",
-        "worker",
-        "employee",
-        "manager",
-        "engineer",
-        "researcher",
-        "scientist",
-        "doctor",
-        "patient",
-        "citizen",
-        "user",
-        "customer",
-        "client",
-    ],
-    "role": [
-        "actor",
-        "agent",
-        "stakeholder",
-        "decision_maker",
-        "implementer",
-        "expert",
-        "consultant",
-        "advisor",
-        "analyst",
-    ],
-    "group": ["team", "committee", "board", "council", "panel", "group", "department"],
-}
+
+# 关键词字典已禁用：禁止用关键词匹配替代LLM的ANT诠释性判断
+
+
+# 人类行动者类别关键词（已禁用，由LLM做诠释性判断）
 
 
 def classify_actor(actor_name: str) -> Tuple[str, str]:
     """
-    分类行动者类型
+    分类行动者类型。
 
-    参数:
-        actor_name: 行动者名称
-
-    返回:
-        (category_type, category_name) - 例如 ('nonhuman', 'technology')
+    ⚠️ 关键词匹配已禁用。行动者分类是ANT诠释性判断，由LLM完成。
+    本函数返回None，LLM基于SYMMETRY_METHODOLOGY_MEMO填充分类。
     """
-    actor_lower = actor_name.lower()
-
-    # 检查非人行动者
-    for category, keywords in NONHUMAN_CATEGORIES.items():
-        for keyword in keywords:
-            if keyword in actor_lower:
-                return ("nonhuman", category)
-
-    # 检查人类行动者
-    for category, keywords in HUMAN_CATEGORIES.items():
-        for keyword in keywords:
-            if keyword in actor_lower:
-                return ("human", category)
-
-    # 默认归类为未知, 需要进一步分析
-    return ("unknown", "unclassified")
+    # 返回None表示需LLM判断，Python不做关键词匹配替代诠释判断
+    return None
 
 
 def check_symmetry(actors: List[str], actor_details: Dict[str, Dict] = None) -> Dict:
@@ -191,17 +84,11 @@ def check_symmetry(actors: List[str], actor_details: Dict[str, Dict] = None) -> 
     total_known = human_count + nonhuman_count
     nonhuman_ratio = nonhuman_count / total_known if total_known > 0 else 0
 
-    # 对称性评估
-    # ANT原则要求非人行动者至少占30%
-    if nonhuman_ratio >= 0.30:
-        symmetry_status = "pass"
-        symmetry_score = min(100, 70 + int(nonhuman_ratio * 100))
-    elif nonhuman_ratio >= 0.20:
-        symmetry_status = "warning"
-        symmetry_score = 60 + int(nonhuman_ratio * 50)
-    else:
-        symmetry_status = "fail"
-        symmetry_score = int(nonhuman_ratio * 150)
+    # 对称性评估（阈值判断已禁用，由LLM做诠释性评估）
+    # ANT对称性：非人行动者是否被赋予与人类同等的行动者资格
+    # 30%/20%阈值仅作为定量信号，LLM判断这是"真实对称"还是"形式对称"
+    symmetry_status = None  # LLM填充: pass/warning/fail
+    symmetry_score = None    # LLM填充: 0-100评分
 
     return {
         "symmetry_status": symmetry_status,
@@ -323,15 +210,9 @@ def _assess_role_symmetry(human_roles: Dict, nonhuman_roles: Dict) -> Dict:
     if len(only_nonhuman) > 0:
         asymmetry_score += len(only_nonhuman) * 10
 
-    if asymmetry_score < 10:
-        status = "good"
-        score = 100 - asymmetry_score
-    elif asymmetry_score < 30:
-        status = "warning"
-        score = 80 - asymmetry_score
-    else:
-        status = "poor"
-        score = 60 - asymmetry_score
+    # 硬编码阈值判断已禁用，由LLM做ANT对称性诠释判断
+    status = None   # LLM填充: good/warning/poor
+    score = None     # LLM填充: 0-100评分
 
     return {
         "status": status,

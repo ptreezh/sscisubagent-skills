@@ -1,0 +1,57 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(balanced_scorecard_analyzer.py)
+  output: "[TOOL: balanced_scorecard_analyzer.py]\n=== 战略地图构建 ===\n{\n  \"status\"\
+    : \"success\",\n  \"generated_at\": \"2026-04-29T19:07:36.397845\",\n  \"dimensions\"\
+    : {\n    \"financial\": [\n      {\n        \"id\": \"F1\",\n        \"name\"\
+    : \"提高资本回报率\",\n        \"description\": \"将ROCE从7%提升到12%\",\n        \"causes\"\
+    : [\n          \"C1\"\n        ],\n        \"effects\": [],\n        \"strategic_theme\"\
+    : null\n      }\n    ],\n    \"customer\": [\n      {\n        \"id\": \"C1\"\
+    ,\n        \"name\": \"提高客户满意度\",\n        \"description\": \"目标客户满意度达到行业第一\"\
+    ,\n        \"causes\": [\n          \"P1\"\n        ],\n        \"effects\": [\n\
+    \          \"F1\"\n        ],\n        \"strategic_theme\": null\n      }\n  \
+    \  ],\n    \"internal_process\": [\n      {\n        \"id\": \"P1\",\n       \
+    \ \"name\": \"提升运营效率\",\n        \"description\": \"运营可靠性提升到95%\",\n        \"\
+    causes\": [\n          \"L1\"\n        ],\n        \"effects\": [\n          \"\
+    C1\"\n        ],"
+  passed: true
+test_prompt: "Please use the balanced-scorecard-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 53.53
+quality_score: 63.38
+refinement_history:
+- delta: 68.53
+  quality_score: 68.53
+  timestamp: '2026-04-26T09:40:38.004479+00:00'
+- delta: 9.850000000000001
+  quality_score: 63.38
+  timestamp: '2026-04-29T11:07:36.416851+00:00'
+skill: balanced-scorecard-expert
+structure_base: 82.5
+timestamp: '2026-04-29T11:07:36.416851+00:00'
+total_100: 97.5

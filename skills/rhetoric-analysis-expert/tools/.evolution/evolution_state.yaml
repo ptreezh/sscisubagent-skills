@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the rhetoric-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 50.3
+quality_score: 62.1
+refinement_history:
+- delta: 59.68
+  quality_score: 59.68
+  timestamp: '2026-04-26T09:48:25.437345+00:00'
+- delta: 11.800000000000004
+  quality_score: 62.1
+  timestamp: '2026-04-30T14:07:27.249369+00:00'
+skill: rhetoric-analysis-expert
+structure_base: 80.8
+timestamp: '2026-04-30T14:07:27.249369+00:00'
+total_100: 95.8

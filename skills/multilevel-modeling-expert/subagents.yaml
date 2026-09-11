@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: ml-icc
-    name: ICC计算器
+    name: ICC Calculator
     role: 计算组内相关系数
     triggers:
       - "ICC"

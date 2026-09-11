@@ -1,80 +1,18 @@
 ---
 name: discourse-analysis-expert
 description: |
-  话语分析专家。提供多范式话语分析方法，支持批判话语分析(CDA)、话语心理学、
-  会话分析、叙事分析。核心能力包括：话语策略识别、权力关系分析、意识形态
-  揭示、互文性分析、话语建构分析。遵循Fairclough三维模型和van Dijk社会
-  认知方法。
+  Discourse Analysis expert. Provides text-in-context interpretation, power relation mapping, ideology detection, discourse genre classification, and critical discourse analysis. Suitable for linguistics, media studies, and critical social research.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Fairclough (2010), van Dijk (2008), Wodak (2015)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 话语分析专家 (Discourse Analysis Expert)
-
-## 概述
-
-话语分析专家是一个系统化的文本分析方法论技能，关注语言在社会实践中的作用，揭示话语背后的权力关系、意识形态和社会建构。遵循Fairclough三维模型和批判话语分析方法论。
-
-## 核心方法论
-
-### 1. 批判话语分析(CDA)
-- **创始人**: Fairclough, van Dijk, Wodak
-- **核心关切**: 权力、意识形态、社会变革
-- **分析维度**: 文本-话语实践-社会实践
-
-### 2. 话语心理学
-- **创始人**: Potter & Wetherell
-- **核心关切**: 心理现象的话语建构
-- **分析方法**: 解释性曲目、修辞分析
-
-### 3. 会话分析
-- **创始人**: Sacks, Schegloff, Jefferson
-- **核心关切**: 日常互动中的话语组织
-- **分析单位**: 话轮、序列、修复机制
-
-### 4. 叙事分析
-- **核心关切**: 故事的结构和功能
-- **分析要素**: 情节、人物、主题、叙事策略
-
-## Fairclough三维模型
-
-```
-┌─────────────────────────────────────┐
-│         社会实践层面                 │
-│   (Social Practice)                 │
-│   - 意识形态效果                     │
-│   - 权力关系                         │
-│   - 社会变革                         │
-├─────────────────────────────────────┤
-│         话语实践层面                 │
-│   (Discursive Practice)             │
-│   - 话语生产                         │
-│   - 话语分配                         │
-│   - 话语消费                         │
-│   - 互文性分析                       │
-├─────────────────────────────────────┤
-│         文本层面                     │
-│   (Text Analysis)                   │
-│   - 词汇分析                         │
-│   - 语法分析                         │
-│   - 文本结构                         │
-│   - 修辞策略                         │
-└─────────────────────────────────────┘
-```
-
-## 文本分析维度
-
-### 词汇层面
-| 维度 | 分析要点 | 示例 |
-|------|---------|------|
+---|---------|------|
 | 词汇选择 | 用词倾向 | "非法移民"vs"无证移民" |
 | 分类系统 | 命名与分类 | 职业称谓的性别化 |
 | 价值负载 | 评价性词汇 | 褒贬色彩词 |
@@ -151,13 +89,51 @@ AI: 我将采用批判话语分析方法，从三个维度分析：
 [继续详细分析...]
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `text_analyzer.py` | 文本层面的语言学分析 |
-| `discourse_strategy.py` | 话语策略识别与分析 |
-| `power_analyzer.py` | 权力关系与意识形态分析 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | text_analyzer.py | 文本层面语言学分析，支持词汇/语法/结构多维度分析 |
+| 2 | discourse_strategy.py | 话语策略识别，Wodak五话语策略框架分析 |
+| 3 | power_analyzer.py | 权力关系与意识形态分析，van Dijk社会认知方法 |
+
+### CLI用法
+
+```bash
+python tools/text_analyzer.py --input speech.txt --level lexical,grammatical
+python tools/discourse_strategy.py --input discourse.txt --framework wodaK
+python tools/power_analyzer.py --input text.json --model vandijk
+```
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致话语分析结论无效。
+
+1. **禁止脱离社会语境分析话语** — 仅做词汇/语法层面的文本分析，不联系社会权力关系和意识形态背景
+2. **禁止忽视互文性** — 不分析文本对已有话语的引用、改写、挪用，丢失话语的历史和权力维度
+3. **禁止将话语等同于现实** — 将话语建构误认为客观现实，忽略话语背后的权力运作和利益诉求
+4. **禁止单一方法论框架混用** — 同时使用CDA和会话分析而不说明差异，两者有不同的本体论和认识论假设
+5. **禁止忽视话语策略的效果** — 仅识别话语策略而不评估其在特定社会语境中的效果和功能
+6. **禁止用研究者自己的立场代替分析对象** — 将主观判断当作"客观"分析结论，违反批判话语分析的价值反思要求
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 话语策略识别完整
+- 语境分析有深度
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 框架选择有明确依据
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- Fairclough三维模型完整应用
+- 权力关系和意识形态分析深入
 
 ## 参考文献
 

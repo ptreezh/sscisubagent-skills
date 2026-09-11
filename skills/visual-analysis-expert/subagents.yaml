@@ -1,6 +1,6 @@
 subagents:
   - id: composition_analyst
-    name: 构图分析师
+    name: Composition Analyst
     role: 分析图像构图元素
     capabilities:
       - 构图结构分析

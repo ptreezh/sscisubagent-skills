@@ -1,45 +1,15 @@
 ---
 name: digital-marx-expert
 description: |
-  数字马克思主义专家。提供阶级分析、剩余价值计算、异化评估、危机趋势预测功能。适用于数字劳动研究、平台经济分析、批判理论研究场景。
+  Digital Marxism expert. Provides class analysis, surplus value calculation, alienation assessment, and crisis trend prediction. Suitable for digital labor research, platform economy analysis, and critical theory studies.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
----
-
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-# 数字马克思主义分析专家技能
-
-## 🚀 在 AI CLI 中使用
-
-```
-你：使用马克思主义技能分析平台经济
-
-AI: 好的，我将使用马克思主义分析技能。
-    任务清单：
-    1. 生产方式识别 (20分钟)
-    2. 阶级结构分析 (30分钟)
-    3. 剥削关系分析 (30分钟)
-    4. 商品化过程分析 (30分钟)
-    5. 异化现象分析 (30分钟)
-    6. 数字资本分析 (20分钟)
-    7. 阶级斗争追踪 (20分钟)
-    8. 资本积累分析 (20分钟)
-    9. 马克思主义分析报告 (40分钟)
-```
-
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 ## 📋 基本信息
@@ -197,6 +167,16 @@ python tools/commodification_analyzer.py  # 商品化分析
 
 ---
 
+## 🚨 承诺书强制触发规则
+
+> **何时必须宣读**：用户首次激活本技能时，或分析进入"数字劳动/平台经济/阶级分析"阶段前。
+>
+> **宣读方式**：完整输出下方"✅ 承诺书"全部内容，不得删减。
+>
+> **违反后果**：未宣读承诺书的分析报告将被标记为"方法论不完整"，须重新完成。
+
+---
+
 ## ✅ 承诺书
 
 **本人（数字马克思主义分析系统）郑重承诺**：
@@ -213,7 +193,6 @@ python tools/commodification_analyzer.py  # 商品化分析
 ## 📚 参考文档
 
 - [马克思主义概念](references/marxist-concepts.md)
-- [数字资本主义](references/digital-capitalism.md)
 - [长时任务指南](references/long-term-tasks.md)
 
 ---
@@ -333,6 +312,35 @@ Phase 3: 剥削与异化分析（45分钟）
     - 验证: 剩余价值明确
 
 
+
+### 一、禁止定性分析硬编码（CRITICAL）
+
+**核心原则**：定性分析（生产方式判断、阶级分析、商品化分析）必须由LLM基于马克思主义理论原则完成，Python工具仅负责数据结构和流程管理。
+
+**Python工具角色**：
+- ✅ 正确：返回空结构 + 理论备忘录（methodology memo）
+- ✅ 正确：状态管理、文件I/O、结果格式化
+- ❌ 禁止：关键词匹配做定性判断
+
+**Marx Python工具链职责表**：
+
+| 工具 | 定性分析 | 角色 |
+|------|---------|------|
+| mode_of_production_identifier.py | ❌ | ✅ 纯数据结构 + 生产方式理论备忘录 |
+| class_analyzer.py | ❌ | ✅ 纯数据结构 + 阶级理论备忘录 |
+| alienation_calculator.py | ❌ | ✅ 纯数据结构 + 异化理论备忘录 |
+| labor_process_analyzer.py | ❌ | ✅ 纯数据结构 + 劳动过程理论备忘录 |
+| commodification_analyzer.py | ❌ | ✅ 纯数据结构 + 商品化理论备忘录 |
+| analyze.py | ❌ | ✅ 工作流协调 |
+
+**量化确认**：
+- ✅ mode_of_production_identifier.py 已重构：无 MODE_OF_PRODUCTION_INDICATORS 关键词匹配
+- ✅ class_analyzer.py 已重构：无 CLASS_INDICATORS 关键词匹配
+- ✅ alienation_calculator.py 已重构：使用 ALIENATION_THEORY_MEMO
+- ✅ labor_process_analyzer.py 已重构：使用 LABOR_PROCESS_THEORY_MEMO
+- ✅ commodification_analyzer.py 已重构：无 COMMODIFICATION_INDICATORS 关键词匹配
+
+---
 
 ## 详细指南
 

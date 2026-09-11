@@ -1,30 +1,31 @@
 ---
 name: grounded-theory-expert
 description: |
-  扎根理论分析专家。提供开放编码、主轴编码、选择性编码的系统化流程，支持理论饱和度检验和CRCT思维链。适用于质性研究、理论建构、数据深度分析场景。
+  Grounded Theory analysis expert. Provides open coding, axial coding, and selective coding systematic workflows, with support for theoretical saturation testing and CRCT chain-of-thought reasoning. Suitable for qualitative research, theory construction, and in-depth data analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
+------|---------|--------------|
+> | 数据分段、编码统计、工具调用 | **AI自动执行** | 无需暂停 |
+> | 编码命名、范畴理论归类、核心范畴选择 | **人类判断** | 暂停并输出决策理由 |
+> | 负面案例的理论边界修正 | **人类判断** | 暂停并说明修正依据 |
+> |Paradigm关系推断、故事线构建 | **人类判断** | 暂停并输出理论依据 |
+>
+> ❌ 禁止：用AI自动执行替代人类意义提炼
+> ✅ 必须：技术步骤AI自动执行，理论判断步骤暂停并说明理由
 
 # SKILL.md - grounded-theory-expert
 
 ---
 metadata:
-  version: "5.1.0-cli-native+agent"
+  version: "5.2.0-cli-native+agent"
   methodology: "Grounded Theory Methodology"
   absolute-prohibitions: true
   task-decomposition-rules: true
@@ -62,6 +63,113 @@ metadata:
 
 ## 描述
 
+## 🧭 人机协作分工原则
+
+> **核心理念**：质性研究的价值在于认知突破，AI 是工具而非主体。
+> AI 在建立常识、识别反常、提升效率等方面善用，
+> **严守"意义提炼"这一核心环节的人类判断权**。
+
+### 溯因推理框架（GT 的认识论根基）
+
+```
+无监督学习发现模式  =  归纳（induction）
+    ↓
+  AI 做体力活       =  自动化编码、统计
+    ↓
+【人工提炼意义】    =  溯因（abduction）⚠️ 人类专属
+    ↓
+  AI 计算验证       =  演绎（deduction）
+    ↓
+理论创新            =  新概念/新关系/新框架
+```
+
+**核心立场**：传统流程中，"人工提炼意义"（赋予编码以理论意义）是 AI 难以替代的部分。
+LLM 可以高效复刻主题分析流程，但会丢失：
+- **跨对话观察**才能捕捉的微妙倾向
+- **弦外之音**（语气、沉默、矛盾）
+- **理论敏感性**（Glaser 的 "theoretical sensitivity"）
+
+### 三阶段人机分工
+
+| 阶段 | AI 承担（高效执行） | 人类承担（不可替代） |
+|------|------------------|-------------------|
+| **开放编码** | 文本分段、词频统计、初步候选编码列表 | **核心判断**：哪些编码触及理论前沿而非表面描述？ |
+| **轴心编码** | 342 条关系枚举、范畴归类、Paradigm 模板匹配 | **关键决策**：范畴的**理论命名**和Paradigm类型推断 |
+| **选择性编码** | 候选核心范畴排序、饱和度统计 | **最高判断**：哪个范畴统摄全局？故事线是什么？ |
+| **饱和度检验** | 新编码发现率统计 ✅（assess-saturation.py） | **理论意义**：是否"足够好"还是"有新发现的可能"？ |
+
+### 计算验证模块（AI 承担部分）
+
+```python
+# 范畴覆盖度统计
+python assess-saturation.py axial_result.json
+# 输出：
+# - 范畴频次分布
+# - 新编码发现率（最后20%数据）
+# - 理论密度 = 关系数 / 范畴数
+```
+
+### ❌ 绝对禁止
+
+1. **禁止用 AI 完全替代人工意义提炼**：编码命名必须有研究者判断，不可全由 LLM 自动生成
+2. **禁止脱离原始数据生成理论**：每个编码必须回溯原始引文
+3. **禁止将频次最高等同于最重要**：高频范畴可能只是常识，低频范畴可能是理论突破
+4. **禁止跳过跨访谈比较**：跨个案模式比个案内模式更具理论价值
+
+### ✅ 质量标准
+
+- 每个范畴至少 3 条原始引文支撑
+- 理论密度（关系数/范畴数）≥ 1.0 为良好
+- 新编码发现率 < 5% 为接近饱和
+
+
+## 🔗 会话持久化：调用 planning-with-files 基础技能（CRITICAL）
+
+> **核心原则**: 本技能的会话状态管理基于 `planning-with-files` 基础技能。
+> 所有长时任务必须激活 `planning-with-files` 模式，不允许脱离此基础自行实现。
+
+### planning-with-files 调用机制
+
+当激活本技能执行多会话研究项目时，**必须**调用 `planning-with-files`：
+
+```
+你：开始一个扎根理论研究项目，研究职场女性晋升障碍
+
+AI：[激活 grounded-theory-expert]
+    [激活 planning-with-files]
+    → 创建 .tasks/task_plan.md    （阶段跟踪）
+    → 创建 .tasks/findings.md     （研究发现）
+    → 创建 .tasks/progress.md     （会话日志）
+    → 开始开放编码阶段...
+```
+
+### 本技能与 planning-with-files 的对应关系
+
+| planning-with-files | grounded-theory-expert |
+|-------------------|----------------------|
+| `.tasks/task_plan.md` | 编码进度表：开放编码→轴心编码→选择性编码 |
+| `.tasks/findings.md` | 范畴发现+Paradigm关系记录 |
+| `.tasks/progress.md` | 会话日志+每次编码数量 |
+| `scripts/init-session.sh` | 会话恢复脚本（⚠️需实现） |
+| `scripts/session-catchup.py` | 跨会话状态恢复（⚠️需实现） |
+
+### 依赖关系
+
+```yaml
+依赖技能:
+  planning-with-files:  # Claude Code CLI 基础技能
+    用途: 会话状态持久化（task_plan/findings/progress）
+    状态: SKILL.md存在，scripts/待实现
+    调用时机: 每次激活本技能时
+```
+
+### ⚠️ 当前限制
+
+`planning-with-files` 的 `scripts/` 目录尚未实现（init-session.sh/session-catchup.py不存在）。
+本技能在 scripts/ 实现前，**必须手动遵循 planning-with-files 的文件协议**：
+- 会话开始：读取 task_plan.md + findings.md
+- 会话结束：写入更新后的 task_plan.md + findings.md + progress.md
+- 禁止将会话状态仅保存在 LLM 上下文窗口中
 
 ## 🖥️ 项目初始化（跨平台Python脚本）
 
@@ -100,7 +208,6 @@ print(f"项目目录创建完成: {project_path}")
 
 **扎根理论分析专家** - 支持**复杂任务分解**和**长时任务执行**的质性数据分析技能。
 
-PZ|
 ## 🔧 Python 工具
 
 python tools:
@@ -137,7 +244,6 @@ python tools/anonymize-data.py -i data/sensitive.csv -o results/anonymized.csv
 python tools/calculate-reliability.py -i results/coder1.csv --compare results/coder2.csv -o results/reliability.json
 ```
 
-VS|### 核心能力
 ### 核心能力
 
 1. **开放性编码 (Open Coding)**
@@ -173,7 +279,7 @@ VS|### 核心能力
 - ✅ 观察资料分析
 - ✅ 文本资料分析
 
-## ⚠️ 六大绝对禁止原则
+## ⚠️ 七大绝对禁止原则
 
 ### 1. 禁止编码前预设结论
 
@@ -392,7 +498,71 @@ VS|### 核心能力
 **正确做法**:
 ```yaml
 编码标准化:
+  - 建立编码手册
+  - 定期一致性检验
+  - 记录每次编码决策
+```
 
+### 7. 禁止定性分析过程硬编码（CRITICAL）
+
+**核心原则**: 定性分析是智识工作，必须由大模型智力驱动，绝不能硬编码进工具。
+
+**错误做法**:
+```yaml
+硬编码分析:
+  - 用Python关键词匹配做"定性分析"
+  - 用if/else判断"这个编码属于哪个范畴"
+  - 用规则引擎代替研究者的理论判断
+  - 把Paradigm关系写成模板列表让LLM套用
+
+示例（错误）:
+  if '焦虑' in code_text:
+      return '心理体验'  # 这是大模型的工作，不是代码的工作
+
+示例（正确）:
+  prompts/axial_coding.txt:
+    "你是一位扎根理论专家。请根据以下编码，
+     分析每个编码的Paradigm类型（条件/策略/互动/结果），
+     并给出你的理论依据..."
+```
+
+**正确做法**:
+```yaml
+工具只做结构工作:
+  - 读取/写入编码数据（文件I/O）
+  - 管理范畴和关系的数据结构（状态管理）
+  - 格式化输出结果（展示层）
+  - 调用工具执行（命令行包装）
+
+智力留给大模型:
+  - SKILL.md中包含详细的分析提示词
+  - 编码决策由LLM基于理论原则作出
+  - 范畴归类由LLM的判断驱动
+  - Paradigm关系由LLM的推理生成
+
+Python工具的正确角色:
+  ✅ 数据管理、文件I/O、结果格式化
+  ✅ 执行analyze.py调用LLM进行定性分析
+  ❌ 关键词匹配做"智能判断"
+  ❌ 规则引擎替代理论推理
+```
+
+**工具链职责划分**:
+| 工具 | 职责 |
+|------|------|
+| analyze.py | 协调工作流，读取方法论指导（LLM定性判断引导） |
+| SKILL.md prompts | 定性分析的智力层（大模型） |
+| segment-data.py | 数据准备（结构工作） |
+| axial_coding.py | 仅返回空结构+方法论备忘录，**Paradigm/关系/范畴归类100%由LLM填充** |
+| 任何.py工具 | **永远不做定性判断，只做数据结构和格式化** |
+
+**量化标准**:
+- ✅ axial_coding.py 已重构：无任何关键词匹配/Paradigm模板/关系硬编码
+- ✅ 所有Paradigm类型字段为None，LLM基于理论原则填充
+- ✅ 所有relationship字段为空列表，LLM基于数据识别
+- ✅ 4条方法论备忘录引导LLM做定性判断（非替代）
+- 范畴归类100%由LLM基于SKILL.md提示词作出
+- Paradigm关系100%由LLM推理生成
 
 ## 详细指南
 

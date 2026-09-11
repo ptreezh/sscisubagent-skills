@@ -1,0 +1,83 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(discourse_strategy.py)
+  output: '[TOOL: discourse_strategy.py]
+
+    ============================================================
+
+    DISCOURSE STRATEGY ANALYSIS
+
+    ============================================================
+
+
+    1. REFERENTIAL STRATEGY
+
+    ----------------------------------------
+
+    Us references: 7
+
+    Them references: 1
+
+    Binary opposition: True
+
+
+    2. PREDICATIONAL STRATEGY
+
+    ----------------------------------------
+
+    Positive predicates: [''勇敢的'']
+
+    Negative predicates: []
+
+
+    3. SUMMARY
+
+    ----------------------------------------
+
+    Dominant strategies: [''argumentative'', ''referential'', ''intensification'']
+
+    Discourse pattern: 二元对立话语模式'
+  passed: true
+test_prompt: "Please use the discourse-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 64.65
+quality_score: 76.5
+refinement_history:
+- delta: 56.62
+  quality_score: 56.62
+  timestamp: '2026-04-26T11:09:30.685798+00:00'
+- delta: 12.900000000000006
+  quality_score: 64.65
+  timestamp: '2026-04-28T13:44:30.633705+00:00'
+- delta: 11.849999999999994
+  quality_score: 76.5
+  timestamp: '2026-05-01T14:22:10.765672+00:00'
+skill: discourse-analysis-expert
+structure_base: 100.0
+timestamp: '2026-05-01T14:22:10.765672+00:00'
+total_100: 115.0

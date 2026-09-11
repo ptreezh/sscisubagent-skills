@@ -1,36 +1,18 @@
 ---
 name: rct-experimental-design-expert
 description: |
-  随机对照试验(RCT)设计专家。提供CONSORT标准实验设计，支持平行设计、交叉设计、
-  因子设计、集群随机设计。核心能力包括：随机化方案、样本量计算、盲法设计、
-  意向性分析、亚组分析、安全性监测。遵循CONSORT 2010和SPIRIT 2013标准。
+  Randomized Controlled Trial (RCT) design expert. Provides randomization procedures, control group design, blind/mask protocols, sample size calculation, and causal inference framework. Suitable for clinical trials, experimental research, and impact evaluation.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "CONSORT 2010, SPIRIT 2013, ICH-GCP"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 随机对照试验设计专家 (RCT Experimental Design Expert)
-
-## 概述
-
-随机对照试验(RCT)设计专家是一个系统化的实验设计技能，支持从研究问题到试验实施的全流程设计。遵循CONSORT 2010报告标准和SPIRIT 2013方案标准。
-
-## 核心方法论
-
-### 证据等级
-RCT是**Level I**证据，被视为因果推断的金标准。
-
-### 设计类型
-
-| 设计类型 | 适用场景 | 特点 |
-|---------|---------|------|
+------|---------|------|
 | 平行设计 | 最常用 | 两组同时进行，比较干预效果 |
 | 交叉设计 | 慢性病、稳定状态 | 每个受试者接受多种干预 |
 | 因子设计 | 多因素研究 | 同时评估多个干预组合 |
@@ -173,13 +155,51 @@ AI: 我将为您设计一个符合CONSORT标准的平行随机对照试验：
 [继续详细设计...]
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `sample_size_calculator.py` | 样本量计算 |
-| `randomization_generator.py` | 随机化方案生成 |
-| `consort_checklist.py` | CONSORT清单生成 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致RCT结论失效。
+
+1. **禁止随机化不充分** — 随机序列生成和分配隐藏不完善，导致选择性偏倚和基线不平衡
+2. **禁止主要分析不采用ITT原则** — 意向性分析是RCT的金标准，违反ITT的符合方案分析(PP)会高估治疗效果
+3. **禁止盲法实施不完整** — 声称"双盲"但实际无法实施或破盲未报告，导致实施偏倚
+4. **禁止样本量计算依据不充分** — 不报告α、β、效应量、脱落率的设定依据，导致检验力不足
+5. **禁止主要结局事后变更** — 试验过程中更改主要结局指标，导致假阳性风险增加（p-hacking）
+6. **禁止未进行注册和方案公开** — 研究未在公共注册平台（如ChiCTR、ClinicalTrials.gov）预先注册，导致发表偏倚和选择性报告
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- CONSORT清单完成度高
+- 研究注册信息完整
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 随机化和盲法规范
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- ITT + PP双分析
+- 敏感性分析完整
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | sample_size_calculator.py | RCT样本量计算（连续/二分类结局），支持α、β、效应量、脱落率参数 |
+| 2 | randomization_generator.py | 随机化序列生成（简单/区组/分层/最小化），支持分配隐藏 |
+| 3 | consort_checker.py | CONSORT清单检查，支持2010版25项清单对照 |
+| 4 | iit_analyzer.py | 意向性分析，支持ITT、PP、MI多重插补分析 |
+
+### CLI用法
+
+```bash
+python tools/sample_size_calculator.py --continuous --mean-diff 5 --std-dev 10 --power 0.8
+python tools/randomization_generator.py --method block --n 200 --block-size 4
+```
 
 ## 参考文献
 

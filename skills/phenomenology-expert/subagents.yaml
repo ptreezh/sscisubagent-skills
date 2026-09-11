@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: pheno-epoch
-    name: 悬置引导师
+    name: Epoché Guide
     role: 引导现象学态度与悬置过程
     triggers:
       - "悬置"

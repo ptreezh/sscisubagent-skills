@@ -1,0 +1,51 @@
+benchmark:
+  benchmark_score: 6.5
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the mixed-methods-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 6.5
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 59.79
+quality_score: 77.79
+refinement_history:
+- delta: 56.62
+  quality_score: 56.62
+  timestamp: '2026-04-26T14:31:51.421990+00:00'
+- delta: 5.850000000000001
+  quality_score: 62.47
+  timestamp: '2026-04-27T11:56:04.374578+00:00'
+- delta: 8.57
+  quality_score: 59.79
+  timestamp: '2026-04-30T14:11:54.797108+00:00'
+- delta: 18.000000000000007
+  quality_score: 77.79
+  timestamp: '2026-05-01T10:57:33.667531+00:00'
+skill: mixed-methods-expert
+structure_base: 101.55
+timestamp: '2026-05-01T10:57:33.667531+00:00'
+total_100: 117.8

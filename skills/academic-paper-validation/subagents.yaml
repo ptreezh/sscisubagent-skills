@@ -1,0 +1,294 @@
+# Academic Paper Validation Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Reference Validation Agent
+  - name: reference-validator
+    description: 参考文献验证Agent - 逐条核对引用准确性
+    prompt_template: prompts/reference-validation-prompt.md
+    tools:
+      - validate_references
+    output_format: json
+    quality_checks:
+      - all_references_checked
+      - format_compliance_verified
+      - completeness_verified
+    required_output:
+      - reference_list
+      - issues_found
+      - accuracy_score
+
+  # Data Reproducibility Agent
+  - name: reproducibility-checker
+    description: 数据可重复性检查Agent - 验证分析可重复性
+    prompt_template: prompts/reproducibility-check-prompt.md
+    tools:
+      - check_reproducibility
+    output_format: json
+    quality_checks:
+      - data_sources_verified
+      - analysis_reproducible
+      - availability_statement_complete
+    required_output:
+      - data_sources
+      - reproducibility_score
+      - availability_status
+
+  # Format Compliance Agent
+  - name: format-checker
+    description: 格式合规检查Agent - 检查期刊格式要求
+    prompt_template: prompts/format-compliance-prompt.md
+    tools:
+      - verify_format
+    output_format: json
+    quality_checks:
+      - word_limit_compliant
+      - figure_format_compliant
+      - reference_format_compliant
+    required_output:
+      - format_issues
+      - compliance_score
+      - journal_requirements
+
+  # Ethics Compliance Agent
+  - name: ethics-checker
+    description: 学术伦理检查Agent - 检查学术伦理合规
+    prompt_template: prompts/ethics-compliance-prompt.md
+    tools:
+      - check_ethics
+    output_format: json
+    quality_checks:
+      - plagiarism_risk_assessed
+      - conflict_of_interest_declared
+      - author_contributions_complete
+    required_output:
+      - ethics_issues
+      - compliance_status
+      - required_declarations
+
+  # Literature Expert Agent
+  - name: literature-expert
+    description: 文献专家Agent - 评审文献综述和引用质量
+    prompt_template: prompts/literature-expert-prompt.md
+    tools:
+      - validate_references
+    output_format: json
+    quality_checks:
+      - literature_coverage_adequate
+      - citations_accurate
+      - key_works_included
+    required_output:
+      - literature_assessment
+      - missing_references
+      - quality_score
+
+  # Methodology Expert Agent
+  - name: methodology-expert
+    description: 方法论专家Agent - 评审研究方法论
+    prompt_template: prompts/methodology-expert-prompt.md
+    tools:
+      - check_reproducibility
+    output_format: json
+    quality_checks:
+      - methods_clearly_described
+      - analysis_appropriate
+      - limitations_discussed
+    required_output:
+      - methodology_assessment
+      - issues_found
+      - improvement_suggestions
+
+  # Field Expert Agent (Domain-specific)
+  - name: field-expert
+    description: 领域专家Agent - 评审专业领域内容
+    prompt_template: prompts/field-expert-prompt.md
+    tools:
+      - validate_references
+    output_format: json
+    quality_checks:
+      - concepts_accurate
+      - terminology_correct
+      - theoretical_framework_sound
+    required_output:
+      - field_assessment
+      - conceptual_issues
+      - theoretical_suggestions
+
+  # Report Generator Agent
+  - name: report-generator
+    description: 报告生成Agent - 整合评审结果生成报告
+    tools:
+      - generate_report
+    output_format: markdown
+    quality_checks:
+      - all_issues_documented
+      - recommendations_provided
+      - priority_assigned
+    required_output:
+      - validation_report
+      - issue_summary
+      - action_items
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 4
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# Verification Chain Configuration
+verification_chain:
+  reference_validation:
+    enabled: true
+    description: "引用验证必须逐条核对"
+    required_fields:
+      - original_source_checked
+      - citation_accuracy_verified
+      - format_compliance_checked
+  
+  data_verification:
+    enabled: true
+    description: "数据核验必须检查可重复性"
+    required_fields:
+      - data_source_verified
+      - analysis_reproducible
+      - availability_statement_complete
+  
+  expert_review:
+    enabled: true
+    description: "专家评审必须独立进行"
+    required_fields:
+      - independent_assessment
+      - issues_identified
+      - recommendations_provided
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - reference_accuracy_check
+    - data_reproducibility_check
+    - format_compliance_check
+    - ethics_compliance_check
+
+  strict_prohibitions:
+    - no_completion_without_reference_check
+    - no_completion_without_data_verification
+    - no_claiming_ready_without_evidence
+    - no_claiming_beyond_without_understanding
+    - no_submission_without_language_requirement
+
+# Phase-Based Execution
+phases:
+  phase1_pre_check:
+    description: "预检查阶段 - 确认目标和要求"
+    agents: [format-checker]
+    mode: sequential
+    output: pre_check_report.json
+    quality_gate: requirements_identified
+    
+  phase2_reference_validation:
+    description: "引用验证阶段"
+    agents: [reference-validator, literature-expert]
+    mode: parallel
+    output: reference_report.json
+    quality_gate: reference_accuracy >= 95
+    
+  phase3_data_verification:
+    description: "数据核验阶段"
+    agents: [reproducibility-checker, methodology-expert]
+    mode: parallel
+    output: data_report.json
+    quality_gate: reproducibility_score >= 90
+    
+  phase4_expert_review:
+    description: "专家评审阶段"
+    agents: [literature-expert, methodology-expert, field-expert]
+    mode: parallel
+    output: expert_reviews.json
+    quality_gate: average_score >= 80
+    
+  phase5_ethics_check:
+    description: "伦理检查阶段"
+    agents: [ethics-checker]
+    mode: sequential
+    output: ethics_report.json
+    quality_gate: no_critical_issues
+    
+  phase6_completion:
+    description: "完成确认阶段"
+    agents: [report-generator]
+    mode: sequential
+    depends_on: [phase4_expert_review, phase5_ethics_check]
+    output: final_report.md
+    quality_gate: critical_issues_resolved
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("引用") or user_request_contains("参考文献")
+      then: fast_mode
+      execution: single_agent(reference-validator)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains("数据") or user_request_contains("可重复性")
+      then: fast_mode
+      execution: single_agent(reproducibility-checker)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("格式") or user_request_contains("期刊要求")
+      then: fast_mode
+      execution: single_agent(format-checker)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains("评审") or user_request_contains("专家")
+      then: review_mode
+      execution: parallel_agents([literature-expert, methodology-expert, field-expert])
+      estimated_time: "30-45 minutes"
+
+    - if: user_request_contains_any(["完整验证", "投稿前验证", "全面检查"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4, phase5, phase6])
+      estimated_time: "1-2 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive validation"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  validation_log_file: validation_log.json
+  report_file: validation_report.md
+  auto_save_interval: 5  # minutes
+
+# Journal-Specific Configurations
+journal_configs:
+  scientific-reports:
+    format: "Nature format"
+    word_limit: "no strict limit"
+    reference_style: "Nature"
+    data_availability: "required"
+    
+  sociological-theory:
+    format: "ASA format"
+    word_limit: "14500 words"
+    reference_style: "ASA"
+    data_availability: "recommended"
+    
+  nature-machine-intelligence:
+    format: "Nature format"
+    word_limit: "4000 words"
+    reference_style: "Nature"
+    data_availability: "required"

@@ -1,0 +1,46 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(code_extractor.py)
+  output: "[TOOL: code_extractor.py]\n编码结果:\n- 总代码数: 2\n- 总片段数: 4\n\n编码簿:\n  C001:\
+    \ 教学挑战 (频率: 0)\n  C002: 技术依赖 (频率: 0)\n\n主题分析代码提取工具已加载完成"
+  passed: true
+test_prompt: "Please use the thematic-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 10.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 10.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 58.47
+quality_score: 64.7
+refinement_history:
+- delta: 6.439999999999998
+  quality_score: 58.47
+  timestamp: '2026-04-28T13:35:59.853260+00:00'
+- delta: 6.230000000000004
+  quality_score: 64.7
+  timestamp: '2026-05-02T08:50:16.379072+00:00'
+skill: thematic-analysis-expert
+structure_base: 84.6
+timestamp: '2026-05-02T08:50:16.379072+00:00'
+total_100: 97.1

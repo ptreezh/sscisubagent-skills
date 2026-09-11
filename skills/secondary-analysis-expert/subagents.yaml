@@ -1,6 +1,6 @@
 subagents:
   - id: evaluator
-    name: 数据评估师
+    name: Secondary Data Evaluator
     role: 评估数据来源和质量
     capabilities:
       - 质量评估

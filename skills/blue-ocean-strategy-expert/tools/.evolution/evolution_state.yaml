@@ -1,0 +1,44 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(blue_ocean_analyzer.py)
+  output: "[TOOL: blue_ocean_analyzer.py]\n\nFile \"D:\\socienceAI\\agentskills\\\
+    blue-ocean-strategy-expert\\tools\\blue_ocean_analyzer.py\", line 47\n    raise:\
+    \ List[Dict]      # 增加要素\n         ^\nSyntaxError: invalid syntax"
+  passed: true
+test_prompt: "Please use the blue-ocean-strategy-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 10.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 0.0
+quality_score: 66.57
+refinement_history:
+- delta: 75.95
+  quality_score: 75.95
+  timestamp: '2026-04-26T09:42:55.167465+00:00'
+skill: blue-ocean-strategy-expert
+structure_base: 87.1
+timestamp: '2026-04-26T09:42:55.167465+00:00'
+total_100: 112.1

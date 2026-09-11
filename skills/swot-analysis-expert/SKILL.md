@@ -1,40 +1,15 @@
 ---
 name: swot-analysis-expert
 description: |
-  SWOT战略分析专家。提供系统化SWOT分析方法，支持内部优势劣势分析、
-  外部机会威胁识别、战略组合生成、定量SWOT矩阵。核心能力包括：
-  因素识别、权重评估、战略匹配、行动计划制定。适用于战略规划、
-  竞争分析、组织诊断等场景。
+  SWOT strategic analysis expert. Provides systematic SWOT analysis including internal strengths/weaknesses assessment, external opportunities/threats identification, strategic combination generation, and action plan development.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Learned et al. (1969), Wheelen & Hunger (2012)"
-  subagent-support: true
-  graceful-fallback: true
-  ai-cli-native: true
----
-
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-
-
-# SWOT战略分析专家 (SWOT Analysis Expert)
-
-**版本**: 5.0.0-cli-native+agent
-**方法论**: Learned et al. (1969), Wheelen & Hunger (2012)
-**最后更新**: 2026-03-15
-
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 ## 概述
@@ -87,6 +62,23 @@ metadata:
 5. 禁止战略空泛 - 战略建议必须具体、可操作、可衡量
 6. 禁止静态思维 - 必须考虑因素的时间变化和动态性
 ```
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 每类因素 ≥ 3个
+- 每个因素有证据支撑
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 评估有数据支撑
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 战略匹配有因素支撑
+- 行动计划具体可操作
 
 ---
 
@@ -431,14 +423,20 @@ subagents:
 
 ---
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `factor_identifier.py` | 因素识别 |
-| `weight_calculator.py` | 权重计算 |
-| `strategy_matcher.py` | 战略匹配 |
-| `priority_ranker.py` | 优先级排序 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | factor_identifier.py | SWOT四维度因素识别与分类 |
+
+### CLI用法
+
+```bash
+python tools/factor_identifier.py --input data.txt --output factors.json
+python tools/factor_identifier.py --help
+```
 
 ---
 

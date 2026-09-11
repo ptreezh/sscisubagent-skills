@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: six-box-diagnoser
-    name: 六盒诊断师
+    name: Six Boxes Diagnostician
     role: 执行Weisbord六盒模型诊断
     triggers:
       - "六盒"

@@ -22,33 +22,49 @@ class PlanningFilesManager:
     def create_planning_files(self, task_id: str, **kwargs) -> Dict:
         """创建规划文件"""
         timestamp = datetime.now().isoformat()
-        task_plan = f"""# 任务计划\n\n**任务 ID**: {{task_id}}\n**创建时间**: {{timestamp}}\n\n## 阶段\n\n### Phase 1: 数据准备\n### Phase 2: 分析执行\n### Phase 3: 结果生成\n\n**进度**: 0/3\n"""
+        task_plan = """# 任务计划
+
+**任务 ID**: {task_id}
+**创建时间**: {timestamp}
+
+## 阶段
+
+### Phase 1: 数据准备
+### Phase 2: 分析执行
+### Phase 3: 结果生成
+
+**进度**: 0/3
+""".format(task_id=task_id, timestamp=timestamp)
         with open(self.task_plan_path, 'w', encoding='utf-8') as f:
             f.write(task_plan)
-        return {{'status': 'success', 'task_id': task_id}}
+        return {'status': 'success', 'task_id': task_id}
     
     def update_phase_status(self, phase: int, status: str, results: Optional[Dict] = None):
         """更新阶段状态"""
         if not os.path.exists(self.task_plan_path):
             return
         with open(self.task_plan_path, 'a', encoding='utf-8') as f:
-            f.write(f"\n[{{datetime.now().isoformat()}}] Phase {{phase}}: {{status}}\n")
-    
+            f.write("\n[{timestamp}] Phase {phase}: {status}\n".format(
+                timestamp=datetime.now().isoformat(),
+                phase=phase,
+                status=status
+            ))
+
     def get_current_status(self) -> Dict:
         """获取当前状态"""
         if not os.path.exists(self.task_plan_path):
-            return {{'status': 'error'}}
+            return {'status': 'error'}
         with open(self.task_plan_path, 'r', encoding='utf-8') as f:
             content = f.read()
         completed = content.count('[x]')
-        return {{'completed_phases': completed, 'progress_percentage': round(completed / 3 * 100, 1)}}
-    
+        return {'completed_phases': completed, 'progress_percentage': round(completed / 3 * 100, 1)}
+
     def recover_session(self) -> Dict:
         """恢复会话"""
         status = self.get_current_status()
         if status.get('status') == 'error':
             return status
-        return {{'status': 'recovered', 'current_phase': status['completed_phases'] + 1}}
+        return {'status': 'recovered', 'current_phase': status['completed_phases'] + 1}
 
 
 if __name__ == '__main__':

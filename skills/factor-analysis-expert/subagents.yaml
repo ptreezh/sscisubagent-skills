@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: fa-extractor
-    name: 因子提取器
+    name: Factor Extractor
     role: 执行因子提取和旋转
     triggers:
       - "因子提取"

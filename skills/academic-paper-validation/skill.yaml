@@ -1,0 +1,146 @@
+---
+name: academic-paper-validation
+version: 1.0.0-cli-native+agent
+description: |
+  学术论文验证专家技能（AI CLI 原生版）。支持多专家评审和投稿前核验。
+  确保论文质量达到期刊发表标准。
+
+  **学术诚信，质量优先**：严格遵循学术规范和出版伦理，确保引用准确、数据可重复、格式合规。
+
+  核心能力：
+  - 参考文献验证：逐条核对、格式检查、完整性检查
+  - 数据可重复性检查：来源追溯、分析验证、可用性声明
+  - 格式合规检查：期刊模板对照、字数限制、图表格式
+  - 多专家评审：文献/方法论/领域专家并行评审
+  - 学术伦理检查：抄袭检测、利益冲突、作者贡献
+
+  五大绝对禁止原则：
+  - 禁止忽视引用验证
+  - 禁止跳过数据核验
+  - 禁止无证据的完成声明
+  - 禁止声称"超越"而不了解
+  - 禁止不满足语言要求就声称可投稿
+
+author: SocienceAI Academic Expert
+license: MIT
+
+metadata:
+  version: "1.0.0-cli-native+agent"
+  methodology: "Academic Paper Validation Protocol"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "20-40分钟/论文"
+  parallel: "45分钟/论文（含多专家评审）"
+  quality_guarantee: "引用准确率100%，Critical问题解决率100%"
+
+analysis_types:
+  - reference-validation
+  - reproducibility-check
+  - format-compliance
+  - ethics-check
+  - multi-expert-review
+  - full-validation
+
+category: academic-validation
+tags:
+  - paper-validation
+  - reference-check
+  - reproducibility
+  - peer-review
+  - publication-ethics
+
+inputs:
+  manuscript:
+    type: object
+    required: true
+    description: 论文稿件文件
+  target_journal:
+    type: string
+    required: true
+    description: 目标期刊名称
+  validation_type:
+    type: string
+    required: true
+    description: 验证类型（reference-validation/reproducibility-check/full-validation）
+
+outputs:
+  validation_report:
+    type: object
+    description: 验证报告
+  issues_found:
+    type: list
+    description: 发现的问题列表
+  recommendations:
+    type: list
+    description: 修复建议
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: validate-references
+    description: 参考文献验证
+    module: validate_references
+  - name: check-reproducibility
+    description: 数据可重复性检查
+    module: check_reproducibility
+  - name: verify-format
+    description: 格式合规检查
+    module: verify_format
+  - name: check-ethics
+    description: 学术伦理检查
+    module: check_ethics
+  - name: organize-review
+    description: 多专家评审组织
+    module: organize_review
+  - name: generate-report
+    description: 验证报告生成
+    module: generate_report
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: reference_accuracy
+    description: 引用准确性检查
+    rule: "所有引用必须与原文核对，准确率100%"
+  - name: data_reproducibility
+    description: 数据可重复性检查
+    rule: "统计分析必须可独立重现"
+  - name: format_compliance
+    description: 格式合规检查
+    rule: "必须符合目标期刊格式要求"
+  - name: ethics_compliance
+    description: 伦理合规检查
+    rule: "必须符合学术伦理规范"
+  - name: critical_issues_resolved
+    description: Critical问题解决检查
+    rule: "所有Critical问题必须100%解决"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - PyYAML>=5.4.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+  - iflow
+
+allowed-tools: Read Write Bash(python:*)

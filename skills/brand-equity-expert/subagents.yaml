@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: awareness-meter
-    name: 品牌认知分析师
+    name: Brand Perception Analyst
     role: 测量品牌认知度
     triggers:
       - "认知度"

@@ -1,0 +1,48 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the factor-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 54.3
+quality_score: 77.25
+refinement_history:
+- delta: 59.25
+  quality_score: 59.25
+  timestamp: '2026-04-26T14:29:45.620537+00:00'
+- delta: 6.299999999999997
+  quality_score: 65.55
+  timestamp: '2026-04-27T13:11:57.629224+00:00'
+- delta: 22.950000000000003
+  quality_score: 77.25
+  timestamp: '2026-04-27T14:11:43.414253+00:00'
+skill: factor-analysis-expert
+structure_base: 101.0
+timestamp: '2026-04-27T14:11:43.414253+00:00'
+total_100: 116.0

@@ -4,7 +4,7 @@
 subagents:
   # Mode of Production Identification Agent
   - name: marx-mode-of-production-identifier
-    description: 识别生产方式及其矛盾（生产力与生产关系）
+    description: Identify production modes and their contradictions (productive forces and relations of production)
     prompt_template: prompts/mode-of-production-prompt.md
     tools:
       - mode_of_production_identifier

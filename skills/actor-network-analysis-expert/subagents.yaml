@@ -5,7 +5,7 @@
 subagents:
   # Actor Identification Agent
   - name: ant-actor-identifier
-    description: 识别并提取行动者（人类+非人），确保对称性原则
+    description: Identify and extract actors (human and non-human), ensuring the principle of symmetry
     prompt_template: prompts/actor-identification-prompt.md
     tools:
       - actor_extractor

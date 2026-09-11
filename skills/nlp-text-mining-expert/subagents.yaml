@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: text-preprocessor
-    name: 文本预处理师
+    name: Text Preprocessor
     role: 执行文本清洗、分词、标准化
     triggers:
       - "预处理"

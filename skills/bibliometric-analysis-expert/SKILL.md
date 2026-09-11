@@ -1,61 +1,18 @@
 ---
 name: bibliometric-analysis-expert
 description: |
-  文献计量分析专家。提供系统化学术文献分析方法，支持共引分析、
-  文献耦合、科学知识图谱、研究前沿识别。核心能力包括：数据检索、
-  指标计算、网络分析、可视化呈现。适用于学科发展分析、研究热点发现、
-  学术影响力评估等场景。
+  Bibliometric analysis expert. Provides citation network analysis, publication trend mapping, co-authorship patterns, h-index calculation, and research impact assessment. Suitable for scientometrics, literature review, and research evaluation.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "van Eck & Waltman (2014), Donthu et al. (2021)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 文献计量分析专家 (Bibliometric Analysis Expert)
-
-## 概述
-
-文献计量分析是运用数学和统计学方法对学术文献进行定量分析的研究方法，揭示学科发展规律、研究热点和学术影响力。
-
-## 分析流程
-
-```
-研究问题
-    │
-    ↓
-┌─────────────────┐
-│  数据检索       │ ← WoS/Scopus/知网
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  数据清洗       │ ← 去重、标准化
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  描述性分析     │ ← 发文量、被引统计
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  网络分析       │ ← 共引、耦合、合作
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  可视化呈现     │ ← 知识图谱、热点图
-└─────────────────┘
-```
-
-## 数据来源
-
-### 主要数据库
-
-| 数据库 | 覆盖范围 | 优势 |
-|--------|----------|------|
+-----|----------|------|
 | Web of Science | 全球核心期刊 | 引文数据完整 |
 | Scopus | 全面学术资源 | 期刊覆盖广 |
 | Google Scholar | 全面网络资源 | 免费开放 |
@@ -301,13 +258,51 @@ AI: 我将执行完整的文献计量分析：
 - large language model (2023, 强度: 12.1)
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `data_retriever.py` | 数据检索 |
-| `co_citation_analyzer.py` | 共引分析 |
-| `visualization_generator.py` | 可视化生成 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | co_citation_analyzer.py | 共引分析，构建文献共引网络并聚类 |
+| 2 | keyword_cooccurrence.py | 关键词共现分析，识别研究热点主题 |
+| 3 | author_network.py | 作者合作网络分析，评估学术影响力 |
+
+### CLI用法
+
+```bash
+python tools/co_citation_analyzer.py --input papers.json --output citations
+python tools/keyword_cooccurrence.py --input abstracts.csv --min-freq 5
+python tools/author_network.py --input authors.json --visualize
+```
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致文献计量分析结论失效。
+
+1. **禁止脱离数据来源空谈结论** — 未明确说明数据来源（WoS/Scopus/CNKI）即进行指标计算，导致结果无法验证和复现
+2. **禁止忽视数据清洗** — 跳过去重、标准化、字段补全等清洗步骤，导致计数偏差和虚假关联
+3. **禁止只看单一指标** — 仅凭发文量或被引量下结论，忽略H指数、期刊影响因子等多维指标综合评估
+4. **禁止混淆相关与因果** — 将共引关系、共现关系解读为因果关系，误导学科发展判断
+5. **禁止忽视时间维度** — 将历史文献与近期文献同等对待，忽略引文网络的时间衰减效应
+6. **禁止脱离领域语境** — 机械套用通用阈值（如H指数≥5）而不考虑学科差异，导致学科内不公平比较
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 数据来源说明完整（数据库、时间范围、检索式）
+- 分析步骤可追溯
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 指标选择有学科依据
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 多指标综合评估
+- 历史演变分析
 
 ## 参考文献
 

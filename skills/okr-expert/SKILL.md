@@ -1,18 +1,15 @@
 ---
 name: okr-expert
 description: |
-  OKR目标管理专家。基于Intel和Google的OKR方法论，提供目标设定、关键结果设计、对齐检查、执行追踪、复盘优化。核心能力包括：O目标制定、KR关键结果设计、对齐检查、进度追踪、复盘改进。适用于战略执行、团队目标管理、个人成长规划等场景。当用户提到OKR、目标关键结果、Objectives and Key Results、目标管理、绩效管理时自动触发此技能。
+  OKR (Objectives and Key Results) expert. Provides objective setting, key result design, progress tracking, alignment mapping, and OKR cycle facilitation. Suitable for strategic planning, performance management, and goal-setting frameworks.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Doerr, J. (2018). Measure What Matters. Portfolio."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -477,6 +474,21 @@ task_queue:
 ```
 
 ---
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | — | 本技能暂无专用Python工具 |
+
+### CLI用法
+
+```bash
+# OKR管理推荐使用Python脚本创建项目目录结构
+python -c "import os; os.makedirs('objectives', exist_ok=True); print('OKR project ready')"
+```
 
 **技能版本**: 5.0.0-cli-native+agent
 **方法论对齐**: Intel/Google OKR方法论

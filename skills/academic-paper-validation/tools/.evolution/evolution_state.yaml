@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+  test_prompt: 请用academic-paper-validation技能分析：某互联网公司的组织文化变革
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 49.8
+quality_score: 76.5
+refinement_history:
+- delta: 55.43
+  quality_score: 55.43
+  timestamp: '2026-04-26T14:28:45.573343+00:00'
+- delta: 26.700000000000003
+  quality_score: 76.5
+  timestamp: '2026-04-29T11:04:48.773215+00:00'
+skill: academic-paper-validation
+structure_base: 100.0
+timestamp: '2026-04-29T11:04:48.773215+00:00'
+total_100: 115.0

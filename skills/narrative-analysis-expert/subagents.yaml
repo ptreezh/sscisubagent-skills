@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: narr-structure
-    name: 结构分析师
+    name: Narrative Structure Analyst
     role: 执行Labov叙事结构分析
     triggers:
       - "结构分析"

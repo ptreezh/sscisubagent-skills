@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扎根理论专家 - SocienceAI 技能 | AI辅助质性研究</title>
+    <meta name="description" content="AI辅助扎根理论专家。含西游记"心猿秩序论"567编码+红楼梦"家族衰败"双案例演示。开放编码→轴心编码→选择编码全流程。M1达标✅(4.56分，8会话)。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --primary: #667eea;
+        --secondary: #764ba2;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --gold: #f59e0b;
+        --green: #22c55e;
+        --red: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    .navbar { background: white; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; gap: 2rem; }
+    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .hero { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 3.5rem 0; text-align: center; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; font-family: 'Noto Serif SC', serif; }
+    .hero p { font-size: 1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 1rem; }
+    .hero-badges { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 0.75rem; }
+    .hero-badges .badge { background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.78rem; }
+    .hero-badges .m1-badge { background: #dcfce7; color: #166534; font-weight: 700; border: 1px solid #86efac; }
+    .content { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* Case Study Showcase */
+    .case-showcase { margin-bottom: 3rem; }
+    .case-showcase h2 { font-size: 1.3rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .case-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 640px) { .case-cards { grid-template-columns: 1fr; } }
+
+    .case-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .case-card-header { padding: 1rem 1.25rem; color: white; }
+    .case-card-header.xiyouji { background: linear-gradient(135deg, #1a365d, #2c5282); }
+    .case-card-header.honglou { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+    .case-card-header h3 { font-size: 1rem; margin-bottom: 0.25rem; font-family: 'Noto Serif SC', serif; }
+    .case-card-header .subtitle { font-size: 0.78rem; opacity: 0.85; }
+    .case-card-body { padding: 1.25rem; }
+    .case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem; }
+    .stat { background: #f9fafb; border-radius: 6px; padding: 0.6rem; text-align: center; }
+    .stat .num { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+    .stat .label { font-size: 0.72rem; color: var(--muted); }
+    .case-finding { font-size: 0.88rem; color: #374151; background: #f9fafb; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem; border-left: 3px solid var(--primary); }
+    .case-finding strong { color: var(--text); }
+    .case-theory { font-size: 0.82rem; color: var(--muted); font-style: italic; text-align: center; margin-bottom: 0.75rem; }
+    .case-link { display: inline-block; width: 100%; text-align: center; background: var(--primary); color: white; padding: 0.5rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+    .case-link:hover { opacity: 0.9; }
+
+    /* Workflow Tutorial */
+    .workflow-section { margin-bottom: 3rem; }
+    .workflow-section h2 { font-size: 1.3rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } }
+    .workflow-step { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); text-align: center; position: relative; }
+    .step-num { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .workflow-step h3 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text); }
+    .workflow-step p { font-size: 0.82rem; color: var(--muted); }
+    .workflow-step .tools { margin-top: 0.75rem; font-size: 0.78rem; color: var(--primary); background: #f5f3ff; padding: 0.4rem 0.6rem; border-radius: 4px; }
+    .step-arrow { position: absolute; right: -1rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 1.2rem; display: none; }
+
+    /* Features */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .feature { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .feature h3 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .feature p { font-size: 0.85rem; color: var(--muted); }
+
+    /* CTA */
+    .cta-box { background: white; border: 2px solid var(--primary); border-radius: 12px; padding: 2rem; text-align: center; margin-bottom: 2.5rem; }
+    .cta-box h2 { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--text); }
+    .cta-box p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .btn { display: inline-block; padding: 0.7rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin: 0.25rem; }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+    .btn-green { background: linear-gradient(135deg, #16a34a, #22c55e); }
+
+    /* Validation Log */
+    .validation-log { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 2.5rem; }
+    .validation-log h2 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text); }
+    .vlog-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; }
+    .vlog-item:last-child { border-bottom: none; }
+    .vlog-tag { background: #3b82f6; color: white; padding: 0.15rem 0.5rem; border-radius: 1rem; font-size: 0.72rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.1rem; }
+    .vlog-tag.green { background: #22c55e; }
+    .vlog-text { font-size: 0.85rem; color: var(--muted); }
+    .vlog-score { color: var(--green); font-weight: 600; }
+    .m1-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #86efac; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center; }
+    .m1-box strong { color: #166534; font-size: 1rem; }
+    .m1-box span { color: #166534; font-size: 0.85rem; }
+
+    /* Footer */
+    .footer { background: #111827; color: #9ca3af; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 1.6rem; } }
+    
+        /* === 用户反馈弹幕 === */
+        .barrage-container {
+            position: relative;
+            height: 40px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .barrage-track {
+            position: absolute;
+            white-space: nowrap;
+            animation: barrage-scroll 20s linear infinite;
+            width: max-content;
+        }
+        .barrage-track:hover { animation-play-state: paused; }
+        @keyframes barrage-scroll {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        .barrage-item {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 2rem;
+            padding: 0.2rem 0.8rem;
+            margin: 0 1rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+        }
+        .barrage-type-feedback { border-color: rgba(102,126,234,0.6); background: rgba(102,126,234,0.2); }
+        .barrage-type-suggestion { border-color: rgba(16,185,129,0.6); background: rgba(16,185,129,0.2); }
+        .barrage-type-bug { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.2); }
+        .barrage-type-collab { border-color: rgba(245,158,11,0.6); background: rgba(245,158,11,0.2); }
+        .barrage-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .barrage-btn:hover { color: rgba(255,255,255,0.9); }
+        .barrage-empty {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 40px;
+        }
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav">
+            <a href="../../agentskills/skills.html" class="logo">SocienceAI</a>
+            <ul class="nav-links">
+                <li><a href="../../agentskills/skills.html">全部技能</a></li>
+                <li><a href="../../Tech/index.html">技术工具</a></li>
+                <li><a href="../../Dao/index.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="badge m1-badge">🎉 M1达标 · 8会话 · 4.56/5.0分</span>
+                <span class="badge">8会话验证</span>
+                <span class="badge">v5.0.0</span>
+                <span class="badge">理论饱和度检验</span>
+                <span class="badge">Cohen's Kappa信度</span>
+            </div>
+            <h1>扎根理论专家</h1>
+            <p>AI辅助质性研究：从开放编码到理论建构，含西游记567编码案例验证</p>
+        </div>
+    </section>
+
+    <div class="content">
+
+        <!-- Case Study Showcase -->
+        <div class="case-showcase">
+            <h2>🏆 真实研究案例（经系统核验）</h2>
+            <div class="case-cards">
+                <div class="case-card">
+                    <div class="case-card-header xiyouji">
+                        <h3>西游记 · 心猿秩序论</h3>
+                        <div class="subtitle">100回全文扎根理论 · AI辅助编码</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">567</div><div class="label">扎根编码</div></div>
+                            <div class="stat"><div class="num">21</div><div class="label">核心范畴</div></div>
+                            <div class="stat"><div class="num">91%</div><div class="label">理论饱和度</div></div>
+                            <div class="stat"><div class="num">13</div><div class="label">核心命题</div></div>
+                        </div>
+                        <div class="case-finding">
+                            <strong>核心发现：</strong>孙悟空的成长历程遵循"心性觉醒→力量追寻→秩序挑战→秩序重构"四阶段模型，揭示了个体如何在既有秩序中寻求超越。
+                        </div>
+                        <div class="case-theory">"存在忧思是触发自我超越的先决条件" —— 核心命题</div>
+                        <a href="https://www.socienceai.com/reports/xiyouji-GT/" class="case-link">查看完整报告 →</a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header honglou">
+                        <h3>红楼梦 · 家族衰败论</h3>
+                        <div class="subtitle">120回扎根理论 · 文本-网络映射</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">120</div><div class="label">分析章回</div></div>
+                            <div class="stat"><div class="num">45+</div><div class="label">核心人物</div></div>
+                            <div class="stat"><div class="num">4层</div><div class="label">网络理论</div></div>
+                            <div class="stat"><div class="num">8.5</div><div class="label">最高争议指数</div></div>
+                        </div>
+                        <div class="case-finding">
+                            <strong>核心发现：</strong>"封建家族的衰败加速与个体命运的悲剧深化"——构建了个体、关系、社区、整体网络四层次理论模型。
+                        </div>
+                        <div class="case-theory">"家族衰败加速 → 个体悲剧深化" —— 因果链</div>
+                        <a href="https://www.socienceai.com/reports/hongloumeng_analysis/" class="case-link">查看完整报告 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Tutorial -->
+        <div class="workflow-section">
+            <h2>📚 三阶段编码教程（方法论零门槛）</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-num">1</div>
+                    <h3>开放编码</h3>
+                    <p>从原始文本中逐行标注概念，AI辅助识别初始范畴，将质性数据转化为结构化编码。</p>
+                    <div class="tools">segment-data.py · batch_analyzer.py</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">2</div>
+                    <h3>轴心编码</h3>
+                    <p>将开放编码归并为更大范畴，识别范畴间关系，构建Paradigm范式模型（条件/现象/脉络/策略/结果）。</p>
+                    <div class="tools">axial_coding.py · paradigm_builder.py</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">3</div>
+                    <h3>选择编码</h3>
+                    <p>识别核心范畴，整合所有范畴形成理论框架，检验理论饱和度，输出完整扎根理论。</p>
+                    <div class="tools">selective_coding.py · saturation_checker.py</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature">
+                <h3>🔬 理论饱和度检验</h3>
+                <p>自动计算饱和度指标，告诉你什么时候可以停止收集数据，避免过度编码。</p>
+            </div>
+            <div class="feature">
+                <h3>📊 编码者信度评估</h3>
+                <p>Cohen's Kappa系数评估多编码者一致性，确保编码结果的可靠性与可重复性。</p>
+            </div>
+            <div class="feature">
+                <h3>🤖 6大禁止原则</h3>
+                <p>定性分析100%由AI智力驱动，工具只做数据结构与算法执行，拒绝硬编码结论。</p>
+            </div>
+            <div class="feature">
+                <h3>📖 完整案例支撑</h3>
+                <p>红楼梦、西游记两个完整案例，567+45编码验证，三阶段流程真实可复现。</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>开始你的扎根理论研究</h2>
+            <p>从访谈记录到理论建构，AI降低技术门槛，研究者可专注理论创新</p>
+            <a href="../../_packages/grounded-theory-expert.zip" class="btn btn-outline" download>📦 下载本地 Zip</a>
+            <a href="https://agent.minimaxi.com/" target="_blank" class="btn btn-outline" style="background:#7c3aed;border-color:#7c3aed;color:#fff;">🤖 MinimaxiAgent 在线体验</a>
+            <a href="https://www.codebuddy.cn/fission/?inviteCode=wopt5q340ydq" target="_blank" class="btn btn-outline" style="background:#10b981;border-color:#10b981;color:#fff;">💬 WorkBuddy 小程序</a>
+            <a href="SKILL.md" class="btn">查看完整文档</a>
+            <a href="https://www.socienceai.com/promote/article-02-5min-grounded-theory.html" class="btn btn-outline">5分钟上手指南</a>
+            <a href="../../agentskills/skills.html" class="btn btn-outline">浏览全部技能</a>
+        </div>
+
+        <!-- How to Use -->
+        <div style="background: white; border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2.5rem;">
+            <h2 style="font-size: 1.2rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; display: block;">🚀 三种方式加载本技能</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                <div style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 1.25rem;">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
+                    <h3 style="font-size: 0.95rem; color: #166534; margin-bottom: 0.5rem;">方式一：WorkBuddy</h3>
+                    <p style="font-size: 0.8rem; color: #166534; margin-bottom: 0.75rem;">微信小程序远程控制，本地运行，数据私密安全</p>
+                    <ul style="font-size: 0.8rem; color: #166534; padding-left: 1rem; margin-bottom: 0.75rem;">
+                        <li>下载安装 WorkBuddy 桌面端</li>
+                        <li>进入「技能管理」→「加载本地技能」</li>
+                        <li>加载扎根理论技能文件夹</li>
+                        <li>自然语言描述研究任务，开始分析</li>
+                    </ul>
+                    <a href="https://www.codebuddy.cn/fission/?fromSource=gwzcw" style="font-size: 0.8rem; color: #166534; font-weight: 600;" target="_blank">官网下载 WorkBuddy →</a>
+                </div>
+                <div style="background: #f5f3ff; border: 1px solid #c4b5fd; border-radius: 10px; padding: 1.25rem;">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🧩</div>
+                    <h3 style="font-size: 0.95rem; color: #4c1d95; margin-bottom: 0.5rem;">方式二：Stigmergy（npm）</h3>
+                    <p style="font-size: 0.8rem; color: #4c1d95; margin-bottom: 0.75rem;">Node.js研究工作流编排平台，命令行驱动</p>
+                    <ul style="font-size: 0.8rem; color: #4c1d95; padding-left: 1rem; margin-bottom: 0.75rem;">
+                        <li><code style="background:#ede9fe;padding:0.1rem 0.3rem;border-radius:4px;">npm install -g stigmergy</code></li>
+                        <li>克隆 GitHub 技能包</li>
+                        <li>配置 Claude API 密钥</li>
+                        <li>运行 <code style="background:#ede9fe;padding:0.1rem 0.3rem;border-radius:4px;">stig run grounded-theory</code></li>
+                    </ul>
+                    <a href="https://www.npmjs.com/package/stigmergy" style="font-size: 0.8rem; color: #4c1d95; font-weight: 600;" target="_blank">npm 官方包页面 →</a>
+                </div>
+                <div style="background: #fef3c7; border: 1px solid #fcd34d; border-radius: 10px; padding: 1.25rem;">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔧</div>
+                    <h3 style="font-size: 0.95rem; color: #92400e; margin-bottom: 0.5rem;">方式三：Claude Code</h3>
+                    <p style="font-size: 0.8rem; color: #92400e; margin-bottom: 0.75rem;">AI编程工具直接加载技能，深度研究流程</p>
+                    <ul style="font-size: 0.8rem; color: #92400e; padding-left: 1rem; margin-bottom: 0.75rem;">
+                        <li>安装 Claude Code CLI</li>
+                        <li>克隆技能包：<code style="background:#fef3c7;padding:0.1rem 0.3rem;border-radius:4px;">git clone</code></li>
+                        <li>复制 skills/ 目录到项目</li>
+                        <li>用 <code style="background:#fef3c7;padding:0.1rem 0.3rem;border-radius:4px;">/skill grounded-theory</code> 加载</li>
+                    </ul>
+                    <a href="https://github.com/ptreezh/superpower-socialscience-skills" style="font-size: 0.8rem; color: #92400e; font-weight: 600;" target="_blank">GitHub 技能包 →</a>
+                </div>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--muted); margin-top: 1rem; text-align: center;">
+                查看完整图文教程：<a href="https://www.socienceai.com/tutorials/using-superpowers/index.html" style="color: var(--primary); font-weight: 600;">5分钟上手指南（含微信小程序远程控制）</a>
+            </p>
+        </div>
+
+        <!-- Validation Log -->
+        <div class="validation-log">
+            <h2>✅ 核验迭代日志（8会话验证）</h2>
+
+            <div class="vlog-item">
+                <span class="vlog-tag gold">s008 · 4.67分 ⭐</span>
+                <span class="vlog-text">新教师职业适应研究（15人）；教学自我效能社会化重建核心范畴，axical_coding v2.0完全稳定</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag gold">s007 · 4.83分 ⭐</span>
+                <span class="vlog-text">电商用户行为研究（20人焦点小组）；理性/非理性动态博弈核心范畴，axical_coding v2.0完全正常</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s006 · 4.67分</span>
+                <span class="vlog-text">教育研究访谈（15人职业倦怠）；20编码→8范畴→12关系；制度性倦怠陷阱发现</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s005 · 4.83分</span>
+                <span class="vlog-text">编码信度评估（Cohen's Kappa，3编码者）；GT工具链100%完整</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s004 · 4.67分</span>
+                <span class="vlog-text">理论饱和度检验（15编码/5受访者）；Paradigm关系生成完全修复</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s003 · 4.50分</span>
+                <span class="vlog-text">选择编码专项验证（selective_coding.py）；三阶段工具链完整率100%</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s002 · 4.40分</span>
+                <span class="vlog-text">边界场景验证（极小样本5受访者）；saturation_checker有效</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag">s001 · 4.10分</span>
+                <span class="vlog-text">工具链基础验证（segment-data + assess-saturation）；8工具全部存在</span>
+            </div>
+
+            <div class="m1-box">
+                <strong>🎉 M1里程碑达成</strong><br>
+                <span>8会话，累积 <strong>4.56分</strong>，目标4.5，M1达标 ✅</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 SocienceAI. 双向赋能人机协同智慧.</p>
+        </div>
+    </footer>
+</body>
+</html>

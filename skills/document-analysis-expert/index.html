@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Analysis - SocienceAI 技能</title>
+    <meta name="description" content="文档分析专家技能基于社会学文档分析方法，提供对各类文档（政策文件、组织文档、个人文献）的系统分析能力。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --primary: #667eea;
+        --secondary: #764ba2;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .navbar { background: white; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; gap: 2rem; }
+    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--primary); }
+    .hero { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 4rem 0; text-align: center; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .hero .version { background: rgba(255,255,255,0.2); display: inline-block; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+    .content { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .section { margin-bottom: 3rem; }
+    .section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; display: block; }
+    .section p { color: var(--muted); margin-bottom: 1rem; }
+    .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; }
+    .feature h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .feature p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+    .cta { background: white; border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; text-align: center; margin-bottom: 3rem; }
+    .cta h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .cta p { color: var(--muted); margin-bottom: 1.5rem; }
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.25rem; }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+    .files { background: white; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; }
+    .files ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.5rem; }
+    .files li { font-size: 0.85rem; color: var(--muted); padding: 0.25rem 0; }
+    .footer { background: #111827; color: #9ca3af; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 1.6rem; } }
+
+        /* === 用户反馈弹幕 === */
+        .barrage-container {
+            position: relative;
+            height: 40px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .barrage-track {
+            position: absolute;
+            white-space: nowrap;
+            animation: barrage-scroll 20s linear infinite;
+            width: max-content;
+        }
+        .barrage-track:hover { animation-play-state: paused; }
+        @keyframes barrage-scroll {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        .barrage-item {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 2rem;
+            padding: 0.2rem 0.8rem;
+            margin: 0 1rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+        }
+        .barrage-type-feedback { border-color: rgba(102,126,234,0.6); background: rgba(102,126,234,0.2); }
+        .barrage-type-suggestion { border-color: rgba(16,185,129,0.6); background: rgba(16,185,129,0.2); }
+        .barrage-type-bug { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.2); }
+        .barrage-type-collab { border-color: rgba(245,158,11,0.6); background: rgba(245,158,11,0.2); }
+        .barrage-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .barrage-btn:hover { color: rgba(255,255,255,0.9); }
+        .barrage-empty {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 40px;
+        }
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav">
+            <a href="../../agentskills/skills.html" class="logo">SocienceAI</a>
+            <ul class="nav-links">
+                <li><a href="../../agentskills/skills.html">全部技能</a></li>
+                <li><a href="../../Tech/index.html">技术工具</a></li>
+                <li><a href="../../Dao/index.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="version">2.0.0</div>
+            <h1>Document Analysis</h1>
+            <p>文档分析专家技能基于社会学文档分析方法，提供对各类文档（政策文件、组织文档、个人文献）的系统分析能力。</p>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="section">
+            <h2>技能说明</h2>
+            <p>文档分析专家技能基于社会学文档分析方法，提供对各类文档（政策文件、组织文档、个人文献）的系统分析能力。</p>
+        </div>
+
+        <div class="section">
+            <h2>使用方式</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>OpenCode / WorkBuddy</h3>
+                    <p>在 OpenCode 或 WorkBuddy（支持小程序）中使用 /skill document-analysis-expert 命令加载此技能</p>
+                </div>
+                <div class="feature">
+                    <h3>CLI 直接使用</h3>
+                    <p>阅读 SKILL.md 获取完整提示词和使用指南</p>
+                </div>
+                <div class="feature">
+                    <h3>集成到工作流</h3>
+                    <p>将 skills/ 目录链接到你的 AI CLI 项目中</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>目录结构</h2>
+            <div class="files">
+                <ul>
+                    <li><a href="SKILL.md">SKILL.md</a> - 核心技能定义（完整版 v2.0.0）</li>
+                    <li><a href="README.md">README.md</a> - 使用说明</li>
+                    <li><a href="prompts/">prompts/</a> - 专用提示词库</li>
+                    <li><a href="cases/">cases/</a> - 案例库（正例+负例）</li>
+                    <li><a href="tools/">tools/</a> - 工具脚本（3个：文档分类器/内容结构分析/语境追踪）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>开始使用 Document Analysis</h2>
+            <p>立即在研究工作中应用此技能，提升研究效率</p>
+            <a href="SKILL.md" class="btn">查看完整文档</a>
+            <a href="../../agentskills/skills.html" class="btn btn-outline">浏览更多技能</a>
+        <a href="../../_packages/document-analysis-expert.zip" class="btn btn-outline" download>📦 下载本地 Zip</a>
+            <a href="https://agent.minimaxi.com/" target="_blank" class="btn btn-outline" style="background:#7c3aed;border-color:#7c3aed;color:#fff;">🤖 MinimaxiAgent 在线体验</a>
+            <a href="https://www.codebuddy.cn/fission/?inviteCode=wopt5q340ydq" target="_blank" class="btn btn-outline" style="background:#10b981;border-color:#10b981;color:#fff;">💬 WorkBuddy 小程序</a></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 SocienceAI. 双向赋能人机协同智慧.</p>
+        </div>
+    
+    <div class="version-log" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+        <h2 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary); display: block;">
+            🔄 版本迭代日志
+        </h2>
+        <div class="notice" style="background: #f0fdf4; border: 1px solid #22c55e; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem;">
+            <strong style="color: #166534;">本技能为活技能，在持续迭代中不断改进。</strong>
+            每次更新会记录在下方版本日志中。
+        </div>
+        <div class="changelog">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                <span class="tag" style="background: #22c55e; color: white; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem;">v2.0.0 - 2026-04-05</span>
+                <span style="font-size: 0.85rem; color: var(--muted);">版本迭代日志已添加</span>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--muted); margin-top: 1rem;">
+            查看完整更新历史: <a href="https://github.com/socienceai/socienceai/commits/main/agentskills/document-analysis-expert" style="color: var(--primary);">GitHub Commits</a>
+        </p>
+    </div>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: llm_judgment
+  output: '[TOOL: analyze.py]
+
+    === Detail Level 1 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''detail_level'']
+
+
+    === Detail Level 2 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''main_results'',
+    ''detail_level'']
+
+
+    === Detail Level 3 ===
+
+    输出字段：[''status'', ''skill'', ''timestamp'', ''detail_level'', ''data'', ''phases'']
+
+    '
+  passed: false
+  test_prompt: 分析在线知识付费平台（如知乎、得到）的文化生产场域，用布迪厄场域理论框架。
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 8.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: false
+previous_score: 8.32
+quality_score: 8.32
+refinement_history:
+- delta: 5.0
+  quality_score: 5.0
+  timestamp: '2026-04-25T09:32:17.090378+00:00'
+- delta: 2.12
+  quality_score: 7.53
+  timestamp: '2026-04-25T10:39:29.919461+00:00'
+- delta: 0.79
+  quality_score: 8.32
+  timestamp: '2026-04-25T11:31:22.946106+00:00'
+skill: bourdieu-field-analysis-expert
+structure_base: 57.5
+timestamp: '2026-04-26T04:47:48.218720+00:00'
+total_100: 83.2

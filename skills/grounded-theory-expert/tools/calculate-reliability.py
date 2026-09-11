@@ -56,33 +56,30 @@ def calculate_cohens_kappa(coding_1: List[str], coding_2: List[str]) -> Dict:
     else:
         kappa = (po - pe) / (1 - pe)
     
-    # 解释 Kappa 值
-    if kappa >= 0.8:
-        interpretation = 'excellent'
-        status = 'acceptable'
-    elif kappa >= 0.7:
-        interpretation = 'good'
-        status = 'acceptable'
-    elif kappa >= 0.6:
-        interpretation = 'moderate'
-        status = 'acceptable'
-    elif kappa >= 0.4:
-        interpretation = 'fair'
-        status = 'needs_improvement'
-    else:
-        interpretation = 'poor'
-        status = 'unacceptable'
-    
+    # 阈值分支自动判断已禁用
+    # Python保留kappa原始值，interpretation/status由LLM基于信度理论判断
+    computed_kappa = round(kappa, 3)
+
+    RELIABILITY_METHODOLOGY_MEMO = """【信度诠释 - LLM专属判断】
+    Cohen's Kappa诠释参考标准(Landis & Koch 1977)：
+    - κ < 0: 无一致性
+    - 0 ≤ κ < 0.20: 轻微一致
+    - 0.21 ≤ κ < 0.40: 尚可一致
+    - 0.41 ≤ κ < 0.60: 中度一致
+    - 0.61 ≤ κ < 0.80: 高度一致
+    - 0.81 ≤ κ ≤ 1.00: 几乎完全一致
+    注意：Kappa值本身是定量信号，interpretation和status由LLM基于研究语境判断"""
+
     return {
-        'cohens_kappa': round(kappa, 3),
+        'cohens_kappa': computed_kappa,  # 保留：定量测量
         'agreement_rate': round(po, 3),
         'expected_agreement': round(pe, 3),
         'total_codes': n,
         'agreements': agreements,
         'disagreements': n - agreements,
-        'interpretation': interpretation,
-        'status': status,
-        'threshold': 0.7
+        'interpretation': None,           # 禁用阈值分支 → LLM填充
+        'status': None,                   # 禁用阈值分支 → LLM填充
+        'methodology_memo': RELIABILITY_METHODOLOGY_MEMO,
     }
 
 
@@ -157,14 +154,18 @@ def calculate_reliability(codings: List[List[str]]) -> Dict:
                 'agreement_rate': kappa_result['agreement_rate']
             })
     
-    # 平均 Kappa
+    # 平均 Kappa（阈值分支→标签已禁用，status由LLM填充）
     avg_kappa = sum(p['kappa'] for p in kappa_pairs) / len(kappa_pairs) if kappa_pairs else 0
-    
+
     return {
         'average_kappa': round(avg_kappa, 3),
         'pairs': kappa_pairs,
         'num_coders': len(codings),
-        'status': 'acceptable' if avg_kappa >= 0.7 else 'needs_improvement'
+        'status': None,   # 禁用阈值分支 → LLM填充
+        'methodology_memo': (
+            "average_kappa是定量信号，status由LLM基于信度标准判断。"
+            "Landis & Koch(1977)标准：κ≥0.8几乎完全一致，κ≥0.6高度一致，κ≥0.4中度一致"
+        ),
     }
 
 

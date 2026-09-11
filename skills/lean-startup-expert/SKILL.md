@@ -1,18 +1,15 @@
 ---
 name: lean-startup-expert
 description: |
-  精益创业专家。基于Eric Ries的精益创业方法论，提供MVP开发、验证性学习、构建-衡量-学习循环、转型决策支持。核心能力包括：商业模式假设识别、MVP设计、创新会计、转型或坚持决策。适用于创业项目验证、新产品开发、企业内部创新等场景。当用户提到精益创业、Lean Startup、MVP、验证性学习、转型pivot、创新会计时自动触发此技能。
+  Lean Startup expert. Provides hypothesis testing, MVP design, validated learning, pivot/persevere decision framework, and lean analytics. Suitable for entrepreneurship, product development, and agile business innovation.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Ries, E. (2011). The Lean Startup. Crown Business."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -109,6 +106,10 @@ print(f"项目目录创建完成: {project_path}")
 ├── pivot-analysis/   # 转型决策分析
 └── logs/             # 日志
 ```
+
+## 🖥️ Python 工具
+
+> 当前版本暂无独立的Python工具文件。精益创业功能在AI CLI中通过构建-衡量-学习循环与假设验证流程实现。
 
 ## 6大绝对禁止原则
 
@@ -424,7 +425,31 @@ print(f"项目目录创建完成: {project_path}")
 5. **Blank, S. (2013)**. *The Startup Owner's Manual*. K&S Ranch.
    - 创业手册
 
-### 理论基础
+#
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | hypothesis_builder.py | 精益假设构建（价值假设/增长假设/引擎假设） |
+| 2 | experiment_designer.py | 实验设计（MVP类型/成功指标/临界指标） |
+| 3 | mvp_tracker.py | MVP追踪（构建-测量-学习循环记录） |
+
+### CLI用法
+
+```bash
+# 构建精益假设
+python tools/hypothesis_builder.py --type value --target users
+
+# 设计MVP实验
+python tools/experiment_designer.py --mvp-type landing --metric signup_rate
+
+# 追踪学习循环
+python tools/mvp_tracker.py --sprint 3 --learnings "用户更关注价格"
+```
+
+## 理论基础
 
 - **科学方法论**: 假设-实验-验证的循环
 - **丰田生产方式**: 精益思想来源

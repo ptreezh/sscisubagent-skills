@@ -1,18 +1,15 @@
 ---
 name: agile-pm-expert
 description: |
-  敏捷项目管理专家。基于Scrum和Kanban的敏捷方法论，提供Sprint规划、迭代执行、站会管理、回顾改进。核心能力包括：产品待办列表管理、Sprint规划、每日站会、Sprint评审、回顾会议、敏捷度量。适用于软件开发项目、产品迭代、团队协作优化等场景。当用户提到敏捷、Agile、Scrum、Sprint、Kanban、站会、迭代时自动触发此技能。
+  Agile Project Management expert. Provides Scrum/Kanban framework implementation, sprint planning, backlog prioritization, team facilitation, and velocity tracking. Suitable for software development, product management, and adaptive project delivery.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Schwaber, K. & Sutherland, J. (2020). Scrum Guide."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -109,6 +106,10 @@ print(f"项目目录创建完成: {project_path}")
 ├── retrospectives/   # 回顾会议记录
 └── logs/             # 日志
 ```
+
+## 🖥️ Python 工具
+
+> 当前版本暂无独立的Python工具文件。敏捷项目管理功能在AI CLI中通过任务队列与结构化流程实现。
 
 ## 6大绝对禁止原则
 
@@ -475,7 +476,31 @@ Scrum工件:
 5. **Cohn, M. (2009)**. *Succeeding with Agile: Software Development Using Scrum*. Addison-Wesley.
    - Scrum成功实践
 
-### 理论基础
+#
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | sprint_planner.py | Sprint计划工具（故事点估算/优先级排序） |
+| 2 | task_board.py | 看板管理（Kanban列/在制品限制/WIP） |
+| 3 | velocity_tracker.py | 团队速率追踪（燃尽图/SPI趋势） |
+
+### CLI用法
+
+```bash
+# 创建Sprint计划
+python tools/sprint_planner.py --team-size 5 --sprint-length 2
+
+# 更新任务状态
+python tools/task_board.py --task-id TASK-123 --status in_progress
+
+# 查看团队速率
+python tools/velocity_tracker.py --team research --sprint 6
+```
+
+## 理论基础
 
 - **敏捷宣言**: 敏捷软件开发宣言
 - **精益生产**: 丰田生产系统

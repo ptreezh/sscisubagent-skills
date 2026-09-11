@@ -1,0 +1,67 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: llm_judgment
+  output: "[TOOL: actor_extractor.py]\n{\n  \"status\": \"success\",\n  \"result\"\
+    : {\n    \"source_type\": \"document\",\n    \"actors_found\": [\n      {\n  \
+    \      \"name\": \"李明\",\n        \"type\": \"human\",\n        \"role\": \"工程师\"\
+    \n      },\n      {\n        \"name\": \"张处长\",\n        \"type\": \"human\",\n\
+    \        \"role\": \"政府官员\"\n      },\n      {\n        \"name\": \"华为公司\",\n\
+    \        \"type\": \"organization\",\n        \"role\": \"技术供应商\"\n      },\n\
+    \      {\n        \"name\": \"智慧城市平台\",\n        \"type\": \"technology\",\n \
+    \       \"role\": \"技术系统\"\n      },\n      {\n        \"name\": \"政策文件\",\n \
+    \       \"type\": \"text\",\n        \"role\": \"规范文件\"\n      },\n      {\n \
+    \       \"name\": \"传感器\",\n        \"type\": \"technology\",\n        \"role\"\
+    : \"数据采集设备\"\n      },\n      {\n        \"name\": \"AI算法\",\n        \"type\"\
+    : \"technology\",\n        \"role\": \"智能分析引擎\"\n      },\n      {\n        \"\
+    name\": \"APP\",\n        \"type\": \"technology\",\n "
+  passed: false
+  test_prompt: 用行动者网络理论（ANT）分析微信生态系统的形成过程。
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 3.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: false
+previous_score: 7.79
+quality_score: 7.79
+refinement_history:
+- delta: 5.0
+  quality_score: 5.0
+  timestamp: '2026-04-24T13:56:23.888540+00:00'
+- delta: 2.2800000000000002
+  quality_score: 7.28
+  timestamp: '2026-04-25T10:41:00.188688+00:00'
+- delta: 0.3799999999999999
+  quality_score: 7.66
+  timestamp: '2026-04-25T10:50:45.620018+00:00'
+- delta: 0.3000000000000007
+  quality_score: 7.61
+  timestamp: '2026-04-25T11:29:26.683773+00:00'
+- delta: -0.15
+  note: re-eval (no improvement)
+  quality_score: 7.31
+  timestamp: '2026-04-25T11:46:38.273930+00:00'
+skill: actor-network-analysis-expert
+structure_base: 76.7
+timestamp: '2026-04-26T10:36:57.615876+00:00'
+total_100: 77.9

@@ -241,67 +241,53 @@ class QualityReviewer:
         返回:
             检查结果
         """
-        # TODO: 实现具体的检查逻辑
-        # 目前使用模拟实现
-        
-        # 模拟检查逻辑(实际应该检查 analysis_result 中的具体数据)
-        score = 0
-        status = QualityCheckStatus.FAILED
+        # 阈值分支→status标签已禁用
+        # Python保留原始定量信号，status判定由LLM基于GT质量标准判断
+        computed_score = 0
+        computed_status = None
         message = "未执行实际检查"
-        
-        # 示例：检查编码者间信度
+
         if checkpoint.id == "QC-2.1":
-            kappa = analysis_result.get('kappa', 0)
-            if kappa >= 0.7:
-                score = 100
-                status = QualityCheckStatus.PASSED
-                message = f"Kappa 系数={kappa:.2f} > 0.7, 通过"
-            elif kappa >= 0.6:
-                score = 70
-                status = QualityCheckStatus.WARNING
-                message = f"Kappa 系数={kappa:.2f} < 0.7, 警告"
-            else:
-                score = 40
-                message = f"Kappa 系数={kappa:.2f} < 0.6, 失败"
-        
-        # 示例：检查编码本完整性
+            # Cohen's Kappa信度检查
+            kappa_val = analysis_result.get('kappa', 0)
+            computed_score = round(kappa_val * 100, 1)  # 保留定量信号
+            computed_status = None  # 禁用阈值分支 → LLM填充
+            message = f"Cohen's Kappa原始值={kappa_val:.3f}，status由LLM判断"
+
         elif checkpoint.id == "QC-2.3":
+            # 编码本完整性检查
             concept_count = analysis_result.get('concept_count', 0)
-            if concept_count >= 30:
-                score = 100
-                status = QualityCheckStatus.PASSED
-                message = f"概念数量={concept_count} ≥ 30, 通过"
-            else:
-                score = max(40, concept_count / 30 * 100)
-                status = QualityCheckStatus.FAILED if score < 60 else QualityCheckStatus.WARNING
-                message = f"概念数量={concept_count} < 30"
-        
-        # 示例：检查范畴饱和度
+            computed_score = min(100, round(concept_count / 30 * 100, 1))  # 保留定量信号
+            computed_status = None  # 禁用阈值分支 → LLM填充
+            message = f"概念数量={concept_count}，status由LLM基于研究语境判断"
+
         elif checkpoint.id == "QC-3.1":
+            # 范畴饱和度检查
             saturation = analysis_result.get('category_saturation', 0)
-            if saturation >= 85:
-                score = 100
-                status = QualityCheckStatus.PASSED
-                message = f"范畴饱和度={saturation:.1f}% ≥ 85%, 通过"
-            else:
-                score = saturation
-                status = QualityCheckStatus.FAILED
-                message = f"范畴饱和度={saturation:.1f}% < 85%"
-        
-        # 默认：模拟分数
+            computed_score = saturation  # 保留原始分数
+            computed_status = None  # 禁用阈值分支 → LLM填充
+            message = f"范畴饱和度原始值={saturation}，status由LLM判断"
+
+        # 默认：保留定量信号
         else:
-            score = 75  # 默认模拟分数
-            status = QualityCheckStatus.WARNING
-            message = "模拟检查(待实现具体逻辑)"
-        
+            computed_score = 50  # 默认定量信号
+            computed_status = None  # 禁用默认标签 → LLM填充
+            message = "默认定量信号，status由LLM判断"
+
         return {
             'id': checkpoint.id,
             'name': checkpoint.name,
             'description': checkpoint.description,
-            'status': status.value,
-            'score': score,
+            'status': computed_status,   # None = LLM填充
+            'score': computed_score,     # 保留定量测量
             'message': message,
-            'evidence': analysis_result.get('evidence', '')
+            'evidence': analysis_result.get('evidence', ''),
+            'methodology_memo': (
+                "质量检查信号说明:\n"
+                "- score是原始定量信号（0-100），不是阈值分支结论\n"
+                "- status(PASSED/WARNING/FAILED)由LLM基于研究语境判断\n"
+                "- 0.7/0.6/30/85等阈值仅为参考，不是绝对标准"
+            ),
         }
 
     def _save_review_result(self, result: Dict[str, Any]):

@@ -1,0 +1,48 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the media-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 59.62
+quality_score: 63.53
+refinement_history:
+- delta: 59.45
+  quality_score: 59.45
+  timestamp: '2026-04-26T05:23:00.305956+00:00'
+- delta: 9.549999999999997
+  quality_score: 59.62
+  timestamp: '2026-04-30T14:06:40.616161+00:00'
+- delta: 3.9100000000000037
+  quality_score: 63.53
+  timestamp: '2026-05-02T03:25:03.569981+00:00'
+skill: media-analysis-expert
+structure_base: 82.7
+timestamp: '2026-05-02T03:25:03.569981+00:00'
+total_100: 97.7

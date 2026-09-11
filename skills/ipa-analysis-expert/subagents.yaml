@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: ipa-interviewer
-    name: 访谈设计师
+    name: Interview Designer
     role: 设计半结构化访谈提纲
     triggers:
       - "访谈"

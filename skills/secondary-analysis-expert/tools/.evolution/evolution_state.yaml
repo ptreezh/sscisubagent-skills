@@ -1,0 +1,60 @@
+benchmark:
+  benchmark_score: 7.0
+  eval_mode: tool_test(data_quality_assessor.py)
+  output: "[TOOL: data_quality_assessor.py]\n{\n  \"overall_score\": 0.795,\n  \"\
+    dimensions\": {\n    \"conceptual_validity\": {\n      \"name\": \"概念效度\",\n \
+    \     \"score\": 0.8,\n      \"weight\": 0.25,\n      \"weighted_score\": 0.2,\n\
+    \      \"indicators\": [\n        \"测量是否有效\",\n        \"概念是否匹配\",\n        \"\
+    效度检验结果\"\n      ]\n    },\n    \"sample_representativeness\": {\n      \"name\"\
+    : \"样本代表性\",\n      \"score\": 0.7,\n      \"weight\": 0.25,\n      \"weighted_score\"\
+    : 0.175,\n      \"indicators\": [\n        \"抽样方法\",\n        \"响应率\",\n     \
+    \   \"样本量\"\n      ]\n    },\n    \"data_completeness\": {\n      \"name\": \"\
+    数据完整性\",\n      \"score\": 0.9,\n      \"weight\": 0.2,\n      \"weighted_score\"\
+    : 0.18000000000000002,\n      \"indicators\": [\n        \"缺失率\",\n        \"\
+    变量完整性\",\n        \"记录完整性\"\n      ]\n    },\n    \"measurement_reliability\"\
+    : {\n      \"name\": \"测量可靠性\",\n      \"score\": 0.75,\n      \"weight\": 0.15,\n\
+    \      \"we"
+  passed: true
+test_prompt: "Please use the secondary-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 7.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 61.97
+quality_score: 66.78
+refinement_history:
+- delta: 61.03
+  quality_score: 61.03
+  timestamp: '2026-04-26T09:49:09.983034+00:00'
+- delta: 10.32
+  quality_score: 61.97
+  timestamp: '2026-04-30T14:13:31.135795+00:00'
+- delta: 4.810000000000002
+  quality_score: 66.78
+  timestamp: '2026-05-01T04:33:58.578633+00:00'
+skill: secondary-analysis-expert
+structure_base: 86.7
+timestamp: '2026-05-01T04:33:58.578633+00:00'
+total_100: 104.2

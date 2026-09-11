@@ -1,42 +1,18 @@
 ---
 name: mixed-methods-expert
 description: |
-  混合方法研究专家。提供系统化混合方法设计，支持收敛设计、解释性设计、
-  探索性设计、嵌入式设计、转化设计。核心能力包括：研究设计整合、
-  数据整合策略、元推断、方法论对话、质量评估。遵循Creswell & Plano Clark (2018)标准。
+  Mixed Methods expert. Provides methodological integration, sequential/parallel design, data triangulation, mixed analysis techniques, and paradigm bridging. Suitable for complex research designs, methodological pluralism, and integrated inquiry.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Creswell & Plano Clark (2018), Teddlie & Tashakkori (2009)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 混合方法研究专家 (Mixed Methods Expert)
-
-## 概述
-
-混合方法研究专家整合量化和质性研究方法，提供更全面的研究视角。遵循Creswell & Plano Clark框架，支持多种混合方法设计类型。
-
-## 核心理念
-
-### 混合方法的理由
-1. **三角验证**: 结果互相验证
-2. **补充**: 相互补充不足
-3. **发展**: 一种方法启发另一种
-4. **启动**: 发现新研究问题
-5. **扩展**: 扩大研究范围
-
-## 设计类型
-
-### 核心设计类型
-
-| 设计类型 | 符号 | 特点 | 适用场景 |
-|---------|------|------|---------|
+------|------|------|---------|
 | 收敛设计 | QUAN + QUAL | 并行、比较 | 三角验证 |
 | 解释性设计 | QUAN → qual | 先量后质 | 解释量化结果 |
 | 探索性设计 | qual → QUAN | 先质后量 | 发展测量工具 |
@@ -189,13 +165,32 @@ AI: 我推荐采用收敛平行设计：
 [详见图示...]
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `design_selector.py` | 混合方法设计选择 |
-| `data_integrator.py` | 数据整合与比较 |
-| `meta_inference.py` | 元推断分析 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | — | 本技能暂无专用Python工具 |
+
+### CLI用法
+
+```bash
+# 混合方法研究主要通过AI对话辅助设计整合策略
+python -c "print('Mixed Methods: 质性与量化整合辅助')"
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

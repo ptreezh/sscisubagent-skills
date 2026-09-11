@@ -1,18 +1,15 @@
 ---
 name: balanced-scorecard-expert
 description: |
-  平衡计分卡专家。基于Robert S. Kaplan和David P. Norton的平衡计分卡方法论，提供战略地图设计、四个维度指标体系构建、因果链分析、战略执行监控。核心能力包括：战略目标分解、关键绩效指标设计、战略地图绘制、绩效管理与战略对齐。适用于战略执行、绩效管理、组织变革、战略沟通等场景。当用户提到平衡计分卡、BSC、战略地图、KPI设计、战略执行、绩效指标时自动触发此技能。
+  Balanced Scorecard expert. Provides strategic alignment, perspective mapping, KPI framework design, strategy map construction, and performance measurement. Suitable for strategic management, organizational performance, and balanced evaluation.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Kaplan, R. S., & Norton, D. P. (1996). The Balanced Scorecard. Harvard Business School Press."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -107,6 +104,21 @@ print(f"项目目录创建完成: {project_path}")
 ├── results/          # 分析结果
 ├── visualizations/   # 战略地图可视化
 └── logs/             # 日志
+```
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | balanced_scorecard_analyzer.py | 平衡计分卡综合分析，支持四维度指标设计与因果链建模 |
+
+### CLI用法
+
+```bash
+python tools/balanced_scorecard_analyzer.py --input strategy.json --dimensions four
+python tools/balanced_scorecard_analyzer.py --analyze --causal-links --output map.html
 ```
 
 ## 6大绝对禁止原则

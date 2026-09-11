@@ -1,34 +1,18 @@
 ---
 name: action-research-expert
 description: |
-  行动研究专家。提供系统化行动研究方法，支持参与式行动研究(PAR)、
-  协作行动研究、实践者研究、行动学习。核心能力包括：问题诊断、
-  行动规划、循环迭代、反思实践、知识共创。
-  遵循Kemmis & McTaggart (1988)和Reason & Bradbury (2008)框架。
+  Action Research expert. Provides cyclic inquiry design, practitioner-led investigation, collaborative reflection, and iterative improvement framework. Suitable for organizational change, educational research, and participatory action studies.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Kemmis & McTaggart (1988), Reason & Bradbury (2008)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 行动研究专家 (Action Research Expert)
-
-## 概述
-
-行动研究是一种将研究与行动相结合的方法论，研究者与实践者协作解决实际问题并产生实践知识。其核心特征是"在实践中研究，为实践而研究"。
-
-## 核心理念
-
-### 行动研究特征
-
-| 特征 | 描述 |
-|------|------|
+---|------|
 | 实践性 | 解决实际问题 |
 | 参与性 | 利益相关者参与 |
 | 循环性 | 计划-行动-观察-反思 |
@@ -284,13 +268,52 @@ AI: 我将设计一个三轮螺旋式行动研究：
 - 能力建设: 教师行动研究能力提升
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `problem_diagnoser.py` | 问题诊断分析 |
-| `cycle_tracker.py` | 循环追踪记录 |
-| `reflection_guide.py` | 反思引导工具 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致行动研究结论无效。
+
+1. **禁止研究-实践分离** — 行动研究的核心是"在实践中研究"，将学术研究与实践分离即失去行动研究的意义
+2. **禁止循环不完整** — 只完成计划-行动，跳过观察-反思，或循环次数不足（<2轮），导致研究深度不够
+3. **禁止研究者主导而非协作** — 外部研究者将实践者当"研究对象"而非"共同研究者"，违反参与性原则
+4. **禁止忽视反思深度** — 将反思简化为描述性总结而非批判性检视，未能揭示深层假设和权力关系
+5. **禁止脱离具体情境泛化结论** — 行动研究结论有强烈的情境性，跨情境推广需谨慎说明条件和边界
+6. **禁止忽视伦理审查** — 参与式研究涉及人的实践变革，需伦理审查而非仅靠知情同意
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 行动研究循环记录完整
+- 反思日志质量高
+
+### 方法论
+- 理论框架与实践一致性 ≥ 90%
+- 分析步骤可复现性高
+- 协作关系说明清晰
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 批判性反思深入
+- 知识贡献明确
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | problem_diagnoser.py | 问题诊断分析，支持多维度根因识别 |
+| 2 | cycle_tracker.py | 行动研究循环追踪，记录计划-行动-观察-反思四阶段 |
+| 3 | reflection_guide.py | 反思引导工具，支持批判性反思和知识提炼 |
+| 4 | participation_analyzer.py | 参与度分析，支持利益相关者参与程度评估和协作质量追踪 |
+
+### CLI用法
+
+```bash
+python tools/problem_diagnoser.py --input data.json
+python tools/cycle_tracker.py --track --phase reflect
+python tools/reflection_guide.py --guide --stage mid_cycle
+```
 
 ## 参考文献
 

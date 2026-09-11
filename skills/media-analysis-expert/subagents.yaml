@@ -1,6 +1,6 @@
 subagents:
   - id: technology_analyst
-    name: 媒介技术分析师
+    name: Media Technology Analyst
     role: 分析媒介技术特性
     capabilities:
       - 媒介偏向分析

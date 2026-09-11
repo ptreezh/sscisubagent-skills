@@ -1,0 +1,52 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(effect_size_calculator.py)
+  output: "[TOOL: effect_size_calculator.py]\n============================================================\n\
+    元分析效应量计算器\n============================================================\n\n【示例1:\
+    \ Cohen's d - 连续变量】\nCohen's d = 0.555\n95% CI: [0.145, 0.966]\n解释: Medium\n\n\
+    【示例2: Hedges' g - 小样本校正】\nHedges' g = 0.551\n95% CI: [0.144, 0.958]\n\n【示例3: Odds\
+    \ Ratio - 二分类变量】\nOR = 1.909\n95% CI: [1.067, 3.415]\n解释: Risk factor (increased\
+    \ risk)\n\n【示例4: Risk Ratio - 相对风险】\nRR = 1.500\n95% CI: [1.037, 2.171]\n\n【示例5:\
+    \ 效应量转换】\nCohen's d = 0.5\n  → Pearson r = 0.243\n  → Odds Ratio = 2.477\n\n============================================================\n\
+    效应量计算器已加载完成"
+  passed: true
+test_prompt: "Please use the meta-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 54.8
+quality_score: 76.35
+refinement_history:
+- delta: 69.8
+  quality_score: 69.8
+  timestamp: '2026-04-26T05:23:39.326910+00:00'
+- delta: 21.549999999999997
+  quality_score: 76.35
+  timestamp: '2026-04-30T14:18:18.431333+00:00'
+skill: meta-analysis-expert
+structure_base: 99.8
+timestamp: '2026-04-30T14:18:18.431333+00:00'
+total_100: 114.8

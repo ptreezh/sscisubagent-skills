@@ -5,7 +5,7 @@
 subagents:
   # Ecosystem Structure Agent
   - name: ecosystem-structure-analyzer
-    description: 识别核心企业、关键物种，映射价值网络和生态位
+    description: Identify core firms and keystone species, map value networks and niches
     prompt_template: prompts/ecosystem-structure-prompt.md
     tools:
       - ecosystem_mapper

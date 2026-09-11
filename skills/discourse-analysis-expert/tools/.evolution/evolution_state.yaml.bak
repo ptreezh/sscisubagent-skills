@@ -1,0 +1,79 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: llm_judgment
+  output: '[TOOL: discourse_strategy.py]
+
+    ============================================================
+
+    DISCOURSE STRATEGY ANALYSIS
+
+    ============================================================
+
+
+    1. REFERENTIAL STRATEGY
+
+    ----------------------------------------
+
+    Us references: 7
+
+    Them references: 1
+
+    Binary opposition: True
+
+
+    2. PREDICATIONAL STRATEGY
+
+    ----------------------------------------
+
+    Positive predicates: [''勇敢的'']
+
+    Negative predicates: []
+
+
+    3. SUMMARY
+
+    ----------------------------------------
+
+    Dominant strategies: [''argumentative'', ''referential'', ''intensification'']
+
+    Discourse pattern: 二元对立话语模式
+
+    '
+  passed: false
+  test_prompt: 请用discourse-analysis-expert技能分析：某互联网公司的组织文化变革
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 3.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: false
+previous_score: 56.1
+quality_score: 56.1
+refinement_history:
+- delta: 56.1
+  quality_score: 56.1
+  timestamp: '2026-04-26T05:19:32.064939+00:00'
+skill: discourse-analysis-expert
+structure_base: 73.8
+timestamp: '2026-04-26T10:37:50.997827+00:00'
+total_100: 81.3

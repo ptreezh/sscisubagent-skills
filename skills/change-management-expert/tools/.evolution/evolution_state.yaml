@@ -1,0 +1,50 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(change_mgmt_analyzer.py)
+  output: '[TOOL: change_mgmt_analyzer.py]
+
+    Change Management Tool v5.0.0'
+  passed: true
+test_prompt: "Please use the change-management-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 62.38
+quality_score: 74.75
+refinement_history:
+- delta: 70.18
+  quality_score: 70.18
+  timestamp: '2026-04-26T09:44:24.584294+00:00'
+- delta: 7.200000000000003
+  quality_score: 62.38
+  timestamp: '2026-04-30T14:18:27.195819+00:00'
+- delta: 12.369999999999997
+  quality_score: 74.75
+  timestamp: '2026-05-02T03:18:22.085303+00:00'
+skill: change-management-expert
+structure_base: 98.0
+timestamp: '2026-05-02T03:18:22.085303+00:00'
+total_100: 110.5

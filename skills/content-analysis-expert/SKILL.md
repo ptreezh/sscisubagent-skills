@@ -1,76 +1,18 @@
 ---
 name: content-analysis-expert
 description: |
-  内容分析专家。提供系统化内容分析方法，支持经典内容分析、定向内容分析、归纳内容分析。
-  核心能力包括：编码方案设计、编码簿开发、编码者间信度检验（Cohen's Kappa, Krippendorff's Alpha）、
-  频次统计、 contingency分析、语义网络分析。遵循Krippendorff (2018)和Schreier (2012)方法论标准。
+  Content Analysis expert. Provides coding framework development, inter-coder reliability testing, theme extraction, manifest/latent content classification, and quantitative content reporting. Suitable for media studies, communication research, and qualitative data analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Krippendorff (2018), Schreier (2012), Mayring (2014)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 内容分析专家 (Content Analysis Expert)
-
-## 概述
-
-内容分析专家是一个系统化的文本分析方法论技能，支持对文本、图像、音频等传播内容进行客观、系统、定量的分析。遵循Krippendorff (2018)内容分析方法论标准。
-
-## 核心方法论
-
-### 1. 经典内容分析（Classical Content Analysis）
-- **定义**：对传播内容进行客观、系统、定量的描述
-- **特点**：演绎式、假设驱动、预定义类别
-- **适用场景**：媒体内容研究、传播效果研究
-
-### 2. 定向内容分析（Directed Content Analysis）
-- **定义**：基于现有理论或研究进行编码
-- **特点**：理论驱动、验证性、修正类别
-- **适用场景**：理论验证、概念测量
-
-### 3. 归纳内容分析（Inductive Content Analysis）
-- **定义**：从数据中涌现类别
-- **特点**：数据驱动、探索性、开放编码
-- **适用场景**：新领域探索、概念发展
-
-## 分析流程
-
-```
-步骤1: 研究问题定义
-   ↓
-步骤2: 样本选择与抽样
-   ↓
-步骤3: 编码方案开发
-   ↓
-步骤4: 编码者培训
-   ↓
-步骤5: 预测试与修订
-   ↓
-步骤6: 正式编码
-   ↓
-步骤7: 信度检验
-   ↓
-步骤8: 数据分析
-   ↓
-步骤9: 结果报告
-```
-
-## 编码方案设计
-
-### 类别系统
-- **互斥性（Mutual Exclusivity）**：每个单元只能归入一个类别
-- **穷尽性（Exhaustiveness）**：所有单元都能被归类
-- **独立性（Independence）**：一个单元的分类不影响其他单元
-
-### 编码单元类型
-| 单元类型 | 定义 | 示例 |
-|---------|------|------|
+------|------|------|
 | 物理单元 | 计数单位 | 字数、页数、秒数 |
 | 语法单元 | 语言结构 | 句子、段落、章节 |
 | 命题单元 | 意义单位 | 主题、论点、断言 |
@@ -132,14 +74,51 @@ AI: 我将采用定向内容分析方法，步骤如下：
    框架间关联...
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `coding_scheme.py` | 编码方案生成与管理 |
-| `reliability_tester.py` | 编码者间信度计算 |
-| `frequency_analyzer.py` | 频次统计与可视化 |
-| `contingency_analyzer.py` | 列联表分析 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致内容分析结论无效。
+
+1. **禁止编码前不定义类别系统** — 未建立清晰、可操作、互斥穷尽的编码框架，导致编码标准不一致
+2. **禁止跳过信度检验** — 未进行编码者间信度检验（Cohen's Kappa ≥ 0.70），导致分析结果不可靠
+3. **禁止脱离原始文本编码** — 编码时未引用原始文本证据，导致编码不可追溯和验证
+4. **禁止忽视负面案例** — 只编码支持预设主题的内容，忽略矛盾或异常案例，导致结论有偏
+5. **禁止混用分析类型** — 将定量频次分析与定性主题分析混用，导致方法论不一致
+6. **禁止忽视编码单元定义** — 未明确编码单元（词/句/段/主题），导致计数标准混乱
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 编码方案完整（含定义、示例、决策规则）
+- 信度检验报告完整
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 编码方案经过预测试
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 类别系统饱和度检验
+- 负面案例分析完整
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | coding_scheme.py | 编码方案生成与管理，支持互斥性/穷尽性检验 |
+| 2 | reliability_tester.py | 编码者间信度计算，支持Cohen's Kappa、Krippendorff's Alpha |
+| 3 | frequency_analyzer.py | 频次统计与可视化，生成类别分布图表 |
+
+### CLI用法
+
+```bash
+python tools/coding_scheme.py --create --categories 5 --validate
+python tools/reliability_tester.py --input coded_data.csv --metric kappa
+python tools/frequency_analyzer.py --input codes.json --visualize --output report.html
+```
 
 ## 输出格式
 

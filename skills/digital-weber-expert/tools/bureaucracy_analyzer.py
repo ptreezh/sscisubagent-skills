@@ -6,50 +6,21 @@ digital-weber-expert - 官僚制分析工具
 """
 
 from typing import Dict, List, Any
-import re
 import json
 
 
-BUREAUCRACY_INDICATORS = {
-    "hierarchy": {
-        "keywords": ["层级", "等级", "上下级", " hierarchy ", " rank ", " level "],
-        "description": "层级结构",
-    },
-    "impersonal": {
-        "keywords": [
-            "非人格",
-            "公私分明",
-            "制度化",
-            " impersonal ",
-            " formal ",
-            " institutional ",
-        ],
-        "description": "非人格化",
-    },
-    "rules": {
-        "keywords": [
-            "规则",
-            "制度",
-            "规章",
-            "规则",
-            " regulation ",
-            " rule ",
-            " procedure ",
-        ],
-        "description": "规则导向",
-    },
-    "specialization": {
-        "keywords": [
-            "专业",
-            "分工",
-            "职责",
-            " specialization ",
-            " division ",
-            " expertise ",
-        ],
-        "description": "专业化分工",
-    },
-}
+# Weber官僚制分析methodology memo
+BUREAUCRACY_METHODOLOGY_MEMO = """【Weber官僚制分析 - LLM专属判断】
+Weber(1922)官僚制特征：层级、非人格、规则、专业化。
+- 禁止：用关键词匹配判断官僚制程度
+- 正确做法：分析组织运作是否基于理性-合法权威
+  * 层级: 上下级服从关系的制度化程度
+  * 非人格: 规则是否对事不对人
+  * 规则: 明文制度取代个人裁量
+  * 专业化: 基于能力的分工
+- 0.6阈值判断"高度官僚制"仅为信号，不是绝对标准
+- 官僚制程度是连续谱，不是二值状态
+"""
 
 
 class BureaucracyAnalyzer:
@@ -57,40 +28,20 @@ class BureaucracyAnalyzer:
         pass
 
     def analyze_bureaucracy(self, data: Any) -> Dict:
-        text = self._convert_to_text(data)
-        hierarchy = self._analyze_dimension("hierarchy", text)
-        impersonal = self._analyze_dimension("impersonal", text)
-        rules = self._analyze_dimension("rules", text)
-        specialization = self._analyze_dimension("specialization", text)
-
-        overall = (
-            hierarchy.get("score", 0)
-            + impersonal.get("score", 0)
-            + rules.get("score", 0)
-            + specialization.get("score", 0)
-        ) / 4
-
+        # 关键词匹配+0.6阈值分支已禁用
+        # 官僚制分析由LLM基于Weber理论做诠释判断
         return {
             "dimensions": {
-                "层级": hierarchy,
-                "非人格": impersonal,
-                "规则": rules,
-                "专业化": specialization,
+                "层级": {"score": None, "evidence_count": None},
+                "非人格": {"score": None, "evidence_count": None},
+                "规则": {"score": None, "evidence_count": None},
+                "专业化": {"score": None, "evidence_count": None},
             },
-            "overall_bureaucracy": overall,
-            "level": "高度官僚制" if overall > 0.6 else "低度官僚制",
-            "explanation": f"官僚化程度: {overall:.2f}",
+            "overall_bureaucracy": None,   # LLM填充
+            "level": None,   # LLM填充: 高度官僚制 / 低度官僚制 / 混合
+            "explanation": None,   # LLM填充
+            "methodology_memo": BUREAUCRACY_METHODOLOGY_MEMO,
         }
-
-    def _convert_to_text(self, data):
-        if isinstance(data, str):
-            return data
-        return json.dumps(data, ensure_ascii=False)
-
-    def _analyze_dimension(self, dim, text):
-        kw = BUREAUCRACY_INDICATORS.get(dim, {}).get("keywords", [])
-        count = sum(len(re.findall(k, text, re.IGNORECASE)) for k in kw)
-        return {"score": min(1.0, count / 3), "evidence_count": count}
 
 
 def analyze_bureaucracy(data: Any) -> Dict:

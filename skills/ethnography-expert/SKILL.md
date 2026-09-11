@@ -1,45 +1,18 @@
 ---
 name: ethnography-expert
 description: |
-  民族志专家。提供系统化田野调查方法，支持参与观察、深度访谈、田野笔记、
-  文化描述分析。核心能力包括：田野进入策略、关键报道人识别、文化模式分析、
-  深描(Thick Description)、主位/客位分析。遵循Geertz解释性方法和Malinowski传统。
+  Ethnography expert. Provides participant observation, field note writing, cultural immersion assessment, thematic analysis, and ethnographic validity checking. Suitable for anthropological research, cultural studies, and qualitative field work.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Geertz (1973), Malinowski (1922), Hammersley & Atkinson (2007)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 民族志专家 (Ethnography Expert)
-
-## 概述
-
-民族志专家是一个系统化的质性研究技能，通过长期田野调查深入理解社会文化现象。强调"深描"(Thick Description)和文化解释，遵循Geertz解释性人类学传统。
-
-## 核心方法论
-
-### Malinowski传统
-- **长期田野工作**: 至少6-12个月
-- **参与观察**: 深入日常生活
-- **学习当地语言**: 获得内部视角
-- **三种语料**: 日常行为、口述文本、社会组织
-
-### Geertz解释性方法
-- **深描(Thick Description)**: 不仅描述行为，更解释意义
-- **文化作为文本**: 文化是意义之网
-- **地方性知识**: 特定情境中的理解
-- **解释性分析**: 多层次意义阐释
-
-## 民族志类型
-
-| 类型 | 特点 | 典型时长 |
-|------|------|---------|
+---|------|---------|
 | 传统民族志 | 长期、深入、单一地点 | 12-24个月 |
 | 快速民族志 | 聚焦特定问题 | 2-6个月 |
 | 多点民族志 | 跨地点追踪 | 6-18个月 |
@@ -171,13 +144,35 @@ AI: 我将为您设计一个系统化的民族志研究方案：
 [继续详细设计...]
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `fieldnote_manager.py` | 田野笔记管理与编码 |
-| `cultural_pattern_analyzer.py` | 文化模式识别与分析 |
-| `key_informant_tracker.py` | 关键报道人管理 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | fieldnote_manager.py | 田野笔记管理与编码，支持描述性/方法论/理论/情感四类笔记 |
+| 2 | cultural_pattern_analyzer.py | 文化模式识别与分析，支持主位/客位双视角分析 |
+| 3 | key_informant_tracker.py | 关键报道人管理，追踪访谈记录与关系网络 |
+
+### CLI用法
+
+```bash
+python tools/fieldnote_manager.py --add --type descriptive --note "田野记录"
+python tools/cultural_pattern_analyzer.py --input patterns.json --perspective emic
+python tools/key_informant_tracker.py --track --informant "报道人A"
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

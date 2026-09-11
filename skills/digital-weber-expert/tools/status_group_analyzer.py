@@ -19,13 +19,23 @@ def load_input(path: str) -> Dict:
 
 
 def analyze_status(data: Dict) -> Dict:
-    desc = data.get("description", "").lower()
+    """
+    Weber地位群体分析。
 
+    ⚠️ 硬编码返回已禁用。地位群体分析由LLM基于Weber社会分层理论完成。
+    """
     return {
-        "status_groups": ["economic", "social", "political"],
-        "stratification": "complex",
-        "market_situation": "analyzed",
-        "life_chances": "evaluated",
+        "status_groups": None,   # LLM填充: 经济/社会/政治地位群体
+        "stratification": None,  # LLM填充
+        "market_situation": None,  # LLM填充
+        "life_chances": None,  # LLM填充
+        "methodology_memo": (
+            "Weber社会分层原则:\n"
+            "1. 地位群体(Status Group)是围绕特定生活方式和社会荣誉形成的群体\n"
+            "2. 三位一体分层：阶级(经济)、地位群体(社会)、政党(政治)\n"
+            "3. 生活机会(Life Chances)由市场状况决定\n"
+            "4. 禁止：硬编码返回固定分层类型"
+        ),
     }
 
 

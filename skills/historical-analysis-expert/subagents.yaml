@@ -1,6 +1,6 @@
 subagents:
   - id: causal_analyst
-    name: 历史因果分析师
+    name: Historical Causal Analyst
     role: 分析历史事件的因果机制
     capabilities:
       - 因果链识别

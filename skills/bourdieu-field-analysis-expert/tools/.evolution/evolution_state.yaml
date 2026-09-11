@@ -1,0 +1,58 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(analyze.py)
+  output: '[TOOL: analyze.py]
+
+    === Detail Level 1 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''detail_level'']
+
+
+    === Detail Level 2 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''main_results'',
+    ''detail_level'']
+
+
+    === Detail Level 3 ===
+
+    输出字段：[''status'', ''skill'', ''timestamp'', ''detail_level'', ''data'', ''phases'']'
+  passed: true
+test_prompt: "Please use the bourdieu-field-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 12.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: false
+note: '[QUALITY_RECALC] old=57.15 -> 73.57'
+previous_score: 57.15
+quality_score: 62.32
+refinement_history:
+- delta: 57.15
+  quality_score: 57.15
+  timestamp: '2026-04-26T11:07:16.264691+00:00'
+skill: bourdieu-field-analysis-expert
+structure_base: 81.1
+timestamp: '2026-04-26T11:30:52.360093+00:00'
+total_100: 82.7

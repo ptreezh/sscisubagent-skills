@@ -23,29 +23,16 @@ CONTROVERSY_TYPES = [
     "legal",
 ]
 
-# 争议关键词
-CONTROVERSY_KEYWORDS = {
-    "conflict": [
-        "conflict",
-        "dispute",
-        "disagreement",
-        "tension",
-        "controversy",
-        "debate",
-    ],
-    "failure": [
-        "fail",
-        "error",
-        "problem",
-        "issue",
-        "crisis",
-        "breakdown",
-        "malfunction",
-    ],
-    "resistance": ["resist", "refuse", "reject", "oppose", "protest", "complain"],
-    "uncertainty": ["uncertain", "unknown", "unclear", "ambiguous", "unpredictable"],
-    "risk": ["risk", "danger", "threat", "hazard", "concern", "fear"],
-}
+# 争议关键词（已禁用关键词匹配）
+# 争议识别是ANT诠释性判断，由LLM基于Latour的行动者网络理论完成
+# Python仅提供争议记录数据结构和统计分析
+CONTROVERSY_METHODOLOGY_MEMO = """【ANT争议识别原则 - LLM专属判断】
+争议识别必须基于行动者网络的整体分析，而非关键词匹配。
+- 禁止：用"conflict"/"fail"等关键词自动标记争议
+- 正确做法：分析行动者之间的转译失败、权力不平衡、利益冲突
+- 争议类型（technical/ethical/economic）由LLM做实质性判断
+- 争议证据必须来自具体的行动者互动描述，不是关键词命中的文本片段
+"""
 
 
 class ControversyRecorder:
@@ -192,36 +179,17 @@ class ControversyRecorder:
         self, text: str, source_actors: List[str] = None
     ) -> Dict:
         """
-        从文本中检测争议
+        从文本中检测争议。
 
-        参数:
-            text: 输入文本
-            source_actors: 已知行动者
-
-        返回:
-            检测结果
+        ⚠️ 关键词匹配已禁用。争议识别是ANT诠释性判断，由LLM完成。
+        本方法返回空结构，LLM基于CONTROVERSY_METHODOLOGY_MEMO识别争议。
         """
-        detected = []
-        text_lower = text.lower()
-
-        for category, keywords in CONTROVERSY_KEYWORDS.items():
-            for keyword in keywords:
-                if keyword in text_lower:
-                    # 提取上下文
-                    start = max(0, text_lower.find(keyword) - 50)
-                    end = min(len(text), text_lower.find(keyword) + 50)
-                    context = text[start:end]
-
-                    detected.append(
-                        {"keyword": keyword, "category": category, "context": context}
-                    )
-
+        # 禁止用关键词匹配替代LLM的ANT诠释性判断
         return {
-            "detected_count": len(detected),
-            "detected": detected,
-            "recommendation": "需要手动验证并记录为正式争议"
-            if detected
-            else "未检测到明显争议",
+            "detected_count": None,  # LLM填充
+            "detected": [],           # LLM填充: [{"controversy_type, evidence, actors, reasoning}]
+            "methodology_memo": CONTROVERSY_METHODOLOGY_MEMO,
+            "recommendation": "争议识别必须由LLM基于ANT理论分析行动者互动完成",
         }
 
     def get_actor_controversies(self, actor: str) -> List[Dict]:

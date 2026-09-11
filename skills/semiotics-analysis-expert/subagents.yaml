@@ -1,6 +1,6 @@
 subagents:
   - id: sign_identifier
-    name: 符号识别师
+    name: Sign Analyst
     role: 识别和分析各类符号
     capabilities:
       - 图像符号识别

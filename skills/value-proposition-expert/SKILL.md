@@ -1,18 +1,15 @@
 ---
 name: value-proposition-expert
 description: |
-  价值主张设计专家。基于Strategyzer的价值主张设计方法论，提供客户画像、价值主张画布、产品市场匹配分析。核心能力包括：客户细分画像、客户工作/痛点/收益分析、产品服务设计、价值匹配验证。适用于产品定位、市场细分、商业模式设计等场景。当用户提到价值主张、Value Proposition、客户画像、痛点分析、产品市场匹配时自动触发此技能。
+  Value Proposition expert. Provides customer value mapping, pain/gain analysis, value proposition canvas, competitive differentiation, and value statement refinement. Suitable for business strategy, product development, and customer value design.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Osterwalder, A. et al. (2014). Value Proposition Design. Wiley."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -507,6 +504,21 @@ task_queue:
 ```
 
 ---
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | — | 本技能暂无专用Python工具 |
+
+### CLI用法
+
+```bash
+# 价值主张设计主要通过AI对话辅助和画布工具实现
+python -c "print('Value Proposition: 客户画像与价值主张设计辅助')"
+```
 
 **技能版本**: 5.0.0-cli-native+agent
 **方法论对齐**: Strategyzer价值主张设计方法论

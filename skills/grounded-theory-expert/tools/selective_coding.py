@@ -41,41 +41,34 @@ class SelectiveCoder:
         返回:
             选择性编码结果
         """
-        # 步骤1: 识别核心范畴
-        core_category = self._identify_core_category(categories, relationships)
+        # 步骤1: 识别核心范畴候选（LLM做最终选择）
+        core_category_candidates = self._identify_core_category(categories, relationships)
+
+        # 步骤2: 构建故事线（LLM确认核心范畴后由LLM完成）
+        story_line = None  # LLM填充
         
-        # 步骤2: 构建故事线
-        story_line = self._construct_story_line(core_category, paradigm_model)
-        
-        # 步骤3: 整合理论框架
-        theoretical_framework = self._integrate_theory(
-            core_category, categories, relationships
-        )
-        
-        # 步骤4: 生成理论命题
-        propositions = self._generate_propositions(
-            core_category, relationships, theoretical_framework
-        )
-        
-        # 步骤5: 验证理论
-        validation_result = self._validate_theory(
-            core_category, categories, propositions
-        )
-        
-        # 步骤6: 生成理论备忘录
-        memos = self._generate_theoretical_memos(
-            core_category, story_line, propositions
-        )
-        
+        # 步骤3: 整合理论框架（LLM填充）
+        theoretical_framework = None  # LLM填充
+
+        # 步骤4: 生成理论命题（LLM填充）
+        propositions = None  # LLM填充
+
+        # 步骤5: 验证理论（LLM填充）
+        validation_result = None  # LLM填充
+
+        # 步骤6: 生成理论备忘录（LLM填充）
+        memos = None  # LLM填充
+
         result = {
-            'status': 'success',
+            'status': 'pending_llm',
             'timestamp': datetime.now().isoformat(),
-            'core_category': core_category,
+            'core_category_candidates': core_category_candidates,
             'story_line': story_line,
             'theoretical_framework': theoretical_framework,
             'propositions': propositions,
             'validation': validation_result,
-            'memos': memos
+            'memos': memos,
+            'methodology_memo': core_category_candidates['methodology_memo'],
         }
         
         return result
@@ -108,26 +101,40 @@ class SelectiveCoder:
             for cat_name, cat_data in categories.items()
         }
         
-        # 综合评分：中心度 + 概念数量
+        # 定量评分（作为LLM判断的信号）
         combined_scores = {}
         for cat_name in categories:
             combined_scores[cat_name] = (
-                centrality_scores.get(cat_name, 0) * 2 + 
+                centrality_scores.get(cat_name, 0) * 2 +
                 concept_counts.get(cat_name, 0)
             )
-        
-        # 选择得分最高的作为核心范畴
-        core_name = max(combined_scores.keys(), key=lambda x: combined_scores[x])
-        
+
+        # 硬编码公式自动确定已禁用
+        # 核心范畴确定由LLM基于GT理论做诠释判断
+        sorted_candidates = sorted(
+            combined_scores.items(), key=lambda x: x[1], reverse=True
+        )
+
         return {
-            'name': core_name,
-            'definition': categories[core_name].get('definition', ''),
-            'centrality_score': centrality_scores.get(core_name, 0),
-            'concept_count': concept_counts.get(core_name, 0),
-            'combined_score': combined_scores[core_name],
-            'selection_reason': f"该范畴具有最高的综合评分({combined_scores[core_name]})，"
-                               f"包含{concept_counts.get(core_name, 0)}个概念，"
-                               f"参与{centrality_scores.get(core_name, 0)}个关系"
+            'candidates': [
+                {
+                    'name': name,
+                    'centrality_score': centrality_scores.get(name, 0),
+                    'concept_count': concept_counts.get(name, 0),
+                    'combined_score': score,
+                    'definition': categories[name].get('definition', ''),
+                }
+                for name, score in sorted_candidates
+            ],
+            'recommended': None,   # LLM填充：综合理论判断选择核心范畴
+            'methodology_memo': (
+                "核心范畴确定原则(Strauss & Corbin 1990):\n"
+                "1. 定量信号(combined_score)仅为参考，不是决定性依据\n"
+                "2. 核心范畴必须能够统摄其他范畴并与故事线紧密相关\n"
+                "3. 核心范畴的判断标准：发生频率高、中枢性、与更多范畴相关\n"
+                "4. 禁止：仅用centrality*2+concept_count自动确定核心范畴\n"
+                "5. LLM需评估：候选范畴的Paradigm Model位置、理论饱和度、故事线相关性"
+            ),
         }
     
     def _construct_story_line(self, 

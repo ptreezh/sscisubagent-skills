@@ -1,16 +1,15 @@
 ---
 name: bourdieu-field-analysis-expert
 description: |
-  布迪厄场域分析专家。提供场域边界识别、资本分析、习性分析、场域动力学追踪功能。适用于文化研究、教育社会学、权力结构分析场景。
+  Bourdieu field analysis expert. Provides field boundary identification, capital analysis, habitus analysis, and field dynamics tracking. Suitable for cultural studies, sociology of education, and power structure analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -130,7 +129,6 @@ AI: 场域分析进度：
 
 **快速导航**：
 - 📋 [场域理论概念](references/field-concepts.md) - 场域/资本/习性/动力学详解
-- 🛠️ [技能资源](references/resources.md) - 分析工具和模板
 - 📚 [正面案例](cases/positive/) - 正确示范
 - ⚠️ [负面案例](cases/negative/) - 错误警示
 - ⏱️ [长时任务指南](references/long-term-tasks.md) - 多阶段场域研究支持
@@ -319,6 +317,37 @@ AI: 场域分析进度：
 **违反承诺的后果**：
 - 接受用户的批评和质疑
 
+
+### 一、禁止定性分析硬编码（CRITICAL）
+
+**核心原则**：定性分析（场域识别、位置判断、动力学分析）必须由LLM基于布迪厄理论原则完成，Python工具仅负责数据结构和流程管理。
+
+**Python工具角色**：
+- ✅ 正确：返回空结构 + 理论备忘录（methodology memo）
+- ✅ 正确：状态管理、文件I/O、结果格式化
+- ❌ 禁止：关键词匹配做定性判断
+
+**Bourdieu Python工具链职责表**：
+
+| 工具 | 定性分析 | 角色 |
+|------|---------|------|
+| field_identifier.py | ❌ | ✅ 纯数据结构 + 布迪厄场域理论备忘录 |
+| position_mapper.py | ❌ | ✅ 纯数据结构 + 位置映射框架 |
+| capital_analyzer.py | ❌ | ✅ 纯数据结构 + 资本理论备忘录 |
+| habitus_detector.py | ❌ | ✅ 纯数据结构 + 惯习理论备忘录 |
+| field_dynamics_tracker.py | ❌ | ✅ 纯数据结构 + 场域动力学备忘录 |
+| autonomy_calculator.py | ❌ | ✅ 纯数据结构 + 场域自主性理论备忘录 |
+| analyze.py | ❌ | ✅ 工作流协调 |
+
+**量化确认**：
+- ✅ field_identifier.py 已重构：无 FIELD_INDICATORS 关键词匹配
+- ✅ position_mapper.py 已重构：无 relation_patterns 关键词匹配
+- ✅ field_dynamics_tracker.py 已重构：无 force_patterns 关键词匹配
+- ✅ autonomy_calculator.py 已重构：无 AUTONOMY_INDICATORS 关键词匹配
+- ✅ capital_analyzer.py 已重构：使用 CAPITAL_THEORY_MEMO
+- ✅ habitus_detector.py 已重构：使用 HABITUS_THEORY_MEMO
+
+---
 
 ## 详细指南
 

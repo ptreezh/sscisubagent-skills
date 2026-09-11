@@ -6,24 +6,20 @@ digital-weber-expert - 权威类型分析工具
 """
 
 from typing import Dict, List, Any
-import re
 import json
 
 
-AUTHORITY_INDICATORS = {
-    "traditional": {
-        "keywords": ["传统", "习俗", "惯例", " hereditary ", " tradition ", " custom "],
-        "description": "传统型权威",
-    },
-    "charismatic": {
-        "keywords": ["魅力", "领袖", "个人", " charisma ", " leader ", " personal "],
-        "description": "魅力型权威",
-    },
-    "legal_rational": {
-        "keywords": ["法律", "制度", "规则", "法律", " law ", "制度", " regulation "],
-        "description": "法理型权威",
-    },
-}
+# Weber权威类型methodology memo
+AUTHORITY_METHODOLOGY_MEMO = """【Weber权威类型判断 - LLM专属判断】
+Weber(1922)将权威分为传统型、魅力型、法理型。
+- 禁止：用关键词匹配("传统"/"法律"/"领袖")判断权威类型
+- 正确做法：分析权威的合法性来源(legitimacy basis)
+  * 传统型: 合法性来自"历来如此"的惯例
+  * 魅力型: 合法性来自领袖个人特质(卡里斯玛)
+  * 法理型: 合法性来自理性规则
+- 混合权威: 现实中权威类型常混合存在
+- 主导类型判断需LLM综合分析，不可用分数max()自动确定
+"""
 
 
 class AuthorityAnalyzer:
@@ -31,33 +27,18 @@ class AuthorityAnalyzer:
         pass
 
     def analyze_authority(self, data: Any) -> Dict:
-        text = self._convert_to_text(data)
-        traditional = self._analyze_dimension("traditional", text)
-        charismatic = self._analyze_dimension("charismatic", text)
-        legal = self._analyze_dimension("legal_rational", text)
-
-        scores = {
-            "传统型": traditional.get("score", 0),
-            "魅力型": charismatic.get("score", 0),
-            "法理型": legal.get("score", 0),
-        }
-        dominant = max(scores, key=scores.get)
-
+        # 关键词匹配+分数max()自动判断已禁用
+        # 权威类型判断由LLM基于Weber理论做诠释判断
         return {
-            "types": {"传统型": traditional, "魅力型": charismatic, "法理型": legal},
-            "dominant": dominant,
-            "explanation": f"主导权威类型: {dominant}",
+            "types": {
+                "传统型": {"score": None, "evidence_count": None},
+                "魅力型": {"score": None, "evidence_count": None},
+                "法理型": {"score": None, "evidence_count": None},
+            },
+            "dominant": None,   # LLM填充
+            "explanation": None,  # LLM填充
+            "methodology_memo": AUTHORITY_METHODOLOGY_MEMO,
         }
-
-    def _convert_to_text(self, data):
-        if isinstance(data, str):
-            return data
-        return json.dumps(data, ensure_ascii=False)
-
-    def _analyze_dimension(self, dim, text):
-        kw = AUTHORITY_INDICATORS.get(dim, {}).get("keywords", [])
-        count = sum(len(re.findall(k, text, re.IGNORECASE)) for k in kw)
-        return {"score": min(1.0, count / 3), "evidence_count": count}
 
 
 def analyze_authority(data: Any) -> Dict:

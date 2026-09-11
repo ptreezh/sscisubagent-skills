@@ -1,34 +1,18 @@
 ---
 name: factor-analysis-expert
 description: |
-  因子分析专家。提供探索性因子分析(EFA)和验证性因子分析(CFA)方法，
-  支持主成分分析、主轴因子法、旋转策略选择、因子数确定、信效度评估。
-  核心能力包括：KMO检验、Bartlett检验、平行分析、因子提取、因子旋转、
-  因子命名。遵循Tabachnick & Fidell (2019)和Hair et al. (2019)标准。
+  Factor Analysis expert. Provides dimensionality reduction, factor extraction, rotation methods, reliability testing, and construct validation. Suitable for psychometric research, scale development, and multivariate analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Tabachnick & Fidell (2019), Hair et al. (2019)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 因子分析专家 (Factor Analysis Expert)
-
-## 概述
-
-因子分析专家是一个系统化的多元统计技能，用于识别潜在构念(Latent Constructs)和简化数据结构。支持探索性因子分析(EFA)和验证性因子分析(CFA)。
-
-## 核心方法论
-
-### EFA vs CFA
-
-| 特征 | EFA | CFA |
-|------|-----|-----|
+---|-----|-----|
 | 目的 | 探索因子结构 | 验证预设模型 |
 | 因子数量 | 数据驱动 | 理论驱动 |
 | 因子载荷 | 自由估计 | 约束估计 |
@@ -160,13 +144,52 @@ AI: 我将进行探索性因子分析：
 α₁ = 0.87, α₂ = 0.82, α₃ = 0.79 (均可接受)
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `factor_extractor.py` | 因子提取与旋转 |
-| `model_fit_evaluator.py` | CFA模型拟合评估 |
-| `reliability_calculator.py` | 信效度计算 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致因子分析结论失效。
+
+1. **禁止适用性不足仍强行分析** — KMO < 0.60 或 Bartlett检验不显著(p > .05)时继续进行因子分析，导致因子结构不可靠
+2. **禁止预设不合理的因子数** — 盲目使用Kaiser准则（特征值>1）而不结合碎石图和平行分析，导致过度或不足提取
+3. **禁止忽视因子载荷解释标准** — 将载荷<0.40的条目纳入因子，或不报告共同度而直接解释因子
+4. **禁止混淆EFA与CFA** — 将探索性因子分析的结果直接当作验证性结论，忽略两种方法的本质区别
+5. **禁止忽视旋转选择的理论依据** — 因子间理论上相关却使用正交旋转（Varimax），或反之
+6. **禁止跳过信效度完整评估** — 仅报告因子载荷，不检验Cronbach's α、组合信度(CR)、收敛效度(AVE)、区分效度
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 适用性检验报告完整（KMO、Bartlett）
+- 因子提取与旋转有据可查
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 因子数确定有多种方法交叉验证
+- 分析步骤可复现性高
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 信效度完整评估（α、CR、AVE、√AVE）
+- 结果解释有理论支撑
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | efa_analyzer.py | 探索性因子分析，支持主成分分析、主轴因子法、KMO检验、Bartlett检验、平行分析 |
+| 2 | rotation_selector.py | 旋转策略选择，支持Varimax/Promax/Oblimin正交与斜交旋转 |
+| 3 | cfa_validator.py | 验证性因子分析，支持拟合指标计算（χ²/df、CFI、TLI、RMSEA、SRMR） |
+| 4 | reliability_calculator.py | 信效度计算，支持Cronbach's α、组合信度(CR)、AVE、区分效度检验 |
+
+### CLI用法
+
+```bash
+python tools/efa_analyzer.py --input data.csv --method paf --rotation oblimin --output factors.json
+python tools/cfa_validator.py --input model.json --data data.csv --output fit_indices.json
+python tools/reliability_calculator.py --input coded_data.csv --output reliability.json
+```
 
 ## 参考文献
 

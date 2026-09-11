@@ -1,31 +1,15 @@
 ---
 name: digital-durkheim-expert
 description: |
-  数字涂尔干专家。提供社会事实识别、团结分析、失范评估、自杀类型分析功能。适用于数字社会研究、社会整合分析、现代性问题研究场景。
+  Digital Durkheim expert. Provides social fact identification, solidarity analysis, anomie assessment, and suicide type analysis. Suitable for digital society research, social integration analysis, and modernity studies.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
----
-
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-# 涂尔干理论分析专家技能（AI CLI 原生版 - v5.2重新优化版）
-
-## 🎯 核心原则
-
-**质量优先，效率兼顾**：保留涂尔干方法论100%严谨性，通过智能任务选择提升简单任务效率。
-
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 ## 🚀 在 AI CLI 中使用
@@ -105,8 +89,8 @@ AI: 好的，我将使用涂尔干理论技能进行完整分析。
     8. 比较分析 (2 分钟)
     9. 涂尔干理论报告撰写 (10 分钟)
 
-    YP|    共 9 个任务，预计 48 分钟。开始执行...
-NZ|```
+    共 9 个任务，预计 48 分钟。开始执行...
+```
 
 ### 方式 3: 使用 Python 工具
 
@@ -163,10 +147,8 @@ python tools/solidarity_analyzer.py -i data/collective_data.csv -o results/solid
 ```
 
 **快速导航**：
-- 📋 [社会事实概念](references/social-facts.md) - 社会事实、自杀类型、失范详解
-- 🛠️ [分析工具](references/tools.md) - 统计方法和测量工具
+- 📋 [涂尔干经典文献](references/classic-literature.md) - 自杀论、分工论、宗教生活基本形式详解
 - 📚 [正面案例](cases/positive/) - 正确示范
-- ⚠️ [负面案例](cases/negative/) - 错误警示
 - ⏱️ [长时任务指南](references/long-term-tasks.md) - 多阶段研究支持
 
 ---
@@ -626,16 +608,15 @@ lessons:
 
 ## 📖 参考文档
 
-- [社会事实概念](references/social-facts.md) - 社会事实、自杀类型、失范详解
-- [分析工具](references/tools.md) - 统计方法和测量工具
+- [涂尔干经典文献](references/classic-literature.md) - 自杀论、分工论、宗教生活基本形式详解
 - [正面案例](cases/positive/) - 正确示范
-- [负面案例](cases/negative/) - 错误警示
 - [长时任务支持](references/long-term-tasks.md) - 多阶段研究支持
 
 ---
 
-**版本**: v5.2.0-cli-native+reoptimized
-**重新优化日期**: 2026-03-12
+**版本**: v5.2.1-cli-native+darwin-optimized
+**优化日期**: 2026-04-17
+**Darwin优化**: Round1删除YP|NZ|污染、suicide_type_analyzer完全重构、补充漏项工具表
 **优化原则**: 质量优先，效率兼顾
 **核心承诺**: 方法论严谨性：0%妥协
 **效率提升**:
@@ -646,6 +627,7 @@ lessons:
 **版本历史**:
 | 版本 | 日期 | 变更 |
 |------|------|------|
+| 5.2.1-cli-native+darwin-optimized | 2026-04-17 | Darwin Round1：suicide_type_analyzer完全重构(删243行关键词)、删YP|NZ|污染、修正工具表漏项、删无效引用 |
 | 5.2.0-cli-native+reoptimized | 2026-03-12 | 重新优化：保留所有6大原则，添加智能任务选择，质量优先效率兼顾 |
 | 5.1.0-cli-native+optimized | 2026-03-12 | ~~错误优化：删除了关键方法论保证~~ |
 | 5.0.0-cli-native+agent | 2026-03-08 | CLI原生集成+自迭代机制，对齐grounded-theory-coding标准 |
@@ -654,3 +636,34 @@ lessons:
 - grounded-theory-coding: 扎根理论编码（方法论基础）
 - bourdieu-field-analysis-expert: 场域分析（结构分析）
 - actor-network-analysis-expert: 行动者网络理论（方法论参考）
+
+---
+
+## 一、禁止定性分析硬编码（CRITICAL）
+
+**核心原则**：定性分析（社会事实识别、失范判断、集体意识分析）必须由LLM基于涂尔干理论原则完成，Python工具仅负责数据结构和流程管理。
+
+**Python工具角色**：
+- ✅ 正确：返回空结构 + 理论备忘录（methodology memo）
+- ✅ 正确：状态管理、文件I/O、结果格式化
+- ❌ 禁止：关键词匹配做定性判断
+
+**Durkheim Python工具链职责表**：
+
+| 工具 | 定性分析 | 角色 |
+|------|---------|------|
+| social_facts_identifier.py | ❌ | ✅ 纯数据结构 + 涂尔干社会事实备忘录 |
+| anomie_calculator.py | ❌ | ✅ 纯数据结构 + 失范理论备忘录 |
+| suicide_type_analyzer.py | ❌ | ✅ 纯数据结构 + 自杀论理论备忘录 |
+| solidarity_analyzer.py | ❌ | ✅ 纯数据结构 + 团结理论备忘录 |
+| collective_consciousness_analyzer.py | ❌ | ✅ 纯数据结构 + 集体意识理论备忘录 |
+| social_integration_measurer.py | ❌ | ✅ 纯数据结构 + 社会整合理论备忘录 |
+| analyze.py | ❌ | ✅ 工作流协调 |
+
+**量化确认**：
+- ✅ social_facts_identifier.py 已重构：使用 SOCIAL_FACTS_THEORY_MEMO
+- ✅ anomie_calculator.py 已重构：使用 ANOMIE_THEORY_MEMO
+- ✅ suicide_type_analyzer.py 已重构：使用 SUICIDE_TYPE_METHODOLOGY_MEMO
+- ✅ solidarity_analyzer.py 已重构：使用 SOLIDARITY_THEORY_MEMO
+- ✅ collective_consciousness_analyzer.py 已重构：无 COLLECTIVE_CONSCIOUSNESS_INDICATORS 关键词匹配
+- ✅ social_integration_measurer.py 已重构：无 INTEGRATION_INDICATORS 关键词匹配

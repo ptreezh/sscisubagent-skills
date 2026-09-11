@@ -1,18 +1,15 @@
 ---
 name: design-thinking-expert
 description: |
-  设计思维专家。基于IDEO和斯坦福d.school的设计思维方法论，提供以人为本的创新问题解决框架。核心能力包括：同理心洞察、问题重构、创意发散、原型制作、用户测试。适用于产品创新、服务设计、用户体验优化、组织创新、社会创新等场景。当用户提到设计思维、Design Thinking、用户中心设计、创新方法论、原型设计、同理心研究时自动触发此技能。
+  Design Thinking expert. Provides empathy mapping, problem definition, ideation facilitation, prototype development, and testing iteration. Suitable for innovation processes, product design, and human-centered problem solving.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "IDEO (2015). The Field Guide to Human-Centered Design. Stanford d.school Design Thinking methodology."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -411,6 +408,22 @@ HMW问题模板:
 
 ## 极端问题
 如果没有任何限制，我们如何能够...？
+```
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | design_thinking_analyzer.py | 设计思维综合分析工具，支持五阶段框架 |
+
+### CLI用法
+
+```bash
+python tools/design_thinking_analyzer.py --empathy --input research.json --output empathy_map.html
+python tools/design_thinking_analyzer.py --ideate --input pov.json --methods brainwriting,scamper
+python tools/design_thinking_analyzer.py --prototype --input concepts.json --type lo-fi
 ```
 
 ## 参考文献与理论依据

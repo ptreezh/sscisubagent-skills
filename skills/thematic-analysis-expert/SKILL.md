@@ -1,19 +1,15 @@
 ---
 name: thematic-analysis-expert
 description: |
-  主题分析(Thematic Analysis)专家技能，基于Braun & Clarke (2006)方法论，提供六步骤分析流程：熟悉数据、生成初始代码、搜索主题、审查主题、定义命名主题、撰写报告。支持归纳式和演绎式分析，适用于访谈数据、焦点小组、开放式问卷、文本材料等质性数据分析场景。
+  Thematic Analysis expert. Provides code emergence identification, theme development and clustering, inter-coder reliability assessment, thematic map construction, and interpretive framework building. Suitable for qualitative research, interview analysis, and theme identification.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  name-zh: "主题分析专家"
-  priority: 3
-  keywords: ["主题分析", "质性研究", "编码", "Braun Clarke", "访谈分析", "主题发展", "编码方案"]
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 # 主题分析专家 (Thematic Analysis Expert)
@@ -243,6 +239,26 @@ metadata:
 - 理论框架的可选性
 - 过程的系统性和严谨性
 
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | code_extractor.py | 质性数据初始代码提取与编码 |
+| 2 | theme_cluster.py | 代码聚类为主题、关联分析 |
+| 3 | saturation_checker.py | 主题饱和度检验 |
+| 4 | quality_assessor.py | 主题分析质量与信效度评估 |
+
+### CLI用法
+
+```bash
+python tools/code_extractor.py --data interview.txt --output codes.json
+python tools/theme_cluster.py --codes codes.json --output themes.json
+python tools/saturation_checker.py --codes codes.json
+python tools/quality_assessor.py --themes themes.json --report quality.md
+```
+
 ## 子智能体
 
 | 智能体 | 角色 | 职责 |
@@ -261,3 +277,14 @@ metadata:
 **技能版本**: v5.0.0  
 **方法论基准**: Braun & Clarke (2006, 2019, 2021)  
 **创建时间**: 2026-03-15
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法

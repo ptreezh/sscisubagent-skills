@@ -1,0 +1,60 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(diagnostic_tester.py)
+  output: "[TOOL: diagnostic_tester.py]\n============================================================\n\
+    REGRESSION DIAGNOSTIC REPORT\n============================================================\n\
+    \nOverall Status: ⚠️ Minor assumption violations\nAssumptions Met: 4/5\n\nIssues\
+    \ Found: Non-linearity\n\nDetailed Results:\n----------------------------------------\n\
+    \nNORMALITY:\n  ✓ Residuals appear normally distributed (p > .05)\n  Passed: True\n\
+    \nHOMOSCEDASTICITY:\n  ✓ Homoscedasticity assumption satisfied\n  Passed: True\n\
+    \nLINEARITY:\n  ✗ Non-linear relationship detected. Consider polynomial terms\
+    \ or transformations.\n  Passed: False\n\nMULTICOLLINEARITY:\n  ✓ No multicollinearity\
+    \ concerns (max VIF = 1.01)\n  Passed: True\n\nINDEPENDENCE:\n  ✓ No autocorrelation\
+    \ (DW = 2.083)\n  Passed: True\n\nOUTLIERS:\n\n============================================================"
+  passed: true
+test_prompt: "Please use the regression-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 5.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.1
+quality_score: 74.85
+refinement_history:
+- delta: 63.1
+  quality_score: 63.1
+  timestamp: '2026-04-26T09:47:44.066458+00:00'
+- delta: 12.130000000000003
+  quality_score: 62.1
+  timestamp: '2026-04-28T13:46:17.492397+00:00'
+- delta: 5.249999999999993
+  quality_score: 65.1
+  timestamp: '2026-04-30T21:24:51.339701+00:00'
+- delta: 9.75
+  quality_score: 74.85
+  timestamp: '2026-05-02T01:25:18.758939+00:00'
+skill: regression-analysis-expert
+structure_base: 97.8
+timestamp: '2026-05-02T01:25:18.758939+00:00'
+total_100: 112.8

@@ -1,0 +1,53 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(structure_builder.py)
+  output: '[TOOL: structure_builder.py]
+
+    IPA主从结构构建工具
+
+    使用 --build 从JSON文件构建结构
+
+    使用 --validate 验证结构完整性
+
+    使用 --export 指定输出格式 (json/markdown/tree)'
+  passed: true
+test_prompt: "Please use the ipa-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 52.47
+quality_score: 75.12
+refinement_history:
+- delta: 67.47
+  quality_score: 67.47
+  timestamp: '2026-04-26T05:22:32.033063+00:00'
+- delta: 22.650000000000006
+  quality_score: 75.12
+  timestamp: '2026-04-27T23:45:38.912661+00:00'
+skill: ipa-analysis-expert
+structure_base: 98.5
+timestamp: '2026-04-27T23:45:38.912661+00:00'
+total_100: 111.0

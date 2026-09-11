@@ -1,0 +1,49 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: tool_test(analyze.py)
+  output: "[TOOL: analyze.py]\n{\n  \"status\": \"success\",\n  \"skill\": \"data-analysis-expert\"\
+    ,\n  \"timestamp\": \"2026-04-30T22:13:53.137433\",\n  \"data\": {\n    \"test\"\
+    : \"data\"\n  },\n  \"analysis\": {\n    \"status\": \"completed\",\n    \"analysis_type\"\
+    : \"data-analysis-expert_analysis\",\n    \"summary\": \"分析已完成\",\n    \"timestamp\"\
+    : \"2026-04-30T22:13:53.137433\"\n  }\n}"
+  passed: false
+test_prompt: "Please use the data-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 3.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 51.88
+quality_score: 57.3
+refinement_history:
+- delta: 61.25
+  quality_score: 61.25
+  timestamp: '2026-04-26T05:13:36.969243+00:00'
+- delta: 5.419999999999995
+  quality_score: 57.3
+  timestamp: '2026-04-30T14:13:53.214346+00:00'
+skill: data-analysis-expert
+structure_base: 75.4
+timestamp: '2026-04-30T14:13:53.214346+00:00'
+total_100: 82.9

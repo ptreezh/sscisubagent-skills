@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: persona-builder
-    name: 消费者画像师
+    name: Consumer Profiler
     role: 构建消费者画像和细分
     triggers:
       - "画像"

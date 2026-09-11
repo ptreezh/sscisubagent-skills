@@ -1,0 +1,56 @@
+benchmark:
+  benchmark_score: 7.0
+  eval_mode: tool_test(causal_chain_analyzer.py)
+  output: "[TOOL: causal_chain_analyzer.py]\n{\n  \"chain_length\": 3,\n  \"chain_summary\"\
+    : [\n    {\n      \"step\": 1,\n      \"cause\": \"经济危机\",\n      \"effect\":\
+    \ \"政治动荡\",\n      \"evidence_count\": 2,\n      \"mechanism\": \"经济压力传导\"\n \
+    \   },\n    {\n      \"step\": 2,\n      \"cause\": \"政治动荡\",\n      \"effect\"\
+    : \"社会运动\",\n      \"evidence_count\": 1,\n      \"mechanism\": \"政治机会开放\"\n \
+    \   },\n    {\n      \"step\": 3,\n      \"cause\": \"社会运动\",\n      \"effect\"\
+    : \"制度变革\",\n      \"evidence_count\": 2,\n      \"mechanism\": \"压力倒逼改革\"\n \
+    \   }\n  ],\n  \"completeness\": {\n    \"evidence_coverage\": 1.0,\n    \"mechanism_coverage\"\
+    : 1.0,\n    \"assessment\": \"complete\"\n  },\n  \"alternative_paths\": [\n \
+    \   {\n      \"at_step\": 2,\n      \"from\": \"政治动荡\",\n      \"note\": \"证据不足，存在替代解释可能\"\
+    \n    }\n  ],\n  \"critical_links\": [\n    1,\n    3\n  ],\n  \"timestamp\":\
+    \ \"2026-04-30T22:07:03.538125\"\n}"
+  passed: true
+test_prompt: "Please use the historical-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 7.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 50.22
+quality_score: 63.85
+refinement_history:
+- delta: 59.6
+  quality_score: 59.6
+  timestamp: '2026-04-26T05:21:09.151443+00:00'
+- delta: 13.630000000000003
+  quality_score: 63.85
+  timestamp: '2026-04-30T14:07:03.569649+00:00'
+skill: historical-analysis-expert
+structure_base: 82.8
+timestamp: '2026-04-30T14:07:03.569649+00:00'
+total_100: 100.3

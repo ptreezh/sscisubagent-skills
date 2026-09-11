@@ -1,65 +1,18 @@
 ---
 name: machine-learning-research-expert
 description: |
-  机器学习研究专家。提供系统化机器学习方法，支持模型选择、训练调优、
-  特征工程、模型解释、性能评估。核心能力包括：数据准备、模型开发、
-  超参数优化、交叉验证、模型部署。适用于预测建模、模式识别、
-  数据驱动研究等场景。
+  Machine Learning Research expert. Provides algorithm selection, model training, hyperparameter tuning, performance evaluation, and ML research methodology. Suitable for AI research, predictive modeling, and machine learning implementation.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Hastie et al. (2009), Goodfellow et al. (2016)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 机器学习研究专家 (Machine Learning Research Expert)
-
-## 概述
-
-机器学习研究专家提供从数据到模型的完整工作流程，包括模型选择、特征工程、训练优化、性能评估和模型解释。
-
-## ML工作流程
-
-```
-原始数据
-    │
-    ↓
-┌─────────────────┐
-│  数据准备       │ ← 清洗、分割、预处理
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  特征工程       │ ← 选择、构造、转换
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  模型选择       │ ← 问题类型、数据规模
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  模型训练       │ ← 参数学习、超参数调优
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  模型评估       │ ← 交叉验证、测试集
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  模型解释       │ ← 特征重要性、SHAP
-└─────────────────┘
-```
-
-## 问题类型与模型
-
-### 监督学习
-
-| 问题类型 | 目标 | 推荐模型 |
-|----------|------|----------|
+-------|------|----------|
 | 二分类 | 0/1预测 | Logistic、SVM、XGBoost |
 | 多分类 | 多类别预测 | RF、XGBoost、神经网络 |
 | 回归 | 连续值预测 | 线性回归、XGBoost、神经网络 |
@@ -347,14 +300,32 @@ AI: 我将执行完整的ML工作流程：
 5. 使用时长: 0.08
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `feature_engineer.py` | 特征工程 |
-| `model_trainer.py` | 模型训练 |
-| `model_evaluator.py` | 模型评估 |
-| `model_interpreter.py` | 模型解释 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | — | 本技能暂无专用Python工具 |
+
+### CLI用法
+
+```bash
+# 机器学习研究主要通过AI对话辅助和scikit-learn等库实现
+python -c "from sklearn.ensemble import RandomForestClassifier; print('sklearn ready')"
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

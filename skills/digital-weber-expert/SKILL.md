@@ -1,16 +1,15 @@
 ---
 name: digital-weber-expert
 description: |
-  数字韦伯专家。提供理性化分析、科层制分析、社会行动分类、权威类型分析功能。适用于组织社会学、制度分析、现代性研究场景。
+  Digital Weber expert. Provides rationalization analysis, bureaucracy analysis, social action classification, and authority type analysis. Suitable for organizational sociology, institutional analysis, and modernity studies.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -103,6 +102,36 @@ python tools/analyze-weber-ideal-types.py -i data/ -o results/ideal_types.md
 ### 四、禁止未验证就报告完成
 ### 五、禁止追求完成感
 ### 六、禁止牺牲分析质量
+
+---
+
+## ⚡ 智能任务选择（v5.2 核心改进）
+
+> **v5.2 改进**：数字韦伯技能对所有任务使用相同的复杂分解，导致简单任务效率低下。
+> 新版本引入任务复杂度识别，简单任务走快速通道，复杂任务才进入完整分解。
+
+### 任务复杂度识别
+
+| 用户请求关键词 | 任务类型 | 执行模式 |
+|-------------|---------|---------|
+| "识别社会行动类型" | 简单一任务 | 快速模式 |
+| "分析权威类型" | 简单一任务 | 快速模式 |
+| "解释理性化概念" | 简单一任务 | 快速模式 |
+| "完整分析" "综合分析" "新教伦理" | 复杂综合 | 完整模式 |
+
+### 快速模式（简单任务）
+
+```
+1. 识别分析类型
+2. 直接应用韦伯理论（Verstehen/理想类型）
+3. 质量验证（3步）
+4. 生成报告
+预计: 2-5分钟
+```
+
+### 完整模式（复杂任务）
+
+> 激活条件：用户明确要求"完整韦伯分析"、包含多个分析维度、或估计时间>1小时
 
 ---
 

@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: rivalry-analyzer
-    name: 竞争强度分析师
+    name: Competitive Intensity Analyst
     role: 分析现有竞争者竞争强度
     triggers:
       - "竞争"

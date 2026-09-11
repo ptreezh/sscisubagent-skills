@@ -1,74 +1,18 @@
 ---
 name: social-sequence-analysis-expert
 description: |
-  社会序列分析专家。提供系统化序列分析方法，支持生命历程分析、
- 职业轨迹研究、事件序列建模。核心能力包括：序列构建、距离计算、
-  聚类分析、可视化呈现。适用于生命历程研究、职业发展分析、
-  社会流动研究等场景。
+  Social Sequence Analysis expert. Provides sequence alignment, optimal matching, event history analysis, trajectory modeling, and social process visualization. Suitable for life course research, organizational sequences, and sequential data analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Abbott (1995), Cornwell (2015)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 社会序列分析专家 (Social Sequence Analysis Expert)
-
-## 概述
-
-社会序列分析是研究社会生活中有序事件模式的定量方法，源于生物学序列比对，广泛应用于生命历程研究、职业轨迹分析、社会流动研究等领域。
-
-## 分析流程
-
-```
-原始事件数据
-    │
-    ↓
-┌─────────────────┐
-│  序列构建       │ ← 定义状态、时间单位
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  序列描述       │ ← 状态分布、转换矩阵
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  距离计算       │ ← 最优匹配、其他度量
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  聚类分析       │ ← 发现典型序列模式
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  可视化呈现     │ ← 状态分布图、序列图
-└─────────────────┘
-```
-
-## 核心概念
-
-### 序列定义
-
-```
-序列 = 状态的时间有序排列
-
-示例: 职业轨迹
-年龄  20  25  30  35  40  45  50
-状态  学  职  职  管  管  高管 退休
-
-编码: E E W W M M R
-(E=教育, W=工作, M=管理, R=退休)
-```
-
-### 状态空间
-
-| 研究领域 | 状态类型 | 示例 |
-|----------|----------|------|
+-------|----------|------|
 | 职业轨迹 | 就业状态 | 就业、失业、退休 |
 | 家庭形成 | 居住状态 | 独居、同居、已婚 |
 | 教育历程 | 学历状态 | 小学、中学、大学 |
@@ -368,13 +312,59 @@ AI: 我将执行完整的序列分析：
 | 实习经历 | + | ns | + | ns |
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `sequence_builder.py` | 序列构建 |
-| `distance_calculator.py` | 距离计算 |
-| `cluster_analyzer.py` | 聚类分析 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致序列分析结论失效。
+
+1. **禁止忽视时间结构** — 将序列当作无序集合处理，不考虑状态的时间顺序和转换逻辑
+2. **禁止替换成本矩阵无理论依据** — 使用最优匹配(OM)时，替换/插入/删除成本无领域依据，导致距离度量失真
+3. **禁止只看聚类结果不分析序列内容** — 仅报告聚类数量和轮廓系数，而不解读各聚类的实际轨迹含义
+4. **禁止混淆序列相似性与因果关系** — 序列相似不代表有因果关联，需结合回归分析检验
+5. **禁止忽视样本选择性偏倚** — 不考虑样本是否代表目标群体，导致轨迹类型分布估计偏差
+6. **禁止忽视观测间隔不等问题** — 不等间隔观测时使用等间隔假设，导致转换矩阵估计不准确
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 序列定义说明完整（状态、时间单位）
+- 替换成本矩阵有据可查
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 距离度量选择有理论依据
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 典型序列解读完整
+- 影响因素分析深入
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | sequence_builder.py | 序列构建，支持状态定义、时间单位设置、不等间隔处理 |
+| 2 | om_distance_calculator.py | 最优匹配距离计算，支持自定义替换成本矩阵和插入/删除成本 |
+| 3 | trajectory_cluster.py | 轨迹聚类分析，支持Ward/PAM/K-medoids多方法聚类 |
+| 4 | transition_analyzer.py | 转换矩阵分析，支持时依协变量Cox模型和事件史分析 |
+
+### CLI用法
+
+```bash
+python tools/sequence_builder.py --input events.csv --output sequences.json
+python tools/om_distance_calculator.py --input sequences.json --substitution-matrix costs.csv --output dist_matrix.json
+python tools/trajectory_cluster.py --input dist_matrix.json --method ward --n-clusters 4 --output clusters.json
+```
+
+### CLI用法
+
+```bash
+# 社会序列分析推荐使用TraMineR(R)或Python的sequence_analyzer
+python -c "print('Social Sequence Analysis: 序列分析与聚类')"
+```
 
 ## 参考文献
 

@@ -4,7 +4,7 @@
 subagents:
   # Rationalization Analysis Agent
   - name: weber-rationalization-analyzer
-    description: 分析理性化过程（祛魅、计算理性、形式理性）
+    description: Analyze rationalization processes (disenchantment, calculative rationality, formal rationality)
     prompt_template: prompts/rationalization-prompt.md
     tools:
       - rationalization_analyzer

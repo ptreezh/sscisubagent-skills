@@ -1,47 +1,18 @@
 ---
 name: ipa-analysis-expert
 description: |
-  诠释现象学分析专家。提供系统化IPA分析流程，支持双重建构本体论、
-  主题分析、模式识别、理论整合。核心能力包括：访谈设计、转录分析、
-  主题提炼、主从主题构建、个体差异分析。遵循Smith & Osborn (2015)标准。
+  Interpretive Phenomenological Analysis (IPA) expert. Provides lived experience exploration, idiographic analysis, theme clustering, phenomenological reduction, and meaning interpretation. Suitable for psychological research, health studies, and qualitative phenomenological inquiry.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Smith & Osborn (2015), Smith et al. (2009)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 诠释现象学分析专家 (IPA Analysis Expert)
-
-## 概述
-
-诠释现象学分析是一种质性研究方法，关注个体如何理解其生活经验。IPA采用"双重建构"认识论立场，研究者通过诠释过程理解参与者的经验世界。
-
-## 核心哲学基础
-
-### 现象学基础
-- **胡塞尔**: 悬置与本质还原
-- **海德格尔**: 存在诠释学
-- **梅洛-庞蒂**: 具身现象学
-
-### 双重建构
-```
-参与者 → 对经验的诠释(第一层)
-         ↓
-研究者 → 对参与者诠释的诠释(第二层)
-         ↓
-研究产物 → "双重建构"的知识
-```
-
-### IPA的核心特征
-
-| 特征 | 描述 |
-|------|------|
+---|------|
 | 深度 | 关注经验细节 |
 | 情境 | 理解经验背景 |
 | 过程 | 追踪经验变化 |
@@ -220,13 +191,35 @@ AI: 我将采用IPA进行分析：
 | 扎根理论 | 理论生成 | 实证主义/建构主义 |
 | 叙事分析 | 故事结构 | 建构主义 |
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `annotation_guide.py` | 注释类型指导 |
-| `theme_developer.py` | 主题发展辅助 |
-| `structure_builder.py` | 主从主题结构构建 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | annotation_guide.py | IPA注释类型指导，支持描述性/语言性/概念性注释 |
+| 2 | theme_developer.py | 主题发展辅助，从注释到新兴主题的提炼工具 |
+| 3 | structure_builder.py | 主从主题结构构建，支持跨案例模式识别 |
+
+### CLI用法
+
+```bash
+python tools/annotation_guide.py --guide --interview interview1.txt
+python tools/theme_developer.py --input annotations.json --output themes
+python tools/structure_builder.py --input master_themes.json --cross-case
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

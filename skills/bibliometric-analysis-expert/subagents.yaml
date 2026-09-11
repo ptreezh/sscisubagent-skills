@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: data-retriever
-    name: 数据检索师
+    name: Data Retriever
     role: 从数据库检索文献数据
     triggers:
       - "检索"

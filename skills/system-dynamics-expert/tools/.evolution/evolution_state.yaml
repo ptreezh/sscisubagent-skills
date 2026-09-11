@@ -1,0 +1,54 @@
+benchmark:
+  benchmark_score: 7.0
+  eval_mode: tool_test(causal_loop_analyzer.py)
+  output: "[TOOL: causal_loop_analyzer.py]\n{\n  \"variables\": [\n    \"population\"\
+    ,\n    \"births\",\n    \"resources\"\n  ],\n  \"relationships\": [\n    {\n \
+    \     \"from\": \"population\",\n      \"to\": \"births\",\n      \"type\": \"\
+    causal\",\n      \"sign\": \"+\"\n    }\n  ],\n  \"feedback_loops\": [],\n  \"\
+    causal_chains\": [\n    {\n      \"from\": \"population\",\n      \"to\": \"births\"\
+    ,\n      \"sign\": \"+\"\n    }\n  ],\n  \"loop_types\": {\n    \"reinforcing\"\
+    : [],\n    \"balancing\": []\n  },\n  \"summary\": \"发现0个反馈回路\"\n}"
+  passed: true
+test_prompt: "Please use the system-dynamics-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 7.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 61.38
+quality_score: 65.5
+refinement_history:
+- delta: 58.62
+  quality_score: 58.62
+  timestamp: '2026-04-26T05:16:13.667307+00:00'
+- delta: 12.130000000000003
+  quality_score: 61.38
+  timestamp: '2026-04-29T10:21:12.798160+00:00'
+- delta: 4.119999999999997
+  quality_score: 65.5
+  timestamp: '2026-05-01T14:24:11.208836+00:00'
+skill: system-dynamics-expert
+structure_base: 85.0
+timestamp: '2026-05-01T14:24:11.208836+00:00'
+total_100: 102.5

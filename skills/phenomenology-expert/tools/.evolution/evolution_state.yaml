@@ -1,0 +1,51 @@
+benchmark:
+  benchmark_score: 6.5
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the phenomenology-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.5
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.75
+quality_score: 77.79
+refinement_history:
+- delta: 68.9
+  quality_score: 68.9
+  timestamp: '2026-04-26T09:46:32.490157+00:00'
+- delta: 8.349999999999994
+  quality_score: 77.25
+  timestamp: '2026-04-27T13:09:16.135023+00:00'
+- delta: 0.6899999999999977
+  quality_score: 77.94
+  timestamp: '2026-04-27T13:22:35.707596+00:00'
+- delta: 12.040000000000006
+  quality_score: 77.79
+  timestamp: '2026-05-02T08:50:40.812911+00:00'
+skill: phenomenology-expert
+structure_base: 101.55
+timestamp: '2026-05-02T08:50:40.812911+00:00'
+total_100: 117.8

@@ -1,16 +1,15 @@
 ---
 name: business-model-expert
 description: |
-  商业模式专家。提供商业模式画布、价值主张分析、收入模式设计、竞争分析功能。适用于商业模式创新、战略规划、创业设计场景。
+  Business model expert. Provides Business Model Canvas, value proposition analysis, revenue model design, and competitive analysis. Suitable for business model innovation, strategic planning, and entrepreneurial design.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -184,6 +183,29 @@ print(f"项目目录创建完成: {project_path}")
     task: "分析竞争关系网络"
     input: 竞争对手互动
     output: 网络结构、影响力
+```
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | analyze.py | 商业模式分析专家入口 |
+| 2 | canvas_designer.py | 商业模式画布设计，九构造块完整性检验 |
+| 3 | value_proposition_builder.py | 价值主张构建，客户工作-痛点-收益映射 |
+| 4 | revenue_model_analyzer.py | 收入模式分析，定价策略与可持续性评估 |
+| 5 | cost_structure_calculator.py | 成本结构计算，固定/可变成本分析与盈亏平衡 |
+| 6 | competitive_advantage_analyzer.py | 竞争优势分析，护城河识别与可持续性评估 |
+| 7 | business_model_innovator.py | 商业模式创新生成，多模式创新推荐 |
+| 8 | planning-integration.py | 规划集成，管理商业模式规划文件 |
+
+### CLI用法
+
+```bash
+python tools/canvas_designer.py --input data.json --output canvas.html
+python tools/value_proposition_builder.py --customer "用户画像" --pain "痛点"
+python tools/revenue_model_analyzer.py --input model.json --pricing subscription
 ```
 
 ## 📚 渐进式加载结构

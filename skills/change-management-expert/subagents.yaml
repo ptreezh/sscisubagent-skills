@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: resistance-analyzer
-    name: 阻力分析师
+    name: Resistance Analyst
     role: 识别和分析变革阻力
     triggers:
       - "阻力"

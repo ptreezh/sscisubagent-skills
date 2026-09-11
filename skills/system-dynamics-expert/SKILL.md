@@ -1,19 +1,17 @@
 ---
 name: system-dynamics-expert
 description: |
-  系统动力学专家。提供因果回路图构建、库存流量建模、反馈循环分析、政策仿真功能。适用于系统分析、政策评估、动态建模场景。
+  System Dynamics expert. Provides causal loop diagram construction, stock-flow modeling, feedback loop analysis, and policy simulation. Suitable for systems analysis, policy evaluation, and dynamic modeling.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
----
 #XM|name: system-dynamics-expert
 #TX|description: System Dynamics Expert - 技能说明
 #ZM|---
@@ -412,4 +410,8 @@ python tools/behavior_analyzer.py --model model.json --horizon 100 -o results/be
 #RB|
 #BK|## 详细指南
 #ZT|
+### 一、禁止定性分析硬编码（CRITICAL）
+---
+
+
 #RJ|完整的使用指南请参考: [详细指南](references/detailed-guide.md)

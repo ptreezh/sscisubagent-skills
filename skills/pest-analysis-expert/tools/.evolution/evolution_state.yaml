@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the pest-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 10.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 10.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 51.1
+quality_score: 66.15
+refinement_history:
+- delta: 64.22
+  quality_score: 64.22
+  timestamp: '2026-04-26T09:46:05.710263+00:00'
+- delta: 15.050000000000004
+  quality_score: 66.15
+  timestamp: '2026-04-28T13:17:15.028468+00:00'
+skill: pest-analysis-expert
+structure_base: 86.2
+timestamp: '2026-04-28T13:17:15.028468+00:00'
+total_100: 101.2

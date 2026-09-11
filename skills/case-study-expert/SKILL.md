@@ -1,39 +1,18 @@
 ---
 name: case-study-expert
 description: |
-  案例研究专家。提供系统化案例研究设计，支持单案例设计、多案例设计、
-  解释性案例研究、探索性案例研究、描述性案例研究。核心能力包括：
-  案例选择、数据三角验证、模式匹配、理论构建、复制逻辑。
-  遵循Yin (2018)和Stake (1995)标准。
+  Case Study expert. Provides case selection, data collection, thematic analysis, cross-case synthesis, and theoretical contribution assessment. Suitable for qualitative research, business case analysis, and empirical investigation.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Yin (2018), Stake (1995), Eisenhardt (1989)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 案例研究专家 (Case Study Expert)
-
-## 概述
-
-案例研究专家提供系统化的案例研究方法论指导，支持单案例和多案例设计，适用于研究"如何"和"为什么"类型的研究问题。
-
-## 核心方法论
-
-### 案例研究的本质
-- **定义**: 在真实情境中深入探究当代现象
-- **边界**: 现象与情境之间的界限不明确
-- **特点**: 保留有意义特征的整体性视角
-
-### 三种案例研究类型
-
-| 类型 | 目的 | 特点 | 适用场景 |
-|------|------|------|---------|
+---|------|------|---------|
 | 探索性 | 生成假设 | 开放性 | 现象新颖 |
 | 描述性 | 描述现象 | 完整性 | 已有理论框架 |
 | 解释性 | 解释因果 | 验证性 | 因果机制研究 |
@@ -213,13 +192,35 @@ AI: 我推荐采用多案例解释性设计：
 [模式匹配 + 跨案例比较]
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `case_selector.py` | 案例选择与复制逻辑 |
-| `pattern_matcher.py` | 模式匹配分析 |
-| `cross_case_analyzer.py` | 跨案例比较分析 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | case_selector.py | 案例选择工具，支持逐案例复制和理论复制逻辑 |
+| 2 | pattern_matcher.py | 模式匹配分析，验证经验模式与理论预测一致性 |
+| 3 | cross_case_analyzer.py | 跨案例比较分析，支持多案例综合与理论构建 |
+
+### CLI用法
+
+```bash
+python tools/case_selector.py --criteria replication --output selected_cases.json
+python tools/pattern_matcher.py --input case_data.json --pattern theory_predicted
+python tools/cross_case_analyzer.py --input cases/ --method comparative
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

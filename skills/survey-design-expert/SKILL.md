@@ -1,28 +1,17 @@
 ---
 name: survey-design-expert
 description: |
-  问卷设计专家。提供问卷结构设计、信度效度检验、抽样计算、预测试管理功能。适用于调查研究、量表开发、数据收集设计场景。
+  Survey design expert. Provides questionnaire structure design, reliability and validity testing, sampling calculation, and pilot study management. Suitable for survey research, scale development, and data collection design.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-# SKILL.md - survey-design-expert
-
----
 metadata:
   version: "5.1.0-cli-native+agent"
   methodology: "Survey Research Methodology"
@@ -53,6 +42,12 @@ metadata:
 ---
 
 ## 基本信息
+---|
+### ✅ 检查点设计（权重7）
+- [ ] 确保用户确认关键决策
+- [ ] 防止自主失控
+- [ ] 关键决策前有用户确认
+- [ ] 防止自主失控
 
 **名称**: survey-design-expert (问卷设计专家)
 **版本**: 5.0.0-cli-native+agent
@@ -150,6 +145,28 @@ print(f"项目目录创建完成: {project_path}")
 - ✅ 满意度调查
 - ✅ 市场研究
 - ✅ 社会科学调查
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | analyze.py | 问卷数据分析 |
+| 2 | questionnaire_designer.py | 问卷结构设计（Dillman方法） |
+| 3 | sampling_calculator.py | 抽样设计与样本量计算 |
+| 4 | scale_validator.py | 量表效度验证 |
+| 5 | reliability_analyzer.py | 信度分析（Cronbach's α） |
+| 6 | validity_checker.py | 内容/构念效度检验 |
+| 7 | pilot_tester.py | 预测试设计与分析 |
+
+### CLI用法
+
+```bash
+python tools/questionnaire_designer.py --data research_objective.json --output questionnaire.json
+python tools/sampling_calculator.py --population 10000 --confidence 0.95 --margin 0.05
+python tools/reliability_analyzer.py --data responses.csv --output alpha.json
+```
 
 ## ⚠️ 六大绝对禁止原则
 
@@ -356,6 +373,10 @@ print(f"项目目录创建完成: {project_path}")
     - 调整选项
     - 优化流程
     - 最终版确定
+
+
+### 一、禁止定性分析硬编码（CRITICAL）
+---
 
 
 ## 详细指南

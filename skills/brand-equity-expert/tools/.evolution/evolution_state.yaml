@@ -1,0 +1,50 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(brand_equity_analyzer.py)
+  output: '[TOOL: brand_equity_analyzer.py]
+
+    Brand Equity Assessment Tool v5.0.0'
+  passed: true
+test_prompt: "Please use the brand-equity-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 59.75
+quality_score: 72.72
+refinement_history:
+- delta: 64.9
+  quality_score: 64.9
+  timestamp: '2026-04-26T09:43:58.575461+00:00'
+- delta: 7.969999999999999
+  quality_score: 59.75
+  timestamp: '2026-04-29T11:43:38.440457+00:00'
+- delta: 12.969999999999999
+  quality_score: 72.72
+  timestamp: '2026-04-30T21:09:42.641859+00:00'
+skill: brand-equity-expert
+structure_base: 95.3
+timestamp: '2026-04-30T21:09:42.641859+00:00'
+total_100: 107.8

@@ -1,16 +1,15 @@
 ---
 name: social-network-analysis-expert
 description: |
-  社会网络分析专家。提供中心性计算、社群检测、结构洞分析、网络可视化功能。适用于组织网络研究、社交网络分析、关系数据挖掘场景。
+  Social Network Analysis (SNA) expert. Provides centrality computation, community detection, structural hole analysis, and network visualization. Suitable for organizational network research, social network analysis, and relational data mining.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -309,6 +308,42 @@ AI: 社会网络分析进度：
 - 立即纠正错误
 - 重新完成不符合标准的工作
 - 记录违规案例到负面案例库
+
+### 七、禁止定性分析硬编码（SNA核心）
+
+**核心原则**: 社会网络分析中的结构洞识别、社群解释和节点角色判断必须由大模型智力驱动，绝不能硬编码。
+
+**错误做法**:
+```yaml
+硬编码判断:
+  - 用阈值规则判断"谁是结构洞"（constraint<0.5）
+  - 用if/else判断"哪个节点是核心"
+  - 用模板生成"网络解读"
+  - 硬编码中心性→重要性的映射
+
+示例（错误）:
+  if betweenness > 0.3:
+      return "核心节点"  # 这是大模型的工作
+```
+
+**正确做法**:
+```yaml
+工具只做数值计算:
+  - 中心性指标数值计算（NetworkX）
+  - 社群检测算法（Louvain/Girvan-Newman）
+  - 结构洞指标计算（constraint/effective size）
+  - 网络可视化（matplotlib/networkx）
+
+智力留给大模型:
+  - 结构洞的社会学意义由大模型解读
+  - 节点角色的实质性判断由大模型基于案例知识
+  - 社群划分的理论解释由大模型推理
+  - 网络演化的趋势判断由大模型分析
+
+Python工具的正确角色:
+  ✅ 数值计算、算法执行、数据结构管理
+  ❌ 结构洞判断、节点角色归类、社群意义解释
+```
 
 ---
 

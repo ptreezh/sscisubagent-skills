@@ -1,6 +1,6 @@
 subagents:
   - id: ethnographer
-    name: 网络民族志师
+    name: Netnographer
     role: 进行在线社区民族志研究
     capabilities:
       - 参与观察

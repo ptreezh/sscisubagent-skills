@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(digital_trace_collector.py)
+  output: "[TOOL: digital_trace_collector.py]\n\nusage: digital_trace_collector.py\
+    \ [-h] --platform PLATFORM --query QUERY\n                                  [--limit\
+    \ LIMIT] [--output OUTPUT]\ndigital_trace_collector.py: error: the following arguments\
+    \ are required: --platform/-p, --query/-q"
+  passed: true
+test_prompt: "Please use the internet-research-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 0.0
+quality_score: 64.7
+refinement_history:
+- delta: 74.07
+  quality_score: 74.07
+  timestamp: '2026-04-26T05:21:51.725627+00:00'
+skill: internet-research-expert
+structure_base: 84.6
+timestamp: '2026-04-26T05:21:51.725627+00:00'
+total_100: 109.6

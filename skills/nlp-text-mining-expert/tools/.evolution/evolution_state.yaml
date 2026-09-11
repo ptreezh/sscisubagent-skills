@@ -1,0 +1,43 @@
+benchmark:
+  benchmark_score: 8.0
+  eval_mode: no_tools_available
+  output: " {\n  \"benchmark_score\": 8,\n  \"reason\": \"输出有实质内容，与研究场景相关，但未提供完整的文本分析结果。\"\
+    \n}"
+  passed: true
+test_prompt: "Please use the nlp-text-mining-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 8.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 0.0
+quality_score: 65.45
+refinement_history:
+- delta: 80.45
+  quality_score: 80.45
+  timestamp: '2026-04-26T14:32:41.620452+00:00'
+skill: nlp-text-mining-expert
+structure_base: 84.6
+timestamp: '2026-04-26T14:32:41.620452+00:00'
+total_100: 124.6

@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: eth-fieldnote-manager
-    name: 田野笔记管理者
+    name: Field Notes Manager
     role: 管理和编码田野笔记
     tools:
       - fieldnote_manager.py

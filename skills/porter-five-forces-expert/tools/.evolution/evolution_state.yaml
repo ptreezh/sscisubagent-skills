@@ -1,0 +1,54 @@
+benchmark:
+  benchmark_score: 7.0
+  eval_mode: tool_test
+  output: "[TOOL: five_forces_analyzer.py]\n{\n  \"status\": \"success\",\n  \"forces\"\
+    : {\n    \"rivalry\": [\n      {\n        \"force_type\": \"rivalry\",\n     \
+    \   \"name\": \"竞争\",\n        \"description\": \"识别到竞争相关因素\",\n        \"intensity\"\
+    : 3,\n        \"evidence\": [\n          \"关键词匹配: 竞争\"\n        ]\n      }\n \
+    \   ],\n    \"entry\": [\n      {\n        \"force_type\": \"entry\",\n      \
+    \  \"name\": \"资本需求\",\n        \"description\": \"识别到资本需求相关因素\",\n        \"\
+    intensity\": 3,\n        \"evidence\": [\n          \"关键词匹配: 资本需求\"\n        ]\n\
+    \      }\n    ],\n    \"substitute\": [\n      {\n        \"force_type\": \"substitute\"\
+    ,\n        \"name\": \"替代\",\n        \"description\": \"识别到替代相关因素\",\n      \
+    \  \"intensity\": 3,\n        \"evidence\": [\n          \"关键词匹配: 替代\"\n     \
+    \   ]\n      },\n      {\n        \"force_type\": \"substitute\",\n        \"\
+    name\": \"替代品\",\n        \"description\": \"识别到替代品相关因素\",\n        \"intensity\"\
+    : 3,\n    "
+  passed: true
+test_prompt: "Please use the porter-five-forces-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 7.0
+    weight: 25
+  boundary:
+    score: 9.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 10.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: false
+previous_score: 68.32
+quality_score: 63.7
+refinement_history:
+- delta: 68.32
+  quality_score: 68.32
+  timestamp: '2026-04-26T09:46:56.909063+00:00'
+skill: porter-five-forces-expert
+structure_base: 82.6
+timestamp: '2026-04-26T09:59:18.252802+00:00'
+total_100: 116.9

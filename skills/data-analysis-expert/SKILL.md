@@ -1,16 +1,15 @@
 ---
 name: data-analysis-expert
 description: |
-  数据分析专家。提供描述性统计、回归分析、假设检验、数据可视化功能。适用于定量研究、统计建模、实证分析场景。
+  Data analysis expert. Provides descriptive statistics, regression analysis, hypothesis testing, and data visualization. Suitable for quantitative research, statistical modeling, and empirical analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -397,6 +396,23 @@ p-hacking:
 
 
 
+### 一、禁止定性分析硬编码（CRITICAL）
+---
+
+
 ## 详细指南
 
 完整的使用指南请参考: [详细指南](references/detailed-guide.md)
+## ✅ 质量标准
+
+### 完整性
+- 数据收集完整性 ≥ 90%
+- 分析步骤记录完整
+
+### 方法论
+- 方法选择与研究问题匹配
+- 分析过程可复现
+
+### 深度
+- 核心变量全面覆盖
+- 结果解释有理论支撑

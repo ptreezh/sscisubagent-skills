@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: cs-designer
-    name: 案例设计师
+    name: Case Designer
     role: 设计案例研究方案
     triggers:
       - "研究设计"

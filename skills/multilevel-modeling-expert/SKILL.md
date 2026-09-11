@@ -1,83 +1,18 @@
 ---
 name: multilevel-modeling-expert
 description: |
-  多层模型分析专家。提供系统化多层/分层线性模型分析，支持随机截距模型、
-  随机斜率模型、跨层交互、增长曲线模型。核心能力包括：组内相关计算、
-  模型构建策略、效应分解、模型比较、诊断检验。
-  遵循Raudenbush & Bryk (2002)和Hox et al. (2018)标准。
+  Multilevel Modeling expert. Provides hierarchical data analysis, random effects estimation, cross-level interaction modeling, and multilevel mediation analysis. Suitable for organizational research, educational evaluation, and nested data analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Raudenbush & Bryk (2002), Hox et al. (2018), Snijders & Bosker (2012)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 多层模型分析专家 (Multilevel Modeling Expert)
-
-## 概述
-
-多层模型(也称分层线性模型HLM、混合效应模型)用于分析嵌套数据结构，正确处理组内相关和效应分解。
-
-## 为什么需要多层模型？
-
-### 嵌套数据问题
-
-```
-传统回归假设:
-- 观测独立
-- 同质方差
-
-嵌套数据现实:
-学生 ──┬── 班级A (共享环境)
-       ├── 班级A (非独立)
-       └── 班级A (组内相关)
-
-问题:
-- 低估标准误
-- 假阳性风险
-- 错误推断
-```
-
-### 组内相关(ICC)
-
-```
-ICC = 组间方差 / 总方差
-
-ICC解释:
-ICC = 0.00 → 无组效应，可用传统回归
-ICC = 0.05 → 弱组效应
-ICC = 0.15 → 中等组效应
-ICC = 0.30 → 强组效应
-
-设计效应: DEFF = 1 + (n̄ - 1) × ICC
-DEFF > 1.1 → 需要多层模型
-```
-
-## 模型结构
-
-### 两层模型
-
-```
-层1(个体层): 
-Yij = β0j + β1jXij + rij
-
-层2(组层):
-β0j = γ00 + γ01Wj + u0j  (随机截距)
-β1j = γ10 + γ11Wj + u1j  (随机斜率)
-
-合并模型:
-Yij = γ00 + γ01Wj + γ10Xij + γ11WjXij + u0j + u1jXij + rij
-```
-
-### 模型组成部分
-
-| 成分 | 符号 | 含义 |
-|------|------|------|
+---|------|------|
 | 固定效应 | γ | 总体平均效应 |
 | 随机效应 | u | 组间变异 |
 | 残差 | r | 个体层误差 |
@@ -249,13 +184,32 @@ ICC = 0.18 (18%方差在学校层)
 在积极氛围学校，努力对成绩的影响更强
 ```
 
-## 工具函数
+## 🖥️ Python 工具
 
-| 工具 | 功能 |
-|------|------|
-| `icc_calculator.py` | 组内相关计算 |
-| `model_builder.py` | 模型构建辅助 |
-| `effect_decomposer.py` | 效应分解分析 |
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | — | 本技能暂无专用Python工具 |
+
+### CLI用法
+
+```bash
+# 多层模型建议使用R语言lme4包或Python的statsmodels
+python -c "import statsmodels.api as sm; print('statsmodels ready for HLM')"
+```
+
+
+## 🚫 绝对禁止原则
+
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致研究结论无效。
+
+1. **禁止跳过研究伦理审查** — 未获IRB批准的实证研究不得用于发表
+2. **禁止捏造或篡改数据** — 任何形式的数据造假均违反学术伦理
+3. **禁止忽视研究局限性** — 必须在论文中诚实报告研究局限
+4. **禁止剽窃他人研究成果** — 必须正确引用所有参考来源
+5. **禁止选择性报告结果** — 阴性结果同样需要报告
+6. **禁止使用不匹配的分析方法** — 必须根据研究问题选择合适方法
 
 ## 参考文献
 

@@ -10,94 +10,24 @@ import re
 import json
 
 
-# 动力学指标
-DYNAMICS_INDICATORS = {
-    "power_struggle": {
-        "keywords": [
-            "权力斗争",
-            "争夺",
-            "竞争",
-            "冲突",
-            "对抗",
-            "博弈",
-            "较量",
-            "权力更迭",
-            " dominance ",
-            " struggle ",
-            " conflict ",
-            " competition ",
-            " power ",
-        ],
-        "description": "权力斗争",
-    },
-    "position_mobility": {
-        "keywords": [
-            "晋升",
-            "降职",
-            "崛起",
-            "衰落",
-            "崛起",
-            "失势",
-            "上位",
-            "下台",
-            "流动",
-            " movement ",
-            " mobility ",
-            " rise ",
-            " fall ",
-            " promotion ",
-        ],
-        "description": "位置流动",
-    },
-    "capital_flow": {
-        "keywords": [
-            "投资",
-            "转移",
-            "积累",
-            "流失",
-            "集中",
-            "分散",
-            "资本流动",
-            "资源分配",
-            " investment ",
-            " transfer ",
-            " accumulation ",
-            " flow ",
-            " distribution ",
-        ],
-        "description": "资本流动",
-    },
-    "boundary_change": {
-        "keywords": [
-            "扩张",
-            "收缩",
-            "融合",
-            "分裂",
-            "新兴",
-            "瓦解",
-            "边界变化",
-            " expansion ",
-            " contraction ",
-            " fusion ",
-            " boundary ",
-        ],
-        "description": "边界变化",
-    },
-    "rule_emergence": {
-        "keywords": [
-            "新规则",
-            "规范",
-            "制度变革",
-            "惯例形成",
-            "潜规则",
-            " new rules ",
-            " norm ",
-            " institution ",
-            " regulation ",
-        ],
-        "description": "规则形成",
-    },
-}
+# Bourdieu场域动力学methodology memo
+# 动力学指标关键词匹配已禁用
+# 场域动力判断是布迪厄场域诠释性判断，由LLM完成
+FIELD_DYNAMICS_METHODOLOGY_MEMO = """【布迪厄场域动力学 - LLM专属判断】
+场域动力学分析基于Bourdieu的资本转化理论和场域结构理论。
+- 禁止：用关键词匹配("权力斗争"/"资本流动")判断场域动力学类型
+- 正确做法：
+  * 权力斗争: 分析不同资本类型之间的转化和张力
+  * 位置流动: 分析行动者资本结构变化
+  * 资本流动: 分析经济/文化/社会资本的转化路径
+  * 边界变化: 分析场域边界的扩张/收缩/融合
+  * 规则形成: 分析场域内部规范的形成和固化
+- 场域动力学类型判断由LLM综合分析，不可用关键词计数自动确定
+"""
+
+
+# 动力学指标字典已禁用（保留占位防止引用报错）
+DYNAMICS_INDICATORS = {}
 
 
 class FieldDynamicsTracker:
@@ -154,7 +84,10 @@ class FieldDynamicsTracker:
     def _analyze_dynamics_by_period(
         self, texts: List[str], time_periods: List[str] = None
     ) -> List[Dict]:
-        """分析各时间点的动力学特征"""
+        """分析各时间点的动力学特征。
+
+        ⚠️ 关键词计数已禁用，由LLM做布迪厄场域动力学诠释判断。
+        """
         results = []
 
         for i, text in enumerate(texts):
@@ -164,78 +97,48 @@ class FieldDynamicsTracker:
                 else f"时期{i + 1}"
             )
 
-            # 识别动力学指标
-            indicators = {}
-            for dyn_type, data in DYNAMICS_INDICATORS.items():
-                keywords = data.get("keywords", [])
-                count = sum(len(re.findall(kw, text, re.IGNORECASE)) for kw in keywords)
-                indicators[dyn_type] = count
-
-            # 识别主导力量
-            dominant_forces = self._identify_dominant_forces(text)
-
-            # 识别新兴行动者
-            emerging_actors = self._identify_emerging_actors(text)
-
             results.append(
                 {
                     "period": period_name,
                     "period_index": i,
-                    "indicators": indicators,
-                    "dominant_forces": dominant_forces,
-                    "emerging_actors": emerging_actors,
-                    "intensity": self._calculate_dynamics_intensity(indicators),
+                    "indicators": None,  # LLM填充
+                    "dominant_forces": None,  # LLM填充
+                    "emerging_actors": [],  # LLM填充
+                    "intensity": None,  # LLM填充
+                    "methodology_memo": FIELD_DYNAMICS_METHODOLOGY_MEMO,
                 }
             )
 
         return results
 
     def _identify_dominant_forces(self, text: str) -> List[Dict]:
-        """识别主导力量"""
-        forces = []
+        """识别主导力量
 
-        force_patterns = [
-            (["权威", "权威性", "权力中心"], "authority"),
-            (["资本", "资金", "财富"], "economic_capital"),
-            (["知识", " expertise ", "专业"], "cultural_capital"),
-            (["人脉", " network ", "关系"], "social_capital"),
-            (["声望", " reputation ", "名望"], "symbolic_capital"),
-        ]
-
-        for keywords, force_type in force_patterns:
-            count = sum(len(re.findall(kw, text, re.IGNORECASE)) for kw in keywords)
-            if count > 0:
-                forces.append(
-                    {
-                        "type": force_type,
-                        "strength": min(1.0, count / 5),
-                        "evidence_count": count,
-                    }
-                )
-
-        # 按强度排序
-        forces.sort(key=lambda x: x["strength"], reverse=True)
-        return forces[:5]
+        ⚠️ 场域动力类型判断由LLM基于布迪厄资本理论完成，本方法不做关键词匹配。
+        返回空结构，LLM填充dominant_force_type和dynamics_pattern字段。
+        """
+        # 以下字段由LLM基于理论原则填充:
+        # - dominant_force_type: authority/economic_capital/cultural_capital/social_capital/symbolic_capital
+        # - dynamics_pattern: 场域动态模式（争夺/重组/稳定/瓦解）
+        # - stability_assessment: 稳定性评估
+        return {
+            "identified_forces": [],      # LLM判断并填充
+            "dominant_force_type": None, # LLM基于布迪厄资本理论判断
+            "dynamics_pattern": None,   # LLM理论描述
+            "stability_assessment": None,# LLM判断
+            "methodology_memo": (
+                "布迪厄场域动力判断原则：\n"
+                "基于文本整体分析判断主导力量类型和动态模式，\n"
+                "具体资本类型由LLM根据文本实际内容判定，不预设固定列表。"
+            ),
+        }
 
     def _identify_emerging_actors(self, text: str) -> List[str]:
-        """识别新兴行动者"""
-        emerging_indicators = [
-            "新兴",
-            "崛起",
-            " new ",
-            " emerging ",
-            " newcomer ",
-            " newcomer",
-            " new actor",
-            " newly ",
-        ]
+        """识别新兴行动者。
 
-        actors = []
-        for indicator in emerging_indicators:
-            matches = re.findall(r"([^,\s]{2,6})(?:新|新兴|崛起)", text)
-            actors.extend(matches)
-
-        return list(set(actors))[:5]
+        ⚠️ 关键词/regex匹配已禁用，由LLM做布迪厄场域诠释判断。
+        """
+        return []  # LLM填充
 
     def _calculate_dynamics_intensity(self, indicators: Dict) -> float:
         """计算动力学强度"""
@@ -281,32 +184,11 @@ class FieldDynamicsTracker:
     def _extract_forces_from_text(
         self, text: str, actors: List[str]
     ) -> Dict[str, float]:
-        """从文本中提取行动者力量"""
-        forces = {}
+        """从文本中提取行动者力量。
 
-        for actor in actors:
-            # 基于关键词计算力量
-            power_indicators = [
-                "领导",
-                " control ",
-                " dominant ",
-                " authority ",
-                "决策",
-                "决定",
-            ]
-
-            count = sum(
-                len(re.findall(f"{actor}.{{0,10}}{kw}", text))
-                for kw in power_indicators
-            )
-            count += sum(
-                len(re.findall(f"{kw}.{{0,10}}{actor}", text))
-                for kw in power_indicators
-            )
-
-            forces[actor] = min(1.0, count / 3)
-
-        return forces
+        ⚠️ 关键词计数已禁用，由LLM做布迪厄场域诠释判断。
+        """
+        return {actor: None for actor in actors}  # LLM填充
 
     def _analyze_position_mobility(
         self, texts: List[str], actors: List[str] = None
@@ -351,67 +233,21 @@ class FieldDynamicsTracker:
         return mobility
 
     def _extract_position_from_text(self, text: str, actor: str) -> float:
-        """提取行动者位置（-1到1）"""
-        # 支配性指标
-        dominant_kw = ["支配", "控制", "领导", "主导"]
-        dominated_kw = ["服从", "依附", "从属", "边缘"]
+        """提取行动者位置（-1到1）。
 
-        dominant_count = sum(
-            len(re.findall(f"{actor}.{{0,10}}{kw}", text)) for kw in dominant_kw
-        )
-        dominant_count += sum(
-            len(re.findall(f"{kw}.{{0,10}}{actor}", text)) for kw in dominant_kw
-        )
-
-        dominated_count = sum(
-            len(re.findall(f"{actor}.{{0,10}}{kw}", text)) for kw in dominated_kw
-        )
-        dominated_count += sum(
-            len(re.findall(f"{kw}.{{0,10}}{actor}", text)) for kw in dominated_kw
-        )
-
-        total = dominant_count + dominated_count
-        if total == 0:
-            return 0.0
-
-        return (dominant_count - dominated_count) / total
+        ⚠️ 关键词计数已禁用，由LLM做布迪厄场域诠释判断。
+        """
+        return None  # LLM填充
 
     def _identify_critical_events(
         self, texts: List[str], actors: List[str] = None
     ) -> List[Dict]:
-        """识别关键事件"""
-        events = []
+        """识别关键事件。
 
-        event_indicators = [
-            (["冲突", "斗争", "controversy", "conflict"], "conflict"),
-            (["联盟", "合作", " partnership ", "alliance"], "alliance"),
-            (["分裂", "决裂", "break", "split"], "rupture"),
-            (["改革", "变革", " reform ", "change"], "reform"),
-            (["退出", "离开", " exit ", "leave"], "exit"),
-            (["进入", "加入", " join ", "enter"], "entry"),
-        ]
-
-        for i, text in enumerate(texts):
-            for keywords, event_type in event_indicators:
-                for keyword in keywords:
-                    matches = list(re.finditer(keyword, text, re.IGNORECASE))
-                    if matches:
-                        # 提取上下文
-                        for match in matches[:2]:  # 限制数量
-                            start = max(0, match.start() - 50)
-                            end = min(len(text), match.end() + 50)
-                            context = text[start:end]
-
-                            events.append(
-                                {
-                                    "period": i,
-                                    "type": event_type,
-                                    "keyword": keyword,
-                                    "context": f"...{context}...",
-                                }
-                            )
-
-        return events[:10]  # 限制返回数量
+        ⚠️ 关键词匹配已禁用，由LLM做布迪厄场域动力学诠释判断。
+        """
+        # 硬编码关键词判断已禁用，返回空结构由LLM填充
+        return []  # LLM填充: [{period, type, actors, reasoning, context}]
 
     def _calculate_dynamics_trends(self, dynamics_by_period: List[Dict]) -> Dict:
         """计算动力学趋势"""
@@ -428,17 +264,12 @@ class FieldDynamicsTracker:
 
         change = second_half - first_half
 
-        if change > 0.2:
-            direction = "intensifying"
-        elif change < -0.2:
-            direction = "stabilizing"
-        else:
-            direction = "stable"
-
+        # 硬编码阈值(0.2)分支已禁用，由LLM做布迪厄场域动力学诠释判断
         return {
-            "direction": direction,
+            "direction": None,  # LLM填充: intensifying/stabilizing/stable
             "intensity_change": change,
-            "average_intensity": sum(intensities) / len(intensities),
+            "average_intensity": sum(intensities) / len(intensities) if intensities else None,
+            "methodology_memo": "0.2阈值仅为定量信号，动力学方向由LLM基于布迪厄场域理论判断",
         }
 
     def _generate_dynamics_summary(

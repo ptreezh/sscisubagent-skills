@@ -1,6 +1,6 @@
 subagents:
   - id: persuasion_analyst
-    name: 说服策略分析师
+    name: Rhetorical Strategist
     role: 分析说服方式和策略
     capabilities:
       - logos分析

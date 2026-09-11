@@ -1,18 +1,15 @@
 ---
 name: blue-ocean-strategy-expert
 description: |
-  蓝海战略专家。基于W. Chan Kim和Renée Mauborgne的蓝海战略方法论，提供价值创新分析、四步动作框架应用、战略布局图绘制、六条路径探索。核心能力包括：红海/蓝海识别、价值创新设计、战略布局分析、市场空间开拓。适用于战略规划、市场创新、商业模式创新、竞争战略设计等场景。当用户提到蓝海战略、价值创新、市场开拓、竞争战略、战略创新时自动触发此技能。
+  Blue Ocean Strategy expert. Based on W. Chan Kim and Renée Mauborgne's methodology, provides value innovation analysis, four-action framework application, strategy canvas drawing, and six paths exploration.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/QClaw/OpenClaw/悟空
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Kim, W. C., & Mauborgne, R. (2005). Blue Ocean Strategy. Harvard Business School Press."
-  subagent-support: true
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 强制自动执行规则
@@ -444,6 +441,21 @@ print(f"项目目录创建完成: {project_path}")
 
 ### 6.3 风险应对
 [策略内容]
+```
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | blue_ocean_analyzer.py | 蓝海战略综合分析，支持六条路径探索与四步动作框架 |
+
+### CLI用法
+
+```bash
+python tools/blue_ocean_analyzer.py --input industry.json --paths six --actions four
+python tools/blue_ocean_analyzer.py --strategy-canvas --competitors competitors.json
 ```
 
 ## 参考资料

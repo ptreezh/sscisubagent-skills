@@ -1,20 +1,15 @@
 ---
 name: actor-network-analysis-expert
 description: |
-  行动者网络理论专家。提供行动者识别、转译过程分析、对称性检验、争议映射功能。适用于ANT研究、科技社会学、创新扩散分析场景。
+  Actor-Network Theory (ANT) expert. Provides actor identification, translation process analysis, symmetry testing, and controversy mapping. Suitable for ANT research, sociology of science and technology, and innovation diffusion analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
----
-
-# 行动者网络理论专家技能（AI CLI 原生版）
-
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴🔴🔴 强制自动执行规则 🔴🔴🔴
@@ -186,6 +181,58 @@ Step 5: 争议与黑箱分析 → 【自动执行】
 Step 6: 网络稳定性分析 → 【自动执行】
 Step 7: 转译叙事撰写 → 【自动执行】
 ```
+
+---
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | actor_extractor.py | 行动者识别与提取，支持人类与非人行动者对称扫描 |
+| 2 | symmetry_checker.py | 对称性检验，验证人类与非人行动者的对称性处理 |
+| 3 | translation_stage_controller.py | 转译阶段控制，追踪问题化/利益赋予/招募/动员四阶段 |
+| 4 | controversy_recorder.py | 争议记录工具，映射ANT争议与黑箱 |
+| 5 | blackbox_opener.py | 黑箱打开器，识别并追踪被黑箱化的行动者 |
+| 6 | assess_network_saturation.py | 网络饱和度评估，判断行动者识别是否充分 |
+| 7 | analyze.py | 综合分析工具，整合多维度ANT分析结果 |
+| 8 | evolution.py | 演化状态追踪，支持ANT质量门控与阶段演进 |
+| 9 | planning-integration.py | 规划集成工具，管理ANT分析的规划文件 |
+
+### CLI用法
+
+```bash
+python tools/actor_extractor.py --input text.txt --symmetry-check
+python tools/translation_stage_controller.py --case-id CASE001 --stage problematization
+python tools/assess_network_saturation.py --actors actors.json --report
+```
+
+### 一、禁止定性分析硬编码（CRITICAL）
+
+**核心原则**：定性分析（黑箱识别、转译阶段判断）必须由LLM基于理论原则完成，Python工具仅负责数据结构和流程管理。
+
+**Python工具角色**：
+- ✅ 正确：返回空结构 + 理论备忘录（methodology memo）
+- ✅ 正确：状态管理、文件I/O、结果格式化
+- ❌ 禁止：关键词匹配做定性判断
+
+**ANT Python工具链职责表**：
+
+| 工具 | 定性分析 | 角色 |
+|------|---------|------|
+| actor_extractor.py | ❌ | ✅ 纯数据结构 + ANT行动者理论备忘录 |
+| translation_stage_controller.py | ❌ | ✅ 阶段状态管理 + 转译四阶段理论备忘录 |
+| blackbox_opener.py | ❌ | ✅ 纯数据结构 + ANT黑箱理论备忘录 |
+| symmetry_checker.py | ❌ | ✅ 对称性检验框架 |
+| controversy_recorder.py | ❌ | ✅ 争议记录 |
+| assess_network_saturation.py | ❌ | ✅ 饱和度评估 |
+| analyze.py | ❌ | ✅ 工作流协调 |
+
+**量化确认**：
+- ✅ blackbox_opener.py 已重构：无 BLACKBOX_INDICATORS / SUSPICIOUS_STATEMENTS 关键词匹配
+- ✅ actor_extractor.py 已重构：无关键词匹配
+- ✅ translation_stage_controller.py 已重构：仅含阶段常量，无定性匹配
 
 ---
 

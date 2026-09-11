@@ -1,0 +1,106 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(coding_scheme.py)
+  output: '[TOOL: coding_scheme.py]
+
+    ==================================================
+
+    Creating Sentiment Analysis Scheme
+
+    ==================================================
+
+
+    Validation: ✓ Valid
+
+
+    ==================================================
+
+    Coding Book Preview
+
+    ==================================================
+
+    # Sentiment Analysis Coding Scheme
+
+
+    ## Description
+
+    Coding scheme for sentiment analysis
+
+
+    ## Coding Unit: sentence
+
+
+    ## Categories (3 total)
+
+
+
+    ### POS: Positive
+
+    **Definition**: Content expressing positive sentiment
+
+    **Examples**:
+
+    - Great!
+
+    - Excellent work
+
+
+    ### NEG: Negative
+
+    **Definition**: Content expressing negative sentiment
+
+    **Examples**:
+
+    - Terrible
+
+    - Very disappointed
+
+
+    ### NEU: Neutral
+
+    **Definition**: Content without clear sentiment
+
+    **Examples**:
+
+    - The meeting is at 3pm'
+  passed: true
+test_prompt: "Please use the content-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.45
+quality_score: 76.2
+refinement_history:
+- delta: 80.45
+  quality_score: 80.45
+  timestamp: '2026-04-26T05:18:40.350773+00:00'
+- delta: 10.75
+  quality_score: 76.2
+  timestamp: '2026-05-01T23:50:44.564782+00:00'
+skill: content-analysis-expert
+structure_base: 99.6
+timestamp: '2026-05-01T23:50:44.564782+00:00'
+total_100: 114.6

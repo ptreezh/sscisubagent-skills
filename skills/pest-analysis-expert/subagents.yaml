@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: political-analyzer
-    name: 政治环境分析师
+    name: Political Environment Analyst
     role: 分析政治因素影响
     triggers:
       - "政治"

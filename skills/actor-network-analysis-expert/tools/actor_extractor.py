@@ -1,166 +1,211 @@
 #!/usr/bin/env python3
 """
 actor-network-analysis-expert - 行动者提取工具
-从异质性数据源(访谈、文档、观察记录、artifacts)中提取行动者
+从异质性数据源（访谈、文档、观察记录、artifacts）中提取行动者
 严格遵循ANT的对称性原则 - 不预设人类/非人二分法
+
+【方法论说明】
+本工具不包含任何硬编码正则模式匹配。所有行动者类型判断由LLM根据理论备忘录完成。
+工具仅负责：数据清洗、空结构返回、方法论引导。
 """
 
-from typing import Dict, List, Set, Any, Tuple, Optional
+from typing import Dict, List, Set, Any, TypedDict
 from collections import defaultdict
-import re
 import json
 
 
-# 行动者类别模式 - 英文
-ACTOR_PATTERNS_EN = {
-    "human_individual": [
-        r"\b([A-Z][a-z]+ [A-Z][a-z]+)\b",
-        r"\b(the (manager|engineer|doctor|researcher|user|customer|patient|worker|director|chief|lead))\b",
-    ],
-    "organization": [
-        r"\b([A-Z][A-Z][a-z]+ (Corporation|Company|Inc|Ltd|Agency|Department|Institute|University|Hospital))\b",
-    ],
-    "technology": [
-        r"\b(the (software|hardware|system|platform|algorithm|AI|robot|database|network|server|app|tool))\b",
-    ],
-    "artifact": [
-        r"\b(the (document|protocol|standard|policy|law|regulation|contract|agreement))\b",
-    ],
-    "concept": [
-        r"\b(the (idea|theory|model|framework|paradigm|method|approach|strategy))\b",
-    ],
-}
+# ---------------------------------------------------------------------------
+# ANT行动者识别理论备忘录（供LLM判断时参考）
+# ---------------------------------------------------------------------------
+ACTOR_NETWORK_THEORY_MEMO = """
+=== ANT行动者（Actor）识别理论备忘录 ===
 
-# 行动者类别模式 - 中文
-ACTOR_PATTERNS_CN = {
-    "human_chinese": [
-        r"(局长|处长|科长|工程师|医生|护士|研究员|教授|校长|院长|主任|经理|总理|省长|市长|县长|书记|主席|董事长|CEO|总监|主管|市民|用户|客户|患者|工作人员|技术员|管理员)",
-    ],
-    "organization_chinese": [
-        r"(交通局|公安局|城管局|财政局|大数据局|教育局|卫生局|环保局|工商局|税务局|法院|检察院|政府|市委|省厅|市局|管理局|热线|部门|单位|医院|学校|大学|公司|企业|集团)",
-        r"(华为|阿里|腾讯|百度|字节|微软|谷歌|亚马逊|西门子|IBM|供应商|运营商)",
-    ],
-    "technology_chinese": [
-        r"(传感器|摄像头|雷达|GPS|北斗|物联网|互联网|5G|光纤|WiFi|电脑|手机|设备|终端|系统|平台|软件|硬件|算法|数据库|服务器|云端|APP|应用程序|人工智能|机器学习|深度学习|模型|技术)",
-        r"(交通系统|指挥中心|数据处理中心|信号灯|感应设备|监测设备|预测系统|大屏|工作平台|视频|后台)",
-    ],
-    "artifact_chinese": [
-        r"(数据|信息|政策|法规|标准|规范|制度|协议|合同|证书|执照|牌照|投诉|建议|路况|车流量|历史数据|天气数据|活动信息)",
-    ],
-    "concept_chinese": [
-        r"(交通拥堵|城市管理|智慧城市|数字化|智能化|现代化|大数据|人工智能|互联网+|机器学习|预测|优化|自动|人工|实时|动态)",
-    ],
-}
+【ANT核心原则：行动者网络理论（Actor-Network Theory）】
+
+1. 行动者（Actor/Actant）定义:
+   - 任何通过行动产生差异的东西都是行动者
+   - 不预设人类vs非人类的二元划分
+   - 行动者可以是人、组织、技术、文本、理念、动物……
+   - 关键标准：是否在网络中"行动"（act）？
+
+2. 行动者网络理论（ANT）的对称性原则:
+   - 方法论对称性：人类和非人类用相同的概念工具分析
+   - 不给人类行动以优先地位
+   - 技术、文本、制度同等地参与社会
+
+【行动者类型分类框架】（供LLM分类参考）
+
+人类行动者（Human Actors）:
+- 个人：研究者、工程师、用户、管理者……
+- 群体：团队、部门、社区……
+- 分析要点：
+  * 谁在说话？其社会角色是什么？
+  * 其立场和利益是什么？
+  * 如何与其他行动者互动？
+
+组织行动者（Organizational Actors）:
+- 企业、政府机构、非营利组织……
+- 分析要点：
+  * 组织的结构和利益是什么？
+  * 谁代表组织行动？
+
+技术行动者（Non-human / Material Actors）:
+- 硬件：传感器、机器人、终端设备……
+- 软件：算法、平台、数据库、AI系统……
+- 分析要点（关键！）：
+    这些技术是被动工具，还是主动参与者？
+    技术的"代理"（agency）如何体现？
+    技术如何塑造人类行为？
+
+制品行动者（Artifact / Textual Actors）:
+- 制度性文本：法律、政策、合同、标准……
+- 知识性文本：报告、论文、数据、模型……
+- 分析要点：
+    文本如何被引用？是否有约束力？
+    谁有权解释/修改该文本？
+
+概念行动者（Conceptual / Ideational Actors）:
+- 意识形态： neoliberalism, sustainability, innovation……
+- 框架：smart city, circular economy, AI ethics……
+- 分析要点：
+    概念如何被使用？为谁的利益服务？
+    概念如何连接不同的行动者？
+
+【行动者识别步骤】
+1. 列出文本中所有被指称（mentioned）的实体
+2. 筛选：在网络构建中发挥作用的实体（不只是被提及）
+3. 分类：按上述类型框架分类
+4. 分析关系：行动者之间如何连接？
+
+【对称性分析要求】
+- 检查人类vs非人类的比例
+- 若非人类行动者少于30%，需反思：是否遗漏了技术的能动性？
+- 追问：哪些非人类行动者实际上塑造了人类决策？
+
+【分析方法论】
+- 不能仅凭实体名称判断行动者类型（公司名≠组织）
+- 关注行动者如何被赋予角色（enrollment）
+- 分析行动者的"代言人"（spokesperson）：谁代表谁说话？
+- 网络是否稳定取决于转译（translation）是否成功
+"""
+
+
+class ActorEntry(TypedDict, total=False):
+    name: str | None           # 行动者名称（LLM提取）
+    type: str | None           # 行动者类型（LLM判断）
+    type_confidence: float | None  # 判断置信度（LLM填充）
+    evidence: List[str]       # 证据片段（LLM填充）
+    notes: str                 # 备注
+
+
+class ActorCategories(TypedDict, total=False):
+    human: List[Dict]
+    organization: List[Dict]
+    technology: List[Dict]
+    artifact: List[Dict]
+    concept: List[Dict]
+    unclassified: List[Dict]
+
+
+class ActorExtractionResult(TypedDict):
+    source_type: str
+    actors_found: List[Dict]        # 行动者列表（LLM填充）
+    actor_count: int
+    categories: ActorCategories     # 分类结果（LLM填充）
+    human_count: int | None
+    nonhuman_count: int | None
+    human_ratio: float | None
+    nonhuman_ratio: float | None
+    symmetry_warning: bool | None   # 对称性警告（LLM判断）
+    relationships_found: List[Dict]  # 关系列表（LLM填充）
+    theory_memo: str                # 方法论备忘录
+    raw_data_for_llm: str           # 供LLM分析的原始文本
 
 
 class ActorExtractor:
-    """行动者提取器"""
+    """行动者提取器（无关键词匹配版）
+
+    所有行动者识别和类型判断由调用方/LLM完成。
+    """
 
     def __init__(self):
-        self.extracted_actors = set()
-        self.actor_types = {}
-        self.actor_relationships = []
-        self.actor_mentions = defaultdict(int)
+        self.extracted_actors: Set[str] = set()
+        self.actor_types: Dict[str, str] = {}
+        self.actor_relationships: List[Dict] = []
+        self.actor_mentions: Dict[str, int] = defaultdict(int)
 
     def extract_from_text(self, text: str, source_type: str = "document") -> Dict:
-        actors_found = set()
+        """
+        从文本中提取行动者（返回空结构供LLM填充）
 
-        # 使用英文模式提取
-        for actor_type, patterns in ACTOR_PATTERNS_EN.items():
-            for pattern in patterns:
-                matches = re.findall(pattern, text, re.IGNORECASE)
-                for match in matches:
-                    if isinstance(match, tuple):
-                        actor = " ".join(match) if len(match) > 1 else match[0]
-                    else:
-                        actor = match
-                    actor = self._normalize_actor(actor)
-                    if actor and len(actor) > 2:
-                        actors_found.add(actor)
-                        self.actor_types[actor] = actor_type
+        参数:
+            text: 原始文本
+            source_type: 来源类型
 
-        # 使用中文模式提取
-        for actor_type, patterns in ACTOR_PATTERNS_CN.items():
-            for pattern in patterns:
-                matches = re.findall(pattern, text)
-                for match in matches:
-                    if isinstance(match, tuple):
-                        actor = " ".join(match) if len(match) > 1 else match[0]
-                    else:
-                        actor = match
-                    actor = self._normalize_actor(actor)
-                    if actor and len(actor) > 1:
-                        actors_found.add(actor)
-                        self.actor_types[actor] = actor_type
-
-        # 记录提取结果
-        for actor in actors_found:
-            self.extracted_actors.add(actor)
-            self.actor_mentions[actor] += 1
-
-        return {
+        返回:
+            含空结构的行动者提取结果，需LLM根据 theory_memo 填充
+        """
+        result: Dict = {
             "source_type": source_type,
-            "actors_found": list(actors_found),
-            "actor_count": len(actors_found),
+            "actors_found": [],       # 需LLM填充
+            "actor_count": 0,
+            "categories": {
+                "human": [],
+                "organization": [],
+                "technology": [],
+                "artifact": [],
+                "concept": [],
+                "unclassified": [],
+            },
+            "human_count": None,
+            "nonhuman_count": None,
+            "human_ratio": None,
+            "nonhuman_ratio": None,
+            "symmetry_warning": None,
             "relationships_found": [],
+            "theory_memo": ACTOR_NETWORK_THEORY_MEMO.strip(),
+            "raw_data_for_llm": text[:5000],
         }
+        return result
 
     def extract_from_interview(self, interview_text: str) -> Dict:
+        """从访谈文本中提取行动者"""
         return self.extract_from_text(interview_text, "interview")
 
     def extract_from_document(self, document_text: str) -> Dict:
+        """从文档中提取行动者"""
         return self.extract_from_text(document_text, "document")
 
-    def _normalize_actor(self, actor: str) -> str:
-        actor = " ".join(actor.split())
-        actor = actor.strip(".,;:!?()[]{}\"'")
-        return actor
+    def classify_actors(self, actors: List[Dict]) -> Dict:
+        """
+        分类行动者（返回空结构供LLM填充）
 
-    def classify_actors(self) -> Dict:
-        categories = {
-            "human": [],
-            "organization": [],
-            "technology": [],
-            "artifact": [],
-            "concept": [],
-            "unclassified": [],
+        参数:
+            actors: 行动者列表
+
+        返回:
+            含空结构的分类结果，需LLM根据 theory_memo 判断类型
+        """
+        result: Dict = {
+            "categories": {
+                "human": [],
+                "organization": [],
+                "technology": [],
+                "artifact": [],
+                "concept": [],
+                "unclassified": [],
+            },
+            "total_actors": len(actors),
+            "human_count": None,
+            "nonhuman_count": None,
+            "human_ratio": None,
+            "nonhuman_ratio": None,
+            "symmetry_warning": None,
+            "theory_memo": ACTOR_NETWORK_THEORY_MEMO.strip(),
         }
+        return result
 
-        for actor, actor_type in self.actor_types.items():
-            if "human" in actor_type:
-                categories["human"].append(actor)
-            elif "organization" in actor_type:
-                categories["organization"].append(actor)
-            elif "technology" in actor_type:
-                categories["technology"].append(actor)
-            elif "artifact" in actor_type:
-                categories["artifact"].append(actor)
-            elif "concept" in actor_type:
-                categories["concept"].append(actor)
-            else:
-                categories["unclassified"].append(actor)
-
-        human_actors = categories["human"]
-        nonhuman_actors = (
-            categories["organization"]
-            + categories["technology"]
-            + categories["artifact"]
-            + categories["concept"]
-        )
-
-        total = len(self.extracted_actors) if self.extracted_actors else 1
-
-        return {
-            "categories": {k: v for k, v in categories.items() if v},
-            "total_actors": len(self.extracted_actors),
-            "human_count": len(human_actors),
-            "nonhuman_count": len(nonhuman_actors),
-            "human_ratio": len(human_actors) / total,
-            "nonhuman_ratio": len(nonhuman_actors) / total,
-            "symmetry_warning": len(nonhuman_actors) / total < 0.3,
-        }
-
-    def get_top_actors(self, n: int = 10) -> List[Tuple[str, int]]:
+    def get_top_actors(self, n: int = 10) -> List[Any]:
         sorted_actors = sorted(
             self.actor_mentions.items(), key=lambda x: x[1], reverse=True
         )
@@ -173,7 +218,7 @@ class ActorExtractor:
             "actor_types": dict(self.actor_types),
             "relationships": self.actor_relationships,
             "top_actors": self.get_top_actors(10),
-            "classification": self.classify_actors(),
+            "theory_memo": ACTOR_NETWORK_THEORY_MEMO.strip(),
         }
 
     def reset(self):
@@ -189,25 +234,15 @@ def create_extractor() -> ActorExtractor:
 
 if __name__ == "__main__":
     extractor = ActorExtractor()
-
-    with open(
-        "../test_data/case_01_smart_city/interview_01.txt", "r", encoding="utf-8"
-    ) as f:
-        text = f.read()
-
-    result = extractor.extract_from_interview(text)
-    print("=== Actor Extraction Results ===")
-    print(f"Total actors found: {result['actor_count']}")
-    print(f"Actors: {result['actors_found'][:15]}")
-    print()
-    classification = extractor.classify_actors()
-    print("=== Classification ===")
-    print(f"Human: {classification['human_count']}")
-    print(f"Nonhuman: {classification['nonhuman_count']}")
-    print(f"Nonhuman ratio: {classification['nonhuman_ratio']:.2%}")
-    print(f"Symmetry warning: {classification['symmetry_warning']}")
-    print()
-    print(
-        "Categories:",
-        {k: len(v) for k, v in classification["categories"].items() if len(v) > 0},
-    )
+    test_text = """
+    工程师李明负责系统设计，交通局张处长主持项目推进会议。
+    华为公司提供技术支持，智慧城市平台整合了传感器和AI算法。
+    政策文件规定数据共享标准，用户通过APP提交出行建议。
+    """
+    result = extractor.extract_from_text(test_text, "document")
+    print("=== 返回结构（需LLM填充） ===")
+    print(f"actors_found: {result['actors_found']}")
+    print(f"actor_count: {result['actor_count']}")
+    print(f"symmetry_warning: {result['symmetry_warning']}")
+    print("\n理论备忘录（前300字）:")
+    print(result["theory_memo"][:300])

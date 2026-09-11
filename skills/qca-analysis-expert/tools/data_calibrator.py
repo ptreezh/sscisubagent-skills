@@ -51,17 +51,26 @@ class DataCalibrator:
         return {"calibrated_data": calibrated}
 
     def _calibrate_value(self, value: Any) -> float:
-        """直接校准为0-1"""
+        """
+        直接校准为0-1。
+        ⚠️ Python工具不做定性校准决策，仅标记需要LLM处理的原始值。
+        QCA校准必须使用用户提供的锚点值(thresholds)由LLM做定性判断，
+        硬编码/10归一化会破坏模糊集校准的科学性。
+        """
         if isinstance(value, (int, float)):
-            # 简单归一化
-            return min(1.0, max(0.0, value / 10 if value <= 10 else 1.0))
+            # 已归一化的0-1数据直接返回，避免二次处理损坏数据
+            if 0.0 <= value <= 1.0:
+                return float(value)
+            # 硬编码/10归一化已被禁用（破坏QCA标准校准）
+            # 返回None表示该值需要LLM结合thresholds做定性校准
+            return None
         elif isinstance(value, str):
             # 字符串映射
             if value.lower() in ["yes", "y", "true", "1"]:
                 return 1.0
             elif value.lower() in ["no", "n", "false", "0"]:
                 return 0.0
-        return 0.5
+        return None  # 字符串需LLM做语义校准
 
 
 def calibrate_data(data: Any, thresholds: Dict = None) -> Dict:

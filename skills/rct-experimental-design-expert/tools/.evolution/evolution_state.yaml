@@ -1,0 +1,72 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(randomization_generator.py)
+  output: '[TOOL: randomization_generator.py]
+
+    ============================================================
+
+    RANDOMIZATION SEQUENCE GENERATION
+
+    ============================================================
+
+
+    1. BLOCK RANDOMIZATION
+
+    ----------------------------------------
+
+    Sequence: [''Intervention'', ''Control'', ''Intervention'', ''Control'', ''Intervention'',
+    ''Control'', ''Intervention'', ''Control'', ''Control'', ''Intervention'', ''Control'',
+    ''Intervention'', ''Control'', ''Intervention'', ''Intervention'', ''Control'',
+    ''Intervention'', ''Control'', ''Control'', ''Intervention'']
+
+    Counts: {''Intervention'': 10, ''Control'': 10}
+
+
+    2. MINIMIZATION
+
+    ----------------------------------------
+
+    Sequence: [np.str_(''B''), np.str_(''B''), np.str_(''A''), np.str_(''A''), np.str_(''A''),
+    np.str_(''B''), np.str_(''A''), np.str_(''A''), np.str_(''B''), np.str_(''B''),
+    np.str_(''A''), np.str_(''A''), np.str_(''B''), np.'
+  passed: true
+test_prompt: "Please use the rct-experimental-design-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 10.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 54.05
+quality_score: 64.28
+refinement_history:
+- delta: 59.18
+  quality_score: 59.18
+  timestamp: '2026-04-26T09:47:19.646439+00:00'
+- delta: 10.230000000000004
+  quality_score: 64.28
+  timestamp: '2026-04-30T14:17:15.911293+00:00'
+skill: rct-experimental-design-expert
+structure_base: 83.7
+timestamp: '2026-04-30T14:17:15.911293+00:00'
+total_100: 98.7

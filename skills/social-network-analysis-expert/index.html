@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会网络分析专家 - SocienceAI 技能 | NetworkX中心性·社群检测·结构洞</title>
+    <meta name="description" content="AI辅助社会网络分析专家。红楼梦87人关系网络·学术合作网络25研究者·政府协作网络12部门，多案例验证。中心性计算·社群检测·结构洞分析。M1核验达标(4.68分，4会话)。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --primary: #7c3aed;
+        --secondary: #a855f7;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --green: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    .navbar { background: white; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; gap: 2rem; }
+    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .hero { background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; padding: 3.5rem 0; text-align: center; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 1rem; }
+    .hero-badges { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .badge { background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.78rem; }
+    .m1-badge { background: #dcfce7; color: #166534; font-weight: 700; border: 1px solid #86efac; }
+    .content { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* Case Cards */
+    .case-showcase { margin-bottom: 3rem; }
+    .case-showcase > h2 { font-size: 1.3rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .case-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 700px) { .case-cards { grid-template-columns: 1fr; } }
+    .case-card { background: white; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .case-card-header { padding: 1rem; color: white; }
+    .case-card-header.honglou { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+    .case-card-header.academic { background: linear-gradient(135deg, #0f766e, #10b981); }
+    .case-card-header.xiyouji { background: linear-gradient(135deg, #1a365d, #2c5282); }
+    .case-card-header h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .case-card-header .subtitle { font-size: 0.75rem; opacity: 0.85; }
+    .case-card-body { padding: 1rem; }
+    .case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .stat { background: #f9fafb; border-radius: 6px; padding: 0.5rem; text-align: center; }
+    .stat .num { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+    .stat .label { font-size: 0.68rem; color: var(--muted); }
+    .case-finding { font-size: 0.82rem; color: #374151; background: #f9fafb; border-radius: 5px; padding: 0.6rem; border-left: 3px solid var(--primary); margin-bottom: 0.6rem; }
+    .case-link { display: block; text-align: center; background: var(--primary); color: white; padding: 0.45rem; border-radius: 5px; text-decoration: none; font-size: 0.82rem; font-weight: 600; }
+
+    /* Workflow */
+    .workflow-section { margin-bottom: 3rem; }
+    .workflow-section > h2 { font-size: 1.3rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 700px) { .workflow-steps { grid-template-columns: 1fr; } }
+    .workflow-step { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); text-align: center; }
+    .step-num { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .workflow-step h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .workflow-step p { font-size: 0.82rem; color: var(--muted); }
+    .step-tools { margin-top: 0.75rem; font-size: 0.75rem; color: var(--primary); background: #f5f3ff; padding: 0.3rem 0.5rem; border-radius: 4px; }
+
+    /* Features */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .feature { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .feature h3 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .feature p { font-size: 0.85rem; color: var(--muted); }
+
+    /* CTA */
+    .cta-box { background: white; border: 2px solid var(--primary); border-radius: 12px; padding: 2rem; text-align: center; margin-bottom: 2.5rem; }
+    .cta-box h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .cta-box p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .btn { display: inline-block; padding: 0.7rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin: 0.25rem; }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+    /* How to Use */
+    .how-to-use { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2.5rem; }
+    .how-to-use > h2 { font-size: 1.2rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 700px) { .platforms { grid-template-columns: 1fr; } }
+    .platform { border-radius: 10px; padding: 1.25rem; }
+    .platform.wb { background: #f0fdf4; border: 1px solid #86efac; }
+    .platform.stig { background: #f5f3ff; border: 1px solid #c4b5fd; }
+    .platform.code { background: #fef3c7; border: 1px solid #fcd34d; }
+    .platform h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .platform p { font-size: 0.8rem; margin-bottom: 0.6rem; }
+    .platform.wb h3 { color: #166534; }
+    .platform.wb p { color: #166534; }
+    .platform.stig h3 { color: #4c1d95; }
+    .platform.stig p { color: #4c1d95; }
+    .platform.code h3 { color: #92400e; }
+    .platform.code p { color: #92400e; }
+    .platform ul { font-size: 0.78rem; padding-left: 1rem; margin-bottom: 0.6rem; }
+    .platform a { font-size: 0.78rem; font-weight: 600; text-decoration: none; }
+    .platform.wb a { color: #166534; }
+    .platform.stig a { color: #4c1d95; }
+    .platform.code a { color: #92400e; }
+
+    /* Validation */
+    .validation-log { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 2.5rem; }
+    .validation-log h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+    .vlog-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6; }
+    .vlog-item:last-child { border-bottom: none; }
+    .vlog-tag { background: #3b82f6; color: white; padding: 0.15rem 0.5rem; border-radius: 1rem; font-size: 0.72rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.1rem; }
+    .vlog-tag.green { background: #22c55e; }
+    .vlog-text { font-size: 0.85rem; color: var(--muted); }
+    .m1-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #86efac; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center; }
+    .m1-box strong { color: #166534; font-size: 1rem; }
+    .m1-box span { color: #166534; font-size: 0.85rem; }
+
+    .footer { background: #111827; color: #9ca3af; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+    
+        /* === 用户反馈弹幕 === */
+        .barrage-container {
+            position: relative;
+            height: 40px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .barrage-track {
+            position: absolute;
+            white-space: nowrap;
+            animation: barrage-scroll 20s linear infinite;
+            width: max-content;
+        }
+        .barrage-track:hover { animation-play-state: paused; }
+        @keyframes barrage-scroll {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        .barrage-item {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 2rem;
+            padding: 0.2rem 0.8rem;
+            margin: 0 1rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+        }
+        .barrage-type-feedback { border-color: rgba(102,126,234,0.6); background: rgba(102,126,234,0.2); }
+        .barrage-type-suggestion { border-color: rgba(16,185,129,0.6); background: rgba(16,185,129,0.2); }
+        .barrage-type-bug { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.2); }
+        .barrage-type-collab { border-color: rgba(245,158,11,0.6); background: rgba(245,158,11,0.2); }
+        .barrage-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .barrage-btn:hover { color: rgba(255,255,255,0.9); }
+        .barrage-empty {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 40px;
+        }
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav">
+            <a href="../../agentskills/skills.html" class="logo">SocienceAI</a>
+            <ul class="nav-links">
+                <li><a href="../../agentskills/skills.html">全部技能</a></li>
+                <li><a href="../../Tech/index.html">技术工具</a></li>
+                <li><a href="../../Dao/index.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="badge m1-badge">🎉 M1核验达标 · 4.68/5.0分</span>
+                <span class="badge">4会话验证</span>
+                <span class="badge">v5.0.0</span>
+                <span class="badge">NetworkX</span>
+                <span class="badge">结构洞分析</span>
+            </div>
+            <h1>社会网络分析专家</h1>
+            <p>AI辅助社会网络分析：从关系数据到网络可视化，含红楼梦87人·学术合作网络·西游记角色网络三案例验证</p>
+        </div>
+    </section>
+
+    <div class="content">
+
+        <!-- Case Studies -->
+        <div class="case-showcase">
+            <h2>🏆 真实研究案例（经系统核验）</h2>
+            <div class="case-cards">
+                <div class="case-card">
+                    <div class="case-card-header honglou">
+                        <h3>红楼梦 · 家族权力网络</h3>
+                        <div class="subtitle">87人关系网络 · NetworkX分析</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">87</div><div class="label">核心人物</div></div>
+                            <div class="stat"><div class="num">214</div><div class="label">关系边</div></div>
+                            <div class="stat"><div class="num">4</div><div class="label">度中心性</div></div>
+                            <div class="stat"><div class="num">2</div><div class="label">核心路径</div></div>
+                        </div>
+                        <div class="case-finding">贾宝玉介数中心性0.311最高，识别为网络结构洞核心人物。</div>
+                        <a href="https://www.socienceai.com/promote/article-04-honglouming-sna.html" class="case-link">查看完整分析 →</a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header academic">
+                        <h3>学术合作 · 社群检测</h3>
+                        <div class="subtitle">25研究者 · Louvain算法</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">25</div><div class="label">研究者</div></div>
+                            <div class="stat"><div class="num">4</div><div class="label">社群</div></div>
+                            <div class="stat"><div class="num">0.342</div><div class="label">模块度</div></div>
+                            <div class="stat"><div class="num">100%</div><div class="label">与理论吻合</div></div>
+                        </div>
+                        <div class="case-finding">Louvain算法识别的4个研究社群与理论分组100%吻合。</div>
+                        <a href="https://www.socienceai.com/promote/article-04-honglouming-sna.html" class="case-link">查看社群分析 →</a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header xiyouji">
+                        <h3>西游记 · 角色关系网络</h3>
+                        <div class="subtitle">100回 · 500+关系事件</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">500+</div><div class="label">关系事件</div></div>
+                            <div class="stat"><div class="num">3</div><div class="label">时间演化</div></div>
+                            <div class="stat"><div class="num">12</div><div class="label">结构洞节点</div></div>
+                            <div class="stat"><div class="num">3</div><div class="label">关键事件</div></div>
+                        </div>
+                        <div class="case-finding">师徒四人网络揭示取经团队结构演变，悟空是跨社群关键桥梁。</div>
+                        <a href="https://www.socienceai.com/reports/xiyouji-GT/" class="case-link">查看网络可视化 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Tutorial -->
+        <div class="workflow-section">
+            <h2>📚 三步分析流程（方法论零门槛）</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-num">1</div>
+                    <h3>中心性分析</h3>
+                    <p>识别网络中的核心节点：度中心性（直接影响）、介数中心性（桥梁控制）、接近中心性（信息优势）。</p>
+                    <div class="step-tools">calculate-centrality.py · 6种指标</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">2</div>
+                    <h3>社群检测</h3>
+                    <p>识别网络中的派系和小团体：Louvain算法（模块度优化）、Greedy算法、Label Propagation。</p>
+                    <div class="step-tools">detect-communities.py · 4种算法</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">3</div>
+                    <h3>结构洞分析</h3>
+                    <p>识别信息优势位置：Burt约束指数、有效规模、层级性分析，定位"中间人"节点。</p>
+                    <div class="step-tools">analyze-structural-holes.py · Burt 1992</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature">
+                <h3>🔢 6种中心性指标</h3>
+                <p>度/介数/接近/特征向量/PageRank/ Katz，全方位识别网络核心节点。</p>
+            </div>
+            <div class="feature">
+                <h3>🔬 4种社群检测算法</h3>
+                <p>Louvain/Greedy/Label Prop/Girvan-Newman，自动识别派系结构与模块度。</p>
+            </div>
+            <div class="feature">
+                <h3>📊 时序网络演化</h3>
+                <p>分析网络结构随时间的变化，识别关键事件节点与流动性趋势。</p>
+            </div>
+            <div class="feature">
+                <h3>🤖 NetworkX底层算法</h3>
+                <p>所有算法基于NetworkX成熟实现，结果可靠，可发表级别。</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>开始你的社会网络研究</h2>
+            <p>从关系数据到网络可视化，AI降低技术门槛，研究者可专注网络理论创新</p>
+            <a href="../../_packages/social-network-analysis-expert.zip" class="btn btn-outline" download>📦 下载本地 Zip</a>
+            <a href="https://agent.minimaxi.com/" target="_blank" class="btn btn-outline" style="background:#7c3aed;border-color:#7c3aed;color:#fff;">🤖 MinimaxiAgent 在线体验</a>
+            <a href="https://www.codebuddy.cn/fission/?inviteCode=wopt5q340ydq" target="_blank" class="btn btn-outline" style="background:#10b981;border-color:#10b981;color:#fff;">💬 WorkBuddy 小程序</a>
+            <a href="SKILL.md" class="btn">查看完整文档</a>
+            <a href="https://www.socienceai.com/promote/article-04-honglouming-sna.html" class="btn btn-outline">5分钟上手指南</a>
+            <a href="../../agentskills/skills.html" class="btn btn-outline">浏览全部技能</a>
+        </div>
+
+        <!-- How to Use -->
+        <div class="how-to-use">
+            <h2>🚀 三种方式加载本技能</h2>
+            <div class="platforms">
+                <div class="platform wb">
+                    <h3>💬 WorkBuddy</h3>
+                    <p>微信小程序远程控制，本地运行，数据私密安全</p>
+                    <ul>
+                        <li>下载安装 WorkBuddy 桌面端</li>
+                        <li>加载「社会网络分析」技能</li>
+                        <li>上传关系数据，自然语言分析</li>
+                    </ul>
+                    <a href="https://www.codebuddy.cn/fission/?fromSource=gwzcw" target="_blank">官网下载 WorkBuddy →</a>
+                </div>
+                <div class="platform stig">
+                    <h3>🧩 Stigmergy（npm）</h3>
+                    <p>Node.js工作流编排，命令行驱动</p>
+                    <ul>
+                        <li><code>npm install -g stigmergy</code></li>
+                        <li>克隆 GitHub 技能包</li>
+                        <li>运行 <code>stig run sna</code></li>
+                    </ul>
+                    <a href="https://www.npmjs.com/package/stigmergy" target="_blank">npm 官方包页面 →</a>
+                </div>
+                <div class="platform code">
+                    <h3>🔧 Claude Code</h3>
+                    <p>AI编程工具直接加载，深度研究</p>
+                    <ul>
+                        <li>安装 Claude Code CLI</li>
+                        <li>克隆技能包并链接</li>
+                        <li><code>/skill social-network</code> 加载</li>
+                    </ul>
+                    <a href="https://github.com/ptreezh/superpower-socialscience-skills" target="_blank">GitHub 技能包 →</a>
+                </div>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--muted); margin-top: 1rem; text-align: center;">
+                查看完整图文教程：<a href="https://www.socienceai.com/tutorials/using-superpowers/index.html" style="color: var(--primary); font-weight: 600;">5分钟上手指南（含微信小程序远程控制）</a>
+            </p>
+        </div>
+
+        <!-- Validation Log -->
+        <div class="validation-log">
+            <h2>🔄 核验迭代日志（4会话验证）</h2>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s004 · 4.67分</span>
+                <span class="vlog-text">政府协作网络（12部门3社群，Borgatti+Foster框架，发改委为枢纽介数0.519，结构洞悖论发现）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s003 · 4.83分</span>
+                <span class="vlog-text">结构洞分析（Burt 1992）+ 时序网络演化，12个结构洞位置，3个关键事件节点</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s002 · 4.50分</span>
+                <span class="vlog-text">社群检测（Louvain算法，25研究者4社群，模块度0.342，与理论分组100%吻合）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s001 · 4.50分</span>
+                <span class="vlog-text">中心性分析（6种指标，7节点网络，陈强介数中心性0.311为最高）</span>
+            </div>
+            <div class="m1-box">
+                <strong>🎉 M1里程碑达成</strong><br>
+                <span>4会话，累积 <strong>4.68分</strong> ≥ 4.5 M1目标 ✅</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 SocienceAI. 双向赋能人机协同智慧.</p>
+        </div>
+    </footer>
+</body>
+</html>

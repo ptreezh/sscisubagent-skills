@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the visual-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 8.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 10.0
+    weight: 15
+  workflow:
+    score: 9.0
+    weight: 15
+improved: true
+previous_score: 49.62
+quality_score: 63.22
+refinement_history:
+- delta: 59.0
+  quality_score: 59.0
+  timestamp: '2026-04-26T09:51:18.182567+00:00'
+- delta: 13.600000000000001
+  quality_score: 63.22
+  timestamp: '2026-04-30T14:05:13.425258+00:00'
+skill: visual-analysis-expert
+structure_base: 82.3
+timestamp: '2026-04-30T14:05:13.425258+00:00'
+total_100: 97.3

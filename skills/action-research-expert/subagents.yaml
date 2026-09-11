@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: ar-diagnoser
-    name: 问题诊断师
+    name: Problem Diagnostician
     role: 诊断实践问题
     triggers:
       - "问题诊断"

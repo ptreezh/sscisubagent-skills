@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.5
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the longitudinal-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.5
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 8.0
+    weight: 15
+improved: true
+previous_score: 52.78
+quality_score: 62.56
+refinement_history:
+- delta: 67.78
+  quality_score: 67.78
+  timestamp: '2026-04-26T14:31:01.280766+00:00'
+- delta: 9.780000000000001
+  quality_score: 62.56
+  timestamp: '2026-04-27T14:11:02.627528+00:00'
+skill: longitudinal-analysis-expert
+structure_base: 81.25
+timestamp: '2026-04-27T14:11:02.627528+00:00'
+total_100: 97.5

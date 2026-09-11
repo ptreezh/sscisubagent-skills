@@ -1,20 +1,15 @@
 ---
 name: phenomenology-expert
 description: |
-  现象学研究专家。提供系统化现象学方法论指导，支持描述性现象学、
-  解释性现象学、具身现象学。核心能力包括：悬置、本质还原、
-  意义单元分析、体验结构揭示、生活世界探索。
-  遵循Husserl, Heidegger, Merleau-Ponty哲学传统。
+  Phenomenology expert. Provides lived experience exploration, bracketing techniques, phenomenological reduction, essence identification, and epoché methodology. Suitable for philosophical research, qualitative psychology, and phenomenological inquiry.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Husserl, Heidegger, Merleau-Ponty, Moustakas (1994)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 # 现象学研究专家 (Phenomenology Expert)
@@ -242,13 +237,61 @@ AI: 我将采用描述性现象学方法：
 身份-自我的重新定义
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `epoch_guide.py` | 悬置与反思指导 |
-| `meaning_unit_analyzer.py` | 意义单元分析 |
-| `essence_extractor.py` | 本质结构提取 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致现象学研究结论无效。
+
+1. **禁止悬置不彻底** — 研究者带着预设进入分析，用预设框架"套"资料而非让资料本身显现本质
+2. **禁止忽视意向性分析** — 不分析意识行为(Noesis)与意识对象(Noema)的关系，丢失现象学核心洞察
+3. **禁止混淆描述与解释** — 将研究者自己的解释当作参与者的体验描述，违反"回到事情本身"原则
+4. **禁止忽视生活世界维度** — 仅报告主题分类，不分析生活世界的空间性、时间性、身体性、关系性四个维度
+5. **禁止脱离身体经验的抽象分析** — 现象学强调具身性，忽视身体感受的描述导致体验结构不完整
+6. **禁止将理论框架强加于资料** — 用Husserl/Heidegger/Merleau-Ponty的特定框架强行套所有资料，忽略各传统的方法论差异
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 悬置步骤记录完整
+- 参与者描述丰富、细腻
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高
+- 哲学传统定位清晰
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 本质结构揭示完整
+- 生活世界四维度分析
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | epoch_guide.py | 悬置(epoché)与研究预设反思指导 |
+| 2 | meaning_unit_analyzer.py | 意义单元提取与聚类分析 |
+| 3 | essence_extractor.py | 本质结构想象变异分析 |
+| 4 | lifeworld_analyzer.py | 生活世界四维度分析，支持空间性、时间性、身体性、关系性分析 |
+
+### CLI用法
+
+```bash
+python tools/epoch_guide.py --init --reflect
+python tools/meaning_unit_analyzer.py --add-participant "P01" "参与者描述文本"
+python tools/essence_extractor.py --create-experience "体验名称" --variation
+python tools/lifeworld_analyzer.py --input descriptions.json --dimensions spatial,temporal,corporeal,relational
+```
+
+### CLI用法
+
+```bash
+python tools/epoch_guide.py --init
+python tools/meaning_unit_analyzer.py --add-participant "P01" "参与者"
+python tools/essence_extractor.py --create-experience "体验名称"
+```
 
 ## 参考文献
 

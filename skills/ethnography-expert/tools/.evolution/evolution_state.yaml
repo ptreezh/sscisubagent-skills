@@ -1,0 +1,48 @@
+benchmark:
+  benchmark_score: 6.5
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the ethnography-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.5
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.94
+quality_score: 79.06
+refinement_history:
+- delta: 67.62
+  quality_score: 67.62
+  timestamp: '2026-04-26T05:20:40.551713+00:00'
+- delta: 13.32
+  quality_score: 65.94
+  timestamp: '2026-04-27T14:09:18.285247+00:00'
+- delta: 13.120000000000005
+  quality_score: 79.06
+  timestamp: '2026-05-02T03:02:40.656856+00:00'
+skill: ethnography-expert
+structure_base: 103.25
+timestamp: '2026-05-02T03:02:40.656856+00:00'
+total_100: 119.5

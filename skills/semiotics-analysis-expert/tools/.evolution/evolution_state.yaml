@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the semiotics-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 51.57
+quality_score: 62.1
+refinement_history:
+- delta: 60.95
+  quality_score: 60.95
+  timestamp: '2026-04-26T09:49:53.516093+00:00'
+- delta: 10.530000000000001
+  quality_score: 62.1
+  timestamp: '2026-04-30T14:13:23.397903+00:00'
+skill: semiotics-analysis-expert
+structure_base: 80.8
+timestamp: '2026-04-30T14:13:23.397903+00:00'
+total_100: 95.8

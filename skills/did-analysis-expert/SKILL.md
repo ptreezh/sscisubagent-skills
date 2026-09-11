@@ -1,28 +1,17 @@
 ---
 name: did-analysis-expert
 description: |
-  双重差分分析专家。提供平行趋势检验、处理效应计算、稳健性检验、异质性分析功能。适用于政策评估、因果推断、准实验设计场景。
+  Difference-in-Differences (DID) analysis expert. Provides parallel trend testing, treatment effect estimation, robustness checks, and heterogeneity analysis. Suitable for policy evaluation, causal inference, and quasi-experimental design.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-# SKILL.md - did-analysis-expert
-
----
 metadata:
   version: "5.1.0-cli-native+agent"
   methodology: "Difference-in-Differences (Angrist & Pischke 2009)"
@@ -312,6 +301,10 @@ Y_it = α + β(Treated_i × Post_t) + γX_it + μ_i + λ_t + ε_it
 3. **稳健性覆盖**：必须至少执行2种稳健性检验
 4. **标准误规范**：必须使用聚类稳健标准误
 5. **假设讨论**：必须讨论识别假设的潜在违反
+
+### 一、禁止定性分析硬编码（CRITICAL）
+---
+
 
 ## 详细指南
 

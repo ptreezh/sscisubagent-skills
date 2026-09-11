@@ -1,0 +1,81 @@
+benchmark:
+  benchmark_score: 3.0
+  eval_mode: llm_judgment
+  output: '[TOOL: analyze.py]
+
+    === Detail Level 1 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''detail_level'']
+
+
+    === Detail Level 2 ===
+
+    输出字段：[''status'', ''skill'', ''summary'', ''key_findings'', ''main_results'',
+    ''detail_level'']
+
+
+    === Detail Level 3 ===
+
+    输出字段：[''status'', ''skill'', ''timestamp'', ''detail_level'', ''data'', ''phases'']
+
+    '
+  passed: false
+  test_prompt: 评估某项减税政策对企业投资的因果效应，用双重差分法。
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: false
+previous_score: 7.83
+quality_score: 7.83
+refinement_history:
+- delta: 5.0
+  quality_score: 5.0
+  timestamp: '2026-04-24T13:55:51.366590+00:00'
+- delta: 2.3099999999999996
+  quality_score: 7.31
+  timestamp: '2026-04-25T10:43:13.934530+00:00'
+- delta: 0.3000000000000007
+  quality_score: 7.61
+  timestamp: '2026-04-25T10:47:17.129268+00:00'
+- delta: 0.09999999999999964
+  quality_score: 7.71
+  timestamp: '2026-04-25T11:11:23.479556+00:00'
+- delta: 0.1200000000000001
+  quality_score: 7.83
+  timestamp: '2026-04-25T11:23:12.531632+00:00'
+- delta: 0.0699999999999994
+  quality_score: 7.68
+  timestamp: '2026-04-25T11:43:13.542732+00:00'
+- delta: 0.0
+  note: re-eval (no improvement)
+  quality_score: 7.68
+  timestamp: '2026-04-25T11:43:13.542732+00:00'
+- delta: 0.15000000000000036
+  quality_score: 7.83
+  timestamp: '2026-04-25T11:55:48.677937+00:00'
+skill: did-analysis-expert
+structure_base: 81.2
+timestamp: '2026-04-26T04:49:38.935183+00:00'
+total_100: 78.3

@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the conversation-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 7.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 13.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.0
+quality_score: 76.2
+refinement_history:
+- delta: 68.75
+  quality_score: 68.75
+  timestamp: '2026-04-26T05:19:07.478015+00:00'
+- delta: 11.200000000000003
+  quality_score: 76.2
+  timestamp: '2026-05-02T02:54:45.134245+00:00'
+skill: conversation-analysis-expert
+structure_base: 99.6
+timestamp: '2026-05-02T02:54:45.134245+00:00'
+total_100: 114.6

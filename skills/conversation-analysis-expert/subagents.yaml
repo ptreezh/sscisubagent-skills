@@ -1,6 +1,6 @@
 subagents:
   - id: turn_analyst
-    name: 话轮分析师
+    name: Turn-Taking Analyst
     role: 话轮构建、转换、分配分析
     capabilities:
       - 话轮构建单位识别

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCA定性比较分析专家 - SocienceAI 技能 | fsQCA·PRI一致性·布尔最小化</title>
+    <meta name="description" content="AI辅助QCA定性比较分析专家。民主化8国·福利国家14国·创新系统15国·政治信任12国，多案例核验。三解类型（复杂/中间/简约）、PRI一致性分析。M1核验达标(4.91分，11会话)。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --primary: #d97706;
+        --secondary: #f59e0b;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --green: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    .navbar { background: white; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; gap: 2rem; }
+    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .hero { background: linear-gradient(135deg, #d97706, #f59e0b); color: white; padding: 3.5rem 0; text-align: center; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 1rem; }
+    .hero-badges { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .badge { background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.78rem; }
+    .m1-badge { background: #dcfce7; color: #166534; font-weight: 700; border: 1px solid #86efac; }
+    .content { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* Case Cards */
+    .case-showcase { margin-bottom: 3rem; }
+    .case-showcase > h2 { font-size: 1.3rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .case-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 700px) { .case-cards { grid-template-columns: 1fr; } }
+    .case-card { background: white; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .case-card-header { padding: 1rem; color: white; }
+    .case-card-header.demo { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+    .case-card-header.welfare { background: linear-gradient(135deg, #065f46, #10b981); }
+    .case-card-header.innovation { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+    .case-card-header h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .case-card-header .subtitle { font-size: 0.75rem; opacity: 0.85; }
+    .case-card-body { padding: 1rem; }
+    .case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .stat { background: #f9fafb; border-radius: 6px; padding: 0.5rem; text-align: center; }
+    .stat .num { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+    .stat .label { font-size: 0.68rem; color: var(--muted); }
+    .case-finding { font-size: 0.82rem; color: #374151; background: #f9fafb; border-radius: 5px; padding: 0.6rem; border-left: 3px solid var(--primary); margin-bottom: 0.6rem; }
+    .case-link { display: block; text-align: center; background: var(--primary); color: white; padding: 0.45rem; border-radius: 5px; text-decoration: none; font-size: 0.82rem; font-weight: 600; }
+
+    /* Workflow */
+    .workflow-section { margin-bottom: 3rem; }
+    .workflow-section > h2 { font-size: 1.3rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 700px) { .workflow-steps { grid-template-columns: 1fr; } }
+    .workflow-step { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); text-align: center; }
+    .step-num { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .workflow-step h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .workflow-step p { font-size: 0.82rem; color: var(--muted); }
+    .step-tools { margin-top: 0.75rem; font-size: 0.75rem; color: var(--primary); background: #fffbeb; padding: 0.3rem 0.5rem; border-radius: 4px; }
+
+    /* Features */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .feature { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .feature h3 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .feature p { font-size: 0.85rem; color: var(--muted); }
+
+    /* CTA */
+    .cta-box { background: white; border: 2px solid var(--primary); border-radius: 12px; padding: 2rem; text-align: center; margin-bottom: 2.5rem; }
+    .cta-box h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .cta-box p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .btn { display: inline-block; padding: 0.7rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin: 0.25rem; }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+    /* How to Use */
+    .how-to-use { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2.5rem; }
+    .how-to-use > h2 { font-size: 1.2rem; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 700px) { .platforms { grid-template-columns: 1fr; } }
+    .platform { border-radius: 10px; padding: 1.25rem; }
+    .platform.wb { background: #f0fdf4; border: 1px solid #86efac; }
+    .platform.stig { background: #f5f3ff; border: 1px solid #c4b5fd; }
+    .platform.code { background: #fef3c7; border: 1px solid #fcd34d; }
+    .platform h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .platform p { font-size: 0.8rem; margin-bottom: 0.6rem; }
+    .platform.wb h3 { color: #166534; }
+    .platform.wb p { color: #166534; }
+    .platform.stig h3 { color: #4c1d95; }
+    .platform.stig p { color: #4c1d95; }
+    .platform.code h3 { color: #92400e; }
+    .platform.code p { color: #92400e; }
+    .platform ul { font-size: 0.78rem; padding-left: 1rem; margin-bottom: 0.6rem; }
+    .platform a { font-size: 0.78rem; font-weight: 600; text-decoration: none; }
+    .platform.wb a { color: #166534; }
+    .platform.stig a { color: #4c1d95; }
+    .platform.code a { color: #92400e; }
+
+    /* Validation */
+    .validation-log { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 2.5rem; }
+    .validation-log h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+    .vlog-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6; }
+    .vlog-item:last-child { border-bottom: none; }
+    .vlog-tag { background: #d97706; color: white; padding: 0.15rem 0.5rem; border-radius: 1rem; font-size: 0.72rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.1rem; }
+    .vlog-tag.green { background: #22c55e; }
+    .vlog-tag.gold { background: #f59e0b; }
+    .vlog-text { font-size: 0.85rem; color: var(--muted); }
+    .m1-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #86efac; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center; }
+    .m1-box strong { color: #166534; font-size: 1rem; }
+    .m1-box span { color: #166534; font-size: 0.85rem; }
+
+    .footer { background: #111827; color: #9ca3af; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+    
+        /* === 用户反馈弹幕 === */
+        .barrage-container {
+            position: relative;
+            height: 40px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .barrage-track {
+            position: absolute;
+            white-space: nowrap;
+            animation: barrage-scroll 20s linear infinite;
+            width: max-content;
+        }
+        .barrage-track:hover { animation-play-state: paused; }
+        @keyframes barrage-scroll {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        .barrage-item {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 2rem;
+            padding: 0.2rem 0.8rem;
+            margin: 0 1rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+        }
+        .barrage-type-feedback { border-color: rgba(102,126,234,0.6); background: rgba(102,126,234,0.2); }
+        .barrage-type-suggestion { border-color: rgba(16,185,129,0.6); background: rgba(16,185,129,0.2); }
+        .barrage-type-bug { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.2); }
+        .barrage-type-collab { border-color: rgba(245,158,11,0.6); background: rgba(245,158,11,0.2); }
+        .barrage-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .barrage-btn:hover { color: rgba(255,255,255,0.9); }
+        .barrage-empty {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            line-height: 40px;
+        }
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav">
+            <a href="../../agentskills/skills.html" class="logo">SocienceAI</a>
+            <ul class="nav-links">
+                <li><a href="../../agentskills/skills.html">全部技能</a></li>
+                <li><a href="../../Tech/index.html">技术工具</a></li>
+                <li><a href="../../Dao/index.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="badge m1-badge">🎉 M1核验达标 · 4.91/5.0分</span>
+                <span class="badge">11会话验证</span>
+                <span class="badge">v5.2.0</span>
+                <span class="badge">三解类型</span>
+                <span class="badge">PRI一致性</span>
+            </div>
+            <h1>QCA定性比较分析专家</h1>
+            <p>AI辅助QCA：从校准到布尔最小化，含民主化8国·福利国家14国·创新系统15国三案例验证</p>
+        </div>
+    </section>
+
+    <div class="content">
+
+        <!-- Case Studies -->
+        <div class="case-showcase">
+            <h2>🏆 真实研究案例（经系统核验）</h2>
+            <div class="case-cards">
+                <div class="case-card">
+                    <div class="case-card-header demo">
+                        <h3>民主化QCA</h3>
+                        <div class="subtitle">8国比较 · 3条件组合</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">8</div><div class="label">国家</div></div>
+                            <div class="stat"><div class="num">3</div><div class="label">条件</div></div>
+                            <div class="stat"><div class="num">0.96</div><div class="label">一致性</div></div>
+                            <div class="stat"><div class="num">0.72</div><div class="label">覆盖度</div></div>
+                        </div>
+                        <div class="case-finding">ECO×EDU + URB×EDU → 民主转型（一致性0.96）。经济现代化与教育是核心条件组合。</div>
+                        <a href="https://www.socienceai.com/promote/article-07-qca-case-studies.html" class="case-link">查看完整分析 →</a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header welfare">
+                        <h3>福利国家QCA</h3>
+                        <div class="subtitle">14国 · Esping-Andersen</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">14</div><div class="label">国家</div></div>
+                            <div class="stat"><div class="num">4</div><div class="label">条件</div></div>
+                            <div class="stat"><div class="num">1.000</div><div class="label">IND必要性</div></div>
+                            <div class="stat"><div class="num">0.833</div><div class="label">PRI值</div></div>
+                        </div>
+                        <div class="case-finding">IND（产业工人）是高福利必要条件。IND×WELF + IND×UNION为充分条件组合，覆盖度0.80。</div>
+                        <a href="https://www.socienceai.com/promote/article-07-qca-case-studies.html" class="case-link">查看三解类型 →</a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header innovation">
+                        <h3>创新系统QCA</h3>
+                        <div class="subtitle">15国 · Freeman/Lundvall</div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stats">
+                            <div class="stat"><div class="num">15</div><div class="label">国家</div></div>
+                            <div class="stat"><div class="num">5</div><div class="label">条件</div></div>
+                            <div class="stat"><div class="num">1.000</div><div class="label">RD×PATENT</div></div>
+                            <div class="stat"><div class="num">2</div><div class="label">充分路径</div></div>
+                        </div>
+                        <div class="case-finding">研发×专利=必要条件（一致性1.000）。完整创新生态（6国）+大学驱动型（3国）两条路径，覆盖度0.79。</div>
+                        <a href="https://www.socienceai.com/promote/article-07-qca-case-studies.html" class="case-link">查看创新路径 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Tutorial -->
+        <div class="workflow-section">
+            <h2>📚 三步分析流程（方法论零门槛）</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-num">1</div>
+                    <h3>数据校准</h3>
+                    <p>将原始数据转化为模糊集隶属度（0~1），设定完全隶属/交叉点/完全不隶属三个锚点。</p>
+                    <div class="step-tools">data_calibrator.py · 模糊集校准</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">2</div>
+                    <h3>真值表构建</h3>
+                    <p>排列所有条件组合，计算每种组合与结果的一致性，识别高质量配置。</p>
+                    <div class="step-tools">truth_table_builder.py · 一致性计算</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">3</div>
+                    <h3>布尔最小化</h3>
+                    <p>生成三种解（复杂/中间/简约），计算PRI一致性，剔除假解，输出布尔公式。</p>
+                    <div class="step-tools">solution_calculator.py · PRI分析</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature">
+                <h3>📐 三解类型支持</h3>
+                <p>复杂解（保守）/ 中间解（平衡，推荐）/ 简约解（简化），满足不同研究需求。</p>
+            </div>
+            <div class="feature">
+                <h3>🔬 PRI一致性分析</h3>
+                <p>Skaaning（2021）标准，区分真解与假解，PRI≥0.75自动标记为高质量结果。</p>
+            </div>
+            <div class="feature">
+                <h3>📊 必要性与充分性</h3>
+                <p>自动计算单条件必要性（Consistency≥0.9）和充分性分析，揭示因果结构。</p>
+            </div>
+            <div class="feature">
+                <h3>🤖 Ragin(2008)标准</h3>
+                <p>严格遵循fsQCA标准，模糊集运算正确，布尔代数最小化规范，可发表级别。</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>开始你的QCA研究</h2>
+            <p>从比较历史叙事到因果推断科学，AI辅助揭示条件组合的因果逻辑</p>
+            <a href="../../_packages/qca-analysis-expert.zip" class="btn btn-outline" download>📦 下载本地 Zip</a>
+            <a href="https://agent.minimaxi.com/" target="_blank" class="btn btn-outline" style="background:#7c3aed;border-color:#7c3aed;color:#fff;">🤖 MinimaxiAgent 在线体验</a>
+            <a href="https://www.codebuddy.cn/fission/?inviteCode=wopt5q340ydq" target="_blank" class="btn btn-outline" style="background:#10b981;border-color:#10b981;color:#fff;">💬 WorkBuddy 小程序</a>
+            <a href="SKILL.md" class="btn">查看完整文档</a>
+            <a href="https://www.socienceai.com/promote/article-07-qca-case-studies.html" class="btn btn-outline">5分钟上手指南</a>
+            <a href="../../agentskills/skills.html" class="btn btn-outline">浏览全部技能</a>
+        </div>
+
+        <!-- How to Use -->
+        <div class="how-to-use">
+            <h2>🚀 三种方式加载本技能</h2>
+            <div class="platforms">
+                <div class="platform wb">
+                    <h3>💬 WorkBuddy</h3>
+                    <p>微信小程序远程控制，本地运行，数据私密安全</p>
+                    <ul>
+                        <li>下载安装 WorkBuddy 桌面端</li>
+                        <li>加载「QCA定性比较分析」技能</li>
+                        <li>上传校准数据，自然语言分析</li>
+                    </ul>
+                    <a href="https://www.codebuddy.cn/fission/?fromSource=gwzcw" target="_blank">官网下载 WorkBuddy →</a>
+                </div>
+                <div class="platform stig">
+                    <h3>🧩 Stigmergy（npm）</h3>
+                    <p>Node.js工作流编排，命令行驱动</p>
+                    <ul>
+                        <li><code>npm install -g stigmergy</code></li>
+                        <li>克隆 GitHub 技能包</li>
+                        <li>运行 <code>stig run qca</code></li>
+                    </ul>
+                    <a href="https://www.npmjs.com/package/stigmergy" target="_blank">npm 官方包页面 →</a>
+                </div>
+                <div class="platform code">
+                    <h3>🔧 Claude Code</h3>
+                    <p>AI编程工具直接加载，深度研究</p>
+                    <ul>
+                        <li>安装 Claude Code CLI</li>
+                        <li>克隆技能包并链接</li>
+                        <li><code>/skill qca-analysis</code> 加载</li>
+                    </ul>
+                    <a href="https://github.com/ptreezh/superpower-socialscience-skills" target="_blank">GitHub 技能包 →</a>
+                </div>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--muted); margin-top: 1rem; text-align: center;">
+                查看完整图文教程：<a href="https://www.socienceai.com/tutorials/using-superpowers/index.html" style="color: var(--primary); font-weight: 600;">5分钟上手指南（含微信小程序远程控制）</a>
+            </p>
+        </div>
+
+        <!-- Validation Log -->
+        <div class="validation-log">
+            <h2>🔄 核验迭代日志（11会话验证）</h2>
+            <div class="vlog-item">
+                <span class="vlog-tag gold">s011 · 4.83分</span>
+                <span class="vlog-text">政治信任QCA（OECD 12国，4条件，WELFARE必要条件0.901，与Esping-Andersen福利政权理论一致）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s010 · 4.67分</span>
+                <span class="vlog-text">数字经济QCA（Castells网络社会框架，15国4条件，INTERNET必要性一致性=1.000）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag gold">s009 · 4.83分</span>
+                <span class="vlog-text">创新系统QCA（Freeman/Lundvall，15国5条件，RD×PATENT必要性，两条充分路径）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag green">s008 · 4.50分</span>
+                <span class="vlog-text">卫生系统QCA（McKee&Figueras，15国，GDP×INSUR×PRIMARY×EQUAL=完美充要条件）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag gold">s007 · 5.00分 ⭐</span>
+                <span class="vlog-text">福利国家QCA满分（Esping-Andersen，14国，IND必要条件一致性1.000，PRI=0.833）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag">s006 · 4.67分</span>
+                <span class="vlog-text">PRI一致性分析（Skaaning 2021），INT识别为必要条件（0.889≥0.9）</span>
+            </div>
+            <div class="vlog-item">
+                <span class="vlog-tag">s001~s005</span>
+                <span class="vlog-text">工具链基础核验（数据校准/真值表/一致性/三解类型/saturation）</span>
+            </div>
+            <div class="m1-box">
+                <strong>🎉 M1里程碑达成</strong><br>
+                <span>11会话，累积 <strong>4.91分</strong> ≥ 4.5 M1目标 ✅</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 SocienceAI. 双向赋能人机协同智慧.</p>
+        </div>
+    </footer>
+</body>
+</html>

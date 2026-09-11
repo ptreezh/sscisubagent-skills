@@ -1,16 +1,15 @@
 ---
 name: business-ecosystem-expert
 description: |
-  商业生态系统专家。提供生态系统映射、共生价值分析、演化动力识别、健康度评估功能。适用于平台生态研究、商业网络分析、生态战略规划场景。
+  Business ecosystem expert. Provides ecosystem mapping, symbiotic value analysis, evolution dynamics identification, and health assessment. Suitable for platform ecosystem research, business network analysis, and ecosystem strategy planning.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 > ## 🔴 强制自动执行规则
@@ -184,6 +183,29 @@ print(f"项目目录创建完成: {project_path}")
     task: "建模生态反馈回路"
     input: 因果假设、变量
     output: Stock-Flow模型、动态行为
+```
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | analyze.py | 生态系统综合分析专家入口 |
+| 2 | ecosystem_mapper.py | 生态系统映射，识别关键物种与生态位 |
+| 3 | stakeholder_analyzer.py | 干系人分析，权力-利益矩阵分类 |
+| 4 | value_flow_analyzer.py | 价值流分析，追踪多向价值网络 |
+| 5 | resilience_calculator.py | 生态韧性计算，评估稳健性与恢复力 |
+| 6 | innovation_impact_evaluator.py | 创新影响评估，分析颠覆性与价值创造 |
+| 7 | platform_dynamics.py | 平台动力学分析，网络效应建模 |
+| 8 | planning-integration.py | 规划集成，管理分析规划文件 |
+
+### CLI用法
+
+```bash
+python tools/ecosystem_mapper.py --input actors.json --output ecosystem_map.html
+python tools/value_flow_analyzer.py --input flows.json --visualize
+python tools/resilience_calculator.py --input ecosystem.json --metrics robustness,recovery
 ```
 
 ## 📚 渐进式加载结构

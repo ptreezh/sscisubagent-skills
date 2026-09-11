@@ -1,34 +1,18 @@
 ---
 name: longitudinal-analysis-expert
 description: |
-  纵向数据分析专家。提供系统化纵向研究方法，支持面板数据分析、
-  潜在增长模型、交叉滞后模型、事件史分析、轨迹分析。
-  核心能力包括：时间效应建模、变化轨迹识别、因果推断、
-  缺失数据处理。遵循Singer & Willett (2003)标准。
+  Longitudinal Analysis expert. Provides panel data modeling, growth curve estimation, time-series analysis, attrition handling, and repeated measures design. Suitable for developmental research, panel studies, and temporal trend analysis.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Singer & Willett (2003), Bollen & Curran (2006)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# 纵向数据分析专家 (Longitudinal Analysis Expert)
-
-## 概述
-
-纵向研究追踪同一组研究对象随时间的变化，能够揭示发展轨迹和因果时序。本技能支持多种纵向数据分析方法。
-
-## 纵向研究优势
-
-### 与横断面研究比较
-
-| 特征 | 横断面 | 纵向 |
-|------|--------|------|
+---|--------|------|
 | 因果推断 | 弱 | 强 |
 | 变化测量 | 无 | 有 |
 | 个体差异 | 无法控制 | 可控制 |
@@ -264,13 +248,52 @@ Yti = π0i + π1i(Time)ti + εti
 高SES学生起点更高，但增长速度无差异
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `trajectory_analyzer.py` | 轨迹形状分析 |
-| `crosslag_modeler.py` | 交叉滞后模型 |
-| `missing_handler.py` | 缺失数据处理 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致纵向研究结论失效。
+
+1. **禁止忽视缺失数据机制** — 不检验MCAR/MAR/MNAR，直接删除缺失值或使用不恰当的处理方法，导致估计偏倚
+2. **禁止混淆相关与因果** — 将时间上的前后顺序等同于因果关系，忽略遗漏变量偏倚和反向因果
+3. **禁止忽视时间编码** — 不说明时间变量的编码方式（原始/0起点/中心化），导致模型不可复现
+4. **禁止只看均值轨迹** — 仅报告组均值变化而忽视个体差异轨迹（离散性），导致个体异质性被掩盖
+5. **禁止忽视样本流失分析** — 不检验流失者与保留者的基线差异，导致结论无法推广
+6. **禁止时间点不足仍建模变化** — 时间点<3时声称分析"变化轨迹"或"发展趋势"，导致模型过度拟合
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 缺失数据机制检验报告完整
+- 样本流失分析完整
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高（含时间编码说明）
+- 模型比较有据可查
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 个体差异轨迹分析（不仅是均值）
+- 敏感性分析完整
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | lgm_analyzer.py | 潜在增长模型，支持无条件/条件增长模型、轨迹形状检验 |
+| 2 | cross_lag_analyzer.py | 交叉滞后模型，支持随机截距交叉滞后面板模型(RICLPM) |
+| 3 | survival_analyzer.py | 事件史分析，支持Kaplan-Meier、Cox回归、风险比计算 |
+| 4 | missing_data_handler.py | 缺失数据处理，支持MCAR/MAR/MNAR检验、FIML、多重插补 |
+
+### CLI用法
+
+```bash
+python tools/lgm_analyzer.py --input panel_data.csv --time t1,t2,t3 --output growth_model.json
+python tools/cross_lag_analyzer.py --input data.csv --variables X,Y --output cross_lag.json
+python tools/survival_analyzer.py --input event_data.csv --time time --event status --output survival.json
+```
 
 ## 参考文献
 

@@ -1,0 +1,45 @@
+benchmark:
+  benchmark_score: 6.5
+  eval_mode: no_tools_heuristic
+  output: ''
+  passed: true
+test_prompt: "Please use the case-study-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 14.0
+    weight: 15
+  benchmark:
+    score: 6.5
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.75
+quality_score: 79.44
+refinement_history:
+- delta: 75.12
+  quality_score: 75.12
+  timestamp: '2026-04-26T05:18:00.878090+00:00'
+- delta: 13.689999999999998
+  quality_score: 79.44
+  timestamp: '2026-04-30T21:17:27.533498+00:00'
+skill: case-study-expert
+structure_base: 103.75
+timestamp: '2026-04-30T21:17:27.533498+00:00'
+total_100: 120.0

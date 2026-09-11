@@ -8,6 +8,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Dict
 
 
 def load_input(path: str) -> Dict:

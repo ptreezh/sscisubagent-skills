@@ -1,0 +1,47 @@
+benchmark:
+  benchmark_score: 5.0
+  eval_mode: tool_test(consumer_analyzer.py)
+  output: '[TOOL: consumer_analyzer.py]
+
+    Consumer Behavior Analysis Tool v5.0.0'
+  passed: true
+test_prompt: "Please use the consumer-behavior-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 13.0
+    weight: 15
+  benchmark:
+    score: 5.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 14.0
+    weight: 15
+  workflow:
+    score: 13.0
+    weight: 15
+improved: true
+previous_score: 65.82
+quality_score: 74.75
+refinement_history:
+- delta: 80.82
+  quality_score: 80.82
+  timestamp: '2026-04-26T09:44:50.642925+00:00'
+- delta: 8.930000000000007
+  quality_score: 74.75
+  timestamp: '2026-05-02T00:27:55.886875+00:00'
+skill: consumer-behavior-expert
+structure_base: 98.0
+timestamp: '2026-05-02T00:27:55.886875+00:00'
+total_100: 110.5

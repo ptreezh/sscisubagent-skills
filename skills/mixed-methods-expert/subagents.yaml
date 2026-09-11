@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: mm-designer
-    name: 混合设计器
+    name: Mixed Methods Designer
     role: 选择和规划混合方法设计
     triggers:
       - "设计"

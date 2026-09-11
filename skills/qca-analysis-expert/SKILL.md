@@ -1,28 +1,17 @@
 ---
 name: qca-analysis-expert
 description: |
-  定性比较分析专家。提供数据校准、真值表构建、一致性分析、必要性/充分性检验功能。适用于比较研究、因果组合分析、中小样本研究场景。
+  Qualitative Comparative Analysis (QCA) expert. Provides calibration, truth table construction, consistency analysis, and necessity/sufficiency testing. Suitable for comparative research, causal configuration analysis, and small-to-medium sample studies.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-# SKILL.md - qca-analysis-expert
-
----
 metadata:
   version: "5.1.0-cli-native+agent"
   methodology: "Qualitative Comparative Analysis (QCA)"
@@ -110,7 +99,7 @@ python tools/set_relation_analyzer.py -i results/calibrated.json -o results/set_
 ## 基本信息
 
 **名称**: qca-analysis-expert (QCA分析专家)
-**版本**: 5.0.0-cli-native+agent
+**版本**: 5.2.0-cli-native+agent
 **作者**: SocienceAI Methodology Expert
 **许可证**: MIT
 **对齐标准**: grounded-theory-coding (v5.0.0)
@@ -445,6 +434,42 @@ QCA变成黑箱:
   [ ] 稳健性检验完成
   [ ] 案例解释完成
   [ ] 报告撰写完成
+```
+
+### 7. 禁止定性分析过程硬编码（CRITICAL）
+
+**核心原则**: QCA的集合关系判断和因果路径解释必须由大模型智力驱动，绝不能硬编码。
+
+**错误做法**:
+```yaml
+硬编码判断:
+  - 用if/else判断"这个案例属于哪个集合"
+  - 用规则判断"哪个是必要条件"（一致性>0.9）
+  - 用模板生成"因果路径"
+  - 硬编码案例归类逻辑
+
+示例（错误）:
+  if consistency > 0.9:
+      return "必要条件"  # 这是大模型的工作
+```
+
+**正确做法**:
+```yaml
+工具只做数值计算:
+  - 一致性/覆盖度数值计算
+  - 真值表构建（数据结构操作）
+  - 布尔最小化算法
+  - 结果格式化输出
+
+智力留给大模型:
+  - 校准锚点由研究者/大模型基于理论确定
+  - 必要条件判断由大模型基于一致性+理论解读
+  - 因果路径解释由大模型基于案例知识推理
+  - 解的实质性含义由大模型诠释
+
+Python工具的正确角色:
+  ✅ 数值计算、一致性计算、数据结构管理
+  ❌ 校准决策、因果判断、路径解释
 ```
 
 ## 详细指南

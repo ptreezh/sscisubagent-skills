@@ -4,7 +4,7 @@
 subagents:
   # Social Facts Identification Agent
   - name: durkheim-social-facts-identifier
-    description: 识别并分析社会事实的三维特征（外在性、强制性、普遍性）
+    description: Identify and analyze three-dimensional characteristics of social facts (externality, constraint, generality)
     prompt_template: prompts/social-facts-identification-prompt.md
     tools:
       - social_facts_identifier

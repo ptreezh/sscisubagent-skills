@@ -1,0 +1,56 @@
+benchmark:
+  benchmark_score: 7.0
+  eval_mode: tool_test(content_structure_analyzer.py)
+  output: "[TOOL: content_structure_analyzer.py]\n{\n  \"structure\": {\n    \"section_count\"\
+    : 1,\n    \"paragraph_count\": 1,\n    \"sentence_count\": 3,\n    \"char_count\"\
+    : 41,\n    \"sections\": [\n      \"这是一份关于政策规定的正式文件。我们必须认真执行各项规定。未来将继续推进改革发展。\"\
+    \n    ]\n  },\n  \"content\": {\n    \"top_words\": [\n      [\n        \"这是一份关于政策规定的正式文件\"\
+    ,\n        1\n      ],\n      [\n        \"我们必须认真执行各项规定\",\n        1\n      ],\n\
+    \      [\n        \"未来将继续推进改革发展\",\n        1\n      ]\n    ],\n    \"date_mentions\"\
+    : [],\n    \"number_mentions\": []\n  },\n  \"themes\": [\n    {\n      \"name\"\
+    : \"政策主题\",\n      \"frequency\": 3,\n      \"keywords\": [\n        \"规定\",\n\
+    \        \"政策\"\n      ]\n    },\n    {\n      \"name\": \"经济主题\",\n      \"frequency\"\
+    : 1,\n      \"keywords\": [\n        \"发展\"\n      ]\n    }\n  ],\n  \"narrative\"\
+    : {\n    \"temporal_focus\": {\n      \"past\": 0,\n      \"present\": 0,\n  \
+    \    \"future\": 2,\n      \"dominant\": \"future\"\n  "
+  passed: true
+test_prompt: "Please use the document-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 9.0
+    weight: 15
+  benchmark:
+    score: 7.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 10.0
+    weight: 7
+  frontmatter:
+    score: 8.0
+    weight: 8
+  resources:
+    score: 8.0
+    weight: 5
+  specificity:
+    score: 9.0
+    weight: 15
+  workflow:
+    score: 10.0
+    weight: 15
+improved: true
+previous_score: 50.6
+quality_score: 65.43
+refinement_history:
+- delta: 59.97
+  quality_score: 59.97
+  timestamp: '2026-04-26T05:20:00.036072+00:00'
+- delta: 14.830000000000005
+  quality_score: 65.43
+  timestamp: '2026-04-30T14:09:05.854035+00:00'
+skill: document-analysis-expert
+structure_base: 84.9
+timestamp: '2026-04-30T14:09:05.854035+00:00'
+total_100: 102.4

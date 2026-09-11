@@ -3,7 +3,7 @@ version: "1.0"
 
 subagents:
   - id: internal-analyzer
-    name: 内部分析师
+    name: Internal Analyst
     role: 分析内部优势与劣势
     triggers:
       - "内部分析"

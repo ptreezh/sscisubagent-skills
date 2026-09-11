@@ -1,39 +1,15 @@
 ---
 name: pest-analysis-expert
 description: |
-  PEST/PESTEL环境分析专家。提供系统化宏观环境分析方法，支持政治、经济、
-  社会、技术、环境、法律六维度扫描。核心能力包括：因素识别、影响评估、
-  交叉影响分析、战略启示提炼。适用于战略规划、市场进入评估、投资决策等场景。
+  PEST/PESTEL environmental analysis expert. Provides six-dimensional macro-environment analysis, factor identification, impact assessment, and trend prediction. Suitable for strategic planning, market analysis, and environmental scanning.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
   version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Aguilar (1967), Johnson & Scholes (1989)"
-  subagent-support: true
-  graceful-fallback: true
-  ai-cli-native: true
----
-
-> ## 🔴 强制自动执行规则
-> 
-> **创建任务列表后，必须立即按顺序执行第一个任务，禁止询问用户！**
-> 
-> ❌ 禁止："告诉我要启动哪个任务"、"请选择要执行的任务"
-> ✅ 必须：显示任务列表 → 立即开始执行第一个任务
-
-
-
-# PEST/PESTEL环境分析专家 (PEST Analysis Expert)
-
-**版本**: 5.0.0-cli-native+agent
-**方法论**: Aguilar (1967), Johnson & Scholes (1989)
-**最后更新**: 2026-03-15
-
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
 ## 概述
@@ -130,6 +106,21 @@ PEST/PESTEL分析是最广泛使用的宏观环境分析工具，通过系统识
 - 子Agent并行支持
 
 ---
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | pestel_identifier.py | PESTEL六维度因素识别与评估 |
+
+### CLI用法
+
+```bash
+python tools/pestel_identifier.py --input data.txt --output pestel_factors.json
+python tools/pestel_identifier.py --help
+```
 
 ## 参考资料
 

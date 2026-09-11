@@ -1,61 +1,18 @@
 ---
 name: nlp-text-mining-expert
 description: |
-  NLP文本挖掘专家。提供系统化文本分析方法，支持主题建模、情感分析、
-  词向量、命名实体识别、文本分类。核心能力包括：文本预处理、特征提取、
-  模型训练、结果解释、可视化呈现。适用于社交媒体分析、文献挖掘、
-  舆情监测等场景。
+  NLP Text Mining expert. Provides text preprocessing, entity extraction, topic modeling, sentiment analysis, and document classification using natural language processing techniques. Suitable for text analytics, information extraction, and NLP-based research.
 license: MIT
-compatibility: |
-  Python 3.8+
-  AI CLI: Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/Cursor/Windsurf/龙虾/QClaw
-  agentskills.io: v1.0 compliant
+compatibility: "Python 3.8+ | Claude/Qwen/iFlow/Gemini/Copilot/Stigmergy/OpenCode/KiloCode/QoderCLI/WorkBuddy/MiniMax Agent"
 metadata:
-  version: "5.0.0"
+  version: "5.0.0-cli-native+agent"
   agentskills-io: "true"
   cross-platform: "true"
-  methodology: "Jurafsky & Martin (2024), Bird et al. (2009)"
+  darwin-evolution: "frontmatter-fixed"
+  darwin-evolution-date: "2026-05-03"
 ---
 
-# NLP文本挖掘专家 (NLP Text Mining Expert)
-
-## 概述
-
-文本挖掘是从非结构化文本中提取有价值信息的技术，结合自然语言处理(NLP)和机器学习方法。本技能提供从数据清洗到结果解释的全流程支持。
-
-## 文本分析流程
-
-```
-原始文本
-    │
-    ↓
-┌─────────────────┐
-│  数据收集       │ ← API/爬虫/文件导入
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  文本预处理     │ ← 清洗、分词、标准化
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  特征提取       │ ← 词频、TF-IDF、嵌入
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  模型分析       │ ← 主题/情感/分类
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│  结果解释       │ ← 可视化、洞察提取
-└─────────────────┘
-```
-
-## 文本预处理
-
-### 基础预处理步骤
-
-| 步骤 | 操作 | 工具 |
-|------|------|------|
+---|------|------|
 | 清洗 | 去除HTML、特殊字符 | 正则表达式 |
 | 分词 | 中文: jieba, 英文: NLTK | jieba, spaCy |
 | 去停用词 | 移除无意义词 | 停用词表 |
@@ -302,13 +259,59 @@ AI: 我将执行完整的文本分析流程：
 3. 客服体验需要改善
 ```
 
-## 工具函数
+## 🚫 绝对禁止原则
 
-| 工具 | 功能 |
-|------|------|
-| `text_preprocessor.py` | 文本预处理 |
-| `topic_modeler.py` | 主题建模 |
-| `sentiment_analyzer.py` | 情感分析 |
+> **使用前必读**：以下原则是不可逾越的红线，违反将导致NLP文本挖掘结论无效。
+
+1. **禁止不处理类别不平衡** — 正面:负面=1:9时直接训练模型，导致少数类召回率接近零
+2. **禁止脱离语境的词汇统计** — 仅统计词频而不考虑上下文语义，导致误解词语真实含义
+3. **禁止混淆准确率与有效性** — 高准确率可能来自类别不平衡，而非模型真正有效
+4. **禁止忽视文本预处理质量** — 分词错误、停用词表不匹配领域，直接影响后续分析可靠性
+5. **禁止不检验模型泛化能力** — 用训练集评估模型后直接应用，忽视过拟合和数据漂移风险
+6. **禁止脱离标注质量的模型评估** — 标注数据本身有偏（如标注者间信度低），则模型评估结果不可信
+
+## ✅ 质量标准
+
+### 完整性
+- 必做项清单完成度 ≥ 90%
+- 文本预处理步骤记录完整
+- 类别分布说明清晰
+
+### 方法论
+- 理论框架与数据一致性 ≥ 90%
+- 分析步骤可复现性高（含预处理参数）
+- 模型选择有据可查
+
+### 深度
+- 核心维度覆盖 ≥ 80%
+- 类别不平衡处理方案说明
+- 模型可解释性分析
+
+## 🖥️ Python 工具
+
+### 工具链
+
+| # | 工具名称 | 功能描述 |
+|---|----------|----------|
+| 1 | text_preprocessor.py | 文本预处理，支持分词、去停用词、词形还原、繁简转换（跨平台） |
+| 2 | topic_modeler.py | 主题建模，支持LDA、BERTopic、 coherence score计算 |
+| 3 | sentiment_analyzer.py | 情感分析，支持词典方法、机器学习、深度学习多方法对比 |
+| 4 | ner_extractor.py | 命名实体识别，支持多语言NER、实体类型自定义 |
+
+### CLI用法
+
+```bash
+python tools/text_preprocessor.py --input raw_text.txt --output cleaned.txt --lang zh
+python tools/topic_modeler.py --input corpus.txt --method lda --num-topics 10 --output topics.json
+python tools/sentiment_analyzer.py --input reviews.csv --method bert --output sentiment.json
+```
+
+### CLI用法
+
+```bash
+# NLP文本挖掘推荐使用jieba、gensim、transformers等库
+python -c "import jieba; print(list(jieba.cut('自然语言处理')))"
+```
 
 ## 参考文献
 

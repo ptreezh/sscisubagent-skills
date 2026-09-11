@@ -1,0 +1,51 @@
+benchmark:
+  benchmark_score: 6.0
+  eval_mode: tool_test(identity_analyzer.py)
+  output: "[TOOL: identity_analyzer.py]\n============================================================\n\
+    叙事认同分析报告 (McAdams框架)\n============================================================\n\
+    \n【叙事基调】\n  类型: 无法确定\n  置信度: 0.0%\n\n【核心情节】\n\n  ▶ 高潮情节\n    情感: 积极\n    身份意义:\
+    \ 能力确认\n    内容: 五年，做到了技术总监的位置。表面看起来很成功，薪水也不错。\n        但说...\n\n  ▶ 转折情节\n   \
+    \ 情感: 中性/复杂\n    身份意义: 身份转变\n    内容: ，感觉自己在消耗生命。\n        转折点是2020年疫情期间，我在线上给一...\n\
+    \n【身份转变】\n  旧身份: 虚假自我\n  触发: 自我发现\n  新身份: 真实自我\n  转变类型: 自我发现\n\n【关键短语】\n  • 真正的\n\
+    \n============================================================"
+  passed: true
+test_prompt: "Please use the narrative-analysis-expert skill to analyze: a corporate organizational culture change case"
+dimensions:
+  architecture:
+    score: 8.0
+    weight: 15
+  benchmark:
+    score: 6.0
+    weight: 25
+  boundary:
+    score: 8.0
+    weight: 10
+  checkpoint:
+    score: 9.0
+    weight: 7
+  frontmatter:
+    score: 9.0
+    weight: 8
+  resources:
+    score: 9.0
+    weight: 5
+  specificity:
+    score: 8.0
+    weight: 15
+  workflow:
+    score: 8.0
+    weight: 15
+improved: true
+previous_score: 50.15
+quality_score: 59.25
+refinement_history:
+- delta: 65.15
+  quality_score: 65.15
+  timestamp: '2026-04-26T05:24:03.818324+00:00'
+- delta: 9.100000000000001
+  quality_score: 59.25
+  timestamp: '2026-04-27T14:08:40.758381+00:00'
+skill: narrative-analysis-expert
+structure_base: 77.0
+timestamp: '2026-04-27T14:08:40.758381+00:00'
+total_100: 92.0
