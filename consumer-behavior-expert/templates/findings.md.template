@@ -1,0 +1,31 @@
+# 发现报告模板
+
+## 项目信息
+- **目标群体**: {{target_segment}}
+- **完成时间**: {{completion_time}}
+
+## 影响因素分析结果
+
+### 文化因素
+{{cultural_analysis}}
+
+### 社会因素
+{{social_analysis}}
+
+### 个人因素
+{{personal_analysis}}
+
+### 心理因素
+{{psychological_analysis}}
+
+## 购买决策旅程
+{{decision_journey}}
+
+## 关键洞察
+{{key_insights}}
+
+## 营销建议
+{{marketing_recommendations}}
+
+---
+**报告版本**: 1.0.0

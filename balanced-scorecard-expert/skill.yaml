@@ -1,0 +1,193 @@
+name: balanced-scorecard-expert
+version: 5.0.0-cli-native+agent
+description: |
+  平衡计分卡专家。基于Robert S. Kaplan和David P. Norton的平衡计分卡方法论，提供战略地图设计、四维度指标体系构建、因果链分析、战略执行监控。
+
+methodology:
+  primary_source: "Kaplan, R. S., & Norton, D. P. (1996). The Balanced Scorecard. Harvard Business School Press."
+  key_concepts:
+    - 四维度框架 (财务/客户/内部流程/学习成长)
+    - 战略地图
+    - 因果链条
+    - 领先指标与滞后指标
+    - 战略对齐
+  frameworks:
+    - name: 四维度框架
+      dimensions:
+        - 财务维度 (Financial Perspective)
+        - 客户维度 (Customer Perspective)
+        - 内部流程维度 (Internal Process Perspective)
+        - 学习与成长维度 (Learning & Growth Perspective)
+    - name: 战略地图
+      description: 战略目标间因果关系的可视化表示
+    - name: 因果链模型
+      description: 从学习成长到财务结果的连锁反应
+
+analysis_stages:
+  - id: stage_1
+    name: 战略理解与澄清
+    description: 确保对组织战略的准确理解
+    outputs:
+      - 战略主题列表
+      - 战略目标层级结构
+      - 战略假设清单
+  - id: stage_2
+    name: 战略地图构建
+    description: 建立战略目标间的因果关系
+    outputs:
+      - 战略地图
+      - 因果关系说明
+      - 战略假设验证表
+  - id: stage_3
+    name: 指标体系设计
+    description: 为战略目标设计衡量指标
+    outputs:
+      - 平衡计分卡指标体系
+      - 指标定义表
+      - 目标值设定表
+  - id: stage_4
+    name: 行动计划制定
+    description: 将战略转化为具体行动
+    outputs:
+      - 行动计划表
+      - 资源配置方案
+      - 责任分工表
+  - id: stage_5
+    name: 战略执行监控
+    description: 建立持续的绩效监控机制
+    outputs:
+      - 绩效报告
+      - 差距分析报告
+      - 战略调整建议
+
+dimensions:
+  financial:
+    name: 财务维度
+    question: "我们如何看待股东?"
+    themes:
+      - 收入增长战略
+      - 生产力提升战略
+      - 资产利用战略
+    example_metrics:
+      - ROI (投资回报率)
+      - ROE (净资产收益率)
+      - EVA (经济增加值)
+      - 收入增长率
+      - 成本降低率
+  customer:
+    name: 客户维度
+    question: "客户如何看待我们?"
+    themes:
+      - 产品/服务特征
+      - 客户关系
+      - 形象/品牌
+    example_metrics:
+      - 客户满意度
+      - 客户保持率
+      - 客户获取率
+      - 市场份额
+      - 客户盈利能力
+  internal_process:
+    name: 内部流程维度
+    question: "我们必须擅长什么?"
+    themes:
+      - 运营管理流程
+      - 客户管理流程
+      - 创新流程
+      - 法规与社会流程
+    example_metrics:
+      - 流程周期时间
+      - 质量合格率
+      - 新产品开发周期
+      - 客户问题解决率
+  learning_growth:
+    name: 学习与成长维度
+    question: "我们能否持续创造价值?"
+    themes:
+      - 人力资本
+      - 信息资本
+      - 组织资本
+    example_metrics:
+      - 员工满意度
+      - 员工技能提升率
+      - 信息系统可用性
+      - 员工建议采纳率
+
+causal_chain:
+  description: 四维度间的因果关系
+  chain:
+    - from: 学习与成长维度
+      to: 内部流程维度
+      mechanism: 能力提升驱动流程改善
+    - from: 内部流程维度
+      to: 客户维度
+      mechanism: 流程优化提升客户体验
+    - from: 客户维度
+      to: 财务维度
+      mechanism: 客户满意带来财务回报
+
+indicator_types:
+  - name: 领先指标
+    definition: 驱动未来绩效的指标
+    purpose: 预警、改进
+    examples: [员工培训投入, 客户拜访次数]
+  - name: 滞后指标
+    definition: 反映过去绩效的指标
+    purpose: 评估、验证
+    examples: [财务收益率, 客户满意度]
+  - name: 结果指标
+    definition: 衡量结果达成的指标
+    purpose: 考核
+    examples: [销售收入, 市场份额]
+  - name: 驱动指标
+    definition: 影响结果的行动指标
+    purpose: 改进
+    examples: [新产品开发数, 培训小时数]
+
+quality_standards:
+  - 指标数量: 每维度4-7个核心指标
+  - 因果验证: 所有因果关系需有战略假设支持
+  - 平衡性: 四维度指标权重相对均衡
+  - 可操作性: 指标数据可获取、可衡量
+
+task_queue:
+  - stage: "战略理解与澄清"
+    timeout: 300
+    checkpoint: "strategy_clarification.json"
+  - stage: "战略地图构建"
+    timeout: 600
+    checkpoint: "strategy_map.json"
+  - stage: "指标体系设计"
+    timeout: 600
+    checkpoint: "metrics_design.json"
+  - stage: "行动计划制定"
+    timeout: 300
+    checkpoint: "action_plan.json"
+  - stage: "战略执行监控"
+    timeout: 300
+    checkpoint: "execution_monitoring.json"
+
+cli_native_features:
+  task_queue_support: true
+  state_persistence: true
+  checkpoint_recovery: true
+  graceful_fallback: true
+
+subagent_support:
+  enabled: true
+  use_cases:
+    - 多业务单元平衡计分卡并行设计
+    - 大规模指标数据收集与分析
+    - 跨部门战略对齐评估
+  fallback: "CLI任务队列模式"
+
+triggers:
+  - "平衡计分卡"
+  - "BSC"
+  - "战略地图"
+  - "KPI设计"
+  - "战略执行"
+  - "绩效指标"
+  - "战略对齐"
+  - "四维度指标"
+  - "绩效管理"

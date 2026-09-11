@@ -1,0 +1,103 @@
+---
+name: agile-pm-expert
+version: 5.0.0-cli-native+agent
+description: |
+  敏捷项目管理专家技能（AI CLI 原生版）。支持Scrum和Kanban敏捷框架的完整实施。
+  
+  核心能力：
+  - Scrum框架实施：Sprint规划、每日站会、回顾会议
+  - 用户故事编写：INVEST原则验收标准设计
+  - 迭代规划：Sprint Backlog和燃尽图管理
+  - 敏捷度量：速度、周期时间、吞吐量分析
+
+  基于Scrum Guide (2020)和Kanban方法论。
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Agile/Scrum/Kanban"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  agentskills-io: true
+  cross-platform: true
+
+analysis_types:
+  - sprint-planning
+  - user-story-writing
+  - retrospective
+  - agile-metrics
+  - full-agile-implementation
+
+category: organizational-management
+tags:
+  - agile
+  - scrum
+  - kanban
+  - user-stories
+  - sprint
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 项目数据和需求列表
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 敏捷规划结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: user-story-writer
+    description: 用户故事编写工具
+    module: user_story_writer
+  - name: sprint-planner
+    description: Sprint规划工具
+    module: sprint_planner
+  - name: burndown-tracker
+    description: 燃尽图追踪工具
+    module: burndown_tracker
+  - name: retrospective-facilitator
+    description: 回顾会议引导工具
+    module: retrospective_facilitator
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: invest_principle
+    description: INVEST原则检查
+    rule: "用户故事必须独立、可协商、有价值、可估算、足够小、可测试"
+  - name: sprint_goal
+    description: Sprint目标检查
+    rule: "每个Sprint必须有明确目标"
+  - name: definition_of_done
+    description: 完成定义检查
+    rule: "必须有明确的完成标准"
+
+dependencies:
+  python: ">=3.8"
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

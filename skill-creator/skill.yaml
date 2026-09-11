@@ -1,0 +1,106 @@
+---
+name: skill-creator
+version: 1.0.0
+description: |
+  技能创建者（Skill Creator）- 创建新技能、修改和改进现有技能，并测量技能性能。
+
+  核心能力：
+  - 从零开始创建新技能
+  - 编辑和优化现有技能
+  - 运行评估测试技能
+  - 基准测试技能性能（带方差分析）
+  - 优化技能描述以提高触发准确率
+
+  使用场景：
+  - 用户想创建新技能时
+  - 需要编辑或优化现有技能时
+  - 需要运行评估测试技能时
+  - 需要基准测试技能性能时
+
+author: Anthropic
+license: MIT
+repository: https://github.com/anthropics/skills
+
+metadata:
+  version: "1.0.0"
+  type: "development"
+  skill-creation: true
+  evaluation-framework: true
+
+category: development
+tags:
+  - skill-creation
+  - skill-improvement
+  - evaluation
+  - benchmarking
+  - testing
+
+inputs:
+  task:
+    type: string
+    required: true
+    description: 任务类型（create/edit/evaluate/benchmark）
+  skill_config:
+    type: object
+    required: false
+    description: 技能配置（用于编辑或创建）
+
+outputs:
+  result:
+    type: object
+    description: 执行结果
+  report:
+    type: string
+    description: 详细报告
+
+prompts:
+  system: SKILL.md
+
+tools:
+  - name: package-skill
+    description: 打包技能
+    module: package_skill
+  - name: quick-validate
+    description: 快速验证
+    module: quick_validate
+  - name: run-eval
+    description: 运行评估
+    module: run_eval
+  - name: run-loop
+    description: 运行循环
+    module: run_loop
+  - name: improve-description
+    description: 改进描述
+    module: improve_description
+  - name: generate-report
+    description: 生成报告
+    module: generate_report
+  - name: aggregate-benchmark
+    description: 聚合基准
+    module: aggregate_benchmark
+
+quality_checks:
+  - name: skill_yaml_exists
+    description: skill.yaml文件存在性检查
+    rule: "必须有skill.yaml文件"
+  - name: skill_md_exists
+    description: SKILL.md文件存在性检查
+    rule: "必须有SKILL.md文件"
+  - name: valid_yaml
+    description: YAML格式有效性检查
+    rule: "YAML格式必须有效"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - pyyaml>=6.0
+    - jinja2>=3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+
+allowed-tools: Read Write Bash(Git:*) Bash(python:*) --allow
+
+---

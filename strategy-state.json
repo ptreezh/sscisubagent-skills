@@ -1,0 +1,22 @@
+{
+  "last_update": "2026-03-22T20:23:24.382847",
+  "current_cycle": "2026-Q3-Q4",
+  "overall_progress": 0.0,
+  "okr_status": {},
+  "alerts": [
+    {
+      "level": "warning",
+      "kr_id": "KR1.3",
+      "message": "测试覆盖率 85% < 90%",
+      "action": "通知质量团队"
+    },
+    {
+      "level": "warning",
+      "kr_id": "KR1.4",
+      "message": "进化准确率 0% < 80%",
+      "action": "人工审查进化系统"
+    }
+  ],
+  "completed_tasks": [],
+  "pending_tasks": []
+}

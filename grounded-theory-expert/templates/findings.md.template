@@ -1,0 +1,178 @@
+# 扎根理论分析发现记录
+
+**任务 ID**: {{task_id}}  
+**创建时间**: {{created_at}}  
+**最后更新**: {{updated_at}}
+
+---
+
+## Phase 2: 开放性编码发现
+
+### 编码列表
+
+| 编号 | 编码名称 | 定义 | 频次 | 数据示例 | 备忘录 |
+|------|----------|------|------|----------|--------|
+| C001 | {{code_name}} | {{definition}} | {{frequency}} | "{{data_example}}" | {{memo}} |
+
+### 编码统计
+
+- **总编码数**: {{total_codes}}
+- **平均频次**: {{average_frequency}}
+- **最高频次编码**: {{most_frequent_code}}
+- **唯一编码数**: {{unique_codes}}
+
+### 编码者间信度
+
+- **Cohen's Kappa**: {{kappa_value}}
+- **一致性百分比**: {{agreement_rate}}%
+- **信度状态**: {{reliability_status}}
+- **分歧概念**: {{disagreed_codes}}
+
+### 编码备忘录
+
+#### Code Memo 001
+- **编码**: {{code_name}}
+- **类型**: code
+- **内容**: {{insight}}
+- **时间**: {{timestamp}}
+
+---
+
+## Phase 3: 轴心编码发现
+
+### 范畴体系
+
+```
+{{main_category_1}}
+├─ {{sub_category_1}}
+├─ {{sub_category_2}}
+└─ {{sub_category_3}}
+
+{{main_category_2}}
+├─ {{sub_category_1}}
+└─ {{sub_category_2}}
+```
+
+### 范畴详情
+
+#### 范畴 1: {{category_name}}
+- **副范畴**: {{subcategories}}
+- **属性**: {{properties}}
+- **维度**: {{dimensions}}
+- **数据示例**: 
+  - "{{example_1}}"
+  - "{{example_2}}"
+
+### 范畴关系
+
+| 从 | 到 | 关系类型 | 关系描述 | 数据支持 |
+|-----|-----|----------|----------|----------|
+| {{from}} | {{to}} | causal/contextual | {{description}} | "{{evidence}}" |
+
+### 编码范式模型
+
+| 要素 | 内容 | 数据支持 |
+|------|------|----------|
+| 因果条件 | {{causal_conditions}} | "{{evidence}}" |
+| 核心现象 | {{phenomenon}} | "{{evidence}}" |
+| 脉络 | {{context}} | "{{evidence}}" |
+| 干预条件 | {{intervening_conditions}} | "{{evidence}}" |
+| 行动策略 | {{strategies}} | "{{evidence}}" |
+| 结果 | {{consequences}} | "{{evidence}}" |
+
+---
+
+## Phase 4: 选择式编码发现
+
+### 核心范畴
+
+- **名称**: {{core_category_name}}
+- **定义**: {{definition}}
+- **整合力评分**: {{integration_power}}/10
+- **解释力评分**: {{explanatory_power}}/10
+- **选择理由**: {{selection_rationale}}
+- **数据支持**:
+  - "{{evidence_1}}"
+  - "{{evidence_2}}"
+
+### 故事线
+
+{{story_line}}
+
+### 理论命题
+
+| 编号 | 命题 | 支持证据 | 理论基础 |
+|------|------|----------|----------|
+| P1 | {{proposition}} | "{{evidence}}" | {{theory}} |
+| P2 | {{proposition}} | "{{evidence}}" | {{theory}} |
+
+---
+
+## Phase 5: 理论饱和度发现
+
+### 饱和度分数
+
+| 维度 | 分数 | 状态 | 证据 |
+|------|------|------|------|
+| 概念饱和度 | {{score}}% | ✅/⚠️/❌ | {{evidence}} |
+| 范畴饱和度 | {{score}}% | ✅/⚠️/❌ | {{evidence}} |
+| 关系饱和度 | {{score}}% | ✅/⚠️/❌ | {{evidence}} |
+| 命题饱和度 | {{score}}% | ✅/⚠️/❌ | {{evidence}} |
+| **整体饱和度** | {{overall}}% | ✅/⚠️/❌ | - |
+
+### 增量分析
+
+- **新增数据量**: {{new_data_size}}
+- **新概念数**: {{new_concepts}}
+- **新范畴数**: {{new_categories}}
+- **新关系数**: {{new_relationships}}
+- **新命题数**: {{new_propositions}}
+
+### 饱和度分析
+
+{{saturation_analysis}}
+
+### 建议
+
+{{recommendations}}
+
+---
+
+## 关键洞察
+
+### 洞察 1: {{title}}
+{{key_insight}}
+
+### 洞察 2: {{title}}
+{{key_insight}}
+
+### 洞察 3: {{title}}
+{{key_insight}}
+
+---
+
+## 数据引用
+
+| 编号 | 原始数据 | 来源 | 时间 |
+|------|----------|------|------|
+| D001 | "{{quote}}" | {{source}} | {{timestamp}} |
+
+---
+
+## 分析备忘录
+
+### Theoretical Memo 001
+- **主题**: {{topic}}
+- **内容**: {{content}}
+- **时间**: {{timestamp}}
+
+### Methodological Memo 001
+- **主题**: {{topic}}
+- **内容**: {{content}}
+- **时间**: {{timestamp}}
+
+---
+
+**备注**: {{notes}}
+
+**下次更新计划**: {{next_update_plan}}

@@ -1,0 +1,106 @@
+name: autonomous-execution
+version: 1.0.0
+description: |
+  Qwen CLI 内自动化任务执行技能
+  
+  在 Qwen CLI 对话中自动化持续运行，无需用户干预。
+  支持智能任务解析、完整内容生成、自动质量检查、自动错误恢复。
+
+author: SocienceAI
+license: MIT
+
+# 触发词
+triggers:
+  - "启动自动化"
+  - "执行任务"
+  - "继续执行"
+  - "自动化运行"
+  - "开始执行"
+  - "下一个任务"
+  - "执行下一个"
+
+# 命令
+commands:
+  start:
+    description: 启动自动化系统
+    handler: qwen-auto-executor.py start
+  
+  execute:
+    description: 执行一轮任务
+    handler: qwen-auto-executor.py execute
+  
+  status:
+    description: 查看系统状态
+    handler: qwen-auto-executor.py status
+  
+  stop:
+    description: 停止自动化
+    handler: qwen-auto-executor.py stop
+  
+  continue:
+    description: 继续执行
+    handler: qwen-auto-executor.py continue
+
+# 配置
+config:
+  mode: conversation  # conversation, background
+  tasks_per_turn: 1   # 每轮对话执行任务数
+  auto_continue: true # 自动继续
+  quality_check: true # 质量检查
+  error_recovery: true # 错误恢复
+
+# 文件
+files:
+  executor: qwen-auto-executor.py
+  state: qwen-automation-state.json
+  log: QWEN-AUTO-LOG.md
+
+# 权限
+permissions:
+  - read: task_plan.md
+  - write: agentskills/
+  - execute: python
+
+# 响应格式
+response_format: |
+  {emoji} {message}
+  
+  ```
+  {data}
+  ```
+
+# 示例对话
+examples:
+  - user: "启动自动化任务执行"
+    assistant: |
+      ✅ 自动化系统已启动
+      
+      ```
+      tasks: 6
+      mode: conversation
+      auto_continue: true
+      ```
+      
+      开始执行第一个任务...
+  
+  - user: "继续"
+    assistant: |
+      ✅ actor-network-analysis-expert 完成！
+      
+      ```
+      progress: 2/6
+      next: digital-weber-expert
+      auto_continue: true
+      ```
+  
+  - user: "状态"
+    assistant: |
+      📊 自动化系统状态
+      
+      ```
+      status: running
+      completed: 2
+      failed: 0
+      pending: 4
+      turns: 2
+      ```

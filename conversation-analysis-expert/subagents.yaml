@@ -1,0 +1,32 @@
+subagents:
+  - id: turn_analyst
+    name: 话轮分析师
+    role: 话轮构建、转换、分配分析
+    capabilities:
+      - 话轮构建单位识别
+      - 转换相关位置定位
+      - 话轮分配机制分析
+
+  - id: sequence_analyst
+    name: 序列分析师
+    role: 序列组织、邻接对分析
+    capabilities:
+      - 邻接对识别
+      - 序列扩展分析
+      - 偏好组织判断
+
+  - id: repair_analyst
+    name: 修复分析师
+    role: 修复机制、问题解决分析
+    capabilities:
+      - 修复发起识别
+      - 修复类型判断
+      - 修复结果评估
+
+  - id: institutional_analyst
+    name: 机构对话分析师
+    role: 机构互动、专业沟通分析
+    capabilities:
+      - 医患沟通分析
+      - 课堂互动分析
+      - 服务对话分析

@@ -1,0 +1,103 @@
+---
+name: lean-startup-expert
+version: 5.0.0-cli-native+agent
+description: |
+  精益创业专家技能（AI CLI 原生版）。支持Eric Ries精益创业方法论的完整实施。
+  
+  核心能力：
+  - MVP设计与验证：最小可行产品的快速迭代
+  - 构建-度量-学习循环：数据驱动的假设验证
+  - 转型或坚持决策：基于验证结果的战略选择
+  - 商业模式假设测试：价值假设与增长假设验证
+
+  基于 Eric Ries (2011)《精益创业》方法论。
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Lean Startup (Eric Ries 2011)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  agentskills-io: true
+  cross-platform: true
+
+analysis_types:
+  - mvp-design
+  - hypothesis-testing
+  - build-measure-learn
+  - pivot-or-persevere
+  - validation-planning
+
+category: strategic-analysis
+tags:
+  - lean-startup
+  - mvp
+  - validated-learning
+  - hypothesis-testing
+  - pivot
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 创业项目数据（商业计划、用户假设、市场分析等）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: mvp-designer
+    description: MVP设计与规划
+    module: mvp_designer
+  - name: hypothesis-validator
+    description: 假设验证框架
+    module: hypothesis_validator
+  - name: metrics-tracker
+    description: 关键指标追踪
+    module: metrics_tracker
+  - name: pivot-analyzer
+    description: 转型决策分析
+    module: pivot_analyzer
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: hypothesis_clarity
+    description: 假设清晰度检查
+    rule: "所有假设必须可测试、可度量"
+  - name: mvp_scope
+    description: MVP范围检查
+    rule: "MVP必须是最小可行，而非最小可能"
+  - name: learning_validation
+    description: 学习验证检查
+    rule: "每个实验必须产生可执行的学习"
+
+dependencies:
+  python: ">=3.8"
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

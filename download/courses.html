@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>课程中心 - SocienceAI 社会科学AI实验室</title>
+    <meta name="description" content="SocienceAI课程中心 - 社会科学研究的AI增强方法在线课程">
+    <meta name="robots" content="index,follow">
+    <meta name="keywords" content="AI, 社会科学, 研究, 课程, 教育, 培训">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SocienceAI - 课程中心">
+    <meta property="og:description" content="SocienceAI课程中心 - 社会科学研究的AI增强方法在线课程">
+    <meta property="og:url" content="https://socienceAI.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://socienceAI.com/og-image.jpg">
+    <meta property="og:image:alt" content="SocienceAI - 课程中心">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@socienceai_research">
+    <meta name="twitter:creator" content="@socienceai_research">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ul.nav-menu {
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        ul.nav-menu li {
+            list-style: none !important;
+        }
+
+        ul.footer-links {
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        ul.footer-links li {
+            list-style: none !important;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .footer-content > .footer-section {
+            flex: 1;
+            min-width: 0; /* Prevents flex items from overflowing */
+        }
+
+        /* 确保在小屏幕上仍然可以换行 */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        /* 为课程页面添加的自定义样式 */
+        .course-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .course-layout {
+            display: block;
+        }
+
+        .course-content-area {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-title-bar {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .course-title-bar h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .course-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>    <!-- 导航栏 -->
+    <nav class="modern-nav">
+        <div class="modern-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+                <a href="../index.html" class="nav-brand">
+                    <img src="../logo.png" alt="SocienceAI Logo" class="nav-logo" style="width: 48px; height: 48px; object-fit: contain;">
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SocienceAI</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">让社会科学与AI双向赋能</div>
+                    </div>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">首页</a></li>
+                    <li><a href="../skills.html" class="nav-link">Agent服务</a></li>
+                    <li><a href="../resources.html" class="nav-link">精品AI</a></li>
+                    <li><a href="../Tech/index.html" class="nav-link">赋能工具</a></li>
+                    <li><a href="courses.html" class="nav-link">培训课程</a></li>
+                    <li><a href="../whitePaper/index.html" class="nav-link">白皮书</a></li>
+                    <li><a href="../Dao/index.html" class="nav-link">关于我们</a></li>
+                    <li><a href="http://www.socienceai.com/blog/" class="nav-link">博客</a></li>
+                    <li><a href="../contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-btn" style="display: none; background: none; border: none; cursor: pointer; padding: 0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 课程中心内容 -->
+    <section style="padding: 3rem 0; background: #f8fafc; min-height: calc(100vh - 200px);">
+        <div class="modern-container">
+
+            <div class="course-container">
+                <div class="course-layout">
+                    <!-- 课程内容区域 -->
+                    <div class="course-content-area">
+                        <div class="course-intro" style="padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-align: center; color: white;">
+                            <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 1rem 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">SocienceAI 课程中心</h2>
+                            <p style="font-size: 1.25rem; margin: 0; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">引领AI与社会科学研究的深度融合，助力研究者掌握前沿技术，实现学术突破与创新</p>
+                        </div>
+
+                        <div class="course-title-bar" style="background: #f8fafc; padding: 1.5rem; border-bottom: 2px solid #e2e8f0;">
+                            <h2 style="font-size: 1.75rem; font-weight: 700; color: #1e293b; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-graduation-cap" style="color: #3b82f6;"></i>
+                                精品课程
+                            </h2>
+                        </div>
+
+                        <div class="courses-grid" style="padding: 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                            <div class="course-card" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #fed1aa; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('ai_research_course.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #f97316; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">核心课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #9a3412; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-chalkboard-teacher" style="color: #f97316; font-size: 1.1rem;"></i>
+                                    AI时代社科教师新角色
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">适应AI时代的教育变革，掌握AI技术在教学中的应用，成为引领教育创新的先锋教师。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #ffedd5; color: #b45309; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">教师发展</span>
+                                    <span style="background: #ffedd5; color: #b45309; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">AI教学</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #f97316; font-weight: 600; font-size: 0.9rem;">
+                                    开启新篇章 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #e6f4ea 0%, #c8eacc 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #96d4a0; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('ai_intro.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #2e7d32; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">基础课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #1b5e20; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-graduation-cap" style="color: #2e7d32; font-size: 1.1rem;"></i>
+                                    人工智能导论
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">了解人工智能的基础概念与应用方法，为学习者提供AI增强研究能力的入门知识。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #c8eacc; color: #1b5e20; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">AI入门</span>
+                                    <span style="background: #c8eacc; color: #1b5e20; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">基础课程</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #2e7d32; font-weight: 600; font-size: 0.9rem;">
+                                    开始学习 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #86efac; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('system_thinking_course.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #22c55e; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">专业课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #14532d; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-project-diagram" style="color: #22c55e; font-size: 1.1rem;"></i>
+                                    让AI更可靠与有效的系统思维方法
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">运用系统思维确保AI在社会科学研究中的可靠性与有效性，掌握构建可信AI系统的核心方法。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #dcfce7; color: #15803d; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">系统思维</span>
+                                    <span style="background: #dcfce7; color: #15803d; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">AI可信</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #22c55e; font-weight: 600; font-size: 0.9rem;">
+                                    保障质量 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #bae6fd; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('ai_empowerment_full_pdf.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #0ea5e9; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">实用课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #022c43; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-graduation-cap" style="color: #0ea5e9; font-size: 1.1rem;"></i>
+                                    人工智能赋能新时代妇联工作
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">探索AI技术在妇联工作中的实际应用，提升工作效能，推动妇女事业高质量发展。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">妇联工作</span>
+                                    <span style="background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">AI赋能</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #0ea5e9; font-weight: 600; font-size: 0.9rem;">
+                                    了解详情 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #f0abfc; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('llm_teaching_course.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #c026d3; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">热门课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #581c87; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-chalkboard-teacher" style="color: #c026d3; font-size: 1.1rem;"></i>
+                                    大语言模型赋能教学与科研
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">掌握大语言模型在教学与科研中的实用方法，提升工作效率，实现智能辅助研究。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #fae8ff; color: #9333ea; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">大模型</span>
+                                    <span style="background: #fae8ff; color: #9333ea; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">教学辅助</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #c026d3; font-weight: 600; font-size: 0.9rem;">
+                                    掌握技能 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #cbd5e1; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('cozy.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #64748b; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">技能课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #334155; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-robot" style="color: #64748b; font-size: 1.1rem;"></i>
+                                    长期记忆节点 - coze智能体开发教程
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">深入学习coze平台中长期记忆节点的构建与应用，开发具备记忆功能的智能体。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">Coze开发</span>
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">智能体</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #64748b; font-weight: 600; font-size: 0.9rem;">
+                                    学习技能 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #cbd5e1; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('../whitePaper/tools.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #64748b; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">专业课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #334155; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-tools" style="color: #64748b; font-size: 1.1rem;"></i>
+                                    AI高级工具应用
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">掌握各种AI工具的高级应用方法，提升研究和工作效率。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">AI工具</span>
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">效率提升</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #64748b; font-weight: 600; font-size: 0.9rem;">
+                                    学习课程 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #cbd5e1; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('../whitePaper/tutorial.html', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #64748b; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">专业课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #334155; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-graduation-cap" style="color: #64748b; font-size: 1.1rem;"></i>
+                                    AI研究示范教学
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">通过示范教学深入学习AI在社会科学研究中的应用方法与技巧。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">示范教学</span>
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">研究方法</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #64748b; font-weight: 600; font-size: 0.9rem;">
+                                    学习课程 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #cbd5e1; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('https://zhangjianzhang.github.io/text_mining/', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #64748b; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">专业课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #334155; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-file-contract" style="color: #64748b; font-size: 1.1rem;"></i>
+                                    商务文本智能分析
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">学习商务文本的智能分析技术，提升数据处理和商业洞察能力。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">文本分析</span>
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">数据处理</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #64748b; font-weight: 600; font-size: 0.9rem;">
+                                    学习课程 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+
+                            <div class="course-card" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 1rem; padding: 1.5rem; border: 2px solid #cbd5e1; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;" onclick="window.open('https://zhangjianzhang.github.io/programming_basics/', '_blank')">
+                                <div style="position: absolute; top: 0; right: 0; background: #64748b; color: white; padding: 0.25rem 1rem; font-size: 0.8rem; border-radius: 0 0 0 0.5rem; font-weight: 600;">基础课程</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #334155; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-code" style="color: #64748b; font-size: 1.1rem;"></i>
+                                    Python程序设计
+                                </h3>
+                                <p style="color: #334155; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem;">掌握Python编程基础，为AI应用开发打下坚实基础。</p>
+                                <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">编程基础</span>
+                                    <span style="background: #e2e8f0; color: #475569; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500;">Python</span>
+                                </div>
+                                <div style="margin-top: 1rem; display: flex; align-items: center; color: #64748b; font-weight: 600; font-size: 0.9rem;">
+                                    学习课程 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="modern-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="footer-logo" style="width: 48px; height: 48px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; color: white; font-weight: bold;">AI</div>
+                        <div class="footer-title">SocienceAI</div>
+                    </div>
+                    <p class="footer-description">
+                        SocienceAI致力于构建AI与社会科学研究的双向赋能体系，通过AI释放人类研究员自由创新的核心潜能，提升AI智能体的集体智能和社会智慧。
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>AI社科方法</h4>
+                    <ul class="footer-links">
+                        <li><a href="../agents/grounded-theory.html">扎根理论</a></li>
+                        <li><a href="../agents/social-network-analysis.html">社会网络分析</a></li>
+                        <li><a href="../agents/actor-network-analysis.html">行动者网络分析</a></li>
+                        <li><a href="../agents/bourdieu-field-analysis.html">布迪厄场域分析</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>社科智能体</h4>
+                    <ul class="footer-links">
+                        <li><a href="../agents/digital-durkheim.html">数字迪尔凯姆专家</a></li>
+                        <li><a href="../agents/digital-marx.html">数字马克思专家</a></li>
+                        <li><a href="../agents/digital-weber.html">数字韦伯专家</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>AI与商业</h4>
+                    <ul class="footer-links">
+                        <li><a href="../Tech/AiProductDesign.html">AI产品设计</a></li>
+                        <li><a href="../Tech/AiMarketingTechnology.html">AI营销技术</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="../Dao/index.html">关于我们</a></li>
+                        <li><a href="../Dao/Manifesto.html">项目使命</a></li>
+                        <li><a href="../contact.html">联系我们</a></li>
+                        <li><a href="../privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SocienceAI. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // 添加样式文件中的CSS变量定义
+        document.addEventListener('DOMContentLoaded', function() {
+            const style = document.createElement('style');
+            style.textContent = `
+                :root {
+                    --text-primary: #1e293b;
+                    --text-secondary: #64748b;
+                }
+
+                .modern-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 1rem;
+                }
+
+                .modern-nav {
+                    background: white;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                    position: sticky;
+                    top: 0;
+                    z-index: 1000;
+                }
+
+                .nav-brand {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                }
+
+                .nav-menu {
+                    display: flex;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    gap: 2rem;
+                }
+
+                .nav-link {
+                    text-decoration: none;
+                    color: var(--text-primary);
+                    font-weight: 500;
+                    transition: color 0.3s ease;
+                }
+
+                .nav-link:hover {
+                    color: #667eea;
+                }
+
+                .btn {
+                    display: inline-block;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: 0.5rem;
+                    text-decoration: none;
+                    font-weight: 600;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                }
+
+                .btn-primary {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                }
+
+                .btn-primary:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                }
+
+                .btn-secondary {
+                    background: transparent;
+                    color: var(--text-primary);
+                    border: 2px solid #667eea;
+                }
+
+                .modern-footer {
+                    background: #1e293b;
+                    color: white;
+                    padding: 4rem 0 2rem 0;
+                    margin-top: 5rem;
+                }
+
+                .footer-content {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 2rem;
+                    margin-bottom: 3rem;
+                }
+
+                .footer-brand {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 1rem;
+                }
+
+                .footer-title {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                }
+
+                .footer-description {
+                    color: #94a3b8;
+                    line-height: 1.6;
+                }
+
+                .footer-links {
+                    list-style: none;
+                    padding: 0;
+                }
+
+                .footer-links li {
+                    margin-bottom: 0.75rem;
+                }
+
+                .footer-links a {
+                    color: #94a3b8;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                }
+
+                .footer-links a:hover {
+                    color: white;
+                }
+
+                .course-card {
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .course-card:hover {
+                    transform: translateY(-10px) scale(1.02);
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                    z-index: 10;
+                }
+
+                .course-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+                    transition: 0.5s;
+                }
+
+                .course-card:hover::before {
+                    left: 100%;
+                }
+
+                .footer-bottom {
+                    border-top: 1px solid #334155;
+                    padding-top: 2rem;
+                    text-align: center;
+                    color: #94a3b8;
+                }
+
+                @media (max-width: 768px) {
+                    .nav-menu {
+                        position: fixed;
+                        top: 80px;
+                        left: 0;
+                        right: 0;
+                        background: white;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 1rem 0;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                        transform: translateY(-150%);
+                        transition: transform 0.3s ease;
+                    }
+
+                    .nav-menu.active {
+                        transform: translateY(0);
+                    }
+
+                    .footer-content {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+
+                    .course-layout {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .courses-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .course-card {
+                        width: 100%;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+# Action Research Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: ar-diagnoser
+    name: 问题诊断师
+    role: 诊断实践问题
+    triggers:
+      - "问题诊断"
+      - "问题界定"
+      - "诊断"
+
+  - id: ar-planner
+    name: 行动规划师
+    role: 制定行动干预计划
+    triggers:
+      - "计划"
+      - "干预"
+      - "规划"
+
+  - id: ar-reflector
+    name: 反思引导师
+    role: 引导批判性反思
+    triggers:
+      - "反思"
+      - "反思日志"
+      - "评估"
+
+workflow:
+  - step: 1
+    action: "问题诊断"
+  - step: 2
+    action: "行动规划"
+  - step: 3
+    action: "行动实施"
+  - step: 4
+    action: "数据观察"
+  - step: 5
+    action: "反思评估"
+  - step: 6
+    action: "下一轮循环规划"
+  - step: 7
+    action: "知识总结与分享"

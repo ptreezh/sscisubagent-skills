@@ -1,0 +1,339 @@
+{
+  "case_name": "制造企业平衡计分卡设计测试案例",
+  "case_description": "模拟一家制造企业的平衡计分卡设计场景，用于测试技能的分析能力",
+  "company": "TechManufacturing Co.",
+  "industry": "高端制造业",
+  "data_collection_date": "2026-03-18",
+
+  "strategy_overview": {
+    "vision": "成为行业领先的智能制造解决方案提供商",
+    "mission": "通过技术创新和卓越运营，为客户提供高质量的产品和服务",
+    "strategic_position": "差异化竞争：质量和服务优势而非价格竞争"
+  },
+
+  "strategic_themes": [
+    {
+      "id": "ST1",
+      "name": "运营卓越",
+      "description": "通过精益生产和自动化提升运营效率"
+    },
+    {
+      "id": "ST2",
+      "name": "客户亲密",
+      "description": "深化客户关系，提供定制化解决方案"
+    },
+    {
+      "id": "ST3",
+      "name": "产品创新",
+      "description": "持续研发投入，保持技术领先"
+    }
+  ],
+
+  "objectives": [
+    {
+      "id": "F1",
+      "name": "提高盈利能力",
+      "dimension": "financial",
+      "description": "将净利润率从8%提升到12%",
+      "causes": ["C1", "C2"],
+      "effects": [],
+      "strategic_theme": "ST1"
+    },
+    {
+      "id": "F2",
+      "name": "收入增长",
+      "dimension": "financial",
+      "description": "年收入增长率达到15%",
+      "causes": ["C3"],
+      "effects": [],
+      "strategic_theme": "ST3"
+    },
+    {
+      "id": "C1",
+      "name": "提高产品质量满意度",
+      "dimension": "customer",
+      "description": "产品质量满意度达到95%",
+      "causes": ["P1"],
+      "effects": ["F1"],
+      "strategic_theme": "ST1"
+    },
+    {
+      "id": "C2",
+      "name": "提升服务响应速度",
+      "dimension": "customer",
+      "description": "客户问题24小时解决率达到90%",
+      "causes": ["P2"],
+      "effects": ["F1"],
+      "strategic_theme": "ST2"
+    },
+    {
+      "id": "C3",
+      "name": "扩大目标客户群",
+      "dimension": "customer",
+      "description": "新客户获取率提高30%",
+      "causes": ["P3"],
+      "effects": ["F2"],
+      "strategic_theme": "ST3"
+    },
+    {
+      "id": "P1",
+      "name": "提升生产质量",
+      "dimension": "internal_process",
+      "description": "产品一次合格率达到98%",
+      "causes": ["L1"],
+      "effects": ["C1"],
+      "strategic_theme": "ST1"
+    },
+    {
+      "id": "P2",
+      "name": "优化客户服务流程",
+      "dimension": "internal_process",
+      "description": "服务流程周期缩短50%",
+      "causes": ["L2"],
+      "effects": ["C2"],
+      "strategic_theme": "ST2"
+    },
+    {
+      "id": "P3",
+      "name": "加速产品创新",
+      "dimension": "internal_process",
+      "description": "新产品开发周期缩短30%",
+      "causes": ["L3"],
+      "effects": ["C3"],
+      "strategic_theme": "ST3"
+    },
+    {
+      "id": "L1",
+      "name": "提升员工技能",
+      "dimension": "learning_growth",
+      "description": "关键岗位员工技能认证率达到95%",
+      "causes": [],
+      "effects": ["P1"],
+      "strategic_theme": "ST1"
+    },
+    {
+      "id": "L2",
+      "name": "优化信息系统",
+      "dimension": "learning_growth",
+      "description": "客户服务系统可用性达到99.5%",
+      "causes": [],
+      "effects": ["P2"],
+      "strategic_theme": "ST2"
+    },
+    {
+      "id": "L3",
+      "name": "增强研发能力",
+      "dimension": "learning_growth",
+      "description": "研发人员创新能力指数提升20%",
+      "causes": [],
+      "effects": ["P3"],
+      "strategic_theme": "ST3"
+    }
+  ],
+
+  "indicators": [
+    {
+      "id": "I1",
+      "name": "净利润率",
+      "dimension": "financial",
+      "objective_id": "F1",
+      "indicator_type": "lagging",
+      "definition": "净利润/营业收入",
+      "formula": "NetProfit / Revenue * 100",
+      "data_source": "财务系统",
+      "update_frequency": "月度",
+      "target_value": 12.0,
+      "unit": "%"
+    },
+    {
+      "id": "I2",
+      "name": "收入增长率",
+      "dimension": "financial",
+      "objective_id": "F2",
+      "indicator_type": "lagging",
+      "definition": "年度收入同比增长率",
+      "formula": "(CurrentRevenue - PreviousRevenue) / PreviousRevenue * 100",
+      "data_source": "财务系统",
+      "update_frequency": "季度",
+      "target_value": 15.0,
+      "unit": "%"
+    },
+    {
+      "id": "I3",
+      "name": "产品质量满意度",
+      "dimension": "customer",
+      "objective_id": "C1",
+      "indicator_type": "lagging",
+      "definition": "客户对产品质量的满意度评分",
+      "formula": "客户调研评分平均值",
+      "data_source": "客户调研",
+      "update_frequency": "季度",
+      "target_value": 95.0,
+      "unit": "分"
+    },
+    {
+      "id": "I4",
+      "name": "问题解决率",
+      "dimension": "customer",
+      "objective_id": "C2",
+      "indicator_type": "lagging",
+      "definition": "24小时内解决的客户问题比例",
+      "formula": "24小时内解决问题数 / 总问题数 * 100",
+      "data_source": "客服系统",
+      "update_frequency": "周",
+      "target_value": 90.0,
+      "unit": "%"
+    },
+    {
+      "id": "I5",
+      "name": "新客户获取率",
+      "dimension": "customer",
+      "objective_id": "C3",
+      "indicator_type": "lagging",
+      "definition": "新客户数量同比增长率",
+      "formula": "(NewCustomerCount - PreviousCount) / PreviousCount * 100",
+      "data_source": "CRM系统",
+      "update_frequency": "月度",
+      "target_value": 30.0,
+      "unit": "%"
+    },
+    {
+      "id": "I6",
+      "name": "产品一次合格率",
+      "dimension": "internal_process",
+      "objective_id": "P1",
+      "indicator_type": "leading",
+      "definition": "首次检验合格的产品比例",
+      "formula": "首次合格产品数 / 总产品数 * 100",
+      "data_source": "质量管理系统",
+      "update_frequency": "日",
+      "target_value": 98.0,
+      "unit": "%"
+    },
+    {
+      "id": "I7",
+      "name": "服务流程周期",
+      "dimension": "internal_process",
+      "objective_id": "P2",
+      "indicator_type": "leading",
+      "definition": "从客户提出问题到解决的平均时间",
+      "formula": "总解决时间 / 问题数量",
+      "data_source": "客服系统",
+      "update_frequency": "周",
+      "target_value": 24.0,
+      "unit": "小时"
+    },
+    {
+      "id": "I8",
+      "name": "新产品开发周期",
+      "dimension": "internal_process",
+      "objective_id": "P3",
+      "indicator_type": "leading",
+      "definition": "从概念到上市的平均时间",
+      "formula": "新产品上市时间 - 概念提出时间",
+      "data_source": "项目管理系统",
+      "update_frequency": "项目结束",
+      "target_value": 180.0,
+      "unit": "天"
+    },
+    {
+      "id": "I9",
+      "name": "技能认证率",
+      "dimension": "learning_growth",
+      "objective_id": "L1",
+      "indicator_type": "leading",
+      "definition": "关键岗位持证员工比例",
+      "formula": "持证员工数 / 关键岗位员工数 * 100",
+      "data_source": "HR系统",
+      "update_frequency": "月度",
+      "target_value": 95.0,
+      "unit": "%"
+    },
+    {
+      "id": "I10",
+      "name": "系统可用性",
+      "dimension": "learning_growth",
+      "objective_id": "L2",
+      "indicator_type": "leading",
+      "definition": "客户服务系统正常运行时间比例",
+      "formula": "正常运行时间 / 总时间 * 100",
+      "data_source": "IT监控系统",
+      "update_frequency": "实时",
+      "target_value": 99.5,
+      "unit": "%"
+    },
+    {
+      "id": "I11",
+      "name": "研发创新指数",
+      "dimension": "learning_growth",
+      "objective_id": "L3",
+      "indicator_type": "leading",
+      "definition": "综合评估研发创新能力的指标",
+      "formula": "专利申请数 * 0.4 + 新产品贡献率 * 0.3 + 创新项目数 * 0.3",
+      "data_source": "研发管理系统",
+      "update_frequency": "季度",
+      "target_value": 120.0,
+      "unit": "指数"
+    }
+  ],
+
+  "causal_links": [
+    {
+      "from_objective": "L1",
+      "to_objective": "P1",
+      "hypothesis": "员工技能提升将改善生产质量",
+      "validation_method": "相关性分析",
+      "validated": true
+    },
+    {
+      "from_objective": "P1",
+      "to_objective": "C1",
+      "hypothesis": "生产质量提升将提高产品质量满意度",
+      "validation_method": "客户调研分析",
+      "validated": true
+    },
+    {
+      "from_objective": "C1",
+      "to_objective": "F1",
+      "hypothesis": "产品质量满意度提升将提高客户忠诚度和利润率",
+      "validation_method": "回归分析",
+      "validated": false
+    },
+    {
+      "from_objective": "L2",
+      "to_objective": "P2",
+      "hypothesis": "信息系统优化将缩短服务流程周期",
+      "validation_method": "前后对比分析",
+      "validated": true
+    },
+    {
+      "from_objective": "P2",
+      "to_objective": "C2",
+      "hypothesis": "服务流程优化将提高问题解决速度",
+      "validation_method": "流程分析",
+      "validated": true
+    },
+    {
+      "from_objective": "L3",
+      "to_objective": "P3",
+      "hypothesis": "研发能力增强将加速产品创新",
+      "validation_method": "项目数据分析",
+      "validated": true
+    },
+    {
+      "from_objective": "P3",
+      "to_objective": "C3",
+      "hypothesis": "产品创新加速将扩大目标客户群",
+      "validation_method": "市场分析",
+      "validated": false
+    }
+  ],
+
+  "validation_criteria": {
+    "dimension_balance": "四个维度指标数量相对均衡",
+    "causal_chain_completeness": "所有目标都纳入因果链",
+    "leading_lagging_ratio": "领先指标占比60-70%",
+    "indicator_count": "总指标数20-25个",
+    "strategic_alignment": "所有指标与战略目标对应"
+  }
+}

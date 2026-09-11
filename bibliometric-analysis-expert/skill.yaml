@@ -1,0 +1,35 @@
+# Bibliometric Analysis Expert - Skill Configuration
+name: bibliometric-analysis-expert
+version: "5.0.0"
+description: "文献计量分析专家"
+
+analysis_types:
+  co_citation:
+    name: "共引分析"
+    purpose: "发现学科结构"
+  bibliographic_coupling:
+    name: "文献耦合"
+    purpose: "发现研究前沿"
+  co_authorship:
+    name: "合作分析"
+    purpose: "发现研究团队"
+  co_occurrence:
+    name: "共现分析"
+    purpose: "发现研究主题"
+
+indicators:
+  impact: ["IF", "H-index", "SJR", "SNIP"]
+  productivity: ["发文量", "篇均被引"]
+  network: ["中心性", "聚类系数", "模块度"]
+
+visualization:
+  - knowledge_map: "知识图谱"
+  - burst_detection: "突发检测"
+  - timeline_view: "时序视图"
+  - overlay_map: "叠加图谱"
+
+data_sources:
+  - "Web of Science"
+  - "Scopus"
+  - "CNKI"
+  - "Google Scholar"

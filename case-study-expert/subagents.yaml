@@ -1,0 +1,41 @@
+# Case Study Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: cs-designer
+    name: 案例设计师
+    role: 设计案例研究方案
+    triggers:
+      - "研究设计"
+      - "案例选择"
+      - "设计"
+
+  - id: cs-collector
+    name: 数据收集器
+    role: 多源数据收集与三角验证
+    triggers:
+      - "数据收集"
+      - "三角验证"
+      - "访谈"
+
+  - id: cs-analyzer
+    name: 案例分析师
+    role: 模式匹配与跨案例分析
+    triggers:
+      - "模式匹配"
+      - "分析"
+      - "跨案例"
+
+workflow:
+  - step: 1
+    action: "研究问题界定"
+  - step: 2
+    action: "理论框架构建"
+  - step: 3
+    action: "案例选择(复制逻辑)"
+  - step: 4
+    action: "多源数据收集"
+  - step: 5
+    action: "数据分析(模式匹配)"
+  - step: 6
+    action: "质量检验与报告"

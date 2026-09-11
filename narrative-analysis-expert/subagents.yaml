@@ -1,0 +1,43 @@
+# Narrative Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: narr-structure
+    name: 结构分析师
+    role: 执行Labov叙事结构分析
+    triggers:
+      - "结构分析"
+      - "Labov"
+      - "叙事结构"
+
+  - id: narr-theme
+    name: 主题分析师
+    role: 提取叙事主题
+    triggers:
+      - "主题"
+      - "叙事主题"
+      - "情节"
+
+  - id: narr-identity
+    name: 认同分析师
+    role: 分析叙事认同
+    triggers:
+      - "认同"
+      - "身份"
+      - "自我"
+
+workflow:
+  - step: 1
+    action: "叙事数据收集"
+  - step: 2
+    action: "转录与分割"
+  - step: 3
+    action: "结构分析(Labov)"
+  - step: 4
+    action: "主题提取"
+  - step: 5
+    action: "叙事认同分析"
+  - step: 6
+    action: "跨叙事比较"
+  - step: 7
+    action: "叙事报告撰写"

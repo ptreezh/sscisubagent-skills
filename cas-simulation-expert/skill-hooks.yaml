@@ -1,0 +1,218 @@
+# CAS仿真技能 - 质量标准和迭代机制
+
+hooks:
+  # 任务开始时的检查
+  on_task_start:
+    enabled: true
+    actions:
+      - action: validate_research_question
+        description: "验证研究问题的明确性和可仿真性"
+      - action: check_agent_requirements
+        description: "确认主体异质性要求"
+      - action: verify_environment_setup
+        description: "验证环境/空间结构设置"
+      - action: confirm_stochasticity
+        description: "确认随机性包含"
+
+  # 质量标准
+  quality:
+    standards:
+      # 六大绝对禁止原则检查
+      absolute_prohibitions:
+        - name: "禁止过度简化主体"
+          check: "agent_heterogeneity"
+          description: "所有主体不能完全相同，必须有异质性（属性、行为、规则的多样性）"
+          severity: "critical"
+
+        - name: "禁止忽视空间"
+          check: "spatial_structure"
+          description: "不能无空间结构或完全随机，必须有适当的空间结构（网格、网络、连续空间）"
+          severity: "critical"
+
+        - name: "禁止忽视随机性"
+          check: "stochasticity_included"
+          description: "不能完全确定性的模型，必须包含适当的随机性（个体变异、环境噪声）"
+          severity: "critical"
+
+        - name: "禁止不验证涌现"
+          check: "emergence_validation"
+          description: "不能只看仿真输出，必须与真实数据对比，进行模式验证、参数校准、敏感性分析"
+          severity: "critical"
+
+        - name: "禁止单一运行"
+          check: "multiple_runs"
+          description: "不能只运行一次仿真，必须多次运行（蒙特卡洛），报告分布"
+          severity: "critical"
+
+        - name: "禁止黑箱仿真"
+          check: "transparency"
+          description: "必须报告参数设置、共享代码，确保完全透明和可复现性"
+          severity: "critical"
+
+      # 完成度检查
+      completion_checklist:
+        - item: "主体异质性定义"
+          required: true
+        - item: "空间结构设置"
+          required: true
+        - item: "随机性机制"
+          required: true
+        - item: "涌现验证"
+          required: true
+        - item: "多次运行分析"
+          required: true
+        - item: "完全透明"
+          required: true
+
+  # 任务完成时的反思
+  on_task_complete:
+    enabled: true
+    actions:
+      - action: self_reflect
+        description: "反思仿真过程中的关键决策和学习点"
+      - action: quality_review
+        description: "对照六大禁止原则检查质量"
+      - action: record_lesson
+        description: "记录经验教训到experience/patterns.md"
+
+  # 迭代改进机制
+  iteration:
+    enabled: true
+    learning_file: "experience/patterns.md"
+
+    # 成功模式记录
+    success_patterns:
+      - pattern: "主体异质性对涌现模式影响显著"
+        category: "modeling"
+        evidence: "homogeneous_agents_vs_heterogeneous"
+
+      - pattern: "网络结构决定扩散速度"
+        category: "environment"
+        evidence: "network_topology_impact"
+
+      - pattern: "临界点通常在20-30%采用率"
+        category: "emergence"
+        evidence: "tipping_point_observation"
+
+      - pattern: "蒙特卡洛≥100次以减少随机性"
+        category: "validation"
+        evidence: "monte_carlo_stability"
+
+    # 改进领域
+    improvement_areas:
+      - area: "参数敏感性分析"
+        current: "基本扫描"
+        target: "Sobol敏感性分析"
+        priority: "medium"
+
+      - area: "网络拓扑多样性"
+        current: "主要是小世界网络"
+        target: "支持无标度、随机网络等多类型"
+        priority: "medium"
+
+      - area: "可视化增强"
+        current: "基础图表"
+        target: "交互式网络可视化"
+        priority: "low"
+
+  # 持久化配置
+  persistence:
+    enabled: true
+    state_file: "simulation_state.json"
+    auto_save:
+      enabled: true
+      interval: 60  # 每60步保存一次
+    checkpoint:
+      enabled: true
+      on_interrupt: true
+      on_completion: true
+
+    # 保存内容
+    save_content:
+      - model_config
+      - agent_states
+      - environment_state
+      - parameters
+      - results
+      - metadata
+
+  # CLI任务队列支持
+  task_queue:
+    enabled: true
+    auto_activate:
+      # 自动激活条件
+      - condition: "复杂仿真任务"
+        trigger: "估计时间 > 3小时 或 包含5个以上独立子任务"
+        description: "长时间仿真自动分解任务"
+
+      - condition: "批量仿真"
+        trigger: "包含参数扫描、场景测试或多值测试"
+        description: "批量仿真自动使用并行处理"
+
+      - condition: "用户明确要求"
+        trigger: "用户明确要求'分解任务'或'并行处理'"
+        description: "用户请求时激活高级功能"
+
+    # 决策逻辑
+    decision_logic:
+      mode_selection:
+        threshold: 5  # 任务数阈值
+        below_threshold: "cli_queue"  # 5个以下使用CLI队列
+        above_threshold: "subagent_parallel"  # 5个以上使用并行
+
+      fallback:
+        enabled: true
+        detection:
+          - check: "cli_version_support"
+          - check: "agent_tool_availability"
+          - check: "resource_limit_check"
+        action: "graceful_degrade"
+        message: "子Agent环境不可用，将使用CLI队列模式执行"
+
+# 质量保证配置
+quality_assurance:
+  # 仿真前验证
+  pre_simulation:
+    - check: "research_question_clarity"
+      description: "研究问题是否清晰可仿真"
+
+    - check: "agent_heterogeneity"
+      description: "主体是否包含异质性"
+
+    - check: "spatial_structure"
+      description: "是否有适当的空间结构"
+
+    - check: "interaction_rules"
+      description: "互动规则是否明确定义"
+
+    - check: "stochasticity"
+      description: "是否包含随机性机制"
+
+  # 仿真后验证
+  post_simulation:
+    - check: "emergence_detection"
+      description: "是否识别到涌现模式"
+
+    - check: "pattern_validation"
+      description: "模式是否与理论/数据一致"
+
+    - check: "sensitivity_analysis"
+      description: "是否进行了参数敏感性分析"
+
+    - check: "reproducibility"
+      description: "结果是否可复现"
+
+    - check: "multiple_runs"
+      description: "是否进行了多次运行（≥100次蒙特卡洛）"
+
+    - check: "transparency"
+      description: "参数和代码是否完全透明"
+
+# 技能元数据（内部使用）
+metadata:
+  version: "5.0.0-cli-native+agent"
+  last_updated: "2026-03-10"
+  quality_standards_version: "1.0"
+  六大绝对禁止原则: true
+  完成度检查: true
+  自迭代: true

@@ -1,0 +1,134 @@
+# Phenomenology Expert - Skill Hooks Configuration
+name: phenomenology-expert
+version: "5.0.0"
+
+# CRCT思维链配置
+crct_config:
+  constant_comparison:
+    enabled: true
+    description: "持续比较不同参与者的体验描述"
+  record:
+    enabled: true
+    description: "记录悬置过程和反思"
+  chain:
+    enabled: true
+    description: "建立意义单元之间的概念链条"
+  trace:
+    enabled: true
+    description: "追踪从原始描述到本质结构的分析路径"
+
+# 三层持久化配置
+persistence:
+  session:
+    path: ".phenomenology-workspace/session"
+    files:
+      - "current_analysis.json"
+      - "epoch_log.json"
+  project:
+    path: ".phenomenology-workspace/project"
+    files:
+      - "participants.json"
+      - "descriptions.json"
+      - "meaning_units.json"
+      - "essence_structures.json"
+  learning:
+    path: ".phenomenology-workspace/learning"
+    files:
+      - "patterns.json"
+      - "lessons_learned.json"
+
+# 6大绝对禁止原则
+six_forbidden_principles:
+  - "禁止跳过悬置 - 现象学要求研究者悬置自然态度和预设，不可直接进入分析"
+  - "禁止解释代替描述 - 现象学首先是描述而非解释，不可急于给出因果解释"
+  - "禁止忽视第一人称视角 - 现象学研究生活经验，不可用第三人称客观化视角替代"
+  - "禁止抽象化脱离情境 - 经验的意义在情境中，不可脱离具体情境进行抽象"
+  - "禁止忽略身体维度 - 具身性是经验的核心，不可忽视身体的体验维度"
+  - "禁止单一样本概括 - 本质结构需要通过想象变异验证，不可从单一经验直接概括"
+
+# 悬置配置
+epoch_config:
+  preset_categories:
+    - theoretical: "理论预设"
+    - commonsense: "常识观念"
+    - personal: "个人经验"
+    - cultural: "文化规范"
+    - value: "价值判断"
+  status_levels:
+    - identified: "已识别"
+    - bracketed: "已括置"
+    - suspended: "已悬置"
+    - returned: "已回归"
+
+# 意义单元分析配置
+meaning_unit_config:
+  theme_categories:
+    - "身体体验"
+    - "情感体验"
+    - "认知体验"
+    - "关系体验"
+    - "空间体验"
+    - "时间体验"
+    - "身份体验"
+  analysis_steps:
+    - horizontalization: "水平化处理"
+    - meaning_extraction: "意义提取"
+    - translation: "意义转译"
+    - clustering: "主题聚类"
+
+# 本质还原配置
+essence_config:
+  variation_method:
+    enabled: true
+    question_template: "如果去掉[特征X]，还是[体验Y]吗？"
+  feature_status:
+    - pending: "待检验"
+    - necessary: "必要特征"
+    - accidental: "偶然特征"
+    - uncertain: "不确定"
+
+# 任务队列配置
+task_queue:
+  enabled: true
+  max_concurrent: 3
+  priority_levels:
+    - high: "悬置检验、伦理审查"
+    - medium: "访谈、分析"
+    - low: "报告生成"
+
+# 子智能体配置
+subagents:
+  epoch_agent:
+    role: "悬置与反思指导"
+    tools:
+      - "epoch_guide.py"
+  analysis_agent:
+    role: "意义单元分析"
+    tools:
+      - "meaning_unit_analyzer.py"
+  essence_agent:
+    role: "本质结构提取"
+    tools:
+      - "essence_extractor.py"
+
+# 质量检验配置
+quality_checks:
+  epoch_quality:
+    min_presets: 5
+    min_suspension_rate: 0.8
+    min_reflections: 10
+  analysis_quality:
+    min_units_per_participant: 15
+    min_themes: 3
+  essence_quality:
+    min_necessary_features: 2
+    max_pending_features: 0.3
+
+# 输出格式配置
+output_formats:
+  meaning_unit_report:
+    template: "meaning_unit_template.md"
+  essence_report:
+    template: "essence_template.md"
+  final_report:
+    template: "phenomenology_report_template.md"

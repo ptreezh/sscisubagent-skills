@@ -1,0 +1,127 @@
+---
+name: system-dynamics-expert
+version: 5.0.1-cli-native+fixed
+description: |
+  系统动力学专家技能（AI CLI 原生版），支持因果回路分析、存量流量分析、反馈循环识别。
+
+  核心能力：
+  - 因果回路识别（正反馈、负反馈）
+  - 存量流量分析
+  - 反馈循环检测
+  - 系统行为模式识别
+
+  严格遵循系统动力学方法论原则（Jay Forrester，System Dynamics Group）。
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.1-cli-native+fixed"
+  methodology: "System Dynamics (Jay Forrester)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "15分钟/模型"
+  parallel: "20分钟/5模型（3.75x加速）"
+
+analysis_types:
+  - causal-loop
+  - stock-flow
+  - feedback
+  - pattern-recognition
+
+category: social-science-analysis
+tags:
+  - system-dynamics
+  - causal-loops
+  - stock-flow
+  - feedback
+  - simulation
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（变量描述、因果链接等）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: analyze-causal-loops
+    description: 识别和分析因果回路
+    module: causal_loop_analyzer
+  - name: analyze-stock-flow
+    description: 分析存量和流量
+    module: stock_flow_analyzer
+  - name: validate-model
+    description: 验证系统动力学模型
+    module: model_validator
+  - name: run-simulation
+    description: 运行系统动力学模拟
+    module: simulation_runner
+  - name: parameter-sweep
+    description: 参数空间探索
+    module: parameter_sweep
+  - name: build-scenario
+    description: 构建备选方案场景
+    module: scenario_builder
+  - name: sensitivity-analysis
+    description: 参数敏感性分析
+    module: sensitivity_analyzer
+  - name: analyze-behavior
+    description: 系统行为模式识别
+    module: behavior_analyzer
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: causal_logic
+    description: 因果逻辑检查
+    rule: "必须验证因果关系的合理性"
+  - name: feedback_loops
+    description: 反馈回路检查
+    rule: "必须识别主要反馈循环"
+  - name: dynamic_behavior
+    description: 动态行为检查
+    rule: "必须分析系统行为模式"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)
+
+---

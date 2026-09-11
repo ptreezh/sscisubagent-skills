@@ -1,0 +1,196 @@
+# 内容分析专家 - 技能钩子配置
+
+## 基本配置
+skill_name: content-analysis-expert
+version: "5.0.0"
+methodology: "Krippendorff (2018), Neuendorf (2017)"
+
+## CRCT思维链配置
+crct_config:
+  constant_comparison:
+    enabled: true
+    description: "编码过程中持续比较不同内容，确保编码规则一致应用"
+  
+  record:
+    enabled: true
+    persistence: "session"
+    path: "data/sessions/{session_id}/content_analysis_records/"
+  
+  chain:
+    enabled: true
+    max_chain_length: 50
+  
+  trace:
+    enabled: true
+    trace_level: "detailed"
+
+## 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: "data/sessions/{session_id}/content_analysis/"
+    retention: "session_end"
+    contents:
+      - "raw_data/"
+      - "coding_schemes/"
+      - "coded_data/"
+      - "reliability_reports/"
+  
+  project:
+    enabled: true
+    path: "data/projects/{project_id}/content_analysis/"
+    retention: "project_end"
+    contents:
+      - "coding_manual/"
+      - "training_materials/"
+      - "reliability_data/"
+      - "analysis_results/"
+  
+  learning:
+    enabled: true
+    path: "data/learning/content-analysis/"
+    retention: "permanent"
+    contents:
+      - "coding_patterns/"
+      - "reliability_benchmarks/"
+
+## 6大绝对禁止原则
+six_forbidden_principles:
+  - principle: "禁止类目定义模糊"
+    description: "类目必须有清晰、可操作的定义，包含操作指标和编码示例"
+    detection_keywords: ["模糊定义", "无操作指标", "无示例"]
+    
+  - principle: "禁止类目重叠"
+    description: "类目之间必须互斥，一个单位只能归入一个类目"
+    detection_keywords: ["类目重叠", "边界不清", "多重归类"]
+    
+  - principle: "禁止信度检验缺失"
+    description: "必须进行信度检验，使用标准系数，达到可接受标准"
+    detection_keywords: ["无信度检验", "信度不足", "简单一致率"]
+    
+  - principle: "禁止编码方案预设后不调整"
+    description: "预测试后应根据发现的问题调整编码方案"
+    detection_keywords: ["不调整", "忽视问题", "方案僵化"]
+    
+  - principle: "禁止忽视效度检验"
+    description: "必须检验内容效度和构念效度"
+    detection_keywords: ["无效度检验", "理论与类目脱节"]
+    
+  - principle: "禁止量化分析不当"
+    description: "统计方法选择必须适当，结果解释必须谨慎"
+    detection_keywords: ["统计方法不当", "过度推断", "忽视假设"]
+
+## 分析阶段钩子
+analysis_hooks:
+  pre_analysis:
+    - name: "verify_coding_scheme"
+      action: "验证编码方案完整性"
+      
+    - name: "check_category_definition"
+      action: "检查类目定义清晰度"
+      
+  during_analysis:
+    - name: "monitor_coding_consistency"
+      action: "监控编码一致性"
+      
+    - name: "track_disagreements"
+      action: "追踪编码分歧"
+      
+    - name: "calculate_reliability"
+      action: "计算信度系数"
+      
+  post_analysis:
+    - name: "validate_reliability"
+      action: "验证信度达标"
+      
+    - name: "check_validity"
+      action: "检查效度"
+      
+    - name: "generate_report"
+      action: "生成分析报告"
+
+## 工具调用钩子
+tool_hooks:
+  coding_scheme:
+    pre_call:
+      - "确认研究问题明确"
+    post_call:
+      - "验证类目互斥"
+      - "检查类目穷尽"
+      
+  reliability_tester:
+    pre_call:
+      - "确认编码数据完整"
+    post_call:
+      - "验证信度达标"
+      - "识别分歧热点"
+      
+  frequency_analyzer:
+    pre_call:
+      - "确认编码完成"
+    post_call:
+      - "检查统计方法适当"
+      - "验证结果解释合理"
+
+## 质量检查点
+quality_checkpoints:
+  coding_scheme_development:
+    - "类目定义是否清晰"
+    - "类目是否互斥"
+    - "类目是否穷尽"
+    - "是否有编码示例"
+    
+  reliability_check:
+    - "是否至少两名编码员"
+    - "是否独立编码"
+    - "是否使用标准系数"
+    - "信度是否达标"
+    
+  validity_check:
+    - "是否有内容效度检验"
+    - "是否与理论一致"
+    - "是否有效标比较"
+    
+  analysis_check:
+    - "统计方法是否适当"
+    - "结果解释是否谨慎"
+    - "局限性是否说明"
+
+## 信度标准配置
+reliability_standards:
+  krippendorff_alpha:
+    excellent: 0.90
+    good: 0.80
+    minimum: 0.667
+  
+  cohens_kappa:
+    excellent: 0.90
+    good: 0.80
+    minimum: 0.60
+
+## 输出格式配置
+output_formats:
+  coding_report:
+    template: "coding_table"
+    includes:
+      - "类目定义"
+      - "频次统计"
+      - "百分比"
+      
+  reliability_report:
+    template: "reliability_summary"
+    includes:
+      - "信度系数"
+      - "编码员信息"
+      - "分歧分析"
+
+## 会话管理
+session_management:
+  max_session_duration: "4h"
+  checkpoint_interval: "30min"
+  auto_save: true
+
+---
+**配置版本**: 1.0.0
+**创建时间**: 2026-03-15
+**维护者**: 内容分析专家技能

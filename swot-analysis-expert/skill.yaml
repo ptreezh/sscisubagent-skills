@@ -1,0 +1,43 @@
+# SWOT Analysis Expert - Skill Configuration
+name: swot-analysis-expert
+version: "5.0.0"
+description: "SWOT战略分析专家"
+
+factors:
+  internal:
+    strengths:
+      - resources: "资源优势"
+      - capabilities: "能力优势"
+      - competencies: "核心竞争力"
+    weaknesses:
+      - resource_gaps: "资源缺口"
+      - capability_gaps: "能力缺陷"
+      - structural_issues: "结构问题"
+  external:
+    opportunities:
+      - market: "市场机会"
+      - technology: "技术机会"
+      - policy: "政策机会"
+    threats:
+      - competition: "竞争威胁"
+      - technology: "技术威胁"
+      - environment: "环境威胁"
+
+strategies:
+  so:
+    name: "增长型战略"
+    principle: "利用优势把握机会"
+  wo:
+    name: "扭转型战略"
+    principle: "利用机会克服劣势"
+  st:
+    name: "多元化战略"
+    principle: "利用优势规避威胁"
+  wt:
+    name: "防御型战略"
+    principle: "减少劣势回避威胁"
+
+scoring:
+  impact_scale: "1-5"
+  probability_scale: "1-5"
+  weighting_method: "专家打分"

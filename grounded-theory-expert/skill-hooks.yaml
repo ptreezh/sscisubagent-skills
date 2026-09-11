@@ -1,0 +1,416 @@
+# skill-hooks.yaml - 扎根理论专家技能钩子配置
+
+skill_name: grounded-theory-expert
+version: 3.0.0  # 迭代式自主反思与校对版本
+
+# CLI hooks 配置
+hooks:
+  # CLI 启动时
+  on_cli_start:
+    enabled: true
+    action: load_soul
+    file: soul.md
+  
+  # 会话启动时
+  on_session_start:
+    enabled: true
+    actions:
+      - action: load_state
+        files:
+          - lesson-memory.md
+          - case-library/
+      - action: check_pending_iterations
+        script: scripts/check-iteration-status.sh
+  
+  # 用户输入前
+  on_user_input:
+    enabled: true
+    action: inject_context
+    template: |
+      你是 grounded-theory-expert（扎根理论分析专家）。
+      
+      当前状态：
+      - 活跃任务：{{active_task}}
+      - 迭代状态：{{iteration_status}}
+      - 质量评分：{{quality_score}}
+      
+      如果有未完成的迭代循环，请优先完成。
+  
+  # 任务完成后
+  on_task_complete:
+    enabled: true
+    actions:
+      - action: self_reflect
+        script: scripts/self-reflect.sh
+        output: logs/reflection-{{timestamp}}.md
+      
+      - action: quality_review
+        script: scripts/quality-review.sh
+        output: logs/review-{{timestamp}}.md
+      
+      - action: record_lesson
+        file: lesson-memory.md
+        condition: task_complete
+      
+      - action: trigger_iteration_if_needed
+        script: scripts/check-iteration-needed.sh
+  
+  # 质量评审失败时
+  on_quality_review_failed:
+    enabled: true
+    actions:
+      - action: self_correction
+        script: scripts/self-correction.sh
+        strategy: auto_select
+      
+      - action: re_execute_phase
+        retry_count: "{{iteration_count}}"
+        max_retries: 10
+      
+      - action: log_iteration
+        file: logs/iteration-log-{{phase}}.md
+  
+  # 定时触发（每 30 分钟检查迭代状态）
+  on_periodic:
+    enabled: true
+    interval: 1800  # 30 分钟
+    actions:
+      - action: check_iteration_status
+        script: scripts/check-iteration-status.sh
+      
+      - action: auto_resume_iteration
+        script: scripts/auto-resume-iteration.sh
+        condition: has_pending_iteration
+
+# 迭代式自主反思与校对机制
+iteration_mechanism:
+  enabled: true
+  
+  # 质量评审标准（基于 Strauss & Corbin, 1990; Charmaz, 2006）
+  quality_standards:
+    phase1_data_preparation:
+      - id: QC-1.1
+        name: 伦理文件检查
+        required: true
+        threshold: 100
+        check_script: scripts/checks/ethics-check.sh
+      
+      - id: QC-1.2
+        name: 数据匿名化检查
+        required: true
+        threshold: 90
+        check_script: scripts/checks/anonymization-check.sh
+      
+      - id: QC-1.3
+        name: 知情同意检查
+        required: true
+        threshold: 100
+        check_script: scripts/checks/consent-check.sh
+    
+    phase2_open_coding:
+      - id: QC-2.1
+        name: 编码者间信度
+        required: true
+        threshold: 70  # Cohen's Kappa > 0.7
+        check_script: scripts/checks/kappa-check.sh
+      
+      - id: QC-2.2
+        name: 持续比较日志
+        required: true
+        threshold: 100
+        check_script: scripts/checks/comparison-log-check.sh
+      
+      - id: QC-2.3
+        name: 编码本完整性
+        required: true
+        threshold: 85
+        check_script: scripts/checks/coding-manual-check.sh
+      
+      - id: QC-2.4
+        name: 行动导向命名
+        required: true
+        threshold: 80
+        check_script: scripts/checks/action-oriented-naming-check.sh
+    
+    phase3_axial_coding:
+      - id: QC-3.1
+        name: 范畴饱和度
+        required: true
+        threshold: 85
+        check_script: scripts/checks/category-saturation-check.sh
+      
+      - id: QC-3.2
+        name: Paradigm 模型完整性
+        required: true
+        threshold: 90
+        check_script: scripts/checks/paradigm-model-check.sh
+      
+      - id: QC-3.3
+        name: 关系网络证据
+        required: true
+        threshold: 85
+        check_script: scripts/checks/relationship-evidence-check.sh
+    
+    phase4_selective_coding:
+      - id: QC-4.1
+        name: 核心范畴验证
+        required: true
+        threshold: 85
+        check_script: scripts/checks/core-category-check.sh
+      
+      - id: QC-4.2
+        name: 故事线连贯性
+        required: true
+        threshold: 85
+        check_script: scripts/checks/storyline-coherence-check.sh
+      
+      - id: QC-4.3
+        name: 理论命题可检验性
+        required: true
+        threshold: 70
+        check_script: scripts/checks/proposition-testability-check.sh
+    
+    phase5_saturation_test:
+      - id: QC-5.1
+        name: 多维度饱和度
+        required: true
+        threshold: 100
+        check_script: scripts/checks/multi-dimension-saturation-check.sh
+      
+      - id: QC-5.2
+        name: 饱和度报告
+        required: true
+        threshold: 90
+        check_script: scripts/checks/saturation-report-check.sh
+    
+    phase6_theory_writing:
+      - id: QC-6.1
+        name: 研究者反思备忘录
+        required: true
+        threshold: 85
+        check_script: scripts/checks/reflection-memo-check.sh
+      
+      - id: QC-6.2
+        name: 研究局限反思
+        required: true
+        threshold: 85
+        check_script: scripts/checks/limitations-check.sh
+      
+      - id: QC-6.3
+        name: 审核追踪完整性
+        required: true
+        threshold: 90
+        check_script: scripts/checks/audit-trail-check.sh
+  
+  # 自我校对策略库
+  self_correction_strategies:
+    - id: SC-001
+      name: 自动生成伦理文件
+      trigger: QC-1.1 failed
+      script: scripts/corrections/generate-ethics-doc.sh
+      expected_improvement: 100
+    
+    - id: SC-002
+      name: 重新匿名化处理
+      trigger: QC-1.2 failed
+      script: scripts/corrections/re-anonymize-data.sh
+      expected_improvement: 15
+    
+    - id: SC-003
+      name: 生成知情同意模板
+      trigger: QC-1.3 failed
+      script: scripts/corrections/generate-consent-form.sh
+      expected_improvement: 100
+    
+    - id: SC-004
+      name: 编码员培训与重新编码
+      trigger: QC-2.1 failed
+      script: scripts/corrections/recoder-with-training.sh
+      expected_improvement: 20
+    
+    - id: SC-005
+      name: 回溯补充比较日志
+      trigger: QC-2.2 failed
+      script: scripts/corrections/backfill-comparison-log.sh
+      expected_improvement: 25
+    
+    - id: SC-006
+      name: 自动生成编码本
+      trigger: QC-2.3 failed
+      script: scripts/corrections/generate-coding-manual.sh
+      expected_improvement: 30
+    
+    - id: SC-007
+      name: 行动导向命名修正
+      trigger: QC-2.4 failed
+      script: scripts/corrections/fix-action-oriented-naming.sh
+      expected_improvement: 15
+    
+    - id: SC-008
+      name: 补充范畴维度
+      trigger: QC-3.1 failed
+      script: scripts/corrections/add-category-dimensions.sh
+      expected_improvement: 15
+    
+    - id: SC-009
+      name: 完善 Paradigm 模型
+      trigger: QC-3.2 failed
+      script: scripts/corrections/complete-paradigm-model.sh
+      expected_improvement: 20
+    
+    - id: SC-010
+      name: 补充关系证据
+      trigger: QC-3.3 failed
+      script: scripts/corrections/add-relationship-evidence.sh
+      expected_improvement: 15
+    
+    - id: SC-011
+      name: 重新选择核心范畴
+      trigger: QC-4.1 failed
+      script: scripts/corrections/reselect-core-category.sh
+      expected_improvement: 20
+    
+    - id: SC-012
+      name: 重构故事线
+      trigger: QC-4.2 failed
+      script: scripts/corrections/restructure-storyline.sh
+      expected_improvement: 20
+    
+    - id: SC-013
+      name: 细化理论命题
+      trigger: QC-4.3 failed
+      script: scripts/corrections/refine-propositions.sh
+      expected_improvement: 15
+    
+    - id: SC-014
+      name: 执行饱和度检验
+      trigger: QC-5.1 failed
+      script: scripts/corrections/execute-saturation-test.sh
+      expected_improvement: 100
+    
+    - id: SC-015
+      name: 生成饱和度报告
+      trigger: QC-5.2 failed
+      script: scripts/corrections/generate-saturation-report.sh
+      expected_improvement: 100
+    
+    - id: SC-016
+      name: 撰写反思备忘录
+      trigger: QC-6.1 failed
+      script: scripts/corrections/write-reflection-memo.sh
+      expected_improvement: 100
+    
+    - id: SC-017
+      name: 补充局限讨论
+      trigger: QC-6.2 failed
+      script: scripts/corrections/add-limitations-discussion.sh
+      expected_improvement: 25
+    
+    - id: SC-018
+      name: 完善审核追踪
+      trigger: QC-6.3 failed
+      script: scripts/corrections/complete-audit-trail.sh
+      expected_improvement: 20
+  
+  # 迭代控制
+  iteration_control:
+    max_iterations_per_phase: 10
+    min_improvement_per_iteration: 5  # 每次迭代至少改进 5%
+    convergence_threshold: 85  # 达到 85% 视为收敛
+    early_stopping_enabled: true
+    early_stopping_patience: 3  # 连续 3 次改进<5% 则提前停止
+  
+  # 日志与报告
+  logging:
+    enabled: true
+    log_dir: logs/
+    reflection_dir: reflections/
+    correction_dir: corrections/
+    review_dir: reviews/
+    
+    # 日志格式
+    format: markdown
+    include_timestamp: true
+    include_score: true
+    include_issues: true
+    include_corrections: true
+    
+    # 导出格式
+    export_formats:
+      - markdown
+      - json
+
+# CLI 任务计划集成
+cli_task_integration:
+  enabled: true
+  
+  # 使用 CLI 原生的任务计划机制
+  task_scheduler:
+    type: cli_native  # 使用 CLI 内部机制，而非外部服务
+    
+    # 任务计划文件
+    task_plan_file: task_plan.md
+    
+    # 进度追踪文件
+    progress_file: progress.md
+    
+    # 自动更新
+    auto_update_on_phase_complete: true
+    auto_update_on_iteration_complete: true
+  
+  # CLI 命令集成
+  cli_commands:
+    - command: /iteration status
+      description: 显示当前迭代状态
+      script: scripts/cli/iteration-status.sh
+    
+    - command: /iteration resume
+      description: 恢复未完成的迭代
+      script: scripts/cli/iteration-resume.sh
+    
+    - command: /quality review
+      description: 手动触发质量评审
+      script: scripts/cli/quality-review.sh
+    
+    - command: /quality report
+      description: 显示质量评审报告
+      script: scripts/cli/quality-report.sh
+
+# 持久化机制
+persistence:
+  enabled: true
+  
+  # 状态文件
+  state_file: iteration_state.json
+  
+  # 自动保存
+  auto_save:
+    enabled: true
+    interval: 60  # 每 60 秒自动保存
+    on_iteration_complete: true
+    on_phase_complete: true
+  
+  # 会话恢复
+  session_recovery:
+    enabled: true
+    auto_resume_on_start: true
+    resume_from_last_checkpoint: true
+
+# 通知机制
+notifications:
+  enabled: true
+  
+  # 迭代完成通知
+  on_iteration_complete:
+    enabled: true
+    message: "✅ Phase {{phase}} 迭代 {{iteration}} 完成，质量评分：{{score}}%"
+  
+  # 评审失败通知
+  on_review_failed:
+    enabled: true
+    message: "⚠️ Phase {{phase}} 质量评审失败，得分：{{score}}%，开始自我校对..."
+  
+  # 收敛通知
+  on_convergence:
+    enabled: true
+    message: "🎉 Phase {{phase}} 收敛，最终质量评分：{{final_score}}%，符合方法论规范！"

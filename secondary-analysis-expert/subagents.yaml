@@ -1,0 +1,24 @@
+subagents:
+  - id: evaluator
+    name: 数据评估师
+    role: 评估数据来源和质量
+    capabilities:
+      - 质量评估
+      - 适用性判断
+      - 局限识别
+
+  - id: reconstructor
+    name: 变量重构师
+    role: 从原始数据创建新变量
+    capabilities:
+      - 变量创建
+      - 尺度构建
+      - 指标计算
+
+  - id: comparator
+    name: 比较分析师
+    role: 进行跨群体跨时间比较
+    capabilities:
+      - 跨时比较
+      - 跨群体比较
+      - 跨国比较

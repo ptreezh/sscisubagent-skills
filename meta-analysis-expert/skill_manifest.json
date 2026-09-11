@@ -1,0 +1,24 @@
+{
+  "name": "meta-analysis-expert",
+  "version": "5.0.0",
+  "description": "元分析专家。提供系统性文献综述和元分析全流程支持，包括文献检索策略、研究质量评估、效应量计算、异质性检验、发表偏倚检测和亚组分析。",
+  "created_at": "2026-03-15",
+  "status": "complete",
+  "files": {
+    "SKILL.md": "技能说明文件，符合agentskills.io规范",
+    "skill.yaml": "技能配置文件",
+    "subagents.yaml": "子智能体配置",
+    "prompts/system-prompt.md": "系统提示词",
+    "tools/effect_size_calculator.py": "效应量计算工具",
+    "tools/heterogeneity_analyzer.py": "异质性分析工具",
+    "tools/publication_bias_tester.py": "发表偏倚检测工具"
+  },
+  "quality_metrics": {
+    "agentskills_io_compliant": true,
+    "cross_platform": true,
+    "has_tools": true,
+    "has_prompts": true,
+    "has_references": false,
+    "has_subagents": true
+  }
+}

@@ -1,0 +1,143 @@
+# Lean Startup Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # MVP Designer Agent
+  - name: mvp-designer
+    description: MVP设计Agent - 设计最小可行产品方案
+    prompt_template: prompts/mvp-design-prompt.md
+    tools:
+      - mvp_designer
+    output_format: json
+    quality_checks:
+      - minimum_viable_defined
+      - core_feature_identified
+      - build_time_estimated
+    required_output:
+      - mvp_features
+      - build_timeline
+      - success_metrics
+
+  # Hypothesis Validator Agent
+  - name: hypothesis-validator
+    description: 假设验证Agent - 设计和执行假设测试
+    prompt_template: prompts/hypothesis-validation-prompt.md
+    tools:
+      - hypothesis_validator
+    output_format: json
+    quality_checks:
+      - hypothesis_testable
+      - metrics_defined
+      - success_criteria_clear
+    required_output:
+      - hypothesis_statement
+      - test_method
+      - success_criteria
+
+  # Build-Measure-Learn Agent
+  - name: bml-cycle-agent
+    description: 构建-度量-学习循环Agent - 执行迭代循环
+    prompt_template: prompts/bml-cycle-prompt.md
+    tools:
+      - metrics_tracker
+    output_format: json
+    quality_checks:
+      - build_completed
+      - metrics_collected
+      - learning_extracted
+    required_output:
+      - build_results
+      - measurement_data
+      - learning_insights
+
+  # Pivot Decision Agent
+  - name: pivot-decision-agent
+    description: 转型决策Agent - 分析转型或坚持决策
+    prompt_template: prompts/pivot-decision-prompt.md
+    tools:
+      - pivot_analyzer
+    output_format: json
+    quality_checks:
+      - data_analyzed
+      - decision_rationale_clear
+      - next_steps_defined
+    required_output:
+      - decision
+      - rationale
+      - next_steps
+
+# Parallel Execution Configuration
+execution:
+  mode: sequential
+  max_agents: 2
+  coordination: iterative
+
+# Build-Measure-Learn Cycle Configuration
+bml_cycle:
+  build:
+    description: "构建MVP或功能增量"
+    required_output:
+      - feature_built
+      - deployment_status
+  
+  measure:
+    description: "收集和分析数据"
+    required_output:
+      - metrics_collected
+      - data_analysis
+  
+  learn:
+    description: "提取洞察和验证假设"
+    required_output:
+      - validated_learning
+      - hypothesis_status
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 3
+  persistence_file: task_plan.md
+
+# Quality Assurance
+quality_assurance:
+  verification_steps:
+    - hypothesis_clarity_check
+    - mvp_scope_check
+    - validation_completeness_check
+
+# Phase-Based Execution
+phases:
+  phase1_hypothesis:
+    description: "假设定义阶段"
+    agents: [hypothesis-validator]
+    mode: sequential
+    output: hypothesis.json
+    
+  phase2_mvp:
+    description: "MVP设计阶段"
+    agents: [mvp-designer]
+    mode: sequential
+    depends_on: phase1_hypothesis
+    output: mvp_design.json
+    
+  phase3_validation:
+    description: "验证循环阶段"
+    agents: [bml-cycle-agent]
+    mode: iterative
+    depends_on: phase2_mvp
+    output: validation_results.json
+    
+  phase4_decision:
+    description: "决策阶段"
+    agents: [pivot-decision-agent]
+    mode: sequential
+    depends_on: phase3_validation
+    output: decision.json
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  hypothesis_log_file: hypothesis_log.json
+  metrics_file: metrics.json

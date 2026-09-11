@@ -1,0 +1,27 @@
+# Consumer Behavior Expert - Skill Configuration
+name: consumer-behavior-expert
+version: "5.0.0"
+description: "消费者行为分析专家"
+
+decision_process:
+  stages:
+    - problem_recognition: "问题认知"
+    - information_search: "信息搜索"
+    - alternative_evaluation: "方案评估"
+    - purchase_decision: "购买决策"
+    - post_purchase: "购后行为"
+
+influencing_factors:
+  cultural: ["文化价值观", "亚文化", "社会阶层"]
+  social: ["参考群体", "家庭", "角色地位"]
+  personal: ["年龄", "职业", "生活方式", "个性"]
+  psychological: ["动机", "感知", "学习", "态度"]
+
+motivation_theories:
+  - maslow: "马斯洛需求层次"
+  - vals: "VALS心理细分"
+
+segmentation:
+  - demographic: "人口统计细分"
+  - psychographic: "心理细分"
+  - behavioral: "行为细分"

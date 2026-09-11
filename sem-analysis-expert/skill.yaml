@@ -1,0 +1,223 @@
+name: sem-analysis-expert
+version: "5.0.0"
+description: 结构方程模型专家 - SEM全流程分析支持
+
+# 技能类型
+type: methodology
+category: quantitative
+subcategory: multivariate
+
+# 核心能力
+capabilities:
+  - 验证性因子分析(CFA)
+  - 结构方程模型(SEM)
+  - 路径分析
+  - 模型拟合评估
+  - 修正指数分析
+  - 中介效应检验
+  - 多群组比较
+  - 潜变量建模
+  - 信效度分析
+
+# 拟合指标标准
+fit_indices:
+  absolute:
+    chi_square_df:
+      acceptable: 5
+      good: 3
+      excellent: 2
+    rmsea:
+      acceptable: 0.10
+      good: 0.08
+      excellent: 0.06
+    srmr:
+      acceptable: 0.10
+      good: 0.08
+      excellent: 0.05
+  
+  incremental:
+    cfi:
+      acceptable: 0.90
+      good: 0.95
+      excellent: 0.97
+    tli:
+      acceptable: 0.90
+      good: 0.95
+      excellent: 0.97
+    nfi:
+      acceptable: 0.90
+      good: 0.95
+  
+  parsimony:
+    aic:
+      use: "Model comparison, lower is better"
+    bic:
+      use: "Model comparison, lower is better"
+
+# 信效度标准
+reliability_validity:
+  reliability:
+    cronbach_alpha:
+      acceptable: 0.70
+      good: 0.80
+      excellent: 0.90
+    composite_reliability:
+      acceptable: 0.70
+      good: 0.80
+  
+  validity:
+    ave:
+      acceptable: 0.50
+      good: 0.60
+    factor_loading:
+      acceptable: 0.50
+      good: 0.70
+    discriminant:
+      criterion: "sqrt(AVE) > inter-construct correlation"
+
+# 模型类型
+model_types:
+  measurement:
+    - cfa  # 验证性因子分析
+    - efa  # 探索性因子分析
+    - mtmm # 多特质多方法
+  
+  structural:
+    - path_analysis      # 路径分析
+    - sem                # 完整SEM
+    - mediation          # 中介模型
+    - moderation         # 调节模型
+    - moderated_mediation # 有调节的中介
+
+# 估计方法
+estimation_methods:
+  ml:
+    name: Maximum Likelihood
+    assumptions:
+      - multivariate_normality
+      - continuous_variables
+    use_when: "Default choice, large sample"
+  
+  mlr:
+    name: Robust ML
+    assumptions:
+      - robust_to_non_normality
+    use_when: "Non-normal data"
+  
+  wlsmv:
+    name: Weighted Least Squares
+    assumptions:
+      - ordinal_variables
+    use_when: "Categorical indicators"
+  
+  pml:
+    name: Partial ML
+    use_when: "Missing data handling"
+
+# 中介效应
+mediation:
+  types:
+    - simple      # 简单中介
+    - multiple    # 多重中介
+    - serial      # 链式中介
+    - moderated   # 有调节的中介
+  
+  testing_methods:
+    - sobel_test
+    - bootstrap
+    - monte_carlo
+  
+  bootstrap:
+    samples: 5000
+    confidence: 0.95
+
+# 多群组分析
+multigroup:
+  steps:
+    - configural    # 形态等值
+    - metric        # 测量等值
+    - scalar        # 标量等值
+    - strict        # 严格等值
+    - structural    # 结构等值
+  
+  comparison:
+    method: "chi_square_difference"
+    criterion: "ΔCFI < 0.01 for invariance"
+
+# 修正指南
+modification:
+  modification_indices:
+    threshold: 3.84  # p < 0.05
+    use_cautiously: true
+  
+  allowed_modifications:
+    - error_covariances
+    - cross_loadings  # with justification
+  
+  not_allowed:
+    - removing_defined_paths
+    - arbitrary_correlations
+
+# 子智能体
+subagents:
+  model_builder:
+    description: 模型构建智能体
+    tasks:
+      - 模型语法生成
+      - 路径图绘制
+      - 假设设定
+  
+  measurement_analyst:
+    description: 测量模型智能体
+    tasks:
+      - CFA分析
+      - 信效度检验
+      - 测量误差评估
+  
+  structural_analyst:
+    description: 结构模型智能体
+    tasks:
+      - 路径系数估计
+      - 假设检验
+      - 效应分解
+  
+  fit_evaluator:
+    description: 拟合评估智能体
+    tasks:
+      - 拟合指标计算
+      - 模型诊断
+      - 修正建议
+  
+  mediation_tester:
+    description: 中介检验智能体
+    tasks:
+      - 中介效应检验
+      - Bootstrap分析
+      - 效应量计算
+
+# 依赖
+dependencies:
+  python:
+    - numpy>=1.20.0
+    - scipy>=1.7.0
+    - pandas>=1.3.0
+    - semopy>=2.3.0
+  r:
+    - lavaan
+    - semPlot
+    - semTools
+
+# 输出
+outputs:
+  - path_diagram
+  - measurement_model_table
+  - structural_model_table
+  - fit_indices_table
+  - mediation_results
+  - modification_suggestions
+
+# 元数据
+metadata:
+  methodology: Structural Equation Modeling
+  created_at: 2026-03-15
+  author: SocienceAI

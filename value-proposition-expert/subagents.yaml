@@ -1,0 +1,160 @@
+# Value Proposition Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Customer Profiler Agent
+  - name: customer-profiler
+    description: 客户画像Agent - 构建客户细分和特征
+    prompt_template: prompts/customer-profile-prompt.md
+    tools:
+      - customer_profiler
+    output_format: json
+    quality_checks:
+      - jobs_identified
+      - pains_identified
+      - gains_identified
+    required_output:
+      - customer_segments
+      - customer_jobs
+      - pains
+      - gains
+
+  # Value Canvas Builder Agent
+  - name: value-canvas-builder
+    description: 价值主张画布构建Agent - 设计产品价值
+    prompt_template: prompts/value-canvas-prompt.md
+    tools:
+      - value_canvas_builder
+    output_format: json
+    quality_checks:
+      - products_services_defined
+      - pain_relievers_defined
+      - gain_creators_defined
+    required_output:
+      - products_services
+      - pain_relievers
+      - gain_creators
+
+  # Value Fit Validator Agent
+  - name: value-fit-validator
+    description: 价值匹配验证Agent - 检验产品-市场契合
+    prompt_template: prompts/value-fit-prompt.md
+    tools:
+      - value_fit_validator
+    output_format: json
+    quality_checks:
+      - pain_pain_reliever_fit
+      - gain_gain_creator_fit
+      - job_product_fit
+    required_output:
+      - fit_score
+      - gap_analysis
+      - recommendations
+
+  # Pain Gain Analyzer Agent
+  - name: pain-gain-analyzer
+    description: 痛点收益分析Agent - 深度分析客户需求
+    prompt_template: prompts/pain-gain-prompt.md
+    tools:
+      - pain_gain_analyzer
+    output_format: json
+    quality_checks:
+      - pains_prioritized
+      - gains_prioritized
+      - emotional_rational_balance
+    required_output:
+      - pain_priorities
+      - gain_priorities
+      - urgency_importance_matrix
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: canvas_sync
+
+# Value Proposition Canvas Structure
+canvas_structure:
+  customer_profile:
+    section: right_side
+    components:
+      - customer_jobs
+      - pains
+      - gains
+    description: "客户需要什么？"
+
+  value_map:
+    section: left_side
+    components:
+      - products_services
+      - pain_relievers
+      - gain_creators
+    description: "我们提供什么？"
+
+  fit:
+    section: center
+    description: "价值是否匹配？"
+    requirements:
+      - pain_relievers_address_pains
+      - gain_creators_create_gains
+      - products_enable_jobs
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 3
+  persistence_file: task_plan.md
+
+# Quality Assurance
+quality_assurance:
+  verification_steps:
+    - customer_jobs_clarity_check
+    - pain_gain_balance_check
+    - value_fit_check
+
+# Phase-Based Execution
+phases:
+  phase1_customer_profile:
+    description: "客户画像阶段"
+    agents: [customer-profiler]
+    mode: sequential
+    output: customer_profile.json
+    
+  phase2_value_canvas:
+    description: "价值主张设计阶段"
+    agents: [value-canvas-builder]
+    mode: sequential
+    depends_on: phase1_customer_profile
+    output: value_canvas.json
+    
+  phase3_pain_gain_analysis:
+    description: "痛点收益分析阶段"
+    agents: [pain-gain-analyzer]
+    mode: parallel
+    depends_on: phase1_customer_profile
+    output: pain_gain_analysis.json
+    
+  phase4_fit_validation:
+    description: "匹配验证阶段"
+    agents: [value-fit-validator]
+    mode: sequential
+    depends_on: [phase2_value_canvas, phase3_pain_gain_analysis]
+    output: fit_validation.json
+
+# Fit Scoring
+fit_scoring:
+  dimensions:
+    - pain_reliever_fit
+    - gain_creator_fit
+    - job_product_fit
+  scale: 0-10
+  minimum_threshold: 6
+  excellent_threshold: 8
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  canvas_file: value_proposition_canvas.json
+  customer_file: customer_profile.json
+  fit_file: fit_analysis.json

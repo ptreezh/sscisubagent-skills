@@ -1,0 +1,296 @@
+# CAS Simulation Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Conceptual Modeling Agent
+  - name: cas-conceptual-modeler
+    description: 概念建模Agent - 研究问题界定、主体识别、互动规则设计
+    prompt_template: prompts/conceptual-modeling-prompt.md
+    tools:
+      - analyze
+      - scenario-builder
+    output_format: json
+    quality_checks:
+      - research_question_clear
+      - agent_heterogeneity_defined
+      - interaction_rules_complete
+    required_output:
+      - research_question
+      - agent_types
+      - interaction_rules
+      - spatial_structure
+
+  # Agent Builder Agent
+  - name: cas-agent-builder
+    description: 主体构建Agent - 定义主体属性、行为规则、异质性
+    prompt_template: prompts/agent-building-prompt.md
+    tools:
+      - abm-builder
+      - interaction-designer
+    output_format: json
+    quality_checks:
+      - agent_attributes_defined
+      - behavior_rules_coded
+      - heterogeneity_implemented
+    required_output:
+      - agent_classes
+      - behavior_functions
+      - attribute_distributions
+
+  # Simulation Runner Agent
+  - name: cas-simulation-runner
+    description: 仿真运行Agent - 执行蒙特卡洛仿真、收集数据
+    prompt_template: prompts/simulation-running-prompt.md
+    tools:
+      - simulation-runner
+      - parameter-sweep
+    output_format: json
+    quality_checks:
+      - monte_carlo_runs >= 100
+      - data_collection_complete
+      - random_seeds_documented
+    required_output:
+      - simulation_results
+      - time_series_data
+      - run_statistics
+
+  # Emergence Detector Agent
+  - name: cas-emergence-detector
+    description: 涌现检测Agent - 识别涌现模式、分析微观-宏观链接
+    prompt_template: prompts/emergence-detection-prompt.md
+    tools:
+      - emergence-detector
+      - emergence-pattern-analyzer
+    output_format: json
+    quality_checks:
+      - emergence_patterns_identified
+      - micro_macro_link_established
+      - critical_points_found
+    required_output:
+      - emergence_patterns
+      - phase_transitions
+      - critical_points
+      - macro_patterns
+
+  # Validation Agent
+  - name: cas-validator
+    description: 验证Agent - 模式验证、参数敏感性分析、场景测试
+    prompt_template: prompts/validation-prompt.md
+    tools:
+      - parameter-sweep
+      - analyze
+    output_format: json
+    quality_checks:
+      - pattern_validation_complete
+      - sensitivity_analysis_done
+      - scenario_testing_finished
+    required_output:
+      - validation_results
+      - sensitivity_report
+      - scenario_comparison
+
+  # Visualization Agent
+  - name: cas-visualizer
+    description: 可视化Agent - 生成仿真图表、动画、报告
+    prompt_template: prompts/visualization-prompt.md
+    tools:
+      - visualization-generator
+    output_format: json
+    quality_checks:
+      - visualizations_generated
+      - report_complete
+      - reproducibility_documented
+    required_output:
+      - plots
+      - animations
+      - final_report
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 4
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# CRCT Chain Configuration (for CAS simulation)
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "每个仿真结果必须与预期模式和真实数据比较"
+    required_fields:
+      - comparison_with_expected_patterns
+      - comparison_with_real_data
+      - discrepancies_identified
+  
+  record:
+    enabled: true
+    description: "所有仿真决策必须记录"
+    required_fields:
+      - parameter_settings
+      - random_seed
+      - model_assumptions
+  
+  chain:
+    enabled: true
+    description: "建立参数-涌现的关系链条"
+    required_fields:
+      - input_parameters
+      - output_patterns
+      - causal_mechanisms
+  
+  trace:
+    enabled: true
+    description: "追踪仿真结果演化过程"
+    required_fields:
+      - initial_conditions
+      - intermediate_states
+      - final_emergence
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 10
+  persistence_file: task_plan.md
+
+# Quality Assurance (Six Absolute Prohibitions)
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - agent_heterogeneity_check
+    - spatial_structure_check
+    - randomness_check
+    - emergence_validation_check
+
+  strict_prohibitions:
+    - no_over_simplified_agents
+    - no_ignored_spatial_structure
+    - no_ignored_randomness
+    - no_unvalidated_emergence
+    - no_single_run_conclusions
+    - no_black_box_simulations
+
+# Phase-Based Execution
+phases:
+  phase1_conceptual_modeling:
+    description: "概念建模阶段 - 问题界定与设计"
+    agents: [cas-conceptual-modeler]
+    mode: sequential
+    output: conceptual_model.json
+    quality_gate: research_question_clear AND agent_types_defined
+    
+  phase2_agent_building:
+    description: "主体构建阶段 - 编码与实现"
+    agents: [cas-agent-builder]
+    mode: sequential
+    depends_on: phase1_conceptual_modeling
+    output: agent_model.json
+    quality_gate: heterogeneity_implemented
+    
+  phase3_simulation:
+    description: "仿真运行阶段 - 蒙特卡洛实验"
+    agents: [cas-simulation-runner]
+    mode: parallel
+    depends_on: phase2_agent_building
+    output: simulation_results.json
+    quality_gate: monte_carlo_runs >= 100
+    
+  phase4_emergence_analysis:
+    description: "涌现分析阶段 - 模式识别"
+    agents: [cas-emergence-detector]
+    mode: sequential
+    depends_on: phase3_simulation
+    output: emergence_patterns.json
+    quality_gate: emergence_patterns_identified
+
+  phase5_validation:
+    description: "验证阶段 - 模式验证与敏感性分析"
+    agents: [cas-validator]
+    mode: sequential
+    depends_on: phase4_emergence_analysis
+    output: validation_report.json
+    quality_gate: validation_complete
+
+  phase6_visualization:
+    description: "可视化阶段 - 报告生成"
+    agents: [cas-visualizer]
+    mode: sequential
+    depends_on: phase5_validation
+    output: final_report.md
+    quality_gate: report_complete
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("概念建模") or user_request_contains("研究设计")
+      then: fast_mode
+      execution: single_agent(cas-conceptual-modeler)
+      estimated_time: "30-45 minutes"
+
+    - if: user_request_contains("主体构建") or user_request_contains("Agent定义")
+      then: fast_mode
+      execution: single_agent(cas-agent-builder)
+      estimated_time: "45-60 minutes"
+
+    - if: user_request_contains("运行仿真") or user_request_contains("蒙特卡洛")
+      then: fast_mode
+      execution: single_agent(cas-simulation-runner)
+      estimated_time: "30-60 minutes"
+
+    - if: user_request_contains("涌现分析") or user_request_contains("模式识别")
+      then: fast_mode
+      execution: single_agent(cas-emergence-detector)
+      estimated_time: "20-30 minutes"
+
+    - if: user_request_contains("验证") or user_request_contains("敏感性分析")
+      then: fast_mode
+      execution: single_agent(cas-validator)
+      estimated_time: "30-45 minutes"
+
+    - if: user_request_contains_any(["完整仿真", "ABM项目", "全流程", "复杂系统分析"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4, phase5, phase6])
+      estimated_time: "4-8 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive simulation"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  simulation_log_file: simulation_log.json
+  parameter_file: parameters.json
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes
+
+# Cross-Agent Collaboration
+collaboration:
+  # Can call these expert agents for specialized tasks
+  can_call:
+    - social-network-analysis-expert  # 网络结构分析
+    - grounded-theory-expert  # 行为模式提取
+    - data-analysis-expert  # 数据校准
+    - qca-analysis-expert  # 涌现条件构型
+
+  # Standard interfaces for collaboration
+  interfaces:
+    network_analysis:
+      input: agent_types, interaction_rules
+      output: network_structure, key_nodes
+    
+    behavior_extraction:
+      input: interview_data, observation_data
+      output: behavior_rules, heterogeneity_dimensions
+    
+    data_calibration:
+      input: historical_data, time_series
+      output: parameter_estimates, distributions
+    
+    emergence_configurations:
+      input: simulation_results, emergence_patterns
+      output: necessary_conditions, causal_paths

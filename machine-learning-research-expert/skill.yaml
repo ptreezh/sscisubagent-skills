@@ -1,0 +1,30 @@
+# Machine Learning Research Expert - Skill Configuration
+name: machine-learning-research-expert
+version: "5.0.0"
+description: "机器学习研究专家"
+
+problem_types:
+  supervised:
+    - classification: "分类"
+    - regression: "回归"
+    - ranking: "排序"
+  unsupervised:
+    - clustering: "聚类"
+    - dimensionality_reduction: "降维"
+    - anomaly_detection: "异常检测"
+
+model_families:
+  - linear: ["Logistic", "Ridge", "LASSO"]
+  - tree: ["Decision Tree", "Random Forest", "XGBoost", "LightGBM"]
+  - neural: ["MLP", "CNN", "LSTM", "Transformer"]
+  - kernel: ["SVM", "Gaussian Process"]
+
+evaluation_metrics:
+  classification: ["Accuracy", "Precision", "Recall", "F1", "AUC"]
+  regression: ["MAE", "MSE", "RMSE", "R²"]
+  clustering: ["Silhouette", "Davies-Bouldin", "Calinski-Harabasz"]
+
+optimization:
+  - grid_search: "网格搜索"
+  - random_search: "随机搜索"
+  - bayesian: "贝叶斯优化"

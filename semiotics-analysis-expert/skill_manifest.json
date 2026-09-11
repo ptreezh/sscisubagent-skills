@@ -1,0 +1,8 @@
+{
+  "name": "semiotics-analysis-expert",
+  "version": "1.0.0",
+  "description": "符号学分析专家技能",
+  "methodology": ["Saussure", "Peirce", "Barthes", "Eco"],
+  "capabilities": ["符号识别", "意义层次分析", "神话解码", "代码系统分析"],
+  "tools": ["sign_identifier.py", "meaning_layer_analyzer.py", "myth_decoder.py"]
+}

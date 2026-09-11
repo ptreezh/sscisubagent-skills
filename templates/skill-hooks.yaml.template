@@ -1,0 +1,181 @@
+# skill-hooks.yaml - CLI hooks 配置
+# 定义 skill 如何与 CLI 交互和触发进化机制
+
+skill_name: {skill_name}
+version: 2.1.0
+
+# CLI hooks 配置
+hooks:
+  # CLI 启动时触发
+  on_cli_start:
+    enabled: true
+    action: load_soul
+    file: soul.md
+    description: 加载 skill 角色定义
+  
+  # 会话启动时触发
+  on_session_start:
+    enabled: true
+    action: load_state
+    files:
+      - lesson-memory.md
+      - case-library/
+    description: 加载教训记忆和案例库
+  
+  # 用户输入前触发（注入 skill 状态）
+  on_user_input:
+    enabled: true
+    action: inject_context
+    template: |
+      你是 {skill_name}，根据你的 soul.md 定义：
+      - 角色：{role}
+      - 价值观：{values}
+      - 工作方式：{working_style}
+      
+      历史教训：
+      {lessons}
+      
+      成功案例：
+      {cases}
+    description: 将 skill 状态注入到系统提示词
+  
+  # 任务完成后触发
+  on_task_complete:
+    enabled: true
+    action: record_lesson
+    file: lesson-memory.md
+    format: |
+      ## 教训 {timestamp}
+      **任务**: {task_type}
+      **结果**: {success|failed}
+      **教训**: {lesson}
+      **改进**: {improvement}
+    description: 记录任务教训到 lesson-memory.md
+  
+  # 案例成功后触发
+  on_success:
+    enabled: true
+    action: add_to_case_library
+    directory: case-library/successful-cases/
+    format: case-study-template.md
+    description: 成功案例添加到案例库
+  
+  # 定期触发（每 N 次会话）
+  on_periodic:
+    enabled: true
+    interval: 10  # 每 10 次会话
+    actions:
+      - review_lessons
+      - extract_patterns
+      - update_soul
+    description: 定期复习教训、提炼模式、更新 soul.md
+
+# 进化机制配置
+evolution:
+  enabled: true
+  
+  # 教训记录配置
+  lesson_recording:
+    enabled: true
+    on_task_complete: true
+    file: lesson-memory.md
+    auto_categorize: true
+  
+  # 案例积累配置
+  case_accumulation:
+    enabled: true
+    on_success: true
+    directory: case-library/
+    auto_categorize: true
+  
+  # 定期进化配置
+  periodic_evolution:
+    enabled: true
+    interval: 10  # 每 10 次会话
+    actions:
+      - review_lessons: 复习教训
+      - extract_patterns: 提炼模式
+      - update_soul: 更新 soul.md
+    output: evolution-report.md
+
+# CLI 集成配置
+cli_integration:
+  # 注入到系统提示词
+  inject_to_system_prompt: true
+  
+  # 使用 CLI 的日志系统
+  use_cli_logging: true
+  
+  # 使用 CLI 的文件系统
+  use_cli_filesystem: true
+  
+  # 环境检测
+  environment_detection:
+    enabled: true
+    environments:
+      - qwen-cli
+      - claude-cli
+      - cursor
+      - standalone
+
+# 质量检查配置
+quality_checks:
+  enabled: true
+  
+  # 检查点
+  checkpoints:
+    - name: soul_exists
+      check: file_exists
+      file: soul.md
+      required: true
+    
+    - name: lesson_memory_exists
+      check: file_exists
+      file: lesson-memory.md
+      required: true
+    
+    - name: case_library_exists
+      check: directory_exists
+      directory: case-library/
+      required: true
+    
+    - name: lesson_count
+      check: min_count
+      file: lesson-memory.md
+      min: 1
+      required: false
+
+# 兼容性配置
+compatibility:
+  # 支持的 CLI 环境
+  cli_environments:
+    - name: qwen-cli
+      min_version: 1.0.0
+      config_file: qwen-skill.yaml
+    
+    - name: claude-cli
+      min_version: 1.0.0
+      config_file: claude-skill.yaml
+    
+    - name: cursor
+      min_version: 1.0.0
+      config_file: cursor-skill.yaml
+    
+    - name: web-agent
+      min_version: 1.0.0
+      config_file: web-agent-skill.yaml
+  
+  # 运行环境要求
+  runtime:
+    python: ">=3.8"
+    node: ">=14.0.0"
+  
+  # 零外部依赖
+  external_dependencies: []
+  
+  # 自包含组件
+  self_contained:
+    - soul.md
+    - lesson-memory.md
+    - case-library/
+    - skill-hooks.yaml

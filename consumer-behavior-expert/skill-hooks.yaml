@@ -1,0 +1,50 @@
+# 消费者行为分析技能钩子配置
+
+hooks:
+  before_task:
+    - name: initialize_workspace
+      actions:
+        - create_directory: "{{workspace_path}}"
+
+  after_stage:
+    - name: validate_factors
+      trigger: stage == "factors_analysis"
+      actions:
+        - check: "factors.cultural.factors.length >= 2"
+        - check: "factors.social.factors.length >= 2"
+        - check: "factors.personal.factors.length >= 2"
+        - check: "factors.psychological.factors.length >= 2"
+
+    - name: validate_journey
+      trigger: stage == "journey_analysis"
+      actions:
+        - check: "journey.stages.length == 5"
+
+persistence:
+  session:
+    path: ".claude/session/consumer/"
+  project:
+    path: "{{project_root}}/consumer-workspace/"
+  learning:
+    path: "experience/patterns.md"
+
+subagents:
+  enabled: true
+  agents:
+    - id: cultural-analyzer
+      role: 文化因素分析
+    - id: social-analyzer
+      role: 社会因素分析
+    - id: personal-analyzer
+      role: 个人因素分析
+    - id: psychological-analyzer
+      role: 心理因素分析
+    - id: journey-mapper
+      role: 决策旅程分析
+
+quality_checks:
+  factor_completeness:
+    all_four_layers: true
+    min_factors_per_layer: 2
+  journey_completeness:
+    all_five_stages: true

@@ -1,0 +1,36 @@
+# 发现报告模板
+
+## 项目信息
+- **评估品牌**: {{brand_name}}
+- **完成时间**: {{completion_time}}
+
+## 五维度评估结果
+
+### 品牌忠诚度
+**评分**: {{loyalty_score}}/5
+**分析**: {{loyalty_analysis}}
+
+### 品牌认知度
+**评分**: {{awareness_score}}/5
+**分析**: {{awareness_analysis}}
+
+### 感知质量
+**评分**: {{quality_score}}/5
+**分析**: {{quality_analysis}}
+
+### 品牌联想
+**评分**: {{association_score}}/5
+**分析**: {{association_analysis}}
+
+### 其他资产
+**评分**: {{asset_score}}/5
+**分析**: {{asset_analysis}}
+
+## 综合评估
+**品牌资产强度**: {{overall_score}}/5
+
+## 策略建议
+{{strategic_recommendations}}
+
+---
+**报告版本**: 1.0.0

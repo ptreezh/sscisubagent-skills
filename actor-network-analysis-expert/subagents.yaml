@@ -1,0 +1,83 @@
+# ANT Subagent Definitions
+# For parallel processing in AI CLI environments
+# Version: 5.0.0-cli-native+agent
+
+subagents:
+  # Actor Identification Agent
+  - name: ant-actor-identifier
+    description: 识别并提取行动者（人类+非人），确保对称性原则
+    prompt_template: prompts/actor-identification-prompt.md
+    tools:
+      - actor_extractor
+      - symmetry_checker
+    output_format: json
+    estimated_time: "30分钟"
+    quality_check:
+      - rule: "非人行动者比例≥30%"
+        metric: "non_human_ratio"
+        threshold: 0.3
+    
+  # Translation Process Agent  
+  - name: ant-translation-tracer
+    description: 追踪转译过程4阶段（问题化→利益赋予→招募→动员）
+    prompt_template: prompts/translation-process-prompt.md
+    tools:
+      - translation_stage_controller
+    output_format: json
+    estimated_time: "60分钟"
+    quality_check:
+      - rule: "4阶段必须完整"
+        metric: "translation_stages"
+        required: ["problematization", "interest_assignment", "enrolment", "mobilization"]
+    
+  # Symmetry Analysis Agent
+  - name: ant-symmetry-analyzer
+    description: 分析人类/非人对称性，验证ANT核心原则
+    prompt_template: prompts/symmetry-analysis-prompt.md
+    tools:
+      - symmetry_checker
+    output_format: json
+    estimated_time: "30分钟"
+    quality_check:
+      - rule: "分析深度对称"
+        metric: "analysis_depth_symmetry"
+    
+  # Controversy Mapping Agent
+  - name: ant-controversy-mapper
+    description: 映射网络争议和冲突，记录成功与失败
+    prompt_template: prompts/controversy-mapping-prompt.md
+    tools:
+      - controversy_recorder
+      - blackbox_opener
+    output_format: json
+    estimated_time: "45分钟"
+    quality_check:
+      - rule: "失败案例必须记录"
+        metric: "failure_recording"
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 4
+  coordination: sequential_merge
+  timeout_per_agent: "120分钟"
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  resume_from_checkpoint: true
+
+# Fallback Configuration
+fallback:
+  enabled: true
+  strategy: "graceful_degradation"
+  on_agent_failure: "skip_and_continue"
+  on_tool_failure: "use_alternative"
+
+# Coordination Protocol
+coordination:
+  merge_strategy: "sequential"
+  validation: true
+  conflict_resolution: "human_review"

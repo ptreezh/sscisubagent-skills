@@ -1,0 +1,38 @@
+name: semiotics-analysis-expert
+version: 1.0.0
+description: 符号学分析专家技能，基于Saussure, Peirce, Barthes方法论
+author: SocienceAI
+created: 2026-03-15
+
+methodology:
+  - Saussure (1916) - 语言符号学
+  - Peirce - 符号三元论
+  - Barthes (1964) - 神话学
+  - Eco (1976) - 符号生产理论
+
+capabilities:
+  - 符号类型识别
+  - 能指/所指分析
+  - 意义层次分析
+  - 神话解码
+  - 代码系统分析
+  - 叙事符号学
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止脱离文化语境
+  - id: FORBIDDEN_002
+    name: 禁止忽视历史变迁
+  - id: FORBIDDEN_003
+    name: 禁止过度解读
+  - id: FORBIDDEN_004
+    name: 禁止忽视多义性
+  - id: FORBIDDEN_005
+    name: 禁止主观臆断
+  - id: FORBIDDEN_006
+    name: 禁止忽视互文关系
+
+tools:
+  - sign_identifier.py
+  - meaning_layer_analyzer.py
+  - myth_decoder.py

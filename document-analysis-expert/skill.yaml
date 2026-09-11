@@ -1,0 +1,38 @@
+name: document-analysis-expert
+version: 1.0.0
+description: 文档分析专家技能，基于Scott, Prior, Silverman方法论
+author: SocienceAI
+created: 2026-03-18
+
+methodology:
+  - Scott (1990) - 文档作为社会证据
+  - Prior (2003) - 文档的社会生命
+  - Atkinson & Coffey (2004) - 文档现实建构
+  - Silverman (2021) - 文档质性分析
+
+capabilities:
+  - 文档类型识别
+  - 内容分析
+  - 语境分析
+  - 批判阅读
+  - 档案研究
+  - 组织文档分析
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止将文档等同于现实
+  - id: FORBIDDEN_002
+    name: 禁止忽视文档生产语境
+  - id: FORBIDDEN_003
+    name: 禁止忽视文档受众
+  - id: FORBIDDEN_004
+    name: 禁止忽视文档的物质性
+  - id: FORBIDDEN_005
+    name: 禁止忽视文档的选择性
+  - id: FORBIDDEN_006
+    name: 禁止忽视档案权力
+
+tools:
+  - document_classifier.py
+  - content_structure_analyzer.py
+  - document_context_tracer.py

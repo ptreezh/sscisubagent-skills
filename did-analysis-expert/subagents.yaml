@@ -1,0 +1,211 @@
+# DID Analysis Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Data Validation Agent
+  - name: did-data-validator
+    description: 数据验证Agent - 检验DID数据结构完整性
+    prompt_template: prompts/data-validation-prompt.md
+    tools:
+      - validate-data
+    output_format: json
+    quality_checks:
+      - panel_structure_valid
+      - treatment_control_defined
+      - pre_post_periods_defined
+      - sample_size_adequate
+    required_output:
+      - data_structure_report
+      - sample_statistics
+      - potential_issues
+
+  # Parallel Trends Agent
+  - name: did-parallel-trends
+    description: 平行趋势检验Agent - 检验处理组和对照组事前趋势
+    prompt_template: prompts/parallel-trends-prompt.md
+    tools:
+      - check-parallel-trends
+    output_format: json
+    quality_checks:
+      - pre_trend_graph_generated
+      - event_study_completed
+      - statistical_test_performed
+    required_output:
+      - parallel_trends_result
+      - event_study_coefficients
+      - trend_graph_data
+
+  # Treatment Effect Agent
+  - name: did-treatment-effect
+    description: 处理效应计算Agent - 估计DID因果效应
+    prompt_template: prompts/treatment-effect-prompt.md
+    tools:
+      - calculate-treatment-effect
+    output_format: json
+    quality_checks:
+      - fixed_effects_included
+      - clustered_standard_errors
+      - confidence_interval_reported
+    required_output:
+      - did_coefficient
+      - standard_error
+      - confidence_interval
+      - effect_size_interpretation
+
+  # Robustness Agent
+  - name: did-robustness
+    description: 稳健性检验Agent - 执行多项稳健性检验
+    prompt_template: prompts/robustness-prompt.md
+    tools:
+      - test-robustness
+      - placebo-test
+    output_format: json
+    quality_checks:
+      - placebo_test_completed
+      - sensitivity_analysis_done
+      - robustness_coverage >= 2
+    required_output:
+      - placebo_test_result
+      - sensitivity_results
+      - robustness_summary
+
+  # Heterogeneity Agent
+  - name: did-heterogeneity
+    description: 异质性分析Agent - 分析子群体效应差异
+    prompt_template: prompts/heterogeneity-prompt.md
+    tools:
+      - analyze-heterogeneity
+    output_format: json
+    quality_checks:
+      - subgroup_analysis_completed
+      - effect_variation_assessed
+    required_output:
+      - subgroup_effects
+      - heterogeneity_test_result
+      - effect_comparison
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - data_structure_check
+    - parallel_trends_check
+    - treatment_effect_check
+    - robustness_check
+
+  strict_prohibitions:
+    - no_effect_without_parallel_trends_test
+    - no_unclustered_standard_errors
+    - no_reporting_without_confidence_intervals
+    - no_selective_reporting
+
+# Phase-Based Execution
+phases:
+  phase1_data_validation:
+    description: "数据验证阶段 - 检验数据结构"
+    agents: [did-data-validator]
+    mode: sequential
+    output: data_validation.json
+    quality_gate: data_structure_valid
+    
+  phase2_parallel_trends:
+    description: "平行趋势检验阶段 - 核心假设检验"
+    agents: [did-parallel-trends]
+    mode: sequential
+    depends_on: phase1_data_validation
+    output: parallel_trends.json
+    quality_gate: parallel_trends_passed
+    
+  phase3_treatment_effect:
+    description: "处理效应估计阶段 - 因果效应计算"
+    agents: [did-treatment-effect]
+    mode: sequential
+    depends_on: phase2_parallel_trends
+    output: treatment_effect.json
+    quality_gate: effect_estimated
+    
+  phase4_robustness:
+    description: "稳健性检验阶段 - 结果可靠性验证"
+    agents: [did-robustness, did-heterogeneity]
+    mode: parallel
+    depends_on: phase3_treatment_effect
+    output: robustness.json
+    quality_gate: robustness_coverage >= 2
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("数据验证") or user_request_contains("数据结构")
+      then: fast_mode
+      execution: single_agent(did-data-validator)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains("平行趋势") or user_request_contains("趋势检验")
+      then: fast_mode
+      execution: single_agent(did-parallel-trends)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains("处理效应") or user_request_contains("因果效应")
+      then: fast_mode
+      execution: single_agent(did-treatment-effect)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains("稳健性") or user_request_contains("安慰剂")
+      then: fast_mode
+      execution: single_agent(did-robustness)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains_any(["完整分析", "DID分析", "全流程", "因果推断"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4])
+      estimated_time: "1-2 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Methodological rigor - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  analysis_log_file: analysis_log.json
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes
+
+# DID-Specific Quality Metrics
+did_quality_metrics:
+  parallel_trends:
+    threshold: 0.1  # p-value threshold for pre-trends
+    required: true
+    
+  clustered_se:
+    required: true
+    level: "unit"
+    
+  robustness_coverage:
+    minimum_tests: 2
+    required_tests:
+      - placebo_test
+    optional_tests:
+      - sensitivity_analysis
+      - subgroup_analysis
+      - alternative_specification
+
+  confidence_level: 0.95

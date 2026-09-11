@@ -1,0 +1,30 @@
+# Ethnography Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: eth-fieldnote-manager
+    name: 田野笔记管理者
+    role: 管理和编码田野笔记
+    tools:
+      - fieldnote_manager.py
+    triggers:
+      - "田野笔记"
+      - "笔记管理"
+
+  - id: eth-pattern-analyzer
+    name: 文化模式分析器
+    role: 识别和分析文化模式
+    triggers:
+      - "文化模式"
+      - "模式分析"
+
+  - id: eth-informant-tracker
+    name: 报道人跟踪器
+    role: 管理关键报道人信息
+    triggers:
+      - "报道人"
+      - "关键信息人"
+
+output:
+  formats: [markdown, json]
+  include: [field_notes, cultural_analysis, thick_description]

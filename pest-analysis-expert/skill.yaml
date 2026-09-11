@@ -1,0 +1,30 @@
+# PEST Analysis Expert - Skill Configuration
+name: pest-analysis-expert
+version: "5.0.0"
+description: "PEST/PESTEL环境分析专家"
+
+dimensions:
+  political:
+    name: "政治因素"
+    factors: ["政府政策", "政治稳定", "贸易政策", "税收政策"]
+  economic:
+    name: "经济因素"
+    factors: ["GDP增长", "通胀率", "利率", "汇率", "就业率"]
+  social:
+    name: "社会因素"
+    factors: ["人口结构", "消费习惯", "教育水平", "价值观"]
+  technological:
+    name: "技术因素"
+    factors: ["技术创新", "研发投入", "技术扩散", "专利保护"]
+  environmental:
+    name: "环境因素"
+    factors: ["气候变化", "环保法规", "资源稀缺", "可持续发展"]
+  legal:
+    name: "法律因素"
+    factors: ["行业法规", "劳动法", "知识产权", "数据安全"]
+
+assessment:
+  impact_scale: "高/中/低"
+  nature: "机会/威胁"
+  probability_scale: "高/中/低"
+  priority_method: "影响×概率"

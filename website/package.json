@@ -1,0 +1,13 @@
+{
+  "name": "socienceai-website",
+  "version": "1.0.0",
+  "description": "SocienceAI 官方网站",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}

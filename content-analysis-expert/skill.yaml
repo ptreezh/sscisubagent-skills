@@ -1,0 +1,96 @@
+# Content Analysis Expert - Skill Configuration
+# 内容分析专家技能配置
+
+name: content-analysis-expert
+version: "5.0.0"
+description: "系统化内容分析专家，支持编码方案设计、信度检验、频次分析"
+
+# 方法论标准
+methodology:
+  standard: "Krippendorff (2018)"
+  approaches:
+    - classical: "经典内容分析"
+    - directed: "定向内容分析"
+    - inductive: "归纳内容分析"
+
+# 核心能力
+capabilities:
+  - 编码方案设计
+  - 编码簿开发
+  - 编码者间信度检验
+  - 频次统计分析
+  - 列联表分析
+  - 框架分析
+  - 语义网络分析
+
+# 编码单元类型
+coding_units:
+  physical:
+    - words: "字词"
+    - sentences: "句子"
+    - paragraphs: "段落"
+    - pages: "页面"
+    - time_seconds: "时间秒数"
+  syntactical:
+    - themes: "主题"
+    - characters: "人物"
+    - items: "条目"
+    - actors: "行动者"
+  propositional:
+    - assertions: "断言"
+    - arguments: "论点"
+    - evaluations: "评价"
+    - intentions: "意图"
+  thematic:
+    - topics: "话题"
+    - frames: "框架"
+    - narratives: "叙事"
+    - values: "价值观"
+
+# 信度系数标准
+reliability_standards:
+  cohens_kappa:
+    excellent: 0.80
+    good: 0.60
+    acceptable: 0.40
+  krippendorffs_alpha:
+    excellent: 0.80
+    good: 0.67
+    acceptable: 0.60
+  percent_agreement:
+    excellent: 0.95
+    good: 0.90
+    acceptable: 0.80
+
+# 样本量建议
+sampling:
+  reliability_test:
+    minimum: 0.10  # 至少10%
+    recommended: 0.15  # 推荐15%
+    maximum: 0.25  # 最多25%
+  
+  content_sample:
+    minimum: 50
+    recommended: 200
+    optimal: 500
+
+# 输出配置
+output:
+  formats:
+    - markdown
+    - json
+    - csv
+  include:
+    - coding_book
+    - reliability_report
+    - frequency_tables
+    - contingency_tables
+    - visualizations
+
+# 技能依赖
+dependencies:
+  python:
+    - numpy
+    - pandas
+    - scipy
+    - sklearn

@@ -1,0 +1,193 @@
+# 主题分析专家 - 技能钩子配置
+
+## 基本配置
+skill_name: thematic-analysis-expert
+version: "5.0.0"
+methodology: "Braun & Clarke (2006, 2019, 2021)"
+
+## CRCT思维链配置
+crct_config:
+  constant_comparison:
+    enabled: true
+    description: "持续比较代码和主题，确保主题发展的系统性和一致性"
+  
+  record:
+    enabled: true
+    persistence: "session"
+    path: "data/sessions/{session_id}/thematic_records/"
+  
+  chain:
+    enabled: true
+    max_chain_length: 50
+  
+  trace:
+    enabled: true
+    trace_level: "detailed"
+
+## 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: "data/sessions/{session_id}/thematic/"
+    retention: "session_end"
+    contents:
+      - "raw_data/"
+      - "codes/"
+      - "themes/"
+      - "analysis_logs/"
+  
+  project:
+    enabled: true
+    path: "data/projects/{project_id}/thematic/"
+    retention: "project_end"
+    contents:
+      - "all_transcripts/"
+      - "coding_scheme/"
+      - "theme_development/"
+      - "final_report/"
+  
+  learning:
+    enabled: true
+    path: "data/learning/thematic-analysis/"
+    retention: "permanent"
+    contents:
+      - "theme_patterns/"
+      - "quality_benchmarks/"
+
+## 6大绝对禁止原则
+six_forbidden_principles:
+  - principle: "禁止跳过编码直接命名主题"
+    description: "主题必须从编码中发展，不可预先设定"
+    detection_keywords: ["预设主题", "直接归纳", "跳过编码"]
+    
+  - principle: "禁止用引文代替分析"
+    description: "引文是证据，分析需要阐释而非简单引用"
+    detection_keywords: ["只引用", "不解释", "堆砌引文"]
+    
+  - principle: "禁止主题重叠边界模糊"
+    description: "每个主题应有独特贡献，主题间应有清晰区分"
+    detection_keywords: ["相似主题", "重复内容", "边界不清"]
+    
+  - principle: "禁止忽视负面案例"
+    description: "应主动寻找与主题不符的数据，增强分析的严谨性"
+    detection_keywords: ["忽略不符", "选择性编码", "只看支持"]
+    
+  - principle: "禁止过度编码或编码不足"
+    description: "编码数量应与数据体量和研究目的匹配"
+    detection_keywords: ["编码过多", "编码过少", "无意义编码"]
+    
+  - principle: "禁止主题命名不清晰"
+    description: "主题名称应准确反映主题内容，易于理解"
+    detection_keywords: ["模糊命名", "抽象命名", "不明确"]
+
+## 分析阶段钩子
+analysis_hooks:
+  pre_analysis:
+    - name: "verify_data_format"
+      action: "验证数据格式"
+      
+    - name: "clarify_research_question"
+      action: "明确研究问题"
+      
+  during_analysis:
+    - name: "track_six_steps"
+      action: "追踪六步骤进展"
+      
+    - name: "check_code_quality"
+      action: "检查编码质量"
+      
+    - name: "check_forbidden_principles"
+      action: "检查是否违反禁止原则"
+      
+  post_analysis:
+    - name: "validate_theme_quality"
+      action: "验证主题质量"
+      
+    - name: "check_saturation"
+      action: "检查饱和度"
+      
+    - name: "generate_report"
+      action: "生成分析报告"
+
+## 工具调用钩子
+tool_hooks:
+  code_extractor:
+    pre_call:
+      - "确认数据已准备"
+    post_call:
+      - "验证编码有意义"
+      - "检查编码覆盖数据"
+      
+  theme_cluster:
+    pre_call:
+      - "确保编码已完成"
+    post_call:
+      - "验证主题内部一致性"
+      - "检查主题间差异性"
+      
+  saturation_checker:
+    pre_call:
+      - "确保有足够编码"
+    post_call:
+      - "评估是否需要更多数据"
+      
+  quality_assessor:
+    pre_call:
+      - "确保主题已发展"
+    post_call:
+      - "验证分析质量"
+
+## 质量检查点
+quality_checkpoints:
+  step1_familiarization:
+    - "是否充分阅读数据"
+    - "是否记录初步想法"
+    
+  step2_coding:
+    - "编码是否覆盖全部数据"
+    - "编码是否有意义"
+    - "编码是否足够精细"
+    
+  step3_theme_search:
+    - "主题是否从编码发展"
+    - "主题是否有足够支持"
+    
+  step4_theme_review:
+    - "主题内部是否一致"
+    - "主题间是否区分"
+    
+  step5_theme_definition:
+    - "主题定义是否清晰"
+    - "主题命名是否准确"
+    
+  step6_report:
+    - "是否有充分引文支持"
+    - "分析是否有深度"
+
+## 输出格式配置
+output_formats:
+  coding_report:
+    template: "coding_table"
+    includes:
+      - "代码名称"
+      - "代码定义"
+      - "支持性引文"
+      
+  theme_report:
+    template: "theme_structure"
+    includes:
+      - "主题名称"
+      - "主题定义"
+      - "支持性编码"
+      - "代表性引文"
+
+## 会话管理
+session_management:
+  max_session_duration: "4h"
+  checkpoint_interval: "30min"
+  auto_save: true
+
+---
+**配置版本**: 1.0.0
+**创建时间**: 2026-03-15
+**维护者**: 主题分析专家技能

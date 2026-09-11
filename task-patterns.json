@@ -1,0 +1,758 @@
+{
+  "meta": {
+    "name": "SocienceAI任务模式库",
+    "version": "1.0.0",
+    "created": "2026-03-18",
+    "description": "定义AI Agent任务识别模式，支持语义匹配、技能路由和编排决策",
+    "totalPatterns": 25
+  },
+  "patterns": [
+    {
+      "id": "PAT001",
+      "name": "质性数据分析",
+      "category": "qualitative-research",
+      "description": "处理和分析非结构化或半结构化的质性数据，如访谈转录、开放性问卷回答、观察记录等",
+      "complexity": "high",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["质性数据源", "研究问题"],
+        "optional": ["理论框架", "编码方案"]
+      },
+      "inputTypes": ["interview_transcript", "observation_notes", "open_survey", "documents"],
+      "outputTypes": ["themes", "categories", "theory", "narrative"],
+      "skillSequence": [
+        {"step": 1, "skill": "grounded-theory-expert", "action": "open_coding", "required": true},
+        {"step": 2, "skill": "thematic-analysis-expert", "action": "theme_extraction", "required": true},
+        {"step": 3, "skill": "grounded-theory-expert", "action": "axial_coding", "required": false},
+        {"step": 4, "skill": "grounded-theory-expert", "action": "selective_coding", "required": false}
+      ],
+      "alternativeSkills": ["content-analysis-expert", "narrative-analysis-expert"],
+      "keywords": ["访谈分析", "编码", "主题提取", "质性研究", "扎根理论", "文本分析", "归纳"],
+      "examplePrompts": [
+        "我有一批访谈数据，需要进行质性分析",
+        "帮我用扎根理论方法分析这些文本",
+        "提取这些访谈记录中的核心主题"
+      ],
+      "successCriteria": ["理论饱和度≥80%", "编码一致性≥85%", "主题可追溯性"]
+    },
+    {
+      "id": "PAT002",
+      "name": "战略规划与竞争分析",
+      "category": "strategic-management",
+      "description": "为组织制定战略方向，分析竞争环境，识别机会与威胁",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["组织背景", "战略目标"],
+        "optional": ["行业数据", "竞争对手信息"]
+      },
+      "inputTypes": ["company_profile", "industry_data", "competitor_info", "internal_data"],
+      "outputTypes": ["strategy_matrix", "action_plan", "competitive_position"],
+      "skillSequence": [
+        {"step": 1, "skill": "pest-analysis-expert", "action": "environmental_scan", "required": true},
+        {"step": 2, "skill": "porter-five-forces-expert", "action": "industry_analysis", "required": true},
+        {"step": 3, "skill": "swot-analysis-expert", "action": "strategic_match", "required": true},
+        {"step": 4, "skill": "balanced-scorecard-expert", "action": "strategy_translation", "required": false}
+      ],
+      "alternativeSkills": ["blue-ocean-strategy-expert"],
+      "keywords": ["战略规划", "竞争分析", "SWOT", "五力模型", "PEST", "战略定位", "竞争优势"],
+      "examplePrompts": [
+        "帮我制定公司未来三年的战略规划",
+        "分析我们行业的竞争格局",
+        "用SWOT分析评估公司战略"
+      ],
+      "successCriteria": ["战略匹配度评估", "行动方案可行性", "环境因素覆盖完整性"]
+    },
+    {
+      "id": "PAT003",
+      "name": "因果推断与政策评估",
+      "category": "empirical-research",
+      "description": "建立因果关系，评估政策干预效果，支持循证决策",
+      "complexity": "high",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["处理组数据", "对照组数据", "时间维度"],
+        "optional": ["前测数据", "协变量"]
+      },
+      "inputTypes": ["panel_data", "time_series", "cross_sectional"],
+      "outputTypes": ["treatment_effect", "causal_mechanism", "policy_recommendation"],
+      "skillSequence": [
+        {"step": 1, "skill": "did-analysis-expert", "action": "parallel_trend_test", "required": true},
+        {"step": 2, "skill": "did-analysis-expert", "action": "effect_estimation", "required": true},
+        {"step": 3, "skill": "did-analysis-expert", "action": "robustness_check", "required": true},
+        {"step": 4, "skill": "regression-analysis-expert", "action": "mechanism_analysis", "required": false}
+      ],
+      "alternativeSkills": ["rct-experimental-design-expert", "qca-analysis-expert"],
+      "keywords": ["因果推断", "政策评估", "双重差分", "DID", "干预效果", "平行趋势", "准实验"],
+      "examplePrompts": [
+        "用DID方法评估这项政策的效果",
+        "检验处理组和对照组的平行趋势",
+        "评估政策干预的因果效应"
+      ],
+      "successCriteria": ["平行趋势假设检验通过", "稳健性检验通过", "效应估计置信区间"]
+    },
+    {
+      "id": "PAT004",
+      "name": "社会网络分析",
+      "category": "network-research",
+      "description": "分析社会关系网络结构，识别关键行动者和社区",
+      "complexity": "high",
+      "estimatedTime": "1-3周",
+      "triggerConditions": {
+        "required": ["关系数据", "节点定义"],
+        "optional": ["属性数据", "时间维度"]
+      },
+      "inputTypes": ["edge_list", "adjacency_matrix", "attribute_data"],
+      "outputTypes": ["centrality_ranking", "community_detection", "network_visualization"],
+      "skillSequence": [
+        {"step": 1, "skill": "social-network-analysis-expert", "action": "network_construction", "required": true},
+        {"step": 2, "skill": "social-network-analysis-expert", "action": "centrality_analysis", "required": true},
+        {"step": 3, "skill": "social-network-analysis-expert", "action": "community_detection", "required": false},
+        {"step": 4, "skill": "social-network-analysis-expert", "action": "visualization", "required": false}
+      ],
+      "alternativeSkills": ["actor-network-analysis-expert"],
+      "keywords": ["社会网络", "中心性", "社区检测", "结构洞", "关系分析", "网络可视化", "小世界"],
+      "examplePrompts": [
+        "分析这个社交网络的关键人物",
+        "识别网络中的社区结构",
+        "计算各节点的中心性指标"
+      ],
+      "successCriteria": ["网络度量指标完整", "可视化清晰可读", "社区划分有意义"]
+    },
+    {
+      "id": "PAT005",
+      "name": "创业验证与商业模式设计",
+      "category": "entrepreneurship",
+      "description": "验证创业假设，设计可持续的商业模式",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["创业想法", "目标客户"],
+        "optional": ["竞品信息", "市场数据"]
+      },
+      "inputTypes": ["business_idea", "customer_segment", "market_research"],
+      "outputTypes": ["value_proposition", "business_model_canvas", "mvp_plan"],
+      "skillSequence": [
+        {"step": 1, "skill": "value-proposition-expert", "action": "customer_profiling", "required": true},
+        {"step": 2, "skill": "value-proposition-expert", "action": "value_matching", "required": true},
+        {"step": 3, "skill": "business-model-expert", "action": "canvas_design", "required": true},
+        {"step": 4, "skill": "lean-startup-expert", "action": "mvp_planning", "required": false}
+      ],
+      "alternativeSkills": ["blue-ocean-strategy-expert"],
+      "keywords": ["创业", "商业模式", "价值主张", "MVP", "精益创业", "客户画像", "商业模式画布"],
+      "examplePrompts": [
+        "帮我设计一个商业模式的商业画布",
+        "验证我的创业假设",
+        "分析目标客户的痛点和收益"
+      ],
+      "successCriteria": ["价值主张与客户需求匹配", "商业模式各要素一致性", "MVP可执行性"]
+    },
+    {
+      "id": "PAT006",
+      "name": "用户体验研究",
+      "category": "design-research",
+      "description": "深入理解用户需求、行为和体验，支持产品和服务设计",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["用户群体定义", "研究目标"],
+        "optional": ["现有产品", "竞品信息"]
+      },
+      "inputTypes": ["user_profile", "usage_data", "feedback"],
+      "outputTypes": ["user_insights", "personas", "journey_map", "design_recommendations"],
+      "skillSequence": [
+        {"step": 1, "skill": "design-thinking-expert", "action": "empathy_research", "required": true},
+        {"step": 2, "skill": "design-thinking-expert", "action": "problem_definition", "required": true},
+        {"step": 3, "skill": "consumer-behavior-expert", "action": "behavior_analysis", "required": false},
+        {"step": 4, "skill": "design-thinking-expert", "action": "ideation", "required": false}
+      ],
+      "alternativeSkills": ["ethnography-expert"],
+      "keywords": ["用户研究", "用户体验", "设计思维", "用户画像", "同理心", "用户旅程", "洞察"],
+      "examplePrompts": [
+        "帮我进行用户研究，理解目标用户需求",
+        "用设计思维方法分析用户体验",
+        "创建用户画像和用户旅程图"
+      ],
+      "successCriteria": ["用户洞察有数据支撑", "问题定义明确", "设计方案可执行"]
+    },
+    {
+      "id": "PAT007",
+      "name": "组织变革与诊断",
+      "category": "organizational-development",
+      "description": "诊断组织问题，规划和实施组织变革",
+      "complexity": "high",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["组织背景", "变革目标"],
+        "optional": ["组织数据", "员工反馈"]
+      },
+      "inputTypes": ["org_structure", "performance_data", "employee_survey"],
+      "outputTypes": ["diagnosis_report", "change_plan", "resistance_analysis"],
+      "skillSequence": [
+        {"step": 1, "skill": "organizational-diagnosis-expert", "action": "six_box_analysis", "required": true},
+        {"step": 2, "skill": "organizational-diagnosis-expert", "action": "gap_identification", "required": true},
+        {"step": 3, "skill": "change-management-expert", "action": "change_planning", "required": true},
+        {"step": 4, "skill": "change-management-expert", "action": "resistance_management", "required": false}
+      ],
+      "alternativeSkills": ["balanced-scorecard-expert"],
+      "keywords": ["组织变革", "组织诊断", "六盒模型", "变革管理", "阻力管理", "ADKAR", "Kotter"],
+      "examplePrompts": [
+        "诊断我们组织目前存在的问题",
+        "制定一个组织变革计划",
+        "分析员工对变革的阻力来源"
+      ],
+      "successCriteria": ["诊断维度覆盖完整", "变革步骤可执行", "阻力应对策略具体"]
+    },
+    {
+      "id": "PAT008",
+      "name": "量化建模与假设检验",
+      "category": "quantitative-research",
+      "description": "构建统计模型，检验研究假设，建立变量关系",
+      "complexity": "high",
+      "estimatedTime": "2-3周",
+      "triggerConditions": {
+        "required": ["量化数据", "研究假设"],
+        "optional": ["理论模型", "控制变量"]
+      },
+      "inputTypes": ["survey_data", "secondary_data", "experimental_data"],
+      "outputTypes": ["model_results", "hypothesis_test", "effect_size"],
+      "skillSequence": [
+        {"step": 1, "skill": "data-analysis-expert", "action": "descriptive_analysis", "required": true},
+        {"step": 2, "skill": "regression-analysis-expert", "action": "model_specification", "required": true},
+        {"step": 3, "skill": "regression-analysis-expert", "action": "hypothesis_testing", "required": true},
+        {"step": 4, "skill": "regression-analysis-expert", "action": "diagnostics", "required": false}
+      ],
+      "alternativeSkills": ["sem-analysis-expert", "multilevel-modeling-expert"],
+      "keywords": ["回归分析", "假设检验", "统计建模", "OLS", "效应量", "模型诊断", "显著性"],
+      "examplePrompts": [
+        "用回归分析检验这些假设",
+        "构建一个结构方程模型",
+        "分析变量之间的关系"
+      ],
+      "successCriteria": ["模型假设检验通过", "效应量报告完整", "结果可解释"]
+    },
+    {
+      "id": "PAT009",
+      "name": "社会理论应用分析",
+      "category": "theoretical-research",
+      "description": "运用经典社会理论分析当代社会现象",
+      "complexity": "high",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["社会现象描述", "理论选择"],
+        "optional": ["案例材料", "历史背景"]
+      },
+      "inputTypes": ["phenomenon_description", "case_material", "literature"],
+      "outputTypes": ["theoretical_analysis", "conceptual_framework", "critical_insights"],
+      "skillSequence": [
+        {"step": 1, "skill": "digital-marx-expert", "action": "class_analysis", "required": false},
+        {"step": 2, "skill": "digital-durkheim-expert", "action": "integration_analysis", "required": false},
+        {"step": 3, "skill": "digital-weber-expert", "action": "rationalization_analysis", "required": false}
+      ],
+      "alternativeSkills": ["bourdieu-field-analysis-expert"],
+      "keywords": ["马克思", "涂尔干", "韦伯", "阶级分析", "社会整合", "理性化", "异化", "失范"],
+      "examplePrompts": [
+        "用马克思的阶级理论分析这个现象",
+        "从涂尔干的视角分析社会整合问题",
+        "用韦伯的理性化概念分析官僚制"
+      ],
+      "successCriteria": ["理论概念准确运用", "分析逻辑严密", "洞察有深度"]
+    },
+    {
+      "id": "PAT010",
+      "name": "复杂系统仿真建模",
+      "category": "computational-research",
+      "description": "构建复杂适应系统仿真模型，探索涌现行为",
+      "complexity": "high",
+      "estimatedTime": "3-6周",
+      "triggerConditions": {
+        "required": ["系统边界定义", "Agent定义"],
+        "optional": ["行为规则", "环境参数"]
+      },
+      "inputTypes": ["system_description", "agent_rules", "parameters"],
+      "outputTypes": ["simulation_results", "emergence_patterns", "policy_scenarios"],
+      "skillSequence": [
+        {"step": 1, "skill": "cas-simulation-expert", "action": "agent_design", "required": true},
+        {"step": 2, "skill": "cas-simulation-expert", "action": "rule_specification", "required": true},
+        {"step": 3, "skill": "cas-simulation-expert", "action": "simulation_run", "required": true},
+        {"step": 4, "skill": "cas-simulation-expert", "action": "emergence_analysis", "required": false}
+      ],
+      "alternativeSkills": ["system-dynamics-expert"],
+      "keywords": ["复杂适应系统", "仿真", "Agent模型", "涌现", "CAS", "自组织", "非线性"],
+      "examplePrompts": [
+        "构建一个复杂适应系统仿真模型",
+        "模拟Agent之间的交互和涌现行为",
+        "用系统动力学分析反馈回路"
+      ],
+      "successCriteria": ["Agent行为规则明确", "仿真可重复", "涌现现象可解释"]
+    },
+    {
+      "id": "PAT011",
+      "name": "问卷设计与量表开发",
+      "category": "research-design",
+      "description": "设计研究问卷，开发和验证测量量表",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["研究构念", "目标群体"],
+        "optional": ["现有量表", "理论框架"]
+      },
+      "inputTypes": ["construct_definition", "literature_review", "existing_scales"],
+      "outputTypes": ["questionnaire", "scale_items", "validity_evidence"],
+      "skillSequence": [
+        {"step": 1, "skill": "survey-design-expert", "action": "construct_definition", "required": true},
+        {"step": 2, "skill": "survey-design-expert", "action": "item_generation", "required": true},
+        {"step": 3, "skill": "factor-analysis-expert", "action": "scale_validation", "required": false},
+        {"step": 4, "skill": "survey-design-expert", "action": "pilot_test", "required": false}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["问卷设计", "量表开发", "题项编写", "信效度", "李克特量表", "构念测量"],
+      "examplePrompts": [
+        "帮我设计一个调查问卷",
+        "开发一个测量XX构念的量表",
+        "评估这份问卷的信效度"
+      ],
+      "successCriteria": ["构念覆盖完整", "题项表达清晰", "信效度指标达标"]
+    },
+    {
+      "id": "PAT012",
+      "name": "品牌价值评估",
+      "category": "marketing-research",
+      "description": "评估品牌资产价值，分析品牌健康度",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["品牌信息", "评估目标"],
+        "optional": ["消费者数据", "市场数据"]
+      },
+      "inputTypes": ["brand_profile", "consumer_data", "market_data"],
+      "outputTypes": ["brand_equity_score", "brand_health", "improvement_recommendations"],
+      "skillSequence": [
+        {"step": 1, "skill": "brand-equity-expert", "action": "equity_assessment", "required": true},
+        {"step": 2, "skill": "consumer-behavior-expert", "action": "brand_perception", "required": true},
+        {"step": 3, "skill": "brand-equity-expert", "action": "value_estimation", "required": false}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["品牌资产", "品牌价值", "品牌评估", "Aaker模型", "Keller模型", "品牌共鸣"],
+      "examplePrompts": [
+        "评估我们品牌的资产价值",
+        "分析消费者对品牌的认知",
+        "用Aaker模型评估品牌资产"
+      ],
+      "successCriteria": ["评估维度完整", "量化指标可靠", "改进建议可行"]
+    },
+    {
+      "id": "PAT013",
+      "name": "行动者网络分析",
+      "category": "network-research",
+      "description": "应用ANT方法论分析人类与非人类行动者的网络",
+      "complexity": "high",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["研究议题", "行动者范围"],
+        "optional": ["争议焦点", "历史轨迹"]
+      },
+      "inputTypes": ["case_material", "documents", "interviews"],
+      "outputTypes": ["actor_network", "translation_process", "controversy_map"],
+      "skillSequence": [
+        {"step": 1, "skill": "actor-network-analysis-expert", "action": "actor_identification", "required": true},
+        {"step": 2, "skill": "actor-network-analysis-expert", "action": "translation_analysis", "required": true},
+        {"step": 3, "skill": "actor-network-analysis-expert", "action": "controversy_mapping", "required": false},
+        {"step": 4, "skill": "actor-network-analysis-expert", "action": "symmetry_analysis", "required": false}
+      ],
+      "alternativeSkills": ["social-network-analysis-expert"],
+      "keywords": ["ANT", "行动者网络", "转译", "对称性", "黑箱", "争议映射", "非人类行动者"],
+      "examplePrompts": [
+        "用ANT方法分析这个技术争议",
+        "识别网络中的关键行动者",
+        "分析转译过程的各个阶段"
+      ],
+      "successCriteria": ["行动者识别全面", "转译过程分析清晰", "对称性原则遵守"]
+    },
+    {
+      "id": "PAT014",
+      "name": "元分析与系统综述",
+      "category": "evidence-synthesis",
+      "description": "系统性整合研究证据，进行元分析",
+      "complexity": "high",
+      "estimatedTime": "4-8周",
+      "triggerConditions": {
+        "required": ["研究问题", "纳入标准"],
+        "optional": ["文献数据库", "排除标准"]
+      },
+      "inputTypes": ["literature_search", "study_data", "quality_assessment"],
+      "outputTypes": ["effect_size", "heterogeneity", "publication_bias", "evidence_summary"],
+      "skillSequence": [
+        {"step": 1, "skill": "bibliometric-analysis-expert", "action": "literature_search", "required": true},
+        {"step": 2, "skill": "meta-analysis-expert", "action": "study_selection", "required": true},
+        {"step": 3, "skill": "meta-analysis-expert", "action": "effect_estimation", "required": true},
+        {"step": 4, "skill": "meta-analysis-expert", "action": "heterogeneity_analysis", "required": false}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["元分析", "Meta分析", "系统综述", "效应量", "异质性", "发表偏倚", "证据整合"],
+      "examplePrompts": [
+        "进行一项元分析整合这些研究",
+        "系统性综述这个领域的文献",
+        "计算合并效应量和异质性"
+      ],
+      "successCriteria": ["文献检索可重复", "质量评估透明", "效应量报告完整"]
+    },
+    {
+      "id": "PAT015",
+      "name": "田野调查与民族志",
+      "category": "qualitative-research",
+      "description": "进行田野调查，撰写民族志报告",
+      "complexity": "high",
+      "estimatedTime": "4-12周",
+      "triggerConditions": {
+        "required": ["田野地点", "研究问题"],
+        "optional": ["进入策略", "伦理审批"]
+      },
+      "inputTypes": ["field_notes", "interviews", "documents", "observations"],
+      "outputTypes": ["ethnography", "cultural_description", "theoretical_insights"],
+      "skillSequence": [
+        {"step": 1, "skill": "ethnography-expert", "action": "field_entry", "required": true},
+        {"step": 2, "skill": "ethnography-expert", "action": "participant_observation", "required": true},
+        {"step": 3, "skill": "ethnography-expert", "action": "thick_description", "required": true},
+        {"step": 4, "skill": "case-study-expert", "action": "analysis", "required": false}
+      ],
+      "alternativeSkills": ["phenomenology-expert", "narrative-analysis-expert"],
+      "keywords": ["民族志", "田野调查", "参与观察", "深描", "文化描述", "局内人视角"],
+      "examplePrompts": [
+        "指导我进行田野调查",
+        "帮我撰写民族志报告",
+        "分析田野笔记中的文化模式"
+      ],
+      "successCriteria": ["田野材料丰富", "描述深度足够", "理论贡献明确"]
+    },
+    {
+      "id": "PAT016",
+      "name": "目标管理与绩效追踪",
+      "category": "organizational-management",
+      "description": "设定组织目标，设计关键结果，追踪绩效进展",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["组织目标", "时间周期"],
+        "optional": ["团队结构", "历史数据"]
+      },
+      "inputTypes": ["strategic_goals", "team_structure", "performance_data"],
+      "outputTypes": ["okr_framework", "key_results", "tracking_system"],
+      "skillSequence": [
+        {"step": 1, "skill": "okr-expert", "action": "objective_setting", "required": true},
+        {"step": 2, "skill": "okr-expert", "action": "kr_design", "required": true},
+        {"step": 3, "skill": "okr-expert", "action": "alignment_check", "required": true},
+        {"step": 4, "skill": "agile-pm-expert", "action": "tracking_setup", "required": false}
+      ],
+      "alternativeSkills": ["balanced-scorecard-expert"],
+      "keywords": ["OKR", "目标管理", "关键结果", "绩效追踪", "目标对齐", "季度目标"],
+      "examplePrompts": [
+        "帮我设定OKR目标体系",
+        "设计可衡量的关键结果",
+        "检查目标的对齐情况"
+      ],
+      "successCriteria": ["目标明确有挑战性", "关键结果可量化", "对齐关系清晰"]
+    },
+    {
+      "id": "PAT017",
+      "name": "敏捷项目管理",
+      "category": "project-management",
+      "description": "应用敏捷方法论管理项目，进行迭代规划和执行",
+      "complexity": "medium",
+      "estimatedTime": "持续",
+      "triggerConditions": {
+        "required": ["项目范围", "团队规模"],
+        "optional": ["产品待办", "迭代周期"]
+      },
+      "inputTypes": ["requirements", "team_capacity", "priority"],
+      "outputTypes": ["sprint_plan", "user_stories", "velocity_metrics"],
+      "skillSequence": [
+        {"step": 1, "skill": "agile-pm-expert", "action": "backlog_creation", "required": true},
+        {"step": 2, "skill": "agile-pm-expert", "action": "sprint_planning", "required": true},
+        {"step": 3, "skill": "agile-pm-expert", "action": "daily_standup", "required": false},
+        {"step": 4, "skill": "agile-pm-expert", "action": "retrospective", "required": false}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["敏捷", "Scrum", "用户故事", "Sprint", "迭代", "燃尽图", "速度", "看板"],
+      "examplePrompts": [
+        "规划一个Sprint迭代",
+        "编写用户故事",
+        "分析团队速度和燃尽情况"
+      ],
+      "successCriteria": ["迭代目标达成", "用户故事完成", "团队持续改进"]
+    },
+    {
+      "id": "PAT018",
+      "name": "混合方法研究设计",
+      "category": "mixed-methods",
+      "description": "整合质性与量化方法，进行混合方法研究",
+      "complexity": "high",
+      "estimatedTime": "4-8周",
+      "triggerConditions": {
+        "required": ["研究问题", "方法选择理由"],
+        "optional": ["优先策略", "整合策略"]
+      },
+      "inputTypes": ["research_questions", "quantitative_data", "qualitative_data"],
+      "outputTypes": ["integrated_findings", "methodological_rationale", "triangulation"],
+      "skillSequence": [
+        {"step": 1, "skill": "mixed-methods-expert", "action": "design_selection", "required": true},
+        {"step": 2, "skill": "data-analysis-expert", "action": "quantitative_phase", "required": false},
+        {"step": 3, "skill": "thematic-analysis-expert", "action": "qualitative_phase", "required": false},
+        {"step": 4, "skill": "mixed-methods-expert", "action": "integration", "required": true}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["混合方法", "质性与量化", "方法整合", "三角验证", "顺序设计", "并行设计"],
+      "examplePrompts": [
+        "设计一个混合方法研究",
+        "整合质性和量化研究发现",
+        "进行数据三角验证"
+      ],
+      "successCriteria": ["方法选择合理", "整合策略明确", "发现相互支撑"]
+    },
+    {
+      "id": "PAT019",
+      "name": "文本挖掘与情感分析",
+      "category": "computational-research",
+      "description": "应用NLP技术进行大规模文本分析和情感分析",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["文本数据集", "分析目标"],
+        "optional": ["标注数据", "预训练模型"]
+      },
+      "inputTypes": ["text_corpus", "labels", "dictionary"],
+      "outputTypes": ["sentiment_scores", "topics", "entity_extraction"],
+      "skillSequence": [
+        {"step": 1, "skill": "nlp-text-mining-expert", "action": "preprocessing", "required": true},
+        {"step": 2, "skill": "nlp-text-mining-expert", "action": "sentiment_analysis", "required": false},
+        {"step": 3, "skill": "nlp-text-mining-expert", "action": "topic_modeling", "required": false},
+        {"step": 4, "skill": "thematic-analysis-expert", "action": "interpretation", "required": false}
+      ],
+      "alternativeSkills": ["content-analysis-expert"],
+      "keywords": ["NLP", "文本挖掘", "情感分析", "主题模型", "LDA", "命名实体", "词向量"],
+      "examplePrompts": [
+        "分析这些文本的情感倾向",
+        "用主题模型提取文本主题",
+        "进行大规模文本内容分析"
+      ],
+      "successCriteria": ["预处理规范", "模型选择合理", "结果可解释"]
+    },
+    {
+      "id": "PAT020",
+      "name": "场域分析与资本分布",
+      "category": "theoretical-research",
+      "description": "应用布迪厄场域理论分析社会空间和资本分布",
+      "complexity": "high",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["场域边界", "行动者群体"],
+        "optional": ["资本类型", "历史演变"]
+      },
+      "inputTypes": ["field_description", "actor_data", "capital_indicators"],
+      "outputTypes": ["field_structure", "capital_distribution", "habitus_patterns"],
+      "skillSequence": [
+        {"step": 1, "skill": "bourdieu-field-analysis-expert", "action": "field_boundary", "required": true},
+        {"step": 2, "skill": "bourdieu-field-analysis-expert", "action": "capital_mapping", "required": true},
+        {"step": 3, "skill": "bourdieu-field-analysis-expert", "action": "position_analysis", "required": true},
+        {"step": 4, "skill": "bourdieu-field-analysis-expert", "action": "habitus_detection", "required": false}
+      ],
+      "alternativeSkills": ["social-network-analysis-expert"],
+      "keywords": ["布迪厄", "场域", "资本", "习性", "场域分析", "文化资本", "社会资本"],
+      "examplePrompts": [
+        "用布迪厄理论分析这个场域",
+        "绘制场域中的资本分布图",
+        "分析行动者的习性和位置"
+      ],
+      "successCriteria": ["场域边界界定清晰", "资本类型分析完整", "位置关系揭示明确"]
+    },
+    {
+      "id": "PAT021",
+      "name": "蓝海战略探索",
+      "category": "strategic-management",
+      "description": "寻找无人竞争的市场空间，创造价值创新",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["行业背景", "创新目标"],
+        "optional": ["竞争格局", "客户反馈"]
+      },
+      "inputTypes": ["industry_data", "competitor_analysis", "customer_insights"],
+      "outputTypes": ["strategy_canvas", "four_actions", "blue_ocean_opportunity"],
+      "skillSequence": [
+        {"step": 1, "skill": "blue-ocean-strategy-expert", "action": "strategy_canvas", "required": true},
+        {"step": 2, "skill": "blue-ocean-strategy-expert", "action": "four_actions", "required": true},
+        {"step": 3, "skill": "blue-ocean-strategy-expert", "action": "six_paths", "required": false},
+        {"step": 4, "skill": "value-proposition-expert", "action": "value_innovation", "required": false}
+      ],
+      "alternativeSkills": ["porter-five-forces-expert"],
+      "keywords": ["蓝海战略", "价值创新", "四步动作", "战略布局图", "非客户", "无人竞争"],
+      "examplePrompts": [
+        "帮我寻找蓝海机会",
+        "用四步动作框架分析价值创新",
+        "绘制战略布局图"
+      ],
+      "successCriteria": ["价值创新明确", "战略布局图清晰", "非客户群体识别"]
+    },
+    {
+      "id": "PAT022",
+      "name": "案例研究设计",
+      "category": "mixed-methods",
+      "description": "设计单案例或多案例研究，进行深入分析",
+      "complexity": "medium",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["研究问题", "案例选择标准"],
+        "optional": ["理论框架", "数据来源"]
+      },
+      "inputTypes": ["case_selection", "data_sources", "analytic_framework"],
+      "outputTypes": ["case_description", "pattern_matching", "cross_case_analysis"],
+      "skillSequence": [
+        {"step": 1, "skill": "case-study-expert", "action": "case_selection", "required": true},
+        {"step": 2, "skill": "case-study-expert", "action": "data_collection", "required": true},
+        {"step": 3, "skill": "case-study-expert", "action": "within_case_analysis", "required": true},
+        {"step": 4, "skill": "case-study-expert", "action": "cross_case_analysis", "required": false}
+      ],
+      "alternativeSkills": ["qca-analysis-expert"],
+      "keywords": ["案例研究", "案例选择", "单案例", "多案例", "三角验证", "模式匹配"],
+      "examplePrompts": [
+        "设计一个案例研究",
+        "进行跨案例比较分析",
+        "选择合适的案例样本"
+      ],
+      "successCriteria": ["案例选择合理", "数据三角验证", "分析逻辑清晰"]
+    },
+    {
+      "id": "PAT023",
+      "name": "结构方程模型构建",
+      "category": "quantitative-research",
+      "description": "构建和验证结构方程模型，检验复杂假设关系",
+      "complexity": "high",
+      "estimatedTime": "2-4周",
+      "triggerConditions": {
+        "required": ["理论模型", "测量指标"],
+        "optional": ["样本数据", "假设关系"]
+      },
+      "inputTypes": ["measurement_model", "structural_model", "data"],
+      "outputTypes": ["model_fit", "path_coefficients", "model_comparison"],
+      "skillSequence": [
+        {"step": 1, "skill": "sem-analysis-expert", "action": "model_specification", "required": true},
+        {"step": 2, "skill": "factor-analysis-expert", "action": "measurement_validation", "required": true},
+        {"step": 3, "skill": "sem-analysis-expert", "action": "structural_estimation", "required": true},
+        {"step": 4, "skill": "sem-analysis-expert", "action": "model_evaluation", "required": false}
+      ],
+      "alternativeSkills": ["regression-analysis-expert"],
+      "keywords": ["SEM", "结构方程模型", "验证性因子分析", "路径分析", "中介效应", "模型拟合"],
+      "examplePrompts": [
+        "构建一个结构方程模型",
+        "检验中介效应",
+        "评估模型拟合度"
+      ],
+      "successCriteria": ["测量模型信效度达标", "结构模型路径显著", "模型拟合良好"]
+    },
+    {
+      "id": "PAT024",
+      "name": "媒介内容分析",
+      "category": "media-studies",
+      "description": "分析媒介内容、框架和效应",
+      "complexity": "medium",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["媒介内容", "分析维度"],
+        "optional": ["理论框架", "时间范围"]
+      },
+      "inputTypes": ["media_content", "coverage_data", "audience_feedback"],
+      "outputTypes": ["frame_analysis", "content_trends", "media_effects"],
+      "skillSequence": [
+        {"step": 1, "skill": "media-analysis-expert", "action": "frame_identification", "required": true},
+        {"step": 2, "skill": "content-analysis-expert", "action": "coding", "required": true},
+        {"step": 3, "skill": "discourse-analysis-expert", "action": "discourse_analysis", "required": false},
+        {"step": 4, "skill": "nlp-text-mining-expert", "action": "automated_analysis", "required": false}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["媒介分析", "框架分析", "媒介效应", "内容分析", "媒介生态", "跨媒介"],
+      "examplePrompts": [
+        "分析这些新闻报道的框架",
+        "研究媒介内容的趋势变化",
+        "评估媒介对公众的影响"
+      ],
+      "successCriteria": ["框架识别准确", "内容编码可靠", "效应分析有据"]
+    },
+    {
+      "id": "PAT025",
+      "name": "技能质量提升",
+      "category": "meta-skills",
+      "description": "评估和提升方法论技能的质量",
+      "complexity": "high",
+      "estimatedTime": "1-2周",
+      "triggerConditions": {
+        "required": ["目标技能", "提升目标"],
+        "optional": ["评估标准", "参考技能"]
+      },
+      "inputTypes": ["skill_files", "quality_criteria", "reference_examples"],
+      "outputTypes": ["quality_assessment", "improvement_recommendations", "enhanced_skill"],
+      "skillSequence": [
+        {"step": 1, "skill": "skill-upgrade-expert", "action": "quality_assessment", "required": true},
+        {"step": 2, "skill": "skill-upgrade-expert", "action": "gap_analysis", "required": true},
+        {"step": 3, "skill": "skill-upgrade-expert", "action": "enhancement", "required": true},
+        {"step": 4, "skill": "skill-upgrade-expert", "action": "validation", "required": false}
+      ],
+      "alternativeSkills": [],
+      "keywords": ["技能提升", "质量评估", "v5.0.0标准", "技能增强", "技能验证"],
+      "examplePrompts": [
+        "评估这个技能的质量",
+        "将技能升级到v5.0.0标准",
+        "检查技能是否符合CLI原生要求"
+      ],
+      "successCriteria": ["质量评分≥4.5", "v5.0.0标准符合", "功能完整性"]
+    }
+  ],
+  "routingAlgorithm": {
+    "version": "1.0.0",
+    "steps": [
+      {
+        "step": 1,
+        "name": "关键词匹配",
+        "description": "检测用户输入中的关键词，匹配任务模式",
+        "weight": 0.3
+      },
+      {
+        "step": 2,
+        "name": "语义相似度",
+        "description": "计算用户输入与任务模式描述的语义相似度",
+        "weight": 0.4
+      },
+      {
+        "step": 3,
+        "name": "历史偏好",
+        "description": "考虑用户历史使用偏好和成功率",
+        "weight": 0.2
+      },
+      {
+        "step": 4,
+        "name": "上下文增强",
+        "description": "结合会话上下文调整推荐结果",
+        "weight": 0.1
+      }
+    ],
+    "confidenceThreshold": 0.5,
+    "maxRecommendations": 3
+  },
+  "feedbackMechanism": {
+    "observe": {
+      "description": "记录每次技能执行的详细信息",
+      "fields": ["task_pattern", "selected_skill", "execution_time", "user_rating", "success_level"]
+    },
+    "promote": {
+      "description": "将成功经验转化为持久偏好",
+      "conditions": {
+        "success_threshold": 0.7,
+        "occurrence_threshold": 3
+      }
+    },
+    "decay": {
+      "description": "过时偏好的衰减机制",
+      "rate": 0.05,
+      "min_weight": 0.1
+    }
+  }
+}

@@ -1,0 +1,150 @@
+---
+name: survey-design-expert
+version: 5.0.0-cli-native+agent
+description: |
+  问卷设计与调查方法专家技能（AI CLI 原生版）。支持自动任务队列执行和子Agent并行处理。
+  包含完整的问卷设计流程、抽样计算、量表验证、信效度分析和试点测试。
+
+  **质量优先，科学设计**：严格遵循Dillman (2014)、Fowler (2014)、DeVellis (2016)方法论，
+  确保问卷信度≥0.7、效度≥0.8、回收率≥60%。
+
+  基于 Dillman (2014)、Fowler (2014)、DeVellis (2016) 的调查方法论。
+
+  核心能力：
+  - 问卷设计（Questionnaire Design）：结构设计、问题编写、量表选择
+  - 抽样计算（Sampling Calculation）：样本量估算、抽样策略设计
+  - 量表验证（Scale Validation）：量表开发、项目分析、因子分析
+  - 信度分析（Reliability Analysis）：Cronbach's alpha、分半信度、重测信度
+  - 效度检验（Validity Assessment）：内容效度、构念效度、效标效度
+  - 试点测试（Pilot Testing）：预调查设计、问题诊断、问卷优化
+
+  严格遵循调查方法论原则（6大绝对禁止原则）：
+  - 问题必须清晰无歧义
+  - 量表必须经过验证
+  - 抽样必须具有代表性
+  - **禁止未经预测试就发放问卷**（确保数据质量）
+  - **禁止使用有偏见的措辞**（保持中立性）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Survey Methodology (Dillman 2014, Fowler 2014, DeVellis 2016)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  crct-enabled: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "问卷设计30分钟，信效度分析15-30分钟，完整流程2-4小时"
+  parallel: "并行处理3个问卷模块，节省40%时间"
+  quality_guarantee: "信度≥0.7，效度≥0.8，回收率预测≥60%"
+
+analysis_types:
+  - questionnaire-design
+  - sampling-calculation
+  - scale-validation
+  - reliability-analysis
+  - validity-assessment
+  - pilot-testing
+  - full-survey-design
+
+category: research-design
+tags:
+  - survey design
+  - questionnaire
+  - sampling
+  - reliability
+  - validity
+  - scale development
+  - pilot testing
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 调查数据（研究目标、目标人群、变量定义等）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型（questionnaire-design/sampling-calculation/scale-validation/reliability-analysis/validity-assessment/pilot-testing/full-survey-design）
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整调查设计报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: analyze
+    description: 综合分析工具
+    module: analyze
+  - name: questionnaire-designer
+    description: 问卷设计工具（Dillman方法）
+    module: questionnaire_designer
+  - name: sampling-calculator
+    description: 样本量计算和抽样策略
+    module: sampling_calculator
+  - name: scale-validator
+    description: 量表验证工具
+    module: scale_validator
+  - name: reliability-analyzer
+    description: 信度分析（Cronbach's alpha）
+    module: reliability_analyzer
+  - name: validity-checker
+    description: 效度检验工具
+    module: validity_checker
+  - name: pilot-tester
+    description: 试点测试设计和分析
+    module: pilot_tester
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: question_clarity
+    description: 问题清晰度检查
+    rule: "所有问题必须清晰、无歧义、可回答"
+  - name: scale_reliability
+    description: 量表信度检查
+    rule: "Cronbach's alpha >= 0.7"
+  - name: scale_validity
+    description: 量表效度检查
+    rule: "内容效度指数(CVI) >= 0.8"
+  - name: sampling_adequacy
+    description: 抽样充分性检查
+    rule: "样本量必须满足统计功效要求"
+  - name: pilot_completion
+    description: 预测试完成检查
+    rule: "正式调查前必须完成预测试"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - scipy>=1.7.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

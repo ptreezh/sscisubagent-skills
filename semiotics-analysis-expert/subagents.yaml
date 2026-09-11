@@ -1,0 +1,24 @@
+subagents:
+  - id: sign_identifier
+    name: 符号识别师
+    role: 识别和分析各类符号
+    capabilities:
+      - 图像符号识别
+      - 指示符号识别
+      - 象征符号识别
+
+  - id: meaning_analyst
+    name: 意义分析师
+    role: 分析符号意义层次
+    capabilities:
+      - 表层义分析
+      - 深层义分析
+      - 神话义分析
+
+  - id: code_decoder
+    name: 代码解码师
+    role: 解读文化代码系统
+    capabilities:
+      - 社会代码分析
+      - 技术代码分析
+      - 美学代码分析

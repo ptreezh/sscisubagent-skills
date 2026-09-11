@@ -1,0 +1,141 @@
+---
+name: digital-weber-expert
+version: 5.0.0-cli-native+agent
+description: |
+  韦伯理论分析专家技能（AI CLI 原生版），支持自动任务队列执行和子Agent并行处理。
+  基于 Weber (1904-05, 1922), Kalberg (1994) 的社会学理论。
+
+  核心能力：
+  - 理性化分析（祛魅、计算理性、形式理性）
+  - 权威类型分析（传统型、魅力型、法理型）
+  - 官僚制分析（科层制、效率、非人格化）
+  - 新教伦理分析（天职观念、禁欲主义、资本主义精神）
+  - 社会行动类型分析（目的理性、价值理性、情感、传统）
+  - 地位群体分析（身份群体、生活方式、社会封闭）
+
+  严格遵循韦伯方法论原则：
+  - 理解社会学（Verstehen - 移情理解）
+  - 理想类型（Ideal Type - 概念工具）
+  - 价值中立（Value Freedom - 学术客观性）
+  - 多因决定论（Multi-causality - 因果多元性）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Weberian Sociology (Weber 1904-05, 1922)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "40分钟/案例"
+  parallel: "45分钟/10案例（8.9x加速）"
+
+analysis_types:
+  - rationalization
+  - authority-types
+  - bureaucracy
+  - protestant-ethic
+  - social-action
+  - status-groups
+
+category: social-science-analysis
+tags:
+  - weber
+  - rationalization
+  - authority
+  - bureaucracy
+  - protestant-ethic
+  - social-action
+  - verstehen
+  - ideal-type
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（历史文献、观察记录、统计数据）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: analyze-rationalization
+    description: 理性化分析（祛魅、计算理性、形式理性）
+    module: rationalization_analyzer
+  - name: analyze-authority
+    description: 权威类型分析（传统型、魅力型、法理型）
+    module: authority_analyzer
+  - name: analyze-bureaucracy
+    description: 官僚制分析（科层制、效率、非人格化）
+    module: bureaucracy_analyzer
+  - name: analyze-protestant-ethic
+    description: 新教伦理分析（天职观念、禁欲主义）
+    module: protestant_ethic_analyzer
+  - name: analyze-social-action
+    description: 社会行动类型分析（四种行动类型）
+    module: social_action_analyzer
+  - name: analyze-status-groups
+    description: 地位群体分析（身份群体、社会封闭）
+    module: status_group_analyzer
+  - name: analyze
+    description: 主分析入口
+    module: analyze
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: verstehen
+    description: 理解社会学检查
+    rule: "必须体现理解社会学方法（Verstehen）"
+  - name: ideal_type
+    description: 理想类型检查
+    rule: "必须使用理想类型进行分析"
+  - name: value_free
+    description: 价值中立检查
+    rule: "必须保持价值中立立场"
+  - name: multi_causality
+    description: 多因决定论检查
+    rule: "必须考虑多元因果解释"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)
+
+---

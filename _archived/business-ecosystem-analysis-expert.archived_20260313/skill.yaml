@@ -1,0 +1,97 @@
+#BQ|---
+#WM|name: business-ecosystem-analysis-expert
+#NS|version: 5.0.0-cli-native+agent
+#KH|description: |
+#WR|  Business Ecosystem Analysis Expert - 基于 Moore (1993), Iansiti & Levien (2004), Adner (2017)
+#BT|  支持商业生态系统分析、价值流分析、平台动态、韧性评估、利益相关者分析和创新影响评估
+#YH|
+#YQ|author: SocienceAI Methodology Expert
+#RX|license: MIT
+#WS|repository: https://github.com/socienceai/agentskills
+#JT|
+#QK|category: business-analysis
+#TS|tags:
+#PB|  - business ecosystem
+#BQ|  - moore framework
+#HV|  - value flow
+#XP|  - platform dynamics
+#MV|  - resilience
+#QZ|
+#MK|inputs:
+#SP|  data:
+#BR|    type: object
+#ZZ|    required: true
+#KQ|    description: 分析数据（JSON/CSV格式）
+#KZ|  analysis_type:
+#PJ|    type: string
+#ZZ|    required: true
+#SW|    description: 分析类型
+#KB|
+#WB|outputs:
+#YH|  results:
+#BR|    type: object
+#WH|    description: 分析结果
+#NQ|  report:
+#PJ|    type: string
+#PZ|    description: 完整生态系统分析报告
+#VB|
+#ZR|prompts:
+#WN|  system: prompts/system-prompt.md
+#JJ|
+#NP|tools:
+#RT|  - name: analyze
+#YV|    file: tools/analyze.py
+#MM|    runtime: python3
+#JQ|
+#PK|  - name: ecosystem-mapper
+#NR|    file: tools/ecosystem_mapper.py
+#YQ|    description: 映射商业生态系统行动者（keystone, dominator, niche player）
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: value-flow-analyzer
+#NR|    file: tools/value_flow_analyzer.py
+#YQ|    description: 分析生态系统内价值流动
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: platform-dynamics
+#NR|    file: tools/platform_dynamics.py
+#YQ|    description: 分析平台动态和网络效应
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: resilience-calculator
+#NR|    file: tools/resilience_calculator.py
+#YQ|    description: 计算生态系统韧性
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: stakeholder-analyzer
+#NR|    file: tools/stakeholder_analyzer.py
+#YQ|    description: 分析利益相关者位置和权力动态
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: innovation-impact-evaluator
+#NR|    file: tools/innovation_impact_evaluator.py
+#YQ|    description: 评估创新对生态系统的影响
+#HZ|    runtime: python3
+#RQ|
+#XT|planning_files:
+#WQ|  task_plan:
+#KM|    template: templates/task_plan.md.template
+#WX|    file: task_plan.md
+#RB|
+#QP|quality_checks:
+#SQ|  - name: output_check
+#KX|    description: 检查结果完整性
+#XN|    rule: "输出必须包含所有必需字段"
+#XN|
+#HV|  - name: ecosystem_structure
+#MW|    description: 生态系统结构检查
+#XB|    rule: "必须识别keystone、dominator、niche player"
+#RB|
+#BK|dependencies:
+#MN|  python: ">=3.8"
+#NN|  packages: []
+#TJ|
+#HJ|compatibility:
+#TX|  - agentskills.io
+#YQ|  - qwen-cli
+#SY|  - opencode

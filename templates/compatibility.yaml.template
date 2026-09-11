@@ -1,0 +1,131 @@
+# compatibility.yaml - CLI 兼容性配置
+# 确保 skill 可以在任何 CLI 环境中运行
+
+skill_name: {skill_name}
+version: 2.1.0
+
+# 支持的 CLI 环境
+supported_environments:
+  - name: qwen-cli
+    min_version: 1.0.0
+    config_file: qwen-skill.yaml
+    hooks_support: true
+    evolution_support: true
+  
+  - name: claude-cli
+    min_version: 1.0.0
+    config_file: claude-skill.yaml
+    hooks_support: true
+    evolution_support: true
+  
+  - name: cursor
+    min_version: 1.0.0
+    config_file: cursor-skill.yaml
+    hooks_support: true
+    evolution_support: true
+  
+  - name: web-agent
+    min_version: 1.0.0
+    config_file: web-agent-skill.yaml
+    hooks_support: false
+    evolution_support: false
+  
+  - name: standalone
+    min_version: 1.0.0
+    config_file: skill-hooks.yaml
+    hooks_support: false
+    evolution_support: true
+
+# 环境检测配置
+environment_detection:
+  # 检测方法
+  methods:
+    - type: environment_variable
+      variables:
+        QWEN_CLI: qwen-cli
+        CLAUDE_CLI: claude-cli
+        CURSOR: cursor
+      
+    - type: config_file
+      files:
+        ~/.qwen/config.yaml: qwen-cli
+        ~/.claude/config.yaml: claude-cli
+        ~/.cursor/config.yaml: cursor
+      
+    - type: command
+      commands:
+        qwen --version: qwen-cli
+        claude --version: claude-cli
+        cursor --version: cursor
+  
+  # 默认环境
+  default: standalone
+
+# 运行环境要求
+runtime_requirements:
+  python: ">=3.8"
+  node: ">=14.0.0"
+  
+  # 必需包（Python）
+  python_packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - pyyaml>=5.4.0
+  
+  # 必需包（Node.js）
+  node_packages: []
+
+# 自包含组件
+self_contained_components:
+  - soul.md: 角色定义
+  - lesson-memory.md: 教训记忆
+  - case-library/: 案例库
+  - skill-hooks.yaml: hooks 配置
+  - tools/: 分析工具
+  - templates/: 模板文件
+
+# 外部依赖
+external_dependencies: []
+
+# 文件系统要求
+filesystem_requirements:
+  # 可写权限
+  writable:
+    - lesson-memory.md
+    - case-library/
+    - logs/
+  
+  # 只读权限
+  readonly:
+    - soul.md
+    - tools/
+    - templates/
+
+# 跨平台兼容
+cross_platform:
+  windows: true
+  linux: true
+  macos: true
+  
+  # 路径分隔符自动处理
+  path_handling: auto
+  
+  # 文件编码
+  encoding: utf-8
+
+# 降级策略
+fallback_strategy:
+  # 如果 hooks 不支持
+  if_no_hooks:
+    mode: manual
+    description: 手动触发进化机制
+  
+  # 如果进化引擎不支持
+  if_no_evolution:
+    mode: basic
+    description: 仅记录教训，不自动进化
+  
+  # 如果 CLI 环境不支持
+  if_no_cli:
+    mode: standalone
+    description: 独立运行模式

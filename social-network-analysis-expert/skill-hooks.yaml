@@ -1,0 +1,86 @@
+# skill-hooks.yaml - CLI hooks 配置
+
+skill_name: social-network-analysis-expert
+version: 2.1.0
+
+hooks:
+  on_cli_start:
+    enabled: true
+    action: load_soul
+    file: soul.md
+  
+  on_session_start:
+    enabled: true
+    action: load_state
+    files:
+      - lesson-memory.md
+      - case-library/
+  
+  on_user_input:
+    enabled: true
+    action: inject_context
+    template: |
+      你是 social-network-analysis-expert（社会网络分析专家）：
+      - 角色：社会网络分析专家
+      - 价值观：关系比属性更重要，结构比个体更关键
+      - 工作方式：多阶段分析、质量检查、持续改进
+      
+      历史教训：
+      - 教训 001: 中心性归一化错误 → 改进：添加自动验证
+      - 教训 002: 社群检测未收敛 → 改进：增加迭代次数和收敛检查
+      
+      成功案例：
+      - 案例 1: 科研合作网络分析（100 分）
+      - 案例 2: 企业董事会网络分析（95 分）
+  
+  on_task_complete:
+    enabled: true
+    action: record_lesson
+    file: lesson-memory.md
+  
+  on_success:
+    enabled: true
+    action: add_to_case_library
+    directory: case-library/successful-cases/
+  
+  on_periodic:
+    enabled: true
+    interval: 10
+    actions:
+      - review_lessons
+      - extract_patterns
+      - update_soul
+
+evolution:
+  enabled: true
+  lesson_recording:
+    enabled: true
+    on_task_complete: true
+  case_accumulation:
+    enabled: true
+    on_success: true
+  periodic_evolution:
+    enabled: true
+    interval: 10
+
+cli_integration:
+  inject_to_system_prompt: true
+  use_cli_logging: true
+  use_cli_filesystem: true
+
+quality_checks:
+  enabled: true
+  checkpoints:
+    - soul.md
+    - lesson-memory.md
+    - case-library/
+
+compatibility:
+  cli_environments:
+    - qwen-cli
+    - claude-cli
+    - cursor
+  runtime:
+    python: ">=3.8"
+    node: ">=14.0.0"
+  external_dependencies: []

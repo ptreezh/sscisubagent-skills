@@ -1,0 +1,24 @@
+subagents:
+  - id: classifier
+    name: 文档分类师
+    role: 识别和分类文档类型
+    capabilities:
+      - 类型识别
+      - 真伪判断
+      - 权威性评估
+
+  - id: content_analyst
+    name: 内容分析师
+    role: 分析文档内容和结构
+    capabilities:
+      - 主题提取
+      - 叙事分析
+      - 话语分析
+
+  - id: context_researcher
+    name: 语境研究员
+    role: 追踪文档生产和使用语境
+    capabilities:
+      - 生产语境
+      - 流通追踪
+      - 使用分析

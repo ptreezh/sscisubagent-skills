@@ -1,0 +1,125 @@
+# 蓝海战略专家子智能体配置
+# Blue Ocean Strategy Expert Subagents Configuration
+# Version: 5.0.0-cli-native+agent
+
+subagents:
+  - id: red-sea-analyst
+    name: 红海诊断分析师
+    description: |
+      专注于红海竞争环境诊断，绘制战略布局图，识别竞争焦点和差异化机会。
+    capabilities:
+      - 竞争要素识别与分析
+      - 战略布局图绘制
+      - 竞争强度评估
+      - 差异化缺口分析
+    triggers:
+      - "红海分析"
+      - "竞争分析"
+      - "战略布局图"
+      - "竞争诊断"
+
+  - id: six-paths-explorer
+    name: 六条路径探索者
+    description: |
+      系统探索六条蓝海路径，识别价值创新机会和新市场空间。
+    capabilities:
+      - 替代性行业分析
+      - 战略集团跨越分析
+      - 买方链重构分析
+      - 互补产品服务发现
+      - 功能-情感导向转换
+      - 趋势机会识别
+    triggers:
+      - "六条路径"
+      - "蓝海机会"
+      - "新市场空间"
+      - "价值创新"
+
+  - id: four-actions-architect
+    name: 四步动作架构师
+    description: |
+      设计和优化四步动作框架方案，平衡价值创新与成本控制。
+    capabilities:
+      - 要素剔除决策分析
+      - 要素减少优化
+      - 要素增加策略设计
+      - 新要素创造方案
+      - 价值曲线重设计
+    triggers:
+      - "四步动作"
+      - "剔除减少增加创造"
+      - "价值曲线"
+      - "ERRC框架"
+
+  - id: noncustomer-researcher
+    name: 非客户研究专家
+    description: |
+      识别和分析三层非客户群体，挖掘潜在需求和市场机会。
+    capabilities:
+      - 准非客户分析
+      - 拒绝型非客户分析
+      - 未探索非客户分析
+      - 潜在需求挖掘
+      - 新客户群体定义
+    triggers:
+      - "非客户"
+      - "潜在客户"
+      - "新市场群体"
+      - "客户扩展"
+
+  - id: sustainability-validator
+    name: 可持续性验证专家
+    description: |
+      验证蓝海战略的可持续性，识别模仿壁垒和竞争优势。
+    capabilities:
+      - 可模仿性评估
+      - 竞争壁垒分析
+      - 品牌护城河评估
+      - 持续创新路径设计
+    triggers:
+      - "可持续性"
+      - "竞争壁垒"
+      - "护城河"
+      - "模仿风险"
+
+# 子智能体协作模式
+collaboration_patterns:
+  sequential:
+    description: 顺序执行模式
+    flow:
+      - red-sea-analyst
+      - six-paths-explorer
+      - four-actions-architect
+      - noncustomer-researcher
+      - sustainability-validator
+    use_case: 完整蓝海战略分析
+
+  parallel:
+    description: 并行执行模式
+    groups:
+      - [red-sea-analyst, six-paths-explorer]
+      - [four-actions-architect, noncustomer-researcher]
+      - [sustainability-validator]
+    use_case: 快速诊断和机会识别
+
+  focused:
+    description: 聚焦执行模式
+    single_agent: true
+    use_case: 针对特定问题的深度分析
+
+# 子智能体工具配置
+tools:
+  - name: strategy_canvas_generator
+    type: visualization
+    description: 生成战略布局图可视化
+    agent: red-sea-analyst
+
+  - name: four_actions_calculator
+    type: analysis
+    description: 四步动作成本收益计算
+    agent: four-actions-architect
+
+  - name: noncustomer_segment_analyzer
+    type: analysis
+    description: 非客户群体细分分析
+    agent: noncustomer-researcher

@@ -1,0 +1,202 @@
+{
+  "current_skill": null,
+  "completed": [
+    {
+      "skill": "grounded-theory-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "social-network-analysis-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "actor-network-analysis-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "bourdieu-field-analysis-expert",
+      "score": 35,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "digital-marx-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "digital-durkheim-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "digital-weber-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "msqca-analysis-expert",
+      "score": 35,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "did-analysis-expert",
+      "score": 35,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "data-analysis-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "business-ecosystem-analysis-expert",
+      "score": 35,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "business-model-analysis-expert",
+      "score": 35,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "survey-design-expert",
+      "score": 65,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "grounded-theory-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "social-network-analysis-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "actor-network-analysis-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "bourdieu-field-analysis-expert",
+      "score": 51,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "digital-marx-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "digital-durkheim-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "digital-weber-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "msqca-analysis-expert",
+      "score": 51,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "did-analysis-expert",
+      "score": 51,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "data-analysis-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "business-ecosystem-analysis-expert",
+      "score": 51,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "business-model-analysis-expert",
+      "score": 51,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "survey-design-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "grounded-theory-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "social-network-analysis-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "actor-network-analysis-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "bourdieu-field-analysis-expert",
+      "score": 78,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "digital-marx-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "digital-durkheim-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "digital-weber-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "msqca-analysis-expert",
+      "score": 78,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "did-analysis-expert",
+      "score": 78,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "data-analysis-expert",
+      "score": 100,
+      "status": "pass"
+    },
+    {
+      "skill": "business-ecosystem-analysis-expert",
+      "score": 78,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "business-model-analysis-expert",
+      "score": 78,
+      "status": "needs_improvement"
+    },
+    {
+      "skill": "survey-design-expert",
+      "score": 100,
+      "status": "pass"
+    }
+  ],
+  "failed": [],
+  "results": {}
+}

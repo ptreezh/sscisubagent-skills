@@ -1,0 +1,41 @@
+# Longitudinal Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: long-trajectory
+    name: 轨迹分析师
+    role: 分析变化轨迹形状
+    triggers:
+      - "轨迹"
+      - "增长模型"
+      - "变化"
+
+  - id: long-crosslag
+    name: 交叉滞后分析师
+    role: 构建交叉滞后模型
+    triggers:
+      - "交叉滞后"
+      - "因果"
+      - "双向"
+
+  - id: long-missing
+    name: 缺失数据处理师
+    role: 处理纵向数据缺失
+    triggers:
+      - "缺失"
+      - "流失"
+      - "FIML"
+
+workflow:
+  - step: 1
+    action: "数据结构检验"
+  - step: 2
+    action: "缺失数据分析"
+  - step: 3
+    action: "时间编码选择"
+  - step: 4
+    action: "轨迹模型构建"
+  - step: 5
+    action: "模型比较与选择"
+  - step: 6
+    action: "结果解释与报告"

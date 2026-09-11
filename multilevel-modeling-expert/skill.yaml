@@ -1,0 +1,36 @@
+# Multilevel Modeling Expert - Skill Configuration
+name: multilevel-modeling-expert
+version: "5.0.0"
+description: "多层模型分析专家"
+
+model_types:
+  random_intercept:
+    name: "随机截距模型"
+    formula: "Yij = γ00 + γ10Xij + u0j + rij"
+  
+  random_slope:
+    name: "随机斜率模型"
+    formula: "Yij = γ00 + γ10Xij + u0j + u1jXij + rij"
+  
+  cross_level:
+    name: "跨层交互模型"
+    formula: "β1j = γ10 + γ11Wj + u1j"
+  
+  growth_curve:
+    name: "增长曲线模型"
+    formula: "Yti = π0i + π1i(Time)ti + eti"
+
+centering:
+  grand_mean: "总均值中心化"
+  group_mean: "组均值中心化"
+  no_centering: "原始尺度"
+
+fit_indices:
+  - AIC: "越小越好"
+  - BIC: "越小越好"
+  - logLik: "越大越好"
+  - ICC: "组内相关系数"
+
+variance_components:
+  tau_squared: "层2方差"
+  sigma_squared: "层1方差"

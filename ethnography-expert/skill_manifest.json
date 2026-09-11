@@ -1,0 +1,117 @@
+{
+  "name": "ethnography-expert",
+  "version": "5.0.0-cli-native+agent",
+  "description": "民族志专家。提供系统化田野调查方法，支持参与观察、深度访谈、田野笔记、文化描述分析。核心能力包括：田野进入策略、关键报道人识别、文化模式分析、深描(Thick Description)、主位/客位分析。遵循Geertz解释性方法和Malinowski传统。",
+  "license": "MIT",
+  "compatibility": {
+    "python": "3.8+",
+    "ai_cli": [
+      "Claude",
+      "Qwen",
+      "iFlow",
+      "Gemini",
+      "Copilot",
+      "Stigmergy",
+      "OpenCode",
+      "KiloCode",
+      "QoderCLI",
+      "WorkBuddy",
+      "Cursor",
+      "Windsurf",
+      "龙虾",
+      "QClaw"
+    ],
+    "agentskills_io": "v1.0"
+  },
+  "metadata": {
+    "methodology": "Geertz (1973), Malinowski (1922), Hammersley & Atkinson (2007)",
+    "domain": "社会科学研究方法/质性研究",
+    "category": "research-methodology",
+    "subagent_support": true,
+    "cross_platform": true
+  },
+  "capabilities": [
+    "田野进入策略设计",
+    "参与观察实施",
+    "深度访谈技术",
+    "田野笔记管理",
+    "文化模式分析",
+    "深描写作",
+    "主位/客位分析",
+    "多点民族志"
+  ],
+  "files": {
+    "required": [
+      "SKILL.md",
+      "skill.yaml",
+      "skill_manifest.json"
+    ],
+    "recommended": [
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "prompts/system-prompt.md",
+      "references/detailed-guide.md",
+      "subagents.yaml"
+    ],
+    "optional": [
+      "tools/fieldnote_manager.py",
+      "tools/cultural_pattern_analyzer.py",
+      "tools/key_informant_tracker.py",
+      "templates/fieldwork-protocol-template.md",
+      "experience/best-practices.md"
+    ]
+  },
+  "quality_metrics": {
+    "file_completeness": "15/15 (100%)",
+    "methodology_alignment": "Geertz解释性方法",
+    "classic_literature": [
+      "Geertz (1973)",
+      "Malinowski (1922)",
+      "Hammersley & Atkinson (2007)",
+      "Emerson, Fretz & Shaw (2011)",
+      "Marcus (1998)"
+    ],
+    "validation_status": "pending"
+  },
+  "six_forbidden_principles": [
+    "禁止肤浅观察 - 民族志要求长期深入的田野工作",
+    "禁止单一视角 - 必须整合主位与客位分析",
+    "禁止忽视伦理 - 研究者必须保护参与者权益",
+    "禁止预设结论 - 必须让田野材料引导发现",
+    "禁止脱离情境 - 文化意义必须在情境中理解",
+    "禁止单薄描述 - 必须进行深描而非薄描"
+  ],
+  "tools": [
+    {
+      "name": "fieldnote_manager.py",
+      "description": "田野笔记管理与编码工具"
+    },
+    {
+      "name": "cultural_pattern_analyzer.py",
+      "description": "文化模式识别与分析工具"
+    },
+    {
+      "name": "key_informant_tracker.py",
+      "description": "关键报道人管理工具"
+    }
+  ],
+  "subagents": [
+    {
+      "id": "ethnography-designer",
+      "name": "田野设计师",
+      "role": "设计田野调查方案"
+    },
+    {
+      "id": "fieldwork-collector",
+      "name": "田野工作者",
+      "role": "参与观察与数据收集"
+    },
+    {
+      "id": "culture-analyst",
+      "name": "文化分析师",
+      "role": "文化模式分析与深描写作"
+    }
+  ],
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15"
+}

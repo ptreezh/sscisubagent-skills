@@ -1,0 +1,37 @@
+# Factor Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: fa-extractor
+    name: 因子提取器
+    role: 执行因子提取和旋转
+    triggers:
+      - "因子提取"
+      - "旋转"
+
+  - id: fa-fit-evaluator
+    name: 拟合评估器
+    role: 评估CFA模型拟合
+    triggers:
+      - "拟合指标"
+      - "模型评估"
+
+  - id: fa-reliability
+    name: 信效度计算器
+    role: 计算信度和效度指标
+    triggers:
+      - "信度"
+      - "效度"
+      - "alpha系数"
+
+workflow:
+  - step: 1
+    action: "适用性检验(KMO, Bartlett)"
+  - step: 2
+    action: "因子数确定"
+  - step: 3
+    action: "因子提取与旋转"
+  - step: 4
+    action: "信效度评估"
+  - step: 5
+    action: "结果解释与报告"

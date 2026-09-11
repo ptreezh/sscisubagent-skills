@@ -1,0 +1,32 @@
+# Social Sequence Analysis Expert - Skill Configuration
+name: social-sequence-analysis-expert
+version: "5.0.0"
+description: "社会序列分析专家"
+
+distance_methods:
+  optimal_matching:
+    name: "最优匹配"
+    operations: ["插入", "删除", "替换"]
+  hamming:
+    name: "汉明距离"
+    constraint: "等长序列"
+  lcs:
+    name: "最长公共子序列"
+    focus: "模式匹配"
+
+sequence_metrics:
+  - duration: "状态持续时间"
+  - transitions: "转换次数"
+  - entropy: "序列熵"
+  - turbulence: "动荡指数"
+
+clustering_methods:
+  - hierarchical: "层次聚类"
+  - kmedoids: "K-medoids"
+  - latent_class: "潜在类别"
+
+visualization:
+  - index_plot: "序列索引图"
+  - state_distribution: "状态分布图"
+  - transition_diagram: "转换图"
+  - representative_sequences: "代表序列"

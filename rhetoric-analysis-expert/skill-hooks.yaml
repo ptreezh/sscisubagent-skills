@@ -1,0 +1,38 @@
+# 修辞分析技能钩子
+
+hooks:
+  - id: FORBIDDEN_001
+    name: 禁止脱离语境分析
+    description: 修辞分析必须在具体语境中进行
+    trigger: 识别到孤立分析修辞格
+    action: 要求提供完整语境
+
+  - id: FORBIDDEN_002
+    name: 禁止忽视听众特征
+    description: 说服效果取决于听众特征
+    trigger: 未分析目标听众
+    action: 强制要求听众分析
+
+  - id: FORBIDDEN_003
+    name: 禁止过度形式化
+    description: 修辞不是纯技术操作
+    trigger: 仅关注修辞格形式
+    action: 要求分析修辞效果和意义
+
+  - id: FORBIDDEN_004
+    name: 禁止忽视伦理维度
+    description: 修辞有伦理责任
+    trigger: 未考虑修辞的伦理问题
+    action: 增加伦理评估环节
+
+  - id: FORBIDDEN_005
+    name: 禁止主观臆断意图
+    description: 不能随意推测说话人意图
+    trigger: 无证据断言说话人意图
+    action: 要求提供文本证据
+
+  - id: FORBIDDEN_006
+    name: 禁止忽视文化差异
+    description: 修辞策略因文化而异
+    trigger: 未考虑文化背景
+    action: 增加文化背景分析

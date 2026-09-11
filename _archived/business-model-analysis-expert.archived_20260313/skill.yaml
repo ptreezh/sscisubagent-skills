@@ -1,0 +1,92 @@
+#BQ|---
+#NX|name: business-model-analysis-expert
+#NS|version: 5.0.0-cli-native+agent
+#KH|description: |
+#PJ|  Business Model Analysis Expert - 基于 Osterwalder & Pigneur 框架
+#BT|  支持商业模式分析、模式识别、验证、收入建模、客户细分、画布生成、SWOT分析
+#YH|
+#YQ|author: SocienceAI Methodology Expert
+#RX|license: MIT
+#WS|repository: https://github.com/socienceai/agentskills
+#JT|
+#QK|category: business-analysis
+#TS|tags:
+#BR|  - business model
+#BQ|  - canvas
+#HV|  - analysis
+#XP|  - swot
+#MV|
+#MK|inputs:
+#SP|  data:
+#BR|    type: object
+#ZZ|    required: true
+#KQ|    description: 商业模式数据
+#KZ|  analysis_type:
+#PJ|    type: string
+#ZZ|    required: true
+#SW|    description: 分析类型
+#YT|
+#WB|outputs:
+#YH|  results:
+#BR|    type: object
+#WH|    description: 分析结果
+#NQ|  report:
+#PJ|    type: string
+#PZ|    description: 完整分析报告
+#VB|
+#ZR|prompts:
+#WN|  system: prompts/system-prompt.md
+#JJ|
+#NP|tools:
+#RT|  - name: analyze
+#YV|    file: tools/analyze.py
+#MM|    runtime: python3
+#JQ|
+#PK|  - name: pattern-analyzer
+#NR|    file: tools/pattern_analyzer.py
+#YQ|    description: 识别商业模式模式（平台、订阅、市场等）
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: model-validator
+#NR|    file: tools/model_validator.py
+#YQ|    description: 验证商业模式完整性
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: revenue-modeler
+#NR|    file: tools/revenue_modeler.py
+#YQ|    description: 建模收入流场景
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: segment-profiler
+#NR|    file: tools/segment_profiler.py
+#YQ|    description: 分析客户细分
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: canvas-generator
+#NR|    file: tools/canvas_generator.py
+#YQ|    description: 生成商业模式画布
+#HZ|    runtime: python3
+#RQ|
+#PK|  - name: swot-analyzer
+#NR|    file: tools/swot_analyzer.py
+#YQ|    description: SWOT分析
+#HZ|    runtime: python3
+#RQ|
+#XT|planning_files:
+#WQ|  task_plan:
+#KM|    template: templates/task_plan.md.template
+#WX|    file: task_plan.md
+#RB|
+#QP|quality_checks:
+#SQ|  - name: output_check
+#KX|    description: 检查结果完整性
+#XN|    rule: "输出必须包含所有必需字段"
+#XN|
+#BK|dependencies:
+#MN|  python: ">=3.8"
+#NN|  packages: []
+#TJ|
+#HJ|compatibility:
+#TX|  - agentskills.io
+#YQ|  - qwen-cli
+#SY|  - opencode

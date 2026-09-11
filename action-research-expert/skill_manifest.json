@@ -1,0 +1,115 @@
+{
+  "name": "action-research-expert",
+  "version": "5.0.0-cli-native+agent",
+  "description": "行动研究专家。提供系统化行动研究方法，支持参与式行动研究(PAR)、协作行动研究、实践者研究、行动学习。核心能力包括：问题诊断、行动规划、循环迭代、反思实践、知识共创。",
+  "license": "MIT",
+  "compatibility": {
+    "python": "3.8+",
+    "ai_cli": [
+      "Claude",
+      "Qwen", 
+      "iFlow",
+      "Gemini",
+      "Copilot",
+      "Stigmergy",
+      "OpenCode",
+      "KiloCode",
+      "QoderCLI",
+      "WorkBuddy",
+      "Cursor",
+      "Windsurf",
+      "龙虾",
+      "QClaw"
+    ],
+    "agentskills_io": "v1.0"
+  },
+  "metadata": {
+    "methodology": "Kemmis & McTaggart (1988), Reason & Bradbury (2008)",
+    "domain": "社会科学研究方法/质性研究",
+    "category": "research-methodology",
+    "subagent_support": true,
+    "cross_platform": true
+  },
+  "capabilities": [
+    "问题诊断与界定",
+    "行动干预设计",
+    "螺旋式循环迭代",
+    "批判性反思引导",
+    "参与式协作研究",
+    "知识共创与外化"
+  ],
+  "files": {
+    "required": [
+      "SKILL.md",
+      "skill.yaml",
+      "skill_manifest.json"
+    ],
+    "recommended": [
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "prompts/system-prompt.md",
+      "references/detailed-guide.md",
+      "subagents.yaml"
+    ],
+    "optional": [
+      "tools/cycle_tracker.py",
+      "tools/problem_diagnoser.py",
+      "tools/reflection_guide.py",
+      "templates/action-research-plan-template.md",
+      "experience/best-practices.md"
+    ]
+  },
+  "quality_metrics": {
+    "file_completeness": "15/15 (100%)",
+    "methodology_alignment": "Kemmis & McTaggart螺旋模型",
+    "classic_literature": [
+      "Lewin (1946)",
+      "Kemmis & McTaggart (1988)",
+      "Reason & Bradbury (2008)",
+      "Stringer (2014)",
+      "McNiff (2013)"
+    ],
+    "validation_status": "pending"
+  },
+  "six_forbidden_principles": [
+    "禁止脱离实践情境 - 行动研究必须在真实情境中进行",
+    "禁止研究者独占控制权 - 必须有利益相关者参与",
+    "禁止跳过反思阶段 - 反思是行动研究的核心",
+    "禁止忽视伦理问题 - 参与者的权益必须得到保护",
+    "禁止追求普遍规律 - 行动研究产生情境性知识",
+    "禁止单轮结束研究 - 必须进行多轮螺旋迭代"
+  ],
+  "tools": [
+    {
+      "name": "cycle_tracker.py",
+      "description": "追踪行动研究多轮循环的进展和数据"
+    },
+    {
+      "name": "problem_diagnoser.py",
+      "description": "行动研究问题诊断分析"
+    },
+    {
+      "name": "reflection_guide.py",
+      "description": "行动研究反思引导工具"
+    }
+  ],
+  "subagents": [
+    {
+      "id": "ar-diagnoser",
+      "name": "问题诊断师",
+      "role": "诊断实践问题"
+    },
+    {
+      "id": "ar-planner",
+      "name": "行动规划师",
+      "role": "制定行动干预计划"
+    },
+    {
+      "id": "ar-reflector",
+      "name": "反思引导师",
+      "role": "引导批判性反思"
+    }
+  ],
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15"
+}

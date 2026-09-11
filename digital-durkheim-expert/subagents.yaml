@@ -1,0 +1,151 @@
+# Durkheim Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Social Facts Identification Agent
+  - name: durkheim-social-facts-identifier
+    description: 识别并分析社会事实的三维特征（外在性、强制性、普遍性）
+    prompt_template: prompts/social-facts-identification-prompt.md
+    tools:
+      - social_facts_identifier
+    output_format: json
+    quality_checks:
+      - externality_score >= 0.6
+      - coerciveness_score >= 0.6
+      - generality_score >= 0.4
+
+  # Suicide Type Analysis Agent
+  - name: durkheim-suicide-analyzer
+    description: 分析自杀类型（利己型、利他型、失范型、宿命型）
+    prompt_template: prompts/suicide-type-analysis-prompt.md
+    tools:
+      - suicide_type_analyzer
+      - social_integration_measurer
+    output_format: json
+    quality_checks:
+      - integration_level_identified
+      - suicide_type_classified
+      - social_evidence_provided
+
+  # Anomie Assessment Agent
+  - name: durkheim-anomie-assessor
+    description: 评估失范程度和规范缺失状态
+    prompt_template: prompts/anomie-assessment-prompt.md
+    tools:
+      - anomie_calculator
+      - collective_consciousness_analyzer
+    output_format: json
+    quality_checks:
+      - norm_regulation_level_measured
+      - anomie_degree_calculated
+      - rapid_change_context_analyzed
+
+  # Solidarity Analysis Agent
+  - name: durkheim-solidarity-analyzer
+    description: 分析团结类型（机械团结 vs 有机团结）
+    prompt_template: prompts/solidarity-analysis-prompt.md
+    tools:
+      - solidarity_analyzer
+      - collective_consciousness_analyzer
+    output_format: json
+    quality_checks:
+      - solidarity_type_classified
+      - collective_conscience_level_measured
+      - differentiation_degree_analyzed
+
+  # Comprehensive Analysis Agent (Full Mode)
+  - name: durkheim-comprehensive-analyzer
+    description: 完整涂尔干分析（所有维度）
+    prompt_template: prompts/comprehensive-analysis-prompt.md
+    tools:
+      - social_facts_identifier
+      - suicide_type_analyzer
+      - anomie_calculator
+      - solidarity_analyzer
+      - collective_consciousness_analyzer
+      - social_integration_measurer
+    output_format: markdown
+    execution_mode: sequential
+    quality_checks:
+      - all_dimensions_analyzed
+      - multi_level_analysis_completed
+      - theoretical_background_included
+      - comparative_analysis_conducted
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 5
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 3
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 3
+  verification_steps:
+    - tool_output_validation
+    - theoretical_correctness_check
+    - analysis_level_verification
+    - data_manifest_check
+
+  strict_prohibitions:
+    - no_completion_without_verification
+    - no_pursuit_of_completion_feeling
+    - no_sacrificing_quality_for_efficiency
+    - noSkipping_verification_steps
+
+# Early Stopping Rules (Quality-Preserving)
+early_stopping:
+  enabled: true
+  conditions:
+    - user_explicitly_requested_single_analysis
+    - all_required_verification_passed
+    - tool_returned_complete_results
+  prohibited_conditions:
+    - incomplete_verification
+    - missing_quality_checks
+    - user_requested_comprehensive_analysis
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("识别社会事实") or user_request_contains("社会事实识别")
+      then: fast_mode
+      execution: single_agent(durkheim-social-facts-identifier)
+      estimated_time: "2-5 minutes"
+
+    - if: user_request_contains("分析自杀类型") or user_request_contains("自杀类型")
+      then: fast_mode
+      execution: single_agent(durkheim-suicide-analyzer)
+      estimated_time: "3-5 minutes"
+
+    - if: user_request_contains("失范") or user_request_contains("规范缺失")
+      then: fast_mode
+      execution: single_agent(durkheim-anomie-assessor)
+      estimated_time: "2-5 minutes"
+
+    - if: user_request_contains_any(["完整分析", "综合分析", "全面分析", "涂尔干分析"])
+      then: full_mode
+      execution: sequential_agents(all_5_agents)
+      estimated_time: "40-50 minutes"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes

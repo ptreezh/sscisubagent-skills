@@ -1,0 +1,24 @@
+subagents:
+  - id: ethnographer
+    name: 网络民族志师
+    role: 进行在线社区民族志研究
+    capabilities:
+      - 参与观察
+      - 文化解读
+      - 身份分析
+
+  - id: data_analyst
+    name: 数字痕迹分析师
+    role: 分析网络行为数字痕迹
+    capabilities:
+      - 数据收集
+      - 模式识别
+      - 网络分析
+
+  - id: interviewer
+    name: 网络访谈师
+    role: 进行在线质性访谈
+    capabilities:
+      - 同步访谈
+      - 异步访谈
+      - 多模态访谈

@@ -1,0 +1,53 @@
+# Porter Five Forces Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: rivalry-analyzer
+    name: 竞争强度分析师
+    role: 分析现有竞争者竞争强度
+    triggers:
+      - "竞争"
+      - "竞争者"
+      - "竞争强度"
+
+  - id: entry-analyzer
+    name: 进入壁垒分析师
+    role: 分析潜在进入者威胁
+    triggers:
+      - "进入壁垒"
+      - "新进入者"
+      - "进入威胁"
+
+  - id: substitute-analyzer
+    name: 替代品分析师
+    role: 分析替代品威胁
+    triggers:
+      - "替代品"
+      - "替代威胁"
+
+  - id: supplier-analyzer
+    name: 供应商分析师
+    role: 分析供应商议价能力
+    triggers:
+      - "供应商"
+      - "供应"
+
+  - id: buyer-analyzer
+    name: 买方分析师
+    role: 分析买方议价能力
+    triggers:
+      - "买方"
+      - "客户"
+      - "消费者"
+
+workflow:
+  - step: 1
+    action: "行业界定"
+  - step: 2
+    action: "五力逐一分析"
+  - step: 3
+    action: "强度评分"
+  - step: 4
+    action: "行业吸引力评估"
+  - step: 5
+    action: "战略建议生成"

@@ -1,0 +1,44 @@
+name: conversation-analysis-expert
+version: 1.0.0
+description: 会话分析专家技能，基于Sacks, Schegloff, Jefferson方法论
+author: SocienceAI
+created: 2026-03-15
+
+methodology:
+  - Sacks, Schegloff & Jefferson (1974) - 话轮转换系统
+  - Schegloff (2007) - 序列组织
+  - Heritage (2012) - 机构互动
+  - Sidnell (2010) - 会话分析手册
+
+capabilities:
+  - 话轮构建分析
+  - 话轮分配分析
+  - 序列组织分析
+  - 修复机制识别
+  - 偏好组织分析
+  - 机构对话分析
+
+tools:
+  - turn_taker.py
+  - sequence_analyzer.py
+  - repair_detector.py
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止脱离语境解释
+    description: 所有分析必须基于话语出现的具体语境
+  - id: FORBIDDEN_002
+    name: 禁止预设意图
+    description: 不得预设参与者的意图，必须从可观察行为推断
+  - id: FORBIDDEN_003
+    name: 禁止忽视转换细节
+    description: 话轮转换的时序细节必须详细记录
+  - id: FORBIDDEN_004
+    name: 禁止跳过转写验证
+    description: 转写必须经过验证才能用于分析
+  - id: FORBIDDEN_005
+    name: 禁止过度理论化
+    description: 分析必须扎根于数据，避免过度理论推断
+  - id: FORBIDDEN_006
+    name: 禁止忽视参与者视角
+    description: 必须考虑参与者自身对互动的理解

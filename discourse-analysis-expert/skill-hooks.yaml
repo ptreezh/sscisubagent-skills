@@ -1,0 +1,201 @@
+# 话语分析专家 - 技能钩子配置
+
+## 基本配置
+skill_name: discourse-analysis-expert
+version: "5.0.0"
+methodology: "Fairclough (2010), van Dijk (2008), Wodak (2015)"
+
+## CRCT思维链配置
+crct_config:
+  constant_comparison:
+    enabled: true
+    description: "持续比较文本特征与社会实践，确保分析的社会意义"
+  
+  record:
+    enabled: true
+    persistence: "session"
+    path: "data/sessions/{session_id}/discourse_records/"
+  
+  chain:
+    enabled: true
+    max_chain_length: 50
+  
+  trace:
+    enabled: true
+    trace_level: "detailed"
+
+## 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: "data/sessions/{session_id}/discourse/"
+    retention: "session_end"
+    contents:
+      - "texts/"
+      - "text_analysis/"
+      - "discourse_practice/"
+      - "social_practice/"
+  
+  project:
+    enabled: true
+    path: "data/projects/{project_id}/discourse/"
+    retention: "project_end"
+    contents:
+      - "corpus/"
+      - "analysis_results/"
+      - "cross_text_analysis/"
+      - "reports/"
+  
+  learning:
+    enabled: true
+    path: "data/learning/discourse-analysis/"
+    retention: "permanent"
+    contents:
+      - "discourse_patterns/"
+      - "ideology_indicators/"
+      - "power_patterns/"
+
+## 6大绝对禁止原则
+six_forbidden_principles:
+  - principle: "禁止脱离社会语境分析文本"
+    description: "CDA的核心是文本与社会实践的连接，不可孤立分析语言"
+    detection_keywords: ["纯语言学", "不考虑语境", "仅从文本"]
+    
+  - principle: "禁止忽视权力维度"
+    description: "权力是CDA的核心关切，分析必须关注权力关系"
+    detection_keywords: ["中立分析", "客观描述", "不涉及权力"]
+    
+  - principle: "禁止技术主义倾向"
+    description: "语言分析是手段而非目的，必须连接社会意义"
+    detection_keywords: ["仅做词汇统计", "纯粹语法分析", "技术层面"]
+    
+  - principle: "禁止预设政治立场"
+    description: "分析应基于证据，不可强加研究者立场"
+    detection_keywords: ["证明我的观点", "支持某立场", "批判目标"]
+    
+  - principle: "禁止忽视历史维度"
+    description: "话语有历史性，分析需考虑话语的历史演变"
+    detection_keywords: ["孤立分析", "不考虑历史", "静态分析"]
+    
+  - principle: "禁止过度解读"
+    description: "分析应有文本证据支撑，不可做无根据推论"
+    detection_keywords: ["推测", "可能暗示", "隐含意义"]
+
+## 分析阶段钩子
+analysis_hooks:
+  pre_analysis:
+    - name: "verify_social_relevance"
+      action: "验证文本的社会相关性"
+      
+    - name: "collect_context_information"
+      action: "收集语境信息"
+      
+  during_analysis:
+    - name: "ensure_three_dimensions"
+      action: "确保三个分析维度都有覆盖"
+      
+    - name: "link_text_to_practice"
+      action: "连接文本分析与话语实践"
+      
+    - name: "check_forbidden_principles"
+      action: "检查是否违反禁止原则"
+      
+  post_analysis:
+    - name: "validate_evidence"
+      action: "验证分析有文本证据"
+      
+    - name: "check_social_connection"
+      action: "检查是否连接社会实践"
+      
+    - name: "generate_critical_insights"
+      action: "生成批判性洞见"
+
+## 工具调用钩子
+tool_hooks:
+  text_analyzer:
+    pre_call:
+      - "确认文本已准备"
+    post_call:
+      - "确保连接社会实践解读"
+      - "不只停留在技术描述"
+      
+  discourse_strategy:
+    pre_call:
+      - "确认文本已分析"
+    post_call:
+      - "验证策略识别有证据"
+      - "分析策略的社会功能"
+      
+  power_analyzer:
+    pre_call:
+      - "确认已完成文本分析"
+    post_call:
+      - "验证权力分析有依据"
+      - "避免过度解读"
+
+## 质量检查点
+quality_checkpoints:
+  text_level:
+    - "词汇分析是否有社会意义解读"
+    - "语法分析是否连接权力关系"
+    - "隐喻分析是否揭示意识形态"
+    
+  discourse_practice_level:
+    - "互文性分析是否说明功能"
+    - "话语生产分析是否完整"
+    - "话语消费分析是否考虑"
+    
+  social_practice_level:
+    - "意识形态分析是否有证据"
+    - "权力分析是否基于文本"
+    - "社会变革分析是否合理"
+
+## 输出格式配置
+output_formats:
+  text_analysis:
+    template: "three_column_table"
+    includes:
+      - "文本特征"
+      - "分析解读"
+      - "社会意义"
+      
+  discourse_practice:
+    template: "production_consumption_analysis"
+    includes:
+      - "话语生产条件"
+      - "互文性分析"
+      - "话语消费方式"
+      
+  social_practice:
+    template: "critical_analysis"
+    includes:
+      - "意识形态效果"
+      - "权力关系分析"
+      - "变革可能性"
+
+## 会话管理
+session_management:
+  max_session_duration: "4h"
+  checkpoint_interval: "30min"
+  auto_save: true
+  
+  context_management:
+    max_texts_per_session: 5
+    preserve_analysis_history: true
+    enable_session_resume: true
+
+## 学习与进化
+learning_config:
+  pattern_learning: true
+  ideology_indicator_learning: true
+  power_pattern_evolution: true
+  
+  evolution_triggers:
+    - "每10个文本分析后更新模式库"
+    - "发现新意识形态指标时扩展"
+    - "质量问题出现时更新检查点"
+
+---
+**配置版本**: 1.0.0
+**创建时间**: 2026-03-15
+**维护者**: 话语分析专家技能
