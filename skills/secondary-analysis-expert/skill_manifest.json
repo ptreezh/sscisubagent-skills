@@ -1,0 +1,30 @@
+{
+  "skill_id": "secondary-analysis-expert",
+  "name": "二手数据分析专家",
+  "version": "1.0.0",
+  "description": "基于Kiecolt, Nathan, Riley方法论的二手数据分析技能",
+  "author": "SocienceAI",
+  "created": "2026-03-18",
+  
+  "methodology": {
+    "primary": ["Kiecolt & Nathan (1985) 二手分析方法论", "Stewart & Kamins (1993) 数据质量评估", "Riley (2018) 大型调查数据分析"],
+    "capabilities": ["数据来源评估", "变量重构", "比较分析", "趋势分析", "数据整合", "文档审查"]
+  },
+  
+  "forbidden_principles": [
+    {"id": "FORBIDDEN_001", "name": "禁止忽视原始研究设计"},
+    {"id": "FORBIDDEN_002", "name": "禁止忽视数据收集局限"},
+    {"id": "FORBIDDEN_003", "name": "禁止过度解释数据"},
+    {"id": "FORBIDDEN_004", "name": "禁止忽视测量等价性"},
+    {"id": "FORBIDDEN_005", "name": "禁止忽视样本代表性"},
+    {"id": "FORBIDDEN_006", "name": "禁止忽视伦理问题"}
+  ],
+  
+  "tools": [
+    "data_quality_assessor.py",
+    "variable_reconstructor.py",
+    "trend_analyzer.py"
+  ],
+  
+  "files_count": 15
+}

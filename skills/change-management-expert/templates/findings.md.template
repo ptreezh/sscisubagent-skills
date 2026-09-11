@@ -1,0 +1,32 @@
+# 发现报告模板
+
+## 项目信息
+- **变革类型**: {{change_type}}
+- **完成时间**: {{completion_time}}
+
+## 变革实施结果
+
+### Kotter八步评估
+
+| 步骤 | 状态 | 成果 |
+|------|------|------|
+| 建立紧迫感 | {{step1_status}} | {{step1_result}} |
+| 组建变革联盟 | {{step2_status}} | {{step2_result}} |
+| 制定变革愿景 | {{step3_status}} | {{step3_result}} |
+| 沟通变革愿景 | {{step4_status}} | {{step4_result}} |
+| 授权广泛行动 | {{step5_status}} | {{step5_result}} |
+| 创造短期胜利 | {{step6_status}} | {{step6_result}} |
+| 巩固成果深化 | {{step7_status}} | {{step7_result}} |
+| 根植文化 | {{step8_status}} | {{step8_result}} |
+
+## 干系人管理总结
+{{stakeholder_summary}}
+
+## 阻力管理总结
+{{resistance_summary}}
+
+## 经验教训
+{{lessons_learned}}
+
+---
+**报告版本**: 1.0.0

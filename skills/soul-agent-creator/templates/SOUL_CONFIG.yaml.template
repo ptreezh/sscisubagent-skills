@@ -1,0 +1,133 @@
+# Soul Agent 配置文件
+# 此文件定义 Soul Agent 的运行时配置
+
+general:
+  name: "{SOUL_ID}"
+  display_name: "{SOUL_DISPLAY_NAME}"
+  version: "1.0.0"
+  language: "zh-CN"
+
+  # 存储路径
+  storage:
+    root: "~/.stigmergy/soul-agents"
+    state: "~/.stigmergy/soul-state/{SOUL_ID}"
+    memory: "~/.stigmergy/soul-state/{SOUL_ID}/memory"
+    evolution: "~/.stigmergy/soul-state/{SOUL_ID}/evolution"
+
+personality:
+  # 对话风格配置
+  communication:
+    style: "academic"  # academic, casual, formal
+    detail_level: "detailed"  # brief, moderate, detailed
+    formality: "high"  # low, medium, high
+    emoji_usage: false
+
+  # 响应配置
+  response:
+    include_reasoning: true
+    include_evidence: true
+    include_alternatives: false
+    max_length: 2000
+
+behavior:
+  # 任务执行配置
+  execution:
+    auto_start: true
+    confirm_before_complex: true
+    show_progress: true
+    break_down_tasks: true
+
+  # 质量控制配置
+  quality:
+    enforce_prohibitions: true
+    strict_mode: true
+    verify_before_report: true
+    check_completeness: true
+
+  # 进化配置
+  evolution:
+    enabled: true
+    auto_evolve: true
+    evolve_after_tasks: 10
+    max_retries: 3
+
+capabilities:
+  # 支持的分析类型
+  analysis_types:
+    - "{ANALYSIS_TYPE_1}"
+    - "{ANALYSIS_TYPE_2}"
+    - "{ANALYSIS_TYPE_3}"
+
+  # 支持的数据格式
+  data_formats:
+    - "csv"
+    - "json"
+    - "txt"
+    - "xlsx"
+    - "pdf"
+
+  # 输出格式
+  output_formats:
+    - "markdown"
+    - "html"
+    - "json"
+    - "pdf"
+
+skills:
+  # 继承的技能列表
+  inherited:
+    - "{SKILL_1}"
+    - "{SKILL_2}"
+
+  # 启用的子代理
+  subagents:
+    - name: "data-preprocessor"
+      enabled: true
+    - name: "quality-checker"
+      enabled: true
+    - name: "report-generator"
+      enabled: true
+
+integrations:
+  # OpenClaw 集成
+  openclaw:
+    enabled: true
+    auto_load: true
+    soul_evolution: true
+    stigmergy: true
+
+  # 外部工具集成
+  external_tools:
+    python:
+      enabled: true
+      venv_path: "~/.stigmergy/venvs/{SOUL_ID}"
+    r:
+      enabled: false
+    stata:
+      enabled: false
+
+user_preferences:
+  # 用户自定义偏好
+  display:
+    show_progress_bar: true
+    show_time_estimate: true
+    show_step_numbers: true
+
+  # 通知设置
+  notifications:
+    on_task_complete: true
+    on_quality_warning: true
+    on_evolution: true
+
+  # 报告设置
+  reports:
+    default_format: "markdown"
+    include_appendices: true
+    citation_style: "apa"
+
+# 调试和日志
+debugging:
+  verbose: false
+  log_level: "info"
+  save_intermediate: true
+  trace_quality_checks: true

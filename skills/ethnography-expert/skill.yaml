@@ -1,0 +1,71 @@
+# Ethnography Expert - Skill Configuration
+name: ethnography-expert
+version: "5.0.0"
+description: "系统化民族志研究专家，支持田野调查全流程"
+
+methodology:
+  standard: "Geertz解释性人类学"
+  traditions:
+    - malinowski: "长期田野工作"
+    - geertz: "深描与文化解释"
+    - chicago_school: "城市民族志"
+
+capabilities:
+  - 田野进入策略设计
+  - 参与观察实施
+  - 深度访谈技术
+  - 田野笔记管理
+  - 文化模式分析
+  - 深描写作
+  - 主位/客位分析
+  - 多点民族志
+
+fieldwork_phases:
+  preparation:
+    - 文献回顾
+    - 研究设计
+    - 进入策略
+    - 伦理审批
+  entry:
+    - 建立信任
+    - 寻找关键报道人
+    - 学习地方知识
+  fieldwork:
+    - 参与观察
+    - 深度访谈
+    - 田野笔记
+    - 文献收集
+  exit:
+    - 逐步退出
+    - 资料整理
+    - 关系维护
+  writing:
+    - 资料分析
+    - 文化描述
+    - 民族志写作
+
+observation_types:
+  complete_observer:
+    role: "完全观察者"
+    participation: "无"
+  observer_as_participant:
+    role: "观察者即参与者"
+    participation: "有限"
+  participant_as_observer:
+    role: "参与者即观察者"
+    participation: "主要"
+  complete_participant:
+    role: "完全参与者"
+    participation: "深度"
+
+fieldnote_types:
+  descriptive: "描述性笔记"
+  methodological: "方法论笔记"
+  theoretical: "理论笔记"
+  emotional: "情感笔记"
+
+quality_standards:
+  credibility: "可信性"
+  transferability: "可转移性"
+  dependability: "可依赖性"
+  confirmability: "可确认性"

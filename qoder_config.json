@@ -1,0 +1,45 @@
+{
+  "skills": {
+    "enabled": true,
+    "directories": [
+      "./sscisubagent-skills/skills",
+      "./custom_skills"
+    ],
+    "plugins": {
+      "planning-with-files": {
+        "enabled": true,
+        "hooks": {
+          "preExecution": ["read_plan"],
+          "postExecution": ["save_findings", "update_progress"]
+        },
+        "files": {
+          "plan": "task_plan.md",
+          "findings": "findings.md",
+          "progress": "progress.md"
+        }
+      }
+    }
+  },
+  "hooks": {
+    "global": {
+      "onStart": ["initialize_planning_files"],
+      "onClear": ["preserve_planning_context"],
+      "onToolUse": ["maintain_context"]
+    }
+  },
+  "integrations": {
+    "ssci_skills": {
+      "path": "./sscisubagent-skills",
+      "autoDiscover": true,
+      "supportedSkills": [
+        "grounded-theory-expert",
+        "network-computation",
+        "field-analysis",
+        "ant",
+        "digital-marx",
+        "fsqca-analysis",
+        "business-ecosystem-analysis"
+      ]
+    }
+  }
+}

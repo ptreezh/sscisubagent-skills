@@ -1,0 +1,51 @@
+# Machine Learning Research Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: feature-engineer
+    name: 特征工程师
+    role: 执行特征选择、构造和转换
+    triggers:
+      - "特征工程"
+      - "特征选择"
+      - "特征构造"
+
+  - id: model-trainer
+    name: 模型训练师
+    role: 执行模型训练和超参数优化
+    triggers:
+      - "训练"
+      - "调参"
+      - "优化"
+
+  - id: model-evaluator
+    name: 模型评估师
+    role: 执行模型评估和交叉验证
+    triggers:
+      - "评估"
+      - "验证"
+      - "交叉验证"
+
+  - id: model-interpreter
+    name: 模型解释师
+    role: 解释模型预测和特征重要性
+    triggers:
+      - "解释"
+      - "SHAP"
+      - "特征重要性"
+
+workflow:
+  - step: 1
+    action: "问题定义"
+  - step: 2
+    action: "数据准备"
+  - step: 3
+    action: "特征工程"
+  - step: 4
+    action: "模型选择"
+  - step: 5
+    action: "模型训练"
+  - step: 6
+    action: "模型评估"
+  - step: 7
+    action: "模型解释"

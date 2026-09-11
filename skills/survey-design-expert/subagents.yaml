@@ -1,0 +1,289 @@
+# Survey Design Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Questionnaire Designer Agent
+  - name: sd-questionnaire-designer
+    description: 问卷设计Agent - 设计问卷结构和编写问题
+    prompt_template: prompts/questionnaire-design-prompt.md
+    tools:
+      - questionnaire_designer
+    output_format: json
+    quality_checks:
+      - questions_clear_and_unambiguous
+      - response_options_complete
+      - no_leading_or_biased_questions
+      - logical_flow_structure
+    required_output:
+      - questionnaire_structure
+      - question_items
+      - response_scales
+      - skip_logic
+
+  # Sampling Calculator Agent
+  - name: sd-sampling-calculator
+    description: 抽样计算Agent - 计算样本量和设计抽样策略
+    prompt_template: prompts/sampling-calculation-prompt.md
+    tools:
+      - sampling_calculator
+    output_format: json
+    quality_checks:
+      - sample_size_adequate
+      - sampling_frame_defined
+      - statistical_power_sufficient
+    required_output:
+      - sample_size
+      - sampling_strategy
+      - margin_of_error
+      - confidence_level
+
+  # Scale Validator Agent
+  - name: sd-scale-validator
+    description: 量表验证Agent - 验证和开发测量量表
+    prompt_template: prompts/scale-validation-prompt.md
+    tools:
+      - scale_validator
+    output_format: json
+    quality_checks:
+      - items_represent_construct
+      - factor_structure_valid
+      - reliability_acceptable
+    required_output:
+      - scale_items
+      - factor_loadings
+      - validity_indices
+      - revision_recommendations
+
+  # Reliability Analyzer Agent
+  - name: sd-reliability-analyzer
+    description: 信度分析Agent - 计算各种信度指标
+    prompt_template: prompts/reliability-analysis-prompt.md
+    tools:
+      - reliability_analyzer
+    output_format: json
+    quality_checks:
+      - cronbach_alpha >= 0.7
+      - item_total_correlation >= 0.3
+      - no_negative_correlations
+    required_output:
+      - cronbach_alpha
+      - item_statistics
+      - reliability_report
+      - improvement_suggestions
+
+  # Validity Checker Agent
+  - name: sd-validity-checker
+    description: 效度检验Agent - 评估内容效度和构念效度
+    prompt_template: prompts/validity-assessment-prompt.md
+    tools:
+      - validity_checker
+    output_format: json
+    quality_checks:
+      - content_validity_index >= 0.8
+      - construct_validity_evidenced
+      - criterion_validity_established
+    required_output:
+      - content_validity_index
+      - construct_validity_evidence
+      - criterion_validity_results
+      - validity_report
+
+  # Pilot Tester Agent
+  - name: sd-pilot-tester
+    description: 试点测试Agent - 设计和分析预调查
+    prompt_template: prompts/pilot-testing-prompt.md
+    tools:
+      - pilot_tester
+    output_format: json
+    quality_checks:
+      - pilot_sample_representative
+      - problems_identified
+      - revisions_implemented
+    required_output:
+      - pilot_results
+      - identified_issues
+      - questionnaire_revisions
+      - final_recommendations
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# CRCT Chain Configuration
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "每个问题/量表必须与已有问卷工具比较"
+    required_fields:
+      - comparison_with_existing_scales
+      - advantages_identified
+      - limitations_identified
+  
+  record:
+    enabled: true
+    description: "所有设计决策必须记录"
+    required_fields:
+      - question_rationale
+      - scale_source
+      - validity_evidence
+  
+  chain:
+    enabled: true
+    description: "建立问题与构念的关系链条"
+    required_fields:
+      - construct_definition
+      - operational_definition
+      - question_items
+  
+  trace:
+    enabled: true
+    description: "追踪问卷修订过程"
+    required_fields:
+      - original_version
+      - pilot_feedback
+      - final_version
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - question_clarity_check
+    - scale_reliability_check
+    - validity_assessment_check
+    - pilot_test_completion_check
+
+  strict_prohibitions:
+    - no_survey_without_pilot_test
+    - no_unvalidated_scales
+    - no_sacrificing_quality_for_speed
+    - no_biased_question_wording
+
+# Phase-Based Execution
+phases:
+  phase1_design:
+    description: "问卷设计阶段 - 结构与问题"
+    agents: [sd-questionnaire-designer]
+    mode: sequential
+    output: questionnaire_draft.json
+    quality_gate: all_questions_clear
+    
+  phase2_sampling:
+    description: "抽样设计阶段 - 样本量与策略"
+    agents: [sd-sampling-calculator]
+    mode: sequential
+    depends_on: phase1_design
+    output: sampling_plan.json
+    quality_gate: sample_size_adequate
+    
+  phase3_validation:
+    description: "量表验证阶段 - 信效度检验"
+    agents: [sd-scale-validator, sd-reliability-analyzer, sd-validity-checker]
+    mode: parallel
+    depends_on: phase2_sampling
+    output: validation_report.json
+    quality_gate: reliability >= 0.7 AND validity >= 0.8
+    
+  phase4_pilot:
+    description: "试点测试阶段 - 预调查与修订"
+    agents: [sd-pilot-tester]
+    mode: sequential
+    depends_on: phase3_validation
+    output: pilot_report.json
+    quality_gate: pilot_completed AND revisions_implemented
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("问卷设计") or user_request_contains("问题编写")
+      then: fast_mode
+      execution: single_agent(sd-questionnaire-designer)
+      estimated_time: "20-30 minutes"
+
+    - if: user_request_contains("抽样") or user_request_contains("样本量")
+      then: fast_mode
+      execution: single_agent(sd-sampling-calculator)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains("信度") or user_request_contains("Cronbach")
+      then: fast_mode
+      execution: single_agent(sd-reliability-analyzer)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("效度") or user_request_contains("验证")
+      then: fast_mode
+      execution: single_agent(sd-validity-checker)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("试点") or user_request_contains("预测试")
+      then: fast_mode
+      execution: single_agent(sd-pilot-tester)
+      estimated_time: "20-30 minutes"
+
+    - if: user_request_contains_any(["完整设计", "调查设计", "全流程", "全面问卷"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4])
+      estimated_time: "2-4 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive design"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  design_log_file: design_log.json
+  revision_file: revisions.json
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes
+
+# Dillman Method Integration
+dillman_method:
+  tailoring:
+    enabled: true
+    components:
+      - personalized_salutation
+      - meaningful_introduction
+      - clear_instructions
+      - appreciation_message
+  
+  multiple_contacts:
+    enabled: true
+    schedule:
+      - day_1: initial_survey
+      - day_7: first_reminder
+      - day_14: second_reminder
+      - day_21: final_reminder
+
+# Question Quality Standards
+question_standards:
+  clarity:
+    - simple_language
+    - no_double_barreled
+    - no_leading_wording
+    - no_assumed_knowledge
+  
+  response_options:
+    - exhaustive
+    - mutually_exclusive
+    - appropriate_scale
+    - neutral_position
+  
+  ordering:
+    - general_to_specific
+    - sensitive_last
+    - logical_grouping
+    - smooth_transitions

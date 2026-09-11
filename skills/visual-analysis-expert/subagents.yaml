@@ -1,0 +1,24 @@
+subagents:
+  - id: composition_analyst
+    name: 构图分析师
+    role: 分析图像构图元素
+    capabilities:
+      - 构图结构分析
+      - 色彩分析
+      - 空间布局分析
+
+  - id: symbol_decoder
+    name: 视觉符号解码师
+    role: 解读视觉符号和意义
+    capabilities:
+      - 符号识别
+      - 外延内涵分析
+      - 文化符号解读
+
+  - id: narrative_analyst
+    name: 视觉叙事分析师
+    role: 分析图像序列的叙事结构
+    capabilities:
+      - 叙事序列分析
+      - 时间性分析
+      - 图文关系分析

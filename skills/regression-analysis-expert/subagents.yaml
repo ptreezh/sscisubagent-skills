@@ -1,0 +1,80 @@
+# Regression Analysis Expert - Subagents Configuration
+# 回归分析专家子智能体配置
+
+version: "1.0"
+description: "回归分析专家子智能体系统，支持多种回归模型和诊断"
+
+subagents:
+  # 模型选择智能体
+  - id: reg-model-selector
+    name: 回归模型选择器
+    role: |
+      根据因变量类型和数据特征，推荐最适合的回归模型
+      - 连续变量 → OLS回归
+      - 二分类变量 → Logistic回归
+      - 计数变量 → Poisson/负二项回归
+      - 有序变量 → 有序Logistic回归
+    tools:
+      - model_selector.py
+    triggers:
+      - "选择回归模型"
+      - "用什么回归"
+      - "模型选择"
+  
+  # 诊断检验智能体
+  - id: reg-diagnostic
+    name: 回归诊断检验器
+    role: |
+      全面检验回归模型假设
+      - 正态性检验（Shapiro-Wilk）
+      - 同方差性检验（Breusch-Pagan, White）
+      - 线性检验（RESET）
+      - 多重共线性检验（VIF）
+      - 独立性检验（Durbin-Watson）
+      - 异常值检测（Cook's D, Leverage）
+    tools:
+      - diagnostic_tester.py
+    triggers:
+      - "诊断回归"
+      - "检验假设"
+      - "回归诊断"
+  
+  # 效应分析智能体
+  - id: reg-effect-analyzer
+    name: 效应分析器
+    role: |
+      分析回归模型中的复杂效应
+      - 交互效应（调节效应）
+      - 中介效应（Baron-Kenny, Bootstrap）
+      - 简单斜率分析
+      - Johnson-Neyman区间
+    tools:
+      - effect_analyzer.py
+    triggers:
+      - "交互效应"
+      - "中介效应"
+      - "调节效应"
+      - "简单斜率"
+
+# 并行执行配置
+parallel_execution:
+  enabled: true
+  max_concurrent: 3
+  
+# 工作流程
+workflow:
+  - step: 1
+    agent: reg-model-selector
+    action: 分析因变量特征，推荐回归模型
+  - step: 2
+    agent: reg-diagnostic
+    action: 对选定模型进行诊断检验
+  - step: 3
+    agent: reg-effect-analyzer
+    action: 分析交互/中介效应（如需要）
+
+# 输出配置
+output:
+  format: markdown
+  include_visualizations: true
+  include_code: true

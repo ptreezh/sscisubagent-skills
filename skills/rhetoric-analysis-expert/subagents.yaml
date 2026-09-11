@@ -1,0 +1,24 @@
+subagents:
+  - id: persuasion_analyst
+    name: 说服策略分析师
+    role: 分析说服方式和策略
+    capabilities:
+      - logos分析
+      - pathos分析
+      - ethos分析
+
+  - id: device_detector
+    name: 修辞格识别师
+    role: 识别和分析修辞手段
+    capabilities:
+      - 比喻类识别
+      - 结构类识别
+      - 音韵类识别
+
+  - id: argument_analyst
+    name: 论证分析师
+    role: 分析论证结构和逻辑
+    capabilities:
+      - 前提识别
+      - 推论分析
+      - 谬误检测

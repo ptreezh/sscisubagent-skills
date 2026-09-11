@@ -1,0 +1,44 @@
+# Change Management Expert - Skill Configuration
+name: change-management-expert
+version: "5.0.0"
+description: "变革管理专家"
+
+models:
+  kotter:
+    name: "Kotter八步骤模型"
+    steps:
+      - urgency: "建立紧迫感"
+      - coalition: "组建变革联盟"
+      - vision: "制定变革愿景"
+      - communicate: "沟通变革愿景"
+      - empower: "授权广泛行动"
+      - wins: "创造短期胜利"
+      - consolidate: "巩固成果"
+      - culture: "融入文化"
+  lewin:
+    name: "Lewin三阶段模型"
+    stages:
+      - unfreeze: "解冻"
+      - change: "变革"
+      - refreeze: "再冻结"
+  adkar:
+    name: "ADKAR模型"
+    elements:
+      - awareness: "认知"
+      - desire: "意愿"
+      - knowledge: "知识"
+      - ability: "能力"
+      - reinforcement: "强化"
+
+resistance_management:
+  strategies:
+    - education: "教育沟通"
+    - participation: "参与投入"
+    - facilitation: "促进支持"
+    - negotiation: "谈判协商"
+    - manipulation: "操纵拉拢"
+    - coercion: "强制执行"
+
+communication:
+  channels: ["会议", "邮件", "内网", "一对一"]
+  frequency: "持续沟通"

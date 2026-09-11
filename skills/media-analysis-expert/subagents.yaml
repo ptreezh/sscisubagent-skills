@@ -1,0 +1,24 @@
+subagents:
+  - id: technology_analyst
+    name: 媒介技术分析师
+    role: 分析媒介技术特性
+    capabilities:
+      - 媒介偏向分析
+      - 技术逻辑分析
+      - 媒介演进分析
+
+  - id: institution_analyst
+    name: 媒介制度分析师
+    role: 分析媒介制度和政治经济
+    capabilities:
+      - 所有权分析
+      - 规制分析
+      - 政治经济分析
+
+  - id: culture_analyst
+    name: 媒介文化分析师
+    role: 分析媒介文化和意义
+    capabilities:
+      - 内容分析
+      - 受众分析
+      - 意义生产分析

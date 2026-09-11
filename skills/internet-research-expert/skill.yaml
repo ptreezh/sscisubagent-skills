@@ -1,0 +1,38 @@
+name: internet-research-expert
+version: 1.0.0
+description: 互联网研究专家技能，基于Hine, Rogers, Salmons方法论
+author: SocienceAI
+created: 2026-03-18
+
+methodology:
+  - Hine (2015) - 虚拟民族志
+  - Rogers (2019) - 数字方法
+  - Salmons (2016) - 电子访谈
+  - Bruns et al. - 社交媒体研究
+
+capabilities:
+  - 网络民族志
+  - 数字痕迹分析
+  - 网络访谈
+  - 社交媒体研究
+  - 在线社区分析
+  - 平台研究
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止忽视伦理问题
+  - id: FORBIDDEN_002
+    name: 禁止忽视隐私保护
+  - id: FORBIDDEN_003
+    name: 禁止忽视数据偏见
+  - id: FORBIDDEN_004
+    name: 禁止忽视技术变化
+  - id: FORBIDDEN_005
+    name: 禁止忽视平台权力
+  - id: FORBIDDEN_006
+    name: 禁止忽视数字鸿沟
+
+tools:
+  - digital_trace_collector.py
+  - online_community_analyzer.py
+  - platform_api_connector.py

@@ -1,0 +1,138 @@
+---
+name: digital-marx-expert
+version: 5.0.0-cli-native+agent
+description: |
+  数字马克思主义分析专家技能（AI CLI 原生版），支持自动任务队列执行和子Agent并行处理。
+  基于 Marx (1867, 1885, 1894), Harvey (2010), Fuchs (2014) 的政治经济学理论。
+
+  核心能力：
+  - 生产方式识别（生产力与生产关系）
+  - 阶级结构分析（资产阶级、无产阶级、中间阶层）
+  - 劳动过程分析（异化、剥削、剩余价值）
+  - 异化程度计算（劳动、产品、自我、他人）
+  - 商品化分析（使用价值与交换价值）
+  - 经济危机分析（利润率下降、生产过剩）
+
+  严格遵循马克思主义方法论原则：
+  - 历史唯物主义（生产方式决定社会形态）
+  - 阶级分析（阶级斗争是历史动力）
+  - 政治经济学批判（揭示资本主义内在矛盾）
+  - 辩证法（对立统一、否定之否定）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Marxist Theory (Marx 1867, 1885, 1894)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "40分钟/案例"
+  parallel: "45分钟/10案例（8.9x加速）"
+
+analysis_types:
+  - mode-of-production
+  - class-analysis
+  - labor-process
+  - alienation
+  - commodification
+  - crisis
+
+category: social-science-analysis
+tags:
+  - marxism
+  - political-economy
+  - class
+  - alienation
+  - capitalism
+  - digital
+  - historical-materialism
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（社会经济数据、历史文献、观察记录）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: identify-mode-of-production
+    description: 识别生产方式（生产力与生产关系）
+    module: mode_of_production_identifier
+  - name: analyze-class
+    description: 阶级结构分析（资产阶级、无产阶级、中间阶层）
+    module: class_analyzer
+  - name: analyze-labor-process
+    description: 劳动过程分析（异化、剥削、剩余价值）
+    module: labor_process_analyzer
+  - name: calculate-alienation
+    description: 异化程度计算（劳动、产品、自我、他人）
+    module: alienation_calculator
+  - name: analyze-commodification
+    description: 商品化分析（使用价值与交换价值）
+    module: commodification_analyzer
+  - name: analyze-crisis
+    description: 经济危机分析（利润率下降、生产过剩）
+    module: crisis_analyzer
+  - name: analyze
+    description: 主分析入口
+    module: analyze
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: historical_materialism
+    description: 历史唯物主义检查
+    rule: "必须坚持历史唯物主义分析方法"
+  - name: class_analysis
+    description: 阶级分析检查
+    rule: "必须进行阶级分析"
+  - name: political_economy
+    description: 政治经济学批判检查
+    rule: "必须体现政治经济学批判视角"
+  - name: dialectical_analysis
+    description: 辩证法检查
+    rule: "必须运用辩证法分析矛盾"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)

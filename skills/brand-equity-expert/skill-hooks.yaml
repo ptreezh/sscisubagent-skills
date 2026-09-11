@@ -1,0 +1,44 @@
+# 品牌资产评估技能钩子配置
+
+hooks:
+  before_task:
+    - name: initialize_workspace
+      actions:
+        - create_directory: "{{workspace_path}}"
+
+  after_stage:
+    - name: validate_dimensions
+      trigger: stage == "equity_measurement"
+      actions:
+        - check: "equity.loyalty.score != null"
+        - check: "equity.awareness.score != null"
+        - check: "equity.quality.score != null"
+        - check: "equity.associations.score != null"
+        - check: "equity.other_assets.score != null"
+
+persistence:
+  session:
+    path: ".claude/session/brand-equity/"
+  project:
+    path: "{{project_root}}/brand-equity-workspace/"
+  learning:
+    path: "experience/patterns.md"
+
+subagents:
+  enabled: true
+  agents:
+    - id: loyalty-analyzer
+      role: 品牌忠诚度分析
+    - id: awareness-analyzer
+      role: 品牌认知度分析
+    - id: quality-analyzer
+      role: 感知质量分析
+    - id: association-analyzer
+      role: 品牌联想分析
+    - id: asset-analyzer
+      role: 其他资产分析
+
+quality_checks:
+  dimension_completeness:
+    all_five_dimensions: true
+    min_score_per_dimension: 1

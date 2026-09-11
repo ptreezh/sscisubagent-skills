@@ -1,0 +1,49 @@
+{
+  "name": "bibliometric-analysis-expert",
+  "version": "1.0.0",
+  "description": "文献计量分析专家技能，基于Van Raan、Leydesdorff方法论",
+  "author": "SocienceAI",
+  "created": "2026-03-15",
+  "methodology": ["Van Raan (2005)", "Leydesdorff (2007)", "Glänzel"],
+  "capabilities": [
+    "描述性统计分析",
+    "引文分析",
+    "共引分析",
+    "关键词共现分析",
+    "作者合作网络分析",
+    "研究热点识别",
+    "研究前沿探测"
+  ],
+  "tools": [
+    {
+      "name": "co_citation_analyzer.py",
+      "function": "共引网络构建与分析",
+      "input": "引文数据JSON",
+      "output": "网络数据JSON"
+    },
+    {
+      "name": "keyword_cooccurrence.py",
+      "function": "关键词共现分析",
+      "input": "文献数据JSON",
+      "output": "共现网络JSON"
+    },
+    {
+      "name": "author_network.py",
+      "function": "作者合作网络分析",
+      "input": "文献数据JSON",
+      "output": "合作网络JSON"
+    }
+  ],
+  "forbidden_principles": [
+    "FORBIDDEN_001: 禁止选择性数据报告",
+    "FORBIDDEN_002: 禁止忽视数据消歧",
+    "FORBIDDEN_003: 禁止方法选择不当",
+    "FORBIDDEN_004: 禁止忽视数据质量",
+    "FORBIDDEN_005: 禁止过度解释结果",
+    "FORBIDDEN_006: 禁止忽视领域背景"
+  ],
+  "input_formats": ["wos_txt", "scopus_csv", "json"],
+  "output_formats": ["json", "csv", "html"],
+  "min_sample_size": 100,
+  "recommended_software": ["VOSviewer", "CiteSpace", "Bibliometrix"]
+}

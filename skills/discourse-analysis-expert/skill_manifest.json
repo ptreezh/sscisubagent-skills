@@ -1,0 +1,121 @@
+{
+  "skill_name": "discourse-analysis-expert",
+  "display_name": "话语分析专家",
+  "version": "5.0.0",
+  "description": "话语分析专家。提供多范式话语分析方法，支持批判话语分析(CDA)、话语心理学、会话分析、叙事分析。核心能力包括：话语策略识别、权力关系分析、意识形态揭示、互文性分析、话语建构分析。遵循Fairclough三维模型和van Dijk社会认知方法。",
+  
+  "methodology": {
+    "primary_framework": "Fairclough (2010)",
+    "secondary_frameworks": ["van Dijk (2008)", "Wodak (2015)", "Gee (2011)"],
+    "paradigm": "批判社会语言学"
+  },
+  
+  "core_competencies": [
+    {
+      "name": "文本层面分析",
+      "description": "词汇、语法、结构分析",
+      "tools": ["text_analyzer.py"]
+    },
+    {
+      "name": "话语策略识别",
+      "description": "Wodak五大话语策略",
+      "tools": ["discourse_strategy.py"]
+    },
+    {
+      "name": "权力与意识形态分析",
+      "description": "权力关系和意识形态效果分析",
+      "tools": ["power_analyzer.py"]
+    }
+  ],
+  
+  "analysis_frameworks": [
+    {
+      "name": "Fairclough三维模型",
+      "dimensions": ["文本", "话语实践", "社会实践"]
+    },
+    {
+      "name": "Wodak话语策略",
+      "strategies": ["指称", "谓语", "论证", "视角", "强化/弱化"]
+    },
+    {
+      "name": "van Dijk社会认知方法",
+      "levels": ["宏观结构", "微观结构", "认知维度"]
+    }
+  ],
+  
+  "forbidden_principles": [
+    "禁止脱离社会语境分析文本",
+    "禁止忽视权力维度",
+    "禁止技术主义倾向",
+    "禁止预设政治立场",
+    "禁止忽视历史维度",
+    "禁止过度解读"
+  ],
+  
+  "quality_standards": {
+    "transparency": "分析过程透明",
+    "evidence": "分析有文本证据",
+    "criticality": "关注权力和意识形态",
+    "contextuality": "连接社会实践"
+  },
+  
+  "tools": [
+    {
+      "name": "text_analyzer.py",
+      "function": "文本层面语言学分析",
+      "cli_commands": ["--lexical", "--grammatical", "--structure", "--full"]
+    },
+    {
+      "name": "discourse_strategy.py",
+      "function": "话语策略识别与分析",
+      "cli_commands": ["--referential", "--predicational", "--argumentation"]
+    },
+    {
+      "name": "power_analyzer.py",
+      "function": "权力关系与意识形态分析",
+      "cli_commands": ["--ideology", "--power", "--discourse-strategy"]
+    }
+  ],
+  
+  "file_structure": {
+    "required_files": [
+      "SKILL.md",
+      "skill.yaml",
+      "subagents.yaml",
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "skill_manifest.json"
+    ],
+    "directories": [
+      "prompts/",
+      "references/",
+      "cases/positive/",
+      "cases/negative/",
+      "templates/",
+      "tools/",
+      "experience/"
+    ]
+  },
+  
+  "integration": {
+    "agentskills_io": "v1.0",
+    "cross_platform": true,
+    "supported_clis": [
+      "Claude", "Qwen", "iFlow", "Gemini", 
+      "Copilot", "Stigmergy", "OpenCode", 
+      "KiloCode", "QoderCLI", "WorkBuddy", 
+      "Cursor", "Windsurf"
+    ]
+  },
+  
+  "references": [
+    "Fairclough, N. (2010). Critical Discourse Analysis.",
+    "van Dijk, T.A. (2008). Discourse and Power.",
+    "Wodak, R. (2015). The Discourse Studies Reader.",
+    "Gee, J.P. (2011). An Introduction to Discourse Analysis."
+  ],
+  
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15",
+  "maintainer": "话语分析专家技能"
+}

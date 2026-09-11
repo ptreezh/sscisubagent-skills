@@ -1,0 +1,40 @@
+# 发现报告模板
+
+## 项目信息
+- **诊断对象**: {{organization}}
+- **完成时间**: {{completion_time}}
+
+## 六盒诊断结果
+
+### 目的/目标
+**评分**: {{purposes_score}}/5
+**发现**: {{purposes_findings}}
+
+### 结构
+**评分**: {{structure_score}}/5
+**发现**: {{structure_findings}}
+
+### 关系
+**评分**: {{relationships_score}}/5
+**发现**: {{relationships_findings}}
+
+### 领导
+**评分**: {{leadership_score}}/5
+**发现**: {{leadership_findings}}
+
+### 激励
+**评分**: {{rewards_score}}/5
+**发现**: {{rewards_findings}}
+
+### 机制
+**评分**: {{mechanisms_score}}/5
+**发现**: {{mechanisms_findings}}
+
+## 一致性分析
+{{consistency_analysis}}
+
+## 改进建议
+{{improvement_recommendations}}
+
+---
+**报告版本**: 1.0.0

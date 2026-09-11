@@ -1,0 +1,45 @@
+# Factor Analysis Expert - Skill Configuration
+name: factor-analysis-expert
+version: "5.0.0"
+description: "因子分析专家，支持EFA和CFA全流程"
+
+extraction_methods:
+  pca:
+    name: "主成分分析"
+    use_case: "数据降维"
+  paf:
+    name: "主轴因子法"
+    use_case: "共同因素分析"
+  ml:
+    name: "最大似然法"
+    use_case: "正态分布数据"
+
+rotation_methods:
+  orthogonal:
+    - varimax: "简化载荷"
+    - quartimax: "简化因子"
+    - equamax: "折中方案"
+  oblique:
+    - promax: "快速斜交"
+    - oblimin: "灵活斜交"
+    - geomin: "复杂结构"
+
+fit_indices:
+  absolute:
+    - chi_square: "χ²/df < 3"
+    - rmsea: "≤ 0.06"
+    - srmr: "≤ 0.08"
+  incremental:
+    - cfi: "≥ 0.95"
+    - tli: "≥ 0.95"
+    - nfi: "≥ 0.90"
+
+reliability:
+  cronbach_alpha: "≥ 0.70"
+  composite_reliability: "≥ 0.70"
+  ave: "≥ 0.50"
+
+sample_size:
+  minimum: "N ≥ 5k"
+  recommended: "N ≥ 10k"
+  optimal: "N ≥ 200"

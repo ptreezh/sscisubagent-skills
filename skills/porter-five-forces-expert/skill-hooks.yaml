@@ -1,0 +1,44 @@
+# 波特五力分析技能钩子配置
+
+hooks:
+  before_task:
+    - name: initialize_workspace
+      actions:
+        - create_directory: "{{workspace_path}}"
+
+  after_stage:
+    - name: validate_forces
+      trigger: stage == "forces_analysis"
+      actions:
+        - check: "forces.rivalry.factors.length >= 3"
+        - check: "forces.entry.factors.length >= 3"
+        - check: "forces.substitutes.factors.length >= 3"
+        - check: "forces.suppliers.factors.length >= 3"
+        - check: "forces.buyers.factors.length >= 3"
+
+persistence:
+  session:
+    path: ".claude/session/porter/"
+  project:
+    path: "{{project_root}}/porter-workspace/"
+  learning:
+    path: "experience/patterns.md"
+
+subagents:
+  enabled: true
+  agents:
+    - id: rivalry-analyzer
+      role: 竞争程度分析
+    - id: entry-analyzer
+      role: 进入威胁分析
+    - id: substitute-analyzer
+      role: 替代威胁分析
+    - id: supplier-analyzer
+      role: 供应商分析
+    - id: buyer-analyzer
+      role: 买方分析
+
+quality_checks:
+  force_completeness:
+    all_five_forces: true
+    min_factors_per_force: 3

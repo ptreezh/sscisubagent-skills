@@ -1,0 +1,263 @@
+# Grounded Theory Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Open Coding Agent (Coder A)
+  - name: gt-coder-a
+    description: 开放编码Agent A - 独立进行概念提取和初步编码
+    prompt_template: prompts/open-coding-prompt.md
+    tools:
+      - segment_data
+      - analyze
+    output_format: json
+    quality_checks:
+      - concepts_emerged_from_data
+      - codes_grounded_in_data
+      - constant_comparison_applied
+    required_output:
+      - initial_codes
+      - code_definitions
+      - representative_quotes
+
+  # Open Coding Agent (Coder B)
+  - name: gt-coder-b
+    description: 开放编码Agent B - 独立进行概念提取和初步编码（用于信度检验）
+    prompt_template: prompts/open-coding-prompt.md
+    tools:
+      - segment_data
+      - analyze
+    output_format: json
+    quality_checks:
+      - concepts_emerged_from_data
+      - codes_grounded_in_data
+      - constant_comparison_applied
+    required_output:
+      - initial_codes
+      - code_definitions
+      - representative_quotes
+
+  # Axial Coding Agent
+  - name: gt-axial-coder
+    description: 轴心编码Agent - 建立范畴和关系连接
+    prompt_template: prompts/axial-coding-prompt.md
+    tools:
+      - axial_coding
+      - memo_manager
+    output_format: json
+    quality_checks:
+      - categories_established
+      - relationships_identified
+      - paradigm_model_built
+    required_output:
+      - categories
+      - relationships
+      - paradigm_model
+      - axial_memos
+
+  # Selective Coding Agent
+  - name: gt-selective-coder
+    description: 选择性编码Agent - 确定核心范畴和理论整合
+    prompt_template: prompts/selective-coding-prompt.md
+    tools:
+      - selective_coding
+      - memo_manager
+    output_format: json
+    quality_checks:
+      - core_category_identified
+      - theory_integrated
+      - story_line_constructed
+    required_output:
+      - core_category
+      - theoretical_framework
+      - story_line
+      - propositions
+
+  # Saturation Assessment Agent
+  - name: gt-saturation-assessor
+    description: 理论饱和度评估Agent - 四维饱和度检验
+    prompt_template: prompts/saturation-check-prompt.md
+    tools:
+      - assess_saturation
+      - calculate_reliability
+    output_format: json
+    quality_checks:
+      - concept_saturation >= 80
+      - category_saturation >= 80
+      - relationship_saturation >= 80
+      - proposition_saturation >= 80
+    required_output:
+      - saturation_scores
+      - recommendations
+      - data_collection_decision
+
+  # Reliability Validator Agent
+  - name: gt-reliability-validator
+    description: 编码信度验证Agent - 比较双编码结果
+    tools:
+      - calculate_reliability
+    output_format: json
+    quality_checks:
+      - inter_coder_reliability >= 0.85
+      - agreement_rate >= 0.85
+    required_output:
+      - reliability_score
+      - disagreement_analysis
+      - consensus_codes
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# CRCT Chain Configuration
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "每个新概念必须与已有概念进行比较"
+    required_fields:
+      - comparison_with_existing_codes
+      - similarities_identified
+      - differences_identified
+  
+  record:
+    enabled: true
+    description: "所有编码决策必须记录"
+    required_fields:
+      - code_definition
+      - representative_quote
+      - coding_rationale
+  
+  chain:
+    enabled: true
+    description: "建立概念间的关系链条"
+    required_fields:
+      - related_codes
+      - relationship_type
+      - evidence_from_data
+  
+  trace:
+    enabled: true
+    description: "追踪概念演化过程"
+    required_fields:
+      - initial_concept
+      - refined_concept
+      - final_category
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - data_segmentation_check
+    - coding_reliability_check
+    - saturation_assessment_check
+    - theoretical_validity_check
+
+  strict_prohibitions:
+    - no_completion_without_saturation_check
+    - no_preset_theoretical_frameworks
+    - no_sacrificing_quality_for_speed
+    - no_skipping_constant_comparison
+
+# Phase-Based Execution
+phases:
+  phase1_open_coding:
+    description: "开放编码阶段 - 概念提取"
+    agents: [gt-coder-a, gt-coder-b]
+    mode: parallel
+    output: initial_codes.json
+    quality_gate: reliability >= 0.85
+    
+  phase2_axial_coding:
+    description: "轴心编码阶段 - 范畴建立"
+    agents: [gt-axial-coder]
+    mode: sequential
+    depends_on: phase1_open_coding
+    output: categories.json
+    quality_gate: categories >= 3
+    
+  phase3_selective_coding:
+    description: "选择性编码阶段 - 理论整合"
+    agents: [gt-selective-coder]
+    mode: sequential
+    depends_on: phase2_axial_coding
+    output: theory.json
+    quality_gate: core_category_identified
+    
+  phase4_saturation:
+    description: "饱和度检验阶段"
+    agents: [gt-saturation-assessor]
+    mode: sequential
+    depends_on: phase3_selective_coding
+    output: saturation_report.json
+    quality_gate: overall_saturation >= 80
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("开放编码") or user_request_contains("概念提取")
+      then: fast_mode
+      execution: parallel_agents([gt-coder-a, gt-coder-b])
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("轴心编码") or user_request_contains("范畴建立")
+      then: fast_mode
+      execution: single_agent(gt-axial-coder)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains("选择性编码") or user_request_contains("理论整合")
+      then: fast_mode
+      execution: single_agent(gt-selective-coder)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("饱和度") or user_request_contains("理论检验")
+      then: fast_mode
+      execution: single_agent(gt-saturation-assessor)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains_any(["完整分析", "扎根理论分析", "全流程", "全面编码"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4])
+      estimated_time: "1-2 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  coding_log_file: coding_log.json
+  memo_file: memos.json
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes
+
+# Theoretical Sensitivity Enhancement
+theoretical_sensitivity:
+  memo_writing:
+    enabled: true
+    types:
+      - code_memos
+      - theoretical_memos
+      - operational_memos
+    required_frequency: "每10个新概念至少写1个备忘录"
+  
+  constant_comparison:
+    enabled: true
+    comparison_types:
+      - incident_to_incident
+      - incident_to_concept
+      - concept_to_concept
+      - concept_to_category

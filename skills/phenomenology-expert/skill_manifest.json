@@ -1,0 +1,75 @@
+{
+  "name": "phenomenology-expert",
+  "version": "5.0.0",
+  "description": "现象学研究专家，提供系统化现象学方法论指导，支持描述性、解释性、具身现象学",
+  "methodology": "Husserl, Heidegger, Merleau-Ponty, Moustakas (1994)",
+  "capabilities": [
+    "悬置(epoché)指导",
+    "意义单元分析",
+    "本质还原",
+    "想象变异",
+    "生活世界探索",
+    "体验结构揭示"
+  ],
+  "tools": [
+    "epoch_guide.py",
+    "meaning_unit_analyzer.py",
+    "essence_extractor.py"
+  ],
+  "files": {
+    "required": [
+      "SKILL.md",
+      "skill.yaml",
+      "subagents.yaml",
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "skill_manifest.json",
+      "prompts/system-prompt.md",
+      "references/detailed-guide.md",
+      "cases/positive/case-01-first-time-mother.md",
+      "cases/negative/case-01-missing-epoch.md",
+      "templates/phenomenology-protocol-template.md",
+      "tools/epoch_guide.py",
+      "tools/meaning_unit_analyzer.py",
+      "tools/essence_extractor.py",
+      "experience/best-practices.md"
+    ],
+    "count": 15
+  },
+  "forbidden_principles": [
+    "禁止跳过悬置",
+    "禁止解释代替描述",
+    "禁止忽视第一人称视角",
+    "禁止抽象化脱离情境",
+    "禁止忽略身体维度",
+    "禁止单一样本概括"
+  ],
+  "quality_standards": {
+    "epoch_quality": {
+      "min_presets": 5,
+      "min_suspension_rate": 0.8,
+      "min_reflections": 10
+    },
+    "analysis_quality": {
+      "min_units_per_participant": 15,
+      "min_themes": 3
+    },
+    "essence_quality": {
+      "min_necessary_features": 2,
+      "max_pending_features": 0.3
+    }
+  },
+  "metadata": {
+    "created_at": "2026-03-15",
+    "updated_at": "2026-03-15",
+    "agentskills_io_version": "1.0",
+    "cli_compatibility": [
+      "claude",
+      "qwen",
+      "iflow",
+      "gemini",
+      "copilot",
+      "stigmergy"
+    ]
+  }
+}

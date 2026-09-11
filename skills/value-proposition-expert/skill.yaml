@@ -1,0 +1,102 @@
+---
+name: value-proposition-expert
+version: 5.0.0-cli-native+agent
+description: |
+  价值主张设计专家技能（AI CLI 原生版）。支持Strategyzer价值主张画布的完整实施。
+  
+  核心能力：
+  - 价值主张画布：产品与服务设计
+  - 客户画像构建：客户细分与需求分析
+  - 价值匹配验证：产品-市场契合检验
+  - 痛点收益分析：Jobs-Pains-Gains框架应用
+
+  基于 Alex Osterwalder (2014)《价值主张设计》方法论。
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Value Proposition Design (Osterwalder 2014)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  agentskills-io: true
+  cross-platform: true
+
+analysis_types:
+  - value-proposition-canvas
+  - customer-profile
+  - value-fit-analysis
+  - pain-gain-analysis
+  - full-value-design
+
+category: strategic-analysis
+tags:
+  - value-proposition
+  - business-model
+  - customer-segments
+  - product-market-fit
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 产品/服务数据和客户信息
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 价值主张设计结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: value-canvas-builder
+    description: 价值主张画布构建工具
+    module: value_canvas_builder
+  - name: customer-profiler
+    description: 客户画像工具
+    module: customer_profiler
+  - name: value-fit-validator
+    description: 价值匹配验证工具
+    module: value_fit_validator
+  - name: pain-gain-analyzer
+    description: 痛点收益分析工具
+    module: pain_gain_analyzer
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: customer_jobs_clarity
+    description: 客户任务清晰度检查
+    rule: "客户任务必须明确、具体、可验证"
+  - name: pain_gain_balance
+    description: 痛点收益平衡检查
+    rule: "痛点缓解和收益创造必须平衡"
+  - name: value_fit
+    description: 价值匹配检查
+    rule: "产品特性必须解决痛点或创造收益"
+
+dependencies:
+  python: ">=3.8"
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

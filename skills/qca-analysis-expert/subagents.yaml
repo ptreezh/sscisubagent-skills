@@ -1,0 +1,266 @@
+# QCA Analysis Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Calibration Agent
+  - name: qca-calibrator
+    description: 数据校准Agent - 将原始数据转化为集合隶属度
+    prompt_template: prompts/calibration-prompt.md
+    tools:
+      - calibrate-data
+    output_format: json
+    quality_checks:
+      - theoretical_basis_provided
+      - anchors_defined
+      - calibration_method_specified
+    required_output:
+      - calibration_parameters
+      - calibrated_data
+      - theoretical_basis
+
+  # Necessity Analysis Agent
+  - name: qca-necessity-analyzer
+    description: 必要性分析Agent - 识别必要条件
+    prompt_template: prompts/necessity-prompt.md
+    tools:
+      - analyze-consistency
+    output_format: json
+    quality_checks:
+      - consistency_calculated
+      - coverage_calculated
+      - threshold_applied
+    required_output:
+      - necessity_table
+      - necessary_conditions
+      - interpretation
+
+  # Truth Table Agent
+  - name: qca-truth-table-builder
+    description: 真值表构建Agent - 构建条件组合矩阵
+    prompt_template: prompts/truth-table-prompt.md
+    tools:
+      - build-truth-table
+    output_format: json
+    quality_checks:
+      - all_rows_included
+      - cases_assigned
+      - consistency_calculated
+    required_output:
+      - full_truth_table
+      - filtered_truth_table
+      - case_allocation
+
+  # Sufficiency Analysis Agent (Solution A)
+  - name: qca-solution-analyzer-a
+    description: 充分性分析Agent A - 计算复杂解
+    prompt_template: prompts/solution-prompt.md
+    tools:
+      - calculate-solution
+    output_format: json
+    quality_checks:
+      - solution_calculated
+      - coverage_reported
+      - cases_identified
+    required_output:
+      - solution_expression
+      - consistency_coverage
+      - case_distribution
+    parameters:
+      solution_type: complex
+
+  # Sufficiency Analysis Agent (Solution B)
+  - name: qca-solution-analyzer-b
+    description: 充分性分析Agent B - 计算简化解
+    prompt_template: prompts/solution-prompt.md
+    tools:
+      - calculate-solution
+    output_format: json
+    quality_checks:
+      - solution_calculated
+      - coverage_reported
+      - cases_identified
+    required_output:
+      - solution_expression
+      - consistency_coverage
+      - case_distribution
+    parameters:
+      solution_type: intermediate
+
+  # Robustness Check Agent
+  - name: qca-robustness-checker
+    description: 稳健性检验Agent - 验证结果可靠性
+    prompt_template: prompts/robustness-prompt.md
+    tools:
+      - calculate-solution
+      - analyze-consistency
+    output_format: json
+    quality_checks:
+      - parameter_sensitivity_checked
+      - results_stable
+    required_output:
+      - robustness_table
+      - sensitivity_analysis
+      - robustness_conclusion
+
+  # Case Interpretation Agent
+  - name: qca-case-interpreter
+    description: 案例解释Agent - 回到具体案例解释结果
+    prompt_template: prompts/case-interpretation-prompt.md
+    tools:
+      - analyze-set-relations
+    output_format: json
+    quality_checks:
+      - cases_identified
+      - causal_mechanism_explained
+    required_output:
+      - case_profiles
+      - mechanism_explanation
+      - theoretical_insights
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 3
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# QCA-Specific Configuration
+qca_config:
+  necessity_threshold: 0.90
+  sufficiency_threshold: 0.80
+  frequency_threshold: 1
+  solution_types:
+    - complex
+    - intermediate
+    - parsimonious
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 5
+  verification_steps:
+    - calibration_theory_check
+    - necessity_analysis_check
+    - truth_table_check
+    - solution_coverage_check
+    - robustness_check
+
+  strict_prohibitions:
+    - no_calibration_without_theory
+    - no_solution_without_cases
+    - no_single_solution_only
+    - no_completion_without_robustness
+
+# Phase-Based Execution
+phases:
+  phase1_calibration:
+    description: "数据校准阶段 - 将原始数据转化为集合隶属度"
+    agents: [qca-calibrator]
+    mode: sequential
+    output: calibration_results.json
+    quality_gate: theory_basis_complete
+    
+  phase2_necessity:
+    description: "必要性分析阶段 - 识别必要条件"
+    agents: [qca-necessity-analyzer]
+    mode: sequential
+    depends_on: phase1_calibration
+    output: necessity_results.json
+    quality_gate: consistency_calculated
+    
+  phase3_truth_table:
+    description: "真值表构建阶段 - 构建条件组合矩阵"
+    agents: [qca-truth-table-builder]
+    mode: sequential
+    depends_on: phase1_calibration
+    output: truth_table.json
+    quality_gate: cases_assigned
+    
+  phase4_sufficiency:
+    description: "充分性分析阶段 - 布尔最小化"
+    agents: [qca-solution-analyzer-a, qca-solution-analyzer-b]
+    mode: parallel
+    depends_on: phase3_truth_table
+    output: solutions.json
+    quality_gate: multiple_solutions_reported
+    
+  phase5_robustness:
+    description: "稳健性检验阶段"
+    agents: [qca-robustness-checker]
+    mode: sequential
+    depends_on: phase4_sufficiency
+    output: robustness_report.json
+    quality_gate: sensitivity_checked
+
+  phase6_interpretation:
+    description: "案例解释阶段"
+    agents: [qca-case-interpreter]
+    mode: sequential
+    depends_on: phase5_robustness
+    output: interpretation.json
+    quality_gate: cases_explained
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("校准") or user_request_contains("calibration")
+      then: fast_mode
+      execution: single_agent(qca-calibrator)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("必要") or user_request_contains("necessity")
+      then: fast_mode
+      execution: single_agent(qca-necessity-analyzer)
+      estimated_time: "10-15 minutes"
+
+    - if: user_request_contains("真值表") or user_request_contains("truth table")
+      then: fast_mode
+      execution: single_agent(qca-truth-table-builder)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains("充分") or user_request_contains("解") or user_request_contains("solution")
+      then: fast_mode
+      execution: parallel_agents([qca-solution-analyzer-a, qca-solution-analyzer-b])
+      estimated_time: "20-30 minutes"
+
+    - if: user_request_contains("稳健") or user_request_contains("robustness")
+      then: fast_mode
+      execution: single_agent(qca-robustness-checker)
+      estimated_time: "15-20 minutes"
+
+    - if: user_request_contains_any(["完整分析", "QCA分析", "全流程", "全面分析"])
+      then: full_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4, phase5, phase6])
+      estimated_time: "2-3 hours"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  calibration_file: calibration.json
+  truth_table_file: truth_table.json
+  solutions_file: solutions.json
+  robustness_file: robustness.json
+  auto_save_interval: 5  # minutes
+
+# Case-Oriented Analysis
+case_orientation:
+  enabled: true
+  requirements:
+    - list_cases_for_each_configuration
+    - explain_causal_mechanism
+    - identify_deviant_cases
+    - cross_case_comparison

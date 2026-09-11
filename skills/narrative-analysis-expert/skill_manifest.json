@@ -1,0 +1,129 @@
+{
+  "skill_name": "narrative-analysis-expert",
+  "display_name": "叙事分析专家",
+  "version": "5.0.0",
+  "description": "叙事分析专家。提供系统化叙事研究方法，支持叙事结构分析、叙事认同、生活故事访谈、叙事治疗取向研究。核心能力包括：情节分析、人物塑造、时空建构、叙事主题、身份建构。遵循Riessman (2008)和McAdams (2001)框架。",
+  
+  "methodology": {
+    "primary_framework": "Riessman (2008), McAdams (2001)",
+    "secondary_frameworks": ["Labov (1972)", "Gee (1991)"],
+    "paradigm": "社会建构主义"
+  },
+  
+  "core_competencies": [
+    {
+      "name": "叙事结构分析",
+      "description": "Labov六要素结构分析",
+      "tools": ["structure_parser.py"]
+    },
+    {
+      "name": "叙事主题提取",
+      "description": "从叙事中识别主题",
+      "tools": ["theme_extractor.py"]
+    },
+    {
+      "name": "叙事认同分析",
+      "description": "McAdams叙事认同框架",
+      "tools": ["identity_analyzer.py"]
+    }
+  ],
+  
+  "analysis_methods": [
+    {
+      "name": "Labov结构分析",
+      "elements": ["摘要", "定向", "纠葛", "评估", "结果", "结尾"],
+      "use_case": "叙事结构完整性评估"
+    },
+    {
+      "name": "McAdams叙事认同",
+      "elements": ["叙事基调", "核心情节", "叙事意识形态"],
+      "use_case": "身份研究与生活故事分析"
+    },
+    {
+      "name": "Gee诗意结构",
+      "elements": ["诗行", "诗节", "部分"],
+      "use_case": "微观叙事结构分析"
+    },
+    {
+      "name": "Riessman三种模式",
+      "elements": ["主题分析", "结构分析", "表演分析"],
+      "use_case": "叙事研究取向选择"
+    }
+  ],
+  
+  "forbidden_principles": [
+    "禁止脱离语境断章取义",
+    "禁止忽视讲述者视角",
+    "禁止简化叙事复杂性",
+    "禁止忽视叙事表演性",
+    "禁止标准化分析框架",
+    "禁止忽视伦理责任"
+  ],
+  
+  "quality_standards": {
+    "narrative_validity": "故事内在一致性",
+    "correspondence_validity": "与其他资料对应",
+    "critical_validity": "挑战既有假设",
+    "participant_validation": "参与者检验"
+  },
+  
+  "tools": [
+    {
+      "name": "structure_parser.py",
+      "function": "Labov叙事结构解析",
+      "cli_commands": ["--parse", "--identify", "--validate"]
+    },
+    {
+      "name": "theme_extractor.py",
+      "function": "叙事主题提取",
+      "cli_commands": ["--extract", "--cluster", "--compare"]
+    },
+    {
+      "name": "identity_analyzer.py",
+      "function": "叙事认同分析",
+      "cli_commands": ["--tone", "--plot", "--identity"]
+    }
+  ],
+  
+  "file_structure": {
+    "required_files": [
+      "SKILL.md",
+      "skill.yaml",
+      "subagents.yaml",
+      "skill-hooks.yaml",
+      "lesson-memory.md",
+      "skill_manifest.json"
+    ],
+    "directories": [
+      "prompts/",
+      "references/",
+      "cases/positive/",
+      "cases/negative/",
+      "templates/",
+      "tools/",
+      "experience/"
+    ]
+  },
+  
+  "integration": {
+    "agentskills_io": "v1.0",
+    "cross_platform": true,
+    "supported_clis": [
+      "Claude", "Qwen", "iFlow", "Gemini", 
+      "Copilot", "Stigmergy", "OpenCode", 
+      "KiloCode", "QoderCLI", "WorkBuddy", 
+      "Cursor", "Windsurf"
+    ]
+  },
+  
+  "references": [
+    "Riessman, C.K. (2008). Narrative Methods for the Human Sciences.",
+    "McAdams, D.P. (2001). The psychology of life stories.",
+    "Labov, W. (1972). The transformation of experience in narrative syntax.",
+    "Gee, J.P. (1991). A linguistic approach to narrative."
+  ],
+  
+  "created_at": "2026-03-15",
+  "updated_at": "2026-03-15",
+  "maintainer": "叙事分析专家技能"
+}

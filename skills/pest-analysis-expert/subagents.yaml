@@ -1,0 +1,65 @@
+# PEST Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: political-analyzer
+    name: 政治环境分析师
+    role: 分析政治因素影响
+    triggers:
+      - "政治"
+      - "政策"
+      - "政府"
+
+  - id: economic-analyzer
+    name: 经济环境分析师
+    role: 分析经济因素影响
+    triggers:
+      - "经济"
+      - "GDP"
+      - "通胀"
+
+  - id: social-analyzer
+    name: 社会环境分析师
+    role: 分析社会因素影响
+    triggers:
+      - "社会"
+      - "人口"
+      - "消费"
+
+  - id: technological-analyzer
+    name: 技术环境分析师
+    role: 分析技术因素影响
+    triggers:
+      - "技术"
+      - "创新"
+      - "研发"
+
+  - id: environmental-analyzer
+    name: 环境因素分析师
+    role: 分析环境因素影响
+    triggers:
+      - "环境"
+      - "气候"
+      - "ESG"
+
+  - id: legal-analyzer
+    name: 法律环境分析师
+    role: 分析法律因素影响
+    triggers:
+      - "法律"
+      - "法规"
+      - "合规"
+
+workflow:
+  - step: 1
+    action: "确定分析范围"
+  - step: 2
+    action: "六维度因素扫描"
+  - step: 3
+    action: "影响程度评估"
+  - step: 4
+    action: "概率与紧迫性估计"
+  - step: 5
+    action: "优先级排序"
+  - step: 6
+    action: "战略建议生成"

@@ -1,0 +1,159 @@
+---
+name: data-analysis-expert
+version: 5.0.0-cli-native+agent
+description: |
+  Data Analysis Expert - 数据分析专家技能（AI CLI 原生版）。
+  支持自动任务队列执行和子Agent并行处理。
+
+  **质量优先，严谨分析**：严格遵循Tukey (1977)、Cleveland (1985)探索性数据分析方法论。
+  确保数据质量检查完成、统计方法选择正确、结果解释准确、可视化清晰。
+
+  基于 Tukey (1977)《Exploratory Data Analysis》、Cleveland (1985)《The Elements of Graphing Data》
+  的数据分析方法论。
+
+  核心能力：
+  - 描述性统计：集中趋势、离散程度、分布形态
+  - 回归分析：线性回归、逻辑回归、多元回归
+  - 推断统计：假设检验、置信区间、效应量
+  - 数据准备：清洗、转换、特征工程
+  - 可视化：统计图表、交互式图形、报告生成
+
+  六大绝对禁止原则：
+  - 禁止忽视数据质量（必须先检查数据）
+  - 禁止误用统计方法（必须匹配数据类型）
+  - 禁止过度外推结论（必须在数据范围内）
+  - 禁止忽视假设检验（必须验证统计假设）
+  - 禁止误导性可视化（必须准确展示数据）
+  - 禁止忽略不确定性（必须报告置信区间）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Statistical Analysis (Tukey 1977, Cleveland 1985)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  crct-enabled: true
+  agentskills-io: true
+  cross-platform: true
+  academic-alignment: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "30分钟-2小时/单分析，2-4周/完整研究项目"
+  parallel: "15分钟/多变量并行分析"
+  quality_guarantee: "假设检验通过，效应量报告，可视化完成"
+
+analysis_types:
+  - descriptive
+  - regression
+  - inferential
+  - data-preparation
+  - visualization
+  - full-analysis
+
+category: data-science
+tags:
+  - data analysis
+  - statistics
+  - regression
+  - visualization
+  - exploratory-analysis
+  - hypothesis-testing
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（支持CSV、JSON、Excel格式）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型（descriptive/regression/inferential/data-preparation/visualization/full-analysis）
+
+outputs:
+  results:
+    type: object
+    description: 分析结果（统计数据、检验结果、模型参数）
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: analyze
+    description: 数据分析与预处理
+    module: analyze
+  - name: calculate-descriptive
+    description: 计算描述性统计
+    module: calculate-descriptive
+  - name: run-regression
+    description: 运行回归分析
+    module: run-regression
+  - name: run-inferential
+    description: 运行推断统计
+    module: run-inferential
+  - name: prepare-data
+    description: 数据准备和清洗
+    module: prepare-data
+  - name: generate-visualization
+    description: 生成数据可视化
+    module: generate-visualization
+  - name: data-quality-checker
+    description: 检查数据质量
+    module: data_quality_checker
+  - name: planning-integration
+    description: 任务规划集成
+    module: planning-integration
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: data_quality_check
+    description: 数据质量检查
+    rule: "必须先检查数据质量，处理缺失值和异常值"
+  - name: method_appropriateness
+    description: 方法适用性检查
+    rule: "统计方法必须匹配数据类型和研究问题"
+  - name: assumption_verification
+    description: 假设验证检查
+    rule: "必须验证统计假设（正态性、方差齐性等）"
+  - name: effect_size_reporting
+    description: 效应量报告检查
+    rule: "必须报告效应量，不仅报告p值"
+  - name: visualization_accuracy
+    description: 可视化准确性检查
+    rule: "可视化必须准确展示数据，不得误导"
+  - name: uncertainty_reporting
+    description: 不确定性报告检查
+    rule: "必须报告置信区间或标准误"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - scipy>=1.7.0
+    - statsmodels>=0.13.0
+    - matplotlib>=3.5.0
+    - seaborn>=0.11.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*) Bash(pandas:*) Bash(scipy:*)

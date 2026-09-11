@@ -1,0 +1,202 @@
+# 元分析技能钩子配置
+# 版本: 1.0.0
+# 方法论标准: Cochrane Handbook, PRISMA
+
+skill_info:
+  name: "meta-analysis-expert"
+  version: "1.0.0"
+  description: "元分析专家技能，基于Cochrane手册和PRISMA标准"
+  methodology: "Borenstein et al. (2009), Higgins et al. (2019)"
+
+# 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: "workspace/sessions"
+    format: "json"
+  project:
+    enabled: true
+    path: "workspace/projects"
+    format: "markdown"
+  learning:
+    enabled: true
+    path: "lesson-memory.md"
+    patterns:
+      - "效应量计算模式"
+      - "异质性处理模式"
+      - "发表偏倚检测模式"
+
+# CRCT思维链配置
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "持续比较各研究效应量"
+    triggers:
+      - "数据提取后"
+      - "效应量计算后"
+      - "异质性分析后"
+  record:
+    enabled: true
+    format: "结构化编码表"
+    required_fields:
+      - "研究ID"
+      - "效应量"
+      - "标准误"
+      - "样本量"
+      - "质量评分"
+  chain:
+    enabled: true
+    phases:
+      - "文献检索→筛选"
+      - "筛选→数据提取"
+      - "提取→效应量计算"
+      - "计算→合并分析"
+      - "分析→偏倚评估"
+  trace:
+    enabled: true
+    decision_log: true
+    exclusion_tracking: true
+
+# 六大绝对禁止原则
+forbidden_principles:
+  - id: "FORBIDDEN_001"
+    name: "禁止预设结论"
+    description: "不得在文献检索前预设元分析结论方向"
+    severity: "critical"
+    detection:
+      - "检索词偏向性"
+      - "纳入标准预设结果"
+    prevention:
+      - "客观制定PICO"
+      - "预注册方案"
+
+  - id: "FORBIDDEN_002"
+    name: "禁止选择性报告"
+    description: "必须报告所有纳入研究，不得隐瞒不显著结果"
+    severity: "critical"
+    detection:
+      - "纳入研究数不一致"
+      - "排除研究未说明"
+    prevention:
+      - "PRISMA流程图完整"
+      - "排除研究清单"
+
+  - id: "FORBIDDEN_003"
+    name: "禁止忽视异质性"
+    description: "必须评估并报告异质性，不得在存在显著异质性时使用固定效应模型"
+    severity: "critical"
+    detection:
+      - "I²>50%用固定效应"
+      - "未报告异质性指标"
+    prevention:
+      - "常规异质性检验"
+      - "根据I²选择模型"
+
+  - id: "FORBIDDEN_004"
+    name: "禁止忽视发表偏倚"
+    description: "必须评估发表偏倚，报告漏斗图和相关检验"
+    severity: "high"
+    detection:
+      - "研究数≥10未做偏倚检验"
+      - "漏斗图不对称未说明"
+    prevention:
+      - "常规漏斗图检验"
+      - "报告Egger/Begg结果"
+
+  - id: "FORBIDDEN_005"
+    name: "禁止错误合并"
+    description: "临床异质性过大的研究不得强行合并"
+    severity: "critical"
+    detection:
+      - "人群/干预差异大"
+      - "结局定义不一致"
+    prevention:
+      - "评估临床同质性"
+      - "必要时分开分析"
+
+  - id: "FORBIDDEN_006"
+    name: "禁止忽视质量差异"
+    description: "必须评估纳入研究质量，并进行敏感性分析"
+    severity: "high"
+    detection:
+      - "未做质量评价"
+      - "质量差异未考虑"
+    prevention:
+      - "Cochrane RoB评估"
+      - "敏感性分析"
+
+# 触发器配置
+triggers:
+  on_session_start:
+    - action: "load_persistence"
+      priority: 1
+    - action: "initialize_crct"
+      priority: 2
+    - action: "check_progress"
+      priority: 3
+
+  on_data_extraction:
+    - action: "validate_data_completeness"
+      priority: 1
+    - action: "calculate_effect_sizes"
+      priority: 2
+    - action: "update_progress"
+      priority: 3
+
+  on_analysis_complete:
+    - action: "assess_heterogeneity"
+      priority: 1
+    - action: "test_publication_bias"
+      priority: 2
+    - action: "generate_forest_plot"
+      priority: 3
+    - action: "save_learning"
+      priority: 4
+
+# 工具配置
+tools:
+  effect_size_calculator:
+    type: "python"
+    path: "tools/effect_size_calculator.py"
+    description: "计算各种效应量(SMD, OR, RR等)"
+    input: "原始数据"
+    output: "效应量及标准误"
+
+  heterogeneity_analyzer:
+    type: "python"
+    path: "tools/heterogeneity_analyzer.py"
+    description: "异质性评估(Q检验, I², τ²)"
+    input: "效应量数据"
+    output: "异质性指标"
+
+  publication_bias_tester:
+    type: "python"
+    path: "tools/publication_bias_tester.py"
+    description: "发表偏倚检验(漏斗图, Egger)"
+    input: "效应量数据"
+    output: "偏倚检验结果"
+
+# 质量控制
+quality_control:
+  min_studies: 2
+  ideal_studies: 10
+  heterogeneity_threshold:
+    low: 25
+    moderate: 50
+    high: 75
+  quality_assessment:
+    tool: "Cochrane_RoB2"
+    required: true
+
+# 输出配置
+output:
+  formats:
+    - "markdown"
+    - "json"
+    - "html"
+  required_elements:
+    - "PRISMA流程图"
+    - "森林图"
+    - "漏斗图"
+    - "质量评价图"
+    - "特征表格"

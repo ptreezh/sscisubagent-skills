@@ -1,0 +1,87 @@
+# Business Ecosystem Subagent Definitions
+# For parallel processing in AI CLI environments
+# Version: 5.0.0-cli-native+agent
+
+subagents:
+  # Ecosystem Structure Agent
+  - name: ecosystem-structure-analyzer
+    description: 识别核心企业、关键物种，映射价值网络和生态位
+    prompt_template: prompts/ecosystem-structure-prompt.md
+    tools:
+      - ecosystem_mapper
+      - stakeholder_analyzer
+    output_format: json
+    estimated_time: "45分钟"
+    quality_check:
+      - rule: "必须识别核心企业+关键物种"
+        metric: "ecosystem_completeness"
+        required: ["core_enterprise", "keystone_species", "value_network"]
+    
+  # Value Flow Agent
+  - name: value-flow-analyzer-agent
+    description: 分析价值共创机制、利益分配机制、风险共担机制
+    prompt_template: prompts/value-flow-prompt.md
+    tools:
+      - value_flow_analyzer
+    output_format: json
+    estimated_time: "60分钟"
+    quality_check:
+      - rule: "价值流必须为多向网络"
+        metric: "value_network_type"
+        expected: "multi_directional"
+      - rule: "三种机制必须完整"
+        metric: "mechanism_completeness"
+        required: ["value_co_creation", "benefit_distribution", "risk_sharing"]
+    
+  # Platform Dynamics Agent
+  - name: platform-dynamics-analyzer
+    description: 分析平台动态、网络效应、协同进化轨迹
+    prompt_template: prompts/platform-dynamics-prompt.md
+    tools:
+      - platform_dynamics
+      - innovation_impact_evaluator
+    output_format: json
+    estimated_time: "60分钟"
+    quality_check:
+      - rule: "必须包含协同进化轨迹"
+        metric: "co_evolution_trajectory"
+    
+  # Resilience Assessment Agent
+  - name: resilience-assessor
+    description: 评估生态多样性、稳定性、可持续性
+    prompt_template: prompts/resilience-prompt.md
+    tools:
+      - resilience_calculator
+    output_format: json
+    estimated_time: "45分钟"
+    quality_check:
+      - rule: "三项健康度指标必须完整"
+        metric: "health_indicators"
+        required: ["diversity", "stability", "sustainability"]
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 4
+  coordination: sequential_merge
+  timeout_per_agent: "120分钟"
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 5
+  resume_from_checkpoint: true
+
+# Fallback Configuration
+fallback:
+  enabled: true
+  strategy: "graceful_degradation"
+  on_agent_failure: "skip_and_continue"
+  on_tool_failure: "use_alternative"
+
+# Coordination Protocol
+coordination:
+  merge_strategy: "sequential"
+  validation: true
+  conflict_resolution: "human_review"

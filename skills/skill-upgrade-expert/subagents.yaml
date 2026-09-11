@@ -1,0 +1,283 @@
+# Skill Upgrade Expert Subagent Definitions
+# For parallel batch skill upgrades in AI CLI environments
+
+subagents:
+  # Level 1 Upgrader Agent
+  - name: level1-upgrader
+    description: Level 1基础升级Agent - 建立质量基线
+    prompt_template: prompts/level1-upgrade-prompt.md
+    tools:
+      - assess_skill_level
+      - upgrade_level1
+    output_format: json
+    quality_checks:
+      - six_prohibitions_customized
+      - task_decomposition_defined
+      - skill_md_structure_complete
+      - directory_structure_compliant
+    required_output:
+      - skill_md_content
+      - prohibitions_list
+      - task_decomposition_rules
+
+  # Level 2 Upgrader Agent
+  - name: level2-upgrader
+    description: Level 2学术对齐Agent - 建立学术权威性
+    prompt_template: prompts/level2-upgrade-prompt.md
+    tools:
+      - upgrade_level2
+    output_format: json
+    quality_checks:
+      - classic_literature_cited
+      - core_concepts_defined
+      - at_least_one_positive_case
+      - application_scope_clear
+    required_output:
+      - references_content
+      - concepts_definitions
+      - case_study_content
+
+  # Level 3 Upgrader Agent
+  - name: level3-upgrader
+    description: Level 3 CLI原生集成Agent - 深度集成CLI环境
+    prompt_template: prompts/level3-upgrade-prompt.md
+    tools:
+      - upgrade_level3
+    output_format: json
+    quality_checks:
+      - task_queue_support_enabled
+      - state_persistence_implemented
+      - model_driven_execution
+      - tools_integrated
+    required_output:
+      - skill_md_cli_section
+      - task_plan_template
+      - tools_integration
+
+  # Level 4 Upgrader Agent
+  - name: level4-upgrader
+    description: Level 4自迭代学习Agent - 持续学习和优化
+    prompt_template: prompts/level4-upgrade-prompt.md
+    tools:
+      - upgrade_level4
+    output_format: json
+    quality_checks:
+      - experience_patterns_created
+      - lesson_memory_mechanism
+      - multiple_cases_available
+      - self_iteration_defined
+    required_output:
+      - patterns_content
+      - lesson_memory_content
+      - extended_case_library
+
+  # Quality Validator Agent
+  - name: quality-validator
+    description: 质量验证Agent - 完成度检查和质量评分
+    tools:
+      - validate_quality
+    output_format: json
+    quality_checks:
+      - all_levels_completed
+      - quality_score >= 4.5
+      - documentation_complete
+    required_output:
+      - completion_checklist
+      - quality_scores
+      - improvement_recommendations
+
+  # Report Generator Agent
+  - name: report-generator
+    description: 报告生成Agent - 生成升级报告
+    tools:
+      - generate_report
+    output_format: markdown
+    required_output:
+      - upgrade_summary
+      - files_modified
+      - quality_metrics
+      - next_steps
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 5
+  coordination: sequential_merge
+  task_decomposition:
+    single_skill: sequential_phases
+    batch_skills: parallel_per_skill
+
+# CRCT Chain Configuration for Skill Upgrade
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "每个升级决策必须与已验证的成功模式比较"
+    required_fields:
+      - comparison_with_validated_patterns
+      - similarities_identified
+      - differences_identified
+  
+  record:
+    enabled: true
+    description: "所有升级步骤必须记录"
+    required_fields:
+      - upgrade_action
+      - rationale
+      - outcome
+  
+  chain:
+    enabled: true
+    description: "建立升级步骤的依赖链条"
+    required_fields:
+      - prerequisite_steps
+      - current_step
+      - next_steps
+  
+  trace:
+    enabled: true
+    description: "追踪技能版本演化过程"
+    required_fields:
+      - original_version
+      - intermediate_versions
+      - final_version
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 3
+  persistence_file: task_plan.md
+
+# Quality Assurance
+quality_assurance:
+  verification_levels: 4
+  verification_steps:
+    - level1_completion_check
+    - level2_completion_check
+    - level3_completion_check
+    - level4_completion_check
+
+  strict_prohibitions:
+    - no_skipping_levels
+    - no_incomplete_documentation
+    - no_preset_conclusions
+    - no_quality_compromise
+
+# Phase-Based Execution for Single Skill
+phases:
+  phase1_level1:
+    description: "Level 1: 基础升级"
+    agents: [level1-upgrader]
+    mode: sequential
+    estimated_time: "30分钟"
+    output: skill_md_base.md
+    quality_gate: prohibitions_defined
+    
+  phase2_level2:
+    description: "Level 2: 学术对齐"
+    agents: [level2-upgrader]
+    mode: sequential
+    depends_on: phase1_level1
+    estimated_time: "1小时"
+    output: references_and_cases
+    quality_gate: literature_cited
+    
+  phase3_level3:
+    description: "Level 3: CLI原生集成"
+    agents: [level3-upgrader]
+    mode: sequential
+    depends_on: phase2_level2
+    estimated_time: "30分钟"
+    output: cli_integration
+    quality_gate: task_queue_enabled
+    
+  phase4_level4:
+    description: "Level 4: 自迭代学习"
+    agents: [level4-upgrader]
+    mode: sequential
+    depends_on: phase3_level3
+    estimated_time: "1小时"
+    output: self_iteration
+    quality_gate: patterns_created
+    
+  phase5_validation:
+    description: "质量验证"
+    agents: [quality-validator]
+    mode: sequential
+    depends_on: phase4_level4
+    estimated_time: "15分钟"
+    output: validation_report
+    quality_gate: score >= 4.5
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("单技能升级") or skill_count == 1
+      then: single_skill_mode
+      execution: sequential_phases([phase1, phase2, phase3, phase4, phase5])
+      estimated_time: "3小时"
+
+    - if: user_request_contains("批量升级") or skill_count > 5
+      then: batch_parallel_mode
+      execution: parallel_per_skill
+      estimated_time: "4小时/10技能"
+
+    - if: user_request_contains("评估") or user_request_contains("检查")
+      then: assessment_mode
+      execution: single_agent(level-assessor)
+      estimated_time: "15分钟"
+
+    - if: user_request_contains("质量验证") or user_request_contains("评分")
+      then: validation_mode
+      execution: single_agent(quality-validator)
+      estimated_time: "15分钟"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive upgrade"
+      execution: single_skill_mode
+
+# Batch Upgrade Strategy
+batch_upgrade:
+  strategy: parallel_per_skill
+  max_concurrent: 5
+  progress_tracking:
+    enabled: true
+    report_interval: 10
+  shared_resources:
+    - common_templates
+    - validated_patterns
+    - quality_checklist
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  upgrade_log_file: upgrade_log.json
+  lesson_memory_file: lesson-memory.md
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes
+
+# Success Patterns Library
+success_patterns:
+  validated_skills:
+    - grounded-theory-expert
+    - social-network-analysis-expert
+    - digital-durkheim-expert
+    - digital-marx-expert
+    - digital-weber-expert
+    - bourdieu-field-analysis-expert
+    - actor-network-analysis-expert
+    - cas-simulation-expert
+    - system-dynamics-expert
+    - qca-analysis-expert
+    - did-analysis-expert
+    - survey-design-expert
+    - business-ecosystem-expert
+    - business-model-expert
+  
+  common_patterns:
+    - six_prohibitions_template
+    - three_layer_decomposition
+    - cli_integration_checklist
+    - self_iteration_mechanism

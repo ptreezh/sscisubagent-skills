@@ -1,0 +1,261 @@
+{
+  "project": {
+    "name": "医院就诊体验优化",
+    "client": "某三甲医院",
+    "duration": "8周",
+    "team_size": 5
+  },
+  "user_research": {
+    "interviews": [
+      {
+        "user_id": "P001",
+        "demographics": {
+          "age": 45,
+          "gender": "女",
+          "occupation": "教师",
+          "chronic_condition": true
+        },
+        "quotes": [
+          "每次来医院都要排好几个队，太累了",
+          "不知道下一步该去哪里，问了好几次",
+          "医生只给我看了2分钟，感觉很不踏实"
+        ],
+        "behaviors": [
+          "提前1小时到院排队",
+          "反复询问护士流程",
+          "用手机记录医嘱"
+        ],
+        "emotions": {
+          "anxiety": 0.8,
+          "confusion": 0.7,
+          "frustration": 0.6,
+          "hope": 0.4
+        }
+      },
+      {
+        "user_id": "P002",
+        "demographics": {
+          "age": 28,
+          "gender": "男",
+          "occupation": "程序员",
+          "chronic_condition": false
+        },
+        "quotes": [
+          "挂号APP太难用了，总是卡住",
+          "检查报告要等好几天，太慢了",
+          "希望能在手机上看到所有信息"
+        ],
+        "behaviors": [
+          "网上预约挂号",
+          "用手机等待叫号",
+          "在网上查询检查结果"
+        ],
+        "emotions": {
+          "impatience": 0.7,
+          "confusion": 0.5,
+          "frustration": 0.6,
+          "satisfaction": 0.3
+        }
+      },
+      {
+        "user_id": "P003",
+        "demographics": {
+          "age": 65,
+          "gender": "男",
+          "occupation": "退休",
+          "chronic_condition": true
+        },
+        "quotes": [
+          "字太小了，看不清楚",
+          "年轻人都会用手机，我们老年人跟不上",
+          "希望有人能带我走完流程"
+        ],
+        "behaviors": [
+          "早起排队挂号",
+          "让子女帮忙操作手机",
+          "带病历本记录"
+        ],
+        "emotions": {
+          "helplessness": 0.7,
+          "anxiety": 0.6,
+          "gratitude": 0.5,
+          "resignation": 0.4
+        }
+      }
+    ],
+    "observations": [
+      {
+        "location": "门诊大厅",
+        "timestamp": "08:30",
+        "behavior": "患者在导诊台前排长队",
+        "pain_point": "导诊服务不足"
+      },
+      {
+        "location": "收费窗口",
+        "timestamp": "09:15",
+        "behavior": "患者反复询问缴费金额",
+        "pain_point": "费用不透明"
+      },
+      {
+        "location": "候诊区",
+        "timestamp": "10:00",
+        "behavior": "患者频繁查看叫号屏幕",
+        "pain_point": "等待焦虑"
+      }
+    ]
+  },
+  "empathy_maps": [
+    {
+      "user": "中年慢性病患者",
+      "say": ["每次都要排好几个队", "不知道下一步去哪里", "医生只看了2分钟"],
+      "think": ["我的时间都浪费在排队上了", "是不是应该换个医院", "医生有没有听懂我的问题"],
+      "do": ["提前1小时到院", "反复询问护士", "用手机记录医嘱"],
+      "feel": ["焦虑", "困惑", "疲惫", "不安"],
+      "pains": ["排队时间长", "流程不清晰", "医患沟通短"],
+      "gains": ["高效就诊", "清晰指引", "充分沟通"]
+    },
+    {
+      "user": "年轻首次就诊者",
+      "say": ["挂号APP太难用了", "检查报告要等好几天", "希望手机能看到所有信息"],
+      "think": ["为什么不能全程数字化", "等结果太浪费时间了", "医院系统太落后"],
+      "do": ["网上预约", "手机等叫号", "网上查结果"],
+      "feel": ["不耐烦", "困惑", "失望"],
+      "pains": ["系统体验差", "等待时间长", "信息不透明"],
+      "gains": ["流畅的数字体验", "即时信息获取", "自助服务"]
+    },
+    {
+      "user": "老年慢性病患者",
+      "say": ["字太小看不清", "年轻人都会用手机", "希望有人带我走完流程"],
+      "think": ["我跟不上时代了", "不想麻烦孩子", "这医院对老人不友好"],
+      "do": ["早起排队", "让子女帮忙", "带病历本记录"],
+      "feel": ["无助", "焦虑", "感激", "无奈"],
+      "pains": ["数字门槛高", "无人引导", "信息获取困难"],
+      "gains": ["有人工服务", "大字体界面", "全程陪诊"]
+    }
+  ],
+  "user_journey": {
+    "user_persona": "中年慢性病患者",
+    "stages": [
+      {
+        "stage": "预约挂号",
+        "behaviors": ["打开APP", "选择科室", "选择时间", "确认预约"],
+        "thoughts": ["希望能约到好医生", "时间要合适"],
+        "emotions": ["期待", "紧张"],
+        "touchpoints": ["APP", "短信通知"],
+        "pain_points": ["APP卡顿", "号源紧张"],
+        "opportunities": ["优化APP体验", "智能推荐时间"]
+      },
+      {
+        "stage": "到院签到",
+        "behaviors": ["找到科室", "签到", "等待叫号"],
+        "thoughts": ["在哪里签到", "还要等多久"],
+        "emotions": ["困惑", "焦虑"],
+        "touchpoints": ["导诊台", "签到机", "叫号屏"],
+        "pain_points": ["找不到位置", "签到流程不明"],
+        "opportunities": ["智能导航", "简化签到"]
+      },
+      {
+        "stage": "面诊",
+        "behaviors": ["进入诊室", "描述症状", "回答问题", "接收医嘱"],
+        "thoughts": ["医生会不会不耐烦", "我有没有说清楚"],
+        "emotions": ["紧张", "不安", "希望"],
+        "touchpoints": ["诊室", "医生", "病历"],
+        "pain_points": ["时间太短", "沟通不充分"],
+        "opportunities": ["延长问诊时间", "辅助沟通工具"]
+      },
+      {
+        "stage": "检查缴费",
+        "behaviors": ["去检查", "等结果", "缴费"],
+        "thoughts": ["检查在几楼", "结果什么时候出", "又要排队缴费"],
+        "emotions": ["疲惫", "烦躁"],
+        "touchpoints": ["检查室", "缴费窗口", "自助机"],
+        "pain_points": ["来回奔波", "多次排队"],
+        "opportunities": ["一站式服务", "线上支付"]
+      },
+      {
+        "stage": "取药离院",
+        "behaviors": ["去药房", "取药", "离院"],
+        "thoughts": ["药怎么吃", "下次什么时候来"],
+        "emotions": ["轻松", "不确定"],
+        "touchpoints": ["药房", "药盒", "医嘱单"],
+        "pain_points": ["用药说明不清", "复诊安排不明"],
+        "opportunities": ["用药提醒", "智能复诊预约"]
+      }
+    ]
+  },
+  "pov_statement": {
+    "user": "医院就诊患者（特别是中老年和首次就诊者）",
+    "need": "清晰、高效、有人情味的就诊体验",
+    "insight": "他们在陌生、复杂的医院环境中感到迷失和焦虑，既需要数字化的便利，也需要人性化的关怀",
+    "full_pov": "医院就诊患者需要清晰、高效、有人情味的就诊体验，因为他们在陌生、复杂的医院环境中感到迷失和焦虑，既需要数字化的便利，也需要人性化的关怀"
+  },
+  "hmw_questions": [
+    "我们如何能够让患者全程清楚知道自己该去哪里、做什么？",
+    "我们如何能够减少患者排队等待的时间？",
+    "我们如何能够让老年患者也能享受数字化便利？",
+    "我们如何能够改善医患沟通的充分性？",
+    "我们如何能够让就诊流程更加人性化？"
+  ],
+  "ideas": [
+    {
+      "id": "I001",
+      "category": "导航优化",
+      "idea": "医院室内导航小程序，实时指引患者到达各科室",
+      "feasibility": "high",
+      "impact": "high"
+    },
+    {
+      "id": "I002",
+      "category": "流程优化",
+      "idea": "一站式服务中心，减少患者来回奔波",
+      "feasibility": "medium",
+      "impact": "high"
+    },
+    {
+      "id": "I003",
+      "category": "数字体验",
+      "idea": "全程手机端操作，包括签到、缴费、查报告",
+      "feasibility": "high",
+      "impact": "medium"
+    },
+    {
+      "id": "I004",
+      "category": "适老化设计",
+      "idea": "大字版APP和自助机界面，配有语音引导",
+      "feasibility": "high",
+      "impact": "medium"
+    },
+    {
+      "id": "I005",
+      "category": "服务创新",
+      "idea": "志愿者陪诊服务，帮助老年患者完成就诊",
+      "feasibility": "medium",
+      "impact": "high"
+    }
+  ],
+  "prototype_test_results": [
+    {
+      "prototype": "室内导航小程序",
+      "test_users": 15,
+      "positive_feedback": ["界面清晰", "定位准确", "路线规划合理"],
+      "negative_feedback": ["部分区域信号弱", "语音导航可优化"],
+      "success_rate": 0.87,
+      "satisfaction_score": 4.2
+    },
+    {
+      "prototype": "一站式服务中心",
+      "test_users": 20,
+      "positive_feedback": ["不用来回跑了", "工作人员态度好", "流程简化"],
+      "negative_feedback": ["高峰期排队仍较长", "部分业务不能一站式办理"],
+      "success_rate": 0.75,
+      "satisfaction_score": 3.8
+    }
+  ],
+  "final_recommendations": [
+    "优先部署室内导航系统，解决找路难题",
+    "逐步推广一站式服务，整合常见业务",
+    "APP增加适老化模式，服务所有人群",
+    "建立志愿者陪诊机制，提供人性化关怀",
+    "优化叫号系统，减少等待焦虑"
+  ]
+}

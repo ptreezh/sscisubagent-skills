@@ -1,0 +1,195 @@
+# IPA分析专家 - 技能钩子配置
+
+## 基本配置
+skill_name: ipa-analysis-expert
+version: "5.0.0"
+methodology: "Smith & Osborn (2015), Smith et al. (2009)"
+
+## CRCT思维链配置
+crct_config:
+  constant_comparison:
+    enabled: true
+    description: "持续比较注释与原文、主题与注释，确保分析一致性"
+  
+  record:
+    enabled: true
+    persistence: "session"
+    path: "data/sessions/{session_id}/ipa_records/"
+  
+  chain:
+    enabled: true
+    max_chain_length: 50
+  
+  trace:
+    enabled: true
+    trace_level: "detailed"
+
+## 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: "data/sessions/{session_id}/ipa/"
+    retention: "session_end"
+    contents:
+      - "transcripts/"
+      - "annotations/"
+      - "themes/"
+      - "analysis_logs/"
+  
+  project:
+    enabled: true
+    path: "data/projects/{project_id}/ipa/"
+    retention: "project_end"
+    contents:
+      - "all_transcripts/"
+      - "cross_case_analysis/"
+      - "master_themes/"
+      - "final_reports/"
+  
+  learning:
+    enabled: true
+    path: "data/learning/ipa-analysis/"
+    retention: "permanent"
+    contents:
+      - "theme_patterns/"
+      - "annotation_examples/"
+      - "quality_benchmarks/"
+
+## 6大绝对禁止原则
+six_forbidden_principles:
+  - principle: "禁止跳过注释直接命名主题"
+    description: "IPA要求逐行注释，主题必须从注释中涌现"
+    detection_keywords: ["直接提取", "跳过注释", "快速命名"]
+    
+  - principle: "禁止过度概括忽视个体差异"
+    description: "IPA关注个体经验，不可用统一概念遮蔽差异"
+    detection_keywords: ["所有人都", "一致认为", "共同体验"]
+    
+  - principle: "禁止忽视研究者自反性"
+    description: "研究者视角是分析的一部分，必须反思前理解"
+    detection_keywords: ["客观分析", "中立立场", "无偏见"]
+    
+  - principle: "禁止主题命名脱离原文"
+    description: "主题命名使用心理学术语，但必须与原文有清晰连接"
+    detection_keywords: ["理论概念", "文献术语", "诊断词汇"]
+    
+  - principle: "禁止忽视语言特征"
+    description: "如何说和说什么同样重要，需要关注隐喻、停顿、强调"
+    detection_keywords: ["只看内容", "忽略表达", "忽视隐喻"]
+    
+  - principle: "禁止跨案例分析跳过单案例"
+    description: "必须先完成每个单案例分析，不可直接寻找共同主题"
+    detection_keywords: ["直接比较", "合并分析", "跳过单案例"]
+
+## 分析阶段钩子
+analysis_hooks:
+  pre_analysis:
+    - name: "verify_transcript_complete"
+      action: "验证转录文本完整性"
+      
+    - name: "check_annotation_prepared"
+      action: "检查注释表格准备状态"
+      
+  during_analysis:
+    - name: "ensure_three_annotation_types"
+      action: "确保三类注释并行进行"
+      
+    - name: "track_theme_development"
+      action: "追踪主题发展过程"
+      
+    - name: "check_forbidden_principles"
+      action: "检查是否违反禁止原则"
+      
+  post_analysis:
+    - name: "validate_theme_evidence"
+      action: "验证每个主题有原文证据"
+      
+    - name: "check_structure_completeness"
+      action: "检查主从结构完整性"
+      
+    - name: "generate_transparency_report"
+      action: "生成透明度报告"
+
+## 工具调用钩子
+tool_hooks:
+  annotation_guide:
+    pre_call:
+      - "确认转录文本已准备"
+    post_call:
+      - "验证三类注释完整性"
+      - "记录注释模式"
+      
+  theme_developer:
+    pre_call:
+      - "确保注释已完成"
+    post_call:
+      - "验证主题来自注释"
+      - "检查使用心理学术语"
+      
+  structure_builder:
+    pre_call:
+      - "确认主题已发展"
+    post_call:
+      - "验证主从关系合理"
+      - "检查引语支撑"
+
+## 质量检查点
+quality_checkpoints:
+  annotation_phase:
+    - "描述性注释是否使用参与者语言"
+    - "语言性注释是否关注表达方式"
+    - "概念性注释是否使用心理学术语"
+    
+  theme_phase:
+    - "主题是否从注释中涌现"
+    - "主题命名是否使用心理学术语"
+    - "每个主题是否有原文证据"
+    
+  structure_phase:
+    - "主从关系是否清晰"
+    - "从主题是否有引语支撑"
+    - "整体结构是否覆盖完整经验"
+
+## 输出格式配置
+output_formats:
+  annotation_table:
+    template: "three_column_table"
+    columns:
+      - "描述性注释"
+      - "语言性注释"
+      - "概念性注释"
+      
+  theme_report:
+    template: "master_slave_structure"
+    includes:
+      - "主主题名称"
+      - "从主题列表"
+      - "原文引语"
+      - "参与者编号"
+
+## 会话管理
+session_management:
+  max_session_duration: "4h"
+  checkpoint_interval: "30min"
+  auto_save: true
+  
+  context_management:
+    max_cases_per_session: 5
+    preserve_annotation_history: true
+    enable_session_resume: true
+
+## 学习与进化
+learning_config:
+  pattern_learning: true
+  theme_pattern_evolution: true
+  quality_benchmark_learning: true
+  
+  evolution_triggers:
+    - "每5个案例分析后更新主题模式库"
+    - "发现新主题模式时扩展分类"
+    - "质量问题出现时更新检查点"
+
+---
+**配置版本**: 1.0.0
+**创建时间**: 2026-03-15
+**维护者**: IPA分析专家技能

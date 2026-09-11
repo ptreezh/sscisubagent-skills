@@ -1,0 +1,50 @@
+# PESTEL分析进度跟踪模板
+
+## 项目信息
+
+- **分析对象**: {{analysis_target}}
+- **开始时间**: {{start_date}}
+- **当前状态**: {{current_status}}
+
+---
+
+## 阶段进度
+
+### 阶段1：维度扫描
+- 状态: {{stage1_status}}
+- 进度: {{stage1_progress}}%
+
+| 维度 | 状态 | 因素数 | 完成时间 |
+|------|------|--------|----------|
+| 政治P | {{p_status}} | {{p_count}} | {{p_end}} |
+| 经济E | {{e_status}} | {{e_count}} | {{e_end}} |
+| 社会S | {{s_status}} | {{s_count}} | {{s_end}} |
+| 技术T | {{t_status}} | {{t_count}} | {{t_end}} |
+| 环境EN | {{en_status}} | {{en_count}} | {{en_end}} |
+| 法律L | {{l_status}} | {{l_count}} | {{l_end}} |
+
+### 阶段2：因素识别
+- 状态: {{stage2_status}}
+- 进度: {{stage2_progress}}%
+
+### 阶段3：影响评估
+- 状态: {{stage3_status}}
+- 进度: {{stage3_progress}}%
+
+### 阶段4：交叉分析
+- 状态: {{stage4_status}}
+- 进度: {{stage4_progress}}%
+
+### 阶段5：战略启示
+- 状态: {{stage5_status}}
+- 进度: {{stage5_progress}}%
+
+---
+
+## 整体进度
+
+总进度: {{overall_progress}}%
+
+---
+
+**模板版本**: 5.0.0

@@ -1,0 +1,172 @@
+# Agile PM Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # User Story Writer Agent
+  - name: user-story-writer
+    description: 用户故事编写Agent - 创建符合INVEST原则的用户故事
+    prompt_template: prompts/user-story-prompt.md
+    tools:
+      - user_story_writer
+    output_format: json
+    quality_checks:
+      - invest_independent
+      - invest_negotiable
+      - invest_valuable
+      - invest_estimable
+      - invest_small
+      - invest_testable
+    required_output:
+      - user_stories
+      - acceptance_criteria
+      - story_points_estimate
+
+  # Sprint Planner Agent
+  - name: sprint-planner
+    description: Sprint规划Agent - 规划迭代内容和目标
+    prompt_template: prompts/sprint-planning-prompt.md
+    tools:
+      - sprint_planner
+    output_format: json
+    quality_checks:
+      - sprint_goal_defined
+      - capacity_calculated
+      - commitment_realistic
+    required_output:
+      - sprint_backlog
+      - sprint_goal
+      - team_capacity
+
+  # Burndown Tracker Agent
+  - name: burndown-tracker
+    description: 燃尽图追踪Agent - 监控Sprint进度
+    prompt_template: prompts/burndown-prompt.md
+    tools:
+      - burndown_tracker
+    output_format: json
+    quality_checks:
+      - remaining_work_tracked
+      - trend_analyzed
+      - risks_identified
+    required_output:
+      - burndown_data
+      - velocity_trend
+      - risk_alerts
+
+  # Retrospective Facilitator Agent
+  - name: retrospective-facilitator
+    description: 回顾会议引导Agent - 分析和改进
+    prompt_template: prompts/retrospective-prompt.md
+    tools:
+      - retrospective_facilitator
+    output_format: json
+    quality_checks:
+      - what_went_well_captured
+      - what_to_improve_identified
+      - action_items_defined
+    required_output:
+      - retrospective_insights
+      - action_items
+      - owners_assigned
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 4
+  coordination: scrum_events
+
+# Scrum Events Configuration
+scrum_events:
+  sprint_planning:
+    description: "Sprint规划会议"
+    duration: "2-4 hours"
+    participants: [product_owner, scrum_master, dev_team]
+    outputs:
+      - sprint_goal
+      - sprint_backlog
+
+  daily_scrum:
+    description: "每日站会"
+    duration: "15 minutes"
+    participants: [dev_team]
+    outputs:
+      - progress_update
+      - blockers
+
+  sprint_review:
+    description: "Sprint评审会议"
+    duration: "1-2 hours"
+    participants: [product_owner, scrum_master, dev_team, stakeholders]
+    outputs:
+      - demo_results
+      - feedback_collected
+
+  sprint_retrospective:
+    description: "Sprint回顾会议"
+    duration: "1-1.5 hours"
+    participants: [scrum_master, dev_team]
+    outputs:
+      - improvements_identified
+      - action_items
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 1  # 每天检查
+  persistence_file: task_plan.md
+
+# Quality Assurance
+quality_assurance:
+  verification_steps:
+    - invest_principle_check
+    - definition_of_done_check
+    - sprint_goal_achievable_check
+
+# Phase-Based Execution
+phases:
+  phase1_backlog_refinement:
+    description: "待办事项精炼"
+    agents: [user-story-writer]
+    mode: continuous
+    output: refined_stories.json
+    
+  phase2_sprint_planning:
+    description: "Sprint规划"
+    agents: [sprint-planner]
+    mode: sequential
+    output: sprint_plan.json
+    
+  phase3_execution:
+    description: "Sprint执行"
+    agents: [burndown-tracker]
+    mode: periodic
+    depends_on: phase2_sprint_planning
+    output: daily_progress.json
+    
+  phase4_review:
+    description: "回顾与改进"
+    agents: [retrospective-facilitator]
+    mode: sequential
+    depends_on: phase3_execution
+    output: retrospective.json
+
+# Velocity Tracking
+velocity:
+  calculation: rolling_average
+  window: 3  # 最近3个Sprint
+  use_for_planning: true
+
+# Definition of Done Template
+definition_of_done:
+  - code_reviewed
+  - tests_passed
+  - documentation_updated
+  - accepted_by_po
+  - deployed_to_staging
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  sprint_file: sprint_current.json
+  velocity_file: velocity_history.json

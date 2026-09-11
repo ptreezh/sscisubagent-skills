@@ -1,0 +1,164 @@
+name: meta-analysis-expert
+version: "5.0.0"
+description: 元分析专家 - 系统性文献综述与元分析全流程支持
+
+# 技能类型
+type: methodology
+category: quantitative
+evidence_level: 1  # 最高等级证据
+
+# 核心能力
+capabilities:
+  - 系统性文献综述
+  - PRISMA流程图生成
+  - 效应量计算
+  - 异质性分析
+  - 发表偏倚检测
+  - 亚组分析
+  - 元回归
+  - 敏感性分析
+  - 森林图生成
+  - 漏斗图生成
+
+# 支持的效应量
+effect_sizes:
+  continuous:
+    - standardized_mean_difference  # d, g
+    - correlation_coefficient       # r
+    - mean_difference              # MD
+  dichotomous:
+    - odds_ratio                    # OR
+    - risk_ratio                    # RR
+    - risk_difference               # RD
+    - incidence_rate_ratio         # IRR
+
+# 质量评估工具
+quality_tools:
+  rct:
+    - cochrane_rob_2
+    - jadad_scale
+    - delphi_list
+  observational:
+    - newcastle_ottawa_scale
+    - robins_i
+    - strobe_checklist
+  systematic_review:
+    - amstar_2
+    - prisma_2020
+
+# 统计模型
+models:
+  fixed_effect:
+    description: 假设所有研究共享同一真实效应
+    assumptions:
+      - 同质总体
+      - 单一真实效应
+    use_when:
+      - 低异质性 (I² < 50%)
+      - 理论支持同质性假设
+  random_effects:
+    description: 假设真实效应服从分布
+    assumptions:
+      - 异质总体
+      - 效应分布
+    estimators:
+      - dersimonian_laird
+      - reml
+      - ml
+      - hartung_knapp
+    use_when:
+      - 中高异质性 (I² >= 50%)
+      - 研究间存在真实差异
+
+# 异质性指标
+heterogeneity:
+  q_test:
+    description: 异质性卡方检验
+    interpretation: p < 0.05 提示存在异质性
+  i_squared:
+    description: 异质性比例
+    thresholds:
+      low: 25
+      moderate: 50
+      high: 75
+  tau_squared:
+    description: 研究间方差
+    interpretation: 效应量变异程度
+
+# 发表偏倚检测
+publication_bias:
+  graphical:
+    - funnel_plot
+    - radial_plot
+    - normal_qq_plot
+  statistical:
+    - egger_test
+    - begg_test
+    - trim_and_fill
+    - fail_safe_n
+    - rank_correlation
+
+# 报告标准
+reporting_standards:
+  - PRISMA_2020
+  - MOOSE
+  - Cochrane_Handbook
+  - APA_7th
+
+# 依赖
+dependencies:
+  python:
+    - numpy>=1.20.0
+    - scipy>=1.7.0
+    - pandas>=1.3.0
+    - matplotlib>=3.4.0
+    - statsmodels>=0.12.0
+
+# 子智能体
+subagents:
+  literature_screener:
+    description: 文献筛选智能体
+    tasks:
+      - 标题摘要筛选
+      - 全文筛选
+      - PRISMA流程图生成
+  data_extractor:
+    description: 数据提取智能体
+    tasks:
+      - 效应量数据提取
+      - 研究特征编码
+      - 质量评估数据收集
+  quality_assessor:
+    description: 质量评估智能体
+    tasks:
+      - 偏倚风险评估
+      - 证据等级评估
+      - 质量报告生成
+  statistical_analyzer:
+    description: 统计分析智能体
+    tasks:
+      - 元分析计算
+      - 异质性分析
+      - 发表偏倚检验
+  report_writer:
+    description: 报告撰写智能体
+    tasks:
+      - 结果叙述
+      - 表格生成
+      - 图表创建
+
+# 输出格式
+outputs:
+  - prisma_flowchart
+  - forest_plot
+  - funnel_plot
+  - summary_table
+  - sensitivity_analysis
+  - full_report
+
+# 元数据
+metadata:
+  methodology: Meta-Analysis
+  evidence_hierarchy: Level_I
+  created_at: 2026-03-15
+  author: SocienceAI

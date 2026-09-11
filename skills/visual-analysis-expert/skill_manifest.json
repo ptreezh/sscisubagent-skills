@@ -1,0 +1,19 @@
+{
+  "name": "visual-analysis-expert",
+  "version": "1.0.0",
+  "description": "视觉分析专家技能，基于Rose, Mirzoeff, Kress方法论",
+  "created": "2026-03-18",
+  "methodology": ["Rose Visual Methodologies", "Mirzoeff Visual Culture", "Kress & van Leeuwen Visual Grammar"],
+  "capabilities": {
+    "composition_analysis": "构图、色彩、视角分析",
+    "visual_narrative": "视觉叙事序列分析",
+    "gaze_pattern": "凝视模式与观看关系分析",
+    "visual_culture": "视觉文化批判"
+  },
+  "tools": [
+    "composition_analyzer.py",
+    "visual_narrative_analyzer.py",
+    "gaze_pattern_detector.py"
+  ],
+  "file_count": 15
+}

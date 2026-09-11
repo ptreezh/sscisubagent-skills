@@ -1,0 +1,51 @@
+# Bibliometric Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: data-retriever
+    name: 数据检索师
+    role: 从数据库检索文献数据
+    triggers:
+      - "检索"
+      - "获取数据"
+      - "下载"
+
+  - id: co-citation-analyzer
+    name: 共引分析师
+    role: 执行共引分析和聚类
+    triggers:
+      - "共引"
+      - "共引分析"
+      - "聚类"
+
+  - id: network-visualizer
+    name: 网络可视化师
+    role: 生成知识图谱和可视化
+    triggers:
+      - "可视化"
+      - "知识图谱"
+      - "网络图"
+
+  - id: frontier-detector
+    name: 前沿检测师
+    role: 识别研究热点和前沿
+    triggers:
+      - "前沿"
+      - "热点"
+      - "突发检测"
+
+workflow:
+  - step: 1
+    action: "数据检索"
+  - step: 2
+    action: "数据清洗"
+  - step: 3
+    action: "描述性分析"
+  - step: 4
+    action: "网络构建"
+  - step: 5
+    action: "聚类分析"
+  - step: 6
+    action: "可视化呈现"
+  - step: 7
+    action: "结果解释"

@@ -1,0 +1,42 @@
+# Phenomenology Expert - Skill Configuration
+name: phenomenology-expert
+version: "5.0.0"
+description: "现象学研究专家，支持描述性、解释性、具身三种取向"
+
+traditions:
+  descriptive:
+    philosopher: "Husserl"
+    method: "描述本质"
+    core_concepts:
+      - epoché
+      - eidetic_reduction
+      - intentionality
+  
+  interpretive:
+    philosopher: "Heidegger"
+    method: "解释存在"
+    core_concepts:
+      - dasein
+      - being-in-the-world
+      - fore-structure
+  
+  embodied:
+    philosopher: "Merleau-Ponty"
+    method: "具身分析"
+    core_concepts:
+      - body-subject
+      - perception
+      - expression
+
+lifeworld_dimensions:
+  - lived_space: "空间性"
+  - lived_time: "时间性"
+  - lived_body: "身体性"
+  - lived_relation: "关系性"
+
+quality_criteria:
+  - phenomenological_appropriateness
+  - epoché_thoroughness
+  - depth_of_description
+  - essential_insight
+  - richness_of_meaning

@@ -1,0 +1,93 @@
+# PEST/PESTEL分析技能钩子配置
+
+hooks:
+  # 任务开始前钩子
+  before_task:
+    - name: initialize_workspace
+      description: 初始化PESTEL分析工作空间
+      actions:
+        - create_directory: "{{workspace_path}}"
+        - create_file: "{{workspace_path}}/task_plan.md"
+        - create_file: "{{workspace_path}}/progress.md"
+        - create_file: "{{workspace_path}}/findings.md"
+
+  # 阶段完成后钩子
+  after_stage:
+    - name: validate_dimensions
+      description: 验证六维度扫描完整性
+      trigger: stage == "dimension_scanning"
+      actions:
+        - check: "dimensions.P.factors.length >= 3"
+        - check: "dimensions.E.factors.length >= 3"
+        - check: "dimensions.S.factors.length >= 3"
+        - check: "dimensions.T.factors.length >= 3"
+        - check: "dimensions.E.factors.length >= 3"
+        - check: "dimensions.L.factors.length >= 3"
+        - report: "维度完整性检查结果"
+
+  # 任务完成后钩子
+  after_task:
+    - name: generate_report
+      description: 生成最终报告
+      actions:
+        - compile: "PESTEL分析报告"
+        - export: "pdf, markdown"
+
+# 状态持久化配置
+persistence:
+  session:
+    path: ".claude/session/pest/"
+    retention: "24h"
+  
+  project:
+    path: "{{project_root}}/pest-workspace/"
+    retention: "30d"
+  
+  learning:
+    path: "experience/patterns.md"
+    retention: "permanent"
+
+# 子Agent配置
+subagents:
+  enabled: true
+  fallback_to_cli: true
+  parallel_threshold: 5
+  
+  agents:
+    - id: political-analyzer
+      role: 政治环境分析
+      capabilities: [policy_analysis, trade_analysis]
+    
+    - id: economic-analyzer
+      role: 经济环境分析
+      capabilities: [macro_analysis, market_analysis]
+    
+    - id: social-analyzer
+      role: 社会环境分析
+      capabilities: [demographic_analysis, cultural_analysis]
+    
+    - id: technological-analyzer
+      role: 技术环境分析
+      capabilities: [innovation_analysis, rd_analysis]
+    
+    - id: environmental-analyzer
+      role: 环境因素分析
+      capabilities: [climate_analysis, sustainability_analysis]
+    
+    - id: legal-analyzer
+      role: 法律环境分析
+      capabilities: [regulation_analysis, compliance_analysis]
+
+# 质量检查配置
+quality_checks:
+  dimension_completeness:
+    min_per_dimension: 3
+    required_evidence: true
+  
+  factor_quality:
+    specific_description: true
+    data_support: true
+  
+  cross_impact:
+    identify_linkages: true
+    analyze_chains: true

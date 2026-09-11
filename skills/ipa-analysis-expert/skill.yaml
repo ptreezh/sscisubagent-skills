@@ -1,0 +1,26 @@
+# IPA Analysis Expert - Skill Configuration
+name: ipa-analysis-expert
+version: "5.0.0"
+description: "诠释现象学分析专家"
+
+epistemology:
+  position: "双重建构"
+  participant: "对经验的诠释"
+  researcher: "对诠释的诠释"
+
+annotation_types:
+  - descriptive: "描述性注释"
+  - linguistic: "语言性注释"
+  - conceptual: "概念性注释"
+
+sample_guidelines:
+  homogeneity: "同质样本"
+  student_project: "3-6人"
+  masters: "6-12人"
+  doctoral: "10-20人"
+
+quality_criteria:
+  - sensitivity_to_context: "环境敏感性"
+  - commitment_and_rigor: "承诺与严谨"
+  - transparency_and_coherence: "透明性与连贯性"
+  - impact_and_importance: "影响与重要性"

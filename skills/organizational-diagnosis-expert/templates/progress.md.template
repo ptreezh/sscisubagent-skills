@@ -1,0 +1,14 @@
+# 进度模板
+
+## 诊断进度
+- **开始时间**: {{start_time}}
+- **当前阶段**: {{current_stage}}
+
+## 已完成阶段
+{{completed_stages}}
+
+## 发现摘要
+{{findings_summary}}
+
+---
+**最后更新**: {{timestamp}}

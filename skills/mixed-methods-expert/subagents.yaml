@@ -1,0 +1,41 @@
+# Mixed Methods Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: mm-designer
+    name: 混合设计器
+    role: 选择和规划混合方法设计
+    triggers:
+      - "设计"
+      - "研究设计"
+      - "混合方法设计"
+
+  - id: mm-integrator
+    name: 数据整合器
+    role: 整合量化和质性数据
+    triggers:
+      - "整合"
+      - "联合展示"
+      - "元推断"
+
+  - id: mm-evaluator
+    name: 质量评估器
+    role: 评估混合方法研究质量
+    triggers:
+      - "质量"
+      - "合法化"
+      - "评估"
+
+workflow:
+  - step: 1
+    action: "研究问题分析"
+  - step: 2
+    action: "设计类型选择"
+  - step: 3
+    action: "量化数据收集与分析"
+  - step: 4
+    action: "质性数据收集与分析"
+  - step: 5
+    action: "数据整合与元推断"
+  - step: 6
+    action: "质量评估与报告"

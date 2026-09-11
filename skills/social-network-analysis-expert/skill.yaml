@@ -1,0 +1,171 @@
+name: social-network-analysis-expert
+version: 5.0.0-cli-native+agent
+description: |
+  社会网络分析专家技能（AI CLI 原生版），支持自动任务队列执行。
+  基于 Scott (2017), Wasserman & Faust (1994) 的社会网络分析理论。
+  
+  核心能力：
+  - 网络构建（边列表、邻接矩阵）
+  - 中心性分析（度中心性、介数中心性、接近中心性、特征向量中心性）
+  - 社群检测（Louvain、Leiden算法）
+  - 结构洞分析（Burt约束指标）
+  - 网络可视化（力导向布局）
+  - 时序网络分析
+  
+  严格遵循SNA方法论原则：
+  - 结构决定论：网络位置决定行为和机会
+  - 关系数据优先：关系本身是分析对象
+  - 网络位置解释：位置相似性解释行为相似性
+  - 方法论一致性：理论与方法严格对应
+
+author: SocienceAI Methodology Expert
+license: MIT
+repository: https://github.com/socienceai/agentskills
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Social Network Analysis (Wasserman & Faust 1994, Scott 2017)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "15分钟/网络"
+  parallel: "20分钟/20网络（15x加速）"
+
+analysis_types:
+  - centrality-analysis
+  - community-detection
+  - structural-holes
+  - network-visualization
+  - temporal-analysis
+  - network-comparison
+
+category: network-analysis
+tags:
+  - sna
+  - social-network
+  - network-analysis
+  - centrality
+  - community-detection
+  - structural-holes
+  - wasserman-faust
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 网络数据（边列表、邻接矩阵或节点列表）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型（centrality/community/structural-holes/visualization/temporal）
+  options:
+    type: object
+    required: false
+    description: 分析选项（directed, weighted, resolution等）
+
+outputs:
+  results:
+    type: object
+    description: 分析结果（JSON格式）
+  report:
+    type: string
+    description: 完整分析报告（Markdown格式）
+  visualization:
+    type: object
+    description: 可视化数据（可选）
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: build-network
+    description: 构建社会网络对象
+    file: tools/build-network.py
+    runtime: python3
+
+  - name: calculate-centrality
+    description: 计算多种中心性指标
+    file: tools/calculate-centrality.py
+    runtime: python3
+
+  - name: detect-communities
+    description: 社群检测（Louvain/Leiden）
+    file: tools/detect-communities.py
+    runtime: python3
+
+  - name: analyze-structural-holes
+    description: 结构洞分析（Burt约束指标）
+    file: tools/analyze-structural-holes.py
+    runtime: python3
+
+  - name: visualize-network
+    description: 网络可视化
+    file: tools/network_visualizer.py
+    runtime: python3
+
+  - name: analyze-temporal
+    description: 时序网络分析
+    file: tools/temporal_analyzer.py
+    runtime: python3
+
+  - name: analyze
+    description: 主分析入口
+    file: tools/analyze.py
+    runtime: python3
+
+subagents:
+  config: subagents.yaml
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+  findings:
+    template: templates/findings.md.template
+    file: findings.md
+  progress:
+    template: templates/progress.md.template
+    file: progress.md
+
+quality_checks:
+  - name: network_validity
+    description: 网络有效性检查
+    rule: "网络必须有≥3个节点且≥2条边"
+  - name: connectivity_check
+    description: 连通性检查
+    rule: "检测连通分量数量，孤立节点需说明"
+  - name: centrality_validation
+    description: 中心性计算验证
+    rule: "中心性值必须在[0,1]范围内"
+  - name: community_modularity
+    description: 社群检测质量验证
+    rule: "模块化Q值需>0.3才算有社群结构"
+  - name: interpretation_rigor
+    description: 解释严谨性检查
+    rule: "中心性解释必须结合网络结构背景"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - networkx>=2.6
+    - python-louvain>=0.16
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+  - iflow
+
+allowed-tools: Read Write Bash(php:*) Bash(python:*)

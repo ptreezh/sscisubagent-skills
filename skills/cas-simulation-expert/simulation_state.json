@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "simulation_start": "2026-03-13T18:57:46.660514",
+    "model_config": {
+      "model_name": "InnovationDiffusionModel",
+      "environment": {
+        "network_type": "small_world",
+        "num_agents": 1000,
+        "network_params": {
+          "k": 6,
+          "p": 0.1
+        }
+      },
+      "simulation": {
+        "num_steps": 100,
+        "num_runs": 10,
+        "save_interval": 10
+      }
+    },
+    "simulation_config": {
+      "state_file": "simulation_state.json",
+      "output_dir": "simulation_results"
+    }
+  },
+  "simulation_config": {
+    "state_file": "simulation_state.json",
+    "output_dir": "simulation_results"
+  },
+  "num_completed_runs": 10,
+  "results_summary": {
+    "final_rates": [
+      0.831,
+      0.604,
+      0.81,
+      0.95,
+      0.845,
+      0.828,
+      0.961,
+      0.913,
+      0.856,
+      0.869
+    ]
+  },
+  "timestamp": "2026-03-13T18:57:46.676037"
+}

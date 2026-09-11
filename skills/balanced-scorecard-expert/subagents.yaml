@@ -1,0 +1,118 @@
+# 平衡计分卡专家子智能体配置
+# Balanced Scorecard Expert Subagents Configuration
+# Version: 5.0.0-cli-native+agent
+
+subagents:
+  - id: strategy-map-architect
+    name: 战略地图架构师
+    description: |
+      专注于战略地图构建，识别战略目标间的因果关系。
+    capabilities:
+      - 战略目标分解
+      - 因果关系识别
+      - 战略主题整合
+      - 战略地图可视化
+    triggers:
+      - "战略地图"
+      - "因果关系"
+      - "战略目标分解"
+
+  - id: indicator-designer
+    name: 指标设计专家
+    description: |
+      设计和优化四维度指标体系，确保指标与战略对齐。
+    capabilities:
+      - 指标候选生成
+      - 指标筛选评估
+      - 指标定义完善
+      - 目标值设定
+    triggers:
+      - "指标设计"
+      - "KPI设计"
+      - "绩效指标"
+      - "目标值设定"
+
+  - id: causal-chain-analyst
+    name: 因果链分析师
+    description: |
+      验证因果链条完整性，识别领先与滞后指标。
+    capabilities:
+      - 因果链验证
+      - 领先滞后指标识别
+      - 战略假设检验
+      - 因果链优化
+    triggers:
+      - "因果链"
+      - "领先指标"
+      - "滞后指标"
+      - "战略假设"
+
+  - id: alignment-validator
+    name: 战略对齐验证师
+    description: |
+      验证组织目标与战略的对齐程度，识别对齐缺口。
+    capabilities:
+      - 纵向对齐检验
+      - 横向对齐检验
+      - 激励对齐检验
+      - 对齐缺口识别
+    triggers:
+      - "战略对齐"
+      - "目标对齐"
+      - "组织对齐"
+
+  - id: execution-monitor
+    name: 战略执行监控师
+    description: |
+      监控战略执行进度，分析绩效差距，提出调整建议。
+    capabilities:
+      - 绩效数据收集
+      - 差距分析
+      - 趋势识别
+      - 调整建议生成
+    triggers:
+      - "执行监控"
+      - "绩效差距"
+      - "战略调整"
+
+# 子智能体协作模式
+collaboration_patterns:
+  sequential:
+    description: 顺序执行模式
+    flow:
+      - strategy-map-architect
+      - indicator-designer
+      - causal-chain-analyst
+      - alignment-validator
+      - execution-monitor
+    use_case: 完整平衡计分卡构建
+
+  parallel:
+    description: 并行执行模式
+    groups:
+      - [strategy-map-architect, causal-chain-analyst]
+      - [indicator-designer, alignment-validator]
+      - [execution-monitor]
+    use_case: 多维度同步分析
+
+  focused:
+    description: 聚焦执行模式
+    single_agent: true
+    use_case: 针对特定维度的深度分析
+
+# 子智能体工具配置
+tools:
+  - name: strategy_map_generator
+    type: visualization
+    description: 生成战略地图可视化
+    agent: strategy-map-architect
+
+  - name: indicator_balance_analyzer
+    type: analysis
+    description: 指标平衡性分析
+    agent: indicator-designer
+
+  - name: causal_chain_validator
+    type: analysis
+    description: 因果链完整性验证
+    agent: causal-chain-analyst

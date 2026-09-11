@@ -1,0 +1,47 @@
+# Consumer Behavior Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: persona-builder
+    name: 消费者画像师
+    role: 构建消费者画像和细分
+    triggers:
+      - "画像"
+      - "细分"
+      - "目标用户"
+
+  - id: journey-mapper
+    name: 决策旅程师
+    role: 分析消费者决策旅程
+    triggers:
+      - "决策旅程"
+      - "购买路径"
+      - "旅程"
+
+  - id: motivation-analyzer
+    name: 动机分析师
+    role: 分析消费动机和心理
+    triggers:
+      - "动机"
+      - "心理"
+      - "需求"
+
+  - id: influence-analyzer
+    name: 影响因素分析师
+    role: 分析影响消费行为的因素
+    triggers:
+      - "影响因素"
+      - "参考群体"
+      - "社会因素"
+
+workflow:
+  - step: 1
+    action: "问题界定"
+  - step: 2
+    action: "消费者细分"
+  - step: 3
+    action: "决策旅程分析"
+  - step: 4
+    action: "动机与影响因素分析"
+  - step: 5
+    action: "营销策略建议"

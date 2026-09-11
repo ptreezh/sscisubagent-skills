@@ -1,0 +1,108 @@
+---
+name: business-model-expert
+version: 5.0.0-cli-native+agent
+description: |
+  Business Model Expert - 基于 Osterwalder (2010), Teece (2010), Porter
+  支持商业模式画布设计、价值主张构建、收入模型分析、成本结构计算、竞争分析
+
+author: SocienceAI Methodology Expert
+license: MIT
+category: business-analysis
+tags:
+  - business model
+  - canvas
+  - value proposition
+  - competitive advantage
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Business Model Analysis (Osterwalder, Teece, Porter)"
+  subagent-support: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  task-decomposition-rules: true
+  agentskills-io: true
+  cross-platform: true
+  graceful-fallback: true
+  execution_modes:
+    cli_queue: "CLI任务队列（基础）"
+    subagent_parallel: "子Agent并行（增强）"
+  performance:
+    sequential: "15分钟/简单案例，30分钟/复杂案例"
+    parallel: "20分钟/10案例（7.5x加速）"
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 商业模式数据
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型
+
+outputs:
+  results:
+    type: object
+    description: 分析结果
+  report:
+    type: string
+    description: 完整商业模式报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: analyze
+    file: tools/analyze.py
+    runtime: python3
+
+  - name: canvas-designer
+    file: tools/canvas_designer.py
+    description: 设计商业模式画布（Osterwalder方法）
+    runtime: python3
+
+  - name: value-proposition-builder
+    file: tools/value_proposition_builder.py
+    description: 构建价值主张
+    runtime: python3
+
+  - name: revenue-model-analyzer
+    file: tools/revenue_model_analyzer.py
+    description: 分析收入模型和定价策略
+    runtime: python3
+
+  - name: cost-structure-calculator
+    file: tools/cost_structure_calculator.py
+    description: 计算和分析成本结构
+    runtime: python3
+
+  - name: competitive-advantage-analyzer
+    file: tools/competitive_advantage_analyzer.py
+    description: 分析竞争优势（Porter框架）
+    runtime: python3
+
+  - name: business-model-innovator
+    file: tools/business_model_innovator.py
+    description: 生成商业模式创新
+    runtime: python3
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: completeness_check
+    description: 检查商业模式完整性
+    rule: "商业模式画布9个模块必须完整"
+
+dependencies:
+  python: ">=3.8"
+  packages: []
+
+compatibility:
+  - agentskills.io
+  - qwen-cli
+  - opencode

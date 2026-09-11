@@ -1,0 +1,49 @@
+# Mixed Methods Expert - Skill Configuration
+name: mixed-methods-expert
+version: "5.0.0"
+description: "混合方法研究专家，支持五种核心设计类型"
+
+design_types:
+  convergent:
+    symbol: "QUAN + QUAL"
+    priority: "equal"
+    timing: "parallel"
+    purpose: "三角验证"
+  
+  explanatory:
+    symbol: "QUAN → qual"
+    priority: "quantitative"
+    timing: "sequential"
+    purpose: "解释量化结果"
+  
+  exploratory:
+    symbol: "qual → QUAN"
+    priority: "qualitative"
+    timing: "sequential"
+    purpose: "发展测量工具"
+  
+  embedded:
+    symbol: "QUAN(qual)"
+    priority: "primary-secondary"
+    timing: "concurrent"
+    purpose: "深入理解"
+  
+  transformative:
+    symbol: "TRANSFORM → quan + qual"
+    priority: "theory-driven"
+    timing: "flexible"
+    purpose: "批判性研究"
+
+integration_methods:
+  - merging: "联合展示"
+  - connecting: "数据连接"
+  - embedding: "数据嵌入"
+  - explanation: "相互解释"
+
+quality_standards:
+  legitimation:
+    - sample_legitimation
+    - inside_legitimation
+    - commensurability_legitimation
+    - weakness_minimization
+    - paradigm_mixing_legitimation

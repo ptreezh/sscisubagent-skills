@@ -1,0 +1,140 @@
+---
+name: did-analysis-expert
+version: 5.0.0-cli-native+agent
+description: |
+  DID双重差分分析专家技能（AI CLI 原生版）。支持自动任务队列执行和子Agent并行处理。
+  基于 Angrist & Pischke (2009) 的因果推断方法论，提供完整的DID分析流程。
+
+  **方法论严谨性保证**：严格遵循DID方法假设检验，确保平行趋势检验通过率≥90%、因果效应估计稳健。
+
+  核心能力：
+  - 数据结构验证：确保DID设计的数据要求
+  - 平行趋势检验：检验处理组和对照组的事前趋势
+  - 处理效应计算：估计DID因果效应
+  - 稳健性检验：安慰剂检验、敏感性分析
+  - 异质性分析：子群体效应差异
+
+  严格遵循DID方法论原则（6大绝对禁止原则）：
+  - 平行趋势假设必须检验
+  - 处理组选择必须是外生的
+  - 稳健性检验必须执行
+  - **禁止未检验平行趋势就报告效应**（防虚假因果）
+  - **禁止忽视溢出效应**（防偏误估计）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Difference-in-Differences (Angrist & Pischke 2009)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "20-40分钟/单案例，1-2小时/多案例研究"
+  parallel: "30分钟/3案例并行（3x加速）"
+  quality_guarantee: "平行趋势检验通过率≥90%，稳健性检验覆盖率100%"
+
+analysis_types:
+  - data-validation
+  - parallel-trends
+  - treatment-effect
+  - robustness
+  - heterogeneity
+  - full-analysis
+
+category: causal-inference
+tags:
+  - did
+  - difference-in-differences
+  - causal-inference
+  - quasi-experiment
+  - panel-data
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: DID分析数据（面板数据，含处理组、时间、结果变量）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型（data-validation/parallel-trends/treatment-effect/robustness/heterogeneity/full-analysis）
+
+outputs:
+  results:
+    type: object
+    description: DID分析结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: validate-data
+    description: 验证DID数据结构
+    module: data_validator
+  - name: check-parallel-trends
+    description: 检验平行趋势假设
+    module: parallel_trends_checker
+  - name: calculate-treatment-effect
+    description: 计算DID处理效应
+    module: treatment_effect_calculator
+  - name: test-robustness
+    description: 稳健性检验
+    module: robustness_tester
+  - name: analyze-heterogeneity
+    description: 异质性分析
+    module: heterogeneity_analyzer
+  - name: placebo-test
+    description: 安慰剂检验
+    module: placebo_test
+  - name: analyze
+    description: 主分析入口
+    module: analyze
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: parallel_trends
+    description: 平行趋势检验
+    rule: "必须检验平行趋势假设，未通过不得报告因果效应"
+  - name: data_structure
+    description: 数据结构检验
+    rule: "必须验证数据满足DID设计要求"
+  - name: robustness_coverage
+    description: 稳健性检验覆盖
+    rule: "必须至少执行2种稳健性检验"
+  - name: confidence_interval
+    description: 置信区间报告
+    rule: "所有效应估计必须报告置信区间"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+    - scipy>=1.7.0
+    - statsmodels>=0.13.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

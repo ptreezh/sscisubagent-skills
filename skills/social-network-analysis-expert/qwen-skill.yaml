@@ -1,0 +1,88 @@
+# Qwen CLI Skill 配置
+
+skill_name: social-network-analysis-expert
+version: 2.1.0
+
+qwen_cli:
+  load_path: ~/.qwen/skills/social-network-analysis-expert
+  auto_load: true
+  priority: 1
+  triggers:
+    - "社会网络分析"
+    - "social network"
+    - "中心性"
+    - "社群检测"
+    - "结构洞"
+    - "网络分析"
+
+hooks:
+  session-start:
+    - action: load_soul
+      file: soul.md
+      inject_to: system_prompt
+    
+    - action: load_lessons
+      file: lesson-memory.md
+      inject_to: context
+    
+    - action: load_cases
+      directory: case-library/successful-cases/
+      inject_to: context
+  
+  post-task:
+    - action: record_lesson
+      file: lesson-memory.md
+      condition: task_complete
+    
+    - action: add_case
+      directory: case-library/successful-cases/
+      condition: task_success
+  
+  pre-prompt:
+    - action: inject_skill_state
+      template: skill-state-injection.md
+
+evolution:
+  auto_evolve: true
+  triggers:
+    - event: task_complete
+      action: record_lesson
+    
+    - event: session_count
+      interval: 10
+      action: periodic_evolution
+    
+    - event: success_case
+      action: add_to_case_library
+  
+  output:
+    - file: evolution-report.md
+      on: periodic_evolution
+    
+    - file: lesson-memory.md
+      on: task_complete
+
+filesystem:
+  use_cli_filesystem: true
+  paths:
+    soul: soul.md
+    lessons: lesson-memory.md
+    cases: case-library/
+    hooks: skill-hooks.yaml
+  permissions:
+    read: true
+    write: true
+
+logging:
+  use_cli_logging: true
+  level: info
+  file: logs/evolution-log.md
+
+environment_detection:
+  enabled: true
+  qwen_cli:
+    env_var: QWEN_CLI
+    config_path: ~/.qwen/
+  fallback:
+    mode: standalone
+    config_file: skill-hooks.yaml

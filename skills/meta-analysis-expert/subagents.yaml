@@ -1,0 +1,193 @@
+# 元分析专家子智能体配置
+# Meta-Analysis Expert Subagents Configuration
+
+subagents:
+  # 文献筛选智能体
+  literature_screener:
+    name: 文献筛选智能体
+    description: 执行系统性文献综述的筛选过程
+    capabilities:
+      - 标题摘要筛选
+      - 全文筛选
+      - 纳入/排除标准应用
+      - PRISMA流程图数据生成
+    triggers:
+      - 筛选文献
+      - 文献筛选
+      - study selection
+      - screening
+    tools:
+      - prisma_generator
+  
+  # 数据提取智能体
+  data_extractor:
+    name: 数据提取智能体
+    description: 从纳入研究中提取元分析所需数据
+    capabilities:
+      - 效应量数据提取
+      - 研究特征编码
+      - 样本量提取
+      - 置信区间提取
+    triggers:
+      - 数据提取
+      - 提取数据
+      - data extraction
+      - extract data
+    tools:
+      - effect_size_calculator
+  
+  # 质量评估智能体
+  quality_assessor:
+    name: 质量评估智能体
+    description: 评估纳入研究的偏倚风险
+    capabilities:
+      - Cochrane RoB 2评估
+      - Newcastle-Ottawa Scale评估
+      - AMSTAR 2评估
+      - 证据等级评估
+    triggers:
+      - 质量评估
+      - 偏倚风险
+      - quality assessment
+      - risk of bias
+    tools:
+      - rob_assessment
+  
+  # 统计分析智能体
+  statistical_analyzer:
+    name: 统计分析智能体
+    description: 执行元分析统计计算
+    capabilities:
+      - 效应量合并
+      - 异质性分析
+      - 发表偏倚检测
+      - 亚组分析
+      - 敏感性分析
+    triggers:
+      - 元分析
+      - 统计分析
+      - meta-analysis
+      - statistical analysis
+    tools:
+      - effect_size_calculator
+      - heterogeneity_analyzer
+      - publication_bias_tester
+      - subgroup_analyzer
+  
+  # 报告撰写智能体
+  report_writer:
+    name: 报告撰写智能体
+    description: 生成元分析报告和可视化
+    capabilities:
+      - PRISMA流程图生成
+      - 森林图生成
+      - 漏斗图生成
+      - 结果叙述撰写
+      - 表格创建
+    triggers:
+      - 生成报告
+      - 撰写报告
+      - report
+      - forest plot
+    tools:
+      - forest_plot_generator
+      - funnel_plot_generator
+
+# 工具配置
+tools:
+  effect_size_calculator:
+    file: tools/effect_size_calculator.py
+    description: 计算多种类型的效应量
+    functions:
+      - cohen_d
+      - hedges_g
+      - pearson_r
+      - odds_ratio
+      - risk_ratio
+      - risk_difference
+  
+  heterogeneity_analyzer:
+    file: tools/heterogeneity_analyzer.py
+    description: 异质性分析
+    functions:
+      - q_test
+      - i_squared
+      - tau_squared
+      - model_comparison
+  
+  publication_bias_tester:
+    file: tools/publication_bias_tester.py
+    description: 发表偏倚检测
+    functions:
+      - egger_test
+      - begg_test
+      - fail_safe_n
+      - trim_and_fill
+  
+  subgroup_analyzer:
+    file: tools/subgroup_analyzer.py
+    description: 亚组分析和元回归
+    functions:
+      - subgroup_analysis
+      - meta_regression
+  
+  forest_plot_generator:
+    file: tools/forest_plot_generator.py
+    description: 森林图生成
+    functions:
+      - generate_forest_plot
+  
+  funnel_plot_generator:
+    file: tools/funnel_plot_generator.py
+    description: 漏斗图生成
+    functions:
+      - generate_funnel_plot
+
+# 工作流配置
+workflows:
+  full_meta_analysis:
+    name: 完整元分析流程
+    steps:
+      - step: 1
+        name: 文献检索与筛选
+        subagent: literature_screener
+        outputs:
+          - prisma_flowchart
+          - included_studies
+      
+      - step: 2
+        name: 数据提取
+        subagent: data_extractor
+        inputs:
+          - included_studies
+        outputs:
+          - effect_size_data
+          - study_characteristics
+      
+      - step: 3
+        name: 质量评估
+        subagent: quality_assessor
+        inputs:
+          - included_studies
+        outputs:
+          - risk_of_bias_assessment
+      
+      - step: 4
+        name: 统计分析
+        subagent: statistical_analyzer
+        inputs:
+          - effect_size_data
+        outputs:
+          - meta_analysis_results
+          - heterogeneity_report
+          - publication_bias_report
+      
+      - step: 5
+        name: 报告生成
+        subagent: report_writer
+        inputs:
+          - all_previous_outputs
+        outputs:
+          - final_report
+          - forest_plot
+          - funnel_plot

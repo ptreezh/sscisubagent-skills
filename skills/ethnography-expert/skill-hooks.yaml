@@ -1,0 +1,140 @@
+# Ethnography Expert - Skill Hooks
+# 民族志专家技能钩子配置
+
+name: ethnography-expert
+version: "5.0.0-cli-native+agent"
+
+# 三层持久化配置
+persistence:
+  session:
+    enabled: true
+    path: ".ethnography-workspace/sessions/{session_id}"
+    retention: 168  # 7天
+  project:
+    enabled: true
+    path: ".ethnography-workspace/projects/{project_id}"
+    version_control: true
+  learning:
+    enabled: true
+    path: "lesson-memory.md"
+    auto_update: true
+
+# 任务队列配置
+task_queue:
+  enabled: true
+  max_concurrent: 3
+  priority_order:
+    - fieldwork_planning
+    - data_collection
+    - analysis
+    - writing
+
+# 生命周期钩子
+hooks:
+  pre_session:
+    - name: "加载田野工作上下文"
+      action: "load_fieldwork_context"
+      required: false
+    - name: "验证研究伦理"
+      action: "check_ethics_approval"
+      required: true
+  
+  post_analysis:
+    - name: "保存田野笔记"
+      action: "save_fieldnotes"
+      required: true
+    - name: "更新文化模式库"
+      action: "update_pattern_database"
+      required: false
+  
+  pre_writing:
+    - name: "深描质量检查"
+      action: "check_thick_description"
+      required: true
+    - name: "成员检验准备"
+      action: "prepare_member_check"
+      required: false
+
+# 6大绝对禁止原则
+six_forbidden_principles:
+  - "禁止肤浅观察 - 民族志要求长期深入的田野工作"
+  - "禁止单一视角 - 必须整合主位与客位分析"
+  - "禁止忽视伦理 - 研究者必须保护参与者权益"
+  - "禁止预设结论 - 必须让田野材料引导发现"
+  - "禁止脱离情境 - 文化意义必须在情境中理解"
+  - "禁止单薄描述 - 必须进行深描而非薄描"
+
+# CRCT思维链配置
+crct_chain:
+  constant_comparison:
+    enabled: true
+    description: "持续比较田野观察与初步解释"
+  record:
+    enabled: true
+    description: "详细记录田野笔记和分析反思"
+  chain:
+    enabled: true
+    description: "建立从观察到意义的文化解释链条"
+  trace:
+    enabled: true
+    description: "追踪田野工作决策和分析过程"
+
+# 子智能体支持
+subagent_support:
+  enabled: true
+  subagents:
+    - id: "ethnography-designer"
+      name: "田野设计师"
+      role: "设计田野调查方案"
+    - id: "fieldwork-collector"
+      name: "田野工作者"
+      role: "参与观察与数据收集"
+    - id: "culture-analyst"
+      name: "文化分析师"
+      role: "文化模式分析与深描写作"
+
+# 事件触发器
+triggers:
+  - event: "fieldwork_entry"
+    actions:
+      - "记录进入时间和情境"
+      - "更新田野关系图"
+  
+  - event: "key_informant_identified"
+    actions:
+      - "记录报道人信息"
+      - "设计深度访谈计划"
+  
+  - event: "pattern_emerging"
+    actions:
+      - "标记初步文化模式"
+      - "计划验证观察"
+
+# 质量保证钩子
+quality_hooks:
+  credibility_check:
+    - "三角验证检查"
+    - "成员检验准备"
+  
+  transferability_check:
+    - "深描程度评估"
+    - "情境描述完整性"
+  
+  dependability_check:
+    - "审计追踪生成"
+    - "过程文档检查"
+  
+  confirmability_check:
+    - "反身性声明"
+    - "偏见声明"
+
+# 输出配置
+output:
+  formats:
+    - "markdown"
+    - "json"
+    - "fieldnotes"
+  templates:
+    fieldnote: "templates/fieldnote-template.md"
+    analysis: "templates/analysis-template.md"
+    report: "templates/ethnography-report-template.md"

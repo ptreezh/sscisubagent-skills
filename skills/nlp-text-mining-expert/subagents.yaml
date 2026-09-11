@@ -1,0 +1,50 @@
+# NLP Text Mining Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: text-preprocessor
+    name: 文本预处理师
+    role: 执行文本清洗、分词、标准化
+    triggers:
+      - "预处理"
+      - "分词"
+      - "清洗"
+      - "标准化"
+
+  - id: topic-modeler
+    name: 主题建模师
+    role: 执行主题模型训练和解释
+    triggers:
+      - "主题"
+      - "LDA"
+      - "主题建模"
+
+  - id: sentiment-analyzer
+    name: 情感分析师
+    role: 执行情感分析和趋势追踪
+    triggers:
+      - "情感"
+      - "情感分析"
+      - "舆情"
+
+  - id: text-classifier
+    name: 文本分类师
+    role: 训练和评估文本分类模型
+    triggers:
+      - "分类"
+      - "文本分类"
+      - "标签"
+
+workflow:
+  - step: 1
+    action: "数据收集"
+  - step: 2
+    action: "文本预处理"
+  - step: 3
+    action: "特征提取"
+  - step: 4
+    action: "模型分析(主题/情感/分类)"
+  - step: 5
+    action: "结果可视化"
+  - step: 6
+    action: "洞察提取"

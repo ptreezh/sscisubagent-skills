@@ -1,0 +1,39 @@
+# Narrative Analysis Expert - Skill Configuration
+name: narrative-analysis-expert
+version: "5.0.0"
+description: "叙事分析专家，支持结构、内容、表演三种取向"
+
+analysis_approaches:
+  thematic:
+    focus: "叙事内容"
+    method: "主题提取"
+  structural:
+    focus: "叙事形式"
+    method: "Labov模型"
+  performative:
+    focus: "叙事过程"
+    method: "对话分析"
+
+labov_structure:
+  - abstract: "摘要"
+  - orientation: "定向"
+  - complicating_action: "纠葛"
+  - evaluation: "评估"
+  - resolution: "结果"
+  - coda: "结尾"
+
+mcadams_model:
+  tone:
+    - tragedy_vs_comedy
+    - redemption_vs_contamination
+  imagery:
+    - nuclear_episodes
+    - key_scenes
+  ideology:
+    - values
+    - beliefs
+
+data_collection:
+  - life_story_interview
+  - narrative_interview
+  - written_narratives

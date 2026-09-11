@@ -1,0 +1,41 @@
+# Longitudinal Analysis Expert - Skill Configuration
+name: longitudinal-analysis-expert
+version: "5.0.0"
+description: "纵向数据分析专家"
+
+methods:
+  repeated_measures:
+    name: "重复测量方差分析"
+    assumption: "球形假设"
+  
+  latent_growth:
+    name: "潜在增长模型"
+    components:
+      - intercept_factor
+      - slope_factor
+      - curve_factor
+  
+  cross_lagged:
+    name: "交叉滞后模型"
+    paths:
+      - autoregressive
+      - cross_lagged
+      - synchronous
+  
+  event_history:
+    name: "事件史分析"
+    functions:
+      - hazard_function
+      - survival_function
+
+time_coding:
+  - raw_time
+  - zero_baseline
+  - centering
+  - age_based
+
+trajectory_shapes:
+  - linear
+  - quadratic
+  - piecewise
+  - asymptotic

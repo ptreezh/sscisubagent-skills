@@ -1,0 +1,140 @@
+# RCT Experimental Design Expert - Subagents Configuration
+# 随机对照试验设计专家子智能体配置
+
+version: "1.0"
+description: "RCT设计专家子智能体系统，支持完整实验设计流程"
+
+subagents:
+  # 样本量计算智能体
+  - id: rct-sample-size
+    name: 样本量计算器
+    role: |
+      计算RCT所需样本量
+      - 连续结局变量
+      - 二分类结局变量
+      - 时间-事件结局
+      - 非劣效性试验
+      - 集群随机试验
+    tools:
+      - sample_size_calculator.py
+    triggers:
+      - "样本量计算"
+      - "power分析"
+      - "需要多少受试者"
+  
+  # 随机化设计智能体
+  - id: rct-randomization
+    name: 随机化设计器
+    role: |
+      设计随机化方案
+      - 简单随机化
+      - 区组随机化
+      - 分层随机化
+      - 最小化法
+      - 分配隐藏
+    tools:
+      - randomization_generator.py
+    triggers:
+      - "随机化方案"
+      - "随机分配"
+      - "区组随机"
+
+# CONSORT清单项目
+consort_checklist:
+  title_and_abstract:
+    - "标题明确说明随机对照试验"
+    - "结构化摘要"
+  
+  introduction:
+    - "科学背景和原理解释"
+  
+  methods:
+    participants: "参与者入选和排除标准"
+    interventions: "各组干预措施的详情"
+    outcomes: "主要和次要结局指标"
+    sample_size: "样本量计算方法"
+    randomization:
+      sequence_generation: "随机序列生成方法"
+      allocation_concealment: "分配隐藏机制"
+      implementation: "谁生成、谁分配、谁入组"
+    blinding: "盲法实施细节"
+    statistical_methods: "主要和次要结局的分析方法"
+  
+  results:
+    participant_flow: "受试者流程图"
+    recruitment: "招募和随访时间"
+    baseline_data: "各组基线特征"
+    numbers_analyzed: "各组纳入分析的受试者数"
+    outcomes: "主要和次要结局结果"
+    harms: "重要不良事件"
+
+# 设计类型
+design_types:
+  parallel:
+    name: "平行设计"
+    description: "最常见的RCT设计，两组同时进行"
+    use_case: "大多数干预研究"
+  
+  crossover:
+    name: "交叉设计"
+    description: "每个受试者接受多种干预"
+    use_case: "慢性病、稳定状态研究"
+  
+  factorial:
+    name: "因子设计"
+    description: "同时评估多个干预组合"
+    use_case: "多因素研究"
+  
+  cluster:
+    name: "集群随机设计"
+    description: "以群体为单位随机化"
+    use_case: "群体干预、教育研究"
+  
+  adaptive:
+    name: "适应性设计"
+    description: "根据中期结果调整设计"
+    use_case: "新药研发、灵活设计需求"
+
+# 盲法类型
+blinding_types:
+  open_label:
+    name: "开放标签"
+    participants: false
+    personnel: false
+    assessors: false
+  
+  single_blind:
+    name: "单盲"
+    participants: true
+    personnel: false
+    assessors: false
+  
+  double_blind:
+    name: "双盲"
+    participants: true
+    personnel: true
+    assessors: true
+
+# 分析原则
+analysis_principles:
+  itt:
+    name: "意向性分析"
+    description: "按随机分配分析所有受试者"
+    importance: "保持随机化的完整性，主要分析应采用"
+  
+  pp:
+    name: "符合方案分析"
+    description: "仅分析完成研究的受试者"
+    importance: "敏感性分析使用"
+
+# 输出配置
+output:
+  formats:
+    - markdown
+    - json
+  include:
+    - study_protocol
+    - consent_form_template
+    - case_report_form
+    - randomization_sequence
+    - statistical_analysis_plan

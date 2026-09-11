@@ -1,0 +1,231 @@
+# Regression Analysis Expert Skill Configuration
+# Version: 5.0.0
+
+skill:
+  name: regression-analysis-expert
+  display_name: 回归分析专家
+  version: "5.0.0"
+  category: quantitative-methods
+  methodology: Regression Analysis
+  
+  description:
+    short: 多种回归模型分析与诊断
+    full: |
+      提供完整的回归分析支持，包括OLS、Logistic、稳健回归等多种模型，
+      涵盖模型诊断、假设检验、变量选择、交互效应分析等高级功能。
+
+  evidence_level: Level II
+  
+  triggers:
+    - regression
+    - 回归分析
+    - OLS
+    - logistic regression
+    - 逻辑回归
+    - 多元回归
+    - 预测模型
+    - 因果推断
+    - 变量关系
+
+models:
+  supported:
+    ols:
+      name: 普通最小二乘回归
+      library: statsmodels
+      requirements:
+        - 连续因变量
+        - 线性关系
+        - 同方差性
+      diagnostics:
+        - 线性检验
+        - 正态性检验
+        - 同方差性检验
+        - 多重共线性检验
+    
+    logistic:
+      name: Logistic回归
+      library: statsmodels
+      requirements:
+        - 二分类因变量
+      diagnostics:
+        - 拟合优度检验
+        - 分类准确率
+        - ROC曲线
+    
+    multinomial:
+      name: 多项Logistic回归
+      library: statsmodels
+      requirements:
+        - 多分类因变量（名义）
+    
+    ordinal:
+      name: 有序Logistic回归
+      library: statsmodels
+      requirements:
+        - 有序分类因变量
+    
+    poisson:
+      name: 泊松回归
+      library: statsmodels
+      requirements:
+        - 计数因变量
+        - 均值=方差
+    
+    negative_binomial:
+      name: 负二项回归
+      library: statsmodels
+      requirements:
+        - 计数因变量
+        - 过度离散
+    
+    robust:
+      name: 稳健回归
+      library: statsmodels
+      requirements:
+        - 异常值存在
+        - 连续因变量
+
+diagnostics:
+  assumptions:
+    linearity:
+      tests:
+        - 残差图
+        - 成分残差图(CCR)
+        - Ramsey RESET检验
+      thresholds:
+        RESET_p: "> 0.05"
+    
+    normality:
+      tests:
+        - Q-Q图
+        - Shapiro-Wilk检验
+        - Kolmogorov-Smirnov检验
+      thresholds:
+        shapiro_p: "> 0.05"
+    
+    homoscedasticity:
+      tests:
+        - Breusch-Pagan检验
+        - White检验
+        - Goldfeld-Quandt检验
+      thresholds:
+        bp_p: "> 0.05"
+    
+    multicollinearity:
+      tests:
+        - VIF (方差膨胀因子)
+        - 容忍度
+        - 条件指数
+      thresholds:
+        vif: "< 10 (preferably < 5)"
+        tolerance: "> 0.1"
+    
+    independence:
+      tests:
+        - Durbin-Watson检验
+      thresholds:
+        dw: "1.5-2.5"
+    
+    outliers:
+      tests:
+        - Cook's Distance
+        - Leverage值
+        - DFBETAS
+      thresholds:
+        cooks_d: "< 4/n"
+        leverage: "< 2(p+1)/n"
+
+variable_selection:
+  methods:
+    forward:
+      criterion: AIC/BIC/p-value
+      default_p_threshold: 0.05
+    
+    backward:
+      criterion: AIC/BIC/p-value
+      default_p_threshold: 0.10
+    
+    stepwise:
+      entry_p: 0.05
+      removal_p: 0.10
+    
+    best_subset:
+      max_variables: 10
+      criterion: adjusted_R2/AIC/BIC
+    
+    regularization:
+      lasso:
+        alpha: auto
+        cv_folds: 10
+      ridge:
+        alpha: auto
+        cv_folds: 10
+
+effect_analysis:
+  interaction:
+    centering: true
+    simple_slopes: true
+    johnson_neyman: true
+  
+  mediation:
+    methods:
+      - Baron-Kenny
+      - Sobel检验
+      - Bootstrap (Hayes PROCESS)
+    bootstrap_samples: 5000
+  
+  moderation:
+    centering: true
+    probe_method: Aiken-West
+
+output:
+  formats:
+    - markdown
+    - html
+    - json
+  
+  report_sections:
+    - 描述性统计
+    - 相关矩阵
+    - 回归系数表
+    - 模型拟合指标
+    - 诊断检验结果
+    - 效应量报告
+    - 可视化图表
+
+  apa_compliant: true
+
+quality_control:
+  min_sample_size:
+    ols: "10 * k (k=自变量数)"
+    logistic: "EPV >= 10 (每变量事件数)"
+  
+  power_analysis:
+    default_power: 0.80
+    default_alpha: 0.05
+  
+  missing_data:
+    max_missing: 0.20
+    methods:
+      - listwise
+      - pairwise
+      - multiple_imputation
+
+tools:
+  - model_selector.py
+  - diagnostic_tester.py
+  - variable_selector.py
+  - effect_analyzer.py
+  - power_calculator.py
+  - report_generator.py
+
+references:
+  - author: Cohen et al.
+    year: 2003
+    title: Applied Multiple Regression/Correlation Analysis
+  - author: Fox
+    year: 2015
+    title: Applied Regression Analysis and Generalized Linear Models
+  - author: Hair et al.
+    year: 2019
+    title: Multivariate Data Analysis

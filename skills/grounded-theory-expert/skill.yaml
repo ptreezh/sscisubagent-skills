@@ -1,0 +1,145 @@
+---
+name: grounded-theory-expert
+version: 5.0.0-cli-native+agent
+description: |
+  扎根理论分析专家技能（AI CLI 原生版）。支持自动任务队列执行和子Agent并行处理。
+  包含完整的三阶段编码流程、理论饱和度检验、CRCT思维链机制。
+
+  **质量优先，严谨编码**：严格遵循Glaser & Strauss (1967)方法论，确保编码信度≥85%、效度≥90%、饱和度≥80%。
+
+  基于 Glaser & Strauss (1967)、Strauss & Corbin (1990)、Charmaz (2006) 的扎根理论方法论。
+
+  核心能力：
+  - 开放编码（Open Coding）：概念提取、初步命名
+  - 轴心编码（Axial Coding）：范畴建立、关系连接
+  - 选择性编码（Selective Coding）：核心范畴、理论整合
+  - 理论饱和度评估：概念、范畴、关系、命题四维检验
+  - 编码备忘录管理：持续比较与理论记录
+
+  严格遵循扎根理论方法论原则（6大绝对禁止原则）：
+  - 概念必须从数据中涌现
+  - 编码过程必须持续比较
+  - 理论必须扎根于数据
+  - 饱和度必须经过检验
+  - **禁止未验证就报告完成**（防虎头蛇尾）
+  - **禁止预设理论框架**（保持开放性）
+
+author: SocienceAI Methodology Expert
+license: MIT
+
+metadata:
+  version: "5.0.0-cli-native+agent"
+  methodology: "Grounded Theory (Glaser & Strauss 1967)"
+  subagent-support: true
+  graceful-fallback: true
+  ai-cli-native: true
+  task-queue-support: true
+  absolute-prohibitions: true
+  crct-enabled: true
+  agentskills-io: true
+  cross-platform: true
+
+execution_modes:
+  cli_queue: "CLI任务队列（基础）"
+  subagent_parallel: "子Agent并行（增强）"
+
+performance:
+  sequential: "15-30分钟/单案例，2-4小时/多案例研究"
+  parallel: "30分钟/3案例并行（3x加速）"
+  quality_guarantee: "编码信度≥85%，效度≥90%，饱和度≥80%"
+
+analysis_types:
+  - open-coding
+  - axial-coding
+  - selective-coding
+  - saturation-assessment
+  - memo-writing
+  - full-analysis
+
+category: qualitative-analysis
+tags:
+  - grounded-theory
+  - qualitative-methods
+  - coding
+  - theory-building
+  - saturation
+
+inputs:
+  data:
+    type: object
+    required: true
+    description: 分析数据（访谈转录、文档、观察记录等）
+  analysis_type:
+    type: string
+    required: true
+    description: 分析类型（open-coding/axial-coding/selective-coding/saturation-assessment/full-analysis）
+
+outputs:
+  results:
+    type: object
+    description: 编码结果
+  report:
+    type: string
+    description: 完整分析报告
+
+prompts:
+  system: prompts/system-prompt.md
+
+tools:
+  - name: segment-data
+    description: 数据分段与预处理
+    module: segment_data
+  - name: analyze
+    description: 开放编码（概念提取）
+    module: analyze
+  - name: axial-coding
+    description: 轴心编码（范畴建立）
+    module: axial_coding
+  - name: selective-coding
+    description: 选择性编码（理论整合）
+    module: selective_coding
+  - name: assess-saturation
+    description: 理论饱和度评估
+    module: assess_saturation
+  - name: memo-manager
+    description: 编码备忘录管理
+    module: memo_manager
+  - name: calculate-reliability
+    description: 编码信度计算
+    module: calculate_reliability
+
+planning_files:
+  task_plan:
+    template: templates/task_plan.md.template
+    file: task_plan.md
+
+quality_checks:
+  - name: concept_emergence
+    description: 概念涌现检查
+    rule: "所有概念必须从数据中涌现，不得预设"
+  - name: constant_comparison
+    description: 持续比较检查
+    rule: "每个新概念必须与已有概念进行比较"
+  - name: theoretical_saturation
+    description: 理论饱和度检查
+    rule: "饱和度必须≥80%才能结束数据收集"
+  - name: coding_reliability
+    description: 编码信度检查
+    rule: "双编码一致性必须≥85%"
+  - name: theoretical_validity
+    description: 理论效度检查
+    rule: "构念效度必须≥90%"
+
+dependencies:
+  python: ">=3.8"
+  packages:
+    - numpy>=1.21.0
+    - pandas>=1.3.0
+
+compatibility:
+  - agentskills.io
+  - claude-desktop
+  - qwen-cli
+  - opencode
+
+allowed-tools: Read Write Bash(python:*)

@@ -1,0 +1,38 @@
+name: visual-analysis-expert
+version: 1.0.0
+description: 视觉分析专家技能，基于Rose, Mirzoeff, Kress方法论
+author: SocienceAI
+created: 2026-03-18
+
+methodology:
+  - Rose (2016) - 视觉研究方法论
+  - Mirzoeff (1999) - 视觉文化
+  - Kress & van Leeuwen (2006) - 视觉语法
+  - Barthes (1977) - 图像修辞
+
+capabilities:
+  - 图像构图分析
+  - 视觉符号解码
+  - 视觉叙事分析
+  - 视觉文化批判
+  - 色彩与空间分析
+  - 观看关系分析
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止脱离语境
+  - id: FORBIDDEN_002
+    name: 禁止忽视生产消费
+  - id: FORBIDDEN_003
+    name: 禁止过度主观
+  - id: FORBIDDEN_004
+    name: 禁止忽视权力关系
+  - id: FORBIDDEN_005
+    name: 禁止忽视技术维度
+  - id: FORBIDDEN_006
+    name: 禁止忽视历史变迁
+
+tools:
+  - composition_analyzer.py
+  - visual_narrative_analyzer.py
+  - gaze_pattern_detector.py

@@ -1,0 +1,152 @@
+name: blue-ocean-strategy-expert
+version: 5.0.0-cli-native+agent
+description: |
+  蓝海战略专家。基于W. Chan Kim和Renée Mauborgne的蓝海战略方法论，提供价值创新分析、四步动作框架应用、战略布局图绘制、六条路径探索。核心能力包括：红海/蓝海识别、价值创新设计、战略布局分析、市场空间开拓。
+author: SocienceAI Methodology Expert
+license: MIT
+
+# 兼容性声明
+compatibility:
+  python: "3.8+"
+  agentskills_io: "v1.0"
+  platforms:
+    - Windows
+    - Linux
+    - macOS
+  ai_cli:
+    - Claude
+    - Qwen
+    - iFlow
+    - Gemini
+    - Copilot
+    - Stigmergy
+    - OpenCode
+    - KiloCode
+    - QoderCLI
+    - WorkBuddy
+    - Cursor
+    - Windsurf
+    - QClaw
+    - OpenClaw
+    - 悟空
+
+# 方法论元数据
+methodology:
+  primary_source: "Kim, W. C., & Mauborgne, R. (2005). Blue Ocean Strategy. Harvard Business School Press."
+  key_concepts:
+    - value_innovation
+    - four_actions_framework
+    - strategy_canvas
+    - six_paths_framework
+    - noncustomers
+  frameworks:
+    - name: 四步动作框架
+      elements: [Eliminate, Reduce, Raise, Create]
+    - name: 六条路径框架
+      elements:
+        - 跨越替代性行业
+        - 跨越战略集团
+        - 跨越买方链
+        - 跨越互补性产品与服务
+        - 跨越功能-情感导向
+        - 跨越时间趋势
+
+# 技能能力
+capabilities:
+  - red_blue_ocean_diagnosis
+  - value_innovation_analysis
+  - four_actions_framework
+  - strategy_canvas_drawing
+  - six_paths_exploration
+  - noncustomer_analysis
+  - sustainability_assessment
+
+# 触发关键词
+triggers:
+  - 蓝海战略
+  - 价值创新
+  - 市场开拓
+  - 竞争战略
+  - 战略创新
+  - 差异化战略
+  - 市场空间
+  - 红海
+  - 蓝海
+  - Blue Ocean
+  - Value Innovation
+  - Strategy Canvas
+
+# 分析流程阶段
+analysis_stages:
+  - id: stage_1
+    name: 红海诊断
+    steps:
+      - 行业竞争格局分析
+      - 价值曲线现状评估
+      - 客户群体分析
+  - id: stage_2
+    name: 六条路径探索
+    steps:
+      - 替代性行业分析
+      - 战略集团跨越
+      - 买方链重定义
+      - 互补产品服务
+      - 功能情感转换
+      - 趋势预判
+  - id: stage_3
+    name: 四步动作设计
+    steps:
+      - 剔除要素识别
+      - 减少要素确定
+      - 增加要素选择
+      - 创造要素发现
+  - id: stage_4
+    name: 战略验证
+    steps:
+      - 蓝海战略布局图绘制
+      - 可持续性评估
+      - 执行可行性分析
+  - id: stage_5
+    name: 报告生成
+    steps:
+      - 战略分析报告
+      - 实施建议报告
+
+# 禁止规则
+forbidden_rules:
+  - 忽视价值创新本质
+  - 脱离六条路径
+  - 忽视非客户群体
+  - 跳过战略布局图
+  - 忽视执行可行性
+  - 忽视战略可持续性
+
+# CRCT思维链
+crct_chain:
+  constant_comparison: 持续比较企业价值曲线与行业基准、竞争对手的差异
+  record: 记录每个四步动作的分析依据和预期效果
+  chain: 建立六条路径探索与价值创新机会的因果链条
+  trace: 追踪蓝海战略实施后的市场反应和竞争动态
+
+# 子智能体支持
+subagent:
+  enabled: true
+  use_cases:
+    - 多行业并行分析
+    - 竞争对手深度调研
+    - 六条路径并行探索
+
+# 输出格式
+output_format:
+  primary: markdown
+  visualizations:
+    - strategy_canvas
+    - value_curve_comparison
+    - four_actions_matrix
+
+# 质量标准
+quality_standards:
+  methodology_rigor: 100%
+  cross_platform_compatible: true
+  documentation_complete: true
+  test_coverage: required

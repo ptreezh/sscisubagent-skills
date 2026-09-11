@@ -1,0 +1,45 @@
+{
+  "name": "conversation-analysis-expert",
+  "version": "1.0.0",
+  "description": "会话分析专家技能，基于Sacks, Schegloff, Jefferson方法论",
+  "author": "SocienceAI",
+  "created": "2026-03-15",
+  "methodology": ["Sacks et al. (1974)", "Schegloff (2007)", "Heritage (2012)"],
+  "capabilities": [
+    "话轮构建分析",
+    "话轮转换分析",
+    "序列组织分析",
+    "修复机制识别",
+    "偏好组织分析",
+    "机构对话分析"
+  ],
+  "tools": [
+    {
+      "name": "turn_taker.py",
+      "function": "话轮转换分析",
+      "input": "转写JSON",
+      "output": "分析结果JSON"
+    },
+    {
+      "name": "sequence_analyzer.py",
+      "function": "序列组织分析",
+      "input": "转写JSON",
+      "output": "邻接对分析JSON"
+    },
+    {
+      "name": "repair_detector.py",
+      "function": "修复机制识别",
+      "input": "转写JSON",
+      "output": "修复序列JSON"
+    }
+  ],
+  "forbidden_principles": [
+    "禁止脱离语境解释话语",
+    "禁止预设参与者意图",
+    "禁止忽视话轮转换细节",
+    "禁止跳过转写验证",
+    "禁止过度理论化",
+    "禁止忽视参与者视角"
+  ],
+  "transcription_system": "Jefferson"
+}

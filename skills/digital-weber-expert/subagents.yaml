@@ -1,0 +1,172 @@
+# Weber Subagent Definitions
+# For parallel processing in AI CLI environments
+
+subagents:
+  # Rationalization Analysis Agent
+  - name: weber-rationalization-analyzer
+    description: 分析理性化过程（祛魅、计算理性、形式理性）
+    prompt_template: prompts/rationalization-prompt.md
+    tools:
+      - rationalization_analyzer
+    output_format: json
+    quality_checks:
+      - disenchantment_assessed
+      - formal_rationality_measured
+      - substantive_rationality_compared
+
+  # Authority Types Analysis Agent
+  - name: weber-authority-analyzer
+    description: 分析权威类型（传统型、魅力型、法理型）
+    prompt_template: prompts/authority-prompt.md
+    tools:
+      - authority_analyzer
+    output_format: json
+    quality_checks:
+      - authority_type_identified
+      - legitimacy_basis_analyzed
+      - transformation_dynamics
+
+  # Bureaucracy Analysis Agent
+  - name: weber-bureaucracy-analyzer
+    description: 分析官僚制特征与影响
+    prompt_template: prompts/bureaucracy-prompt.md
+    tools:
+      - bureaucracy_analyzer
+    output_format: json
+    quality_checks:
+      - bureaucratic_traits_identified
+      - efficiency_assessed
+      - depersonalization_measured
+
+  # Protestant Ethic Analysis Agent
+  - name: weber-protestant-ethic-analyzer
+    description: 分析新教伦理与资本主义精神
+    prompt_template: prompts/protestant-ethic-prompt.md
+    tools:
+      - protestant_ethic_analyzer
+    output_format: json
+    quality_checks:
+      - calling_concept_identified
+      - asceticism_measured
+      - capitalism_spirit_analyzed
+
+  # Social Action Analysis Agent
+  - name: weber-social-action-analyzer
+    description: 分析社会行动类型
+    prompt_template: prompts/social-action-prompt.md
+    tools:
+      - social_action_analyzer
+    output_format: json
+    quality_checks:
+      - action_type_classified
+      - meaning_interpreted
+      - verstehen_applied
+
+  # Status Groups Analysis Agent
+  - name: weber-status-groups-analyzer
+    description: 分析地位群体与社会封闭
+    prompt_template: prompts/status-groups-prompt.md
+    tools:
+      - status_group_analyzer
+    output_format: json
+    quality_checks:
+      - status_groups_identified
+      - lifestyle_analyzed
+      - social_closure_mechanisms
+
+  # Comprehensive Analysis Agent (Full Mode)
+  - name: weber-comprehensive-analyzer
+    description: 完整韦伯式分析（所有维度）
+    prompt_template: prompts/comprehensive-analysis-prompt.md
+    tools:
+      - rationalization_analyzer
+      - authority_analyzer
+      - bureaucracy_analyzer
+      - protestant_ethic_analyzer
+      - social_action_analyzer
+      - status_group_analyzer
+    output_format: markdown
+    execution_mode: sequential
+    quality_checks:
+      - all_dimensions_analyzed
+      - verstehen_methodology_applied
+      - ideal_types_constructed
+      - value_free_maintained
+
+# Parallel Execution Configuration
+execution:
+  mode: parallel
+  max_agents: 6
+  coordination: sequential_merge
+  task_decomposition:
+    simple_tasks: single_agent
+    complex_tasks: multiple_agents_parallel
+
+# Task Queue Integration
+task_queue:
+  enabled: true
+  auto_continue: true
+  checkpoint_interval: 3
+  persistence_file: task_plan.md
+
+# Quality Assurance (Anti-Perfunctory Mechanisms)
+quality_assurance:
+  verification_levels: 3
+  verification_steps:
+    - tool_output_validation
+    - theoretical_correctness_check
+    - verstehen_methodology_check
+    - ideal_type_verification
+
+  strict_prohibitions:
+    - no_completion_without_verification
+    - no_ignoring_verstehen_method
+    - no_sacrificing_ideal_type_construction
+    - noSkipping_value_free_stance
+
+# Early Stopping Rules (Quality-Preserving)
+early_stopping:
+  enabled: true
+  conditions:
+    - user_explicitly_requested_single_analysis
+    - all_required_verification_passed
+    - tool_returned_complete_results
+  prohibited_conditions:
+    - incomplete_verification
+    - missing_verstehen_application
+    - user_requested_comprehensive_analysis
+
+# Mode Selection Logic
+mode_selection:
+  rules:
+    - if: user_request_contains("理性化") or user_request_contains("rationalization")
+      then: fast_mode
+      execution: single_agent(weber-rationalization-analyzer)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains("权威") or user_request_contains("authority")
+      then: fast_mode
+      execution: single_agent(weber-authority-analyzer)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains("官僚制") or user_request_contains("bureaucracy")
+      then: fast_mode
+      execution: single_agent(weber-bureaucracy-analyzer)
+      estimated_time: "5-10 minutes"
+
+    - if: user_request_contains_any(["完整分析", "综合分析", "全面分析", "韦伯分析"])
+      then: full_mode
+      execution: sequential_agents(all_6_agents)
+      estimated_time: "40-50 minutes"
+
+    - if: ambiguous_request
+      then: default_to_full_mode
+      reason: "Quality priority - when uncertain, use comprehensive analysis"
+      execution: full_mode
+
+# Data Persistence
+persistence:
+  task_plan_file: task_plan.md
+  session_log_file: session_log.md
+  quality_metrics_file: quality_metrics.json
+  auto_save_interval: 5  # minutes

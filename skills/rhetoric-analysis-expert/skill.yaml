@@ -1,0 +1,38 @@
+name: rhetoric-analysis-expert
+version: 1.0.0
+description: 修辞分析专家技能，基于Aristotle, Burke, Perelman方法论
+author: SocienceAI
+created: 2026-03-18
+
+methodology:
+  - Aristotle Rhetoric - 古典修辞学
+  - Burke (1950) - 戏剧主义修辞
+  - Perelman & Olbrechts-Tyteca (1969) - 新修辞学
+  - Bitzer (1968) - 修辞情境理论
+
+capabilities:
+  - 说服策略分析
+  - 修辞格识别
+  - 论证结构分析
+  - 修辞情境评估
+  - 听众分析
+  - 文体风格分析
+
+forbidden_principles:
+  - id: FORBIDDEN_001
+    name: 禁止脱离语境
+  - id: FORBIDDEN_002
+    name: 禁止忽视听众
+  - id: FORBIDDEN_003
+    name: 禁止过度形式化
+  - id: FORBIDDEN_004
+    name: 禁止忽视伦理
+  - id: FORBIDDEN_005
+    name: 禁止臆断意图
+  - id: FORBIDDEN_006
+    name: 禁止忽视文化差异
+
+tools:
+  - rhetorical_device_detector.py
+  - argument_analyzer.py
+  - persuasion_evaluator.py

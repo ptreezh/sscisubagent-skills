@@ -1,0 +1,163 @@
+# 扎根理论分析进度日志
+
+**任务 ID**: {{task_id}}  
+**创建时间**: {{created_at}}  
+**最后更新**: {{updated_at}}
+
+---
+
+## 会话日志
+
+### Session {{session_number}} ({{date}})
+
+**目标**:
+- {{goal_1}}
+- {{goal_2}}
+
+**完成的工作**:
+- [x] {{completed_task_1}}
+- [x] {{completed_task_2}}
+- [ ] {{pending_task}}
+
+**发现的问题**:
+- {{issue_1}}
+- {{issue_2}}
+
+**解决方案**:
+- {{solution_1}}
+- {{solution_2}}
+
+**下一步计划**:
+- {{next_step_1}}
+- {{next_step_2}}
+
+**会话时长**: {{duration}} 分钟
+
+**参与者**: {{participants}}
+
+---
+
+## 阶段完成情况
+
+### Phase 1: 数据准备
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 匿名化数据：✅
+  - 数据分段：{{segments_count}} 段
+  - 数据索引：✅
+
+### Phase 2: 开放性编码
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 编码数：{{codes_count}}
+  - Cohen's Kappa: {{kappa}}
+  - 备忘录数：{{memos_count}}
+
+### Phase 3: 轴心编码
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 范畴数：{{categories_count}}
+  - 范式模型：✅/❌
+  - 关系数：{{relationships_count}}
+
+### Phase 4: 选择式编码
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 核心范畴：{{core_category}}
+  - 故事线：✅/❌
+  - 命题数：{{propositions_count}}
+
+### Phase 5: 饱和度检验
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 整体饱和度：{{saturation}}%
+  - 状态：{{saturation_status}}
+
+### Phase 6: 理论撰写
+- **开始时间**: {{start_time}}
+- **完成时间**: {{completion_time}}
+- **状态**: {{status}}
+- **输出**:
+  - 框架图：✅/❌
+  - 报告：✅/❌
+
+---
+
+## 测试记录
+
+| 测试类型 | 结果 | 备注 | 时间 |
+|----------|------|------|------|
+| 编码一致性 | 通过/失败 | Kappa={{value}} | {{timestamp}} |
+| 范畴体系 | 通过/失败 | {{comments}} | {{timestamp}} |
+| 范式模型 | 通过/失败 | {{comments}} | {{timestamp}} |
+| 饱和度检验 | 通过/失败 | {{saturation}}% | {{timestamp}} |
+
+---
+
+## 错误与解决方案
+
+| 错误 | 阶段 | 尝试次数 | 解决方案 | 状态 | 时间 |
+|------|------|----------|----------|------|------|
+| {{error}} | {{phase}} | {{attempts}} | {{solution}} | {{status}} | {{timestamp}} |
+
+---
+
+## 文件修改记录
+
+| 文件 | 操作 | 原因 | 时间 |
+|------|------|------|------|
+| {{file}} | 创建/修改/删除 | {{reason}} | {{timestamp}} |
+
+---
+
+## 质量检查点
+
+### 已完成检查
+- [x] Phase 1 完成：数据准备完整
+- [x] Phase 2 完成：编码者间信度 Kappa > 0.7
+- [ ] Phase 3 完成：范畴关系逻辑一致
+- [ ] Phase 4 完成：核心范畴整合力强
+- [ ] Phase 5 完成：饱和度 > 80%
+- [ ] Phase 6 完成：理论框架完整
+
+### 待完成检查
+- [ ] {{checkpoint}}
+
+---
+
+## 当前状态
+
+**当前阶段**: Phase {{current_phase}}  
+**完成进度**: {{completed_phases}}/6 阶段 ({{progress_percentage}}%)  
+**总耗时**: {{total_time}} 分钟  
+**预计剩余**: {{estimated_remaining}} 分钟  
+**下次会话**: {{next_session_date}}
+
+---
+
+## 反思与笔记
+
+### 方法决策
+{{methodological_notes}}
+
+### 分析洞见
+{{analytical_insights}}
+
+### 研究者反思
+{{researcher_reflections}}
+
+---
+
+**备注**: {{general_notes}}
+
+**下次更新**: {{next_update}}

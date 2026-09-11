@@ -1,0 +1,105 @@
+# Case Study Expert - Skill Hooks Configuration
+# 三层持久化配置
+
+version: "1.0"
+
+hooks:
+  # 第一层: 会话持久化
+  session:
+    - trigger: "on_case_start"
+      action: "create_case_session"
+      file: ".claude/session/case-study-{case_id}.log"
+      
+    - trigger: "on_data_collected"
+      action: "save_evidence"
+      file: ".claude/session/evidence/{evidence_id}.json"
+      
+    - trigger: "on_pattern_identified"
+      action: "save_pattern"
+      file: ".claude/session/patterns/{pattern_id}.md"
+
+  # 第二层: 项目持久化
+  project:
+    - trigger: "on_project_start"
+      action: "init_case_structure"
+      creates:
+        - "case-study-workspace/"
+        - "case-study-workspace/cases/"
+        - "case-study-workspace/evidence/"
+        - "case-study-workspace/analysis/"
+        
+    - trigger: "on_analysis_complete"
+      action: "save_analysis_report"
+      file: "case-study-workspace/reports/{case_name}-analysis.md"
+      
+    - trigger: "on_case_closed"
+      action: "archive_case"
+      file: "case-study-workspace/archives/{case_name}.zip"
+
+  # 第三层: 学习持久化
+  learning:
+    - trigger: "on_pattern_discovered"
+      action: "update_patterns"
+      file: "experience/patterns.md"
+      
+    - trigger: "on_lesson_learned"
+      action: "update_lesson_memory"
+      file: "lesson-memory.md"
+      
+    - trigger: "on_case_completed"
+      action: "archive_to_cases"
+      file: "cases/{case_type}/{case_id}.md"
+
+# 自动任务队列
+task_queue:
+  auto_create: true
+  persistence: true
+  tasks:
+    - id: "cs-design"
+      name: "案例设计"
+      priority: 1
+      dependencies: []
+      
+    - id: "cs-selection"
+      name: "案例选择"
+      priority: 2
+      dependencies: ["cs-design"]
+      
+    - id: "cs-collection"
+      name: "数据收集"
+      priority: 3
+      dependencies: ["cs-selection"]
+      
+    - id: "cs-analysis"
+      name: "数据分析"
+      priority: 4
+      dependencies: ["cs-collection"]
+      
+    - id: "cs-validation"
+      name: "质量验证"
+      priority: 5
+      dependencies: ["cs-analysis"]
+      
+    - id: "cs-report"
+      name: "报告撰写"
+      priority: 6
+      dependencies: ["cs-validation"]
+
+# 质量检查配置
+quality_checks:
+  - check: "construct_validity"
+    method: "三角验证"
+    min_sources: 3
+    on_fail: "warn"
+    
+  - check: "evidence_chain"
+    requirement: "完整证据链"
+    on_fail: "prompt_user"
+    
+  - check: "pattern_matching"
+    requirement: "模式匹配验证"
+    on_fail: "warn"
+    
+  - check: "replication_logic"
+    requirement: "多案例复制逻辑"
+    on_fail: "info"

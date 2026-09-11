@@ -1,0 +1,51 @@
+# 变革管理技能钩子配置
+
+hooks:
+  before_task:
+    - name: initialize_workspace
+      actions:
+        - create_directory: "{{workspace_path}}"
+
+  after_stage:
+    - name: validate_steps
+      trigger: stage == "planning"
+      actions:
+        - check: "steps.urgency.defined == true"
+        - check: "steps.coalion.defined == true"
+        - check: "steps.vision.defined == true"
+        - check: "steps.communication.defined == true"
+
+    - name: validate_stakeholders
+      trigger: stage == "stakeholder_analysis"
+      actions:
+        - check: "stakeholders.sponsors.length >= 1"
+        - check: "stakeholders.champions.length >= 3"
+
+persistence:
+  session:
+    path: ".claude/session/change-mgmt/"
+  project:
+    path: "{{project_root}}/change-mgmt-workspace/"
+  learning:
+    path: "experience/patterns.md"
+
+subagents:
+  enabled: true
+  agents:
+    - id: readiness-assessor
+      role: 变革准备度评估
+    - id: stakeholder-analyzer
+      role: 干系人分析
+    - id: resistance-manager
+      role: 阻力管理
+    - id: communication-planner
+      role: 沟通规划
+    - id: implementation-tracker
+      role: 实施追踪
+
+quality_checks:
+  step_completeness:
+    all_eight_steps: true
+  stakeholder_completeness:
+    sponsors_identified: true
+    champions_identified: true

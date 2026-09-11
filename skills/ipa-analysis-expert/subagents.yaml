@@ -1,0 +1,42 @@
+# IPA Analysis Expert - Subagents Configuration
+version: "1.0"
+
+subagents:
+  - id: ipa-interviewer
+    name: 访谈设计师
+    role: 设计半结构化访谈提纲
+    triggers:
+      - "访谈"
+      - "访谈提纲"
+
+  - id: ipa-coder
+    name: 注释分析师
+    role: 执行三类注释分析
+    triggers:
+      - "注释"
+      - "编码"
+      - "分析"
+
+  - id: ipa-themer
+    name: 主题构建师
+    role: 发展主从主题结构
+    triggers:
+      - "主题"
+      - "主主题"
+      - "从主题"
+
+workflow:
+  - step: 1
+    action: "研究设计与访谈"
+  - step: 2
+    action: "转录与重读"
+  - step: 3
+    action: "初步注释(三类)"
+  - step: 4
+    action: "发展新兴主题"
+  - step: 5
+    action: "构建主从结构"
+  - step: 6
+    action: "跨案例分析"
+  - step: 7
+    action: "撰写叙述性报告"

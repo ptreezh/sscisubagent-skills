@@ -1,0 +1,26 @@
+{
+  "name": "thematic-analysis-expert",
+  "version": "5.0.0",
+  "description": "主题分析专家。提供Braun & Clarke六步骤分析框架，支持反思性主题分析、编码簿方法和编码可靠性方法。适用于质性数据分析、主题识别和模式发现。",
+  "created_at": "2026-03-15",
+  "status": "complete",
+  "files": {
+    "SKILL.md": "技能说明文件，符合agentskills.io规范",
+    "skill.yaml": "技能配置文件",
+    "subagents.yaml": "子智能体配置",
+    "prompts/system-prompt.md": "系统提示词",
+    "tools/code_extractor.py": "代码提取工具",
+    "tools/theme_cluster.py": "主题聚类工具",
+    "tools/saturation_checker.py": "饱和度检验工具",
+    "tools/quality_assessor.py": "质量评估工具",
+    "references/detailed-guide.md": "详细方法论指南"
+  },
+  "quality_metrics": {
+    "agentskills_io_compliant": true,
+    "cross_platform": true,
+    "has_tools": true,
+    "has_prompts": true,
+    "has_references": true,
+    "has_subagents": true
+  }
+}
