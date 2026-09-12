@@ -1,2 +1,73 @@
 nul
 sscisubagent-skills.zip
+
+# Sensitive credentials - NEVER commit
+.env
+.env.*
+*.env
+*.secret
+*.key
+*.pem
+*.p12
+*.pfx
+
+# FTP/Deploy credentials
+ftp-*
+FTP-*
+WEBFTP*
+*FTP-UPLOAD*
+*LOGIN-GUIDE*
+VPS-ACCOUNT-INFO*
+upload-*
+deploy-*
+
+# Auth/Password files
+*password*
+*credential*
+*auth*
+*api_key*
+*api-secret*
+*token*
+*secret*
+
+# Memory/config with sensitive data
+MEMORY*
+PROJECT-MEMORY*
+.cli-config.json
+CONFIG.md
+
+# Logs and execution records with credentials
+*EXECUTION*
+*EVOLUTION-LOG*
+*AUTO-EXECUTE*
+*AUTO-IMPROVE*
+
+# Batch scripts
+batch-*.bat
+batch-*.py
+batch-*.md
+BATCH-*
+
+# Test/automation state
+.test-automation-queue.json
+automation-state.json
+evolution-state.json
+strategy-state.json
+audit-state.json
+qwen-automation-state.json
+cooldown-state.json
+evaluation-queue.json
+
+# Build artifacts
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+dist/
+build/
+
+# OS files
+Thumbs.db
+.DS_Store
+*.tmp
+*.temp
